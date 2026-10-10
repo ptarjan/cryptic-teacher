@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Cover bovine? Bull, at last",
     "enumeration": "4"
    },
-   "solution": "COWL"
+   "solution": "COWL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COWL",
+    "definitions": [
+     {
+      "text": "Cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word just before it, the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bovine",
+      "gives": "COW",
+      "note": "a cow is a bovine animal"
+     },
+     {
+      "clueFragment": "Bull",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of bull"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COW",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether something covers cattle, followed by a nod to the bull.",
+     "walkthrough": "'Bovine' and 'Bull' look like a pair of cattle words, but only the first is used whole; the bull supplies just its tail letter.",
+     "definitionFit": "A cowl is a monk's hood, a garment that covers the head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bull"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +105,49 @@
      }
     ]
    },
-   "solution": "COLDTURKEY"
+   "solution": "COLDTURKEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLD TURKEY",
+    "definitions": [
+     {
+      "text": "Method of treating drug addiction",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chilly",
+      "gives": "COLD",
+      "note": "chilly means cold"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "TURKEY",
+      "note": "Turkey is a country straddling Europe and Asia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COLD",
+      "TURKEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A rehab programme run somewhere with a cold climate.",
+     "definitionFit": "Cold turkey is abrupt total withdrawal from a drug rather than a gradual reduction, a treatment for addiction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +161,67 @@
     "text": "Force used after breaking barrier",
     "enumeration": "9"
    },
-   "solution": "WATERFALL"
+   "solution": "WATERFALL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WATERFALL",
+    "definitions": [
+     {
+      "text": "Force",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used",
+      "for": "anagram",
+      "note": "used means worn and knocked about, so the following word loses its shape"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking means bursting into, so the jumbled letters go inside the word for barrier"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "AFTER",
+      "note": "the letters to be jumbled"
+     },
+     {
+      "clueFragment": "barrier",
+      "gives": "WALL",
+      "note": "a wall is a barrier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ATERF",
+      "ALL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AFTER",
+       "gives": "ATERF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Power is applied once a barricade has been smashed through.",
+     "walkthrough": "'Force' looks like power, but in northern England, especially the Lake District, a force is a cascade, as in Aira Force.",
+     "definitionFit": "Force is a northern English dialect word, from Old Norse, for a cascade of water down a rock face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Force"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +235,39 @@
     "text": "Female holding up a train?",
     "enumeration": "10"
    },
-   "solution": "BRIDESMAID"
+   "solution": "BRIDESMAID",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BRIDESMAID",
+    "definitions": [
+     {
+      "text": "Female holding up a train?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female holding up a train?",
+      "note": "surface reading: a woman delaying a railway service, like a robber or a protester on the tracks"
+     },
+     {
+      "clueFragment": "Female holding up a train?",
+      "note": "setter's reading: a young woman at a wedding who carries the long trailing back of the bride's dress"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that 'train' is not a railway one: it is the part of a wedding gown that trails behind the bride.",
+     "definitionFit": "At a wedding this attendant's job includes lifting the bride's train so it does not drag on the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +281,55 @@
     "text": "Book missing from office in hacienda",
     "enumeration": "5"
    },
-   "solution": "RANCH"
+   "solution": "RANCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RANCH",
+    "definitions": [
+     {
+      "text": "hacienda",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing from",
+      "for": "deletion",
+      "note": "missing from says one item is absent from the word that follows, so it is taken out"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "BRANCH",
+      "note": "a branch is a local office of a bank or firm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A ledger has gone missing from the office of a Spanish estate.",
+     "definitionFit": "A hacienda is a large estate or farm in Spanish-speaking countries, the equivalent of a cattle farm in the American West."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "office"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +343,51 @@
     "text": "Indigestion, said Pepys, suffering",
     "enumeration": "9"
    },
-   "solution": "DYSPEPSIA"
+   "solution": "DYSPEPSIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DYSPEPSIA",
+    "definitions": [
+     {
+      "text": "Indigestion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "suffering means in a bad way, so the preceding words are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "said Pepys",
+      "gives": "SAIDPEPYS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAIDPEPYS",
+       "gives": "DYSPEPSIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The diarist Samuel Pepys complains of an upset stomach.",
+     "walkthrough": "Samuel Pepys was a 17th-century English diarist; his name supplies most of the letters.",
+     "definitionFit": "Dyspepsia is the medical term for indigestion, discomfort in the upper abdomen after eating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +411,51 @@
      }
     ]
    },
-   "solution": "SYLVIEANDBRUNO"
+   "solution": "SYLVIEANDBRUNO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SYLVIE AND BRUNO",
+    "definitions": [
+     {
+      "text": "book",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new means made fresh, so the preceding letters are remade in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nervously bind a",
+      "gives": "NERVOUSLYBINDA",
+      "note": "the fourteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NERVOUSLYBINDA",
+       "gives": "SYLVIEANDBRUNO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone anxiously binds a freshly printed volume.",
+     "walkthrough": "'Nervously' looks like the anagram signal, but it is fodder; 'new' does that job.",
+     "definitionFit": "Sylvie and Bruno is an 1889 novel by Lewis Carroll, so it is an example of a book."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nervously"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +469,39 @@
     "text": "I may appear straight after this character",
     "enumeration": "5"
    },
-   "solution": "AITCH"
+   "solution": "AITCH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AITCH",
+    "definitions": [
+     {
+      "text": "I may appear straight after this character",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I may appear straight after this character",
+      "note": "surface reading: the speaker says they may show up immediately after some person"
+     },
+     {
+      "clueFragment": "I may appear straight after this character",
+      "note": "setter's reading: the letter I comes next in the alphabet, after the eighth letter"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'I' reads as the speaker and 'character' as a person, but both are letters: I follows H in the alphabet, and the answer is how that letter is spelt out.",
+     "definitionFit": "Aitch is the written name of the letter H, the alphabet character that I follows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +515,42 @@
     "text": "Illegal drugs information",
     "enumeration": "4"
    },
-   "solution": "DOPE"
+   "solution": "DOPE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOPE",
+    "definitions": [
+     {
+      "text": "Illegal drugs",
+      "at": 0
+     },
+     {
+      "text": "information",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Illegal drugs",
+      "note": "first meaning: slang for narcotics, especially cannabis"
+     },
+     {
+      "clueFragment": "information",
+      "note": "second meaning: slang for the inside facts on something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads like a briefing on narcotics; the two halves are separate slang senses.",
+     "definitionFit": "The word is slang both for narcotics and for the low-down or inside facts, as in 'give me the dope'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "information"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +570,67 @@
      }
     ]
    },
-   "solution": "ROBINSONCRUSOE"
+   "solution": "ROBINSONCRUSOE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ROBINSON CRUSOE",
+    "definitions": [
+     {
+      "text": "Literary hero",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "erratic",
+      "for": "anagram",
+      "note": "erratic means wandering off course, so the letters of the next word stray into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of Hood's",
+      "gives": "ROBINS",
+      "note": "the outlaw Hood's first name is Robin, and the possessive keeps the S"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "CRUSOE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROBINS",
+      "ON",
+      "CRUSOE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COURSE",
+       "gives": "CRUSOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hero from Robin Hood's tale sets off on a wayward path.",
+     "walkthrough": "The castaway's surname is a jumble of 'course', and his first name plus 'son' hides in Robin Hood's name plus 'on'.",
+     "definitionFit": "Robinson Crusoe is the castaway hero of Daniel Defoe's 1719 novel, one of the best-known characters in English fiction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hood's"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +650,47 @@
      }
     ]
    },
-   "solution": "LETDOWN"
+   "solution": "LETDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LET DOWN",
+    "definitions": [
+     {
+      "text": "Lengthen",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lease",
+      "gives": "LET",
+      "note": "to let a property is to lease it"
+     },
+     {
+      "clueFragment": "in writing",
+      "gives": "DOWN",
+      "note": "something put down is recorded in writing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LET",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Extending a tenancy agreement, with the extension set out on paper.",
+     "walkthrough": "'Lengthen lease' reads as one legal action, but 'Lengthen' is the definition on its own.",
+     "definitionFit": "To let down a hem or a pair of trousers is to make the garment longer by releasing the turned-up fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lengthen"
+    }
+   }
   },
   {
    "number": 11,
@@ -221,7 +710,49 @@
      }
     ]
    },
-   "solution": "SPLITUP"
+   "solution": "SPLITUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPLIT UP",
+    "definitions": [
+     {
+      "text": "Parted company",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Croatian port",
+      "gives": "SPLIT",
+      "note": "Split is a port city on the Dalmatian coast"
+     },
+     {
+      "clueFragment": "towards the north",
+      "gives": "UP",
+      "note": "north is up on a map"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPLIT",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple go their separate ways in a harbour town on the Adriatic, heading north.",
+     "definitionFit": "To split up is to separate or end a relationship, which is what parting company means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +772,71 @@
      }
     ]
    },
-   "solution": "TURKISHDELIGHT"
+   "solution": "TURKISHDELIGHT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TURKISH DELIGHT",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "foreign suggests something strange and unfamiliar, so the following words come out in an alien order"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of picks out only the final letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kid hurt his leg",
+      "gives": "KIDHURTHISLEG",
+      "note": "the thirteen letters to be rearranged"
+     },
+     {
+      "clueFragment": "slat",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of slat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURKISHDELIGH",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KIDHURTHISLEG",
+       "gives": "TURKISHDELIGH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child from abroad injures a leg on the edge of a wooden slat.",
+     "walkthrough": "'Sweet' looks like a comment on the child, but it is the definition, in the British sense of a confection.",
+     "definitionFit": "Turkish delight is a gel-based confection dusted with icing sugar, and in British usage a sweet is any such candy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +856,47 @@
      }
     ]
    },
-   "solution": "CLOSEDSHOP"
+   "solution": "CLOSEDSHOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLOSED SHOP",
+    "definitions": [
+     {
+      "text": "just union members here",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stopped up",
+      "gives": "CLOSED",
+      "note": "a blocked pipe is stopped up, or closed"
+     },
+     {
+      "clueFragment": "to inform on",
+      "gives": "SHOP",
+      "note": "to shop someone is British slang for informing on them to the police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLOSED",
+      "SHOP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is blocked from telling tales about fellow trade unionists.",
+     "walkthrough": "'Just' means only, not fair: the definition describes a place where only union members may work.",
+     "definitionFit": "A closed shop is a workplace where every employee must belong to a particular trade union."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +910,74 @@
     "text": "Has words, upset about first of our promotional tours",
     "enumeration": "9"
    },
-   "solution": "ROADSHOWS"
+   "solution": "ROADSHOWS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ROADSHOWS",
+    "definitions": [
+     {
+      "text": "promotional tours",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so the letters before it are jumbled"
+     },
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of keeps only the opening letter of the next word"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the jumbled letters wrap around the single selected letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Has words",
+      "gives": "HASWORDS",
+      "note": "the letters to be jumbled"
+     },
+     {
+      "clueFragment": "our",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of our"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "O",
+      "ADSHOWS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HASWORDS",
+       "gives": "RADSHOWS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone argues angrily about the opening part of a shared plan.",
+     "walkthrough": "'Has words' reads as the idiom for quarrelling, which fits 'upset'; here it is just a set of letters.",
+     "definitionFit": "A roadshow is a touring show or campaign that travels from town to town to publicise something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "words"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +991,39 @@
     "text": "Band playing Ireland, say",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ORCHESTRA",
+    "definitions": [
+     {
+      "text": "Band playing Ireland, say",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Band playing Ireland, say",
+      "note": "surface reading: a pop group performing a gig in Ireland, or a team playing against Ireland"
+     },
+     {
+      "clueFragment": "Band playing Ireland, say",
+      "note": "setter's reading: a large ensemble performing music by the English composer John Ireland"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Ireland' is not the country but John Ireland, an English composer of the early 20th century; 'say' marks him as one example of a composer.",
+     "definitionFit": "An orchestra is a large group of instrumentalists, and it would perform the works of a composer such as Ireland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ireland"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1037,67 @@
     "text": "A new member backing backer",
     "enumeration": "5"
    },
-   "solution": "ANGEL"
+   "solution": "ANGEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANGEL",
+    "definitions": [
+     {
+      "text": "backer",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going backwards, so the word for member is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "LEG",
+      "note": "a limb is a member of the body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "GEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEG",
+       "to": "GEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh recruit to a club gives support to a financial sponsor.",
+     "walkthrough": "'Backing backer' sounds like a stutter; the first word is the reversal signal and the second is the definition.",
+     "definitionFit": "An angel is a financial investor, especially one who funds a theatrical production or start-up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1111,69 @@
     "text": "Old brotherhood member getting angrier, distraught about shot",
     "enumeration": "9"
    },
-   "solution": "GREGORIAN"
+   "solution": "GREGORIAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GREGORIAN",
+    "definitions": [
+     {
+      "text": "Old brotherhood member",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distraught",
+      "for": "anagram",
+      "note": "distraught means deeply upset, so the preceding word is thrown into disorder"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the jumbled letters go round the word for shot"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angrier",
+      "gives": "ANGRIER",
+      "note": "the letters to be jumbled"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "GO",
+      "note": "to have a shot is to have a go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRE",
+      "GO",
+      "RIAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANGRIER",
+       "gives": "GRERIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former member of a fraternity flies into a rage over a gunshot.",
+     "definitionFit": "The Gregorians were an 18th-century English fraternal society similar to the Freemasons, so a Gregorian was one of its members."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1187,43 @@
     "text": "Girl in aquarelle, nineteen",
     "enumeration": "5"
    },
-   "solution": "ELLEN"
+   "solution": "ELLEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ELLEN",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the name sits inside the run of letters that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aquarelle, nineteen",
+      "gives": "ELLEN",
+      "note": "the tail of aquarelle and the head of nineteen"
+     }
+    ],
+    "explanation": {
+     "surface": "A girl appears in a watercolour painting, aged nineteen.",
+     "walkthrough": "An aquarelle is a watercolour painting; the name spans the break between its last letters and the start of the number.",
+     "definitionFit": "Ellen is a female first name, and crosswords often define a name simply as girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aquarelle"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1237,46 @@
     "text": "Candlemakers caught coaches",
     "enumeration": "9"
    },
-   "solution": "CHANDLERS"
+   "solution": "CHANDLERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHANDLERS",
+    "definitions": [
+     {
+      "text": "Candlemakers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "coaches",
+      "gives": "HANDLERS",
+      "note": "handlers train animals or athletes, as coaches do"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HANDLERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Wax workers have been snared by sports trainers.",
+     "definitionFit": "Chandler originally meant a maker or seller of candles, from the French word for candle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coaches"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1300,39 @@
      }
     ]
    },
-   "solution": "FOURLETTERWORD"
+   "solution": "FOURLETTERWORD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FOUR-LETTER WORD",
+    "definitions": [
+     {
+      "text": "One could be blue!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One could be blue!",
+      "note": "surface reading: something that might be coloured blue, like a sky or a paint"
+     },
+     {
+      "clueFragment": "One could be blue!",
+      "note": "setter's reading: blue also means rude or obscene, as a swear word is; and the word blue itself has four letters"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Blue in British usage means smutty or risqué, as in a blue joke, and the word 'blue' is itself an example of the thing defined.",
+     "definitionFit": "The phrase is a euphemism for a short vulgar swear word, and a blue word is an indecent one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1346,60 @@
     "text": "Some up from part of Utah, a Mormon city",
     "enumeration": "5"
    },
-   "solution": "OMAHA"
+   "solution": "OMAHA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "OMAHA",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only a portion, so the name is a run of consecutive letters inside the phrase"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the letters read from the bottom of the column to the top"
+     }
+    ],
+    "linkWords": [
+     "from part of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Utah, a Mormon",
+      "gives": "AHAMO",
+      "note": "the end of Utah, then a, then the start of Mormon"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "AHAMO",
+       "to": "OMAHA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city partly settled by Mormons from Utah.",
+     "walkthrough": "The Mormons did camp at the site of this Nebraska city on their trek to Utah, which makes the surface fair.",
+     "definitionFit": "Omaha is the largest city in the US state of Nebraska, on the Missouri River."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Utah"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1419,50 @@
      }
     ]
    },
-   "solution": "TAPIN"
+   "solution": "TAPIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAP-IN",
+    "definitions": [
+     {
+      "text": "Simple goal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mine",
+      "gives": "TAP",
+      "note": "to tap a resource is to draw on or mine it"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone who is in is at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAP",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer scores an easy goal at their home ground.",
+     "walkthrough": "'Mine' looks like a possessive, as in 'that goal is mine', but it is a verb meaning to extract.",
+     "definitionFit": "A tap-in is a goal scored by a gentle touch from very close range, the easiest kind of finish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1476,47 @@
     "text": "Stylish young woman? Not quite",
     "enumeration": "4"
    },
-   "solution": "CHIC"
+   "solution": "CHIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHIC",
+    "definitions": [
+     {
+      "text": "Stylish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite means falling just short, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "young woman",
+      "gives": "CHICK",
+      "note": "chick is dated slang for a young woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Is that fashionable girl really a stylish young woman? Not entirely.",
+     "definitionFit": "Chic means elegantly fashionable, a borrowing from French for smart style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quite"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1530,50 @@
     "text": "Cans provided by top teacher with group",
     "enumeration": "7"
    },
-   "solution": "HEADSET"
+   "solution": "HEADSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEADSET",
+    "definitions": [
+     {
+      "text": "Cans",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "provided by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top teacher",
+      "gives": "HEAD",
+      "note": "a head teacher runs a school"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group of things or a teaching group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAD",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "Tins of something are supplied by the headmistress to a class.",
+     "walkthrough": "'Cans' reads as tins, but it is slang for headphones.",
+     "definitionFit": "Cans is informal slang for headphones, and a headset is a pair of headphones, often with a microphone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cans"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1587,54 @@
     "text": "Odd pint with her in a Cumbrian town",
     "enumeration": "7"
    },
-   "solution": "PENRITH"
+   "solution": "PENRITH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PENRITH",
+    "definitions": [
+     {
+      "text": "a Cumbrian town",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd",
+      "for": "anagram",
+      "note": "odd means strange or irregular, so the letters that follow come out in an unusual order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pint with her",
+      "gives": "PINTHER",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PINTHER",
+       "gives": "PENRITH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having a strange drink with a woman in a small northern English town.",
+     "walkthrough": "Cumbria is a county in north-west England, home of the Lake District.",
+     "definitionFit": "Penrith is a market town in the county of Cumbria, near the Lake District."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1648,49 @@
     "text": "Talk to girl and mistress of a fashionable household",
     "enumeration": "10"
    },
-   "solution": "CHATELAINE"
+   "solution": "CHATELAINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHATELAINE",
+    "definitions": [
+     {
+      "text": "mistress of a fashionable household",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Talk to",
+      "gives": "CHAT",
+      "note": "to chat is to talk"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "ELAINE",
+      "note": "a female first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAT",
+      "ELAINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone chats to a young woman and to the lady of a grand house.",
+     "definitionFit": "A chatelaine is the woman in charge of a large or stately house, its lady of the castle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mistress"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1704,43 @@
     "text": "Photograph taken on the spur of the moment",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SNAP",
+    "definitions": [
+     {
+      "text": "Photograph",
+      "at": 0
+     },
+     {
+      "text": "taken on the spur of the moment",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Photograph",
+      "note": "first meaning: a quick, informal photo"
+     },
+     {
+      "clueFragment": "taken on the spur of the moment",
+      "note": "second meaning: done suddenly without thought, as a hasty decision"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one description of a candid photo; the two halves are separate meanings.",
+     "definitionFit": "The word is both a noun for a casual snapshot and an adjective for a decision made instantly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "taken"
+    }
+   }
   }
  ]
 }
