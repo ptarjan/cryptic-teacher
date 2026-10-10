@@ -2848,7 +2848,7 @@ REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses"
 #: once after this time: bump it with a solution reader fix that reads more,
 #: to a time no earlier than the fix's push (a row read before it was read
 #: by the old reader).
-REREAD_PARTIAL = "2026-10-10T19:09:03+00:00"
+REREAD_PARTIAL = "2026-10-10T19:22:56+00:00"
 
 
 def refuse(verdict, cause, why):
