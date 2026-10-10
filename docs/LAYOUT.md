@@ -2001,5 +2001,9 @@ tools/test_load_watch.sh                      does load_watch.py rank CPU by job
                                               consumer changes?
 tools/dir_cache.py                            what a planner re-reads every minute off a slow
                                               disk, kept until it moves
+tools/test_trove_articles_index.sh            does tools/trove_solution_ocr.py's _articles keep
+                                              what it read in a file, reread only an article
+                                              whose files changed, and return the same list
+                                              warm?
 ```
 <!-- LAYOUT-END -->
