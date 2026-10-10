@@ -2573,22 +2573,14 @@ def solution_title(day, sols, held):
 
 def linked_solutions(paper, found, held):
     """An edition's Times solution headings `found["solutions"]` as they
-    link to puzzles. One read where no title was ("20379" for 20,579, only
-    SOLUTION's exact heading applying) would link a stranger, so each
-    stands as the number solution_number reads it as: a puzzle `held`
-    ({number: date}) dates up to SOLUTION_DAYS + 1 before the edition, or
-    one SOLUTION_LAGS before a number its titles, or a count of issues
-    from its filed neighbours, give, and no title of the edition is (a
+    link to puzzles. A heading read as a number its edition does not host
+    (a misread of the day before's, or of another paper's) would link a
+    stranger, so each stands as the number solution_number reads it as of
+    those the edition hosts (hosted), and no title of the edition is (a
     puzzle's solution never prints with it); else it is dropped."""
-    if paper is not TIMES or not found["solutions"]:
+    if paper not in (TIMES, GALE) or not found["solutions"]:
         return found["solutions"]
-    day = datetime.date.fromisoformat(found["date"])
-    before, after = neighbours(day, held)
-    titles = {p["number"] for p in found["puzzles"] if "fromSolutions" not in p} | \
-        {m + issues_between(b, day) for b, m in [before] * bool(before)} | \
-        {m - issues_between(day, a) for a, m in [after] * bool(after)}
-    expected = {t - lag for t in titles for lag in SOLUTION_LAGS} | \
-        {m for m, d in held.items() if 1 <= (day - d).days <= SOLUTION_DAYS + 1}
+    expected = hosted(found, held)
     printed = {p["number"] for p in found["puzzles"]}
     out = []
     for s in found["solutions"]:
@@ -2596,6 +2588,31 @@ def linked_solutions(paper, found, held):
         if n is not None and n not in printed:
             out.append({**s, "number": n})
     return out
+
+
+def hosted(found, held):
+    """The numbers whose solutions an edition `found` may print: the issue
+    before each of its titles, and on a Saturday title the Saturday
+    before's prize; a filed puzzle one issue before a day of the edition,
+    or its Saturday a week before. A title may be misread, so the numbers
+    its filed neighbours in `held` ({number: date}) within SOLUTION_DAYS
+    count to stand as titles too, unless one is a title read. A puzzle whose
+    next issue is missing is hosted by none: the week-later issue prints
+    another's."""
+    day = datetime.date.fromisoformat(found["date"])
+    before, after = neighbours(day, held)
+    own = [p["number"] for p in found["puzzles"] if "fromSolutions" not in p]
+    near = [(d, m) for d, m in filter(None, (before, after)) if abs((d - day).days) <= SOLUTION_DAYS]
+    counts = {m + issues_between(d, day) if d < day else m - issues_between(day, d) for d, m in near}
+    days = {t: issue_day(day, t, own) for t in own}
+    if not counts & set(own):
+        days.update({m: day for m in counts if m not in days})
+    on = set(days.values()) | {day}
+    one = datetime.timedelta(days=1)
+    prior = {h - one - one * ((h - one).weekday() == 6) for h in on} | \
+        {h - 7 * one for h in on if h.weekday() == 5}
+    return {t - 1 for t in days} | {t - 6 for t, d in days.items() if d.weekday() == 5} | \
+        {m for m, d in held.items() if d in prior}
 
 
 def placed(n, day, held):
