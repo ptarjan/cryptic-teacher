@@ -24,6 +24,9 @@
   "date": "2024-03-29",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,51 @@
     "text": "Crime from girl of large proportions?",
     "enumeration": "6"
    },
-   "solution": "BIGAMY"
+   "solution": "BIGAMY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BIGAMY",
+    "definitions": [
+     {
+      "text": "Crime",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of large proportions",
+      "gives": "BIG",
+      "note": "something of large proportions is big"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "AMY",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIG",
+      "AMY"
+     ]
+    },
+    "explanation": {
+     "surface": "A crime committed by a hefty young woman, the question mark hinting at a joke.",
+     "walkthrough": "The question mark flags the playful split: a big Amy commits BIGAMY.",
+     "definitionFit": "Bigamy, marrying while already married, is a criminal offence in many countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "proportions"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +98,57 @@
     "text": "Washing that's delicate in sack",
     "enumeration": "7"
    },
-   "solution": "BATHING"
+   "solution": "BATHING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BATHING",
+    "definitions": [
+     {
+      "text": "Washing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word sits in the other, so the sack wraps around the delicate part"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sack",
+      "gives": "BAG",
+      "note": "a sack is a bag"
+     },
+     {
+      "clueFragment": "delicate",
+      "gives": "THIN",
+      "note": "delicate, fine, slender"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "THIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Laundry instructions: wash something delicate inside a bag.",
+     "definitionFit": "Bathing is washing oneself or another in water, so the two verbal nouns match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delicate"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +162,42 @@
     "text": "Plant found in Beijing or Seoul",
     "enumeration": "5"
    },
-   "solution": "GORSE"
+   "solution": "GORSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GORSE",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "the answer is found inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beijing or Seoul",
+      "gives": "GORSE",
+      "note": "the end of Beijing, the whole of or and the start of Seoul"
+     }
+    ],
+    "explanation": {
+     "surface": "A plant that grows in two East Asian capitals.",
+     "definitionFit": "Gorse is a spiny yellow-flowered shrub, a kind of plant common on heathland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Seoul"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +211,51 @@
     "text": "Eccentric, tedious man in bank",
     "enumeration": "12"
    },
-   "solution": "MOUNTAINSIDE"
+   "solution": "MOUNTAINSIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MOUNTAINSIDE",
+    "definitions": [
+     {
+      "text": "bank",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Eccentric",
+      "for": "anagram",
+      "note": "eccentric means odd or out of the usual order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tedious man in",
+      "gives": "TEDIOUSMANIN",
+      "note": "taken as written, twelve letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEDIOUSMANIN",
+       "gives": "MOUNTAINSIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange, boring man working in a bank.",
+     "walkthrough": "'Bank' suggests finance, but here it is a slope of land.",
+     "definitionFit": "A bank can mean a sloping rise of ground, and a mountainside is a large such slope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +269,42 @@
     "text": "Photograph game",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SNAP",
+    "definitions": [
+     {
+      "text": "Photograph",
+      "at": 0
+     },
+     {
+      "text": "game",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Photograph",
+      "note": "first meaning: a quick casual photo"
+     },
+     {
+      "clueFragment": "game",
+      "note": "second meaning: a card game where players call out matching cards"
+     }
+    ],
+    "explanation": {
+     "surface": "A picture of a sporting match, or of wild animals hunted as game.",
+     "definitionFit": "A snap is an informal word for a photo, and Snap is also a simple children's card game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +318,48 @@
     "text": "Non-existent location present at this moment?",
     "enumeration": "7"
    },
-   "solution": "NOWHERE"
+   "solution": "NOWHERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOWHERE",
+    "definitions": [
+     {
+      "text": "Non-existent location",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at this moment",
+      "gives": "NOW",
+      "note": "at this moment means now"
+     },
+     {
+      "clueFragment": "present",
+      "gives": "HERE",
+      "note": "someone present is here"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOW",
+      "HERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle about a place that does not exist yet is present right now.",
+     "walkthrough": "The question mark warns that the definition is whimsical: the answer, split into two words, says the opposite of what it means.",
+     "definitionFit": "Nowhere means no place at all, so it is a location that does not exist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +373,54 @@
     "text": "Close friend under pressure",
     "enumeration": "5"
    },
-   "solution": "PALLY"
+   "solution": "PALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALLY",
+    "definitions": [
+     {
+      "text": "Close",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, the part named first sits below, so the pressure piece is placed on top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the standard abbreviation for pressure"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A best friend who is being put under strain.",
+     "walkthrough": "'Close friend' reads as one phrase, but only 'Close' is the definition, as an adjective.",
+     "definitionFit": "Pally is an informal adjective meaning on friendly, intimate terms, which is what close describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Close"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +434,47 @@
     "text": "Smart nestling brushing off tail",
     "enumeration": "4"
    },
-   "solution": "CHIC"
+   "solution": "CHIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHIC",
+    "definitions": [
+     {
+      "text": "Smart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brushing off tail",
+      "for": "deletion",
+      "note": "brushing off the tail means the final letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nestling",
+      "gives": "CHICK",
+      "note": "a nestling is a baby bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A neat young bird grooming its tail feathers.",
+     "definitionFit": "Chic means stylish and fashionable, the sense of smart that describes dress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +488,48 @@
     "text": "Leader having been deposed, insurrectionist changing",
     "enumeration": "12"
    },
-   "solution": "EVOLUTIONARY"
+   "solution": "EVOLUTIONARY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EVOLUTIONARY",
+    "definitions": [
+     {
+      "text": "changing",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leader having been deposed",
+      "for": "deletion",
+      "note": "a deposed leader is removed, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insurrectionist",
+      "gives": "REVOLUTIONARY",
+      "note": "an insurrectionist is a revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVOLUTIONARY"
+     ]
+    },
+    "explanation": {
+     "surface": "After a ruler is overthrown, the rebel shifts their position.",
+     "walkthrough": "The political surface fits the wordplay neatly: the rebel loses its own leading letter.",
+     "definitionFit": "Evolutionary describes gradual development, so something evolutionary is in the process of changing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deposed"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +543,62 @@
     "text": "Finally, nosh in feeding container finished",
     "enumeration": "7"
    },
-   "solution": "THROUGH"
+   "solution": "THROUGH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "THROUGH",
+    "definitions": [
+     {
+      "text": "finished",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the next word only"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one part goes in the other, with the feeding container wrapped around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feeding container",
+      "gives": "TROUGH",
+      "note": "animals feed from a trough"
+     },
+     {
+      "clueFragment": "nosh",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of nosh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "ROUGH"
+     ]
+    },
+    "explanation": {
+     "surface": "At last the food is in the trough and the job is done.",
+     "walkthrough": "'Nosh' is informal British slang for food.",
+     "definitionFit": "Through can mean finished or done, as in 'I'm through with this'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Finally"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +612,66 @@
     "text": "Wife in love mistreated one of five characters",
     "enumeration": "5"
    },
-   "solution": "VOWEL"
+   "solution": "VOWEL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VOWEL",
+    "definitions": [
+     {
+      "text": "one of five characters",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mistreated",
+      "for": "anagram",
+      "note": "something mistreated is knocked about, so its letters are jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the wife goes in the middle of the rearranged letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "LOVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VO",
+      "W",
+      "EL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOVE",
+       "gives": "VOEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife mistreated in love becomes a character in a story of five.",
+     "definitionFit": "English has five vowel letters, A E I O U, so a vowel is one of those five characters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +685,60 @@
     "text": "Different, Iceland? It is the same!",
     "enumeration": "9"
    },
-   "solution": "IDENTICAL"
+   "solution": "IDENTICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDENTICAL",
+    "definitions": [
+     {
+      "text": "the same",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Different",
+      "for": "anagram",
+      "note": "different means changed in form, so the letters come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iceland",
+      "gives": "ICELAND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "It",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICELANDIT",
+       "gives": "IDENTICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests that Iceland is different, while another insists it is the same.",
+     "walkthrough": "The surface sets different against the same, a contradiction that hides the anagram.",
+     "definitionFit": "Identical means exactly alike, which is what the same expresses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Different"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +752,46 @@
     "text": "Some steelyard in cathedral city",
     "enumeration": "3"
    },
-   "solution": "ELY"
+   "solution": "ELY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ELY",
+    "definitions": [
+     {
+      "text": "cathedral city",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of the following word is used"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steelyard",
+      "gives": "ELY",
+      "note": "the middle letters of steelyard"
+     }
+    ],
+    "explanation": {
+     "surface": "A steelyard balance kept in a cathedral city.",
+     "walkthrough": "A steelyard is an old balance with an unequal arm. ELY is a small cathedral city in Cambridgeshire, England.",
+     "definitionFit": "Ely in eastern England is famous for its large medieval cathedral and has city status."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +805,61 @@
     "text": "Blabbing finally, informer is free",
     "enumeration": "6"
    },
-   "solution": "GRATIS"
+   "solution": "GRATIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GRATIS",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means only the last letter of the preceding word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blabbing",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of blabbing"
+     },
+     {
+      "clueFragment": "informer",
+      "gives": "RAT",
+      "note": "a rat is slang for an informer"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAT",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "Having finally talked, the informant walks free.",
+     "definitionFit": "Gratis means without charge, so free in the sense of costing nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +873,46 @@
     "text": "Declare duration of life ordinary",
     "enumeration": "7"
    },
-   "solution": "AVERAGE"
+   "solution": "AVERAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVERAGE",
+    "definitions": [
+     {
+      "text": "ordinary",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Declare",
+      "gives": "AVER",
+      "note": "to aver is to declare or assert"
+     },
+     {
+      "clueFragment": "duration of life",
+      "gives": "AGE",
+      "note": "age is how long one has lived"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVER",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A statement that someone's lifespan is unremarkable.",
+     "definitionFit": "Average describes something typical or unremarkable, a synonym of ordinary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Declare"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +926,51 @@
     "text": "Master mixed up class of similar ability",
     "enumeration": "6"
    },
-   "solution": "STREAM"
+   "solution": "STREAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STREAM",
+    "definitions": [
+     {
+      "text": "class of similar ability",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed up",
+      "for": "anagram",
+      "note": "mixed up means jumbled, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Master",
+      "gives": "MASTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MASTER",
+       "gives": "STREAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolmaster confused about which group of pupils to teach.",
+     "walkthrough": "In British schools, pupils are often divided into streams by ability.",
+     "definitionFit": "In British schooling a stream is a set of pupils grouped together by ability level."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Master"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +984,53 @@
     "text": "After month, test of municipal official",
     "enumeration": "7"
    },
-   "solution": "MAYORAL"
+   "solution": "MAYORAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAYORAL",
+    "definitions": [
+     {
+      "text": "of municipal official",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after places the test piece following the month piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "month",
+      "gives": "MAY",
+      "note": "a month of the year"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "ORAL",
+      "note": "an oral is a spoken exam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAY",
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A test for a town official held after a month in office.",
+     "definitionFit": "Mayoral is the adjective for things relating to a mayor, the chief municipal official."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1044,47 @@
     "text": "Unfinished song expected",
     "enumeration": "3"
    },
-   "solution": "DUE"
+   "solution": "DUE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DUE",
+    "definitions": [
+     {
+      "text": "expected",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unfinished",
+      "for": "deletion",
+      "note": "something unfinished lacks its end, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song",
+      "gives": "DUET",
+      "note": "a duet is a song for two"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUE"
+     ]
+    },
+    "explanation": {
+     "surface": "An incomplete song is anticipated.",
+     "definitionFit": "Due means scheduled or anticipated, as when a train is due at noon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "song"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1098,70 @@
     "text": "French artist has wise decision initially overturned",
     "enumeration": "5"
    },
-   "solution": "DEGAS"
+   "solution": "DEGAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEGAS",
+    "definitions": [
+     {
+      "text": "French artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means only the first letter of decision is kept"
+     },
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "in a down entry, overturned turns the pieces upside down, reading them backwards"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wise",
+      "gives": "SAGE",
+      "note": "sage means wise"
+     },
+     {
+      "clueFragment": "decision",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of decision"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EGAS"
+     ],
+     "reversals": [
+      {
+       "from": "SAGED",
+       "to": "DEGAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French painter's sensible decision gets reversed.",
+     "definitionFit": "Edgar Degas was a French Impressionist painter famous for ballet dancers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overturned"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1175,41 @@
     "text": "Really, I find that hard to believe",
     "enumeration": "9"
    },
-   "solution": "SERIOUSLY"
+   "solution": "SERIOUSLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SERIOUSLY",
+    "definitions": [
+     {
+      "text": "Really",
+      "at": 0
+     },
+     {
+      "text": "I find that hard to believe",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Really",
+      "note": "first meaning: truly, in earnest"
+     },
+     {
+      "clueFragment": "I find that hard to believe",
+      "note": "second meaning: an incredulous exclamation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a single exclamation of disbelief; both halves are separate senses of the same word.",
+     "definitionFit": "The word means 'in earnest' as an adverb, and is also said alone to express incredulity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1223,44 @@
     "text": "Seaside's sweet music?",
     "enumeration": "4"
    },
-   "solution": "ROCK"
+   "solution": "ROCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROCK",
+    "definitions": [
+     {
+      "text": "Seaside's sweet",
+      "at": 0
+     },
+     {
+      "text": "music",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seaside's sweet",
+      "note": "first meaning: a hard stick of candy sold at British seaside resorts"
+     },
+     {
+      "clueFragment": "music",
+      "note": "second meaning: the loud guitar-based genre"
+     }
+    ],
+    "explanation": {
+     "surface": "Wondering whether seaside music is pleasant.",
+     "walkthrough": "'Sweet' looks like an adjective praising the music, but it is a noun: seaside rock is a hard sugary stick, often lettered with a resort's name.",
+     "definitionFit": "Rock is both a British seaside candy stick and a popular genre of music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1274,46 @@
     "text": "On a chair, an evil spirit",
     "enumeration": "5"
    },
-   "solution": "SATAN"
+   "solution": "SATAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SATAN",
+    "definitions": [
+     {
+      "text": "evil spirit",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On a chair",
+      "gives": "SAT",
+      "note": "someone who sat was on a chair"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An evil spirit perched on a chair.",
+     "definitionFit": "Satan is the Devil, the chief evil spirit in Christian belief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chair"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1327,42 @@
     "text": "Super amount of cash",
     "enumeration": "5"
    },
-   "solution": "GRAND"
+   "solution": "GRAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GRAND",
+    "definitions": [
+     {
+      "text": "Super",
+      "at": 0
+     },
+     {
+      "text": "amount of cash",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Super",
+      "note": "first meaning: excellent, splendid"
+     },
+     {
+      "clueFragment": "amount of cash",
+      "note": "second meaning: slang for a thousand pounds or dollars"
+     }
+    ],
+    "explanation": {
+     "surface": "A tidy sum of money.",
+     "definitionFit": "Grand means splendid, and a grand is slang for a thousand units of currency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Super"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1376,55 @@
     "text": "Wheel around old ship",
     "enumeration": "7"
    },
-   "solution": "COASTER"
+   "solution": "COASTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COASTER",
+    "definitions": [
+     {
+      "text": "ship",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means wrapped round the outside of the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wheel",
+      "gives": "CASTER",
+      "note": "a caster is a small swivelling wheel on furniture"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "ASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Steering the wheel round an ancient vessel.",
+     "walkthrough": "'Wheel' reads as a verb but is the noun for a castor or caster, which goes around the letter for old.",
+     "definitionFit": "A coaster is a ship that trades along a coastline from port to port."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wheel"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1438,42 @@
     "text": "Where tools may be left abandoned",
     "enumeration": "4"
    },
-   "solution": "SHED"
+   "solution": "SHED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHED",
+    "definitions": [
+     {
+      "text": "Where tools may be left",
+      "at": 0
+     },
+     {
+      "text": "abandoned",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where tools may be left",
+      "note": "first meaning: a garden outbuilding for storage"
+     },
+     {
+      "clueFragment": "abandoned",
+      "note": "second meaning: cast off, discarded"
+     }
+    ],
+    "explanation": {
+     "surface": "A place where tools are dumped and forgotten.",
+     "definitionFit": "A shed is an outbuilding for storing tools, and shed as a past participle means cast off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1487,73 @@
     "text": "Book of songs, many strangely found in empty hotel",
     "enumeration": "6"
    },
-   "solution": "HYMNAL"
+   "solution": "HYMNAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HYMNAL",
+    "definitions": [
+     {
+      "text": "Book of songs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means in an odd way, so the letters come out of order"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "empty means the inside is removed, keeping only the outside letters"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "found in means the rearranged piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many",
+      "gives": "MANY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "HL",
+      "select": "outer",
+      "note": "the first and last letters of hotel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "YMNA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MANY",
+       "gives": "YMNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plenty of songbooks turn up oddly in a deserted hotel.",
+     "definitionFit": "A hymnal is a hymn book, a volume of religious songs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   }
  ]
 }
