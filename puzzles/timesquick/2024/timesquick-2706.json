@@ -24,6 +24,9 @@
   "date": "2024-06-19",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,43 @@
     "text": "Zesty thing, failure",
     "enumeration": "5"
    },
-   "solution": "LEMON"
+   "solution": "LEMON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEMON",
+    "definitions": [
+     {
+      "text": "Zesty thing",
+      "at": 0
+     },
+     {
+      "text": "failure",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Zesty thing",
+      "note": "first meaning: a sharp citrus fruit whose peel gives zest"
+     },
+     {
+      "clueFragment": "failure",
+      "note": "second meaning: slang for a dud, something that does not work"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two separate meanings of one word, with only a comma between them.",
+     "definitionFit": "The citrus fruit is the zesty thing, and in slang a useless car or product is called by the same fruit's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "failure"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +90,42 @@
     "text": "Cuckoo caught by buffalo, comfortably",
     "enumeration": "4"
    },
-   "solution": "LOCO"
+   "solution": "LOCO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LOCO",
+    "definitions": [
+     {
+      "text": "Cuckoo",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "hidden_word",
+      "note": "the answer is trapped inside the following words, held across the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buffalo, comfortably",
+      "gives": "LOCO",
+      "note": "the end of buffalo runs into the start of comfortably"
+     }
+    ],
+    "explanation": {
+     "surface": "A cuckoo perched snugly on a buffalo's back.",
+     "definitionFit": "Loco is informal Spanish-derived slang for crazy, and cuckoo is another informal word for mad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cuckoo"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +139,48 @@
     "text": "Dog leads on many, unlikely terriers tethered",
     "enumeration": "4"
    },
-   "solution": "MUTT"
+   "solution": "MUTT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "MUTT",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leads on",
+      "for": "letter_selection",
+      "note": "the leads of words are their front letters, so take the first letter of each word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many, unlikely terriers tethered",
+      "gives": "MUTT",
+      "select": "first",
+      "note": "the initials of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUTT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog-walker holds many leashes, though terriers are rarely kept tied up.",
+     "definitionFit": "A mutt is an informal word for a dog, especially a mongrel of mixed breed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leads"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +200,52 @@
      }
     ]
    },
-   "solution": "NORTHEAST"
+   "solution": "NORTHEAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NORTH-EAST",
+    "definitions": [
+     {
+      "text": "direction",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Remake",
+      "for": "anagram",
+      "note": "to remake something is to build it again in a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has rotten",
+      "gives": "HASROTTEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HASROTTEN",
+       "gives": "NORTHEAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic's verdict that a film remake has gone badly off course.",
+     "walkthrough": "'Direction' reads as film-making beside 'Remake', but it means a compass heading.",
+     "definitionFit": "Northeast is a compass point, one of the bearings a traveller can head in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "direction"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +259,53 @@
     "text": "Bright star seen in April, so extraordinary",
     "enumeration": "7"
    },
-   "solution": "POLARIS"
+   "solution": "POLARIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POLARIS",
+    "definitions": [
+     {
+      "text": "Bright star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extraordinary",
+      "for": "anagram",
+      "note": "something extraordinary is out of the usual order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "April, so",
+      "gives": "APRILSO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APRILSO",
+       "gives": "POLARIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stargazer remarks how unusually bright a star looks this April.",
+     "definitionFit": "Polaris, the Pole Star or North Star, is a bright star in the constellation Ursa Minor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "April"
+    }
+   }
   },
   {
    "number": 4,
@@ -113,7 +319,55 @@
     "text": "Spread covering Irish Rover",
     "enumeration": "6"
    },
-   "solution": "PIRATE"
+   "solution": "PIRATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIRATE",
+    "definitions": [
+     {
+      "text": "Rover",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "one thing covering another wraps round it, so the first piece goes outside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spread",
+      "gives": "PATE",
+      "note": "pâté is a savoury spread for toast"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "IR is the standard abbreviation for Irish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "IR",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Butter spread over an Irish setter called Rover, perhaps.",
+     "walkthrough": "'Rover' looks like a dog's name or a wanderer; here it is the old word for a sea robber.",
+     "definitionFit": "Rover is an archaic term for a pirate, a sea raider who roves the seas plundering ships."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rover"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +381,43 @@
     "text": "Books on fire",
     "enumeration": "3"
    },
-   "solution": "LIT"
+   "solution": "LIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIT",
+    "definitions": [
+     {
+      "text": "Books",
+      "at": 0
+     },
+     {
+      "text": "on fire",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Books",
+      "note": "first meaning: a short form of literature"
+     },
+     {
+      "clueFragment": "on fire",
+      "note": "second meaning: alight, burning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a book-burning; the two halves are separate meanings.",
+     "definitionFit": "Lit is short for literature, a body of written works, and it is also the past participle of light, meaning set alight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +431,50 @@
     "text": "Telling tale, grin maniacally",
     "enumeration": "8"
    },
-   "solution": "RELATING"
+   "solution": "RELATING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RELATING",
+    "definitions": [
+     {
+      "text": "Telling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maniacally",
+      "for": "anagram",
+      "note": "acting maniacally means wildly and out of control, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tale, grin",
+      "gives": "TALEGRIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TALEGRIN",
+       "gives": "RELATING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recounts a story while grinning like a madman.",
+     "definitionFit": "To relate a story is to narrate it, so relating is a synonym of telling in that sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Telling"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +488,47 @@
     "text": "Newspaper airs bits and bobs",
     "enumeration": "8"
    },
-   "solution": "SUNDRIES"
+   "solution": "SUNDRIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUNDRIES",
+    "definitions": [
+     {
+      "text": "bits and bobs",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newspaper",
+      "gives": "SUN",
+      "note": "The Sun is a British tabloid newspaper"
+     },
+     {
+      "clueFragment": "airs",
+      "gives": "DRIES",
+      "note": "to air laundry is to dry it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "DRIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper broadcasts odds and ends.",
+     "walkthrough": "'Airs' suggests broadcasting alongside a newspaper, but it means drying out.",
+     "definitionFit": "Sundries are miscellaneous small items, which is what the British idiom bits and bobs describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "airs"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +542,53 @@
     "text": "Deliverer of food in rebuilt terrace",
     "enumeration": "7"
    },
-   "solution": "CATERER"
+   "solution": "CATERER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CATERER",
+    "definitions": [
+     {
+      "text": "Deliverer of food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rebuilt",
+      "for": "anagram",
+      "note": "something rebuilt is put together again differently, so the letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrace",
+      "gives": "TERRACE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TERRACE",
+       "gives": "CATERER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A food delivery to a renovated terraced house.",
+     "definitionFit": "A caterer supplies and serves meals for events, so is a provider who brings food to people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terrace"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +602,64 @@
     "text": "Eaglet ultimately has solitary short claw",
     "enumeration": "5"
    },
-   "solution": "TALON"
+   "solution": "TALON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "TALON",
+    "definitions": [
+     {
+      "text": "claw",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the last letter of the preceding word is kept"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short is missing its end, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eaglet",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the young eagle"
+     },
+     {
+      "clueFragment": "solitary",
+      "gives": "ALONE",
+      "note": "being solitary means being on your own"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALON"
+     ]
+    },
+    "explanation": {
+     "surface": "A young eagle in its nest with one stunted claw.",
+     "definitionFit": "A talon is the sharp hooked claw of a bird of prey such as an eagle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +679,48 @@
      }
     ]
    },
-   "solution": "SHOTPUTTER"
+   "solution": "SHOTPUTTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHOT PUTTER",
+    "definitions": [
+     {
+      "text": "Athlete",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blasted",
+      "gives": "SHOT",
+      "note": "something blasted has been shot"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "PUTTER",
+      "note": "a putter is a golf club used on the green"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOT",
+      "PUTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sportsman curses his club, as with 'blasted club!'",
+     "walkthrough": "'Blasted' reads as a mild oath; it supplies a word meaning fired.",
+     "definitionFit": "A shot-putter is a track-and-field athlete who throws the heavy metal ball."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blasted"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +734,61 @@
     "text": "Complete cane broken: something to say?",
     "enumeration": "9"
    },
-   "solution": "UTTERANCE"
+   "solution": "UTTERANCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UTTERANCE",
+    "definitions": [
+     {
+      "text": "something to say?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken has its parts disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Complete",
+      "gives": "UTTER",
+      "note": "utter means absolute or total"
+     },
+     {
+      "clueFragment": "cane",
+      "gives": "CANE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTTER",
+      "ANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANE",
+       "gives": "ANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snapped walking stick: surely that deserves a comment?",
+     "walkthrough": "'Complete' looks like a verb but is the adjective meaning total; the question mark flags the loose definition.",
+     "definitionFit": "An utterance is a spoken word or statement, literally a thing said aloud by someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Complete"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +802,70 @@
     "text": "Sarnies organised with minimum of fuss, type without decoration",
     "enumeration": "8"
    },
-   "solution": "SANSERIF"
+   "solution": "SANSERIF",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SANSERIF",
+    "definitions": [
+     {
+      "text": "type without decoration",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "organising puts things into a new arrangement, so the letters are reordered"
+     },
+     {
+      "text": "minimum of",
+      "for": "letter_selection",
+      "note": "the minimum of a word is its smallest part, here just its opening letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sarnies",
+      "gives": "SARNIES",
+      "note": "taken as written; sarnies is British slang for sandwiches"
+     },
+     {
+      "clueFragment": "fuss",
+      "gives": "F",
+      "select": "first",
+      "note": "first letter of fuss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SANSERI",
+      "F"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SARNIES",
+       "gives": "SANSERI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sandwiches arranged neatly without fuss, plain and undecorated.",
+     "definitionFit": "Sans serif is a typeface lacking serifs, the small decorative strokes at the ends of letter lines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +879,61 @@
     "text": "Deliberate, one having finished absorbing religious books",
     "enumeration": "8"
    },
-   "solution": "INTENDED"
+   "solution": "INTENDED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INTENDED",
+    "definitions": [
+     {
+      "text": "Deliberate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "something absorbing takes another thing into itself, so the following piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "religious books",
+      "gives": "NT",
+      "note": "NT is the New Testament"
+     },
+     {
+      "clueFragment": "having finished",
+      "gives": "ENDED",
+      "note": "having finished means having ended"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NT",
+      "ENDED"
+     ]
+    },
+    "explanation": {
+     "surface": "A careful person who has finished reading through scripture.",
+     "walkthrough": "Read one plus having finished as one piece, which then takes in the religious books.",
+     "definitionFit": "Intended means done on purpose, the adjective sense of deliberate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deliberate"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +947,56 @@
     "text": "Stop to pen a book",
     "enumeration": "6"
    },
-   "solution": "ANNUAL"
+   "solution": "ANNUAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANNUAL",
+    "definitions": [
+     {
+      "text": "book",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to pen",
+      "for": "container",
+      "note": "to pen something is to enclose it as in a sheep pen, so one piece shuts in the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "gives": "ANNUL",
+      "note": "to annul is to cancel or stop something officially"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNU",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to stop writing a book.",
+     "walkthrough": "'Pen' looks like writing but means enclose.",
+     "definitionFit": "An annual is a book published once a year, such as a children's yearly comic collection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1010,42 @@
     "text": "Position held by Pakistan, certainly",
     "enumeration": "6"
    },
-   "solution": "STANCE"
+   "solution": "STANCE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STANCE",
+    "definitions": [
+     {
+      "text": "Position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "hidden_word",
+      "note": "the answer is held within the following words, straddling the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pakistan, certainly",
+      "gives": "STANCE",
+      "note": "the end of the country runs into the start of the adverb"
+     }
+    ],
+    "explanation": {
+     "surface": "A diplomatic position that Pakistan definitely maintains.",
+     "definitionFit": "A stance is an attitude or standpoint taken on an issue, a synonym of position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Position"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1059,43 @@
     "text": "Person having a flutter fully recovered",
     "enumeration": "6"
    },
-   "solution": "BETTER"
+   "solution": "BETTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BETTER",
+    "definitions": [
+     {
+      "text": "Person having a flutter",
+      "at": 0
+     },
+     {
+      "text": "fully recovered",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person having a flutter",
+      "note": "first meaning: a gambler; a flutter is British slang for a small bet"
+     },
+     {
+      "clueFragment": "fully recovered",
+      "note": "second meaning: no longer ill"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A flutter is a small bet in British usage; the surface hints at a heart flutter, making a recovery seem medical.",
+     "definitionFit": "One who bets is a better, and someone well again after an illness is said to be better."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flutter"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1109,50 @@
     "text": "Weather set to change, darling",
     "enumeration": "10"
    },
-   "solution": "SWEETHEART"
+   "solution": "SWEETHEART",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWEETHEART",
+    "definitions": [
+     {
+      "text": "darling",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "these letters are set to change, so they will be rearranged into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weather set",
+      "gives": "WEATHERSET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WEATHERSET",
+       "gives": "SWEETHEART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A forecaster tells a loved one the weather is about to turn.",
+     "definitionFit": "Sweetheart and darling are both terms of endearment for a loved one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1166,60 @@
     "text": "Gelatinous substance a scrap of cloth picked up",
     "enumeration": "4"
    },
-   "solution": "AGAR"
+   "solution": "AGAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AGAR",
+    "definitions": [
+     {
+      "text": "Gelatinous substance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down clue, picking something up lifts it so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "scrap of cloth",
+      "gives": "RAG",
+      "note": "a rag is a scrap of cloth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAG",
+       "to": "GAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lifts a scrap of cloth smeared with jelly.",
+     "definitionFit": "Agar is a jelly-like substance from seaweed, used for culturing microbes and as a food thickener."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1233,74 @@
     "text": "Cut the new bandages carefully at first",
     "enumeration": "4"
    },
-   "solution": "ETCH"
+   "solution": "ETCH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ETCH",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new suggests a fresh version, so the preceding letters take a different order"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first means the beginning, so only the initial letter of the preceding word is used"
+     },
+     {
+      "text": "bandages",
+      "for": "container",
+      "note": "bandages wrap round a wound, so the first piece wraps around the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "carefully",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of carefully"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "C",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THE",
+       "gives": "ETH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cut that the new dressing must cover with care.",
+     "walkthrough": "'Cut' sits with bandages to suggest a wound, but it means engrave.",
+     "definitionFit": "To etch is to cut a design into a surface, as with acid on metal or a tool on glass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1314,55 @@
     "text": "Broadcaster in South American city screening commercial",
     "enumeration": "5"
    },
-   "solution": "RADIO"
+   "solution": "RADIO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RADIO",
+    "definitions": [
+     {
+      "text": "Broadcaster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screening",
+      "for": "container",
+      "note": "a screen shields what is behind it, so the city surrounds the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South American city",
+      "gives": "RIO",
+      "note": "Rio de Janeiro in Brazil"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AD",
+      "IO"
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcaster in Rio showing a commercial.",
+     "walkthrough": "'Screening' in a TV surface suggests showing, but it means hiding inside.",
+     "definitionFit": "Radio is a medium that transmits programmes over the airwaves, so it broadcasts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "screening"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1376,48 @@
     "text": "Bird on wall at regular intervals",
     "enumeration": "3"
    },
-   "solution": "OWL"
+   "solution": "OWL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OWL",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at regular intervals",
+      "for": "letter_selection",
+      "note": "taking letters at regular intervals means every other one, skipping those in between"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on wall",
+      "gives": "OWL",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OWL"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird perching on a wall every so often.",
+     "definitionFit": "The owl is a nocturnal bird of prey, so a specific example of a bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1431,55 @@
     "text": "Snug clothes on in the near future",
     "enumeration": "7"
    },
-   "solution": "TONIGHT"
+   "solution": "TONIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TONIGHT",
+    "definitions": [
+     {
+      "text": "in the near future",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothes",
+      "for": "container",
+      "note": "used as a verb, clothes means dresses or covers, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snug",
+      "gives": "TIGHT",
+      "note": "snug means close-fitting"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ON",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Close-fitting clothes will be worn later today.",
+     "walkthrough": "'Clothes' reads as a noun, but it is a verb meaning covers.",
+     "definitionFit": "Tonight means this coming evening, a time that is soon to arrive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1493,43 @@
     "text": "Tinkerer, one taking a bow?",
     "enumeration": "7"
    },
-   "solution": "FIDDLER"
+   "solution": "FIDDLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIDDLER",
+    "definitions": [
+     {
+      "text": "Tinkerer",
+      "at": 0
+     },
+     {
+      "text": "one taking a bow?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tinkerer",
+      "note": "first meaning: one who fiddles about with things"
+     },
+     {
+      "clueFragment": "one taking a bow?",
+      "note": "second meaning: a violinist, who draws a bow across the strings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Taking a bow' suggests a performer acknowledging applause; the question mark flags the bow as the violin's.",
+     "definitionFit": "A violin player handles a bow, and someone who tinkers aimlessly is said to fiddle about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bow"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1543,55 @@
     "text": "World having change of heart",
     "enumeration": "5"
    },
-   "solution": "EARTH"
+   "solution": "EARTH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARTH",
+    "definitions": [
+     {
+      "text": "World",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change of",
+      "for": "anagram",
+      "note": "a change of something alters its arrangement, so the letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heart",
+      "gives": "HEART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEART",
+       "gives": "EARTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The whole world has a change of heart.",
+     "walkthrough": "'Change of heart' is an idiom for a new opinion; here it literally rearranges the letters.",
+     "definitionFit": "Earth is our planet, the world on which we live."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "change"
+    }
+   }
   }
  ]
 }
