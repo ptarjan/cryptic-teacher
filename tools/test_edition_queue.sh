@@ -490,6 +490,24 @@ check("its running unit is kept, not started again, reaped by the new image, the
       (sum(e[:3] == ["start", "read", "long"] for e in ev), "end read long: done" in p.stderr,
        ev.index(["end", "read", "long"]) < ev.index(["start", "read", "r1", "v1"]),
        [e[2] for e in ev if e[0] == "start"]))
+# Mirror: a plan that takes minutes (a cold cache on the media mount) holds
+# no re-exec back; the old code would run until the plan ended.
+log.unlink()
+slow = T / "slow_driver.py"
+slow.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"').replace("eq.plan = lambda papers", """import time
+calls = []
+def plan(*a, **k):
+    calls.append(1)
+    if len(calls) > 1 and VERSION == "p1":
+        time.sleep(60)
+    return quick(*a, **k)
+eq.plan = plan
+quick = lambda papers""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=20"))
+eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
+fake(rewrite_on="long", rewrite=str(slow), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
+slowed = subprocess.run([sys.executable, str(slow)], capture_output=True, text=True, timeout=60)
+check("a code change re-execs the queue while its plan is still being made",
+      ["p1", "p2"], [l.split()[1] for l in slowed.stderr.splitlines() if l.startswith("parent ")])
 
 # ---- --handoff: a slice's end hands its running units to the next run,
 # which counts them in its pools and does not start them again.

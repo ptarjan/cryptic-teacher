@@ -541,7 +541,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     # A re-exec blocks these across it (reexec); the handlers are in place now.
     signal.pthread_sigmask(signal.SIG_UNBLOCK, {signal.SIGTERM, signal.SIGINT})
     code = code_files()
-    begun = time.monotonic()
+    begun = code_checked = time.monotonic()
     running = {}  # pid: (unit, started)
     tried = set()
     finished = {}
@@ -686,9 +686,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # A plan stats every edition and article (minutes on the media
         # mount), so after the first it is made on a thread while this loop
         # goes on reaping and starting from the plan before it.
-        if may_start() and planner is None and (plan_done is None or time.monotonic() - plan_done >= replan):
+        # Checked apart from planning: a plan can take minutes (a cold cache
+        # on the media mount), and the code it would run is the old.
+        if may_start() and time.monotonic() - code_checked >= replan:
+            code_checked = time.monotonic()
             if not any(b.busy() for b in beside) and any(digest(f) != h for f, h in code.items()):
                 reexec()
+        if may_start() and planner is None and (plan_done is None or time.monotonic() - plan_done >= replan):
             box = {"begun": time.monotonic(), "notes": []}
 
             def make(box=box):
