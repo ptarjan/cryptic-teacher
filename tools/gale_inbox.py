@@ -171,8 +171,15 @@ CITED_TITLE = re.compile(r'"([^"]{1,200}?)\.?"\s*(?:The\s+)?Times,')
 
 # ------------------------------------------------------------ numbers and dates
 
+#: [held()] while a sync tick runs: the tick files no puzzle, so its five
+#: reads of the series' directory give one answer. Empty outside a sync.
+_TICK_HELD = []
+
+
 def held():
-    """{number: date} of every filed Times puzzle."""
+    """{number: date} of every filed Times puzzle (read once a sync tick)."""
+    if _TICK_HELD:
+        return _TICK_HELD[0]
     return fa.held_dates(fa.TIMES.series)
 
 
@@ -1469,32 +1476,41 @@ def sync(out=sys.stdout, force=False):
             # tick past its 900 s limit.
             print("another sync holds the lock; this one skips", file=out)
             return
-        moved = collect(out)
-        changed = mirror(out)
-        # The arrivals are known now; the Gale lookups and staging below can
-        # take minutes.
-        publish_status(CHECKLIST)
-        listener_changed = gale_listener.arrivals(out)
-        ask = gale_due()
-        by_number = held()
-        linked = ask and gale_docs.resolve(
-            "TTDA", [(d, number_on(d, by_number)[0]) for d, _ in next_up(wanted(), staged_files(), LOOKAHEAD)], out,
-            until=time.monotonic() + GALE_SECONDS)
-        status = None
-        if force or moved or changed or linked or time.time() - last_render() > RENDER_EVERY:
-            stage(MIRROR, out=out)
-            if tidy(out):
-                mirror(out)
-                stage(MIRROR, out=out)
-            CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
-            status = {}
-            CHECKLIST.write_text(checklist(status=status))
-            publish()
-            print(f"checklist published to {GALE_ROOT}/{CHECKLIST_NAME}", file=out)
-        publish_status(CHECKLIST, status)
-        gale_listener.tick(out, force, ask, time.monotonic() + GALE_SECONDS, listener_changed)
+        _TICK_HELD[:] = [fa.held_dates(fa.TIMES.series)]
+        try:
+            _sync_locked(out, force, gale_listener)
+        finally:
+            _TICK_HELD.clear()
     start_reads(out)
     install_watcher(out)
+
+
+def _sync_locked(out, force, gale_listener):
+    """sync's work under the lock."""
+    moved = collect(out)
+    changed = mirror(out)
+    # The arrivals are known now; the Gale lookups and staging below can
+    # take minutes.
+    publish_status(CHECKLIST)
+    listener_changed = gale_listener.arrivals(out)
+    ask = gale_due()
+    by_number = held()
+    linked = ask and gale_docs.resolve(
+        "TTDA", [(d, number_on(d, by_number)[0]) for d, _ in next_up(wanted(), staged_files(), LOOKAHEAD)], out,
+        until=time.monotonic() + GALE_SECONDS)
+    status = None
+    if force or moved or changed or linked or time.time() - last_render() > RENDER_EVERY:
+        stage(MIRROR, out=out)
+        if tidy(out):
+            mirror(out)
+            stage(MIRROR, out=out)
+        CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
+        status = {}
+        CHECKLIST.write_text(checklist(status=status))
+        publish()
+        print(f"checklist published to {GALE_ROOT}/{CHECKLIST_NAME}", file=out)
+    publish_status(CHECKLIST, status)
+    gale_listener.tick(out, force, ask, time.monotonic() + GALE_SECONDS, listener_changed)
 
 
 def main(argv=None):
