@@ -787,7 +787,7 @@ def ship(host):
 
 
 #: Days a v-*/part-* directory must be untouched before prune() may delete it.
-PRUNE_DAYS = 7
+PRUNE_DAYS = 1
 _PRUNABLE = re.compile(r"(v|part)-[0-9a-f]+(-[0-9a-f]+)?")
 
 
