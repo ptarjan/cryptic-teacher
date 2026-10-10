@@ -398,6 +398,7 @@ def match_anywhere(path, by_number):
     local_slot()."""
     import ocr_remote
     from PIL import Image
+    Image.MAX_IMAGE_PIXELS = None
     got = ocr_remote.call("gale_match", path.name, {n: d.isoformat() for n, d in by_number.items()},
                           data=path.read_bytes())
     if got is None:
