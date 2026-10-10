@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,58 @@
      }
     ]
    },
-   "solution": "WELLTODO"
+   "solution": "WELLTODO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WELL-TO-DO",
+    "definitions": [
+     {
+      "text": "Flush",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at",
+      "for": "charade",
+      "note": "one thing at another sits right next to it, so the second idea follows the first in the grid"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "watering place",
+      "gives": "WELL",
+      "note": "a well is where water is drawn"
+     },
+     {
+      "clueFragment": "something yet to be fixed",
+      "gives": "TODO",
+      "note": "a to-do is a task still waiting to be done"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELL",
+      "TODO"
+     ]
+    },
+    "explanation": {
+     "surface": "A plumber notices a flushing problem at a spa that still needs repairing.",
+     "walkthrough": "'Flush' looks like a toilet, but it is the adjective meaning having plenty of money.",
+     "definitionFit": "Being flush means having plenty of cash, so a well-off person is described as well-to-do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flush"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +111,44 @@
     "text": "Make better kipper",
     "enumeration": "4"
    },
-   "solution": "CURE"
+   "solution": "CURE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CURE",
+    "definitions": [
+     {
+      "text": "Make better",
+      "at": 0
+     },
+     {
+      "text": "kipper",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make better",
+      "note": "first meaning: to heal an illness"
+     },
+     {
+      "clueFragment": "kipper",
+      "note": "second meaning, a verb: to preserve fish by smoking or salting"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone recommends a smoked herring as a remedy.",
+     "walkthrough": "'Kipper' reads as the smoked fish, but here it is the verb: to kipper a herring is to smoke it.",
+     "definitionFit": "To cure is both to heal a patient and to preserve meat or fish by smoking, which is what kippering does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "kipper"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +162,68 @@
     "text": "Footwear, Sleepy's first pair with a lining",
     "enumeration": "6"
    },
-   "solution": "SANDAL"
+   "solution": "SANDAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SANDAL",
+    "definitions": [
+     {
+      "text": "Footwear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first pair",
+      "for": "letter_selection",
+      "note": "a first pair means only the opening two letters of the word are kept"
+     },
+     {
+      "text": "lining",
+      "for": "container",
+      "note": "a lining sits inside something, so these words are placed within the selected letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleepy's",
+      "gives": "SL",
+      "select": "first",
+      "note": "the opening two letters of the dwarf's name"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "with means together with, and"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AND",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A dwarf's shoes are described as a lined pair, in a puzzle themed on Snow White's companions.",
+     "walkthrough": "The puzzle has a Snow White theme, so the dwarfs' names keep appearing; here Sleepy just supplies its opening two letters.",
+     "definitionFit": "A sandal is an open shoe held on with straps, a kind of footwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pair"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +237,74 @@
     "text": "Foyer out of bounds in place of worship with no time for worker",
     "enumeration": "8"
    },
-   "solution": "EMPLOYEE"
+   "solution": "EMPLOYEE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EMPLOYEE",
+    "definitions": [
+     {
+      "text": "worker",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of bounds",
+      "for": "deletion",
+      "note": "outside the boundary means the edge letters of the word are lost"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the other word"
+     },
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "having none of something means that letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place of worship",
+      "gives": "TEMPLE",
+      "note": "a temple is a building for worship"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "Foyer",
+      "gives": "OYE",
+      "note": "the word without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMPL",
+      "OYE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is barred from the entrance hall of a church and has no time for a labourer.",
+     "walkthrough": "'Foyer out of bounds' sounds like a no-entry sign, but it means the word loses its edges; 'worker' is the definition.",
+     "definitionFit": "An employee is someone who works for an employer, a worker on the payroll."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bounds"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +318,56 @@
     "text": "Character on staff to make 200% more departed shortly",
     "enumeration": "10"
    },
-   "solution": "TREBLECLEF"
+   "solution": "TREBLECLEF",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TREBLECLEF",
+    "definitions": [
+     {
+      "text": "Character on staff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly means cut short, so the word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to make 200% more",
+      "gives": "TREBLE",
+      "note": "adding 200% to something makes it three times as big"
+     },
+     {
+      "clueFragment": "departed",
+      "gives": "CLEFT",
+      "note": "the setter intended split apart; the published wording does not really mean this"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREBLE",
+      "CLEF"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical instruction to make the sound three times louder, with the conductor leaving early.",
+     "walkthrough": "The setter admitted an editing slip: the original read 'parting shortly', parting = CLEFT. 'Departed' can only give LEF(T), which leaves the C unexplained.",
+     "definitionFit": "A treble clef is the sign written on a musical stave to fix the pitch of the notes, a character on the staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +381,56 @@
     "text": "Tense dons run after Snow White",
     "enumeration": "6"
    },
-   "solution": "CHASTE"
+   "solution": "CHASTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHASTE",
+    "definitions": [
+     {
+      "text": "Snow White",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dons",
+      "for": "container",
+      "note": "to don is to put on clothing, so one word wraps round the letter like a garment"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run after",
+      "gives": "CHASE",
+      "note": "to chase is to run after"
+     },
+     {
+      "clueFragment": "Tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAS",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Nervous academics pursue Snow White.",
+     "walkthrough": "'Dons' looks like university teachers, but it is the verb to put on; 'Snow White' is the definition, not just the theme heroine.",
+     "definitionFit": "Pure as the driven snow and white as innocence: chaste means sexually pure and virtuous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dons"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +444,66 @@
     "text": "Grumpy reversing Aussie pickup into factory",
     "enumeration": "8"
    },
-   "solution": "PETULANT"
+   "solution": "PETULANT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PETULANT",
+    "definitions": [
+     {
+      "text": "Grumpy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "something reversing goes backwards, so the vehicle's name is read from the end"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into means being placed inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aussie pickup",
+      "gives": "UTE",
+      "note": "ute is the Australian name for a utility pickup truck"
+     },
+     {
+      "clueFragment": "factory",
+      "gives": "PLANT",
+      "note": "a plant is an industrial works"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ETU",
+      "LANT"
+     ],
+     "reversals": [
+      {
+       "from": "UTE",
+       "to": "ETU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bad-tempered driver backs an Australian truck into a factory; Grumpy is also one of the seven dwarfs.",
+     "definitionFit": "Petulant means childishly sulky and bad-tempered, a synonym of grumpy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grumpy"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +517,45 @@
     "text": "Was don tense when speaking?",
     "enumeration": "6"
    },
-   "solution": "TAUGHT"
+   "solution": "TAUGHT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TAUGHT",
+    "definitions": [
+     {
+      "text": "Was don",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when speaking",
+      "for": "homophone",
+      "note": "when speaking means the word is judged by how it is spoken, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tense",
+      "gives": "TAUGHT",
+      "soundsLike": "TAUT",
+      "note": "taut means tense or stretched tight"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether a university lecturer was nervous while giving a talk.",
+     "walkthrough": "A don is a university teacher, so 'was don' means acted as one: taught. 'Tense' here is the adjective, not grammar.",
+     "definitionFit": "A don is a university lecturer, so to have been a don, teaching students, is to have taught."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "don"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +569,60 @@
     "text": "Soggy sheep knocked over Bashful",
     "enumeration": "6"
    },
-   "solution": "MARSHY"
+   "solution": "MARSHY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MARSHY",
+    "definitions": [
+     {
+      "text": "Soggy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked over",
+      "for": "reversal",
+      "note": "something knocked over ends up upside down, so the animal's name is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheep",
+      "gives": "RAM",
+      "note": "a ram is a male sheep"
+     },
+     {
+      "clueFragment": "Bashful",
+      "gives": "SHY",
+      "note": "shy is a synonym of bashful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "SHY"
+     ],
+     "reversals": [
+      {
+       "from": "RAM",
+       "to": "MAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shy dwarf, Bashful, gets bowled over by a sheep in a wet field.",
+     "definitionFit": "Marshy land is waterlogged like a marsh, so soggy underfoot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bashful"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +636,43 @@
     "text": "College sportsman panted audibly",
     "enumeration": "4"
    },
-   "solution": "BLUE"
+   "solution": "BLUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BLUE",
+    "definitions": [
+     {
+      "text": "College sportsman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "audibly",
+      "for": "homophone",
+      "note": "audibly means as heard, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "panted",
+      "gives": "BLUE",
+      "soundsLike": "BLEW",
+      "note": "to blow is to puff and pant"
+     }
+    ],
+    "explanation": {
+     "surface": "A university athlete is out of breath after a race.",
+     "walkthrough": "At Oxford and Cambridge a Blue is a student who has represented the university in a sport against the other.",
+     "definitionFit": "A Blue is an Oxbridge sportsman awarded colours for competing against the rival university."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +692,57 @@
      }
     ]
    },
-   "solution": "DOUBLEBASS"
+   "solution": "DOUBLEBASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOUBLE BASS",
+    "definitions": [
+     {
+      "text": "Musician",
+      "at": 0,
+      "note": "the answer is strictly the instrument, used for its player"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before places the first item ahead of the second in the answer"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large drink",
+      "gives": "DOUBLE",
+      "note": "a double is a twice-sized measure of spirits"
+     },
+     {
+      "clueFragment": "the fish",
+      "gives": "BASS",
+      "note": "bass is a sea fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOUBLE",
+      "BASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician has a big drink before the fish course.",
+     "definitionFit": "In an orchestra players are often named after their instrument, so the double bass can be the person who plays it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +756,57 @@
     "text": "Gland making many sick finally removed",
     "enumeration": "6"
    },
-   "solution": "TONSIL"
+   "solution": "TONSIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TONSIL",
+    "definitions": [
+     {
+      "text": "Gland",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally removed",
+      "for": "deletion",
+      "note": "the final part removed means the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many",
+      "gives": "TONS",
+      "note": "tons means a great many"
+     },
+     {
+      "clueFragment": "sick",
+      "gives": "ILL",
+      "note": "ill means sick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TONS",
+      "IL"
+     ]
+    },
+    "explanation": {
+     "surface": "A swollen gland that made many people sick has finally been taken out.",
+     "definitionFit": "The tonsils are two masses of lymphoid tissue at the back of the throat, often called glands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "removed"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +820,63 @@
     "text": "The outline's reproduced, not new",
     "enumeration": "10"
    },
-   "solution": "SILHOUETTE"
+   "solution": "SILHOUETTE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SILHOUETTE",
+    "definitions": [
+     {
+      "text": "The outline's reproduced, not new",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reproduced",
+      "for": "anagram",
+      "note": "something reproduced is made again, here with its letters in a new order"
+     },
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so that letter is struck out of the fodder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The outline's",
+      "gives": "THEOUTLINES",
+      "note": "taken as written, reading the apostrophe-s as an S"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEOUTLIES",
+       "gives": "SILHOUETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An outline drawing has been copied, so it is no longer new.",
+     "walkthrough": "The whole clue does double duty: read plainly it describes a silhouette, an outline copied as a shadow, and the same words supply the letters to rearrange.",
+     "definitionFit": "A silhouette is the dark shape or outline of something seen against a light background."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reproduced"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +896,44 @@
      }
     ]
    },
-   "solution": "HAYFEVER"
+   "solution": "HAYFEVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAY FEVER",
+    "definitions": [
+     {
+      "text": "Coward's work",
+      "at": 0
+     },
+     {
+      "text": "causing Sneezy to summon Doc?",
+      "at": 14,
+      "note": "a description of the condition rather than a synonym"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coward's work",
+      "note": "first meaning: a 1925 comedy by Noël Coward"
+     },
+     {
+      "clueFragment": "causing Sneezy to summon Doc?",
+      "note": "second meaning, the affliction that would make the sneezing dwarf call the doctor dwarf"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Noël Coward was an English playwright; 'Coward's work' tempts a solver towards something cowardly. Sneezy and Doc are two of the seven dwarfs in the Snow White theme.",
+     "definitionFit": "An allergy to pollen makes sufferers sneeze, so it would send a sneezer to a doctor, and it is also the title of Coward's play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Coward's"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +953,53 @@
      }
     ]
    },
-   "solution": "FOOLISH"
+   "solution": "FOOLISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOOLISH",
+    "definitions": [
+     {
+      "text": "Dopey",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pudding",
+      "gives": "FOOL",
+      "note": "a fool is a dessert of fruit purée and cream"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOOL",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone calls Dopey the dwarf out for complaining that the dessert is hot.",
+     "walkthrough": "A fool is a British pudding of stewed fruit folded into cream or custard.",
+     "definitionFit": "Dopey means stupid or slow-witted, which is what foolish also means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dopey"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1013,66 @@
     "text": "Doc was raised on fillets",
     "enumeration": "8"
    },
-   "solution": "SAWBONES"
+   "solution": "SAWBONES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SAWBONES",
+    "definitions": [
+     {
+      "text": "Doc",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raised means turned upwards, so the word reads from bottom to top"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one piece sits on top of the next, so this piece comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "taken as written before being turned round"
+     },
+     {
+      "clueFragment": "fillets",
+      "gives": "BONES",
+      "note": "to fillet a fish is to bone it, so fillets as a verb means bones"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAW",
+      "BONES"
+     ],
+     "reversals": [
+      {
+       "from": "WAS",
+       "to": "SAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor was brought up eating fish fillets.",
+     "walkthrough": "'Fillets' reads as a noun on a plate, but it is the verb for taking bones out.",
+     "definitionFit": "Sawbones is old slang for a surgeon or doctor, from the amputations of earlier medicine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fillets"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1086,41 @@
     "text": "Monstrous seashell is helical to some extent",
     "enumeration": "7"
    },
-   "solution": "HELLISH"
+   "solution": "HELLISH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HELLISH",
+    "definitions": [
+     {
+      "text": "Monstrous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "only to some extent means just a part of the following words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seashell is helical",
+      "gives": "HELLISH",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A grotesque seashell has a partly spiral shape.",
+     "definitionFit": "Hellish describes something dreadful or atrocious, as monstrous does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1134,63 @@
     "text": "Bashful member of flock is last in church",
     "enumeration": "8"
    },
-   "solution": "SHEEPISH"
+   "solution": "SHEEPISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SHEEPISH",
+    "definitions": [
+     {
+      "text": "Bashful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last in",
+      "for": "letter_selection",
+      "note": "last in means only the final letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "member of flock",
+      "gives": "SHEEP",
+      "note": "a sheep is one animal of a flock"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHEEP",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A shy member of a congregation sits at the back of the church.",
+     "walkthrough": "'Flock' suggests a church congregation, but here it really is sheep.",
+     "definitionFit": "Sheepish means awkwardly shy or embarrassed, close to bashful, also the name of one dwarf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flock"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1204,67 @@
     "text": "Left one in short dress, merrymaking",
     "enumeration": "6"
    },
-   "solution": "FROLIC"
+   "solution": "FROLIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FROLIC",
+    "definitions": [
+     {
+      "text": "merrymaking",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the other word"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off at the end, so the word drops its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dress",
+      "gives": "FROCK",
+      "note": "a frock is a dress"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRO",
+      "L",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone left one person wearing a short dress at a party.",
+     "walkthrough": "'Short dress' looks like a mini skirt, but 'short' cuts FROCK to FROC before L and I go inside.",
+     "definitionFit": "A frolic is a bout of lively play or fun, the same thing as merrymaking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1288,50 @@
      }
     ]
    },
-   "solution": "MANOFWAR"
+   "solution": "MANOFWAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAN-OF-WAR",
+    "definitions": [
+     {
+      "text": "naval ship",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "redesigned",
+      "for": "anagram",
+      "note": "something redesigned is put together in a new form, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "RAF woman",
+      "gives": "RAFWOMAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAFWOMAN",
+       "gives": "MANOFWAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An air force woman has redrawn the plans for a warship.",
+     "walkthrough": "The RAF is Britain's Royal Air Force.",
+     "definitionFit": "A man-of-war is an armed sailing ship of a navy, a historic warship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1345,63 @@
     "text": "Rising artist skilled and potentially productive",
     "enumeration": "6"
    },
-   "solution": "ARABLE"
+   "solution": "ARABLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ARABLE",
+    "definitions": [
+     {
+      "text": "potentially productive",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rising",
+      "for": "reversal",
+      "note": "in a down entry something rising goes upwards, so the word reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an artist"
+     },
+     {
+      "clueFragment": "skilled",
+      "gives": "ABLE",
+      "note": "able means skilled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "ABLE"
+     ],
+     "reversals": [
+      {
+       "from": "RA",
+       "to": "AR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An up-and-coming artist is talented and may well be prolific.",
+     "definitionFit": "Arable land is fit for ploughing and crops, so it could produce a harvest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "productive"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1415,55 @@
     "text": "One bringing court case about very loud bear",
     "enumeration": "6"
    },
-   "solution": "SUFFER"
+   "solution": "SUFFER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUFFER",
+    "definitions": [
+     {
+      "text": "bear",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first word surrounds the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One bringing court case",
+      "gives": "SUER",
+      "note": "someone who sues in court"
+     },
+     {
+      "clueFragment": "very loud",
+      "gives": "FF",
+      "note": "ff, fortissimo, is the musical marking for very loud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "FF",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A plaintiff goes to court over a noisy bear.",
+     "walkthrough": "'Bear' looks like the animal, but it is the verb to endure.",
+     "definitionFit": "To bear pain or hardship is to endure it, which is to suffer it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1477,60 @@
     "text": "Pinch shellfish, cold not hot",
     "enumeration": "6"
    },
-   "solution": "SCRIMP"
+   "solution": "SCRIMP",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SCRIMP",
+    "definitions": [
+     {
+      "text": "Pinch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "substitution",
+      "note": "one thing not another means the first letter takes the place of the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shellfish",
+      "gives": "SHRIMP",
+      "note": "a shrimp is a small crustacean"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, the letter replaced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "RIMP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone steals seafood served cold rather than hot.",
+     "walkthrough": "'Pinch' looks like steal, but here it means to economise.",
+     "definitionFit": "To pinch and scrape is to be frugal, and to scrimp is likewise to save by spending as little as possible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pinch"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1550,78 @@
      }
     ]
    },
-   "solution": "PACEBOWLER"
+   "solution": "PACEBOWLER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "PACE BOWLER",
+    "definitions": [
+     {
+      "text": "Cricketer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means only the word's last letter is kept"
+     },
+     {
+      "text": "disintegrated",
+      "for": "anagram",
+      "note": "something disintegrated has fallen to pieces, so its letters are scattered and rebuilt"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the hat word behind the other piece in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cap",
+      "gives": "CAP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wore",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "hard hat",
+      "gives": "BOWLER",
+      "note": "a bowler is a stiff, round felt hat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PACE",
+      "BOWLER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAPE",
+       "gives": "PACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer ended up in a hard hat because his cap fell apart.",
+     "walkthrough": "In cricket a pace bowler delivers the ball fast rather than with spin.",
+     "definitionFit": "A pace bowler is a fast bowler, a specialist type of cricketer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1635,44 @@
     "text": "Transported under cover, reportedly",
     "enumeration": "4"
    },
-   "solution": "RAPT"
+   "solution": "RAPT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RAPT",
+    "definitions": [
+     {
+      "text": "Transported",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as said by others, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "under cover",
+      "gives": "RAPT",
+      "soundsLike": "WRAPPED",
+      "note": "wrapped means covered up"
+     }
+    ],
+    "explanation": {
+     "surface": "Goods were shipped secretly, according to a news report.",
+     "walkthrough": "'Transported' looks like shipped, but it means carried away with delight.",
+     "definitionFit": "To be transported is to be enraptured, completely absorbed or delighted, which is what rapt means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Transported"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1686,43 @@
     "text": "Announcer's made out a list of duties",
     "enumeration": "4"
    },
-   "solution": "ROTA"
+   "solution": "ROTA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ROTA",
+    "definitions": [
+     {
+      "text": "list of duties",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Announcer's",
+      "for": "homophone",
+      "note": "an announcer speaks the words, so they are taken by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made out a",
+      "gives": "ROTA",
+      "soundsLike": "WROTE A",
+      "note": "to make out a cheque or list is to write it"
+     }
+    ],
+    "explanation": {
+     "surface": "A broadcaster has drawn up a staff schedule.",
+     "definitionFit": "A rota is a schedule saying who does which job and when, a list of duties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Announcer's"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1736,56 @@
     "text": "Happy and Dopey dropping ring",
     "enumeration": "6"
    },
-   "solution": "BLITHE"
+   "solution": "BLITHE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BLITHE",
+    "definitions": [
+     {
+      "text": "Happy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping means letting fall, so those letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dopey",
+      "gives": "BLITHERING",
+      "note": "blithering means utterly foolish, as in blithering idiot"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "RING",
+      "note": "taken as written, the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLITHE"
+     ]
+    },
+    "explanation": {
+     "surface": "Two dwarfs, Happy and Dopey, are bell-ringers who give up ringing.",
+     "walkthrough": "'Happy and Dopey' read as two dwarfs side by side, but only Happy is the definition.",
+     "definitionFit": "Blithe means cheerful and carefree, which is a synonym of happy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Happy"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1799,57 @@
     "text": "Sleepy comes to with a shaking",
     "enumeration": "8"
    },
-   "solution": "COMATOSE"
+   "solution": "COMATOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COMATOSE",
+    "definitions": [
+     {
+      "text": "Sleepy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shaking",
+      "for": "anagram",
+      "note": "being given a shaking jumbles things up, so the letters come out rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comes to",
+      "gives": "COMESTO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COMESTOA",
+       "gives": "COMATOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The dwarf Sleepy regains consciousness after a good shake.",
+     "walkthrough": "'Comes to' reads as waking up, the opposite of the answer, which makes the surface neat.",
+     "definitionFit": "Comatose means in a deep stupor, or jokingly very drowsy, a stronger sense of sleepy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "comes"
+    }
+   }
   }
  ]
 }
