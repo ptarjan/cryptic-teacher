@@ -619,12 +619,14 @@ eq.cpu_gate_reader = lambda: 0.0
 eq.mem_gate_reader = None
 log.unlink(missing_ok=True)
 eq.plan = units([], [(f"m{k}", []) for k in range(3)])
-eq.mem_gate_reader = lambda: 1 * G
+gate_reads = []
+eq.mem_gate_reader = lambda: gate_reads.append(1) or 1 * G
 err = io.StringIO()
 with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
 check("short of memory nothing starts, and it says so once", (False, 1),
       (log.exists(), err.getvalue().count("memory-bound")))
+check("a gate holding one unit back is read once a pass, not once a unit due", True, len(gate_reads) <= 4)
 # mirror: the same plan with room starts every unit and never says memory-bound
 eq.mem_gate_reader = lambda: 16 * G
 err = io.StringIO()

@@ -721,7 +721,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             log(f"desktop-bound: desktop yielding ({yielding}); only fetches start until it is idle "
                 f"({len(running) + len(adopted)} running are left alone)")
         desktop_bound = bool(yielding)
-        for u in scans + reads + fetches:
+        # A pass with no free slot starts nothing; and once a gate holds
+        # one unit back it holds every later one (begun_now only grows), so
+        # the gates are read at most once a unit begun, not once a unit due.
+        for u in scans + reads + fetches if any(v > 0 for v in free.values()) else ():
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
             if u["kind"] == "read" and any((u["paper"], r) in scanning for r in u["needs"]):
@@ -730,10 +733,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if starved or (yielding and u["kind"] != "fetch"):
                 continue
-            if not mem_gate.room(begun_now, mem_gate_reader):
+            if held_back or not mem_gate.room(begun_now, mem_gate_reader):
                 held_back = True
                 continue
-            if not mem_gate.cpu_room(begun_now, cpu_gate_reader):
+            if cpu_held or not mem_gate.cpu_room(begun_now, cpu_gate_reader):
                 cpu_held = True
                 continue
             start(u)
