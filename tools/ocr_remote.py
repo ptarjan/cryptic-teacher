@@ -155,18 +155,24 @@ def kept(name, key_of, compute):
     return value
 
 
+def hash_of(files):
+    """The hash of `files` ({repo path: file}): the desktop directory they live in."""
+    h = hashlib.sha1()
+    for name, path in sorted(files.items()):
+        h.update(name.encode() + b"\0" + path.read_bytes())
+    return h.hexdigest()[:12]
+
+
 def code_hash():
-    """The hash of shipped()'s contents: the desktop directory they live in."""
-    def compute():
-        h = hashlib.sha1()
-        for name, path in sorted(shipped().items()):
-            h.update(name.encode() + b"\0" + path.read_bytes())
-        return h.hexdigest()[:12]
-    return kept("code", tree_commit, compute)
+    """hash_of(shipped())."""
+    return kept("code", tree_commit, lambda: hash_of(shipped()))
 
 
 def code_dir():
-    return rf"{HOME}\v-{code_hash()}"
+    """The desktop directory of the code this process compares (versions()'s
+    "code", once connect() read it): a process whose checkout moved on keeps
+    to the code it loaded, rather than asking a newer one."""
+    return rf"{HOME}\v-{_VERSIONS.get('local', {}).get('code') or code_hash()}"
 
 
 def models():
@@ -718,9 +724,11 @@ class Session:
 
 
 def ship(host):
-    """Copy shipped() into the desktop's code_dir(), over ssh as a tar
-    stream, MANIFEST last: a cut-off copy has none, so hashes as another
-    and is shipped again."""
+    """Copy shipped() to the desktop, over ssh as a tar stream, into a fresh
+    directory renamed to v-<its hash> once whole: a session reads only a
+    complete copy, and none is ever written over (Windows refuses opening a
+    file another process is replacing). A name already there is kept and
+    the new copy dropped."""
     import io
     import tarfile
     files = shipped()
@@ -732,10 +740,22 @@ def ship(host):
         info = tarfile.TarInfo(MANIFEST)
         info.size = len(listing)
         tar.addfile(info, io.BytesIO(listing))
-    res = subprocess.run([*SSH, host, f'mkdir "{code_dir()}" 2>nul & cd /d "{code_dir()}" && tar -xf -'],
+    res = subprocess.run([*SSH, host, ship_command(hash_of(files), f"{os.getpid()}-{random.randrange(1 << 32):x}")],
                          input=buf.getvalue(), capture_output=True, timeout=600, check=False)
     if res.returncode:
         raise Unavailable(f"shipping the code failed ({res.returncode}): {res.stderr.decode(errors='replace')[-300:]}")
+
+
+def ship_command(code, nonce):
+    """The cmd line that extracts a tar on stdin into HOME's v-`code`: into
+    part-`code`-`nonce` first, renamed once whole (ren refuses a name that
+    exists, so a copy in use is never replaced); exit 0 when v-`code` is
+    then complete (MANIFEST in it), whoever made it."""
+    part, final = rf"{HOME}\part-{code}-{nonce}", rf"{HOME}\v-{code}"
+    drop = f'cd /d "{HOME}" & rmdir /s /q "{part}"'
+    return (f'mkdir "{part}" && cd /d "{part}" && (tar -xf - || ({drop} & exit 1)) && cd /d "{HOME}" && '
+            f'(ren "{part}" "v-{code}" 2>nul || ({drop} & if exist "{final}\\{MANIFEST.replace("/", chr(92))}" '
+            f'(exit 0) else (echo {final} has no {MANIFEST}: remove it 1>&2 & exit 1)))')
 
 
 #: This host's versions(), read once a process.

@@ -1,5 +1,6 @@
 #!/bin/bash
-# Does tools/ocr_remote.py compare every reader model a read can load, send
+# Does tools/ocr_remote.py compare every reader model a read can load, run
+# the code it compares against (not a newer checkout's), send
 # back an edition whose read on the desktop opened a file it was not sent,
 # give the same grids from a search run there (its answer through JSON) as
 # here, the same headings and cached readings from a scan run there, the same
@@ -33,6 +34,13 @@ def check(what, want, got):
 # en_PP-OCRv3 does), so each must be in the versions compared.
 want = {m for m in ocr_clues.READERS.values() if isinstance(m, Path)} | set(trove_solution_ocr.EXTRA_MODELS)
 check("every reader model is compared on connect", want, set(ocr_remote.models().values()))
+
+# A process whose checkout moved on asks for the code it loaded and compares
+# against: asking for the new code's directory mismatched every session and
+# shipped over a directory others were reading.
+ocr_remote._VERSIONS["local"] = {"code": "0123456789ab"}
+check("a session runs the code this process compares", ocr_remote.HOME + "\\v-0123456789ab", ocr_remote.code_dir())
+del ocr_remote._VERSIONS["local"]
 
 tmp = Path(os.environ["TMP"])
 (tmp / "here.txt").write_text("x")
