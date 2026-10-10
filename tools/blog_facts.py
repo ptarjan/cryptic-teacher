@@ -51,6 +51,7 @@ import random
 import re
 import sys
 import tempfile
+import time
 import unicodedata
 from concurrent.futures import ProcessPoolExecutor
 from functools import lru_cache
@@ -2324,6 +2325,11 @@ def main():
     if args.if_changed and args.reparse is None and STAMP.exists() and STAMP.read_text().strip() == digest:
         print(f"blog facts are current: no post or clue change since {STAMP.relative_to(ROOT)} was written")
         return
+    if not (args.blog or args.from_dump):
+        why = desktop_wait()
+        if why:
+            print(f"the desktop is busy ({why}): not run here, tried again later")
+            sys.exit(DEFERRED_RC)
     if args.from_dump:
         lines = Path(args.from_dump).read_text(encoding="utf-8").splitlines()
         best, spool = {}, Spool()
@@ -2364,6 +2370,35 @@ def main():
           f"{n['definition']} with none underlined, indicators for {n['indicators']} whose indicators they left out")
     if not (args.blog or args.from_dump):
         STAMP.write_text(digest + "\n")
+
+
+#: While the desktop is busy, a full run (its letter_facts pass reads on every
+#: core here then) waits for it, exiting DEFERRED_RC: daily_update.sh's exit
+#: for a unit that never began (no commit, no alert, retried). Once runs have
+#: been put off for DEFER_HOURS (since the DEFERRED file's time) one runs here.
+DEFERRED_RC = 75
+DEFER_HOURS = 6
+DEFERRED = Path.home() / ".cache" / "cryptic-blog-facts.deferred"
+
+
+def desktop_wait(now=None):
+    """Why this run waits for the desktop, or None: it is busy and runs have
+    been put off for under DEFER_HOURS."""
+    import desktop_busy
+    import letter_facts
+    why = desktop_busy.busy([h for h in os.environ.get("OCR_REMOTE", letter_facts.DESKTOPS).split(",") if h])
+    now = time.time() if now is None else now
+    if why and not DEFERRED.exists():
+        DEFERRED.parent.mkdir(parents=True, exist_ok=True)
+        DEFERRED.write_text("")
+        os.utime(DEFERRED, (now, now))
+    if not why or now - DEFERRED.stat().st_mtime >= DEFER_HOURS * 3600:
+        if why:
+            print(f"the desktop is busy ({why}), but runs have been put off for {DEFER_HOURS}h: running here",
+                  file=sys.stderr)
+        DEFERRED.unlink(missing_ok=True)
+        return None
+    return why
 
 
 #: The niceness this runs at: under the bridge (0), which must stay responsive,

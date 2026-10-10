@@ -137,6 +137,30 @@ lines_before = len(tl.read_text().splitlines())
 check("scan_unit scans and appends one row", ("scanned", [("scan", "1980-03-01_3")], lines_before + 1),
       (f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-01_3", cache), calls, len(tl.read_text().splitlines())))
 check("a scan that stands is not made again", "current", f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-01_3", cache))
+# A unit's desktop read meeting a busy desktop: deferred, no ledger row, no
+# failure; with no desktop set the same unit reads here.
+t4 = edition("NewsUK1980UKEnglish", "1980-03-08_4", 10)
+real_busy, real_failure, failed = ocr_remote.desktop_busy.busy, q.failure, []
+ocr_remote.desktop_busy.busy = lambda hosts: "playing Wow"
+q.failure = lambda *a, **k: failed.append(a)
+os.environ.update(OCR_REMOTE="micro@100.68.145.15", OCR_REMOTE_DEFER="1")
+lines_before = len(tl.read_text().splitlines())
+with contextlib.redirect_stderr(io.StringIO()):
+    got = eq.unit_status({"kind": "scan", "paper": "times", "rel": "NewsUK1980UKEnglish/1980-03-08_4"},
+                         lambda: f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-08_4", cache))
+check("a unit whose desktop read meets a busy desktop ends deferred: no row, no failure, nothing read here",
+      (eq.EXITS["deferred"], lines_before, [], []), (got, len(tl.read_text().splitlines()), failed, calls[1:]))
+del os.environ["OCR_REMOTE_DEFER"]
+check("a process that does not defer reads here while the desktop is busy", None, ocr_remote.session())
+os.environ.update(OCR_REMOTE="", OCR_REMOTE_DEFER="1")
+with contextlib.redirect_stderr(io.StringIO()):
+    got = eq.unit_status({"kind": "scan", "paper": "times", "rel": "NewsUK1980UKEnglish/1980-03-08_4"},
+                         lambda: f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-08_4", cache))
+check("mirror: with no desktop set the same unit scans here and appends its row",
+      (0, lines_before + 1, ("scan", "1980-03-08_4")), (got, len(tl.read_text().splitlines()), calls[-1]))
+ocr_remote.desktop_busy.busy, q.failure = real_busy, real_failure
+for k in ("OCR_REMOTE", "OCR_REMOTE_DEFER"):
+    os.environ.pop(k, None)
 calls.clear()
 with contextlib.redirect_stderr(io.StringIO()):
     got = f.read_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-01_3", cache, out=io.StringIO())
@@ -544,6 +568,25 @@ with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
 check("with the desktop idle the same units start", (True, 0),
       (log.exists(), err.getvalue().count("desktop-bound")))
+# A unit ending deferred is not done or failed: it is started again once the
+# desktop is idle, and while it yields it is left for the next run.
+eq.desktop_gate_reader = lambda: "a game is running" if log.exists() else None  # busy once d0 has begun
+fake(outcome={"d0": "deferred"}, default=0.1)
+log.unlink(missing_ok=True)
+eq.plan = units([], [("d0", [])])
+err, out = io.StringIO(), io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(out):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=2.2, replan=0.5)
+check("a deferred unit is counted deferred, not failed, and left for the next run while the desktop yields",
+      (1, True, False, True), (log.read_text().count("start"), "deferred (the desktop is busy)" in err.getvalue(),
+                               "failed" in err.getvalue(), "left for the next run" in out.getvalue()))
+eq.desktop_gate_reader = lambda: None
+log.unlink(missing_ok=True)
+fake(outcome={}, default=0.1)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=2.2, replan=0.5)
+check("mirror: once the desktop is idle it starts again", 1, log.read_text().count("start"))
+eq.desktop_gate_reader = lambda: None
 eq.cpu_gate_reader = lambda: 0.0
 eq.mem_gate_reader = None
 log.unlink(missing_ok=True)
