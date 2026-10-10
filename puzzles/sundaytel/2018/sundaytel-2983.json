@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,61 @@
     "text": "Wallet ultimately secreted by Scrooge — that's what you'd call him",
     "enumeration": "6"
    },
-   "solution": "MISTER"
+   "solution": "MISTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MISTER",
+    "definitions": [
+     {
+      "text": "that's what you'd call him",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end of the word, so only its final letter is kept"
+     },
+     {
+      "text": "secreted by",
+      "for": "container",
+      "note": "something secreted by another is hidden away inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scrooge",
+      "gives": "MISER",
+      "note": "Scrooge, Dickens's skinflint, is the archetypal miser"
+     },
+     {
+      "clueFragment": "Wallet",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of wallet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIS",
+      "T",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Scrooge has stashed away his wallet, and a sneering remark about what sort of man he is follows.",
+     "definitionFit": "Mister is the polite title or form of address you would use for an unnamed man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +103,64 @@
     "text": "Order always coming up after Christmas time",
     "enumeration": "6"
    },
-   "solution": "DECREE"
+   "solution": "DECREE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DECREE",
+    "definitions": [
+     {
+      "text": "Order",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down clue, coming up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas time",
+      "gives": "DEC",
+      "note": "Christmas falls in December, abbreviated DEC"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EER",
+      "note": "e'er is the poetic contraction of ever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "REE"
+     ],
+     "reversals": [
+      {
+       "from": "EER",
+       "to": "REE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction that something always appears just after the festive season.",
+     "walkthrough": "E'er is the poetic form of ever, a common crossword stand-in for 'always'.",
+     "definitionFit": "A decree is an official order issued by an authority such as a ruler or court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +174,48 @@
     "text": "Fastener securing tree unfortunately damaged, initially",
     "enumeration": "4"
    },
-   "solution": "STUD"
+   "solution": "STUD",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "STUD",
+    "definitions": [
+     {
+      "text": "Fastener",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially asks for the opening letter of each of the preceding words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "securing tree unfortunately damaged",
+      "gives": "STUD",
+      "select": "first",
+      "note": "the first letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUD"
+     ]
+    },
+    "explanation": {
+     "surface": "A clip holding a tree in place has sadly harmed it.",
+     "definitionFit": "A stud is a small fastener, as on a shirt collar or a press-stud on clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "securing"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +229,51 @@
     "text": "Hang about, that is for stockings, say?",
     "enumeration": "8"
    },
-   "solution": "LINGERIE"
+   "solution": "LINGERIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LINGERIE",
+    "definitions": [
+     {
+      "text": "stockings, say?",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hang about",
+      "gives": "LINGER",
+      "note": "to hang about is to linger"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates id est, Latin for that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LINGER",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to wait around, with the hint that it involves Christmas stockings.",
+     "walkthrough": "'Stockings' suggests the Christmas kind hung up for presents; here they are hosiery, an example of women's underwear, hence 'say?'.",
+     "definitionFit": "Stockings are one example of lingerie, the general term for women's underwear and nightclothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stockings"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +287,47 @@
     "text": "Tree trunk supporter",
     "enumeration": "8"
    },
-   "solution": "CHESTNUT"
+   "solution": "CHESTNUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHESTNUT",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trunk",
+      "gives": "CHEST",
+      "note": "a trunk is a large storage chest"
+     },
+     {
+      "clueFragment": "supporter",
+      "gives": "NUT",
+      "note": "a nut is an enthusiast or fan, as in a football nut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEST",
+      "NUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tree, its trunk, and something propping it up.",
+     "walkthrough": "'Trunk' reads as part of the tree, but it is the luggage sense; the human trunk, the chest, also fits.",
+     "definitionFit": "The chestnut is a large tree, horse or sweet, famous for its nuts roasted at Christmas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trunk"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +347,50 @@
      }
     ]
    },
-   "solution": "SILENTNIGHT"
+   "solution": "SILENTNIGHT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SILENT NIGHT",
+    "definitions": [
+     {
+      "text": "Christmas favourite",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for decorating",
+      "for": "anagram",
+      "note": "decorating suggests things being arranged and rearranged for show, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thing: tinsel",
+      "gives": "THINGTINSEL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THINGTINSEL",
+       "gives": "SILENTNIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seasonal favourite: tinsel to put on the tree.",
+     "definitionFit": "Silent Night is one of the best-loved Christmas carols, a seasonal favourite song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decorating"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +404,57 @@
     "text": "Set up bar for party",
     "enumeration": "5"
    },
-   "solution": "REVEL"
+   "solution": "REVEL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "REVEL",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Set up",
+      "for": "reversal",
+      "note": "in a down clue, set up means the word is raised, reading from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "LEVER",
+      "note": "a lever is a bar used to prise or lift"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEVER",
+       "to": "REVEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has arranged a pub bar for a celebration.",
+     "walkthrough": "'Bar' looks like a pub; it is a crowbar or lever.",
+     "definitionFit": "To revel is to celebrate noisily, to party, used here as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 8,
@@ -136,7 +468,43 @@
     "text": "Rudolph's partner, foxy lady?",
     "enumeration": "5"
    },
-   "solution": "VIXEN"
+   "solution": "VIXEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VIXEN",
+    "definitions": [
+     {
+      "text": "Rudolph's partner",
+      "at": 0
+     },
+     {
+      "text": "foxy lady?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rudolph's partner",
+      "note": "first meaning: one of Santa's reindeer, harnessed alongside Rudolph"
+     },
+     {
+      "clueFragment": "foxy lady?",
+      "note": "second meaning: a female fox, literally a foxy lady"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Foxy lady' sounds like an attractive woman, but the question mark signals the literal sense of a she-fox.",
+     "definitionFit": "Vixen is both the name of a reindeer pulling Santa's sleigh and the word for a female fox."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foxy"
+    }
+   }
   },
   {
    "number": 9,
@@ -150,7 +518,43 @@
     "text": "Cured gambler",
     "enumeration": "6"
    },
-   "solution": "BETTER"
+   "solution": "BETTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BETTER",
+    "definitions": [
+     {
+      "text": "Cured",
+      "at": 0
+     },
+     {
+      "text": "gambler",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cured",
+      "note": "first meaning: recovered from illness"
+     },
+     {
+      "clueFragment": "gambler",
+      "note": "second meaning: one who bets"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a reformed gambling addict, but the two words are separate meanings.",
+     "definitionFit": "Someone who has recovered is better again, and a person who places wagers is a better."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cured"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +568,50 @@
     "text": "Drunk is gifted postprandial drink",
     "enumeration": "8"
    },
-   "solution": "DIGESTIF"
+   "solution": "DIGESTIF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIGESTIF",
+    "definitions": [
+     {
+      "text": "postprandial drink",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "something drunk is unsteady and out of order, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is gifted",
+      "gives": "ISGIFTED",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISGIFTED",
+       "gives": "DIGESTIF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy guest receives a present of an after-dinner tipple.",
+     "definitionFit": "A digestif is a liqueur or brandy taken after a meal, supposedly to aid digestion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +631,55 @@
      }
     ]
    },
-   "solution": "TEARJERKER"
+   "solution": "TEARJERKER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TEAR-JERKER",
+    "definitions": [
+     {
+      "text": "tale that's emotional",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featuring in",
+      "for": "container",
+      "note": "featuring in places one piece within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yank",
+      "gives": "JERK",
+      "note": "to yank is to jerk"
+     },
+     {
+      "clueFragment": "one ripping",
+      "gives": "TEARER",
+      "note": "one who rips is a tearer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAR",
+      "JERK",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An American appears in a thrilling, moving story.",
+     "walkthrough": "'Yank' looks like an American; it is a verb, to pull sharply.",
+     "definitionFit": "A tear-jerker is a sentimental story or film designed to make the audience cry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Yank"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +693,41 @@
     "text": "Troublesome situation, awful traffic",
     "enumeration": "3"
    },
-   "solution": "JAM"
+   "solution": "JAM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JAM",
+    "definitions": [
+     {
+      "text": "Troublesome situation",
+      "at": 0
+     },
+     {
+      "text": "awful traffic",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Troublesome situation",
+      "note": "first meaning: a fix or predicament"
+     },
+     {
+      "clueFragment": "awful traffic",
+      "note": "second meaning: a congested queue of vehicles"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both phrases describe one gridlocked scene, but each is a separate meaning of the same short word.",
+     "definitionFit": "A jam is a predicament, and also a blockage of vehicles on the road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +741,60 @@
     "text": "Carver with some beef in kitchen to be served up",
     "enumeration": "5"
    },
-   "solution": "KNIFE"
+   "solution": "KNIFE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "KNIFE",
+    "definitions": [
+     {
+      "text": "Carver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words is used, a run of consecutive letters"
+     },
+     {
+      "text": "to be served up",
+      "for": "reversal",
+      "note": "served up, in a down clue, means the letters are brought upwards, reading in reverse"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beef in kitchen",
+      "gives": "EFINK",
+      "note": "letters running across these words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "EFINK",
+       "to": "KNIFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The man carving the Christmas roast has some beef in the kitchen ready to serve.",
+     "walkthrough": "'Carver' looks like a person; it is the implement.",
+     "definitionFit": "A carving knife is often simply called a carver, the blade used to slice a joint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Carver"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +808,48 @@
     "text": "Christmas book, middle torn out",
     "enumeration": "4"
    },
-   "solution": "NOEL"
+   "solution": "NOEL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NOEL",
+    "definitions": [
+     {
+      "text": "Christmas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle torn out",
+      "for": "deletion",
+      "note": "with its middle torn out, the central letter of the word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "NOVEL",
+      "note": "a novel is a book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Christmas annual with its centre pages ripped out.",
+     "definitionFit": "Noel is a traditional word for Christmas, from French, familiar from carols and cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +863,61 @@
     "text": "Seasonal good wishes, remarks inspiring leaders in pretty lacklustre institution",
     "enumeration": "11"
    },
-   "solution": "COMPLIMENTS"
+   "solution": "COMPLIMENTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "COMPLIMENTS",
+    "definitions": [
+     {
+      "text": "Seasonal good wishes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so one piece is taken inside another"
+     },
+     {
+      "text": "leaders in",
+      "for": "letter_selection",
+      "note": "leaders are the front-runners, so the first letter of each following word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remarks",
+      "gives": "COMMENTS",
+      "note": "remarks are comments"
+     },
+     {
+      "clueFragment": "pretty lacklustre institution",
+      "gives": "PLI",
+      "select": "first",
+      "note": "the first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COM",
+      "PLI",
+      "MENTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Festive greetings, and comments that liven up a rather dull organisation.",
+     "definitionFit": "The compliments of the season is a set phrase for festive good wishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +937,58 @@
      }
     ]
    },
-   "solution": "OPENDOOR"
+   "solution": "OPENDOOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPEN-DOOR",
+    "definitions": [
+     {
+      "text": "such a welcoming policy",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reforms",
+      "for": "anagram",
+      "note": "reforms means the letters are formed again into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Done",
+      "gives": "DONE",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "poor",
+      "gives": "POOR",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DONEPOOR",
+       "gives": "OPENDOOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government finished with poverty reform describes a welcoming approach.",
+     "definitionFit": "An open-door policy freely admits people or goods, such as immigrants or trade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reforms"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1008,79 @@
      }
     ]
    },
-   "solution": "PETERPAN"
+   "solution": "PETERPAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "PETER PAN",
+    "definitions": [
+     {
+      "text": "Pantomime",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear",
+      "for": "letter_selection",
+      "note": "the rear of a word is its final letter"
+     },
+     {
+      "text": "difficult",
+      "for": "anagram",
+      "note": "difficult, as in awkward or troublesome, signals letters knocked into a different order"
+     },
+     {
+      "text": "has admitted",
+      "for": "container",
+      "note": "to admit is to let in, so the other pieces sit inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse's",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of horse"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "PART",
+      "note": "letters to be rearranged with the horse's tail"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "TERPA",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EPART",
+       "gives": "TERPA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor has taken the awkward back half of the pantomime horse, a writer confesses.",
+     "walkthrough": "The E sits 'in' the letters of part, and that mix goes inside PEN; the pantomime horse is the classic two-person costume.",
+     "definitionFit": "Peter Pan, by J M Barrie, is a perennial Christmas pantomime in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admitted"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1094,51 @@
     "text": "Certainly not getting wife present!",
     "enumeration": "3"
    },
-   "solution": "NOW"
+   "solution": "NOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOW",
+    "definitions": [
+     {
+      "text": "present",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Certainly not",
+      "gives": "NO",
+      "note": "a firm refusal"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "An indignant refusal to buy the wife a Christmas gift.",
+     "walkthrough": "'Present' looks like a gift; it is the time sense, the present moment.",
+     "definitionFit": "Now means the present time, at this very moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1152,52 @@
     "text": "Devil, Santa in disguise!",
     "enumeration": "5"
    },
-   "solution": "SATAN"
+   "solution": "SATAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "SATAN",
+    "definitions": [
+     {
+      "text": "Devil, Santa in disguise!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in disguise",
+      "for": "anagram",
+      "note": "something in disguise has its appearance altered, so the letters are reshuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Santa",
+      "gives": "SANTA",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SANTA",
+       "gives": "SATAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shocked discovery that Father Christmas is the Devil dressed up.",
+     "walkthrough": "The whole clue is both wordplay and definition: the two names share their letters, so Satan really is Santa disguised.",
+     "definitionFit": "Satan is the name of the Devil, the chief evil spirit in Christian belief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1211,59 @@
     "text": "Originally serene and smooth, number of swans a-swimming",
     "enumeration": "5"
    },
-   "solution": "SEVEN"
+   "solution": "SEVEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEVEN",
+    "definitions": [
+     {
+      "text": "number of swans a-swimming",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Originally",
+      "for": "letter_selection",
+      "note": "originally points to the origin or start of the word, its first letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serene",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of serene"
+     },
+     {
+      "clueFragment": "smooth",
+      "gives": "EVEN",
+      "note": "smooth means even, level"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Swans gliding calmly and gracefully across the water, counted.",
+     "walkthrough": "From the carol The Twelve Days of Christmas: 'seven swans a-swimming'.",
+     "definitionFit": "In the carol The Twelve Days of Christmas, the true love gives seven swans on the seventh day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "smooth"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1277,42 @@
     "text": "Somewhat disliked, a mean pantomime character",
     "enumeration": "4"
    },
-   "solution": "DAME"
+   "solution": "DAME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DAME",
+    "definitions": [
+     {
+      "text": "pantomime character",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only a portion of the following words is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disliked, a mean",
+      "gives": "DAME",
+      "note": "letters running across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A rather unpopular, stingy panto figure, like an Ugly Sister.",
+     "definitionFit": "The pantomime dame is the stock comic female role played by a man in British pantomime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1332,50 @@
      }
     ]
    },
-   "solution": "TREADWATER"
+   "solution": "TREADWATER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TREAD WATER",
+    "definitions": [
+     {
+      "text": "just survive",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Collapse of",
+      "for": "anagram",
+      "note": "a collapse leaves things in a heap, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "art trade we",
+      "gives": "ARTTRADEWE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARTTRADEWE",
+       "gives": "TREADWATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art dealer laments that the market has crashed and they are barely getting by.",
+     "definitionFit": "To tread water is, figuratively, to stay afloat without making progress, just surviving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Collapse"
+    }
+   }
   },
   {
    "number": 23,
@@ -370,7 +1389,55 @@
     "text": "Particular Christmas film seen in Irish house",
     "enumeration": "6"
    },
-   "solution": "DETAIL"
+   "solution": "DETAIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DETAIL",
+    "definitions": [
+     {
+      "text": "Particular",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "container",
+      "note": "seen in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas film",
+      "gives": "ET",
+      "note": "Spielberg's E.T. was a perennial Christmas television film"
+     },
+     {
+      "clueFragment": "Irish house",
+      "gives": "DAIL",
+      "note": "the Dáil is the lower house of the Irish parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ET",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A specific festive movie being watched in a home in Ireland.",
+     "walkthrough": "'Irish house' sounds like a home; it is the parliamentary chamber in Dublin.",
+     "definitionFit": "A detail is a particular, an individual item or fact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 24,
@@ -384,7 +1451,65 @@
     "text": "Make effervescent putting article on a tree that's shimmering",
     "enumeration": "6"
    },
-   "solution": "AERATE"
+   "solution": "AERATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AERATE",
+    "definitions": [
+     {
+      "text": "Make effervescent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's shimmering",
+      "for": "anagram",
+      "note": "something shimmering flickers and moves about, so the letters shift into a new order"
+     }
+    ],
+    "linkWords": [
+     "putting",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "a tree",
+      "gives": "ATREE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ERATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATREE",
+       "gives": "ERATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Adding sparkle by hanging something on a twinkling Christmas tree.",
+     "walkthrough": "'On' places the article ahead of the shuffled letters in this down light.",
+     "definitionFit": "To aerate is to charge a liquid with gas, making it fizzy or bubbly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shimmering"
+    }
+   }
   },
   {
    "number": 25,
@@ -398,7 +1523,43 @@
     "text": "Duck and orange",
     "enumeration": "8"
    },
-   "solution": "MANDARIN"
+   "solution": "MANDARIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MANDARIN",
+    "definitions": [
+     {
+      "text": "Duck",
+      "at": 0
+     },
+     {
+      "text": "orange",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duck",
+      "note": "first meaning: the brightly coloured ... duck"
+     },
+     {
+      "clueFragment": "orange",
+      "note": "second meaning: a small citrus fruit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests the dish duck à l'orange; the 'and' joins two separate meanings.",
+     "definitionFit": "The mandarin is both a species of ornamental duck and a small loose-skinned citrus fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Duck"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1573,42 @@
     "text": "Arrest Christmas saint?",
     "enumeration": "4"
    },
-   "solution": "NICK"
+   "solution": "NICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NICK",
+    "definitions": [
+     {
+      "text": "Arrest",
+      "at": 0
+     },
+     {
+      "text": "Christmas saint?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrest",
+      "note": "first meaning: informal British for arrest"
+     },
+     {
+      "clueFragment": "Christmas saint?",
+      "note": "second meaning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface imagines Santa being taken into custody. To nick is British slang for to arrest.",
+     "definitionFit": "Saint Nicholas, or St Nick, is the patron of Christmas giving, and nick is slang for arrest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1622,42 @@
     "text": "Failure, Christmas dinner",
     "enumeration": "6"
    },
-   "solution": "TURKEY"
+   "solution": "TURKEY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TURKEY",
+    "definitions": [
+     {
+      "text": "Failure",
+      "at": 0
+     },
+     {
+      "text": "Christmas dinner",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Failure",
+      "note": "first meaning: a flop, especially a play or film"
+     },
+     {
+      "clueFragment": "Christmas dinner",
+      "note": "second meaning: the traditional roast bird"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The comma suggests a disastrous festive meal; the two phrases are separate meanings.",
+     "definitionFit": "A turkey is a show or product that flops, and the bird is the traditional Christmas roast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 28,
@@ -440,7 +1671,51 @@
     "text": "Mad on Christmas, those likely to enjoy the Queen's Speech?",
     "enumeration": "11"
    },
-   "solution": "MONARCHISTS"
+   "solution": "MONARCHISTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MONARCHISTS",
+    "definitions": [
+     {
+      "text": "those likely to enjoy the Queen's Speech?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mad",
+      "for": "anagram",
+      "note": "something mad is crazy and disordered, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on Christmas",
+      "gives": "ONCHRISTMAS",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCHRISTMAS",
+       "gives": "MONARCHISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Christmas-crazy people settling down to watch the royal broadcast.",
+     "walkthrough": "The Queen's Speech is the monarch's Christmas Day broadcast on British TV and radio.",
+     "definitionFit": "Monarchists support the monarchy, so they are the likeliest audience for the sovereign's Christmas address."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Mad"
+    }
+   }
   }
  ]
 }
