@@ -1770,6 +1770,10 @@ tools/test_placeholder_clues.sh               a puzzle whose clues are pointers 
                                               printed elsewhere has no clues
 tools/sweep_series.py                         probe every number of a Guardian series between
                                               two bounds, file what is served
+tools/ocr_gpu.py                              one shared RapidOCR server on the desktop's GPU
+                                              that the desktop sessions hand reads to, each
+                                              reading on its own CPU when the server is busy or
+                                              away; yields to games and keeps 4 GB of VRAM free
 tools/ocr_remote.py                           the clue OCR, whole scan editions, image-PDF page
                                               searches, Gale page matches, Listener page reads
                                               and Trove grid searches run on Paul's desktop
