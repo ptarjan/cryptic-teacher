@@ -1141,6 +1141,15 @@ check("a stale host of an answerless puzzle ranks 2; of a Saturday prize six on;
       [e1_reason("1981-02-02", {"number": 15435}), e1_reason("1981-01-31", {"number": 15430}),
        e1_reason("1981-01-31", {"number": 15435}), e1_reason("1981-02-02", {"number": 15435, "refused": True}),
        e1_reason("1981-02-02", {"number": 15435, "solutionFrom": "1981-02-03 leaf 1"})])
+def stale_fixed(verdict):
+    scan_queue.append(pl, [{**stale, "verdicts": [verdict]}, settled_row(e2)])
+    return [(u["rank"], u["reason"]) for u in f.plan(f.TIMES, pc)[1] if u["rel"].endswith("_1")]
+check("a stale scan's read a reader fix can change ranks with the fixes, not the whole corpus",
+      [[(2, "solution read in part before its fix")], [(2, "refused not-a-grid before its fix")],
+       [(3, "scan stale")]],
+      [stale_fixed({"number": 15436, "solutionFrom": "x", "solution": {"accepted": 20, "lights": 30}}),
+       stale_fixed({"number": 15436, "refused": True, "cause": "not-a-grid"}),
+       stale_fixed({"number": 15436, "solutionFrom": "x", "solution": {"accepted": 30, "lights": 30}})])
 scan_queue.append(pl, [settled_row(e1), settled_row(e2)])
 (e2 / "pages.json").write_text("{\"x\": 1}")
 check("a dir changed within SETTLED is listed afresh, an in-place write seen", (False, "inputs changed"),

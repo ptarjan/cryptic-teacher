@@ -3498,6 +3498,23 @@ def solution_sources(dirs, scans, rels, held, sister):
     return {**sister, **first}, every
 
 
+def fix_reason(row):
+    """Why a read `row` is read again for a reader fix landed since, or None:
+    a refusal read before its cause's fix (REREAD_REFUSED), or a solution
+    grid read in part before REREAD_PARTIAL. Due whether its scan stands or
+    not, so a stale scan never sinks it to the whole-corpus rank."""
+    for v in row.get("verdicts", ()):
+        t = REREAD_REFUSED.get(v.get("cause"))
+        if t and scan_queue.read_before(row, scan_queue.when(t)):
+            return f"refused {v['cause']} before its fix"
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (isinstance(s, dict) and not s.get("refused") and s.get("accepted", 0) < s.get("lights", 0)
+                and scan_queue.read_before(row, scan_queue.when(REREAD_PARTIAL))):
+            return "solution read in part before its fix"
+    return None
+
+
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
     """Why an edition's ledger `row` is read again, or None: never read, its
     files (input_hash) or the solutions it can see moved, a solution it read
@@ -3519,15 +3536,9 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
         return "titles changed"
     if vlm_up and not row.get("vlm"):
         return "read without the VLM"
-    for v in row.get("verdicts", ()):
-        t = REREAD_REFUSED.get(v.get("cause"))
-        if t and scan_queue.read_before(row, scan_queue.when(t)):
-            return f"refused {v['cause']} before its fix"
-    for v in row.get("verdicts", ()):
-        s = v.get("solution")
-        if (isinstance(s, dict) and not s.get("refused") and s.get("accepted", 0) < s.get("lights", 0)
-                and scan_queue.read_before(row, scan_queue.when(REREAD_PARTIAL))):
-            return "solution read in part before its fix"
+    why = fix_reason(row)
+    if why:
+        return why
     if reread and scan_queue.read_before(row, reread):
         return "--reread"
     return None
@@ -3661,7 +3672,8 @@ def _plan_paper(paper, cache, ledger, reread, asked, dirs):
             # edition at once, a whole-corpus re-read.
             why = ("never read" if "inputs" not in row else
                    "inputs changed" if row.get("filesHash") != fhs[d] else
-                   STALE_SCAN[0] if any(p["number"] in answerless for p in scans[rel]["puzzles"]) else STALE_SCAN[1])
+                   STALE_SCAN[0] if any(p["number"] in answerless for p in scans[rel]["puzzles"]) else
+                   fix_reason(row) or STALE_SCAN[1])
         else:
             sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
             why = due_reason(row, inputs_of(row["filesHash"], scans[rel], paper.series), sol_seen, seen_by, reread,
