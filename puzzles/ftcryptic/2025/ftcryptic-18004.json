@@ -24,6 +24,9 @@
   "date": "2025-03-20",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,65 @@
     "text": "Believer's written about sermon's start and finish",
     "enumeration": "6"
    },
-   "solution": "DESIST"
+   "solution": "DESIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DESIST",
+    "definitions": [
+     {
+      "text": "finish",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "written about",
+      "for": "container",
+      "note": "a word written about another is set around it, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Believer",
+      "gives": "DEIST",
+      "note": "a deist believes in a creator God without revealed religion"
+     },
+     {
+      "clueFragment": "sermon's",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of sermon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "S",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A worshipper writes notes on how a sermon began and ended.",
+     "walkthrough": "'start and finish' reads as one phrase, but only 'start' works on sermon; 'finish' is the definition. The 's after Believer is surface glue.",
+     "definitionFit": "To desist is to stop doing something, a verb synonym of finish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finish"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +112,61 @@
     "text": "Bring discredit to car design, failing to finish unfortunately",
     "enumeration": "8"
    },
-   "solution": "DISGRACE"
+   "solution": "DISGRACE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DISGRACE",
+    "definitions": [
+     {
+      "text": "Bring discredit to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing to finish",
+      "for": "deletion",
+      "note": "a word that fails to finish loses its final letter"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "an unfortunate turn of events leaves things in a mess, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "CAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "design",
+      "gives": "DESIG",
+      "note": "design without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CARDESIG",
+       "gives": "DISGRACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An automobile's styling, sadly unfinished, embarrasses its makers.",
+     "definitionFit": "To disgrace is to cause shame or loss of respect, a verb matching discredit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +180,55 @@
     "text": "Officer material? Worker overlooked",
     "enumeration": "8"
    },
-   "solution": "SERGEANT"
+   "solution": "SERGEANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SERGEANT",
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooked",
+      "for": "charade",
+      "note": "in a down entry, what is overlooked lies below, so this piece comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "material",
+      "gives": "SERGE",
+      "note": "serge is a twilled worsted fabric"
+     },
+     {
+      "clueFragment": "Worker",
+      "gives": "ANT",
+      "note": "the worker ant is a crossword staple"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SERGE",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Is this person the stuff of leadership? A labourer gets passed over for promotion.",
+     "walkthrough": "'Officer material' is a set phrase for a promising candidate, but the two words split.",
+     "definitionFit": "A sergeant is a non-commissioned officer in the army or a police rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +242,48 @@
     "text": "Stage of process, expensive, heartless",
     "enumeration": "4"
    },
-   "solution": "STEP"
+   "solution": "STEP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STEP",
+    "definitions": [
+     {
+      "text": "Stage of process",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "a heartless word has lost its centre, so the middle letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expensive",
+      "gives": "STEEP",
+      "note": "steep prices are high"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "EP"
+     ]
+    },
+    "explanation": {
+     "surface": "One phase of a procedure is costly and cruel.",
+     "definitionFit": "A step is one stage in a sequence of actions, as in step-by-step."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +297,63 @@
     "text": "The writer's supply not, after vacation, expected soon",
     "enumeration": "8"
    },
-   "solution": "IMMINENT"
+   "solution": "IMMINENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IMMINENT",
+    "definitions": [
+     {
+      "text": "expected soon",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after vacation",
+      "for": "letter_selection",
+      "note": "vacating a word empties it, leaving only its outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The writer's",
+      "gives": "IM",
+      "note": "the writer is the setter, I, and 'writer's' = I am, contracted"
+     },
+     {
+      "clueFragment": "supply",
+      "gives": "MINE",
+      "note": "a mine is a rich supply or source"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NT",
+      "select": "outer",
+      "note": "the word emptied of its middle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "MINE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer frets that their stock will run out after the holidays, any day now.",
+     "walkthrough": "'Vacation' looks like a holiday, but it means emptying a word of its insides.",
+     "definitionFit": "Something imminent is about to happen, so it is anticipated very shortly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +367,62 @@
     "text": "Exact parent following subject with a learner",
     "enumeration": "12"
    },
-   "solution": "MATHEMATICAL"
+   "solution": "MATHEMATICAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MATHEMATICAL",
+    "definitions": [
+     {
+      "text": "Exact",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parent",
+      "gives": "MA",
+      "note": "ma is mother"
+     },
+     {
+      "clueFragment": "following subject",
+      "gives": "THEMATIC",
+      "note": "thematic means keeping to a theme or subject"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L for learner, as on a British learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "THEMATIC",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A precise mother comes after the school subject along with a pupil.",
+     "walkthrough": "'following' looks like an order instruction, but 'following subject' is a phrase defining an adjective.",
+     "definitionFit": "Mathematical precision is rigorous and exact, so the adjective means precise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +436,70 @@
     "text": "Referring to empire where son replaces incumbent leader, unconnected",
     "enumeration": "10"
    },
-   "solution": "IMPERSONAL"
+   "solution": "IMPERSONAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "IMPERSONAL",
+    "definitions": [
+     {
+      "text": "unconnected",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes first, so just the opening letter is kept"
+     },
+     {
+      "text": "replaces",
+      "for": "substitution",
+      "note": "one thing replacing another takes its place in the word"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Referring to empire",
+      "gives": "IMPERIAL",
+      "note": "imperial relates to an empire"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "SON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "incumbent",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of incumbent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPER",
+      "SON",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "In an empire, a son takes over from the ruling monarch, a detached succession.",
+     "walkthrough": "The second I of the empire word is the one that makes way.",
+     "definitionFit": "Impersonal means without personal feeling or links, detached and so unconnected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "incumbent"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +513,41 @@
     "text": "Paint trade name legal? Not entirely",
     "enumeration": "6"
    },
-   "solution": "ENAMEL"
+   "solution": "ENAMEL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENAMEL",
+    "definitions": [
+     {
+      "text": "Paint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not entirely",
+      "for": "hidden_word",
+      "note": "only part of the phrase is used, so the letters sit within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trade name legal",
+      "gives": "ENAMEL",
+      "note": "found across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Is the brand name on this tin of paint fully lawful?",
+     "definitionFit": "Enamel is a hard glossy paint, used as a noun for that coating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +561,55 @@
     "text": "Very small support on course not satisfying you at first",
     "enumeration": "6"
    },
-   "solution": "TEENSY"
+   "solution": "TEENSY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TEENSY",
+    "definitions": [
+     {
+      "text": "Very small",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letters of the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support on course",
+      "gives": "TEE",
+      "note": "a golf tee supports the ball on the course"
+     },
+     {
+      "clueFragment": "not satisfying you",
+      "gives": "NSY",
+      "select": "first",
+      "note": "initials of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEE",
+      "NSY"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny golf tee fails to please you.",
+     "definitionFit": "Teensy is an informal word for tiny, so it means minute or wee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +623,72 @@
     "text": "Examination US rejected, very loose",
     "enumeration": "6"
    },
-   "solution": "SURVEY"
+   "solution": "SURVEY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SURVEY",
+    "definitions": [
+     {
+      "text": "Examination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so these letters run the other way"
+     },
+     {
+      "text": "loose",
+      "for": "anagram",
+      "note": "letters set loose are free to scatter into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US",
+      "gives": "SU",
+      "note": "the letters U and S turned round"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "RVEY",
+      "note": "the four letters of very rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "RVEY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VERY",
+       "gives": "RVEY"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American inspection is thrown out as far too slack.",
+     "definitionFit": "A survey is a general inspection or close look at something, as of a house before purchase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loose"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +702,55 @@
     "text": "Street work call for industrial action",
     "enumeration": "8"
    },
-   "solution": "STOPPAGE"
+   "solution": "STOPPAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOPPAGE",
+    "definitions": [
+     {
+      "text": "industrial action",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Street",
+      "gives": "ST",
+      "note": "standard abbreviation of Street"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op. (opus) is a musical work"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "PAGE",
+      "note": "to page someone is to call them over a system"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "OP",
+      "PAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone on the street is summoned to join a strike.",
+     "definitionFit": "A stoppage is a halt to work by employees, a strike or walkout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +764,50 @@
     "text": "Playing, users pay live in effective manner",
     "enumeration": "12"
    },
-   "solution": "PERSUASIVELY"
+   "solution": "PERSUASIVELY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERSUASIVELY",
+    "definitions": [
+     {
+      "text": "in effective manner",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Playing",
+      "for": "anagram",
+      "note": "playing with things moves them about, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "users pay live",
+      "gives": "USERSPAYLIVE",
+      "note": "twelve letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USERSPAYLIVE",
+       "gives": "PERSUASIVELY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Subscribers pay to watch a game live, a marketing pitch that works.",
+     "definitionFit": "Persuasively means convincingly, in a way that wins people over and so works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Playing"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +821,55 @@
     "text": "Flipping sneering look — be taken aback",
     "enumeration": "4"
    },
-   "solution": "REEL"
+   "solution": "REEL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "REEL",
+    "definitions": [
+     {
+      "text": "be taken aback",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Flipping",
+      "for": "reversal",
+      "note": "flipping something over turns it end to end, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sneering look",
+      "gives": "LEER",
+      "note": "a leer is a sly or sneering glance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEER",
+       "to": "REEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shocked by a nasty, contemptuous stare, with 'Flipping' as a mild British expletive.",
+     "walkthrough": "'Flipping' looks like a British minced oath; it signals reading backwards.",
+     "definitionFit": "To reel is to stagger or feel shaken from shock, as when taken aback."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flipping"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +883,68 @@
     "text": "They practise on judges, welcoming some initially",
     "enumeration": "10"
    },
-   "solution": "REHEARSERS"
+   "solution": "REHEARSERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "REHEARSERS",
+    "definitions": [
+     {
+      "text": "They practise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the preceding word only"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome is to take in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "judges",
+      "gives": "HEARERS",
+      "note": "judges hear cases, so they are hearers"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of some"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "HEAR",
+      "S",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Performers try out their act in front of a panel that lets a few in.",
+     "definitionFit": "Rehearsers are people who rehearse, going over a performance in practice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "judges"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +958,68 @@
     "text": "At outset trade union members unusually lock us out — strangely disturbing",
     "enumeration": "10"
    },
-   "solution": "TUMULTUOUS"
+   "solution": "TUMULTUOUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "TUMULTUOUS",
+    "definitions": [
+     {
+      "text": "disturbing",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At outset",
+      "for": "letter_selection",
+      "note": "at the outset of each word means taking its opening letter"
+     },
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means oddly arranged, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trade union members unusually lock",
+      "gives": "TUMUL",
+      "select": "first",
+      "note": "initials of the five words"
+     },
+     {
+      "clueFragment": "us out",
+      "gives": "TUOUS",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUMUL",
+      "TUOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USOUT",
+       "gives": "TUOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Union members who lock management out make for a troubling dispute.",
+     "walkthrough": "'unusually' and 'lock' look like an anagram signal and its fodder, but they only lend initials.",
+     "definitionFit": "Tumultuous means noisy and turbulent, upsetting calm, so it can mean disturbing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unusually"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +1033,63 @@
     "text": "Victor, regularly missing drag race, quit soon after review",
     "enumeration": "12"
    },
-   "solution": "CONQUISTADOR"
+   "solution": "CONQUISTADOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CONQUISTADOR",
+    "definitions": [
+     {
+      "text": "Victor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly missing",
+      "for": "letter_selection",
+      "note": "missing letters at regular intervals means every other one is dropped"
+     },
+     {
+      "text": "after review",
+      "for": "anagram",
+      "note": "a review revises its material, so the letters are reworked into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drag race",
+      "gives": "DARC",
+      "select": "alternate",
+      "note": "first, third, fifth and seventh letters"
+     },
+     {
+      "clueFragment": "quit soon",
+      "gives": "QUITSOON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DARCQUITSOON",
+       "gives": "CONQUISTADOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A winning driver, failing to turn up for a drag race, retires right after a performance review.",
+     "walkthrough": "A drag race is a short sprint between cars; here the phrase only supplies letters.",
+     "definitionFit": "A conquistador was a Spanish conqueror of the Americas, a victor by conquest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Victor"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1103,41 @@
     "text": "City poem",
     "enumeration": "8"
    },
-   "solution": "LIMERICK"
+   "solution": "LIMERICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIMERICK",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     },
+     {
+      "text": "poem",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "note": "first meaning: a city in the Republic of Ireland"
+     },
+     {
+      "clueFragment": "poem",
+      "note": "second meaning: a five-line comic verse"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The comic verse form takes its name from the Irish city.",
+     "definitionFit": "Limerick is a city in Ireland and a humorous five-line verse with an AABBA rhyme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1157,53 @@
      }
     ]
    },
-   "solution": "ONELINER"
+   "solution": "ONELINER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONE-LINER",
+    "definitions": [
+     {
+      "text": "Witty remark",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, concerning"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "LINER",
+      "note": "a liner is a passenger ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "E",
+      "LINER"
+     ]
+    },
+    "explanation": {
+     "surface": "A clever quip on board an English vessel.",
+     "walkthrough": "'about' looks like a container signal; here it is just the word on.",
+     "definitionFit": "A one-liner is a short joke or quip delivered in a single sentence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1217,64 @@
     "text": "Kind of hotel, Mauritanian, to be flexible",
     "enumeration": "12"
    },
-   "solution": "HUMANITARIAN"
+   "solution": "HUMANITARIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HUMANITARIAN",
+    "definitions": [
+     {
+      "text": "Kind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be flexible",
+      "for": "anagram",
+      "note": "something flexible bends into new shapes, so these letters take another form"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Mauritanian",
+      "gives": "UMANITARIAN",
+      "note": "the eleven letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "UMANITARIAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAURITANIAN",
+       "gives": "UMANITARIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A type of hotel run by someone from Mauritania that is happy to bend the rules.",
+     "walkthrough": "'Kind of hotel' looks like the definition as a phrase; only 'Kind' defines.",
+     "definitionFit": "Humanitarian means compassionate and concerned with human welfare, an adjectival synonym of kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kind"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1288,41 @@
     "text": "Bathrobe conceals pulsing",
     "enumeration": "6"
    },
-   "solution": "ATHROB"
+   "solution": "ATHROB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ATHROB",
+    "definitions": [
+     {
+      "text": "pulsing",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conceals",
+      "for": "hidden_word",
+      "note": "concealing means holding within, so the letters are inside the preceding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bathrobe",
+      "gives": "ATHROB",
+      "note": "inside the word, minus its outer letters"
+     }
+    ],
+    "explanation": {
+     "surface": "A dressing gown hides a beating heart.",
+     "definitionFit": "Athrob means throbbing, beating rhythmically, as a heart pulses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1336,54 @@
     "text": "Exploratory move — charge caller just half",
     "enumeration": "6"
    },
-   "solution": "FEELER"
+   "solution": "FEELER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FEELER",
+    "definitions": [
+     {
+      "text": "Exploratory move",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "just half",
+      "for": "deletion",
+      "note": "keeping just half means the other half of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge",
+      "gives": "FEE",
+      "note": "a fee is a charge"
+     },
+     {
+      "clueFragment": "caller",
+      "gives": "LER",
+      "note": "the back half of caller"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEE",
+      "LER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tentative approach: a fee charged to whoever is on the phone, only half.",
+     "definitionFit": "A feeler is a tentative approach to gauge opinion, as in putting out feelers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caller"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1397,62 @@
     "text": "Exaggerated article referring to hall maybe, cold inside",
     "enumeration": "10"
    },
-   "solution": "THEATRICAL"
+   "solution": "THEATRICAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THEATRICAL",
+    "definitions": [
+     {
+      "text": "Exaggerated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means placed within the letters of the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "referring to hall maybe",
+      "gives": "ATRIAL",
+      "note": "atrial relates to an atrium, an entrance hall"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "ATRI",
+      "C",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "An overblown piece about a chilly venue.",
+     "walkthrough": "An atrium is a central hall, and 'maybe' marks hall as one example of it.",
+     "definitionFit": "Theatrical behaviour is staged and overdone for effect, so it is overacted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hall"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1466,43 @@
     "text": "Timber bargain",
     "enumeration": "4"
    },
-   "solution": "DEAL"
+   "solution": "DEAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEAL",
+    "definitions": [
+     {
+      "text": "Timber",
+      "at": 0
+     },
+     {
+      "text": "bargain",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Timber",
+      "note": "first meaning: fir or pine wood, as planks"
+     },
+     {
+      "clueFragment": "bargain",
+      "note": "second meaning: an agreement or transaction"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it sounds like cheap wood; the two words are separate meanings.",
+     "definitionFit": "Deal is softwood timber in British usage and also an arrangement struck between parties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Timber"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1516,45 @@
     "text": "Reportedly worked in school, tense",
     "enumeration": "4"
    },
-   "solution": "PAST"
+   "solution": "PAST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PAST",
+    "definitions": [
+     {
+      "text": "tense",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard, so the sound matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worked in school",
+      "gives": "PAST",
+      "soundsLike": "PASSED",
+      "note": "a pupil who worked hard passed the exam"
+     }
+    ],
+    "explanation": {
+     "surface": "Rumour has it a nervous pupil studied hard.",
+     "walkthrough": "'tense' looks like an adjective for nerves; it is the grammatical noun.",
+     "definitionFit": "The past is a grammatical tense, used for actions already completed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 24,
@@ -379,7 +1568,41 @@
     "text": "No longer fight extension of prize period",
     "enumeration": "8"
    },
-   "solution": "ROLLOVER"
+   "solution": "ROLLOVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROLLOVER",
+    "definitions": [
+     {
+      "text": "No longer fight",
+      "at": 0
+     },
+     {
+      "text": "extension of prize period",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No longer fight",
+      "note": "first meaning: give in submissively, as a dog onto its back"
+     },
+     {
+      "clueFragment": "extension of prize period",
+      "note": "second meaning: a lottery jackpot carried forward to the next draw"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is the two-word verb, the second the one-word noun; the enumeration fits both.",
+     "definitionFit": "To roll over is to surrender without resistance; a rollover carries an unwon lottery prize into another draw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -393,7 +1616,61 @@
     "text": "Cautious supporter accepting custom, ignoring outsiders",
     "enumeration": "6"
    },
-   "solution": "FABIAN"
+   "solution": "FABIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FABIAN",
+    "definitions": [
+     {
+      "text": "Cautious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring outsiders",
+      "for": "deletion",
+      "note": "ignoring the outside letters means the first and last are dropped"
+     },
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "to accept is to take in, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supporter",
+      "gives": "FAN",
+      "note": "a fan supports a team"
+     },
+     {
+      "clueFragment": "custom",
+      "gives": "ABI",
+      "note": "habit, a custom, without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ABI",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A careful follower takes up a local tradition but shuns strangers.",
+     "walkthrough": "The Fabian Society took its name from the Roman general Fabius, who won by delay rather than battle.",
+     "definitionFit": "Fabian tactics are slow and wary, avoiding direct confrontation, hence cautious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "outsiders"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1690,66 @@
      }
     ]
    },
-   "solution": "BIRDSEYE"
+   "solution": "BIRDSEYE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "BIRDS-EYE",
+    "definitions": [
+     {
+      "text": "Seen from high",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scattered",
+      "for": "anagram",
+      "note": "scattered things are spread anyhow, so the letters land in a new order"
+     },
+     {
+      "text": "not small",
+      "for": "deletion",
+      "note": "small is S in sizes, so the letter S is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debris",
+      "gives": "BIRDSE",
+      "note": "the six letters rearranged"
+     },
+     {
+      "clueFragment": "indeed",
+      "gives": "YE",
+      "note": "yes, meaning indeed, without its S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIRDSE",
+      "YE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEBRIS",
+       "gives": "BIRDSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "From up high, wreckage can be seen strewn about, and not just tiny bits.",
+     "definitionFit": "A bird's-eye view is from above, as a flying creature would look down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "indeed"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1763,43 @@
     "text": "Count's creator — one working in furnace",
     "enumeration": "6"
    },
-   "solution": "STOKER"
+   "solution": "STOKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STOKER",
+    "definitions": [
+     {
+      "text": "Count's creator",
+      "at": 0
+     },
+     {
+      "text": "one working in furnace",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Count's creator",
+      "note": "first meaning: Bram, author of Dracula"
+     },
+     {
+      "clueFragment": "one working in furnace",
+      "note": "second meaning: a person who feeds a boiler"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Count is Count Dracula, created by the Irish novelist Bram of that surname.",
+     "definitionFit": "Bram Stoker wrote Dracula; a stoker tends the fire of a furnace or engine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Count's"
+    }
+   }
   }
  ]
 }
