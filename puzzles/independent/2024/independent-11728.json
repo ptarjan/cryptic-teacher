@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,56 @@
      }
     ]
    },
-   "solution": "FASTFOOD"
+   "solution": "FASTFOOD",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FAST FOOD",
+    "definitions": [
+     {
+      "text": "unhealthy portions",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of the words that follow is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don't eat",
+      "gives": "FAST",
+      "note": "to fast is to go without eating"
+     },
+     {
+      "clueFragment": "from odd",
+      "gives": "FOOD",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAST",
+      "FOOD"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to skip meals by picking only the odd bits of an unhealthy plateful.",
+     "walkthrough": "'From odd' looks like part of the instruction, but its alternate letters are the second half of the answer.",
+     "definitionFit": "Burgers and fries served quickly are the classic example of junk meals considered bad for health."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +105,52 @@
     "text": "Congregation of stars with a capital attorney",
     "enumeration": "9"
    },
-   "solution": "ANDROMEDA"
+   "solution": "ANDROMEDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANDROMEDA",
+    "definitions": [
+     {
+      "text": "Congregation of stars",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     },
+     {
+      "clueFragment": "a capital",
+      "gives": "ROME",
+      "note": "Rome is the Italian capital city"
+     },
+     {
+      "clueFragment": "attorney",
+      "gives": "DA",
+      "note": "DA is a District Attorney in the US"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AND",
+      "ROME",
+      "DA"
+     ]
+    },
+    "explanation": {
+     "surface": "A gathering of celebrities in the city, complete with a lawyer.",
+     "definitionFit": "Andromeda is a constellation and a galaxy, both great gatherings of stars in the night sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +164,44 @@
     "text": "Lead on runner announced",
     "enumeration": "5"
    },
-   "solution": "TEASE"
+   "solution": "TEASE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEASE",
+    "definitions": [
+     {
+      "text": "Lead on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announced",
+      "for": "homophone",
+      "note": "something announced is spoken, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runner",
+      "gives": "TEASE",
+      "soundsLike": "TEES",
+      "note": "a runner is a river in crosswords, and the Tees flows through northeast England"
+     }
+    ],
+    "explanation": {
+     "surface": "An athlete is named over the stadium speakers as the leader.",
+     "definitionFit": "To lead someone on is to tease them with false hopes or flirtation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +215,64 @@
     "text": "Navy invested in gold balls as munitions",
     "enumeration": "9"
    },
-   "solution": "ORDNANCES"
+   "solution": "ORDNANCES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ORDNANCES",
+    "definitions": [
+     {
+      "text": "munitions",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in something is put inside it, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "Navy",
+      "gives": "N",
+      "note": "N is the abbreviation for navy"
+     },
+     {
+      "clueFragment": "balls",
+      "gives": "DANCES",
+      "note": "balls are formal dances"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "D",
+      "N",
+      "ANCES"
+     ]
+    },
+    "explanation": {
+     "surface": "The navy puts money into gold cannonballs to use as weapons.",
+     "definitionFit": "Ordnance means military supplies such as guns and ammunition, the same stock as munitions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "balls"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +286,71 @@
     "text": "Deflect half of eggs rolling beneath penguin?",
     "enumeration": "7"
    },
-   "solution": "DIVERGE"
+   "solution": "DIVERGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "DIVERGE",
+    "definitions": [
+     {
+      "text": "Deflect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half of a word keeps only its first two of four letters"
+     },
+     {
+      "text": "rolling",
+      "for": "reversal",
+      "note": "something rolling turns over, so the letters are read the other way round"
+     }
+    ],
+    "linkWords": [
+     "beneath"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "penguin?",
+      "gives": "DIVER",
+      "note": "a penguin dives for fish, so the question mark allows it as an example of a diver"
+     },
+     {
+      "clueFragment": "eggs",
+      "gives": "EG",
+      "select": "first",
+      "note": "the first half of this four-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIVER",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A penguin nudges aside some of its eggs as they roll under it.",
+     "walkthrough": "In a down clue 'beneath' puts the egg letters below the diver.",
+     "definitionFit": "To diverge is to turn aside from a course, which matches deflect in its intransitive sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "penguin"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +364,48 @@
     "text": "Laid back contingent of Scots up in Edinburgh",
     "enumeration": "6"
    },
-   "solution": "SUPINE"
+   "solution": "SUPINE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SUPINE",
+    "definitions": [
+     {
+      "text": "Laid back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contingent of",
+      "for": "hidden_word",
+      "note": "a contingent is a group drawn from a larger body, so the letters are part of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scots up in",
+      "gives": "SUPIN",
+      "note": "the last letter of the first word and the start of the next two"
+     },
+     {
+      "clueFragment": "Edinburgh",
+      "gives": "E",
+      "note": "the first letter"
+     }
+    ],
+    "explanation": {
+     "surface": "A relaxed group of Scots goes up to Edinburgh.",
+     "definitionFit": "Supine means lying flat on the back, literally laid back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "contingent"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +419,49 @@
     "text": "Fly's last to escape insectivore",
     "enumeration": "5"
    },
-   "solution": "SHREW"
+   "solution": "SHREW",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SHREW",
+    "definitions": [
+     {
+      "text": "insectivore",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last to escape",
+      "for": "deletion",
+      "note": "the final letter escaping means it is dropped from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fly's",
+      "gives": "SHREWD",
+      "note": "fly is slang for sharp and knowing, so shrewd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHREW"
+     ]
+    },
+    "explanation": {
+     "surface": "An insect-eating animal lets a fly get away.",
+     "walkthrough": "'Fly' looks like the insect the creature eats, but it is the adjective for streetwise.",
+     "definitionFit": "Shrews are small mammals that feed mainly on insects and worms, so they are insectivores."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fly's"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +475,50 @@
     "text": "PC in peril breaking law",
     "enumeration": "9"
    },
-   "solution": "PRINCIPLE"
+   "solution": "PRINCIPLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRINCIPLE",
+    "definitions": [
+     {
+      "text": "law",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "anagram",
+      "note": "something breaking falls apart, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PC in peril",
+      "gives": "PCINPERIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PCINPERIL",
+       "gives": "PRINCIPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police constable in danger is breaking the law.",
+     "definitionFit": "A principle is a fundamental rule or law, as in the principles of physics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +532,54 @@
     "text": "US cities caging American antelope",
     "enumeration": "5"
    },
-   "solution": "NYALA"
+   "solution": "NYALA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NYALA",
+    "definitions": [
+     {
+      "text": "antelope",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caging",
+      "for": "container",
+      "note": "caging something locks it inside, so one piece goes within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US cities",
+      "gives": "NYLA",
+      "note": "NY is New York and LA is Los Angeles"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is an abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NY",
+      "A",
+      "LA"
+     ]
+    },
+    "explanation": {
+     "surface": "American zoos in big cities keep an antelope in cages.",
+     "definitionFit": "The nyala is a spiral-horned antelope of southern Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caging"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +599,78 @@
      }
     ]
    },
-   "solution": "IDCARD"
+   "solution": "IDCARD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ID CARD",
+    "definitions": [
+     {
+      "text": "Pass maybe",
+      "at": 0,
+      "note": "an example, signalled by maybe"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "something gone bad is spoiled, so its letters are rearranged"
+     },
+     {
+      "text": "twisted",
+      "for": "reversal",
+      "note": "twisted round means turned the other way, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acid",
+      "gives": "ACID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDCA",
+      "RD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACID",
+       "gives": "IDCA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DR",
+       "to": "RD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warped physician on a bad trip hands out a free pass.",
+     "walkthrough": "In an across clue 'doctor on acid' places the doctor after the acid.",
+     "definitionFit": "An identity card is one kind of pass that lets the bearer through a checkpoint or door."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "acid"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +684,64 @@
     "text": "Runs spirit into glass container that's pristine",
     "enumeration": "8"
    },
-   "solution": "VIRGINAL"
+   "solution": "VIRGINAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "VIRGINAL",
+    "definitions": [
+     {
+      "text": "pristine",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means being placed inside it"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "GIN",
+      "note": "gin is a spirit"
+     },
+     {
+      "clueFragment": "glass container",
+      "gives": "VIAL",
+      "note": "a vial is a small glass bottle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "R",
+      "GIN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Pouring liquor into a clean glass bottle.",
+     "definitionFit": "Virginal means untouched and pure, the same unspoilt state as pristine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Runs"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +761,66 @@
      }
     ]
    },
-   "solution": "BONEMARROW"
+   "solution": "BONEMARROW",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BONE MARROW",
+    "definitions": [
+     {
+      "text": "Tissue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has filled",
+      "for": "container",
+      "note": "filling something means putting material inside it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "ONE",
+      "note": "one is a single unit"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "cart",
+      "gives": "BARROW",
+      "note": "a barrow is a small cart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ONE",
+      "M",
+      "ARROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A bachelor has loaded a cart with paper hankies.",
+     "walkthrough": "'Tissue' suggests a paper handkerchief, but it is the biological sense.",
+     "definitionFit": "Bone marrow is the soft spongy body tissue inside bones where blood cells are made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tissue"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +834,43 @@
     "text": "Gain influence by flattering Wire",
     "enumeration": "4"
    },
-   "solution": "COAX"
+   "solution": "COAX",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COAX",
+    "definitions": [
+     {
+      "text": "Gain influence by flattering",
+      "at": 0
+     },
+     {
+      "text": "Wire",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gain influence by flattering",
+      "note": "first meaning: to persuade gently with sweet talk"
+     },
+     {
+      "clueFragment": "Wire",
+      "note": "second meaning: short for coaxial cable, a kind of wire"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Wire is also this setter's pseudonym, so it reads as the setter flattering themselves.",
+     "definitionFit": "Coaxing wins someone over through flattery, and coax is everyday shorthand for coaxial cable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wire"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +884,50 @@
     "text": "Infected college by start of autumn?",
     "enumeration": "6"
    },
-   "solution": "SEPTIC"
+   "solution": "SEPTIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEPTIC",
+    "definitions": [
+     {
+      "text": "Infected",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "start of autumn?",
+      "gives": "SEPT",
+      "note": "September begins autumn in the northern hemisphere, abbreviated; the question mark flags the loose sense"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "IC",
+      "note": "IC is Imperial College London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEPT",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A college gets sick as the autumn term begins.",
+     "walkthrough": "'Start of autumn' looks like an instruction to take the letter A, but it means the month itself.",
+     "definitionFit": "A septic wound is one contaminated with harmful bacteria, so it is infected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +941,55 @@
     "text": "Wild time Blur tune conjured up",
     "enumeration": "9"
    },
-   "solution": "TURBULENT"
+   "solution": "TURBULENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TURBULENT",
+    "definitions": [
+     {
+      "text": "Wild",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conjured up",
+      "for": "anagram",
+      "note": "something conjured up is magically created anew, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Blur tune",
+      "gives": "BLURTUNE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TBLURTUNE",
+       "gives": "TURBULENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Blur, the 1990s Britpop band, write a song that whips up a wild party.",
+     "definitionFit": "Turbulent means disorderly and stormy, the unruly sense of wild."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Blur"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1003,68 @@
     "text": "Handset oddly lost on new space adventure",
     "enumeration": "8"
    },
-   "solution": "ESCAPADE"
+   "solution": "ESCAPADE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ESCAPADE",
+    "definitions": [
+     {
+      "text": "adventure",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version is a remade one, so the letters are put in fresh order"
+     },
+     {
+      "text": "oddly lost",
+      "for": "letter_selection",
+      "note": "losing the odd letters keeps the second, fourth and sixth"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "space",
+      "gives": "SPACE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Handset",
+      "gives": "ADE",
+      "select": "alternate",
+      "note": "the even-placed letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESCAP",
+      "ADE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPACE",
+       "gives": "ESCAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A phone handset goes missing on a fresh mission into space.",
+     "walkthrough": "In an across clue 'handset bits on new space' places the handset letters after the rearranged word.",
+     "definitionFit": "An escapade is a daring or mischievous adventure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Handset"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1078,61 @@
     "text": "Third letter about Bumpkin Bill's bird",
     "enumeration": "9"
    },
-   "solution": "CHICKADEE"
+   "solution": "CHICKADEE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CHICKADEE",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bumpkin",
+      "gives": "HICK",
+      "note": "a hick is an unsophisticated country person"
+     },
+     {
+      "clueFragment": "Bill's",
+      "gives": "AD",
+      "note": "an ad is a bill or advertisement poster; the 's means has"
+     },
+     {
+      "clueFragment": "Third letter",
+      "gives": "CEE",
+      "note": "cee is the spelt-out name of the third letter of the alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HICK",
+      "AD",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "A country yokel named Bill writes a third letter about his pet bird.",
+     "definitionFit": "The chickadee is a small North American songbird of the tit family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill's"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1152,73 @@
      }
     ]
    },
-   "solution": "DRIVETHRU"
+   "solution": "DRIVETHRU",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "DRIVE-THRU",
+    "definitions": [
+     {
+      "text": "source of 1",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several arrangements, so the letters are reordered"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying something means holding it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medic",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "setter's",
+      "gives": "IVE",
+      "note": "the setter says I've, short for I have"
+     },
+     {
+      "clueFragment": "hurt",
+      "gives": "HURT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "IVE",
+      "THRU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HURT",
+       "gives": "THRU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An injured doctor is carrying something the setter owns.",
+     "walkthrough": "The doctor and the rearranged injury together hold the setter's contraction in the middle.",
+     "definitionFit": "A drive-thru is a restaurant window serving customers in their cars, a common outlet for burgers and fries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hurt"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1232,51 @@
     "text": "'Large axe' cryptically represents a sport",
     "enumeration": "8"
    },
-   "solution": "LACROSSE"
+   "solution": "LACROSSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LACROSSE",
+    "definitions": [
+     {
+      "text": "a sport",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "cryptically represents"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "axe",
+      "gives": "ACROSSE",
+      "note": "read as A x E, with the x spoken as cross, as in multiplication"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ACROSSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A big axe stands in for a sporting stick.",
+     "walkthrough": "The letter x is read as the multiplication sign, called a cross.",
+     "definitionFit": "Lacrosse is a team game played with netted sticks to throw and catch a ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "axe"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1290,71 @@
     "text": "Goddesses start to notice anger rising for sure",
     "enumeration": "7"
    },
-   "solution": "ERINYES"
+   "solution": "ERINYES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ERINYES",
+    "definitions": [
+     {
+      "text": "Goddesses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue rising means read upwards, so backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notice",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "IRE",
+      "note": "ire is anger"
+     },
+     {
+      "clueFragment": "for sure",
+      "gives": "YES",
+      "note": "yes is an assent, as in for sure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERIN",
+      "YES"
+     ],
+     "reversals": [
+      {
+       "from": "NIRE",
+       "to": "ERIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Goddesses begin to see their fury mount, no doubt.",
+     "definitionFit": "The Erinyes are the Furies of Greek myth, avenging goddesses of the underworld."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1368,68 @@
     "text": "Goat briefly faces wind from east peninsula",
     "enumeration": "6"
    },
-   "solution": "IBERIA"
+   "solution": "IBERIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "IBERIA",
+    "definitions": [
+     {
+      "text": "peninsula",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter goes"
+     },
+     {
+      "text": "from east",
+      "for": "reversal",
+      "note": "travelling from east to west in an across clue means reading right to left"
+     }
+    ],
+    "linkWords": [
+     "faces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Goat",
+      "gives": "IBEX",
+      "note": "an ibex is a wild mountain goat"
+     },
+     {
+      "clueFragment": "wind",
+      "gives": "AIR",
+      "note": "a light wind is an air"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IBE",
+      "RIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mountain goat stands facing an easterly wind on a headland.",
+     "definitionFit": "The Iberian peninsula holds Spain and Portugal in southwest Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1443,63 @@
     "text": "Second person once with husband out cycling",
     "enumeration": "4"
    },
-   "solution": "THOU"
+   "solution": "THOU",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "THOU",
+    "definitions": [
+     {
+      "text": "Second person once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling moves round and round, so letters move from one end to the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "OUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOUT",
+       "gives": "THOU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man left alone while his husband is off on a bike ride.",
+     "walkthrough": "The final letter of the joined pieces moves round to the front.",
+     "definitionFit": "Thou is the archaic singular form of you, the second-person pronoun of older English."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1513,63 @@
     "text": "Asian having leader demoted on island country",
     "enumeration": "5"
    },
-   "solution": "HAITI"
+   "solution": "HAITI",
+   "annotation": {
+    "type": [
+     "cycling",
+     "charade"
+    ],
+    "answer": "HAITI",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having leader demoted",
+      "for": "cycling",
+      "note": "demoting the leader sends the first letter down to the bottom"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Asian",
+      "gives": "THAI",
+      "note": "a Thai is a person from Thailand"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIT",
+      "I"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THAI",
+       "gives": "HAIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Asian man whose chief was demoted moves to an island nation.",
+     "definitionFit": "Haiti is the Caribbean nation sharing the island of Hispaniola."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1583,53 @@
     "text": "Drug old man worsening after tattoo",
     "enumeration": "10"
    },
-   "solution": "PAINKILLER"
+   "solution": "PAINKILLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAINKILLER",
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old man",
+      "gives": "PA",
+      "note": "pa is father"
+     },
+     {
+      "clueFragment": "tattoo",
+      "gives": "INK",
+      "note": "ink is slang for tattoos"
+     },
+     {
+      "clueFragment": "worsening",
+      "gives": "ILLER",
+      "note": "iller means more sick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "INK",
+      "ILLER"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad's condition deteriorates after getting a tattoo.",
+     "walkthrough": "'After tattoo' places the worsening word behind the ink, with the old man ahead of both.",
+     "definitionFit": "A painkiller is a medicine that relieves pain, one kind of drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tattoo"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1643,60 @@
     "text": "Friend circumventing editor's clutch?",
     "enumeration": "5"
    },
-   "solution": "PEDAL"
+   "solution": "PEDAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEDAL",
+    "definitions": [
+     {
+      "text": "clutch?",
+      "at": 30,
+      "note": "an example, signalled by the question mark"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circumventing",
+      "for": "container",
+      "note": "circumventing means going around, so one piece encloses another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ed is the abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ED",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend gets round the editor's grip.",
+     "walkthrough": "'Clutch' suggests a grasp, but here it is the car control.",
+     "definitionFit": "A car's clutch is operated with a foot pedal, so it is one example of the class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clutch"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1710,61 @@
     "text": "Reinforced story implicating new Democrat",
     "enumeration": "5"
    },
-   "solution": "LINED"
+   "solution": "LINED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LINED",
+    "definitions": [
+     {
+      "text": "Reinforced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "implicating",
+      "for": "container",
+      "note": "implicating someone draws them in, so a letter is placed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a lie is a made-up story"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "N",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A shored-up tale drags a fresh Democrat into the scandal.",
+     "definitionFit": "A lined coat or box has an inner layer added, which strengthens or reinforces it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1788,39 @@
      }
     ]
    },
-   "solution": "FIVEADAY"
+   "solution": "FIVEADAY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FIVE-A-DAY",
+    "definitions": [
+     {
+      "text": "Better option than 1: 35 per week?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Better option than 1",
+      "note": "surface reading: a healthier choice than the junk meals at 1-across"
+     },
+     {
+      "clueFragment": "35 per week?",
+      "note": "setter's reading: thirty-five a week is seven days of the recommended daily count of fruit and vegetable portions"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The number looks like a statistic, but divided by seven days it gives the daily health target.",
+     "definitionFit": "Health guidance urges eating several portions of fruit and vegetables daily, the healthy alternative to burgers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "35"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1834,64 @@
     "text": "German on row with empty holy vessel",
     "enumeration": "6"
    },
-   "solution": "DINGHY"
+   "solution": "DINGHY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DINGHY",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "deletion",
+      "note": "emptying a word removes its insides, leaving only the outer letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "DIN",
+      "note": "a row is a loud noise, a din"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "holy",
+      "gives": "HOLY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIN",
+      "G",
+      "HY"
+     ]
+    },
+    "explanation": {
+     "surface": "A German rows a hollow sacred vessel.",
+     "walkthrough": "'Row' suggests oars, but it is a noisy quarrel; in an across clue 'German on row' puts the German after it.",
+     "definitionFit": "A dinghy is a small open boat, a kind of vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1905,54 @@
     "text": "Investigator mainly took what can be loaded",
     "enumeration": "6"
    },
-   "solution": "PISTOL"
+   "solution": "PISTOL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PISTOL",
+    "definitions": [
+     {
+      "text": "what can be loaded",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means most but not all, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Investigator",
+      "gives": "PI",
+      "note": "PI is a private investigator"
+     },
+     {
+      "clueFragment": "took",
+      "gives": "STOLE",
+      "note": "stole means took without permission"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "STOL"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective mostly took whatever could be packed up.",
+     "definitionFit": "A pistol is a handgun, and guns are loaded with ammunition before firing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "loaded"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1972,64 @@
      }
     ]
    },
-   "solution": "SPEEDSUP"
+   "solution": "SPEEDSUP",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "SPEEDS UP",
+    "definitions": [
+     {
+      "text": "gets quicker",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing an expanse means spanning it, so one piece goes around the other"
+     },
+     {
+      "text": "towards port",
+      "for": "reversal",
+      "note": "port is the left side of a ship, so the letters run leftwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cat",
+      "gives": "PUSS",
+      "note": "puss is an informal word for cat"
+     },
+     {
+      "clueFragment": "ocean",
+      "gives": "DEEP",
+      "note": "the deep is the ocean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPEEDSUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUSDEEPS",
+       "to": "SPEEDSUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's cat, making for harbour across the sea, picks up pace.",
+     "definitionFit": "To speed up is to accelerate, which is what gets quicker means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   }
  ]
 }
