@@ -73,6 +73,35 @@ check("a changed code key re-parses every file", run(), ([0, 9, 2], ["a-1", "b-2
 code_reach.key = key
 check("back on the first code, its rows are still stored", run(), ([0, 9, 2], []))
 
+# A row's key names its file as Path.resolve() would, though the names are
+# built from each folder resolved once: through a linked folder, a linked
+# file, a missing file, a `..`, and a file outside the root.
+import os
+linked = tmp / "linked"
+os.symlink(puzzle_paths.PUZZLE_DIR / "2020", linked)
+os.symlink(files[0], files[0].with_name("z-9.json"))
+for p in [files[0], linked / "01" / "a-1.json", files[0].with_name("z-9.json"), linked / "01" / "missing-1.json",
+          linked / "01" / ".." / "01" / "b-2.json", Path("tools/row_cache.py"), tmp]:
+    check(f"real({p})", puzzle_paths.real(p), str(p.resolve()))
+    for root in (puzzle_paths.PUZZLE_DIR, tmp / "linked", Path("/")):
+        try:
+            want = p.resolve().relative_to(root).as_posix()
+        except ValueError:
+            want = None
+        check(f"relative({p}, {root})", puzzle_paths.relative(p, root), want)
+check("a file through a linked folder is in the corpus", puzzle_paths.in_corpus(linked / "01" / "a-1.json"), True)
+check("a file beside the corpus is not", puzzle_paths.in_corpus(tmp / "rows.sqlite"), False)
+
+# difficulty.puzzle_blog_definitions reads only the puzzle's series' file of
+# blog facts, so every id in a file must be of that file's series.
+import difficulty
+import series as series_meta
+for f in sorted(difficulty.BLOG_FACTS.glob("*.json")):
+    with f.open("rb") as fh:
+        strays = {pid for line in fh if line.startswith(b'"')
+                  and series_meta.parse_id(pid := line[1:line.index(b'"', 1)].decode())[0] != f.stem}
+    check(f"ids of another series in {f.name}", sorted(strays)[:3], [])
+
 # Every tools/data path the cached functions reach must be in their keys:
 # blog facts and ninas through deps(), the lexicon and wordnet through salt.
 KEYED = {("fetch_puzzle", "BLOG_FACTS"), ("puzzle_tags", "NINAS"),
@@ -82,7 +111,7 @@ for module, roots in [("fetch_puzzle", {"index_row", "index_row_deps"}),
                       ("difficulty", {"clue_row", "clue_row_deps", "_load_clue_inputs"})]:
     for mod, name in code_reach.reach(module, roots):
         obj = getattr(__import__(mod), name, None)
-        if isinstance(obj, Path) and "data" in obj.parts and (mod, name) not in KEYED:
+        if isinstance(obj, Path) and obj.is_relative_to(Path("tools/data").resolve()) and (mod, name) not in KEYED:
             fails.append(f"{module} {sorted(roots)} reads {mod}.{name} ({obj}), which no row key covers")
 
 for f in fails:

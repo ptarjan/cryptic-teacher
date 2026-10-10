@@ -2754,9 +2754,11 @@ def index_row_deps(path, row):
     (tools/row_cache.py): the puzzle's blog facts, whether a blog found a
     nina in it, and the shim on disk, so a deleted or overwritten shim is
     written again."""
-    shim = shim_path(path)
-    return (blog_fact_hashes().get(row["id"]), row["id"] in puzzle_tags.blogged_ninas(),
-            hashlib.md5(shim.read_bytes()).hexdigest()[:8] if shim.exists() else None)
+    try:
+        shim = hashlib.md5(shim_path(path).read_bytes()).hexdigest()[:8]
+    except FileNotFoundError:
+        shim = None
+    return blog_fact_hashes().get(row["id"]), row["id"] in puzzle_tags.blogged_ninas(), shim
 
 
 def reprint_name(series, number):
