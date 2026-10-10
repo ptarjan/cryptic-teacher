@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Face endless people giving a stream of abuse",
     "enumeration": "8"
    },
-   "solution": "DIATRIBE"
+   "solution": "DIATRIBE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DIATRIBE",
+    "definitions": [
+     {
+      "text": "a stream of abuse",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "something without an end has lost its final letter, so the word for face is cut short"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Face",
+      "gives": "DIAL",
+      "note": "a dial is the face of a clock or watch"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "TRIBE",
+      "note": "a tribe is a people or clan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIA",
+      "TRIBE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confronting an endless crowd of people who are shouting insults at them.",
+     "definitionFit": "A diatribe is a bitter verbal attack, a torrent of abusive criticism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Face"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +100,56 @@
     "text": "Overshadows front of dry docks, we hear",
     "enumeration": "6"
    },
-   "solution": "DWARFS"
+   "solution": "DWARFS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "homophone",
+     "charade"
+    ],
+    "answer": "DWARFS",
+    "definitions": [
+     {
+      "text": "Overshadows",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter only"
+     },
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so the spelling follows the sound rather than the meaning"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dry",
+      "gives": "D",
+      "select": "first",
+      "note": "opening letter of dry"
+     },
+     {
+      "clueFragment": "docks",
+      "gives": "WARFS",
+      "soundsLike": "WHARFS",
+      "note": "wharfs are docks; said out loud they match this spelling"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone notices that a dry dock seems to tower over things.",
+     "definitionFit": "To dwarf something is to make it look small by comparison, i.e. to tower over it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "docks"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +163,49 @@
     "text": "Canadian showman and artist in capital",
     "enumeration": "6"
    },
-   "solution": "ANKARA"
+   "solution": "ANKARA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANKARA",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canadian showman",
+      "gives": "ANKA",
+      "note": "Paul Anka is a Canadian singer and entertainer"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANKA",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Canadian entertainer and a painter turn up together in a capital city.",
+     "definitionFit": "Ankara is the capital city of Turkey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "artist"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +219,67 @@
     "text": "Fellow lodgers are most fussy about order",
     "enumeration": "9"
    },
-   "solution": "ROOMMATES"
+   "solution": "ROOMMATES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROOMMATES",
+    "definitions": [
+     {
+      "text": "Fellow lodgers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fussy",
+      "for": "anagram",
+      "note": "fussy suggests fiddling about, so the letters are fiddled into a new arrangement"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged letters go round the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are most",
+      "gives": "AREMOST",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "OM",
+      "note": "OM is the Order of Merit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "OM",
+      "MATES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AREMOST",
+       "gives": "ROMATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People sharing lodgings are the most fussy about keeping things tidy.",
+     "walkthrough": "'Order' looks like tidiness but is the British honour, the Order of Merit.",
+     "definitionFit": "Roommates are people who share a room or lodging, i.e. fellow lodgers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +299,50 @@
      }
     ]
    },
-   "solution": "BRISTOLCREAM"
+   "solution": "BRISTOLCREAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRISTOL CREAM",
+    "definitions": [
+     {
+      "text": "Sherry",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "port",
+      "gives": "BRISTOL",
+      "note": "Bristol is a port city in south-west England"
+     },
+     {
+      "clueFragment": "the best",
+      "gives": "CREAM",
+      "note": "the cream is the best part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRISTOL",
+      "CREAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Sherry and port are named the best fortified wines.",
+     "walkthrough": "'Port' looks like the wine alongside sherry, but it is a harbour city.",
+     "definitionFit": "Harveys Bristol Cream is a well-known brand of sweet cream sherry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +356,39 @@
     "text": "Locksmith?",
     "enumeration": "6"
    },
-   "solution": "BARBER"
+   "solution": "BARBER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BARBER",
+    "definitions": [
+     {
+      "text": "Locksmith?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Locksmith?",
+      "note": "surface reading: a tradesman who makes and repairs locks for doors"
+     },
+     {
+      "clueFragment": "Locksmith?",
+      "note": "setter's reading: someone who works on locks of hair, cutting them for a living"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark warns that 'lock' is not the door kind: a lock is also a tress of hair, and a smith is a worker.",
+     "definitionFit": "A man's hairdresser trims locks of hair, so he is playfully a smith of locks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Locksmith"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +402,53 @@
     "text": "A help in translation of a letter in Hebrew",
     "enumeration": "5"
    },
-   "solution": "ALEPH"
+   "solution": "ALEPH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALEPH",
+    "definitions": [
+     {
+      "text": "a letter in Hebrew",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in translation",
+      "for": "anagram",
+      "note": "translating turns words into a different form, so these letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A help",
+      "gives": "AHELP",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHELP",
+       "gives": "ALEPH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A translation aid for reading a letter written in Hebrew.",
+     "definitionFit": "Aleph is the first letter of the Hebrew alphabet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "translation"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +462,46 @@
     "text": "Bonnet and boot",
     "enumeration": "8"
    },
-   "solution": "BALMORAL"
+   "solution": "BALMORAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BALMORAL",
+    "definitions": [
+     {
+      "text": "Bonnet",
+      "at": 0
+     },
+     {
+      "text": "boot",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bonnet",
+      "note": "first meaning: a flat Scottish brimless cap"
+     },
+     {
+      "clueFragment": "boot",
+      "note": "second meaning: a heavy laced walking boot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bonnet and boot' suggests the front and back of a car; both are items of clothing named after the royal estate in Scotland.",
+     "definitionFit": "Both a Scottish cap and a style of laced boot take their name from the royal castle in Aberdeenshire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bonnet"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +515,46 @@
     "text": "Aide-memoire concerning bodyguard",
     "enumeration": "8"
    },
-   "solution": "REMINDER"
+   "solution": "REMINDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMINDER",
+    "definitions": [
+     {
+      "text": "Aide-memoire",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "bodyguard",
+      "gives": "MINDER",
+      "note": "a minder is a bodyguard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MINDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A memo note about someone's personal protection officer.",
+     "definitionFit": "An aide-memoire is a note to jog the memory, which is what a reminder does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concerning"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +578,49 @@
      }
     ]
    },
-   "solution": "ASKFORIT"
+   "solution": "ASKFORIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASK FOR IT",
+    "definitions": [
+     {
+      "text": "invite trouble",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Request to see",
+      "gives": "ASKFOR",
+      "note": "to ask for someone is to request to see them"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "IT is the standard abbreviation for Italian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASKFOR",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking to meet an Italian is presented as a way of courting trouble.",
+     "definitionFit": "To ask for it is an idiom for behaving so as to provoke the trouble that follows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Italian"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +634,50 @@
     "text": "Plot to strike causes a state of uproar",
     "enumeration": "6"
    },
-   "solution": "BEDLAM"
+   "solution": "BEDLAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEDLAM",
+    "definitions": [
+     {
+      "text": "a state of uproar",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plot",
+      "gives": "BED",
+      "note": "a plot of garden ground, as in a flower bed"
+     },
+     {
+      "clueFragment": "to strike",
+      "gives": "LAM",
+      "note": "to lam is an informal verb for to beat or thrash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BED",
+      "LAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A plan for an industrial strike that throws everything into chaos.",
+     "walkthrough": "'Plot' suggests a conspiracy, but it is a patch of garden.",
+     "definitionFit": "Bedlam, named from a London madhouse, means scenes of wild noisy confusion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plot"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +697,69 @@
      }
     ]
    },
-   "solution": "BUSTERKEATON"
+   "solution": "BUSTERKEATON",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BUSTER KEATON",
+    "definitions": [
+     {
+      "text": "US actor/director",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked",
+      "for": "anagram",
+      "note": "worked means kneaded or shaped, so the letters are reshaped"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1988 British film",
+      "gives": "BUSTER",
+      "note": "Buster is a 1988 British film starring Phil Collins"
+     },
+     {
+      "clueFragment": "Kate",
+      "gives": "KATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUSTER",
+      "KEATON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KATEON",
+       "gives": "KEATON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American filmmaker's 1988 British picture that an actress called Kate worked on.",
+     "walkthrough": "'Worked on' looks like one phrase, but 'on' is part of the letters to rearrange.",
+     "definitionFit": "Buster Keaton was an American silent-film comedian who also directed his films."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worked"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +773,54 @@
     "text": "Drink after Foreign Office meeting",
     "enumeration": "5"
    },
-   "solution": "FORUM"
+   "solution": "FORUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORUM",
+    "definitions": [
+     {
+      "text": "meeting",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "following tells us the drink is placed behind the department's initials"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foreign Office",
+      "gives": "FO",
+      "note": "FO is the abbreviation for the Foreign Office"
+     },
+     {
+      "clueFragment": "Drink",
+      "gives": "RUM",
+      "note": "rum is a spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FO",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Diplomats have a drink once their Foreign Office meeting is over.",
+     "walkthrough": "The Foreign Office is the British government department for overseas affairs.",
+     "definitionFit": "A forum is an assembly or gathering for public discussion of issues."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drink"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +834,43 @@
     "text": "Try to land",
     "enumeration": "9"
    },
-   "solution": "TOUCHDOWN"
+   "solution": "TOUCHDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOUCHDOWN",
+    "definitions": [
+     {
+      "text": "Try",
+      "at": 0
+     },
+     {
+      "text": "to land",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "note": "first meaning: a score in American football, akin to a rugby try"
+     },
+     {
+      "clueFragment": "to land",
+      "note": "second meaning: an aircraft's arrival on the runway"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Try to land' reads like an attempt at landing; split it into a scoring term and a noun for an aircraft landing.",
+     "definitionFit": "In rugby a try is grounding the ball, also called a touchdown, and a plane's landing is its touchdown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Try"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +898,54 @@
      }
     ]
    },
-   "solution": "ATALATERDATE"
+   "solution": "ATALATERDATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AT A LATER DATE",
+    "definitions": [
+     {
+      "text": "not now",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "High",
+      "for": "anagram",
+      "note": "high can mean intoxicated, and an addled state scrambles the order of what follows"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea - treat a lad",
+      "gives": "TEATREATALAD",
+      "note": "the twelve letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEATREATALAD",
+       "gives": "ATALATERDATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone promises a boy a high tea as a treat, but just not today.",
+     "walkthrough": "'High tea' looks like a single phrase, a British early-evening meal, but 'High' is detached as the anagram signal.",
+     "definitionFit": "At a later date means at some future time, i.e. postponed rather than happening now."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "High"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +959,57 @@
     "text": "Self-control shown by others surrounding coach",
     "enumeration": "9"
    },
-   "solution": "RESTRAINT"
+   "solution": "RESTRAINT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESTRAINT",
+    "definitions": [
+     {
+      "text": "Self-control",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "surrounding means going all round, so one word encloses the other"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "others",
+      "gives": "REST",
+      "note": "the rest means the others"
+     },
+     {
+      "clueFragment": "coach",
+      "gives": "TRAIN",
+      "note": "to coach is to train"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "TRAIN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The other players show composure around their coach.",
+     "definitionFit": "Restraint is holding oneself back, the exercise of self-control."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coach"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1023,46 @@
     "text": "Frank's flat",
     "enumeration": "8"
    },
-   "solution": "STRAIGHT"
+   "solution": "STRAIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAIGHT",
+    "definitions": [
+     {
+      "text": "Frank",
+      "at": 0
+     },
+     {
+      "text": "flat",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frank",
+      "note": "first meaning: honest and direct"
+     },
+     {
+      "clueFragment": "flat",
+      "note": "second meaning: level, without curves"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Frank's flat' reads as a man's apartment; both words are adjectives.",
+     "definitionFit": "Straight describes a candid, honest person and also a line or surface with no bends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1082,52 @@
      }
     ]
    },
-   "solution": "TOOLEDUP"
+   "solution": "TOOLEDUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOOLED UP",
+    "definitions": [
+     {
+      "text": "Carrying a gun",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as well",
+      "gives": "TOO",
+      "note": "too means as well"
+     },
+     {
+      "clueFragment": "was first",
+      "gives": "LED",
+      "note": "to have led is to have been first"
+     },
+     {
+      "clueFragment": "in court",
+      "gives": "UP",
+      "note": "to be up before a judge is to appear in court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOO",
+      "LED",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A defendant who was carrying a firearm too was first to appear before the court.",
+     "definitionFit": "Tooled up is slang for armed, especially with a gun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1147,48 @@
      }
     ]
    },
-   "solution": "TROUSERPRESS"
+   "solution": "TROUSERPRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TROUSER PRESS",
+    "definitions": [
+     {
+      "text": "found in a hotel room, perhaps",
+      "at": 23,
+      "note": "descriptive phrase standing for the thing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appropriate",
+      "gives": "TROUSER",
+      "note": "to trouser is slang for pocketing or appropriating money"
+     },
+     {
+      "clueFragment": "newspapers",
+      "gives": "PRESS",
+      "note": "the press means newspapers collectively"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROUSER",
+      "PRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A guest helps themself to newspapers lying about in a hotel room.",
+     "walkthrough": "'Appropriate' looks like the adjective meaning suitable but is the verb meaning to take.",
+     "definitionFit": "A trouser press, a device for flattening trousers, is a typical fitting supplied in British hotel rooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Appropriate"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1208,55 @@
      }
     ]
    },
-   "solution": "HAVEON"
+   "solution": "HAVEON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HAVE ON",
+    "definitions": [
+     {
+      "text": "Wear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first item inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "port",
+      "gives": "HAVEN",
+      "note": "a haven is a harbour"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAVE",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors going naked while in harbour.",
+     "definitionFit": "To have something on is to be wearing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1270,55 @@
     "text": "Figure country must import uranium",
     "enumeration": "6"
    },
-   "solution": "STATUE"
+   "solution": "STATUE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STATUE",
+    "definitions": [
+     {
+      "text": "Figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must import",
+      "for": "container",
+      "note": "to import is to bring inside, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "STATE",
+      "note": "a state is a country"
+     },
+     {
+      "clueFragment": "uranium",
+      "gives": "U",
+      "note": "U is the chemical symbol for uranium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAT",
+      "U",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation is obliged to bring in uranium, according to some figure.",
+     "walkthrough": "'Figure' sounds like a number, but it is a sculpted form.",
+     "definitionFit": "A statue is a sculpted figure of a person or animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1338,49 @@
      }
     ]
    },
-   "solution": "ALLSQUARE"
+   "solution": "ALLSQUARE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALL SQUARE",
+    "definitions": [
+     {
+      "text": "Level",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "complete",
+      "gives": "ALL",
+      "note": "all means whole or complete"
+     },
+     {
+      "clueFragment": "stick-in-the-mud",
+      "gives": "SQUARE",
+      "note": "a square is a conventional, old-fashioned person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "SQUARE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is on equal terms with a thoroughly dull, conservative type.",
+     "definitionFit": "All square means evenly matched, with scores tied, as in sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Level"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1394,65 @@
     "text": "Refer to short cut taken by tortoise at the end",
     "enumeration": "5"
    },
-   "solution": "QUOTE"
+   "solution": "QUOTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "QUOTE",
+    "definitions": [
+     {
+      "text": "Refer to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means lacking its final part, so the last letter is dropped"
+     },
+     {
+      "text": "at the end",
+      "for": "letter_selection",
+      "note": "at the end points to the final letter of the word only"
+     }
+    ],
+    "linkWords": [
+     "taken by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "QUOTA",
+      "note": "a cut is a share, a quota"
+     },
+     {
+      "clueFragment": "tortoise",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of tortoise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUOT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Mentioning the tortoise that took a short cut to win the race at the finish.",
+     "walkthrough": "'Short cut' looks like a quicker route; read 'cut' as a share and 'short' as clipping it.",
+     "definitionFit": "To quote a source is to cite or refer to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1466,54 @@
     "text": "Take it on before performance",
     "enumeration": "5"
    },
-   "solution": "REACT"
+   "solution": "REACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REACT",
+    "definitions": [
+     {
+      "text": "Take it",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "placed ahead of tells us the first piece comes in front of the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "performance",
+      "gives": "ACT",
+      "note": "an act is a stage performance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor agrees to take on a role ahead of the show.",
+     "walkthrough": "'Take it on' looks like one phrase; split it after 'it', as in asking how someone took the news.",
+     "definitionFit": "How someone takes something is how they respond to it, so to take it is to respond."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1527,53 @@
     "text": "I'd gone out for a Bible",
     "enumeration": "6"
    },
-   "solution": "GIDEON"
+   "solution": "GIDEON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GIDEON",
+    "definitions": [
+     {
+      "text": "a Bible",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or disordered, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'd gone",
+      "gives": "IDGONE",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IDGONE",
+       "gives": "GIDEON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains they had gone out to fetch a Bible.",
+     "definitionFit": "A Gideon is a Bible placed in hotel rooms by the Gideons International organisation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1587,46 @@
     "text": "Small ballistic missile, shrill",
     "enumeration": "8"
    },
-   "solution": "STRIDENT"
+   "solution": "STRIDENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRIDENT",
+    "definitions": [
+     {
+      "text": "shrill",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "ballistic missile",
+      "gives": "TRIDENT",
+      "note": "Trident is a submarine-launched ballistic missile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRIDENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A little rocket that screams as it flies.",
+     "definitionFit": "A strident voice or sound is loud, harsh and grating, much like a shrill one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1640,54 @@
     "text": "Drunkard clutching soft hat",
     "enumeration": "6"
    },
-   "solution": "TOPPER"
+   "solution": "TOPPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOPPER",
+    "definitions": [
+     {
+      "text": "hat",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clutching",
+      "for": "container",
+      "note": "to clutch is to hold within one's grasp, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drunkard",
+      "gives": "TOPER",
+      "note": "a toper is a habitual drinker"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p is piano, the musical direction for soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOP",
+      "P",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk clinging on to his floppy hat.",
+     "definitionFit": "A topper is a top hat, a tall formal hat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1701,49 @@
     "text": "Batting posture is a case in point",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSTANCE",
+    "definitions": [
+     {
+      "text": "a case in point",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Batting",
+      "gives": "IN",
+      "note": "a cricket side batting is in"
+     },
+     {
+      "clueFragment": "posture",
+      "gives": "STANCE",
+      "note": "a stance is the way one stands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman's posture at the crease is offered as a typical example.",
+     "definitionFit": "An instance is an example of something, which is what a case in point is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Batting"
+    }
+   }
   }
  ]
 }
