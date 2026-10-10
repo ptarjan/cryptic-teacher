@@ -517,4 +517,34 @@ t = F.run(d / 'cache', ledger=d / 'filed.jsonl', out=io.StringIO(), puzzles=d / 
 print(t.get('not read'), len((d / 'filed.jsonl').read_text().splitlines()))")
 check "an --article run counts the never-read articles beside it" "2 1" "$got"
 
+# input_hash stats an unmoved article dir's files once; a file replaced by
+# rename (fetch_trove.atomic) or a new zone image moves the hash (mirror).
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F, os, time, pathlib, tempfile
+c = pathlib.Path(tempfile.mkdtemp()) / 'cache'
+d = c / '42'
+d.mkdir(parents=True)
+(c.parent / 'cache-clues' / '42').mkdir(parents=True)
+(d / 'ocr.txt').write_text('a')
+def settle():
+    for p in (d, c.parent / 'cache-clues' / '42'):
+        os.utime(p, (time.time() - 600, time.time() - 600))
+settle()
+first = F.input_hash(d)
+stats = []
+real = F.os.stat
+F.os.stat = lambda p, *a, **k: (stats.append(pathlib.Path(p).name), real(p, *a, **k))[1]
+again = F.input_hash(d)
+F.os.stat = real
+(d / 'tmp').write_text('bb')
+os.utime(d / 'tmp', (1, 1))
+os.replace(d / 'tmp', d / 'ocr.txt')
+settle()
+renamed = F.input_hash(d)
+(c.parent / 'cache-clues' / '42' / 'zone1.png').write_bytes(b'')
+settle()
+zoned = F.input_hash(d)
+print(first == again, [n for n in stats if n != '42'], renamed != first, zoned != renamed)")
+check "input_hash: an unmoved article is not statted again; a renamed-in file or new zone moves it" "True [] True True" "$got"
+
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
