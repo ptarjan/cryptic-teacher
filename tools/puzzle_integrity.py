@@ -1123,15 +1123,30 @@ def _alpha(s):
 SEE_PREAMBLE = re.compile(r"(?i)\bsee (?:the )?preamble\b")
 
 
+#: A fifteensquared Azed post names a special after its number
+#: (".../azed-no-2566-playfair/"); a plain puzzle's slug says "plain" or
+#: nothing besides its competition and Christmas tags.
+AZED_SPECIAL = re.compile(r"azed-no-?\d+-([a-z-]+?)/?$")
+AZED_PLAIN_WORDS = {"plain", "competition", "puzzle", "christmas"}
+
+
+def special_without_preamble(puzzle):
+    """An Azed special filed from its blog post, which never quotes the
+    preamble its clues are written against."""
+    m = AZED_SPECIAL.search((puzzle.get("source") or {}).get("url") or "")
+    return puzzle.get("series") == "azed" and bool(m) and bool(set(m.group(1).split("-")) - AZED_PLAIN_WORDS)
+
+
 def awaits_preamble(puzzle):
-    """Whether a clue says "see preamble" and the puzzle holds none. Such a
-    puzzle stays in the corpus (its clues are all it must have) but no
-    annotator is sent it: the clue cannot be explained without the preamble.
-    The index row carries it as `awaitsPreamble`, which both annotation pickers
+    """Whether the puzzle needs a preamble it does not hold: a clue says
+    "see preamble", or it is a special filed without one. Such a puzzle stays
+    in the corpus (its clues are all it must have) but no annotator is sent
+    it: its clues cannot be explained without the preamble. The index row
+    carries it as `awaitsPreamble`, which both annotation pickers
     (tools/daily_update.sh, tools/prereset_plan.backlog) read."""
-    return not puzzle.get("preamble") and any(
+    return not puzzle.get("preamble") and (special_without_preamble(puzzle) or any(
         SEE_PREAMBLE.search((e.get("clue") or {}).get("text") or "")
-        for e in puzzle.get("entries") or [])
+        for e in puzzle.get("entries") or []))
 
 
 def check_preamble(puzzle, flags):
