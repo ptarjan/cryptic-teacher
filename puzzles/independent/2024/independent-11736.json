@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Musical style of women in second century",
     "enumeration": "6"
    },
-   "solution": "MOTOWN"
+   "solution": "MOTOWN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MOTOWN",
+    "definitions": [
+     {
+      "text": "Musical style",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it, so the women go within the time words"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "century",
+      "gives": "TON",
+      "note": "a ton is a hundred, as in a century at cricket"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "W is the standard abbreviation for women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "TO",
+      "W",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A music critic notes a style of the women performers of the second century.",
+     "walkthrough": "Mo for a moment and ton for a hundred are both everyday British slang.",
+     "definitionFit": "Motown is the Detroit soul sound named after the record label that created it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,42 @@
     "text": "Moderate ingredient of cottage pie",
     "enumeration": "5"
    },
-   "solution": "MINCE"
+   "solution": "MINCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MINCE",
+    "definitions": [
+     {
+      "text": "Moderate",
+      "at": 0
+     },
+     {
+      "text": "ingredient of cottage pie",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moderate",
+      "note": "first meaning: to soften words, as in not mincing one's words"
+     },
+     {
+      "clueFragment": "ingredient of cottage pie",
+      "note": "second meaning: ... meat; cottage pie is ... beef topped with mashed potato"
+     }
+    ],
+    "explanation": {
+     "surface": "A cook adds a moderate amount of one ingredient to a pie.",
+     "definitionFit": "To mince words is to tone them down, and minced beef fills a cottage pie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Moderate"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +157,44 @@
     "text": "On heat, bother male bears",
     "enumeration": "7"
    },
-   "solution": "THERMAL"
+   "solution": "THERMAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THERMAL",
+    "definitions": [
+     {
+      "text": "On heat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bears",
+      "for": "hidden_word",
+      "note": "to bear is to carry, so the words carry the solution within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bother male",
+      "gives": "THERMAL",
+      "note": "runs across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An animal in season irritates the males.",
+     "walkthrough": "'On heat' suggests an animal in season; read it as 'concerning heat'.",
+     "definitionFit": "Thermal means relating to or concerned with temperature and warmth, which 'on' in the sense of about covers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "heat"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +208,70 @@
     "text": "Bird dropping left in full-length Disney film on wigeons, initially",
     "enumeration": "9"
    },
-   "solution": "WATERFOWL"
+   "solution": "WATERFOWL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "WATERFOWL",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping left",
+      "for": "anagram",
+      "note": "in a down answer, dropping the left letter lets it fall to the bottom, so the order changes"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of each word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "full-length Disney",
+      "gives": "WALTER",
+      "note": "Walt Disney's name in full is Walter"
+     },
+     {
+      "clueFragment": "film on wigeons",
+      "gives": "FOW",
+      "select": "first",
+      "note": "the initials of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WATERFOWL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WALTERFOW",
+       "gives": "WATERFOWL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird's dropping lands on a Disney cartoon about ducks.",
+     "walkthrough": "'Full-length' does not describe a film: it asks for Walt's full first name. Its L (left) drops down to the bottom of the answer, below the initials.",
+     "definitionFit": "Waterfowl are swimming birds such as ducks, geese and wigeon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +285,67 @@
     "text": "Assurance from a percussionist looking over Mozart and Beethoven's overtures",
     "enumeration": "6"
    },
-   "solution": "APLOMB"
+   "solution": "APLOMB",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "APLOMB",
+    "definitions": [
+     {
+      "text": "Assurance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overtures",
+      "for": "letter_selection",
+      "note": "an overture opens a piece, so each word gives only its opening letter"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "percussionist looking over Mozart",
+      "gives": "PLOM",
+      "select": "first",
+      "note": "the first letters of these four words"
+     },
+     {
+      "clueFragment": "Beethoven",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of the composer's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PLOM",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A drummer peers at scores of Mozart and Beethoven overtures with calm confidence.",
+     "walkthrough": "'Overtures' looks like the musical pieces, but it picks the first letter of every word from 'percussionist' to 'Beethoven', skipping the joining 'and'; the A is kept whole.",
+     "definitionFit": "Aplomb is self-possession and poise, the same as assurance in a difficult situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "overtures"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +359,52 @@
     "text": "Climber supports promoting people in toilet",
     "enumeration": "5"
    },
-   "solution": "PRIVY"
+   "solution": "PRIVY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRIVY",
+    "definitions": [
+     {
+      "text": "toilet",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "supports",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promoting people",
+      "gives": "PR",
+      "note": "PR, public relations, are the people who promote a client"
+     },
+     {
+      "clueFragment": "Climber",
+      "gives": "IVY",
+      "note": "ivy is a climbing plant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "IVY"
+     ]
+    },
+    "explanation": {
+     "surface": "A climbing plant props up the people doing publicity in a lavatory.",
+     "walkthrough": "In a down answer, a thing that supports another sits beneath it, so the climber comes second.",
+     "definitionFit": "A privy is an outdoor lavatory, an old-fashioned word for a toilet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Climber"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +418,65 @@
     "text": "Late, shortened meeting with head of broadcasting to make new recording",
     "enumeration": "7"
    },
-   "solution": "OVERDUB"
+   "solution": "OVERDUB",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OVERDUB",
+    "definitions": [
+     {
+      "text": "make new recording",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortened",
+      "for": "deletion",
+      "note": "a shortened word has its last letter cut off"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "meeting with",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Late",
+      "gives": "OVERDUE",
+      "note": "overdue means late"
+     },
+     {
+      "clueFragment": "broadcasting",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of broadcasting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERDU",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A late, cut-short meeting with the head of broadcasting about a new recording.",
+     "definitionFit": "To overdub is to record new sound over an existing track, laying a fresh recording on top."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "meeting"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +490,65 @@
     "text": "Prohibits discussion about base in plant stem",
     "enumeration": "9"
    },
-   "solution": "BEANSTALK"
+   "solution": "BEANSTALK",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BEANSTALK",
+    "definitions": [
+     {
+      "text": "plant stem",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first word goes around the next"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prohibits",
+      "gives": "BANS",
+      "note": "bans means prohibits"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms"
+     },
+     {
+      "clueFragment": "discussion",
+      "gives": "TALK",
+      "note": "talk is discussion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "E",
+      "ANS",
+      "TALK"
+     ]
+    },
+    "explanation": {
+     "surface": "An order stops any discussion of a military base set in a plant stem.",
+     "walkthrough": "E, the mathematical constant used as the base of natural logs, goes inside BANS.",
+     "definitionFit": "A beanstalk is the stem of a bean plant, famous from Jack's fairy tale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +568,58 @@
      }
     ]
    },
-   "solution": "INDEPTH"
+   "solution": "INDEPTH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "IN-DEPTH",
+    "definitions": [
+     {
+      "text": "Thorough",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removal of just over half",
+      "for": "deletion",
+      "note": "taking away slightly more than half a word leaves only its first few letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "us",
+      "gives": "INDEPENDENT",
+      "note": "the newspaper speaking of itself: we are the Independent"
+     },
+     {
+      "clueFragment": "Thursday",
+      "gives": "TH",
+      "note": "Th is the abbreviation for Thursday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDEP",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim note about a thorough purge of more than half the population of us by Thursday.",
+     "walkthrough": "The setter's 'us' is the Independent newspaper the puzzle appears in; dropping its last six of eleven letters leaves INDEP.",
+     "definitionFit": "An in-depth study is detailed and comprehensive, which is what thorough means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "us"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +633,62 @@
     "text": "Real drunk, real drunk",
     "enumeration": "7"
    },
-   "solution": "LITERAL"
+   "solution": "LITERAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "LITERAL",
+    "definitions": [
+     {
+      "text": "Real",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "something drunk staggers about, so the word before it is jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "LIT",
+      "note": "lit is slang for intoxicated"
+     },
+     {
+      "clueFragment": "real",
+      "gives": "ERAL",
+      "note": "these four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "ERAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REAL",
+       "gives": "ERAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A repetitive slurred phrase, like someone insisting they are properly drunk.",
+     "walkthrough": "The repeated pair works differently each time: the first 'Real' is the definition and the first 'drunk' gives LIT, then the second 'drunk' tells you to rearrange the second 'real'.",
+     "definitionFit": "The literal meaning is the actual, factual one, so literal can mean real rather than figurative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +702,48 @@
     "text": "Duke insecure in market town",
     "enumeration": "9"
    },
-   "solution": "DUNSTABLE"
+   "solution": "DUNSTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUNSTABLE",
+    "definitions": [
+     {
+      "text": "market town",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     },
+     {
+      "clueFragment": "insecure",
+      "gives": "UNSTABLE",
+      "note": "unstable means insecure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "UNSTABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous duke ill at ease in a country town.",
+     "definitionFit": "Dunstable is a market town in Bedfordshire, England, on the old Roman road Watling Street."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +763,67 @@
      }
     ]
    },
-   "solution": "REDMERCURY"
+   "solution": "REDMERCURY",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "RED MERCURY",
+    "definitions": [
+     {
+      "text": "Fake metal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so the dish takes the next word inside it"
+     },
+     {
+      "text": "to move right forward",
+      "for": "anagram",
+      "note": "the letter for right shifts to an earlier spot, so the order of the letters changes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dish from Thailand",
+      "gives": "REDCURRY",
+      "note": "red curry is a classic Thai dish"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "ME",
+      "RCURY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CURRY",
+       "gives": "RCURY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Thai dish, a supposedly inspiring meal, sends a diner straight to the front.",
+     "walkthrough": "The R that moves is the first R of the curry, jumping ahead of its C. Red mercury is a hoax substance, claimed in arms-trade scams to be a nuclear material.",
+     "definitionFit": "Red mercury is a fictitious material sold in frauds, so it is a fake metal in the plainest sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +837,60 @@
     "text": "Hell-hole's opening for sexy person",
     "enumeration": "4"
    },
-   "solution": "DISH"
+   "solution": "DISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DISH",
+    "definitions": [
+     {
+      "text": "sexy person",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hell",
+      "gives": "DIS",
+      "note": "Dis is the classical underworld, or Dante's city of Hell"
+     },
+     {
+      "clueFragment": "hole's",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of hole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A bawdy line about a dive being the place for a sexy pick-up.",
+     "walkthrough": "The clue pairs with 13 across, which repeats the opening words with a different parse.",
+     "definitionFit": "Dish is informal slang for a sexually attractive person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +904,51 @@
     "text": "Hell-hole's opening for normal person",
     "enumeration": "5"
    },
-   "solution": "HELLO"
+   "solution": "HELLO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HELLO",
+    "definitions": [
+     {
+      "text": "opening for normal person",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hell",
+      "gives": "HELL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hole",
+      "gives": "O",
+      "note": "the letter O is shaped like a hole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HELL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A twin of the previous clue, now about a dive being the opening for an ordinary person.",
+     "walkthrough": "After 12 across, the solver expects 'opening' to pick a letter again; here it belongs to the definition, the plain greeting a normal person begins with, in contrast to the chat-up line.",
+     "definitionFit": "A greeting is how an ordinary conversation is opened, so the common salutation is a normal person's opener."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +962,72 @@
     "text": "Quack doctor in love with Patricia Hodge's top",
     "enumeration": "9"
    },
-   "solution": "HOMEOPATH"
+   "solution": "HOMEOPATH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HOMEOPATH",
+    "definitions": [
+     {
+      "text": "Quack doctor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "the top of a down entry's word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "HOME",
+      "note": "being in is being at home"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, the letter O"
+     },
+     {
+      "clueFragment": "Patricia",
+      "gives": "PAT",
+      "note": "Pat is short for Patricia"
+     },
+     {
+      "clueFragment": "Hodge",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of the surname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOME",
+      "O",
+      "PAT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor falls for the actress Patricia Hodge, starting with her top.",
+     "walkthrough": "Patricia Hodge is a British actress; only her first name and her surname's initial are used.",
+     "definitionFit": "Homeopathy is widely regarded as pseudoscience, so its practitioner is called a quack by sceptics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1041,65 @@
     "text": "Photographed guards with snake in parade",
     "enumeration": "8"
    },
-   "solution": "SHOWBOAT"
+   "solution": "SHOWBOAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SHOWBOAT",
+    "definitions": [
+     {
+      "text": "parade",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guards",
+      "for": "container",
+      "note": "guards surround what they protect, so the first word wraps the next ones"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Photographed",
+      "gives": "SHOT",
+      "note": "shot means photographed, as in shot on film"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "BOA",
+      "note": "a boa is a constrictor snake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHO",
+      "W",
+      "BOA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A news photo of guards with a snake taking part in a parade.",
+     "walkthrough": "'Parade' looks like a noun for the march, but it is a verb: to flaunt.",
+     "definitionFit": "To showboat is to show off, a verb meaning to parade one's abilities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parade"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1123,39 @@
      }
     ]
    },
-   "solution": "ONTHENOSE"
+   "solution": "ONTHENOSE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ON THE NOSE",
+    "definitions": [
+     {
+      "text": "Exactly where to find bridge?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exactly",
+      "note": "surface reading: precisely right, the location of a bridge or a card game"
+     },
+     {
+      "clueFragment": "where to find bridge?",
+      "note": "setter's reading: the bridge is the bony ridge at the top of the face's central feature"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase means exactly, and the bridge in question is anatomical, not a river crossing or the card game.",
+     "definitionFit": "The idiom for precisely right literally names the place where the bony bridge of the face sits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1169,72 @@
     "text": "Speechless, scratching head regarding everything about protective cover",
     "enumeration": "8"
    },
-   "solution": "UMBRELLA"
+   "solution": "UMBRELLA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "UMBRELLA",
+    "definitions": [
+     {
+      "text": "protective cover",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratching head",
+      "for": "deletion",
+      "note": "scratching off a head removes the front letter of the word"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about faces the word the other way, so it reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speechless",
+      "gives": "DUMB",
+      "note": "dumb means unable to speak"
+     },
+     {
+      "clueFragment": "regarding",
+      "gives": "RE",
+      "note": "re means regarding, on business letters"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UMB",
+      "RE",
+      "LLA"
+     ],
+     "reversals": [
+      {
+       "from": "ALL",
+       "to": "LLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stunned into silence, scratching their head over a whole question of protection.",
+     "definitionFit": "An umbrella is a canopy that shields from rain, and figuratively any overarching protection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scratching"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1248,50 @@
     "text": "Surprisingly precise instructions for dinner?",
     "enumeration": "7"
    },
-   "solution": "RECIPES"
+   "solution": "RECIPES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RECIPES",
+    "definitions": [
+     {
+      "text": "instructions for dinner?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Surprisingly",
+      "for": "anagram",
+      "note": "a surprising result comes out unexpectedly, so the letters turn up in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "precise",
+      "gives": "PRECISE",
+      "note": "these letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRECISE",
+       "gives": "RECIPES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cooking directions that are, for once, unexpectedly exact.",
+     "definitionFit": "Recipes are step-by-step directions for cooking a dish, with the question mark marking dinner as one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Surprisingly"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1305,51 @@
     "text": "City in Thailand and city in Russia",
     "enumeration": "5"
    },
-   "solution": "TOMSK"
+   "solution": "TOMSK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOMSK",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thailand",
+      "gives": "T",
+      "note": "T is the international vehicle registration code for Thailand"
+     },
+     {
+      "clueFragment": "city in Russia",
+      "gives": "OMSK",
+      "note": "Omsk is a large Siberian city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OMSK"
+     ]
+    },
+    "explanation": {
+     "surface": "A geography quiz pairing a Thai city with a Russian one.",
+     "walkthrough": "The surface suggests two separate cities; in fact 'City' is the definition and Thailand plus a Russian city build it, which is confusing since the answer too is in Russia.",
+     "definitionFit": "Tomsk is a Siberian city on the Tom river, a university centre in western Siberia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Thailand"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1363,62 @@
     "text": "Artist's friend cuddling missus regularly",
     "enumeration": "7"
    },
-   "solution": "MATISSE"
+   "solution": "MATISSE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "MATISSE",
+    "definitions": [
+     {
+      "text": "Artist's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuddling",
+      "for": "container",
+      "note": "cuddling wraps arms around someone, so the first word goes round the letters that follow"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, picking every other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "MATE",
+      "note": "a mate is a friend"
+     },
+     {
+      "clueFragment": "missus",
+      "gives": "ISS",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAT",
+      "ISS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter's pal hugs his wife now and then.",
+     "walkthrough": "Missus is British slang for a wife. 'Artist's' reads as 'the artist is', not a possessive.",
+     "definitionFit": "Henri Matisse was the French painter at the heart of Fauvism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "missus"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1432,58 @@
     "text": "Hill climber's first to display necklace",
     "enumeration": "4"
    },
-   "solution": "TORC"
+   "solution": "TORC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TORC",
+    "definitions": [
+     {
+      "text": "necklace",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its initial letter"
+     }
+    ],
+    "linkWords": [
+     "to display"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hill",
+      "gives": "TOR",
+      "note": "a tor is a rocky hill, as on Dartmoor"
+     },
+     {
+      "clueFragment": "climber's",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of climber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOR",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "The first climber up the hill shows off a piece of jewellery.",
+     "definitionFit": "A torc is a rigid twisted metal neck ring worn by ancient Celts, a kind of necklace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1503,51 @@
      }
     ]
    },
-   "solution": "FALSESTART"
+   "solution": "FALSESTART",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FALSE START",
+    "definitions": [
+     {
+      "text": "infringement",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blown",
+      "for": "anagram",
+      "note": "something blown apart is scattered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At last, ref's",
+      "gives": "ATLASTREFS",
+      "note": "these letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATLASTREFS",
+       "gives": "FALSESTART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The referee finally blows the whistle for a foul.",
+     "walkthrough": "'Blown' fits the whistle of the surface, but it is what reshuffles the earlier letters.",
+     "definitionFit": "A false start is moving before the starting signal in a race, a breach of the rules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blown"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1561,42 @@
     "text": "Glass instrument",
     "enumeration": "5"
    },
-   "solution": "FLUTE"
+   "solution": "FLUTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLUTE",
+    "definitions": [
+     {
+      "text": "Glass",
+      "at": 0
+     },
+     {
+      "text": "instrument",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Glass",
+      "note": "first meaning: a tall narrow champagne glass"
+     },
+     {
+      "clueFragment": "instrument",
+      "note": "second meaning: a woodwind instrument"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a single musical instrument made of glass; the two words are separate meanings.",
+     "definitionFit": "The word names both a slender stemmed wine glass and the transverse woodwind instrument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Glass"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1610,42 @@
     "text": "Elevation of some horrid gentlemen",
     "enumeration": "5"
    },
-   "solution": "RIDGE"
+   "solution": "RIDGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RIDGE",
+    "definitions": [
+     {
+      "text": "Elevation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of some",
+      "for": "hidden_word",
+      "note": "some of the following words means only a part of their letters is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horrid gentlemen",
+      "gives": "RIDGE",
+      "note": "runs across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Some nasty men are being promoted.",
+     "definitionFit": "A ridge is a long raised strip of ground, an elevation in the landscape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Elevation"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1659,48 @@
     "text": "Wild West gunfighter's haul: a muffler?",
     "enumeration": "7"
    },
-   "solution": "EARPLUG"
+   "solution": "EARPLUG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARPLUG",
+    "definitions": [
+     {
+      "text": "a muffler?",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wild West gunfighter's",
+      "gives": "EARP",
+      "note": "Wyatt Earp, lawman of the O.K. Corral gunfight"
+     },
+     {
+      "clueFragment": "haul",
+      "gives": "LUG",
+      "note": "to lug is to haul something heavy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARP",
+      "LUG"
+     ]
+    },
+    "explanation": {
+     "surface": "A cowboy hauls in loot, and a scarf against the cold.",
+     "walkthrough": "The question mark flags a definition by example: a muffler is a scarf, but here it is anything that muffles sound.",
+     "definitionFit": "An earplug deadens noise reaching the ear, so it is literally something that muffles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "muffler"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1714,47 @@
     "text": "Cut kills fish",
     "enumeration": "7"
    },
-   "solution": "TOPSIDE"
+   "solution": "TOPSIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOPSIDE",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kills",
+      "gives": "TOPS",
+      "note": "to top someone is slang for killing them"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "IDE",
+      "note": "the ide is a freshwater fish, a crossword favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOPS",
+      "IDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A short report that a cull kills the fish.",
+     "walkthrough": "'Cut' reads as a verb but is the noun: a butcher's cut.",
+     "definitionFit": "Topside is a lean joint from the upper hindquarter of beef, a butcher's cut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1768,48 @@
     "text": "Possesses permit to make meat loaf",
     "enumeration": "6"
    },
-   "solution": "HASLET"
+   "solution": "HASLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HASLET",
+    "definitions": [
+     {
+      "text": "meat loaf",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possesses",
+      "gives": "HAS",
+      "note": "has means possesses"
+     },
+     {
+      "clueFragment": "permit",
+      "gives": "LET",
+      "note": "to let is to permit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAS",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holds a licence for producing meat loaf.",
+     "definitionFit": "Haslet is a traditional British loaf of pork offal and herbs, eaten cold in slices."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1823,63 @@
     "text": "Almost all mountain cycling is hard to endure",
     "enumeration": "6"
    },
-   "solution": "SEVERE"
+   "solution": "SEVERE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "cycling"
+    ],
+    "answer": "SEVERE",
+    "definitions": [
+     {
+      "text": "hard to endure",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost all",
+      "for": "deletion",
+      "note": "almost all of a word means it loses its final letter"
+     },
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling sends letters round in a loop, so the last moves to the front"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mountain",
+      "gives": "EVEREST",
+      "note": "Everest is the world's highest mountain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVERE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EVERES",
+       "gives": "SEVERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Biking up nearly the whole of a mountain is a gruelling ordeal.",
+     "walkthrough": "'Cycling' fits the bike ride of the surface, but it tells you to move the end S of EVERES round to the start.",
+     "definitionFit": "Severe weather, pain or conditions are harsh and hard to bear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   }
  ]
 }
