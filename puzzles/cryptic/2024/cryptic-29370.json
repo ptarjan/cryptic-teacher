@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "151 + 10 confused customer?",
     "enumeration": "6"
    },
-   "solution": "CLIENT"
+   "solution": "CLIENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CLIENT",
+    "definitions": [
+     {
+      "text": "customer?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "something confused has been muddled up, so the letters of the word for the second number are mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "151",
+      "gives": "CLI",
+      "note": "151 in Roman numerals: C (100) + L (50) + I (1)"
+     },
+     {
+      "clueFragment": "10",
+      "gives": "TEN",
+      "note": "the number written as a word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLI",
+      "ENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEN",
+       "gives": "ENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bewildered shopper apparently identified only by a pair of numbers, like a ticket in a queue.",
+     "walkthrough": "The numbers look like a sum to work out, but the first is read as Roman numerals and the second is spelt out and jumbled.",
+     "definitionFit": "A client is someone who buys services from a firm, a kind of customer; the question mark flags the loose synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "151"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,65 @@
     "text": "For example, William Hill's losing billions following cold food",
     "enumeration": "7"
    },
-   "solution": "COOKIES"
+   "solution": "COOKIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "COOKIES",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means the next part comes after the one named, so it is placed second"
+     },
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it is dropped, so a letter standing for billions comes out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "For example, William Hill's",
+      "gives": "BOOKIES",
+      "note": "William Hill is a British chain of betting shops, an example of bookies"
+     },
+     {
+      "clueFragment": "billions",
+      "gives": "B",
+      "note": "B is a standard abbreviation for billion(s)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OOKIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A betting chain losing billions, with something about cold food tacked on like a news item.",
+     "walkthrough": "William Hill is a high-street betting firm in the UK. Remove the B from the bookmakers and put C in front.",
+     "definitionFit": "Cookies are sweet biscuits, an everyday kind of food, so the general word covers them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hill's"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +176,53 @@
     "text": "Playwright not parking in Bury",
     "enumeration": "5"
    },
-   "solution": "INTER"
+   "solution": "INTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INTER",
+    "definitions": [
+     {
+      "text": "Bury",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so the letter standing for parking is left out of the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Playwright",
+      "gives": "PINTER",
+      "note": "Harold Pinter, the English dramatist"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A dramatist who could not find anywhere to park in Bury, the Lancashire town.",
+     "walkthrough": "Bury looks like the town near Manchester, capitalised to hide that it is the verb.",
+     "definitionFit": "To inter a body is to place it in a grave, a formal synonym of bury."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +236,70 @@
     "text": "Covering initial investment using coin as capital",
     "enumeration": "7"
    },
-   "solution": "NICOSIA"
+   "solution": "NICOSIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "NICOSIA",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using",
+      "for": "anagram",
+      "note": "using in the drug-taking sense suggests being messed up, so the following letters are rearranged"
+     },
+     {
+      "text": "Covering",
+      "for": "container",
+      "note": "covering means wrapping around, so the rearranged letters go round the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coin as",
+      "gives": "COINAS",
+      "note": "the letters of these two words, taken as written"
+     },
+     {
+      "clueFragment": "initial investment",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of investment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICOS",
+      "I",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COINAS",
+       "gives": "NICOSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on financing a start-up by using cash as capital.",
+     "walkthrough": "Capital looks like money in a business sense, but it is a capital city.",
+     "definitionFit": "Nicosia is the capital city of Cyprus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +313,55 @@
     "text": "Exhibits left on board",
     "enumeration": "6"
    },
-   "solution": "SPORTS"
+   "solution": "SPORTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPORTS",
+    "definitions": [
+     {
+      "text": "Exhibits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "container",
+      "note": "on board means aboard a ship, so the side word is placed inside the ship abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "board",
+      "gives": "SS",
+      "note": "SS is steamship, and being on board means inside it"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PORT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A museum display left aboard a ship.",
+     "walkthrough": "Port as left is the nautical term, which ties in with the steamship.",
+     "definitionFit": "To sport something is to wear or show it off, so sports means exhibits as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exhibits"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +375,55 @@
     "text": "Sick men admitted into educational institution",
     "enumeration": "6"
    },
-   "solution": "POORLY"
+   "solution": "POORLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POORLY",
+    "definitions": [
+     {
+      "text": "Sick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted into",
+      "for": "container",
+      "note": "being admitted into a place means going inside it, so the men are put within the institution"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "educational institution",
+      "gives": "POLY",
+      "note": "short for polytechnic, a former type of British college"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR is other ranks, soldiers who are not officers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "OR",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Ill students being admitted to a college sanatorium.",
+     "walkthrough": "A poly was a British polytechnic, a vocational college; OR (other ranks) is a stock crossword term for men.",
+     "definitionFit": "Poorly is a British informal word for unwell, an exact synonym of sick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admitted"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +443,82 @@
      }
     ]
    },
-   "solution": "RUNITSELF"
+   "solution": "RUNITSELF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "RUN ITSELF",
+    "definitions": [
+     {
+      "text": "manage alone",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Send back",
+      "for": "reversal",
+      "note": "sending something back returns it the way it came, so the word for coat is read backwards"
+     },
+     {
+      "text": "treatment",
+      "for": "anagram",
+      "note": "treatment works material over, so the letters of silent are reshaped"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "lying over something covers it, so the turned coat wraps round the reworked letters"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coat",
+      "gives": "FUR",
+      "note": "an animal's coat is its fur"
+     },
+     {
+      "clueFragment": "silent",
+      "gives": "SILENT",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "NITSEL",
+      "F"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SILENT",
+       "gives": "NITSEL"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "FUR",
+       "to": "RUF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Returning a coat to a shop that gives you the silent treatment, so you have to sort it out alone.",
+     "walkthrough": "The reversed coat splits after its second letter so the rearranged silent sits inside it.",
+     "definitionFit": "Something that will run itself operates without supervision, i.e. it can manage alone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +532,58 @@
     "text": "Waiters and prophets carry bible",
     "enumeration": "7"
    },
-   "solution": "SERVERS"
+   "solution": "SERVERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SERVERS",
+    "definitions": [
+     {
+      "text": "Waiters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carry",
+      "for": "container",
+      "note": "to carry something is to hold it inside, so the prophets enclose the bible abbreviation"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prophets",
+      "gives": "SEERS",
+      "note": "seers are people who foretell the future"
+     },
+     {
+      "clueFragment": "bible",
+      "gives": "RV",
+      "note": "RV is the Revised Version of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "RV",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Waiting staff and prophets alike carrying a Bible, like a religious procession.",
+     "walkthrough": "RV, the Revised Version, is a standard crossword abbreviation for a Bible.",
+     "definitionFit": "Servers is a common term for the staff who bring food to tables in a restaurant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Waiters"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +597,50 @@
     "text": "Orchestra pits played extremely high",
     "enumeration": "13"
    },
-   "solution": "STRATOSPHERIC"
+   "solution": "STRATOSPHERIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRATOSPHERIC",
+    "definitions": [
+     {
+      "text": "extremely high",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "played suggests something performed or toyed with, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orchestra pits",
+      "gives": "ORCHESTRAPITS",
+      "note": "the letters of both words, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORCHESTRAPITS",
+       "gives": "STRATOSPHERIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The musicians in the pit played some extremely high notes.",
+     "definitionFit": "The stratosphere is a high layer of the atmosphere, so stratospheric figuratively describes prices or heights that are enormously elevated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +654,44 @@
     "text": "Terms of trade included tender",
     "enumeration": "4"
    },
-   "solution": "SOFT"
+   "solution": "SOFT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SOFT",
+    "definitions": [
+     {
+      "text": "tender",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included",
+      "for": "hidden_word",
+      "note": "included means held within, so the letters lie inside the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Terms of trade",
+      "gives": "SOFT",
+      "note": "spans the end of the first word, the second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A contract's terms of trade included a tender, as in a bid for business.",
+     "walkthrough": "Tender looks like a business bid next to terms of trade, but it is the adjective.",
+     "definitionFit": "Tender flesh or ground is gentle to the touch and yields easily, which is a sense of soft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tender"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +711,39 @@
      }
     ]
    },
-   "solution": "CUTCORNERS"
+   "solution": "CUTCORNERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CUT CORNERS",
+    "definitions": [
+     {
+      "text": "How to make a round table in the cheapest manner?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How to make a round table",
+      "note": "surface reading: a carpentry question about shaping a circular tabletop"
+     },
+     {
+      "clueFragment": "in the cheapest manner?",
+      "note": "setter's reading: the idiom for doing a job skimpily also literally describes trimming a square top until it is round"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Trimming the four angles off a square table literally makes it rounder, and the same phrase is the idiom for skimping.",
+     "definitionFit": "The idiom means saving time or money by skipping steps, which is doing something in the cheapest manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +757,64 @@
     "text": "Very short dresses and short crimson pants",
     "enumeration": "6"
    },
-   "solution": "MICROS"
+   "solution": "MICROS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MICROS",
+    "definitions": [
+     {
+      "text": "Very short dresses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off before the end, so the colour word loses its final letter"
+     },
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish or bad, so the letters are in a poor, jumbled state"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crimson",
+      "gives": "CRIMSON",
+      "note": "taken as written, before trimming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MICROS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRIMSO",
+       "gives": "MICROS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion list of tiny dresses and short red trousers.",
+     "walkthrough": "Pants looks like trousers in the clothing surface, but it is British slang for poor quality and signals the mix-up.",
+     "definitionFit": "Micros are micro skirts or dresses, garments cut extremely short."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +828,51 @@
     "text": "Nervously making a bet",
     "enumeration": "8"
    },
-   "solution": "AFLUTTER"
+   "solution": "AFLUTTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFLUTTER",
+    "definitions": [
+     {
+      "text": "Nervously",
+      "at": 0,
+      "note": "adverb in the clue; the answer is an adjective, as in being nervously excited"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bet",
+      "gives": "FLUTTER",
+      "note": "a flutter is British slang for a small gamble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FLUTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone placing a wager with jittery nerves.",
+     "walkthrough": "In Britain a flutter is a small, casual bet, for instance on a horse race.",
+     "definitionFit": "Aflutter describes a state of agitated excitement, the condition of someone acting nervously."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bet"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +886,53 @@
     "text": "Way of rising to beat a lost race",
     "enumeration": "9"
    },
-   "solution": "ESCALATOR"
+   "solution": "ESCALATOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESCALATOR",
+    "definitions": [
+     {
+      "text": "Way of rising",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beat",
+      "for": "anagram",
+      "note": "to beat something is to batter it out of shape, so the letters get knocked into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lost race",
+      "gives": "ALOSTRACE",
+      "note": "the letters of all three words, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALOSTRACE",
+       "gives": "ESCALATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on climbing back up to win a race that seemed lost.",
+     "definitionFit": "An escalator is a moving staircase that carries people upward, a mechanical means of ascent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +946,69 @@
     "text": "Craft songs about sides in English",
     "enumeration": "9"
    },
-   "solution": "AIRLINERS"
+   "solution": "AIRLINERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AIRLINERS",
+    "definitions": [
+     {
+      "text": "Craft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for songs goes round everything after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "songs",
+      "gives": "AIRS",
+      "note": "an air is a tune or song"
+     },
+     {
+      "clueFragment": "sides",
+      "gives": "LR",
+      "note": "left and right, the two sides"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "L",
+      "IN",
+      "E",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Crafting songs about various aspects of English.",
+     "walkthrough": "The two sides, left and right, flank IN and E to make a word for ocean ships, and the songs then wrap round that.",
+     "definitionFit": "Airliners are passenger aircraft, and craft is a general word for any vehicle that flies or floats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Craft"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1022,43 @@
     "text": "Where to practise cricket catches",
     "enumeration": "4"
    },
-   "solution": "NETS"
+   "solution": "NETS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NETS",
+    "definitions": [
+     {
+      "text": "Where to practise cricket",
+      "at": 0
+     },
+     {
+      "text": "catches",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where to practise cricket",
+      "note": "first meaning: the netted practice lanes where batters train"
+     },
+     {
+      "clueFragment": "catches",
+      "note": "second meaning: a verb, traps as a fisherman does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Catches looks like a fielding term from cricket, but it is the verb for trapping fish.",
+     "definitionFit": "Cricketers practise in netted enclosures, and to net fish is to catch them, so both senses share one word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "catches"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1072,59 @@
     "text": "Maybe Vietnam finally came to mind",
     "enumeration": "4"
    },
-   "solution": "WARE"
+   "solution": "WARE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WARE",
+    "definitions": [
+     {
+      "text": "mind",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of the next word, so only its closing letter is used"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe Vietnam",
+      "gives": "WAR",
+      "note": "the Vietnam War is an example of a war, flagged by maybe"
+     },
+     {
+      "clueFragment": "came",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of came"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Vietnam eventually came to mind, like a memory surfacing.",
+     "walkthrough": "Mind looks like thought or memory, but it is the imperative meaning watch out, as in 'mind the gap'.",
+     "definitionFit": "Ware is an old word meaning beware or look out for, which is mind in its warning sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mind"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1138,73 @@
     "text": "Party after triumph with ultimate in chess openings",
     "enumeration": "7"
    },
-   "solution": "WINDOWS"
+   "solution": "WINDOWS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WINDOWS",
+    "definitions": [
+     {
+      "text": "openings",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means placed behind, so the party word follows the triumph word"
+     },
+     {
+      "text": "ultimate in",
+      "for": "letter_selection",
+      "note": "ultimate means last, so only the final letter of the following word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "triumph",
+      "gives": "WIN",
+      "note": "a triumph is a win"
+     },
+     {
+      "clueFragment": "Party",
+      "gives": "DO",
+      "note": "a do is an informal party"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "chess",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of chess"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIN",
+      "DO",
+      "W",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Celebrating a chess victory, with talk of chess openings.",
+     "walkthrough": "Chess openings is a real phrase, but the definition is the last word alone.",
+     "definitionFit": "Windows are openings in a wall that let in light and air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chess"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1218,67 @@
     "text": "Details if I see in glasses",
     "enumeration": "9"
    },
-   "solution": "SPECIFICS"
+   "solution": "SPECIFICS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPECIFICS",
+    "definitions": [
+     {
+      "text": "Details",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed within, so the short words go inside the word for glasses"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "glasses",
+      "gives": "SPECS",
+      "note": "specs is short for spectacles"
+     },
+     {
+      "clueFragment": "if",
+      "gives": "IF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "C",
+      "note": "C sounds like see, a common crossword shorthand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPEC",
+      "IF",
+      "I",
+      "C",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saying they could make out the details if they had their glasses on.",
+     "walkthrough": "See giving C is a standard crossword shortcut, since the letter is pronounced the same way.",
+     "definitionFit": "Specifics are the particular points of a matter, the same thing as details."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1292,64 @@
     "text": "Shed tears with last shot glass",
     "enumeration": "7"
    },
-   "solution": "CRYSTAL"
+   "solution": "CRYSTAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CRYSTAL",
+    "definitions": [
+     {
+      "text": "glass",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "shot means ruined or wrecked, so the letters of the word are broken up and reordered"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shed tears",
+      "gives": "CRY",
+      "note": "to shed tears is to cry"
+     },
+     {
+      "clueFragment": "last",
+      "gives": "LAST",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRY",
+      "STAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAST",
+       "gives": "STAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone weeping over their last shot glass of the night.",
+     "walkthrough": "Shot glass reads as one phrase, but shot is the mix-up signal and glass the definition.",
+     "definitionFit": "Crystal is high-quality clear glass, often cut for decanters and wine glasses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1363,63 @@
     "text": "Could criminal man be hidden?",
     "enumeration": "7"
    },
-   "solution": "CLOUDED"
+   "solution": "CLOUDED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CLOUDED",
+    "definitions": [
+     {
+      "text": "hidden",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests something crooked or bent out of shape, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Could",
+      "gives": "COULD",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "ED",
+      "note": "Ed is a man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLOUD",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COULD",
+       "gives": "CLOUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether a crook could be in hiding.",
+     "definitionFit": "Something clouded is obscured from view, as the sun is when concealed by cloud, so it is hidden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1433,56 @@
     "text": "Top of dried fruit marked with spots",
     "enumeration": "6"
    },
-   "solution": "DAPPLE"
+   "solution": "DAPPLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DAPPLE",
+    "definitions": [
+     {
+      "text": "marked with spots",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Top of",
+      "for": "letter_selection",
+      "note": "the top of a down word is its first letter, so only the start of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dried",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of dried"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "APPLE",
+      "note": "an apple is a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "APPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Dried fruit showing spots on top, perhaps going mouldy.",
+     "walkthrough": "Dried fruit reads as one item, but the first word only supplies its first letter.",
+     "definitionFit": "Dapple describes an animal's coat patterned with patches, as in a dapple-grey horse, so it means spotted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dried"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1496,75 @@
     "text": "Show cocaine smuggled into country by 3 on vacation?",
     "enumeration": "8"
    },
-   "solution": "INDICATE"
+   "solution": "INDICATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INDICATE",
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smuggled into",
+      "for": "container",
+      "note": "something smuggled into a place is hidden inside it, so the drug letter goes within the country"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the final pair sits beside the country"
+     },
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "on vacation means emptied out, so only the outside letters of the number word stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "INDIA",
+      "note": "the South Asian country"
+     },
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "note": "C is slang shorthand for cocaine"
+     },
+     {
+      "clueFragment": "3",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the number three written out, keeping only its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDI",
+      "C",
+      "A",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Showing that drugs were smuggled into a country by three people on holiday.",
+     "walkthrough": "The 3 looks like a cross-reference to 3-down, but it is just the number spelt out and emptied.",
+     "definitionFit": "To indicate something is to point it out or show it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1578,67 @@
     "text": "Very old literary festival turned away louts",
     "enumeration": "6"
    },
-   "solution": "YAHOOS"
+   "solution": "YAHOOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "YAHOOS",
+    "definitions": [
+     {
+      "text": "louts",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned away",
+      "for": "reversal",
+      "note": "turning away faces the other direction, so the whole string is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "SO",
+      "note": "so means very, as in so good"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "literary festival",
+      "gives": "HAY",
+      "note": "Hay-on-Wye in Wales hosts a famous literary festival"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YAH",
+      "O",
+      "OS"
+     ],
+     "reversals": [
+      {
+       "from": "SOOHAY",
+       "to": "YAHOOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old book festival turning away rowdy troublemakers at the gate.",
+     "walkthrough": "The Hay Festival, held at Hay-on-Wye on the Welsh border, is Britain's best-known literary festival.",
+     "definitionFit": "Yahoos are crude, boorish people, named after the brutish creatures in Gulliver's Travels, so they are louts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Very"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1652,74 @@
     "text": "Journalists want tip-off to break hot leading story",
     "enumeration": "5"
    },
-   "solution": "HACKS"
+   "solution": "HACKS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "HACKS",
+    "definitions": [
+     {
+      "text": "Journalists",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tip-off",
+      "for": "deletion",
+      "note": "with its tip off, the word loses its first letter"
+     },
+     {
+      "text": "to break",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so the trimmed word goes between the other letters"
+     },
+     {
+      "text": "leading",
+      "for": "letter_selection",
+      "note": "leading means at the front, so only the first letter of story is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on a tap"
+     },
+     {
+      "clueFragment": "want",
+      "gives": "LACK",
+      "note": "to want is to lack"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ACK",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Reporters hoping for a tip-off to break a hot lead story.",
+     "walkthrough": "Tip-off and break a story sound like newsroom jargon, but they are the deletion and insertion signals.",
+     "definitionFit": "Hacks is a mildly disparaging term for jobbing journalists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tip-off"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1739,74 @@
      }
     ]
    },
-   "solution": "POWERPOINT"
+   "solution": "POWERPOINT",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "POWER POINT",
+    "definitions": [
+     {
+      "text": "socket",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffing",
+      "for": "container",
+      "note": "stuffing means filling the inside of something, so the debtor goes between the pennies"
+     },
+     {
+      "text": "faulty",
+      "for": "anagram",
+      "note": "faulty means not working properly, so the following word is scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pennies",
+      "gives": "PP",
+      "note": "P is a penny, so two of them for the plural"
+     },
+     {
+      "clueFragment": "Debtor",
+      "gives": "OWER",
+      "note": "someone who owes"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "INTO",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OWER",
+      "P",
+      "OINT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTO",
+       "gives": "OINT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A desperate debtor pushing coins into a broken electrical socket.",
+     "walkthrough": "Into reads as a link word, but it is the fodder. A power point is the British term for an electrical wall socket.",
+     "definitionFit": "In British English a power point is a wall outlet for plugging in appliances, i.e. a socket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1820,69 @@
     "text": "Perhaps Morse caught over 500 people in the end",
     "enumeration": "4"
    },
-   "solution": "CODE"
+   "solution": "CODE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CODE",
+    "definitions": [
+     {
+      "text": "Perhaps Morse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "in the end points to the final letter, so only the last letter of the word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scoring abbreviation for caught"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for over"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is 500 in Roman numerals"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "D",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Inspector Morse catching the culprit after 500 people, in the end.",
+     "walkthrough": "Morse looks like the TV detective Inspector Morse, but it is the telegraph alphabet of dots and dashes.",
+     "definitionFit": "Morse code is an example of a code, signalled by perhaps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Morse"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1896,55 @@
     "text": "Method of study? Drop core technical subjects",
     "enumeration": "6"
    },
-   "solution": "SYSTEM"
+   "solution": "SYSTEM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SYSTEM",
+    "definitions": [
+     {
+      "text": "Method",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drop core",
+      "for": "deletion",
+      "note": "dropping the core means removing the middle, so only the outside letters of the word remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "STUDY",
+      "note": "taken as written, before its middle is removed"
+     },
+     {
+      "clueFragment": "technical subjects",
+      "gives": "STEM",
+      "note": "STEM stands for science, technology, engineering and mathematics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SY",
+      "STEM"
+     ]
+    },
+    "explanation": {
+     "surface": "A student's method of study: dropping the core technical subjects.",
+     "walkthrough": "Core subjects reads as a school phrase, but core belongs with drop as the deletion signal.",
+     "definitionFit": "A system is an organised way of doing something, the same as a method."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "core"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1958,76 @@
     "text": "Does swimming on college lake get stopped?",
     "enumeration": "6"
    },
-   "solution": "CLOSED"
+   "solution": "CLOSED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CLOSED",
+    "definitions": [
+     {
+      "text": "stopped",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "swimming suggests moving about freely, so the letters float into a new order"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on means placed after, so the reworked letters follow the abbreviations"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "C is the abbreviation for college"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     },
+     {
+      "clueFragment": "Does",
+      "gives": "DOES",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "OSED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOES",
+       "gives": "OSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Female deer swimming in a college lake get stopped by the authorities.",
+     "walkthrough": "Does looks like the verb but is the plural of doe, female deer.",
+     "definitionFit": "Something closed has been shut down, so it is stopped in the sense of brought to a halt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Does"
+    }
+   }
   }
  ]
 }
