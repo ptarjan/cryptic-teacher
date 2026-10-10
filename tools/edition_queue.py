@@ -462,13 +462,18 @@ LOST_TRIES = 3
 BRIEFS = Path(os.environ.get("TMPDIR") or "/tmp") / "edition-briefs"
 
 
+#: What prepare() returns for a read whose own scan is stale or missing: a
+#: scan unit runs first, then the read is prepared for the desktop.
+SCAN_FIRST = "scan first"
+
+
 def prepare(unit, cache, puzzles, reread):
     """The file of an archive.org or Gale read unit's read made here
     (file_archive_org_puzzles.brief), for its unit to send to the desktop
-    and commit (tools/edition_commit.py), or None: the unit runs whole,
-    each cause logged as a "whole read <rel>: <why>" line (no desktop set,
-    it is busy, its own scan is stale or missing, not due, or making it
-    failed)."""
+    and commit (tools/edition_commit.py); SCAN_FIRST when its own scan is
+    stale or missing; or None: the unit runs whole, each cause logged as a
+    "whole read <rel>: <why>" line (no desktop set, it is busy, not due,
+    or making it failed)."""
     import desktop_busy
     import ocr_remote
     if unit["kind"] != "read" or unit["paper"] not in fa.FILERS:
@@ -482,7 +487,7 @@ def prepare(unit, cache, puzzles, reread):
         paper = fa.FILERS[unit["paper"]]
         made = fa.brief(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"))
         if made is None:
-            return whole(unit, "not due" if fa.scan_stands(paper, unit["rel"], cache) else "own scan stale or missing")
+            return whole(unit, "not due") if fa.scan_stands(paper, unit["rel"], cache) else SCAN_FIRST
         import tempfile
         BRIEFS.mkdir(parents=True, exist_ok=True)
         fd, path = tempfile.mkstemp(dir=BRIEFS, suffix=".brief")
@@ -623,6 +628,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     losses = {}  # key_of(unit): times it ended lost (EXITS["lost"])
     beside = [Beside(argv) for argv in beside or ()]
     scans = reads = fetches = []
+    first = []  # scan units of reads whose own scan was stale when they were to start (start)
     planned = None  # when the plan in force was begun
     plan_done = None  # when it was made
     planner = None  # (thread, its result box) making the next plan
@@ -673,11 +679,19 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     spec = {"cache": str(cache), "puzzles": puzzles and str(puzzles), "reread": reread and reread.isoformat()}
 
     def start(unit):
+        """Start `unit`; False when it is not started: a read whose own scan
+        is stale or missing waits on a scan unit queued for it (first)."""
         sys.stdout.flush()
         sys.stderr.flush()
         argv = unit_argv(unit)
         alone = losses.get(key_of(unit), 0) >= LOST_TRIES
         made = None if alone else prepare(unit, cache, puzzles, reread)
+        if made == SCAN_FIRST and (unit["paper"], unit["rel"]) in scanned:
+            made = whole(unit, "own scan stale or missing, scanned this run already")
+        elif made == SCAN_FIRST:
+            first.append({"kind": "scan", "paper": unit["paper"], "rel": unit["rel"], "rank": unit["rank"],
+                          "reason": "its read's own scan is stale or missing"})
+            return False
         env = {**os.environ, "CT_EDITION_UNIT": json.dumps({**spec, "unit": unit, **({"brief": made} if made else {})})}
         if alone:
             env["OCR_REMOTE"] = ""
@@ -688,6 +702,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         running[pid] = (unit, time.monotonic())
         tried.add(key_of(unit))
         log(f"start {unit['kind']} {unit['rel']} ({unit['reason']})")
+        return True
 
     def reap():
         # A unit this process started before a re-exec is adopted and still its child.
@@ -834,7 +849,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # was killed leaves the read for the next run); a days-after scan
         # still queued behind a full scan pool stands as last scanned.
         scanning = {(p, r) for k, p, r in busy if k == "scan"}
-        unscanned = {(u["paper"], u["rel"]) for u in scans} - scanned
+        unscanned = {(u["paper"], u["rel"]) for u in scans + first} - scanned
         free = dict(pools)
         for _, (u, _) in units_running():
             free[slot_of(u)] = free.get(slot_of(u), 0) - 1
@@ -860,7 +875,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # one unit back it holds every later one (begun_now only grows), so
         # the gates are read at most once a unit begun, not once a unit due.
         mem_read, cpu_read = {}, {}
-        for u in scans + reads + fetches if any(v > 0 for v in free.values()) else ():
+        for u in first + scans + reads + fetches if any(v > 0 for v in free.values()) else ():
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET:
@@ -894,7 +909,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 if cpu_held or not cpu_read[begun_now]:
                     cpu_held = True
                     continue
-            start(u)
+            if not start(u):
+                unscanned.add((u["paper"], u["rel"]))
+                continue
             begun_now += 1
             charged += cost
             free[slot_of(u)] -= 1
@@ -914,7 +931,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         if stop:
             break
         if handoff and not may_start() and not any(b.busy() for b in beside):
-            left = sum(key_of(u) not in tried for u in scans + reads + fetches) + len(running) + len(adopted)
+            left = sum(key_of(u) not in tried for u in first + scans + reads + fetches) + len(running) + len(adopted)
             hand_over(handoff, units_running())
             keep_untried()
             log(f"slice over: {len(running) + len(adopted)} unit(s) handed over to the next run, still running")
@@ -922,7 +939,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             adopted.clear()
             break
         if not running and not adopted and planner is None and not any(b.busy() for b in beside):
-            untried = sum(key_of(u) not in tried for u in scans + reads + fetches)
+            untried = sum(key_of(u) not in tried for u in first + scans + reads + fetches)
             if not may_start():
                 left = untried + sum(b.again and not b.done for b in beside)
                 break
@@ -931,7 +948,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 scans, reads, fetches = replan_all()
                 fetches = [u for u in fetches if u["paper"] not in stopped]
                 planned = time.monotonic()
-                if all(key_of(u) in tried for u in scans + reads + fetches) and not any(b.again and not b.done
+                if all(key_of(u) in tried for u in first + scans + reads + fetches) and not any(b.again and not b.done
                                                                              for b in beside):
                     break
                 continue
