@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Sent a message about Slovenian tourist destination",
     "enumeration": "6"
    },
-   "solution": "CABLED"
+   "solution": "CABLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CABLED",
+    "definitions": [
+     {
+      "text": "Sent a message",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "CA, short for circa, means about"
+     },
+     {
+      "clueFragment": "Slovenian tourist destination",
+      "gives": "BLED",
+      "note": "Bled is a lakeside resort in Slovenia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "BLED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone on holiday wires home about a pretty Slovenian lake town.",
+     "definitionFit": "To cable is to send a telegram, so the past tense matches a message having been sent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,55 @@
     "text": "Charlie, on French river, making soup",
     "enumeration": "8"
    },
-   "solution": "CONSOMME"
+   "solution": "CONSOMME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSOMME",
+    "definitions": [
+     {
+      "text": "soup",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is the radio alphabet word for C"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "French river",
+      "gives": "SOMME",
+      "note": "the Somme is a river in northern France"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "SOMME"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Charlie, beside a river in France, is cooking soup.",
+     "definitionFit": "Consommé is a clear broth, a kind of soup."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +157,51 @@
      }
     ]
    },
-   "solution": "BLUNTINSTRUMENT"
+   "solution": "BLUNTINSTRUMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLUNT INSTRUMENT",
+    "definitions": [
+     {
+      "text": "club",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lacking sharpness",
+      "gives": "BLUNT",
+      "note": "something without an edge or point is blunt"
+     },
+     {
+      "clueFragment": "trombone, say",
+      "gives": "INSTRUMENT",
+      "note": "a trombone is an example of a musical instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUNT",
+      "INSTRUMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a club night complains that a trombone player sounds dull.",
+     "walkthrough": "The surface makes 'club' a nightclub where a band plays; it is really a cudgel, the classic weapon of the police report.",
+     "definitionFit": "A club is a heavy stick, and 'blunt instrument' is the stock phrase for such an unedged weapon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +215,68 @@
     "text": "Girl from Israeli port brought over around one",
     "enumeration": "5"
    },
-   "solution": "ERICA"
+   "solution": "ERICA",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ERICA",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around tells us one word wraps about another piece"
+     },
+     {
+      "text": "brought over",
+      "for": "reversal",
+      "note": "brought over suggests turning something over, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Israeli port",
+      "gives": "ACRE",
+      "note": "Acre is a port city in northern Israel"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERICA"
+     ],
+     "reversals": [
+      {
+       "from": "ACIRE",
+       "to": "ERICA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl is fetched from an Israeli harbour town.",
+     "walkthrough": "Put I inside ACRE to get ACIRE, then turn it round.",
+     "definitionFit": "Erica is a female first name, so it stands for a girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +290,47 @@
     "text": "Desert that woman? On the contrary",
     "enumeration": "6"
    },
-   "solution": "RATHER"
+   "solution": "RATHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RATHER",
+    "definitions": [
+     {
+      "text": "On the contrary",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Desert",
+      "gives": "RAT",
+      "note": "to rat is to desert or betray one's side"
+     },
+     {
+      "clueFragment": "that woman",
+      "gives": "HER",
+      "note": "her is the pronoun for that woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether to abandon a woman, and gets a contradicting reply.",
+     "walkthrough": "'Desert' looks like a sandy noun but is the verb rat, to abandon.",
+     "definitionFit": "Rather, used as an interjection, contradicts or corrects what was just said, much like 'on the contrary'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Desert"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +344,65 @@
     "text": "Social worker, woman, having short chat before the baby's born",
     "enumeration": "9"
    },
-   "solution": "ANTENATAL"
+   "solution": "ANTENATAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANTENATAL",
+    "definitions": [
+     {
+      "text": "before the baby's born",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut down, so the word for chat loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Social worker",
+      "gives": "ANT",
+      "note": "ants are social insects and the workers are the ones that labour"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "ENA",
+      "note": "Ena is a woman's name"
+     },
+     {
+      "clueFragment": "chat",
+      "gives": "TALK",
+      "note": "to talk is to chat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "ENA",
+      "TAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A social worker and a woman have a quick chat before the birth.",
+     "walkthrough": "'Social worker' suggests a council employee, but it is the insect that lives in colonies.",
+     "definitionFit": "Antenatal means relating to the period of pregnancy, the time before a birth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Social"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +426,56 @@
      }
     ]
    },
-   "solution": "HITTHEHEADLINES"
+   "solution": "HITTHEHEADLINES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HIT THE HEADLINES",
+    "definitions": [
+     {
+      "text": "get prominent media attention",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Struck",
+      "gives": "HIT",
+      "note": "to strike is to hit"
+     },
+     {
+      "clueFragment": "senior teacher",
+      "gives": "THE HEAD",
+      "note": "the head teacher runs a school"
+     },
+     {
+      "clueFragment": "possible punishment",
+      "gives": "LINES",
+      "note": "lines are a school punishment of writing out a sentence many times"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIT",
+      "THEHEAD",
+      "LINES"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil who hit the headmaster, facing punishment, ends up in the newspapers.",
+     "walkthrough": "Lines are a British school penalty: copying out a sentence over and over.",
+     "definitionFit": "To hit the headlines is an idiom for becoming front-page news."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "punishment"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +489,57 @@
     "text": "Meal for old man, among others",
     "enumeration": "6"
    },
-   "solution": "REPAST"
+   "solution": "REPAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REPAST",
+    "definitions": [
+     {
+      "text": "Meal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "among places one thing in the middle of a group, so one word sits inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "others",
+      "gives": "REST",
+      "note": "the rest are the others"
+     },
+     {
+      "clueFragment": "old man",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PA",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Dinner is laid on for Dad along with everyone else.",
+     "definitionFit": "A repast is a formal or literary word for a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +553,49 @@
     "text": "Roofing material which church required",
     "enumeration": "6"
    },
-   "solution": "THATCH"
+   "solution": "THATCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THATCH",
+    "definitions": [
+     {
+      "text": "Roofing material",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "required"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "which",
+      "gives": "THAT",
+      "note": "that and which are interchangeable relative pronouns"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THAT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on what the village church needed for its roof.",
+     "definitionFit": "Thatch is straw or reed laid as roof covering, so it is a material for roofs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "which"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +609,63 @@
     "text": "A squalid property surrounding yard provides sanctuary",
     "enumeration": "6"
    },
-   "solution": "ASYLUM"
+   "solution": "ASYLUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASYLUM",
+    "definitions": [
+     {
+      "text": "sanctuary",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "surrounding means enclosing, so one piece wraps another"
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "squalid property",
+      "gives": "SLUM",
+      "note": "a slum is run-down, squalid housing"
+     },
+     {
+      "clueFragment": "yard",
+      "gives": "Y",
+      "note": "Y is the abbreviation for yard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "Y",
+      "LUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim tenement with a yard offers shelter to someone in need.",
+     "definitionFit": "Asylum is protection or refuge given to someone fleeing danger, the same idea as sanctuary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "yard"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +679,70 @@
     "text": "Brings up in houses built across river",
     "enumeration": "9"
    },
-   "solution": "NOURISHES"
+   "solution": "NOURISHES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NOURISHES",
+    "definitions": [
+     {
+      "text": "Brings up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "built",
+      "for": "anagram",
+      "note": "something built is put together, so these letters are assembled in a new order"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "across means spanning, so the rearranged letters stretch over one more"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "houses",
+      "gives": "HOUSES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOURISHES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INHOUSESR",
+       "gives": "NOURISHES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone raises a family in homes built on both banks of a river.",
+     "walkthrough": "'in' looks like a link word but is part of the letters to rearrange.",
+     "definitionFit": "To nourish a child is to feed and rear it, which is to bring it up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +762,51 @@
      }
     ]
    },
-   "solution": "TOTUP"
+   "solution": "TOTUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOT UP",
+    "definitions": [
+     {
+      "text": "Count",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "TOT",
+      "note": "a tot is a small child"
+     },
+     {
+      "clueFragment": "at university",
+      "gives": "UP",
+      "note": "a student at university is said to be up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOT",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman's young child is now studying at university.",
+     "walkthrough": "'Count's' looks like a title with a possessive; it is the verb plus 's for 'is'. Being up means in residence at Oxford or Cambridge.",
+     "definitionFit": "To tot up is a phrasal verb for adding numbers together, which is to count."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Count's"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +820,47 @@
     "text": "Unfashionable shed one rejected",
     "enumeration": "7"
    },
-   "solution": "OUTCAST"
+   "solution": "OUTCAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTCAST",
+    "definitions": [
+     {
+      "text": "one rejected",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unfashionable",
+      "gives": "OUT",
+      "note": "something out of fashion is out"
+     },
+     {
+      "clueFragment": "shed",
+      "gives": "CAST",
+      "note": "a snake casts, or sheds, its skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "CAST"
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned garden shed has been thrown away.",
+     "walkthrough": "'shed' looks like a garden hut but is the past-tense verb.",
+     "definitionFit": "An outcast is a person cast out by society, someone rejected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +874,53 @@
     "text": "Starts to avoid key meals",
     "enumeration": "7"
    },
-   "solution": "LUNCHES"
+   "solution": "LUNCHES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LUNCHES",
+    "definitions": [
+     {
+      "text": "meals",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to avoid",
+      "for": "deletion",
+      "note": "to avoid something is to keep it out, so a letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Starts",
+      "gives": "LAUNCHES",
+      "note": "to launch something is to start it"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "A",
+      "note": "A is a musical key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUNCHES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets out to skip the main meals of the day.",
+     "walkthrough": "A musical key is one of the letters A to G.",
+     "definitionFit": "Lunches are midday meals, so the plural noun matches meals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +948,39 @@
      }
     ]
    },
-   "solution": "MANOFTHEMATCH"
+   "solution": "MANOFTHEMATCH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MAN OF THE MATCH",
+    "definitions": [
+     {
+      "text": "Groom's award in sport?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "award in sport",
+      "note": "surface reading: the prize given to the best player in a game"
+     },
+     {
+      "clueFragment": "Groom's",
+      "note": "setter's reading: a match is also a marriage, and the groom is its man"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase for the best player's prize also literally describes the bridegroom, the man of a marriage, or match.",
+     "definitionFit": "The phrase names a sporting accolade, while a wedding is a match whose principal male is the groom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sport"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +994,58 @@
     "text": "Charm of fiesta can, somehow",
     "enumeration": "9"
    },
-   "solution": "FASCINATE"
+   "solution": "FASCINATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FASCINATE",
+    "definitions": [
+     {
+      "text": "Charm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow says the letters end up in some unspecified other arrangement"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fiesta",
+      "gives": "FIESTA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "CAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FIESTACAN",
+       "gives": "FASCINATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tin can somehow captures the charm of a festival.",
+     "definitionFit": "To fascinate is to enthral or captivate, which is to charm, both as verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charm"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1059,67 @@
     "text": "Light ale brewed at that place inside",
     "enumeration": "8"
    },
-   "solution": "ETHEREAL"
+   "solution": "ETHEREAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ETHEREAL",
+    "definitions": [
+     {
+      "text": "Light",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing mixes things up, so the drink's letters are stirred into a new order"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside puts the phrase about place within the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ale",
+      "gives": "ALE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "at that place",
+      "gives": "THERE",
+      "note": "there means at that place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "THERE",
+      "AL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALE",
+       "gives": "EAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pale beer has been brewed on the premises.",
+     "walkthrough": "'Light ale' reads as a beer style; 'Light' alone is the definition.",
+     "definitionFit": "Ethereal means delicate and airy, extremely light in weight or texture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Light"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1147,43 @@
      }
     ]
    },
-   "solution": "TOSAYTHELEAST"
+   "solution": "TOSAYTHELEAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TO SAY THE LEAST",
+    "definitions": [
+     {
+      "text": "The most tongue-tied manages this",
+      "at": 0
+     },
+     {
+      "text": "without the slightest exaggeration",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The most tongue-tied manages this",
+      "note": "first meaning: a very tongue-tied person manages to utter the least of anyone"
+     },
+     {
+      "clueFragment": "without the slightest exaggeration",
+      "note": "second meaning: the idiom for deliberate understatement"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half takes the idiom literally: whoever is most lost for words speaks least.",
+     "definitionFit": "The phrase is an idiom used when stating something mildly, signalling understatement rather than overstatement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "manages"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1197,45 @@
     "text": "Flowering plant in a Lancashire river",
     "enumeration": "6"
    },
-   "solution": "YARROW"
+   "solution": "YARROW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YARROW",
+    "definitions": [
+     {
+      "text": "Flowering plant",
+      "at": 0
+     },
+     {
+      "text": "a Lancashire river",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flowering plant",
+      "note": "first meaning: a plant with flat clusters of small white flowers, also called milfoil"
+     },
+     {
+      "clueFragment": "a Lancashire river",
+      "note": "second meaning: a river flowing through Chorley in Lancashire, a county in north-west England"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as a plant growing in a river; 'in' merely joins the two meanings.",
+     "definitionFit": "The same name belongs to a common wildflower, Achillea millefolium, and to a small river in north-west England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1249,48 @@
     "text": "What one may have expected from 'Sweeney Todd' (musical affair)?",
     "enumeration": "6"
    },
-   "solution": "HAIRDO"
+   "solution": "HAIRDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAIRDO",
+    "definitions": [
+     {
+      "text": "What one may have expected from 'Sweeney Todd'",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical",
+      "gives": "HAIR",
+      "note": "Hair is a famous rock musical"
+     },
+     {
+      "clueFragment": "affair",
+      "gives": "DO",
+      "note": "a do is a party or affair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIR",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on what audiences expect from the musical Sweeney Todd.",
+     "walkthrough": "Sweeney Todd is itself a musical, which makes 'musical affair' look like a description of it; but Todd is a barber, so his customers would expect a haircut.",
+     "definitionFit": "A hairdo is a styled haircut, the service a barber such as Sweeney Todd provides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "musical"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1304,56 @@
     "text": "Game the French boycotted is over",
     "enumeration": "6"
    },
-   "solution": "ACROSS"
+   "solution": "ACROSS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ACROSS",
+    "definitions": [
+     {
+      "text": "over",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boycotted",
+      "for": "deletion",
+      "note": "boycotted means shunned, so those letters are kept out of the word"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "gives": "LACROSSE",
+      "note": "lacrosse is a field game played with netted sticks"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACROSS"
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting fixture ends after the French team stays away.",
+     "walkthrough": "Remove the L and the E of 'le' from the game, leaving the letters between.",
+     "definitionFit": "Across and over are synonyms as prepositions, as in going across or over a bridge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boycotted"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1367,55 @@
     "text": "Royal attendant has no time for messenger",
     "enumeration": "7"
    },
-   "solution": "COURIER"
+   "solution": "COURIER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "COURIER",
+    "definitions": [
+     {
+      "text": "messenger",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has no",
+      "for": "deletion",
+      "note": "has no means lacking, so one letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal attendant",
+      "gives": "COURTIER",
+      "note": "a courtier attends a monarch at court"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COURIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A busy palace attendant has no time to act as a messenger.",
+     "definitionFit": "A courier carries parcels or messages, so is a messenger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1429,65 @@
     "text": "Urge simple changes involving uranium",
     "enumeration": "7"
    },
-   "solution": "IMPULSE"
+   "solution": "IMPULSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IMPULSE",
+    "definitions": [
+     {
+      "text": "Urge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "changes says the word is altered, so its letters are rearranged"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means including, so one more letter is taken inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "simple",
+      "gives": "SIMPLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "uranium",
+      "gives": "U",
+      "note": "U is the chemical symbol for uranium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPULSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SIMPLEU",
+       "gives": "IMPULSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call for simple reforms to include nuclear fuel.",
+     "walkthrough": "'Urge' looks like a verb urging changes, but it is the noun definition.",
+     "definitionFit": "An impulse is a sudden urge or desire to act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Urge"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1501,64 @@
     "text": "Writer, for example, brought up in a London suburb",
     "enumeration": "5"
    },
-   "solution": "PENGE"
+   "solution": "PENGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PENGE",
+    "definitions": [
+     {
+      "text": "a London suburb",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down clue brought up means read from bottom to top, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "PEN",
+      "note": "a pen is something you write with"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author, say, was raised in a London suburb.",
+     "walkthrough": "Penge is a district of south-east London.",
+     "definitionFit": "Penge is a residential area in the London Borough of Bromley, so it is a suburb of the capital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Writer"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1572,61 @@
     "text": "Love game, possibly last in series",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "last in series",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly hints at one possible version among many, so the letters may be reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is a score of nil, written O"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "GAME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MEGA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAME",
+       "gives": "MEGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A love game might decide the final match in a tennis series.",
+     "walkthrough": "'Love game' reads as a tennis term, a game won without the loser scoring.",
+     "definitionFit": "Omega is the final letter of the Greek alphabet, hence the last in a sequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1640,55 @@
     "text": "I must be protected by guns regulation",
     "enumeration": "9"
    },
-   "solution": "ORDINANCE"
+   "solution": "ORDINANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORDINANCE",
+    "definitions": [
+     {
+      "text": "regulation",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must be protected by",
+      "for": "container",
+      "note": "something protected by another is shielded inside it, so one piece goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guns",
+      "gives": "ORDNANCE",
+      "note": "ordnance is artillery, big guns"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORD",
+      "I",
+      "NANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists that they be guarded by armed men, as the rules say.",
+     "walkthrough": "Ordnance (big guns) and ordinance (a rule) differ by just the one letter, which is what the clue exploits.",
+     "definitionFit": "An ordinance is an authoritative rule or decree, a regulation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "protected"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1702,46 @@
     "text": "I may pose a problem for a dog",
     "enumeration": "6"
    },
-   "solution": "SETTER"
+   "solution": "SETTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SETTER",
+    "definitions": [
+     {
+      "text": "I may pose a problem",
+      "at": 0
+     },
+     {
+      "text": "a dog",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I may pose a problem",
+      "note": "first meaning: the compiler of this puzzle, speaking as I, sets puzzling problems"
+     },
+     {
+      "clueFragment": "a dog",
+      "note": "second meaning: a breed of gun dog, such as the Irish red one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'I' is the crossword compiler speaking; the surface sounds like someone troubling a pet.",
+     "definitionFit": "A compiler sets clues and so is called by that title, and the same word names a long-haired hunting breed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pose"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1755,47 @@
     "text": "Stand by wife, a sly type",
     "enumeration": "6"
    },
-   "solution": "WEASEL"
+   "solution": "WEASEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WEASEL",
+    "definitions": [
+     {
+      "text": "a sly type",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "Stand",
+      "gives": "EASEL",
+      "note": "an easel is a stand for a painting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "EASEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who stands by his wife turns out to be shifty.",
+     "walkthrough": "'by' means beside, so W sits next to the stand.",
+     "definitionFit": "A weasel is figuratively a sneaky, untrustworthy person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stand"
+    }
+   }
   }
  ]
 }
