@@ -283,7 +283,7 @@ outcome = {}
 fake(default=0.3, ends=False)
 eq.plan = units([], [("r1", [])])
 eq.FETCHERS = {"src": {"plan": lambda: [{"rel": f"e{k}", "reason": "not fetched"} for k in range(6)],
-                       "run": None, "workers": 3, "seconds": 5}}
+                       "workers": 3, "seconds": 5}}
 err = io.StringIO()
 with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
     rc = eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.2)
@@ -306,7 +306,7 @@ log.unlink()
 fake(ps=True)
 eq.plan = units([], [("GaleTimes1988UKEnglish/1988-08-30", [])])
 eq.FETCHERS = {"src": {"plan": lambda: [{"rel": "article/120905968", "reason": "not fetched"}],
-                       "run": None, "workers": 1, "seconds": 5}}
+                       "workers": 1, "seconds": 5}}
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.2)
 seen = {k: v[v.index("edition_queue.py unit"):] for k, v in (line.split("\t", 1) for line in log.read_text().splitlines())}
@@ -608,6 +608,25 @@ for blocked_mod, want in (("requests", "True"), ("fetch_ia_book", "ModuleNotFoun
                           + probe.replace("RUN", repr("__main__"))], capture_output=True, text=True,
                          timeout=120).stderr.strip().splitlines()[-1]
     check(f"a start with {blocked_mod} not installed: {want}", want, out.split(":")[0])
+# A fetch unit loads its source's module and MODULES, exactly what its
+# fetch_unit reaches, and none of the queue's filers.
+import code_reach, importlib
+for src, (name, _) in sorted(eq.FETCH_UNITS.items()):
+    mod = importlib.import_module(name)
+    check(f"{name}.MODULES is what its fetch_unit reaches",
+          sorted({m for m, _ in code_reach.reach(name, ["fetch_unit"], opaque=())} - {name}), sorted(mod.MODULES))
+    fetch_probe = (f"import importlib, json, os, runpy, sys\n"
+                   f"m = importlib.import_module({name!r}); m.fetch_unit = lambda *a: 'busy'\n"
+                   f"os.environ['CT_EDITION_UNIT'] = json.dumps({{'unit': {{'kind': 'fetch', 'paper': {src!r}, 'rel': 'x'}}}})\n"
+                   f"sys.argv = ['edition_queue.py', 'unit', 'fetch', {src!r}, 'x']\n"
+                   f"try:\n    runpy.run_path('edition_queue.py', run_name='__main__')\n"
+                   f"except SystemExit as e:\n"
+                   f"    print(e.code, all(n in sys.modules for n in m.MODULES),\n"
+                   f"          [n for n in ('code_reach', 'gale_listener', 'mem_gate') if n in sys.modules],"
+                   f" file=sys.stderr)")
+    got = subprocess.run([sys.executable, "-c", fetch_probe], capture_output=True, text=True,
+                         timeout=120).stderr.strip().splitlines()[-1]
+    check(f"a {src} fetch unit loads its MODULES, not the queue's, and exits its outcome", f"{eq.EXITS['busy']} True []", got)
 lock_path = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-path", "code.lock"],
                            capture_output=True, text=True, check=True).stdout.strip()
 with open(lock_path, "a") as lk:

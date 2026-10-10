@@ -77,6 +77,11 @@ from pathlib import Path
 
 import downloads
 
+#: The tools modules a queue unit's fetch_unit may load, loaded as the unit
+#: starts (under the queue's code lock, edition_queue.snapshot).
+#: test_edition_queue.sh checks this is what code_reach finds it reaching.
+MODULES = ("downloads", "scan_queue")
+
 
 @contextlib.contextmanager
 def atomic(path, mode="w"):
