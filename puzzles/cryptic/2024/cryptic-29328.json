@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Removes protection for privates and retrieves mission data",
     "enumeration": "8"
    },
-   "solution": "DEBRIEFS"
+   "solution": "DEBRIEFS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEBRIEFS",
+    "definitions": [
+     {
+      "text": "Removes protection for privates",
+      "at": 0
+     },
+     {
+      "text": "retrieves mission data",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Removes protection for privates",
+      "note": "first meaning, read jokily: takes off one's underpants, DE- plus briefs"
+     },
+     {
+      "clueFragment": "retrieves mission data",
+      "note": "second meaning: questions someone after an operation"
+     }
+    ],
+    "explanation": {
+     "surface": "A soldier being stripped of kit and then questioned about the operation just completed.",
+     "walkthrough": "The first half splits the word as DE (remove) + BRIEFS (underpants, which protect the 'privates', a pun on soldiers).",
+     "definitionFit": "To debrief is to question an agent or soldier after an assignment to gather information."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "privates"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +90,55 @@
     "text": "Unravel mystery of sea creature existing in freshwater river?",
     "enumeration": "6"
    },
-   "solution": "DECODE"
+   "solution": "DECODE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DECODE",
+    "definitions": [
+     {
+      "text": "Unravel mystery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "existing in",
+      "for": "container",
+      "note": "something existing in a place lives inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "freshwater river",
+      "gives": "DEE",
+      "note": "the Dee, a river in Britain; freshwater is surface colour"
+     },
+     {
+      "clueFragment": "sea creature",
+      "gives": "COD",
+      "note": "a cod is a sea fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "COD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about how a sea creature could be living in a freshwater river.",
+     "walkthrough": "The Dee is a river in Scotland and another in Wales and England; 'freshwater' just adds to the picture.",
+     "definitionFit": "To decode is to work out the meaning of something hidden, so solving a mystery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "freshwater"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +152,50 @@
     "text": "Arrogant supporter on way to enlightenment",
     "enumeration": "6"
    },
-   "solution": "BRAZEN"
+   "solution": "BRAZEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRAZEN",
+    "definitions": [
+     {
+      "text": "Arrogant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supporter",
+      "gives": "BRA",
+      "note": "a bra is a supporting garment"
+     },
+     {
+      "clueFragment": "way to enlightenment",
+      "gives": "ZEN",
+      "note": "Zen Buddhism, a path to enlightenment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRA",
+      "ZEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A self-important backer who claims to be on the path to spiritual awakening.",
+     "walkthrough": "'Supporter' is a crossword favourite for the garment, not a fan.",
+     "definitionFit": "Brazen means shameless and bold, which overlaps with arrogant behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supporter"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +209,63 @@
     "text": "Apathy turning to defiance if son replaces daughter",
     "enumeration": "9"
    },
-   "solution": "INDOLENCE"
+   "solution": "INDOLENCE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "INDOLENCE",
+    "definitions": [
+     {
+      "text": "Apathy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaces",
+      "for": "substitution",
+      "note": "one thing replacing another means a letter is swapped out for a new one"
+     }
+    ],
+    "linkWords": [
+     "turning to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defiance",
+      "gives": "INSOLENCE",
+      "note": "insolence is rude defiance"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "D",
+      "OLENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sulky teenager's indifference becoming open rebellion when a son takes a daughter's place.",
+     "walkthrough": "The clue runs backwards: the answer becomes the word for defiance when S replaces D, so the solver swaps D back in for S.",
+     "definitionFit": "Indolence is laziness, an unwillingness to exert oneself, which is close to apathy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "son"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +285,61 @@
      }
     ]
    },
-   "solution": "FREUDIANSLIP"
+   "solution": "FREUDIANSLIP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FREUDIAN SLIP",
+    "definitions": [
+     {
+      "text": "did I  mean to say that?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "badly suggests the words are put together wrongly, in a muddled order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spurned",
+      "gives": "SPURNED",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "fail",
+      "gives": "FAIL",
+      "note": "as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPURNEDIFAIL",
+       "gives": "FREUDIANSLIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rejected suitor fumbling words and wondering whether a blurted remark was intended.",
+     "definitionFit": "A Freudian slip is an accidental verbal error thought to reveal a hidden wish, so the speaker may have meant it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spurned"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +353,61 @@
     "text": "Extremely haughty getting put into elite category",
     "enumeration": "6"
    },
-   "solution": "PHYLUM"
+   "solution": "PHYLUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PHYLUM",
+    "definitions": [
+     {
+      "text": "category",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of the next word, its two end letters only"
+     },
+     {
+      "text": "getting put into",
+      "for": "container",
+      "note": "something put into another word sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elite",
+      "gives": "PLUM",
+      "note": "a plum job or role is a choice, elite one"
+     },
+     {
+      "clueFragment": "haughty",
+      "gives": "HY",
+      "select": "outer",
+      "note": "first and last letters of haughty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HY",
+      "LUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A very snooty person being admitted into a top-tier social group.",
+     "definitionFit": "A phylum is a major rank in biological classification, so a taxonomic category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "elite"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +421,54 @@
     "text": "Couple pull up with difficulty?",
     "enumeration": "5"
    },
-   "solution": "HITCH"
+   "solution": "HITCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HITCH",
+    "definitions": [
+     {
+      "text": "Couple",
+      "at": 0
+     },
+     {
+      "text": "pull up",
+      "at": 7
+     },
+     {
+      "text": "difficulty",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Couple",
+      "note": "first meaning: to attach, as a trailer to a car"
+     },
+     {
+      "clueFragment": "pull up",
+      "note": "second meaning: to hoist, as one does trousers"
+     },
+     {
+      "clueFragment": "difficulty",
+      "note": "third meaning: a snag or problem"
+     }
+    ],
+    "explanation": {
+     "surface": "A pair struggling to haul something upwards.",
+     "walkthrough": "This is a triple definition: three separate meanings of one short word.",
+     "definitionFit": "The word means to fasten, to jerk upward, and a temporary obstacle or snag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Couple"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +488,51 @@
      }
     ]
    },
-   "solution": "LOOPAPER"
+   "solution": "LOOPAPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOO PAPER",
+    "definitions": [
+     {
+      "text": "it keeps the end clean",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Circuit",
+      "gives": "LOOP",
+      "note": "a loop is a circuit"
+     },
+     {
+      "clueFragment": "copier",
+      "gives": "APER",
+      "note": "an aper is one who apes, a copier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOP",
+      "APER"
+     ]
+    },
+    "explanation": {
+     "surface": "Office instructions for loading a photocopier so the output stays tidy.",
+     "walkthrough": "'Copier' wants to be the office machine; it is one who apes. 'The end' means the backside, and LOO is the British word for toilet.",
+     "definitionFit": "Toilet tissue is used for wiping the bottom, the rear end of the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "copier"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +546,61 @@
     "text": "Encounters rebel king's army chiefs inside – they're watchful creatures",
     "enumeration": "8"
    },
-   "solution": "MEERKATS"
+   "solution": "MEERKATS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MEERKATS",
+    "definitions": [
+     {
+      "text": "they're watchful creatures",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chiefs",
+      "for": "letter_selection",
+      "note": "chiefs are heads, so only the leading letter of each word is kept"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means placed within, so one set of letters goes into the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Encounters",
+      "gives": "MEETS",
+      "note": "meets, encounters"
+     },
+     {
+      "clueFragment": "rebel king's army",
+      "gives": "RKA",
+      "select": "first",
+      "note": "first letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEE",
+      "RKA",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Meeting a rebel king's commanders, who keep a sharp lookout.",
+     "definitionFit": "Meerkats are African mongooses famous for standing upright on sentry duty, keeping watch for predators."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chiefs"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +614,51 @@
     "text": "Caught dealer supplying 1/6th of friends in New York?",
     "enumeration": "8"
    },
-   "solution": "CHANDLER"
+   "solution": "CHANDLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHANDLER",
+    "definitions": [
+     {
+      "text": "1/6th of friends in New York?",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "supplying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "dealer",
+      "gives": "HANDLER",
+      "note": "a handler deals with or trades in goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HANDLER"
+     ]
+    },
+    "explanation": {
+     "surface": "A drug dealer arrested for supplying a group of friends in New York.",
+     "walkthrough": "The definition reads 'Friends' as the US sitcom set in New York: Chandler Bing is one of its six main characters.",
+     "definitionFit": "Chandler Bing is one of the six title characters of the sitcom Friends, so a sixth of that group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "friends"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +672,56 @@
     "text": "Type of light half of street order",
     "enumeration": "6"
    },
-   "solution": "STROBE"
+   "solution": "STROBE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STROBE",
+    "definitions": [
+     {
+      "text": "Type of light",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half of a six-letter word keeps three letters, here its opening part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "STR",
+      "select": "first",
+      "note": "the first three of six letters"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "OBE",
+      "note": "the Order of the British Empire, an honour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STR",
+      "OBE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asking what kind of lamp half the street has been told to fit.",
+     "walkthrough": "OBE is the Order of the British Empire, a British honour, so 'order' gives those letters.",
+     "definitionFit": "A strobe is a flashing lamp giving rapid bursts of light, as used in clubs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +741,67 @@
      }
     ]
    },
-   "solution": "WALDORFSALAD"
+   "solution": "WALDORFSALAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WALDORF SALAD",
+    "definitions": [
+     {
+      "text": "healthy dish",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixture",
+      "for": "anagram",
+      "note": "a mixture combines things in a jumbled way, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to make a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adds",
+      "gives": "ADDS",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "all",
+      "gives": "ALL",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "raw",
+      "gives": "RAW",
+      "note": "as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADDSALLOFRAW",
+       "gives": "WALDORFSALAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe instruction: combine all the raw ingredients for a wholesome meal.",
+     "definitionFit": "This salad of apple, celery and walnuts in mayonnaise, from New York's Waldorf hotel, is a light dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +815,56 @@
     "text": "Live and thrive, having lost nothing",
     "enumeration": "5"
    },
-   "solution": "DWELL"
+   "solution": "DWELL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DWELL",
+    "definitions": [
+     {
+      "text": "Live",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having lost",
+      "for": "deletion",
+      "note": "having lost something means a part is dropped from the phrase before it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thrive",
+      "gives": "DOWELL",
+      "note": "to thrive is to do well"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to live a full life and prosper, having lost nothing along the way.",
+     "definitionFit": "To dwell somewhere is to live there, reside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +884,65 @@
      }
     ]
    },
-   "solution": "DEATHMASK"
+   "solution": "DEATHMASK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEATH MASK",
+    "definitions": [
+     {
+      "text": "final impression",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests the words are bent out of shape, made crooked"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ask",
+      "gives": "ASK",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "mad",
+      "gives": "MAD",
+      "note": "as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASKTHEMAD",
+       "gives": "DEATHMASK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective deciding to quiz a deranged crook for a last impression of the case.",
+     "walkthrough": "'Mad' looks like the anagram signal, but it is fodder; 'criminal' does the mixing.",
+     "definitionFit": "A death mask is a cast taken of a face after death, literally a last impression."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +956,46 @@
     "text": "Brilliant old American lineage",
     "enumeration": "12"
    },
-   "solution": "INCANDESCENT"
+   "solution": "INCANDESCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCANDESCENT",
+    "definitions": [
+     {
+      "text": "Brilliant",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old American",
+      "gives": "INCAN",
+      "note": "of the Inca, the pre-Columbian people of Peru"
+     },
+     {
+      "clueFragment": "lineage",
+      "gives": "DESCENT",
+      "note": "ancestry, lineage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCAN",
+      "DESCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone praising a person's brilliant ancestry from early American stock.",
+     "definitionFit": "Incandescent means glowing with light, so brilliant in the sense of shining brightly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brilliant"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1015,63 @@
      }
     ]
    },
-   "solution": "SLEEPMODE"
+   "solution": "SLEEPMODE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SLEEP MODE",
+    "definitions": [
+     {
+      "text": "standby",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means turned round, so the word for strips is read the other way"
+     }
+    ],
+    "linkWords": [
+     "putting it into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strips",
+      "gives": "PEELS",
+      "note": "to peel is to strip off"
+     },
+     {
+      "clueFragment": "process",
+      "gives": "MODE",
+      "note": "a mode is a way or method of operating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLEEP",
+      "MODE"
+     ],
+     "reversals": [
+      {
+       "from": "PEELS",
+       "to": "SLEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for removing a backing and putting a gadget on standby.",
+     "definitionFit": "Sleep mode is a low-power state of a computer, the setting also called standby."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Strips"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1085,56 @@
     "text": "Cleaner is master, generating great presence",
     "enumeration": "8"
    },
-   "solution": "CHARISMA"
+   "solution": "CHARISMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARISMA",
+    "definitions": [
+     {
+      "text": "great presence",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "generating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cleaner",
+      "gives": "CHAR",
+      "note": "a char, or charwoman, is a cleaner"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "master",
+      "gives": "MA",
+      "note": "MA, Master of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "IS",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner who becomes the boss and acquires a commanding personality.",
+     "walkthrough": "A char is an old British word for a cleaning woman.",
+     "definitionFit": "Charisma is compelling personal charm, the quality of a strong presence that draws others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "master"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1154,47 @@
      }
     ]
    },
-   "solution": "GREATAPE"
+   "solution": "GREATAPE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GREAT APE",
+    "definitions": [
+     {
+      "text": "one of our cousins",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "something broadcast is heard on air, so the words are taken by their sound"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dull recording",
+      "gives": "GREATAPE",
+      "soundsLike": "GREY TAPE",
+      "note": "grey is dull, tape a recording"
+     }
+    ],
+    "explanation": {
+     "surface": "A boring recording being aired by a relative.",
+     "definitionFit": "Gorillas, chimps and orangutans are close evolutionary relatives of humans, hence our cousins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cousins"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1214,60 @@
      }
     ]
    },
-   "solution": "HARLEYSTREET"
+   "solution": "HARLEYSTREET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARLEY STREET",
+    "definitions": [
+     {
+      "text": "getting specialist treatment here?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Alternative",
+      "for": "anagram",
+      "note": "alternative suggests a different version, so the words are rearranged"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatres",
+      "gives": "THEATRES",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "rely",
+      "gives": "RELY",
+      "note": "as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEATRESRELY",
+       "gives": "HARLEYSTREET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fringe theatres depending on special handling, a comment on arts funding.",
+     "walkthrough": "Harley Street is the London street famous for private medical specialists; 'theatres' also hints at operating theatres.",
+     "definitionFit": "The London street is known for consultants in private practice, where patients go to see specialist doctors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "theatres"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1281,58 @@
     "text": "Prone to prosecute, hiding fix",
     "enumeration": "6"
    },
-   "solution": "SUPINE"
+   "solution": "SUPINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUPINE",
+    "definitions": [
+     {
+      "text": "Prone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "hiding something means wrapping it out of sight, so one word encloses another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prosecute",
+      "gives": "SUE",
+      "note": "to sue is to take legal action"
+     },
+     {
+      "clueFragment": "fix",
+      "gives": "PIN",
+      "note": "to pin is to fix in place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "PIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone inclined to take legal action while covering up a rigged result.",
+     "walkthrough": "'Prone to' reads as 'inclined to', but 'Prone' is the definition and 'to' merely links.",
+     "definitionFit": "Both words describe lying flat, though strictly supine is face upward and prone face down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Prone"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1346,49 @@
     "text": "Elevation moving top to bottom, 12.5%",
     "enumeration": "6"
    },
-   "solution": "HEIGHT"
+   "solution": "HEIGHT",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "HEIGHT",
+    "definitions": [
+     {
+      "text": "Elevation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving top to bottom",
+      "for": "cycling",
+      "note": "moving the top of a down entry to its bottom shifts one letter from one end to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "12.5%",
+      "gives": "EIGHTH",
+      "note": "12.5% is one eighth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A survey note: the height has shifted from top to bottom by an eighth.",
+     "walkthrough": "Read backwards: moving the answer's top letter to the bottom gives the fraction, so the solver moves that fraction's final H up to the top.",
+     "definitionFit": "Elevation is height above a reference level such as the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Elevation"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1402,62 @@
     "text": "Concrete is securing link – these are the facts",
     "enumeration": "9"
    },
-   "solution": "REALITIES"
+   "solution": "REALITIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REALITIES",
+    "definitions": [
+     {
+      "text": "these are the facts",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing something means holding it fast within, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concrete",
+      "gives": "REAL",
+      "note": "concrete, actual"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "link",
+      "gives": "TIE",
+      "note": "a tie is a link or bond"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL",
+      "I",
+      "TIE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A builder explaining that concrete is what holds the link in place: those are the facts.",
+     "walkthrough": "'Concrete' wants to be the building material; here it is the adjective meaning actual.",
+     "definitionFit": "Realities are things that actually exist or are true, so the facts of a situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Concrete"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1471,43 @@
     "text": "Virgil, I admit, contains work from another poet",
     "enumeration": "5"
    },
-   "solution": "ILIAD"
+   "solution": "ILIAD",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ILIAD",
+    "definitions": [
+     {
+      "text": "work from another poet",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "hidden_word",
+      "note": "contains says the letters are held within the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virgil, I admit",
+      "gives": "ILIAD",
+      "note": "inside virgIL I ADmit"
+     }
+    ],
+    "explanation": {
+     "surface": "A confession that Virgil's epic borrows from an earlier poet.",
+     "walkthrough": "The surface is apt: Virgil's Aeneid draws heavily on Homer.",
+     "definitionFit": "The Iliad is Homer's epic of the Trojan War, a poem by a poet other than Virgil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "contains"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1521,47 @@
     "text": "Delay yearly exercise ...",
     "enumeration": "5"
    },
-   "solution": "PAUSE"
+   "solution": "PAUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAUSE",
+    "definitions": [
+     {
+      "text": "Delay",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yearly",
+      "gives": "PA",
+      "note": "per annum, abbreviated p.a."
+     },
+     {
+      "clueFragment": "exercise",
+      "gives": "USE",
+      "note": "to exercise a right is to use it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "A note about postponing an annual workout, leading on into the next clue.",
+     "walkthrough": "The ellipsis links the surface to the next clue; it plays no part in the wordplay.",
+     "definitionFit": "A pause is a short stop or hold-up, and to pause is to delay briefly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercise"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1575,45 @@
     "text": "... still producing interference",
     "enumeration": "6"
    },
-   "solution": "STATIC"
+   "solution": "STATIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STATIC",
+    "definitions": [
+     {
+      "text": "still",
+      "at": 4
+     },
+     {
+      "text": "interference",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "note": "first meaning: motionless, unchanging"
+     },
+     {
+      "clueFragment": "interference",
+      "note": "second meaning: crackling noise on a radio or TV signal"
+     }
+    ],
+    "explanation": {
+     "surface": "Continuing the previous clue: an annual workout delayed yet still causing disruption.",
+     "definitionFit": "The word means unmoving as an adjective and, as a noun, electrical noise disrupting broadcast reception."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1627,55 @@
     "text": "Almost overwhelm gang? That's shocking",
     "enumeration": "8"
    },
-   "solution": "FLOORING"
+   "solution": "FLOORING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FLOORING",
+    "definitions": [
+     {
+      "text": "shocking",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overwhelm",
+      "gives": "FLOOD",
+      "note": "to flood is to overwhelm"
+     },
+     {
+      "clueFragment": "gang",
+      "gives": "RING",
+      "note": "a ring of criminals is a gang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLOO",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "A query about nearly being overrun by a gang of thugs, and how alarming that would be.",
+     "walkthrough": "'Shocking' looks like a comment on the gang, but it is the definition, in the sense of knocking someone down.",
+     "definitionFit": "Flooring someone is staggering or astonishing them, as if knocking them to the ground, hence shocking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shocking"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1689,64 @@
     "text": "Mature reason that stops one revealing programme",
     "enumeration": "6"
    },
-   "solution": "AGENDA"
+   "solution": "AGENDA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AGENDA",
+    "definitions": [
+     {
+      "text": "programme",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that stops",
+      "for": "deletion",
+      "note": "stopping something cuts it short, so the word before loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mature",
+      "gives": "AGE",
+      "note": "to age is to mature"
+     },
+     {
+      "clueFragment": "reason",
+      "gives": "END",
+      "note": "an end is a purpose or reason"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a, the indefinite article, means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "END",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A mature explanation that halts someone in the act of disclosing a plan.",
+     "walkthrough": "The parse is loose: the E of the first piece is lost, or shared with the second, as the reason cuts it short before the final one.",
+     "definitionFit": "An agenda is a list of items to be dealt with at a meeting, a programme of business."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reason"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1760,55 @@
     "text": "Follower provides commercial gas lease",
     "enumeration": "8"
    },
-   "solution": "ADHERENT"
+   "solution": "ADHERENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADHERENT",
+    "definitions": [
+     {
+      "text": "Follower",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "gas",
+      "gives": "HE",
+      "note": "He, the symbol for helium"
+     },
+     {
+      "clueFragment": "lease",
+      "gives": "RENT",
+      "note": "to lease is to rent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "HE",
+      "RENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A business notice about an advertisement for leasing a gas supply.",
+     "definitionFit": "An adherent is a supporter or disciple who sticks to a cause or leader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   }
  ]
 }
