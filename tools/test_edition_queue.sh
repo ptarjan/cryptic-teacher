@@ -350,6 +350,26 @@ starts = [(float(line.split()[0]), line.split()[3]) for line in log.read_text().
 check("the next run starts the kept plan's units before its own plan is made", (["k1", "k2"], True),
       (sorted(r for _, r in starts), all(t - t0 < 2 for t, _ in starts)))
 log.unlink()
+# A slice boundary: the next slice fills its free slots with what the last
+# one had not started, at once, its ledger upkeep on the planner thread.
+fake(sleep={"k2": 4, "k3": 4})
+kept_ho = Path(os.environ["TMP"]) / "kept-handoff2.json"
+eq.plan = units([], [(f"k{k}", []) for k in range(1, 6)])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=2, replan=60, seconds=2, handoff=kept_ho)
+ran = {line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"}
+log.unlink()
+eq.plan = stalled
+upkept = []
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    t0 = time.monotonic()
+    eq.dispatch(["times"], cache, workers=4, replan=0.1, handoff=kept_ho,
+                upkeep=lambda: (time.sleep(3), upkept.append(time.monotonic() - t0)))
+starts = [(float(line.split()[0]), line.split()[3]) for line in log.read_text().splitlines() if line.split()[1] == "start"]
+check("the next slice starts at once what the last left unstarted, not what it ran; upkeep beside it",
+      (sorted({"k1", "k2", "k3", "k4", "k5"} - ran), True, 1, True),
+      (sorted(r for _, r in starts), all(t - t0 < 2 for t, _ in starts), len(upkept), "k1" in ran))
+log.unlink()
 fake(sleep={"slow": 30})
 eq.plan = units([], [(f"r{k}", []) for k in range(6)])
 out = io.StringIO()

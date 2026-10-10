@@ -523,7 +523,7 @@ def desktop_yielding():
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
              scan_workers=SCAN_WORKERS, newer=None, beside=None, read_seconds=READ_SECONDS,
              scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS, handoff=None,
-             resume=None, fetch_replan=None):
+             resume=None, fetch_replan=None, upkeep=None):
     """Run the queue until nothing due is left to start (or `seconds` have
     passed, or a TERM), then wait for the units running. `fetch` names the
     FETCHERS whose units run too, in pools of their own. With `handoff` (a
@@ -534,6 +534,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     hand-over of this run's own image before a re-exec (code_files changed),
     taken on the same way. Each fetch source's plan is made again
     `fetch_replan` (FETCH_REPLAN when None) seconds after the last.
+    `upkeep` (main's ledger_upkeep) runs once before the first plan made
+    here: on the planner thread when the run starts units from the last
+    plan, so a slice's or re-exec's slots refill at once, not after it.
     Returns the exit status: 0, or 143 after a TERM."""
     stop = []
     signal.signal(signal.SIGTERM, lambda *_: stop.append(signal.SIGTERM))
@@ -555,12 +558,14 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     # slice starts units from it at once while its own plan is made.
     plan_file = Path(f"{handoff or resume or f'/tmp/edition-queue-{os.getpid()}.json'}.plan")
     plan_key = [list(papers), str(cache), reread and reread.isoformat(), newer, sorted(fetch)]
+    plan_at = None  # when the plan in force was made (wall clock), once one is kept
     if handoff or resume:
-        kept = last_plan(plan_file, plan_key)
+        kept, plan_at = last_plan(plan_file, plan_key)
         if kept:
             scans, reads, fetches = kept
             planned = time.monotonic()
             log(f"started from the last plan: {len(scans)} scans, {len(reads)} reads, {len(fetches)} fetches")
+    upkept = [upkeep] if upkeep else []  # run, and emptied, before the first plan made here
     left = 0
     pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
              **{f"fetch {src}": FETCHERS[src]["workers"] for src in fetch}}
@@ -661,10 +666,19 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 except ProcessLookupError:
                     pass
 
+    def keep_untried():
+        # What the next run starts from: the plan in force less the units
+        # this one started (done, running or failed), so its first pass
+        # fills the slots with new work, not units already done.
+        if plan_at is not None:
+            keep_plan(plan_file, plan_key, [[u for u in us if key_of(u) not in tried]
+                                            for us in (scans, reads, fetches)], plan_at)
+
     def reexec():
         """Hand the running units to this run's new image and become it."""
         path = handoff or resume or Path(f"/tmp/edition-queue-{os.getpid()}.json")
         hand_over(path, units_running())
+        keep_untried()
         argv = [sys.executable, *sys.argv]
         if seconds is not None:
             argv += ["--seconds", str(max(0.0, seconds - (time.monotonic() - begun)))]
@@ -697,6 +711,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
 
             def make(box=box):
                 try:
+                    while upkept:
+                        upkept.pop()()
                     box["plan"] = replan_all(box["notes"])
                 except BaseException as e:  # noqa: BLE001 -- raised again on the dispatch loop
                     box["error"] = e
@@ -705,6 +721,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 # Scans and reads start first; the fetch plan (every done
                 # edition's siblings, minutes off a cold cache) is made on
                 # the thread at once after.
+                while upkept:
+                    upkept.pop()()
                 box["plan"], box["partial"] = (*plan(papers, cache, reread, newer, box["notes"]), []), True
             elif planned is None:
                 make()
@@ -717,7 +735,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             scans, reads, fetches = box["plan"]
             planned, plan_done = box["begun"], None if box.get("partial") else time.monotonic()
             if plan_done is not None:
-                keep_plan(plan_file, plan_key, box["plan"])
+                plan_at = time.time()
+                keep_plan(plan_file, plan_key, box["plan"], plan_at)
             for n in box["notes"]:
                 log(n)
             log(f"planned: {len(scans)} scans, {len(reads)} reads"
@@ -790,6 +809,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         if handoff and not may_start() and not any(b.busy() for b in beside):
             left = sum(key_of(u) not in tried for u in scans + reads + fetches) + len(running) + len(adopted)
             hand_over(handoff, units_running())
+            keep_untried()
             log(f"slice over: {len(running) + len(adopted)} unit(s) handed over to the next run, still running")
             running.clear()
             adopted.clear()
@@ -865,24 +885,25 @@ def child(pid):
 PLAN_KEPT = 7200
 
 
-def keep_plan(path, key, made):
-    """Save plan `made` (scans, reads, fetches) for a run with `key`'s arguments."""
+def keep_plan(path, key, made, at):
+    """Save plan `made` (scans, reads, fetches), made at `at` (time.time()),
+    for a run with `key`'s arguments."""
     tmp = Path(f"{path}.tmp")
-    tmp.write_text(json.dumps({"key": key, "at": time.time(), "plan": made}))
+    tmp.write_text(json.dumps({"key": key, "at": at, "plan": made}))
     tmp.replace(path)
 
 
 def last_plan(path, key):
-    """The plan keep_plan saved at `path` for these arguments, if under
-    PLAN_KEPT seconds old: its units may be done by now, and each says so
-    as it starts (\"current\")."""
+    """(the plan keep_plan saved at `path` for these arguments, when it was
+    made), if under PLAN_KEPT seconds old, else (None, None): its units may
+    be done by now, and each says so as it starts (\"current\")."""
     try:
         kept = json.loads(Path(path).read_text())
     except (FileNotFoundError, ValueError):
-        return None
+        return None, None
     if kept.get("key") != json.loads(json.dumps(key)) or time.time() - kept.get("at", 0) > PLAN_KEPT:
-        return None
-    return tuple(kept["plan"])
+        return None, None
+    return tuple(kept["plan"]), kept["at"]
 
 
 def hand_over(path, units):
@@ -904,6 +925,20 @@ def take_over(path):
     Path(path).unlink()
     now_wall, now = time.time(), time.monotonic()
     return {r["pid"]: (r["unit"], now - (now_wall - r["startedAt"])) for r in rows if alive(r["pid"]) or child(r["pid"])}
+
+
+def ledger_upkeep(papers, cache):
+    """Re-key and fold each paper's ledger (under its lock, so units append
+    meanwhile): tens of seconds on the media mount."""
+    for key in [k for k in papers if k != "listener"]:
+        ledger, by = (ftp.CACHE / "filed.jsonl", "article") if key == "trove" else (fa.ledger_of(cache, fa.FILERS[key]), "edition")
+        if key != "trove" and (n := fa.rekey_scans(ledger)):
+            log(f"{ledger.name}: {n} scans re-keyed to the narrowed scan key")
+        if key == "trove" and (n := ftp.rekey_unchanged(ledger)):
+            log(f"{ledger.name}: {n} articles re-keyed: their files are as they were read")
+        folded = scan_queue.compact(ledger, by)
+        if folded and folded[0] != folded[1]:
+            log(f"{ledger.name}: {folded[0]} rows folded to {folded[1]}")
 
 
 def main(argv=None):
@@ -964,18 +999,9 @@ def main(argv=None):
         for (src, reason), n in sorted(counts.items()):
             print(f"  {src:11s} {reason:22s} {n:6d}")
         return 0
-    for key in [k for k in papers if k != "listener"]:
-        ledger, by = (ftp.CACHE / "filed.jsonl", "article") if key == "trove" else (fa.ledger_of(args.cache, fa.FILERS[key]), "edition")
-        if key != "trove" and (n := fa.rekey_scans(ledger)):
-            log(f"{ledger.name}: {n} scans re-keyed to the narrowed scan key")
-        if key == "trove" and (n := ftp.rekey_unchanged(ledger)):
-            log(f"{ledger.name}: {n} articles re-keyed: their files are as they were read")
-        folded = scan_queue.compact(ledger, by)
-        if folded and folded[0] != folded[1]:
-            log(f"{ledger.name}: {folded[0]} rows folded to {folded[1]}")
     return dispatch(papers, args.cache, args.out, reread, args.seconds, args.workers, args.scan_workers, newer,
                     [shlex.split(b) for b in args.beside], fetch=args.fetch, trove_workers=args.trove_workers,
-                    handoff=args.handoff, resume=args.resume)
+                    handoff=args.handoff, resume=args.resume, upkeep=lambda: ledger_upkeep(papers, args.cache))
 
 
 if __name__ == "__main__":
