@@ -24,6 +24,9 @@
   "date": "2025-05-13",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,57 @@
     "text": "Gave up, having intended to start afresh",
     "enumeration": "8"
    },
-   "solution": "RESIGNED"
+   "solution": "RESIGNED",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "RESIGNED",
+    "definitions": [
+     {
+      "text": "Gave up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to start",
+      "for": "substitution",
+      "note": "the beginning of the word is what gets swapped out for something new"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "afresh",
+      "gives": "RE",
+      "note": "re- is the prefix meaning again, anew"
+     },
+     {
+      "clueFragment": "intended",
+      "gives": "DESIGNED",
+      "note": "designed means meant or intended; its opening DE is the start replaced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIGNED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quits after planning a fresh start.",
+     "walkthrough": "DESIGNED has its start, DE, made afresh as RE, giving RESIGNED.",
+     "definitionFit": "To resign is to quit or give up a post, so the past tense matches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "afresh"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +104,68 @@
     "text": "Discharged prisoner is covered by substantial compensation",
     "enumeration": "8"
    },
-   "solution": "REPRISAL"
+   "solution": "REPRISAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "REPRISAL",
+    "definitions": [
+     {
+      "text": "compensation",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Discharged",
+      "for": "letter_selection",
+      "note": "something discharged is emptied, so only the outer letters remain"
+     },
+     {
+      "text": "is covered by",
+      "for": "container",
+      "note": "being covered means sitting inside another word as its wrapper"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "PR",
+      "select": "outer",
+      "note": "the word emptied of its middle"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "substantial",
+      "gives": "REAL",
+      "note": "real means substantial, solid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PRIS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A released inmate receives a hefty payout.",
+     "walkthrough": "'Compensation' here is the grim kind: paying someone back for a wrong.",
+     "definitionFit": "A reprisal is retaliation, a paying back in kind, so it is compensation in the sense of retribution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Discharged"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +185,50 @@
      }
     ]
    },
-   "solution": "SIRLANCELOT"
+   "solution": "SIRLANCELOT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIR LANCELOT",
+    "definitions": [
+     {
+      "text": "legendary character",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests the letters are performing in a new role and order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stellar icon",
+      "gives": "STELLARICON",
+      "note": "the eleven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STELLARICON",
+       "gives": "SIRLANCELOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A movie star takes on the role of a famous figure from legend.",
+     "definitionFit": "Sir Lancelot is the Arthurian knight of the Round Table, a figure of legend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +242,62 @@
     "text": "Old circus performer juggled gold tiaras interminably",
     "enumeration": "9"
    },
-   "solution": "GLADIATOR"
+   "solution": "GLADIATOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GLADIATOR",
+    "definitions": [
+     {
+      "text": "Old circus performer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interminably",
+      "for": "deletion",
+      "note": "without an end, so the final letter is dropped"
+     },
+     {
+      "text": "juggled",
+      "for": "anagram",
+      "note": "juggled things are tossed about and land in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "GOLD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tiaras",
+      "gives": "TIARA",
+      "note": "the word without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOLDTIARA",
+       "gives": "GLADIATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient entertainer keeps throwing gold headpieces in the air.",
+     "walkthrough": "The 'circus' is the Roman Circus, the arena, not the big top.",
+     "definitionFit": "Gladiators fought in Roman arenas such as the Circus Maximus to entertain the public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "circus"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +311,42 @@
     "text": "Superfluous text rarely grips",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "Superfluous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grips",
+      "for": "hidden_word",
+      "note": "the phrase holds the answer within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "text rarely",
+      "gives": "EXTRA",
+      "note": "runs across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Text that is surplus to requirements seldom holds attention.",
+     "definitionFit": "Something extra is additional and beyond what is needed, hence superfluous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grips"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +360,60 @@
     "text": "Sign by entrance to Crufts — \"Potential Canine Disorder\"",
     "enumeration": "6"
    },
-   "solution": "CARIES"
+   "solution": "CARIES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CARIES",
+    "definitions": [
+     {
+      "text": "Potential Canine Disorder",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entrance to",
+      "for": "letter_selection",
+      "note": "an entrance is the way in, the first letter of the word"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crufts",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "Sign",
+      "gives": "ARIES",
+      "note": "Aries is a sign of the zodiac"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ARIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A notice at the door of a dog show warns of an illness among the dogs.",
+     "walkthrough": "Crufts is Britain's famous dog show, so the canine looks like a dog; it is a canine tooth.",
+     "definitionFit": "Caries is tooth decay, and a canine is a pointed tooth that can suffer from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Canine"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +427,66 @@
     "text": "Collect doctor leaving drama class after the halfway point",
     "enumeration": "5"
    },
-   "solution": "AMASS"
+   "solution": "AMASS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AMASS",
+    "definitions": [
+     {
+      "text": "Collect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "the doctor departs, so those letters are taken out"
+     },
+     {
+      "text": "after the halfway point",
+      "for": "letter_selection",
+      "note": "only the part of the word beyond its middle is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drama",
+      "gives": "DRAMA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "standard abbreviation for doctor"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "SS",
+      "select": "last",
+      "note": "the back half of the five letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMA",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor quits an acting course midway through to raise money.",
+     "definitionFit": "To amass is to gather or accumulate, the same as collecting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +500,48 @@
     "text": "Reserve prime parts for Mickey",
     "enumeration": "3"
    },
-   "solution": "ICE"
+   "solution": "ICE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ICE",
+    "definitions": [
+     {
+      "text": "Reserve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prime parts for",
+      "for": "letter_selection",
+      "note": "prime here means the letters at prime-numbered positions: second, third, fifth"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mickey",
+      "gives": "ICE",
+      "select": "prime",
+      "note": "letters two, three and five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping the best roles for Mickey Mouse or Mickey Rooney.",
+     "definitionFit": "Ice means coolness or reserve of manner, as in an icy formality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prime"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +555,73 @@
     "text": "Abandoned craft raised via vacant slipway",
     "enumeration": "5"
    },
-   "solution": "STRAY"
+   "solution": "STRAY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STRAY",
+    "definitions": [
+     {
+      "text": "Abandoned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, lifting a word reads it from bottom to top"
+     },
+     {
+      "text": "vacant",
+      "for": "letter_selection",
+      "note": "emptied of its contents, leaving just the outer letters"
+     },
+     {
+      "text": "via",
+      "for": "container",
+      "note": "passing via means going through the middle of the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "craft",
+      "gives": "ART",
+      "note": "art is skill or craft"
+     },
+     {
+      "clueFragment": "slipway",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the word emptied of its middle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRA",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deserted boat is hauled up an empty slipway.",
+     "definitionFit": "A stray animal is one that has been abandoned or has wandered from home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +641,54 @@
      }
     ]
    },
-   "solution": "WATERRAT"
+   "solution": "WATERRAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WATER RAT",
+    "definitions": [
+     {
+      "text": "Inhabitant of river",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retained by",
+      "for": "container",
+      "note": "something retained is held inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "land legally",
+      "gives": "TERRA",
+      "note": "Latin for land, used in legal phrases"
+     },
+     {
+      "clueFragment": "temple",
+      "gives": "WAT",
+      "note": "a wat is a Buddhist temple in Thailand or Cambodia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "TERRA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Property legally held by a religious house.",
+     "definitionFit": "The water rat, or water vole, lives on river banks, like Ratty in The Wind in the Willows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "temple"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +702,51 @@
     "text": "Spooner's advanced money for dessert",
     "enumeration": "7"
    },
-   "solution": "PARFAIT"
+   "solution": "PARFAIT",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "PARFAIT",
+    "definitions": [
+     {
+      "text": "dessert",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Reverend Spooner famously swapped the opening sounds of pairs of words"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advanced money",
+      "gives": "PARFAIT",
+      "soundsLike": "PAR FAY",
+      "note": "advanced is FAR and money is PAY; swapping their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARFAIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cash advance spent on pudding.",
+     "definitionFit": "A parfait is a layered cold sweet of cream, fruit or ice cream, served as a pudding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advanced"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +760,65 @@
     "text": "Lay right next to gilded companion",
     "enumeration": "7"
    },
-   "solution": "AMATEUR"
+   "solution": "AMATEUR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AMATEUR",
+    "definitions": [
+     {
+      "text": "Lay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gilded",
+      "for": "container",
+      "note": "gilding coats the outside, so the metal goes around the word"
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "companion",
+      "gives": "MATE",
+      "note": "a mate is a companion"
+     },
+     {
+      "clueFragment": "gilded",
+      "gives": "AU",
+      "note": "AU is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MATE",
+      "U",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A cryptic picture of setting something down beside a golden friend.",
+     "walkthrough": "'Lay' looks like a verb; it is the adjective meaning not professional, as in lay preacher.",
+     "definitionFit": "Lay as an adjective means non-expert or non-professional, which is what an amateur is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lay"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +832,61 @@
     "text": "Endlessly maintained Brahms and Liszt to be dull",
     "enumeration": "9"
    },
-   "solution": "INANIMATE"
+   "solution": "INANIMATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INANIMATE",
+    "definitions": [
+     {
+      "text": "dull",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "without an end, so the final letter goes"
+     },
+     {
+      "text": "Brahms and Liszt",
+      "for": "anagram",
+      "note": "rhyming slang for pissed, meaning drunk, and drunk letters stagger out of order"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maintained",
+      "gives": "MAINTAINE",
+      "note": "the word without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAINTAINE",
+       "gives": "INANIMATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists that two great composers are boring.",
+     "walkthrough": "Brahms and Liszt is Cockney rhyming slang for drunk, a common anagram signal.",
+     "definitionFit": "Inanimate means lifeless or spiritless, so in a looser sense dull."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Brahms"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +900,53 @@
     "text": "Heavy with liquid sauce — around two gallons",
     "enumeration": "5"
    },
-   "solution": "SOGGY"
+   "solution": "SOGGY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOGGY",
+    "definitions": [
+     {
+      "text": "Heavy with liquid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the sauce goes around the other letters, enclosing them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sauce",
+      "gives": "SOY",
+      "note": "soy is a sauce"
+     },
+     {
+      "clueFragment": "two gallons",
+      "gives": "GG",
+      "note": "G is the abbreviation for gallon, twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "GG",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A dish drenched in a lot of sauce.",
+     "definitionFit": "Soggy means sodden, saturated with water, so weighed down with liquid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +966,63 @@
      }
     ]
    },
-   "solution": "GOLDENEAGLE"
+   "solution": "GOLDENEAGLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GOLDEN EAGLE",
+    "definitions": [
+     {
+      "text": "Avian",
+      "at": 0,
+      "note": "adjective standing for a noun, a bird"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left unfinished",
+      "for": "deletion",
+      "note": "not finished, so the last letter is missing"
+     },
+     {
+      "text": "model",
+      "for": "anagram",
+      "note": "to model is to shape, so the letters are formed into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Legoland",
+      "gives": "LEGOLAND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "geek",
+      "gives": "GEE",
+      "note": "the word without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEGOLANDGEE",
+       "gives": "GOLDENEAGLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geek abandons a Lego bird model half-built at the theme park.",
+     "walkthrough": "Legoland is a theme park built from Lego bricks.",
+     "definitionFit": "The golden eagle is a large bird of prey, so an avian creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1036,50 @@
     "text": "Course of arsenic leading to hospital bed",
     "enumeration": "5"
    },
-   "solution": "ASCOT"
+   "solution": "ASCOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASCOT",
+    "definitions": [
+     {
+      "text": "Course",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arsenic",
+      "gives": "AS",
+      "note": "chemical symbol for arsenic"
+     },
+     {
+      "clueFragment": "hospital bed",
+      "gives": "COT",
+      "note": "a cot is a small bed, as in a hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "COT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dose of poison sends someone to hospital.",
+     "walkthrough": "'Course' looks like a course of treatment; it is a racecourse.",
+     "definitionFit": "Ascot is a famous English racecourse in Berkshire, home of Royal Ascot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Course"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1093,46 @@
     "text": "Make up word game from scratch",
     "enumeration": "8"
    },
-   "solution": "SCRABBLE"
+   "solution": "SCRABBLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRABBLE",
+    "definitions": [
+     {
+      "text": "Make up word game",
+      "at": 0
+     },
+     {
+      "text": "scratch",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make up word game",
+      "note": "first meaning: the board game in which players make up words from tiles"
+     },
+     {
+      "clueFragment": "scratch",
+      "note": "second meaning: to scrape or claw about"
+     }
+    ],
+    "explanation": {
+     "surface": "Invent a word game starting from nothing.",
+     "definitionFit": "Scrabble is the tile word game, and to scrabble is to scratch or grope about frantically."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scratch"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1146,65 @@
     "text": "Odds on papers covering ceremony full of fire",
     "enumeration": "8"
    },
-   "solution": "SPIRITED"
+   "solution": "SPIRITED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SPIRITED",
+    "definitions": [
+     {
+      "text": "full of fire",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a cover goes round what it covers, so one piece encloses the other"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Odds",
+      "gives": "SP",
+      "note": "starting price, the odds at the start of a race"
+     },
+     {
+      "clueFragment": "ceremony",
+      "gives": "RITE",
+      "note": "a rite is a ceremony"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "identity papers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "I",
+      "RITE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Betting odds printed in the newspapers about a passionate ceremony.",
+     "walkthrough": "SP is the bookmaker's starting price.",
+     "definitionFit": "Spirited means lively and energetic, full of fire and vigour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1224,63 @@
      }
     ]
    },
-   "solution": "BRASSNECK"
+   "solution": "BRASSNECK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "BRASS NECK",
+    "definitions": [
+     {
+      "text": "shamelessness",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Case of",
+      "for": "letter_selection",
+      "note": "the case is the outer shell, the first and last letters"
+     },
+     {
+      "text": "developing",
+      "for": "anagram",
+      "note": "something developing changes its form, so the letters reorganise"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curious",
+      "gives": "CS",
+      "select": "outer",
+      "note": "the outside letters"
+     },
+     {
+      "clueFragment": "bankers",
+      "gives": "BANKERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CSBANKERS",
+       "gives": "BRASSNECK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange tale of bankers growing ever more brazen.",
+     "walkthrough": "Brass neck is British slang for cheek or nerve.",
+     "definitionFit": "Brass neck means impudent nerve, a lack of shame about one's conduct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Case"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1300,56 @@
      }
     ]
    },
-   "solution": "SEATERMS"
+   "solution": "SEATERMS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEA TERMS",
+    "definitions": [
+     {
+      "text": "main words",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "what is swallowed ends up inside, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "consumer's",
+      "gives": "EATER",
+      "note": "an eater consumes; the 's just links"
+     },
+     {
+      "clueFragment": "Text messaging service",
+      "gives": "SMS",
+      "note": "short message service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EATER",
+      "MS"
+     ]
+    },
+    "explanation": {
+     "surface": "A phone service absorbs a customer's key messages.",
+     "walkthrough": "The main is the open sea, so main words are words used at sea.",
+     "definitionFit": "Sea terms are nautical vocabulary, words of the main, an old name for the ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1363,64 @@
     "text": "Scaremonger exposed salary given to couples regularly employed in ministry",
     "enumeration": "8"
    },
-   "solution": "ALARMIST"
+   "solution": "ALARMIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALARMIST",
+    "definitions": [
+     {
+      "text": "Scaremonger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exposed",
+      "for": "letter_selection",
+      "note": "stripped of its covering, so the outer letters go"
+     },
+     {
+      "text": "couples regularly employed in",
+      "for": "letter_selection",
+      "note": "pairs of letters are used and skipped by turns through the word"
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salary",
+      "gives": "ALAR",
+      "select": "middle",
+      "note": "the word without its outer letters"
+     },
+     {
+      "clueFragment": "ministry",
+      "gives": "MIST",
+      "select": "regular",
+      "note": "take two, skip two"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALAR",
+      "MIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician publicises ministers' pay to stir up fear.",
+     "definitionFit": "An alarmist needlessly spreads fear, which is what a scaremonger does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "couples"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1434,49 @@
     "text": "Turned over sapele bark protecting plant",
     "enumeration": "5"
    },
-   "solution": "ABELE"
+   "solution": "ABELE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ABELE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "hidden_word",
+      "note": "the outer words protect the answer by holding it inside"
+     },
+     {
+      "text": "Turned over",
+      "for": "reversal",
+      "note": "flipping over makes the letters read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sapele bark",
+      "gives": "ELEBA",
+      "note": "the run of letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Peeling back the bark of a sapele tree to shield it.",
+     "walkthrough": "Sapele is an African hardwood tree, which makes the tree look like the answer.",
+     "definitionFit": "Abele is the white poplar, a tree and so a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sapele"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1490,65 @@
     "text": "Diamonds etc returned before one's taken forward position",
     "enumeration": "5"
    },
-   "solution": "SITUS"
+   "solution": "SITUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "cycling"
+    ],
+    "answer": "SITUS",
+    "definitions": [
+     {
+      "text": "position",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "coming back means the word is read from its end"
+     },
+     {
+      "text": "one's taken forward",
+      "for": "cycling",
+      "note": "the letter that stands for one is moved nearer the front of the word"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diamonds etc",
+      "gives": "SUITS",
+      "note": "diamonds is one of the four card suits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "I",
+      "TUS"
+     ],
+     "reversals": [
+      {
+       "from": "SUITS",
+       "to": "STIUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Card suits reversed before a player moves into the lead.",
+     "walkthrough": "After the reversal the I, Roman one, moves one place forward, ahead of the T.",
+     "definitionFit": "Situs is the Latin-derived term for a site or position, used in law and anatomy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Diamonds"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1562,59 @@
     "text": "Bond's avoiding empty lakeside hut",
     "enumeration": "5"
    },
-   "solution": "SHACK"
+   "solution": "SHACK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "SHACK",
+    "definitions": [
+     {
+      "text": "hut",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptied of its middle, leaving just the end letters"
+     },
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "steering clear of some letters means they are left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bond",
+      "gives": "SHACKLE",
+      "note": "a shackle is a bond or fetter"
+     },
+     {
+      "clueFragment": "lakeside",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the word without its interior"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHACK"
+     ]
+    },
+    "explanation": {
+     "surface": "James Bond steers clear of a deserted cabin by the lake.",
+     "definitionFit": "A shack is a roughly built small hut or cabin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1628,56 @@
     "text": "That woman's entertaining in Polish",
     "enumeration": "5"
    },
-   "solution": "SHINE"
+   "solution": "SHINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHINE",
+    "definitions": [
+     {
+      "text": "Polish",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "a host entertaining a guest has them inside, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "That woman's",
+      "gives": "SHE",
+      "note": "she is that woman; the 's links"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman hosting a visitor from Poland.",
+     "walkthrough": "'Polish' looks like the nationality; it is the verb, to buff.",
+     "definitionFit": "To shine shoes is to polish them until they gleam."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1691,53 @@
     "text": "Demanding, earnest controlling sibling",
     "enumeration": "9"
    },
-   "solution": "INSISTENT"
+   "solution": "INSISTENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INSISTENT",
+    "definitions": [
+     {
+      "text": "Demanding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "controlling",
+      "for": "container",
+      "note": "holding something under control means keeping it inside your grip"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sibling",
+      "gives": "SIS",
+      "note": "short for sister"
+     },
+     {
+      "clueFragment": "earnest",
+      "gives": "INTENT",
+      "note": "intent means earnest, as in intent on success"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SIS",
+      "TENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A serious older sister bossing a younger one.",
+     "definitionFit": "Insistent means pressing or persistent in demands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1751,60 @@
     "text": "Peel off scab mostly loose at the edges",
     "enumeration": "5"
    },
-   "solution": "SCALE"
+   "solution": "SCALE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCALE",
+    "definitions": [
+     {
+      "text": "Peel off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "most of the word, so the last letter is cut"
+     },
+     {
+      "text": "at the edges",
+      "for": "letter_selection",
+      "note": "only the letters on the outer edges of the word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scab",
+      "gives": "SCA",
+      "note": "the word without its last letter"
+     },
+     {
+      "clueFragment": "loose",
+      "gives": "LE",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCA",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Picking at a scab whose edges have come loose.",
+     "definitionFit": "To scale is to come away in flakes, so to peel off as skin does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1818,69 @@
     "text": "A sin: grasping at riches, primarily?",
     "enumeration": "7"
    },
-   "solution": "AVARICE"
+   "solution": "AVARICE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AVARICE",
+    "definitions": [
+     {
+      "text": "A sin: grasping at riches, primarily?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily points to the first letters of the preceding words"
+     },
+     {
+      "text": "grasping",
+      "for": "container",
+      "note": "something grasping holds other letters within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "at riches",
+      "gives": "AR",
+      "select": "first",
+      "note": "the opening letters of each word"
+     },
+     {
+      "clueFragment": "sin",
+      "gives": "VICE",
+      "note": "a vice is a sin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "AR",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Greed is a sin, and grabbing at wealth is its chief form.",
+     "walkthrough": "The whole clue defines the answer and builds it too: greed, one of the seven deadly sins, is a grasping at riches.",
+     "definitionFit": "Avarice is greed for wealth, one of the seven deadly sins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "grasping"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1894,43 @@
     "text": "Exploit manufacturers and contractors in equal measure",
     "enumeration": "3"
    },
-   "solution": "ACT"
+   "solution": "ACT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ACT",
+    "definitions": [
+     {
+      "text": "Exploit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in equal measure",
+      "for": "hidden_word",
+      "note": "the same short run of letters sits inside each of two words, shared equally"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manufacturers and contractors",
+      "gives": "ACT",
+      "note": "found inside both words"
+     }
+    ],
+    "explanation": {
+     "surface": "Taking advantage of manufacturers and contractors alike.",
+     "walkthrough": "'Exploit' looks like a verb; it is the noun, a deed.",
+     "definitionFit": "An exploit is a notable deed or action, which is what an act is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exploit"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1944,62 @@
     "text": "Refuse collector needs special cape to be superhero",
     "enumeration": "7"
    },
-   "solution": "AVENGER"
+   "solution": "AVENGER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AVENGER",
+    "definitions": [
+     {
+      "text": "superhero",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs",
+      "for": "deletion",
+      "note": "needing something means being without it, so those letters are missing"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refuse collector",
+      "gives": "SCAVENGER",
+      "note": "a scavenger collects refuse"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "cape",
+      "gives": "C",
+      "note": "standard abbreviation, as on maps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVENGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bin man needs a special cape to become a superhero.",
+     "walkthrough": "The cape seems to belong to the superhero's costume, but it is just the abbreviation C.",
+     "definitionFit": "The Avengers are a Marvel superhero team, and each member is an Avenger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cape"
+    }
+   }
   },
   {
    "number": 28,
@@ -487,7 +2013,61 @@
     "text": "Youngster tailed relatives cycling around tent",
     "enumeration": "6"
    },
-   "solution": "KITTEN"
+   "solution": "KITTEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "cycling",
+     "charade"
+    ],
+    "answer": "KITTEN",
+    "definitions": [
+     {
+      "text": "Youngster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailed",
+      "for": "deletion",
+      "note": "having its tail cut off, so the last letter goes"
+     },
+     {
+      "text": "cycling around",
+      "for": "cycling",
+      "note": "letters cycle round, the end letter moving to the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relatives",
+      "gives": "KI",
+      "note": "KIN, relatives, without its tail"
+     },
+     {
+      "clueFragment": "tent",
+      "gives": "TENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KI",
+      "TTEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A child follows relatives camping round a tent.",
+     "walkthrough": "TENT with its final T cycled to the front becomes TTEN.",
+     "definitionFit": "A kitten is a young cat, so a youngster in the animal world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tailed"
+    }
+   }
   },
   {
    "number": 29,
@@ -501,7 +2081,43 @@
     "text": "Feeble order to Dubliner to moderate his swearing?",
     "enumeration": "8"
    },
-   "solution": "FECKLESS"
+   "solution": "FECKLESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FECKLESS",
+    "definitions": [
+     {
+      "text": "Feeble",
+      "at": 0
+     },
+     {
+      "text": "order to Dubliner to moderate his swearing?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feeble",
+      "note": "first meaning: weak and ineffectual"
+     },
+     {
+      "clueFragment": "order to Dubliner to moderate his swearing?",
+      "note": "second meaning, punning: feck is the mild Irish oath, so telling someone to use it less"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Feck is a mild Irish swear word, so an Irishman told to swear less is told to feck less.",
+     "definitionFit": "Feckless means lacking energy or purpose, weak and ineffective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dubliner"
+    }
+   }
   }
  ]
 }
