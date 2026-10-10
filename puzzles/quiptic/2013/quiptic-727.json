@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Writer from home counties admitting plagiarism",
     "enumeration": "6"
    },
-   "solution": "SCRIBE"
+   "solution": "SCRIBE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCRIBE",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit is to let in, so the first word takes the second inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home counties",
+      "gives": "SE",
+      "note": "the Home Counties lie in the South East of England"
+     },
+     {
+      "clueFragment": "plagiarism",
+      "gives": "CRIB",
+      "note": "a crib is something copied from another's work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CRIB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer from the commuter belt round London owns up to copying.",
+     "walkthrough": "The Home Counties are the counties surrounding London, abbreviated SE for the South East.",
+     "definitionFit": "A scribe was a professional copyist, someone whose job was writing documents by hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admitting"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,63 @@
     "text": "Occupational therapist surrounded by bunch of rugby players uncovers something found in jockstrap",
     "enumeration": "7"
    },
-   "solution": "SCROTUM"
+   "solution": "SCROTUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCROTUM",
+    "definitions": [
+     {
+      "text": "something found in jockstrap",
+      "at": 69
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "being surrounded means enclosed on all sides, so these letters go inside"
+     }
+    ],
+    "linkWords": [
+     "uncovers"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bunch of rugby players",
+      "gives": "SCR",
+      "note": "start of scrum, a huddle of forwards in rugby"
+     },
+     {
+      "clueFragment": "Occupational therapist",
+      "gives": "OT",
+      "note": "standard abbreviation for occupational therapist"
+     },
+     {
+      "clueFragment": "bunch of rugby players",
+      "gives": "UM",
+      "note": "rest of scrum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCR",
+      "OT",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A therapist tending a rugby team finds something in a player's kit.",
+     "definitionFit": "A jockstrap is an athletic support worn to protect the male genitals, including this pouch of skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "uncovers"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +168,47 @@
     "text": "Where to practise shooting top off fruit",
     "enumeration": "5"
    },
-   "solution": "RANGE"
+   "solution": "RANGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RANGE",
+    "definitions": [
+     {
+      "text": "Where to practise shooting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top off",
+      "for": "deletion",
+      "note": "taking the top off removes the first letter in a down entry"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "ORANGE",
+      "note": "an orange is a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A target-practice scene where the top is shot off a fruit, William Tell style.",
+     "definitionFit": "A rifle range is a place set aside for firing at targets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shooting"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +222,47 @@
     "text": "Large rock making more noticeable sound",
     "enumeration": "7"
    },
-   "solution": "BOULDER"
+   "solution": "BOULDER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BOULDER",
+    "definitions": [
+     {
+      "text": "Large rock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound",
+      "for": "homophone",
+      "note": "sound tells us to judge the word by how it is spoken, not spelt"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more noticeable",
+      "gives": "BOULDER",
+      "soundsLike": "BOLDER",
+      "note": "bolder means more striking or prominent"
+     }
+    ],
+    "explanation": {
+     "surface": "A rock band producing a louder, more striking noise.",
+     "definitionFit": "A boulder is a big rock, usually rounded and detached from bedrock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +276,67 @@
     "text": "A Welsh lecturer visiting senior common room produces illegible writing",
     "enumeration": "6"
    },
-   "solution": "SCRAWL"
+   "solution": "SCRAWL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCRAWL",
+    "definitions": [
+     {
+      "text": "illegible writing",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "a visitor goes inside someone's place, so these letters sit within the room"
+     }
+    ],
+    "linkWords": [
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "senior common room",
+      "gives": "SCR",
+      "note": "standard abbreviation for a university staff common room"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Welsh",
+      "gives": "W",
+      "note": "W is the abbreviation for Welsh"
+     },
+     {
+      "clueFragment": "lecturer",
+      "gives": "L",
+      "note": "L is the abbreviation for lecturer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCR",
+      "AWL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Welsh academic drops into the staff room and leaves an unreadable note.",
+     "walkthrough": "A senior common room (SCR) is the staff lounge in a British university college.",
+     "definitionFit": "A scrawl is untidy, hastily written handwriting that is hard to read."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visiting"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +350,70 @@
     "text": "Clergyman's signal to begin interrupted by flipping sailor",
     "enumeration": "6"
    },
-   "solution": "CURATE"
+   "solution": "CURATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CURATE",
+    "definitions": [
+     {
+      "text": "Clergyman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the word is read backwards"
+     },
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "an interruption breaks in, so the second word goes inside the first"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "signal to begin",
+      "gives": "CUE",
+      "note": "an actor's cue tells them to start"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "tar is old slang for a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "RAT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "TAR",
+       "to": "RAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar's service is held up by a somersaulting seaman.",
+     "walkthrough": "The 's stands for 'is': the definition, then the wordplay.",
+     "definitionFit": "A curate is an assistant to a parish priest in the Church of England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +427,69 @@
     "text": "Inquisitor's head put on block after painting plant",
     "enumeration": "9"
    },
-   "solution": "ARTICHOKE"
+   "solution": "ARTICHOKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ARTICHOKE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "in a down entry, putting something on another places it above, so it comes first"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "painting",
+      "gives": "ART",
+      "note": "painting is a form of art"
+     },
+     {
+      "clueFragment": "Inquisitor's",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of inquisitor"
+     },
+     {
+      "clueFragment": "block",
+      "gives": "CHOKE",
+      "note": "to choke is to block or clog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ART",
+      "I",
+      "CHOKE"
+     ]
+    },
+    "explanation": {
+     "surface": "An inquisitor is executed on the block after a picture is made.",
+     "definitionFit": "The globe artichoke is a thistle-like plant whose flower buds are eaten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "block"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +503,64 @@
     "text": "Learnt in a disorganised fashion before Newton sees the light",
     "enumeration": "7"
    },
-   "solution": "LANTERN"
+   "solution": "LANTERN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LANTERN",
+    "definitions": [
+     {
+      "text": "light",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a disorganised fashion",
+      "for": "anagram",
+      "note": "disorganised means out of order, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "before",
+     "sees the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learnt",
+      "gives": "LANTER",
+      "note": "the letters of learnt reordered"
+     },
+     {
+      "clueFragment": "Newton",
+      "gives": "N",
+      "note": "N is the symbol for the newton, the unit of force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANTER",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEARNT",
+       "gives": "LANTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone studied haphazardly until Isaac Newton had his revelation.",
+     "definitionFit": "A lantern is a portable lamp, a source of light in a protective case."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Newton"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +584,59 @@
      }
     ]
    },
-   "solution": "EDGARALLANPOE"
+   "solution": "EDGARALLANPOE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDGAR ALLAN POE",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deranged",
+      "for": "anagram",
+      "note": "deranged means disordered, so these letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "general elope",
+      "gives": "EGARALLANPOE",
+      "note": "the words as printed hold four Es and one A, but the parse needs two Es and three As: the setter's slip"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EGARALLANPOED",
+       "gives": "EDGARALLANPOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer's mad general runs off with a daughter.",
+     "walkthrough": "The anagram does not work as printed: GENERAL, ELOPE and D would give something like EDGAR ELLEN POE. The setter slipped, and the definition plus crossings confirm the answer.",
+     "definitionFit": "Edgar Allan Poe was the American author of tales and poems such as The Raven."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "general"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +650,46 @@
     "text": "Setter fled Middle Eastern country",
     "enumeration": "4"
    },
-   "solution": "IRAN"
+   "solution": "IRAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRAN",
+    "definitions": [
+     {
+      "text": "Middle Eastern country",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "fled",
+      "gives": "RAN",
+      "note": "fled means ran away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RAN"
+     ]
+    },
+    "explanation": {
+     "surface": "The puzzle's compiler escaped from a Middle Eastern nation.",
+     "definitionFit": "Iran is a nation in the Middle East, formerly known as Persia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Setter"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +703,42 @@
     "text": "Get adopted by founder, St Andrew",
     "enumeration": "10"
    },
-   "solution": "UNDERSTAND"
+   "solution": "UNDERSTAND",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UNDERSTAND",
+    "definitions": [
+     {
+      "text": "Get",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopted by",
+      "for": "hidden_word",
+      "note": "what is adopted is taken into a family, so the letters are held within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "founder, St Andrew",
+      "gives": "UNDERSTAND",
+      "note": "runs across the end of founder, all of St and the start of Andrew"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is taken in by a saint who founded something.",
+     "definitionFit": "To get a joke or idea is to grasp or comprehend it, an informal synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Get"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +752,75 @@
     "text": "Go with diamonds, after a two initially precedes card below jack",
     "enumeration": "6"
    },
-   "solution": "ATTEND"
+   "solution": "ATTEND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ATTEND",
+    "definitions": [
+     {
+      "text": "Go with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of that word counts"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first item behind the rest of the pieces in the answer"
+     }
+    ],
+    "linkWords": [
+     "precedes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "two",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of two"
+     },
+     {
+      "clueFragment": "card below jack",
+      "gives": "TEN",
+      "note": "in a suit of cards the ten ranks just below the jack"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the abbreviation for diamonds in card games"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "TEN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A card-player's instructions on which cards to lead in a bridge hand.",
+     "definitionFit": "To attend someone is to accompany them, as an escort or servant would."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +834,71 @@
     "text": "Junior members of ambassador's staff have adolescents' first, initially ticklish, facial hair",
     "enumeration": "8"
    },
-   "solution": "ATTACHES"
+   "solution": "ATTACHES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ATTACHES",
+    "definitions": [
+     {
+      "text": "Junior members of ambassador's staff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that letter is used"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the beginning, so only the opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adolescents'",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of adolescents"
+     },
+     {
+      "clueFragment": "ticklish",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of ticklish"
+     },
+     {
+      "clueFragment": "facial hair",
+      "gives": "TACHES",
+      "note": "taches is short for moustaches"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "TACHES"
+     ]
+    },
+    "explanation": {
+     "surface": "Young embassy staffers sprouting their first, itchy moustaches.",
+     "walkthrough": "Tache is informal British shortening of moustache.",
+     "definitionFit": "Attachés are diplomatic staff assigned to an embassy, typically in specialist or junior roles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ticklish"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +912,58 @@
     "text": "Made smart move into European capital",
     "enumeration": "9"
    },
-   "solution": "AMSTERDAM"
+   "solution": "AMSTERDAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMSTERDAM",
+    "definitions": [
+     {
+      "text": "European capital",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "move",
+      "for": "anagram",
+      "note": "to move things is to shift them around, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Made",
+      "gives": "MADE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "smart",
+      "gives": "SMART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MADESMART",
+       "gives": "AMSTERDAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone made a clever decision to relocate to a European city.",
+     "definitionFit": "Amsterdam is the constitutional capital city of the Netherlands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smart"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +977,60 @@
     "text": "Order punt over here, immediately!",
     "enumeration": "9"
    },
-   "solution": "THEREUPON"
+   "solution": "THEREUPON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THEREUPON",
+    "definitions": [
+     {
+      "text": "immediately",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Order",
+      "for": "anagram",
+      "note": "to order things is to arrange them, so the letters are put into a new sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "punt",
+      "gives": "PUNT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for an over"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "HERE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUNTOHERE",
+       "gives": "THEREUPON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boater is told to bring the punt over here at once.",
+     "definitionFit": "Thereupon means straight after that, at once."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +1044,49 @@
     "text": "Be vocal in opposition to new benefit",
     "enumeration": "4"
    },
-   "solution": "BOON"
+   "solution": "BOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOON",
+    "definitions": [
+     {
+      "text": "benefit",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be vocal in opposition",
+      "gives": "BOO",
+      "note": "to boo is to jeer loudly in disapproval"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is urged to speak out against a new welfare payment.",
+     "definitionFit": "A boon is a blessing or advantage, something that helps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "benefit"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1100,47 @@
     "text": "Urinated in dock, say",
     "enumeration": "4"
    },
-   "solution": "WEED"
+   "solution": "WEED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WEED",
+    "definitions": [
+     {
+      "text": "Urinated",
+      "at": 0
+     },
+     {
+      "text": "dock, say",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Urinated",
+      "note": "first meaning: past tense of the informal verb wee"
+     },
+     {
+      "clueFragment": "dock, say",
+      "note": "second meaning: a wild plant, of which dock is an example"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone relieved themself on a quayside.",
+     "walkthrough": "Dock looks like a harbour, but it is the broad-leaved plant; 'say' marks it as an example.",
+     "definitionFit": "Dock is a common garden pest plant, and wee is British informal for urinate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dock"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1154,61 @@
     "text": "What to wear, that is, in holes likely to contain water",
     "enumeration": "7"
    },
-   "solution": "WELLIES"
+   "solution": "WELLIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WELLIES",
+    "definitions": [
+     {
+      "text": "What to wear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the abbreviation inside the word for holes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holes likely to contain water",
+      "gives": "WEL",
+      "note": "start of wells, shafts dug to reach water"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, meaning that is"
+     },
+     {
+      "clueFragment": "holes likely to contain water",
+      "gives": "LS",
+      "note": "rest of wells"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEL",
+      "L",
+      "IE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on footwear for walking through puddles.",
+     "walkthrough": "The whole clue also hints at the definition: you wear these where holes hold water.",
+     "definitionFit": "Wellies are British informal for wellington boots, rubber boots worn in wet conditions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "holes"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1222,69 @@
     "text": "Let sir collapse in the flowers, having the after-effects of sunburn?",
     "enumeration": "9"
    },
-   "solution": "BLISTERED"
+   "solution": "BLISTERED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BLISTERED",
+    "definitions": [
+     {
+      "text": "having the after-effects of sunburn?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collapse",
+      "for": "anagram",
+      "note": "a collapse breaks a structure down, so the letters fall into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the jumbled letters inside the flower patch"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Let sir",
+      "gives": "LISTER",
+      "note": "the letters of let and sir rearranged"
+     },
+     {
+      "clueFragment": "the flowers",
+      "gives": "BED",
+      "note": "flowers grow in a flower bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LISTER",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LETSIR",
+       "gives": "LISTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gentleman collapses among flowers in the heat and gets burned.",
+     "definitionFit": "Severe sunburn raises blisters on the skin; the question mark admits this is one of several effects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "flowers"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1298,63 @@
     "text": "Hang American upside down next to shed",
     "enumeration": "7"
    },
-   "solution": "SUSPEND"
+   "solution": "SUSPEND",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SUSPEND",
+    "definitions": [
+     {
+      "text": "Hang",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upside down",
+      "for": "reversal",
+      "note": "in a down entry, turning something upside down reads it from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the abbreviation for American"
+     },
+     {
+      "clueFragment": "shed",
+      "gives": "SPEND",
+      "note": "to shed is to give out or expend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "SPEND"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American hangs upside down beside a garden shed.",
+     "definitionFit": "To suspend something is to hang it from above."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1368,55 @@
     "text": "Foes see mine exploding",
     "enumeration": "7"
    },
-   "solution": "ENEMIES"
+   "solution": "ENEMIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENEMIES",
+    "definitions": [
+     {
+      "text": "Foes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exploding",
+      "for": "anagram",
+      "note": "something exploding is blown apart, so the letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "see",
+      "gives": "SEE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mine",
+      "gives": "MINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEMINE",
+       "gives": "ENEMIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The opposing side watch a landmine go off.",
+     "definitionFit": "Enemies are opponents or adversaries, people hostile to one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1430,59 @@
     "text": "A German raid destroyed Moroccan city",
     "enumeration": "6"
    },
-   "solution": "AGADIR"
+   "solution": "AGADIR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGADIR",
+    "definitions": [
+     {
+      "text": "Moroccan city",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken up, so the letters are put back in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "raid",
+      "gives": "RAID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGRAID",
+       "gives": "AGADIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wartime German air attack flattened a North African city.",
+     "definitionFit": "Agadir is a port and resort city on Morocco's Atlantic coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1496,60 @@
     "text": "Everything green made troublesome pollen, say",
     "enumeration": "8"
    },
-   "solution": "ALLERGEN"
+   "solution": "ALLERGEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ALLERGEN",
+    "definitions": [
+     {
+      "text": "pollen, say",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made troublesome",
+      "for": "anagram",
+      "note": "something made troublesome is disrupted, so these letters are disturbed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everything",
+      "gives": "ALL",
+      "note": "everything means all"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "ERGEN",
+      "note": "the letters of green reordered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "ERGEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GREEN",
+       "gives": "ERGEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Every green plant releases irritating pollen.",
+     "definitionFit": "Pollen is an example of a substance triggering hay fever, hence 'say'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1563,67 @@
     "text": "Source of protein in excellent meal",
     "enumeration": "6"
    },
-   "solution": "SUPPER"
+   "solution": "SUPPER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SUPPER",
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Source of",
+      "for": "letter_selection",
+      "note": "a source is where something starts, so only the opening letter is taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places that letter inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excellent",
+      "gives": "SU",
+      "note": "first part of super, meaning excellent"
+     },
+     {
+      "clueFragment": "protein",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of protein"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "PER",
+      "note": "rest of super"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "P",
+      "P",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A protein-rich dish makes a fine evening meal.",
+     "definitionFit": "Supper is an evening meal, often a light one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Source"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1637,44 @@
     "text": "Elect president?",
     "enumeration": "5"
    },
-   "solution": "PUTIN"
+   "solution": "PUTIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUTIN",
+    "definitions": [
+     {
+      "text": "Elect",
+      "at": 0
+     },
+     {
+      "text": "president",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elect",
+      "note": "first meaning: to vote into office, as two words"
+     },
+     {
+      "clueFragment": "president",
+      "note": "second meaning: the surname of Russia's leader"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about choosing a head of state.",
+     "walkthrough": "Split as PUT IN it means elect; read as a name it is Vladimir Putin.",
+     "definitionFit": "To put in a candidate is to vote them into office, and Vladimir Putin is Russia's president."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Elect"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1688,56 @@
     "text": "Hull City's after trendy theatre",
     "enumeration": "10"
    },
-   "solution": "HIPPODROME"
+   "solution": "HIPPODROME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HIPPODROME",
+    "definitions": [
+     {
+      "text": "theatre",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "'s after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trendy",
+      "gives": "HIP",
+      "note": "hip means fashionable"
+     },
+     {
+      "clueFragment": "Hull",
+      "gives": "POD",
+      "note": "a pod is the hull of a pea or bean"
+     },
+     {
+      "clueFragment": "City",
+      "gives": "ROME",
+      "note": "Rome is the Eternal City"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIP",
+      "POD",
+      "ROME"
+     ]
+    },
+    "explanation": {
+     "surface": "A Yorkshire football club pursues a fashionable image.",
+     "walkthrough": "Hull City is an English football club; here the words split, Hull meaning a seed case and City a city.",
+     "definitionFit": "Hippodrome is a name for a theatre or music hall, from the Greek word for a horse-racing arena."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hull"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1751,43 @@
     "text": "Foolish character appearing in episode of Silent Witness",
     "enumeration": "4"
    },
-   "solution": "TWIT"
+   "solution": "TWIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TWIT",
+    "definitions": [
+     {
+      "text": "Foolish character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing in episode of",
+      "for": "hidden_word",
+      "note": "something appearing in a programme is contained inside it, so the letters sit within the title"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silent Witness",
+      "gives": "TWIT",
+      "note": "runs across the end of Silent and the start of Witness"
+     }
+    ],
+    "explanation": {
+     "surface": "A daft character turns up in an episode of a TV crime drama.",
+     "walkthrough": "Silent Witness is a long-running BBC forensic crime series.",
+     "definitionFit": "Twit is British informal for an idiot or silly person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1801,43 @@
     "text": "More than one way to preserve a tomato",
     "enumeration": "6"
    },
-   "solution": "SUNDRY"
+   "solution": "SUNDRY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUNDRY",
+    "definitions": [
+     {
+      "text": "More than one",
+      "at": 0
+     },
+     {
+      "text": "way to preserve a tomato",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More than one",
+      "note": "first meaning: various, several"
+     },
+     {
+      "clueFragment": "way to preserve a tomato",
+      "note": "second meaning: to dry in the sun, as with tomatoes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense splits as sun-dry, the method behind sun-dried tomatoes.",
+     "definitionFit": "Sundry means assorted or several, and sun-drying is a common preserving method for fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "More"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1851,54 @@
     "text": "A Spanish nobleman is a handsome young chap",
     "enumeration": "6"
    },
-   "solution": "ADONIS"
+   "solution": "ADONIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADONIS",
+    "definitions": [
+     {
+      "text": "handsome young chap",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Spanish nobleman",
+      "gives": "DON",
+      "note": "Don is a Spanish title for a gentleman"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DON",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish aristocrat turns out to be a good-looking young man.",
+     "definitionFit": "Adonis was a beautiful youth in Greek myth, and his name now means any very attractive young man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
