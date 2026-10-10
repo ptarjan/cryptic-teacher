@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,58 @@
     "text": "Country person's nice large shed",
     "enumeration": "7"
    },
-   "solution": "PEASANT"
+   "solution": "PEASANT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PEASANT",
+    "definitions": [
+     {
+      "text": "Country person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shed",
+      "for": "deletion",
+      "note": "to shed something is to cast it off, so the letter for the size word is dropped"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nice",
+      "gives": "PLEASANT",
+      "note": "nice means agreeable"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EASANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A rural dweller owns a pleasant, roomy outbuilding.",
+     "walkthrough": "'shed' looks like a noun for a garden hut, but it is a verb: PLEASANT sheds its L to leave PEASANT.",
+     "definitionFit": "A peasant is a farm labourer or smallholder who lives in the countryside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +100,57 @@
     "text": "Glad prisoner's first let out",
     "enumeration": "7"
    },
-   "solution": "PLEASED"
+   "solution": "PLEASED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PLEASED",
+    "definitions": [
+     {
+      "text": "Glad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out only the leading letter of the inmate word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner's",
+      "gives": "P",
+      "select": "first",
+      "note": "the initial letter of the word"
+     },
+     {
+      "clueFragment": "let out",
+      "gives": "LEASED",
+      "note": "to let out property is to rent or lease it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEASED"
+     ]
+    },
+    "explanation": {
+     "surface": "A happy inmate was released at last.",
+     "walkthrough": "'let out' suggests release from jail, but it is the landlord's sense of renting.",
+     "definitionFit": "Pleased means happy and satisfied, a direct synonym for glad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "let"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +164,51 @@
     "text": "Exploits groom in Ascot",
     "enumeration": "7"
    },
-   "solution": "ACTIONS"
+   "solution": "ACTIONS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ACTIONS",
+    "definitions": [
+     {
+      "text": "Exploits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "groom",
+      "for": "anagram",
+      "note": "to groom is to tidy and rearrange, so the letters are restyled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Ascot",
+      "gives": "INASCOT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INASCOT",
+       "gives": "ACTIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes advantage of a stable lad at the racecourse.",
+     "walkthrough": "Ascot is a famous English racecourse, which makes groom look like a stable hand; 'in' belongs to the fodder.",
+     "definitionFit": "Exploits as a noun are daring deeds, which are actions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "groom"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +222,49 @@
     "text": "Get older set of books for broker",
     "enumeration": "5"
    },
-   "solution": "AGENT"
+   "solution": "AGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGENT",
+    "definitions": [
+     {
+      "text": "broker",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get older",
+      "gives": "AGE",
+      "note": "to age is to grow older"
+     },
+     {
+      "clueFragment": "set of books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "An ageing accountant sorts the ledgers for a stockbroker.",
+     "definitionFit": "A broker acts for others in a deal, which is what an agent does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +278,68 @@
     "text": "Medical care each time maiden's stuck in river",
     "enumeration": "9"
    },
-   "solution": "TREATMENT"
+   "solution": "TREATMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TREATMENT",
+    "definitions": [
+     {
+      "text": "Medical care",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck in",
+      "for": "container",
+      "note": "stuck in means wedged inside, so the run of letters goes into the river name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "TRENT",
+      "note": "the Trent is a major English river"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "ea is the abbreviation for each"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "maiden's",
+      "gives": "M",
+      "note": "M is the cricket scorecard abbreviation for a maiden over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "EA",
+      "T",
+      "M",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl trapped in a river needs urgent medical attention every time.",
+     "walkthrough": "The Trent flows through the English Midlands; the three short pieces sit together inside it, in clue order.",
+     "definitionFit": "Treatment is the care given by a doctor to cure an illness or injury."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maiden's"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +353,61 @@
     "text": "Is almost anxious after learner pays attention",
     "enumeration": "7"
    },
-   "solution": "LISTENS"
+   "solution": "LISTENS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LISTENS",
+    "definitions": [
+     {
+      "text": "pays attention",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter of the word for anxious is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner plate on a car"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "anxious",
+      "gives": "TENSE",
+      "note": "anxious means nervous, on edge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IS",
+      "TENS"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous student driver concentrates hard.",
+     "walkthrough": "'after learner' is a placement instruction: the pieces built from 'Is almost anxious' follow the L.",
+     "definitionFit": "To listen is to heed what is being said, which is a synonym for paying attention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "learner"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +427,40 @@
      }
     ]
    },
-   "solution": "LAPUP"
+   "solution": "LAPUP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LAP UP",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This makes pal",
+      "note": "surface reading: something that creates friendship over a drink"
+     },
+     {
+      "clueFragment": "This makes pal",
+      "note": "setter's reading: the answer's first word written upwards, as in a down light, spells pal"
+     }
+    ],
+    "explanation": {
+     "surface": "A shared drink turns a stranger into a friend.",
+     "walkthrough": "Read upwards, LAP gives PAL, so LAP UP 'makes pal'; the phrase also means drink greedily.",
+     "definitionFit": "To lap up is to drink with the tongue, as a cat does with milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pal"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +474,56 @@
     "text": "Joints had better get rest on a regular basis",
     "enumeration": "9"
    },
-   "solution": "SHOULDERS"
+   "solution": "SHOULDERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHOULDERS",
+    "definitions": [
+     {
+      "text": "Joints",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on a regular basis",
+      "for": "letter_selection",
+      "note": "regular means at even intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "had better",
+      "gives": "SHOULD",
+      "note": "you had better means you should"
+     },
+     {
+      "clueFragment": "get rest",
+      "gives": "ERS",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOULD",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Aching joints ought to be rested regularly.",
+     "walkthrough": "'get' is not a link: its letters join those of 'rest' in the alternate selection.",
+     "definitionFit": "Shoulders are the ball-and-socket joints connecting the arms to the torso."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regular"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +537,63 @@
     "text": "Stylish necklace ultimately on social worker",
     "enumeration": "7"
    },
-   "solution": "ELEGANT"
+   "solution": "ELEGANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELEGANT",
+    "definitions": [
+     {
+      "text": "Stylish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the jewellery word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "necklace",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "on is the leg side in cricket"
+     },
+     {
+      "clueFragment": "social worker",
+      "gives": "ANT",
+      "note": "ants are social insects, and workers in the colony"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LEG",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart necklace finally ends up on a social worker.",
+     "walkthrough": "In cricket the on side and leg side are the same half of the field. 'social worker' is not a caseworker but an insect.",
+     "definitionFit": "Elegant means graceful and refined in appearance, a synonym for stylish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +607,74 @@
     "text": "Meet female model going north in state",
     "enumeration": "7"
    },
-   "solution": "SATISFY"
+   "solution": "SATISFY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "SATISFY",
+    "definitions": [
+     {
+      "text": "Meet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going north",
+      "for": "reversal",
+      "note": "in a down clue, going north means travelling upwards, so the letters read in reverse"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the reversed letters inside the word for state"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "SAY",
+      "note": "to state is to say"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "SIT",
+      "note": "to model for an artist is to sit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "TIS",
+      "F",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "FSIT",
+       "to": "TISF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman posing for an artist travels north to meet someone in another state.",
+     "walkthrough": "'going north' reverses both the female letter and the model word together before they go inside.",
+     "definitionFit": "To meet a demand or need is to satisfy it, fulfil it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +688,64 @@
     "text": "Desperate former lover getting married with spruce clothing?",
     "enumeration": "7"
    },
-   "solution": "EXTREME"
+   "solution": "EXTREME",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "EXTREME",
+    "definitions": [
+     {
+      "text": "Desperate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "clothing wraps around the body, so the tree word is placed around the letter for married"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former lover",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "spruce",
+      "gives": "TREE",
+      "note": "a spruce is a kind of tree"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the standard abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TREME"
+     ]
+    },
+    "explanation": {
+     "surface": "A frantic ex-partner gets wed in smart attire.",
+     "walkthrough": "'spruce' reads as smart, but it is the conifer, which wraps round M.",
+     "definitionFit": "Desperate measures are drastic ones, so the word for going to the utmost limit matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spruce"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +759,45 @@
     "text": "Argue in favour of exam",
     "enumeration": "7"
    },
-   "solution": "PROTEST"
+   "solution": "PROTEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROTEST",
+    "definitions": [
+     {
+      "text": "Argue",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in favour of",
+      "gives": "PRO",
+      "note": "pro means for, in support of"
+     },
+     {
+      "clueFragment": "exam",
+      "gives": "TEST",
+      "note": "an exam is a test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "TEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A student makes the case for keeping an examination.",
+     "definitionFit": "To protest is to object or argue against something, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +811,49 @@
     "text": "Baseball fielder's two items of clothing",
     "enumeration": "9"
    },
-   "solution": "SHORTSTOP"
+   "solution": "SHORTSTOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHORTSTOP",
+    "definitions": [
+     {
+      "text": "Baseball fielder",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two items of clothing",
+      "gives": "SHORTS",
+      "note": "first garment: short trousers"
+     },
+     {
+      "clueFragment": "two items of clothing",
+      "gives": "TOP",
+      "note": "second garment: an upper-body garment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHORTS",
+      "TOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A ballplayer's uniform consists of a couple of garments.",
+     "walkthrough": "The one phrase supplies both garments, side by side.",
+     "definitionFit": "The shortstop is the infield player positioned between second and third base."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +867,56 @@
     "text": "Boys crossing over mountains",
     "enumeration": "5"
    },
-   "solution": "LOADS"
+   "solution": "LOADS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOADS",
+    "definitions": [
+     {
+      "text": "mountains",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "the boys straddle the letter, crossing over it so it sits between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boys",
+      "gives": "LADS",
+      "note": "lads are boys"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorecard abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "O",
+      "ADS"
+     ]
+    },
+    "explanation": {
+     "surface": "Young lads hike across a mountain range.",
+     "walkthrough": "'mountains' is not peaks but the informal sense of a great heap, as in mountains of work.",
+     "definitionFit": "Loads and mountains are both colloquial words for large quantities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mountains"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +930,61 @@
     "text": "Dance music is constant in party",
     "enumeration": "5"
    },
-   "solution": "DISCO"
+   "solution": "DISCO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DISCO",
+    "definitions": [
+     {
+      "text": "Dance music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding letters inside the word for party"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "C is the symbol for a constant, such as the speed of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "C",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "At the party the dance tunes never stop.",
+     "definitionFit": "Disco is a genre of upbeat dance music popular in the 1970s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "constant"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +998,64 @@
     "text": "A chorister unfortunately ignores current group of musicians",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ORCHESTRA",
+    "definitions": [
+     {
+      "text": "group of musicians",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things have gone wrong, so the letters fall out of order"
+     },
+     {
+      "text": "ignores",
+      "for": "deletion",
+      "note": "to ignore is to leave out, so the letter standing for current is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A chorister",
+      "gives": "ACHORISTER",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORCHESTRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACHORSTER",
+       "gives": "ORCHESTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A choir singer sadly snubs the present band.",
+     "definitionFit": "An orchestra is a large ensemble of instrumental players."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +1069,68 @@
     "text": "Really awful men let in Yemen's capital",
     "enumeration": "9"
    },
-   "solution": "EMINENTLY"
+   "solution": "EMINENTLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EMINENTLY",
+    "definitions": [
+     {
+      "text": "Really",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "awful suggests something badly made, so the letters are rearranged"
+     },
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is a head or leading letter, so only the opening one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men let",
+      "gives": "MENLET",
+      "note": "taken as written for the mix"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written for the mix"
+     },
+     {
+      "clueFragment": "Yemen's",
+      "gives": "Y",
+      "select": "first",
+      "note": "the initial letter of the country"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENLETINY",
+       "gives": "EMINENTLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men were admitted to the Yemeni capital, and it was truly dreadful.",
+     "walkthrough": "The 'in' is part of the anagram fodder, not a container signal.",
+     "definitionFit": "Eminently means to a notable degree, highly, which is an intensifier like really."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1144,51 @@
     "text": "Crooked dice – and it showed!",
     "enumeration": "9"
    },
-   "solution": "INDICATED"
+   "solution": "INDICATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDICATED",
+    "definitions": [
+     {
+      "text": "showed",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Crooked",
+      "for": "anagram",
+      "note": "crooked means bent out of true, so the letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dice – and it",
+      "gives": "DICEANDIT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DICEANDIT",
+       "gives": "INDICATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Loaded dice gave the cheating away!",
+     "walkthrough": "'Crooked dice' reads as rigged gambling, but crooked just bends the letters.",
+     "definitionFit": "To indicate is to point out or show, so the past tenses match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crooked"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1202,50 @@
     "text": "Loyal cadet died fighting",
     "enumeration": "9"
    },
-   "solution": "DEDICATED"
+   "solution": "DEDICATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEDICATED",
+    "definitions": [
+     {
+      "text": "Loyal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fighting",
+      "for": "anagram",
+      "note": "fighting suggests a scuffle that throws everything into disarray"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cadet died",
+      "gives": "CADETDIED",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CADETDIED",
+       "gives": "DEDICATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A faithful young soldier fell in battle.",
+     "definitionFit": "Dedicated means committed and devoted, which is a close synonym for faithful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fighting"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1259,53 @@
     "text": "Determined group of detectives intercepting legal document",
     "enumeration": "7"
    },
-   "solution": "DECIDED"
+   "solution": "DECIDED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DECIDED",
+    "definitions": [
+     {
+      "text": "Determined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intercepting",
+      "for": "container",
+      "note": "to intercept is to come between, so the detectives cut into the document"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legal document",
+      "gives": "DEED",
+      "note": "a deed is a legal document"
+     },
+     {
+      "clueFragment": "group of detectives",
+      "gives": "CID",
+      "note": "the CID is the Criminal Investigation Department of the British police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "CID",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Resolute police officers seize a legal paper.",
+     "definitionFit": "Decided can mean resolved or settled, and also unwavering, matching determined."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1319,55 @@
     "text": "Takes ecstasy during car journeys?",
     "enumeration": "7"
    },
-   "solution": "DERIVES"
+   "solution": "DERIVES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DERIVES",
+    "definitions": [
+     {
+      "text": "Takes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during places the drug letter within the span of the trips word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car journeys",
+      "gives": "DRIVES",
+      "note": "drives are trips by car"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "RIVES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pops pills while out on road trips.",
+     "walkthrough": "'Takes ecstasy' looks like the drug habit; 'Takes' alone is the definition.",
+     "definitionFit": "To derive something is to take or obtain it from a source."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Takes"
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1381,59 @@
     "text": "Clear up wine after change of heart",
     "enumeration": "5"
    },
-   "solution": "SOLVE"
+   "solution": "SOLVE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SOLVE",
+    "definitions": [
+     {
+      "text": "Clear up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change of",
+      "for": "substitution",
+      "note": "a change swaps one letter out for another, here at the centre of the word"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "SOAVE",
+      "note": "Soave is a dry white Italian wine"
+     },
+     {
+      "clueFragment": "heart",
+      "gives": "L",
+      "note": "the new central letter that replaces the old heart; the clue leaves it to the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "L",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tidies away the wine after rethinking things.",
+     "walkthrough": "The clue does not name the replacement letter, so the definition and crossings must fix it.",
+     "definitionFit": "To clear up a mystery is to solve it, find its answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1447,44 @@
     "text": "More fleet-footed match substitute?",
     "enumeration": "7"
    },
-   "solution": "LIGHTER"
+   "solution": "LIGHTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIGHTER",
+    "definitions": [
+     {
+      "text": "More fleet-footed",
+      "at": 0
+     },
+     {
+      "text": "match substitute",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More fleet-footed",
+      "note": "first meaning: ... on one's feet, more nimble"
+     },
+     {
+      "clueFragment": "match substitute",
+      "note": "second meaning: a device used instead of a match to make a flame"
+     }
+    ],
+    "explanation": {
+     "surface": "A quicker player comes on as a replacement in the match.",
+     "walkthrough": "The surface is a sports substitution; the match is the one you strike.",
+     "definitionFit": "The comparative of light means nimbler, and a cigarette lighter replaces a match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1498,57 @@
     "text": "Old tree with ugly half removed",
     "enumeration": "7"
    },
-   "solution": "ELDERLY"
+   "solution": "ELDERLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELDERLY",
+    "definitions": [
+     {
+      "text": "Old",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half removed",
+      "for": "letter_selection",
+      "note": "half removed means one half is taken away, so only the back two letters stay"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "ELDER",
+      "note": "the elder is a shrub or small tree"
+     },
+     {
+      "clueFragment": "ugly",
+      "gives": "LY",
+      "select": "last",
+      "note": "the second half of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELDER",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "An old tree, partly felled, looks hideous.",
+     "definitionFit": "Elderly means advanced in years, a gentler word for old."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1562,49 @@
     "text": "Torment worthless dogs with little energy",
     "enumeration": "5"
    },
-   "solution": "CURSE"
+   "solution": "CURSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CURSE",
+    "definitions": [
+     {
+      "text": "Torment",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worthless dogs",
+      "gives": "CURS",
+      "note": "curs are mongrels or low-grade dogs"
+     },
+     {
+      "clueFragment": "little energy",
+      "gives": "E",
+      "note": "E is the abbreviation for energy, little meaning short form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CURS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Mangy mongrels with no vigour are a nuisance.",
+     "definitionFit": "A curse is an affliction or scourge, something that torments a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1618,65 @@
     "text": "Even nan coughed, badly lacking oxygen",
     "enumeration": "9"
    },
-   "solution": "UNCHANGED"
+   "solution": "UNCHANGED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "UNCHANGED",
+    "definitions": [
+     {
+      "text": "Even",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "badly says the letters are put together poorly, in a jumbled order"
+     },
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means going without, so the element letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nan coughed",
+      "gives": "NANCOUGHED",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNCHANGED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NANCUGHED",
+       "gives": "UNCHANGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grandma coughed badly even without an oxygen supply.",
+     "walkthrough": "'Even' looks like an adverb opening the sentence, but it is the definition, meaning steady.",
+     "definitionFit": "Something even stays constant and level, just as something unchanged stays the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Even"
+    }
+   }
   },
   {
    "number": 23,
@@ -402,7 +1690,52 @@
     "text": "Part of lower steering apparatus on vessel heading off",
     "enumeration": "5"
    },
-   "solution": "UDDER"
+   "solution": "UDDER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UDDER",
+    "definitions": [
+     {
+      "text": "Part of lower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "heading off means the head goes, so the first letter is removed"
+     }
+    ],
+    "linkWords": [
+     "on vessel"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steering apparatus",
+      "gives": "RUDDER",
+      "note": "a rudder steers a boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UDDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A section of the lower steering gear on a ship is missing its front.",
+     "walkthrough": "'lower' is not 'further down' but a cow, an animal that lows; a rudder is found on a vessel.",
+     "definitionFit": "A cow's udder is the milk-producing organ hanging from its belly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lower"
+    }
+   }
   },
   {
    "number": 24,
@@ -416,7 +1749,49 @@
     "text": "US president is mad and somewhat upsetting",
     "enumeration": "5"
    },
-   "solution": "ADAMS"
+   "solution": "ADAMS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ADAMS",
+    "definitions": [
+     {
+      "text": "US president",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only part of the run of words is used"
+     },
+     {
+      "text": "upsetting",
+      "for": "reversal",
+      "note": "upsetting means tipping up, so in a down clue the letters read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is mad and",
+      "gives": "SMADA",
+      "note": "the letters running across the gap between words"
+     }
+    ],
+    "explanation": {
+     "surface": "An American president is crazy and rather distressing.",
+     "walkthrough": "Reading 'is mad and' backwards gives dnadamsi, which holds the name.",
+     "definitionFit": "John Adams and his son John Quincy Adams were the second and sixth presidents of the USA."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upsetting"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1805,64 @@
     "text": "Edward turned over and suggested getting affectionate",
     "enumeration": "7"
    },
-   "solution": "DEVOTED"
+   "solution": "DEVOTED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DEVOTED",
+    "definitions": [
+     {
+      "text": "affectionate",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned over",
+      "for": "reversal",
+      "note": "turned over means flipped, so the short name is read the other way"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Edward",
+      "gives": "ED",
+      "note": "Ed is short for Edward"
+     },
+     {
+      "clueFragment": "suggested",
+      "gives": "VOTED",
+      "note": "to vote can mean to propose, as in 'I vote we leave'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "VOTED"
+     ],
+     "reversals": [
+      {
+       "from": "ED",
+       "to": "DE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Edward rolled over and made a proposal, becoming loving.",
+     "definitionFit": "Devoted means deeply loving and loyal, a synonym for affectionate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suggested"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1876,45 @@
     "text": "Farm vehicle followed the woman, as Cockney said",
     "enumeration": "7"
    },
-   "solution": "TRACTOR"
+   "solution": "TRACTOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TRACTOR",
+    "definitions": [
+     {
+      "text": "Farm vehicle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as Cockney said",
+      "for": "homophone",
+      "note": "said points to speech, and a Cockney drops the h and the final r of her"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "followed the woman",
+      "gives": "TRACTOR",
+      "soundsLike": "TRACKED 'ER",
+      "note": "followed = tracked, the woman = her, which a Cockney says as 'er"
+     }
+    ],
+    "explanation": {
+     "surface": "A tractor trailed a lady, as an East Londoner put it.",
+     "walkthrough": "Cockney is the working-class accent of East London, which drops the h at the start of words.",
+     "definitionFit": "A tractor is the powerful motor vehicle used to pull farm machinery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "followed"
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +1928,49 @@
     "text": "Some Parisian couple's hopelessness",
     "enumeration": "7"
    },
-   "solution": "DESPAIR"
+   "solution": "DESPAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DESPAIR",
+    "definitions": [
+     {
+      "text": "hopelessness",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some Parisian",
+      "gives": "DES",
+      "note": "des is French for some"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "PAIR",
+      "note": "a couple is a pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DES",
+      "PAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple from Paris is in a state of gloom.",
+     "definitionFit": "Despair is the complete loss of hope, so the nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 28,
@@ -472,7 +1984,58 @@
     "text": "Initially digs expose secret ancient city's ruin",
     "enumeration": "7"
    },
-   "solution": "DESTROY"
+   "solution": "DESTROY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DESTROY",
+    "definitions": [
+     {
+      "text": "ruin",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of each word is kept"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "digs expose secret",
+      "gives": "DES",
+      "select": "first",
+      "note": "the initial letters of these three words"
+     },
+     {
+      "clueFragment": "ancient city",
+      "gives": "TROY",
+      "note": "Troy is the ancient city of the Trojan War"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DES",
+      "TROY"
+     ]
+    },
+    "explanation": {
+     "surface": "Archaeological digs reveal the hidden ruins of an old city.",
+     "definitionFit": "To destroy something is to wreck it, which is the verb sense of ruin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruin"
+    }
+   }
   }
  ]
 }
