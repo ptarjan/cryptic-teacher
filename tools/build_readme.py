@@ -536,6 +536,7 @@ LAYOUT = [
     ("fetching", "tools/clue_index.py", "which puzzle files share clues: normalised clue text -> puzzle ids"),
     ("fetching", "tools/test_placeholder_clues.sh", "a puzzle whose clues are pointers at clues printed elsewhere has no clues"),
     ("fetching", "tools/sweep_series.py", "probe every number of a Guardian series between two bounds, file what is served"),
+    ("fetching", "tools/ocr_gpu.py", "one shared RapidOCR server on the desktop's GPU that the desktop sessions hand reads to, each reading on its own CPU when the server is busy or away; yields to games and keeps 4 GB of VRAM free"),
     ("fetching", "tools/ocr_remote.py", "the clue OCR, whole scan editions, image-PDF page searches, Gale page matches, Listener page reads and Trove grid searches run on Paul's desktop over ssh; what runs here instead shares LOCAL_SLOTS"),
     ("fetching", "tools/test_sync_skip_published.sh", "the burn's sync with runs in flight: publishes or drops each local commit, brings origin's code in, keeps a run's uncommitted edit, and refuses whole over a file origin changed"),
     ("fetching", "tools/scan_crop.py", "the printed clues of an archive.org scan, cut out for the annotator"),

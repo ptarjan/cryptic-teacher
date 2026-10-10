@@ -6,7 +6,8 @@
 # here, the same headings and cached readings from a scan run there, the same
 # match and pages of a saved Gale page, wait on a search for as long as the desktop says it is still
 # searching, let no more than LOCAL_SLOTS reads run here at once, and does
-# every module the desktop imports import without fcntl (Windows)?
+# every module the desktop imports import without fcntl (Windows), and does
+# a session read on the shared GPU server only when it takes the read?
 #
 #     bash tools/test_ocr_remote.sh
 #
@@ -312,4 +313,70 @@ PY
 )
 rc2=$?
 echo "$out"
-exit $(( rc || rc2 ))
+
+# The shared GPU server (tools/ocr_gpu.py): a session's plain RapidOCR read
+# is the server's answer, unchanged through JSON; anything else, a busy or
+# other-version server, none at all, or gpu-off, is read on the session's
+# own CPU engine at once, and a held server is not started.
+out=$(cd "$REPO/tools" && OCR_GPU_HOME="$tmp/gpuhome" python3 - <<'PY'
+import os, socket, sys, threading, types
+from pathlib import Path
+Path(os.environ["OCR_GPU_HOME"], "gpu").mkdir(parents=True)
+import numpy as np
+fake = types.ModuleType("rapidocr_onnxruntime")
+class Real:
+    def __init__(self, **kw): self.kw = kw
+    def __call__(self, img, use_det=None, use_cls=None, use_rec=None, **kw):
+        return [[[[0.0, 1.0], [2.5, 1.0], [2.5, 3.0], [0.0, 3.0]], "cpu", 0.75]], [0.1]
+fake.RapidOCR = Real
+sys.modules["rapidocr_onnxruntime"] = fake
+import ocr_gpu
+fails = 0
+def check(what, want, got):
+    global fails
+    if want == got:
+        print(f"ok   {what}")
+    else:
+        fails += 1
+        print(f"FAIL {what}: expected {want!r}, got {got!r}")
+def gpu_engine(model):
+    return lambda img, use_cls: ([[[[0.5, 1.25], [9.0, 1.25], [9.0, 4.0], [0.5, 4.0]], f"gpu {model} {int(img.sum())}", 0.9876543210987654]], [0.01, 0.0, 0.02])
+sock = socket.socket(); sock.bind(("127.0.0.1", 0)); sock.listen(8)
+ocr_gpu.PORT = sock.getsockname()[1]
+server = ocr_gpu.Server(gpu_engine)
+threading.Thread(target=server.accept, args=(sock,), daemon=True).start()
+ocr_gpu.install()
+import rapidocr_onnxruntime
+check("install() leaves an engine with other settings plain", Real, type(rapidocr_onnxruntime.RapidOCR(det_use_cuda=True)))
+eng = rapidocr_onnxruntime.RapidOCR(rec_model_path=Path("/m/en5.onnx"), intra_op_num_threads=2, inter_op_num_threads=1)
+check("install() makes the readers' engines GPU-first", ocr_gpu.GpuFirst, type(eng))
+img = np.full((4, 5, 3), 2, dtype=np.uint8)
+def fresh():
+    ocr_gpu._CLIENT.close(); ocr_gpu._CLIENT.down_until = 0
+check("a plain read is the server's answer, unchanged", gpu_engine("/m/en5.onnx")(img, False), eng(img, use_cls=False))
+check("a read with other options is the CPU engine's", "cpu", eng(img, use_cls=True)[0][0][1])
+server.inside = ocr_gpu.QUEUE
+check("a busy server leaves the read to the CPU at once", "cpu", eng(img, use_cls=False)[0][0][1])
+server.inside = 0
+check("the server reads again once not busy", "gpu /m/en5.onnx 120", eng(img, use_cls=False)[0][0][1])
+server.version = "other"
+check("a server of another version is not used", "cpu", eng(img, use_cls=False)[0][0][1])
+server.version = ocr_gpu.VERSION
+check("nor asked again until DOWN_FOR is over", "cpu", eng(img, use_cls=False)[0][0][1])
+fresh()
+ocr_gpu.OFF.touch()
+check("gpu-off reads on the CPU", "cpu", eng(img, use_cls=False)[0][0][1])
+ocr_gpu.OFF.unlink()
+fresh()
+sock.close()
+spare = socket.socket(); spare.bind(("127.0.0.1", 0)); ocr_gpu.PORT = spare.getsockname()[1]; spare.close()
+ocr_gpu.hold("test: VRAM free 100 MB < 4096 MB")
+check("no server: the CPU reads", "cpu", eng(img, use_cls=False)[0][0][1])
+check("a held server is not started", False, ocr_gpu.STARTED.exists())
+check("the session counts where each read went", (6, 2), (ocr_gpu._STATS["cpu"], ocr_gpu._STATS["gpu"]))
+sys.exit(1 if fails else 0)
+PY
+)
+rc3=$?
+echo "$out"
+exit $(( rc || rc2 || rc3 ))

@@ -509,6 +509,8 @@ def serve(priority="idle"):
     full_speed(priority)
     # The full pass's 20 sessions share the 28-thread box: two threads each.
     os.environ.setdefault("OCR_THREADS", "2")
+    import ocr_gpu
+    ocr_gpu.install()  # RapidOCR reads go to the shared GPU server when it takes them
     import io
 
     from PIL import Image
