@@ -5398,7 +5398,9 @@ global.realSetTimeout(() => {
     + registry["hint-body"].innerHTML);
   assert(registry["scorebar"].innerHTML === paidBefore,
     "and charges nothing for it: " + paidBefore + " -> " + registry["scorebar"].innerHTML);
-  assert(registry["hint-body"].innerHTML.length < bodyBefore.length,
+  // Measured without the verdict's clue copy, which comes back once the clue
+  // line stops being a tapping surface and can outweigh the question it replaces.
+  assert(kept(registry["hint-body"].innerHTML).length < kept(bodyBefore).length,
     "the question is gone, not merely disarmed: " + registry["hint-body"].innerHTML);
   const back = rungs().find((b) => !b.disabled);
   assert(back, "the ladder is live again: " + registry["hint-next"].innerHTML);
