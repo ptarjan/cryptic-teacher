@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,61 @@
     "text": "Italian city not quite maintaining already disagreeable relationship with host",
     "enumeration": "10"
    },
-   "solution": "PARASITISM"
+   "solution": "PARASITISM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PARASITISM",
+    "definitions": [
+     {
+      "text": "disagreeable relationship with host",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite",
+      "for": "deletion",
+      "note": "something not quite complete is short of its final part, so the city's name loses its last letter"
+     },
+     {
+      "text": "maintaining",
+      "for": "container",
+      "note": "to maintain is to hold or keep, so the shortened city holds the next piece inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian city",
+      "gives": "PARMA",
+      "note": "Parma is a city in northern Italy"
+     },
+     {
+      "clueFragment": "already",
+      "gives": "ASITIS",
+      "note": "'as it is' means already, in the present state of things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "ASITIS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone already on bad terms with an Italian host city, lodging there grudgingly.",
+     "walkthrough": "PARMA minus its final A leaves PARM, which wraps around AS IT IS to make PARASITISM.",
+     "definitionFit": "Parasitism is the biological arrangement where one organism lives off another, harming the host it depends on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "host"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +103,43 @@
     "text": "Perfect language",
     "enumeration": "6"
    },
-   "solution": "POLISH"
+   "solution": "POLISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POLISH",
+    "definitions": [
+     {
+      "text": "Perfect",
+      "at": 0
+     },
+     {
+      "text": "language",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perfect",
+      "note": "first meaning: to refine or improve, as a verb"
+     },
+     {
+      "clueFragment": "language",
+      "note": "second meaning: the tongue spoken in Poland"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as praise for flawless speech, but the two words are separate meanings; the capital P hides the national sense.",
+     "definitionFit": "To polish something is to refine it to perfection, and Polish is the national tongue of Poland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Perfect"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +153,61 @@
     "text": "Overseen by teacher, student ultimately poor performer",
     "enumeration": "6"
    },
-   "solution": "RABBIT"
+   "solution": "RABBIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RABBIT",
+    "definitions": [
+     {
+      "text": "poor performer",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Overseen by",
+      "for": "charade",
+      "note": "in a down entry, being overseen by means sitting below, so the teacher's word comes on top"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teacher",
+      "gives": "RABBI",
+      "note": "a rabbi is a Jewish religious teacher"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of student"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RABBI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A weak student under a teacher's supervision.",
+     "walkthrough": "A rabbit is British sporting slang, especially in cricket and tennis, for a weak or hopeless player.",
+     "definitionFit": "In British slang a rabbit is an unskilled player, typically a tail-end batsman in cricket who scores few runs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "teacher"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +231,43 @@
      }
     ]
    },
-   "solution": "STRIKEALIGHT"
+   "solution": "STRIKEALIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRIKE A LIGHT",
+    "definitions": [
+     {
+      "text": "Check match works",
+      "at": 0
+     },
+     {
+      "text": "well!",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Check match works",
+      "note": "first meaning: literally striking to test that a match produces flame"
+     },
+     {
+      "clueFragment": "well!",
+      "note": "second meaning: an old British exclamation of surprise"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Strike a light!' is a dated Cockney-style exclamation of astonishment, much like 'Well!' or 'Goodness!'.",
+     "definitionFit": "Striking a match tests whether it ignites, and the phrase also serves as a mild British exclamation of surprise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +281,52 @@
     "text": "Sugar daddy, say, dispensing with capital",
     "enumeration": "4"
    },
-   "solution": "TATE"
+   "solution": "TATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TATE",
+    "definitions": [
+     {
+      "text": "Sugar daddy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dispensing with capital",
+      "for": "deletion",
+      "note": "the capital here is the initial letter, which is thrown away"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "STATE",
+      "note": "to state is to say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy older benefactor who stops handing out money.",
+     "walkthrough": "Henry Tate founded the sugar refiners later called Tate & Lyle, so he is literally a sugar father; his fortune funded the Tate Gallery.",
+     "definitionFit": "Sir Henry Tate was the Victorian sugar magnate whose company became Tate & Lyle, a jokey founding father of sugar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +340,78 @@
     "text": "Soldier handles climbing about right, weakness following",
     "enumeration": "10"
    },
-   "solution": "SERVICEMAN"
+   "solution": "SERVICEMAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "SERVICEMAN",
+    "definitions": [
+     {
+      "text": "Soldier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing means reading upward, so the word runs backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the turned word goes around what follows"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming straight after, so the weakness sits right behind the letter for right"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "handles",
+      "gives": "NAMES",
+      "note": "handles is slang for names"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     },
+     {
+      "clueFragment": "weakness",
+      "gives": "VICE",
+      "note": "a vice is a moral failing or weakness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "RVICE",
+      "MAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAMES",
+       "to": "SEMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier grips a rope while climbing, with some weakness showing after.",
+     "walkthrough": "Handles meaning names is informal usage, as in someone's 'handle' on a radio.",
+     "definitionFit": "A serviceman is a member of the armed forces, so any soldier qualifies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "handles"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +425,48 @@
     "text": "Snapper in pot, did you say",
     "enumeration": "4"
    },
-   "solution": "CROC"
+   "solution": "CROC",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CROC",
+    "definitions": [
+     {
+      "text": "Snapper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say",
+      "for": "homophone",
+      "note": "asking whether someone said it points to a word heard rather than read"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pot",
+      "gives": "CROC",
+      "soundsLike": "CROCK",
+      "note": "a crock is an earthenware pot"
+     }
+    ],
+    "explanation": {
+     "surface": "A fish or turtle being cooked in a pot, queried by a confused listener.",
+     "walkthrough": "A snapper sounds like a fish or turtle, but here it is any creature with snapping jaws.",
+     "definitionFit": "A croc, short for crocodile, is famous for snapping its powerful jaws shut on prey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Snapper"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +480,55 @@
     "text": "Left sore, one of fifty punches!",
     "enumeration": "8"
    },
-   "solution": "REMAINED"
+   "solution": "REMAINED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REMAINED",
+    "definitions": [
+     {
+      "text": "Left",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "punches",
+      "for": "container",
+      "note": "to punch is to drive into something, so one piece is driven inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sore",
+      "gives": "RED",
+      "note": "a sore patch of skin is inflamed and red"
+     },
+     {
+      "clueFragment": "one of fifty",
+      "gives": "MAINE",
+      "note": "Maine is one of the fifty US states"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MAINE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer left aching after one of fifty punches thrown.",
+     "walkthrough": "'Left' looks like a direction or a boxing hand, but it is the past tense of stay behind.",
+     "definitionFit": "Both words mean stayed behind: if you remained somewhere, you were left there after others went."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +542,43 @@
     "text": "Super solving!",
     "enumeration": "8"
    },
-   "solution": "CRACKING"
+   "solution": "CRACKING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRACKING",
+    "definitions": [
+     {
+      "text": "Super",
+      "at": 0
+     },
+     {
+      "text": "solving",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Super",
+      "note": "first meaning: excellent"
+     },
+     {
+      "clueFragment": "solving",
+      "note": "second meaning: breaking a code or a problem"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface is a cheer for the solver; cracking is British informal praise as well as the act of decoding.",
+     "definitionFit": "Cracking is informal British praise meaning excellent, and to crack a puzzle or code is to work it out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "solving"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +592,63 @@
     "text": "Where litmus paper may be found in red, or a blue",
     "enumeration": "10"
    },
-   "solution": "LABORATORY"
+   "solution": "LABORATORY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LABORATORY",
+    "definitions": [
+     {
+      "text": "Where litmus paper may be found",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red",
+      "gives": "LAB",
+      "note": "Labour, the red party in British politics, shortened"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "TORY",
+      "note": "blue is the colour of Britain's Conservative or Tory party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAB",
+      "OR",
+      "A",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "Litmus paper turns red or blue, so the colours seem to describe a chemistry test.",
+     "walkthrough": "Red and blue look like litmus results but are British party colours: red for Labour, blue for the Conservatives.",
+     "definitionFit": "Litmus paper is a standard chemistry testing strip, the sort of supply kept in a science lab."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +662,63 @@
     "text": "Hit hard, covers ripped off before returning book",
     "enumeration": "4"
    },
-   "solution": "EMMA"
+   "solution": "EMMA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "EMMA",
+    "definitions": [
+     {
+      "text": "book",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers ripped off",
+      "for": "deletion",
+      "note": "a book's covers are its outer parts, so tearing them off removes the first and last letters"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the letters are read right to left"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit hard",
+      "gives": "HAMMER",
+      "note": "to hammer is to hit hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMMA"
+     ],
+     "reversals": [
+      {
+       "from": "AMME",
+       "to": "EMMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book battered so hard its covers come off before being returned.",
+     "walkthrough": "HAMMER without its outer letters gives AMME, which turned round is EMMA, the Jane Austen novel.",
+     "definitionFit": "Emma is the 1815 novel by Jane Austen, so it is a book by title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +738,51 @@
      }
     ]
    },
-   "solution": "KEYSIGNATURE"
+   "solution": "KEYSIGNATURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KEY SIGNATURE",
+    "definitions": [
+     {
+      "text": "block of flats, perhaps",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Critical",
+      "gives": "KEY",
+      "note": "key means crucial or critical"
+     },
+     {
+      "clueFragment": "mark",
+      "gives": "SIGNATURE",
+      "note": "a signature is a person's identifying mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEY",
+      "SIGNATURE"
+     ]
+    },
+    "explanation": {
+     "surface": "An essential sign found somewhere in an apartment building.",
+     "walkthrough": "Flats here are musical symbols; a key signature groups the flats or sharps at the start of a stave.",
+     "definitionFit": "In printed music a key signature is a cluster of flat or sharp symbols at the start of each line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flats"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +796,58 @@
     "text": "Container in heaven, high",
     "enumeration": "6"
    },
-   "solution": "STINKY"
+   "solution": "STINKY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STINKY",
+    "definitions": [
+     {
+      "text": "high",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the first word sits within the second"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heaven",
+      "gives": "SKY",
+      "note": "the sky is poetically the heavens"
+     },
+     {
+      "clueFragment": "Container",
+      "gives": "TIN",
+      "note": "a tin is a metal container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TIN",
+      "KY"
+     ]
+    },
+    "explanation": {
+     "surface": "A storage box up in the heavens, high above.",
+     "walkthrough": "'High' looks like it means lofty, matching heaven, but it means smelly, as of meat gone off.",
+     "definitionFit": "Meat or game that is high has begun to go off and smells strongly, which is what stinky means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +861,50 @@
     "text": "Composition with citrus twist",
     "enumeration": "8"
    },
-   "solution": "LIMERICK"
+   "solution": "LIMERICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIMERICK",
+    "definitions": [
+     {
+      "text": "Composition",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "citrus",
+      "gives": "LIME",
+      "note": "a lime is a citrus fruit"
+     },
+     {
+      "clueFragment": "twist",
+      "gives": "RICK",
+      "note": "to rick is to twist or sprain a joint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIME",
+      "RICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A cocktail recipe garnished with a twist of citrus peel.",
+     "walkthrough": "A twist of lime sounds like a drink garnish, but twist is the verb meaning sprain.",
+     "definitionFit": "A limerick is a short comic five-line verse, so it is a written composition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "twist"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +918,67 @@
     "text": "Solid flanks good in huge rally",
     "enumeration": "10"
    },
-   "solution": "CONGREGATE"
+   "solution": "CONGREGATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CONGREGATE",
+    "definitions": [
+     {
+      "text": "rally",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flanks",
+      "for": "container",
+      "note": "to flank is to stand on either side, so the solid's word wraps around the rest"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the letter for good goes within the word for huge"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solid",
+      "gives": "CONE",
+      "note": "a cone is a geometric solid"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "huge",
+      "gives": "GREAT",
+      "note": "great means huge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "GRE",
+      "G",
+      "AT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Solid support on the edges makes a huge political rally a good one.",
+     "walkthrough": "There are two insertions here, one nested inside the other: the letter for good goes in first, then the solid wraps the result.",
+     "definitionFit": "To rally is to gather together in a crowd, which is what people do when they congregate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Solid"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +998,51 @@
      }
     ]
    },
-   "solution": "JACOBEPSTEIN"
+   "solution": "JACOBEPSTEIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "JACOB EPSTEIN",
+    "definitions": [
+     {
+      "text": "Creator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strained",
+      "for": "anagram",
+      "note": "something strained is pulled out of shape, so these letters are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Job's patience",
+      "gives": "JOBSPATIENCE",
+      "note": "all twelve letters, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "JOBSPATIENCE",
+       "gives": "JACOBEPSTEIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "God, the Creator, testing Job's legendary patience to breaking point.",
+     "walkthrough": "Creator suggests God from the Book of Job, but here it is a creative artist: Jacob Epstein was a 20th-century sculptor.",
+     "definitionFit": "Sir Jacob Epstein was a celebrated sculptor, and any artist who makes original works is a creator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Creator"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +1056,50 @@
     "text": "Breach of faith true, lady not to be trusted",
     "enumeration": "8"
    },
-   "solution": "ADULTERY"
+   "solution": "ADULTERY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADULTERY",
+    "definitions": [
+     {
+      "text": "Breach of faith",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not to be trusted",
+      "for": "anagram",
+      "note": "something untrustworthy cannot be relied on to stay as presented, so these letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "true, lady",
+      "gives": "TRUELADY",
+      "note": "eight letters taken together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRUELADY",
+       "gives": "ADULTERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seemingly faithful lady turns out to be untrustworthy after all.",
+     "definitionFit": "Adultery is betraying marriage vows, a breach of the fidelity promised to a spouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "true"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1113,55 @@
     "text": "Poisonous, half a dozen law books",
     "enumeration": "8"
    },
-   "solution": "VIRULENT"
+   "solution": "VIRULENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VIRULENT",
+    "definitions": [
+     {
+      "text": "Poisonous",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half a dozen",
+      "gives": "VI",
+      "note": "six in Roman numerals"
+     },
+     {
+      "clueFragment": "law",
+      "gives": "RULE",
+      "note": "a rule is a law"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "New Testament, a set of biblical books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "RULE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Six toxic law books on a shelf.",
+     "definitionFit": "Virulent describes something highly toxic or harmful, such as a venom or an aggressive disease."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1181,39 @@
      }
     ]
    },
-   "solution": "DRIVINGRANGE"
+   "solution": "DRIVINGRANGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DRIVING RANGE",
+    "definitions": [
+     {
+      "text": "Playground where one might attempt to remove hooks from swings",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Playground where one might attempt to remove hooks from swings",
+      "note": "surface reading: a children's play area, unhooking the swing seats"
+     },
+     {
+      "clueFragment": "hooks from swings",
+      "note": "setter's reading: in golf a hook is a bad curving shot, and practising swings irons it out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Playground, hooks and swings all evoke a park, but they are golf terms: a practice ground for swinging clubs and curing hooked shots.",
+     "definitionFit": "A driving range is a golf practice area where players hit balls to work on their swing and fix faults."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "swings"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1227,43 @@
     "text": "Old rhino somewhere in western Africa",
     "enumeration": "6"
    },
-   "solution": "GUINEA"
+   "solution": "GUINEA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GUINEA",
+    "definitions": [
+     {
+      "text": "Old rhino",
+      "at": 0
+     },
+     {
+      "text": "somewhere in western Africa",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old rhino",
+      "note": "first meaning: a former British gold coin; rhino is old slang for money"
+     },
+     {
+      "clueFragment": "somewhere in western Africa",
+      "note": "second meaning: a West African country"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A rhino seems at home in Africa, but rhino is dated British slang for money; the guinea was a coin worth 21 shillings.",
+     "definitionFit": "The guinea was an old British coin, so a sum of old money, and Guinea is a nation on Africa's west coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rhino"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1283,57 @@
      }
     ]
    },
-   "solution": "DEARME"
+   "solution": "DEARME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEAR ME",
+    "definitions": [
+     {
+      "text": "Oh no",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has consumed",
+      "for": "container",
+      "note": "having consumed something means holding it inside, so the river's name surrounds the other word"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Scotland and in Wales"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "ARM",
+      "note": "an arm is a weapon, as in firearms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "ARM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Alarm at a river swallowing a weapon thrown into it.",
+     "definitionFit": "Both are mild exclamations of dismay used when something has gone wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consumed"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1347,59 @@
     "text": "After swallowing that's disgusting, is this the best medicine?",
     "enumeration": "8"
    },
-   "solution": "LAUGHTER"
+   "solution": "LAUGHTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAUGHTER",
+    "definitions": [
+     {
+      "text": "the best medicine",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "swallowing takes something inside, so the first word goes around the exclamation"
+     }
+    ],
+    "linkWords": [
+     "is this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "After",
+      "gives": "LATER",
+      "note": "later means after"
+     },
+     {
+      "clueFragment": "that's disgusting",
+      "gives": "UGH",
+      "note": "an exclamation of disgust"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "UGH",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grimacing after taking a nasty medicine, wondering if it is really the best.",
+     "walkthrough": "The definition leans on the proverb that laughter is the best medicine.",
+     "definitionFit": "The saying 'laughter is the best medicine' holds that a good laugh heals better than any drug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "swallowing"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1413,39 @@
     "text": "Motherly character?",
     "enumeration": "6"
    },
-   "solution": "NATURE"
+   "solution": "NATURE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NATURE",
+    "definitions": [
+     {
+      "text": "Motherly character?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Motherly character?",
+      "note": "surface reading: a caring, maternal personality"
+     },
+     {
+      "clueFragment": "Motherly",
+      "note": "setter's reading: the character who is a mother, from the familiar personification of the natural world"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as maternal temperament; the question mark warns that the character is Mother Nature herself, and the word also means temperament.",
+     "definitionFit": "The natural world is personified as Mother Nature, and the word also means someone's essential character or disposition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1459,66 @@
     "text": "Military cap held briefly upon head of infantryman",
     "enumeration": "4"
    },
-   "solution": "KEPI"
+   "solution": "KEPI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KEPI",
+    "definitions": [
+     {
+      "text": "Military cap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter is dropped"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "upon",
+      "for": "charade",
+      "note": "in a down entry, upon means placed on top, so the shortened word sits above"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "held",
+      "gives": "KEPT",
+      "note": "kept means held"
+     },
+     {
+      "clueFragment": "infantryman",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of infantryman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEP",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier's cap held briefly over a foot soldier's head.",
+     "definitionFit": "A kepi is the flat-topped peaked cap worn by French soldiers and the Foreign Legion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1532,60 @@
     "text": "Suit informally with flower clipped at the front",
     "enumeration": "4"
    },
-   "solution": "EXEC"
+   "solution": "EXEC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EXEC",
+    "definitions": [
+     {
+      "text": "Suit informally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the front",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "EXE",
+      "note": "a flower is something that flows, a river; the Exe runs through Devon"
+     },
+     {
+      "clueFragment": "clipped",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of clipped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXE",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A suit with a flower clipped onto its front lapel.",
+     "walkthrough": "'Flower' is crossword code for river, and 'suit' is slang for a business executive.",
+     "definitionFit": "A suit is slang for a corporate executive, and exec is the casual short form of executive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1605,49 @@
      }
     ]
    },
-   "solution": "PAGETURNER"
+   "solution": "PAGETURNER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAGE-TURNER",
+    "definitions": [
+     {
+      "text": "Enthralling work",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "required"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "send for",
+      "gives": "PAGE",
+      "note": "to page someone is to summon them, as over a tannoy"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "TURNER",
+      "note": "J. M. W. Turner, the English painter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAGE",
+      "TURNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A gripping artwork is needed, so someone sends for the painter.",
+     "definitionFit": "A page-turner is a book so gripping the reader cannot stop turning pages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1661,44 @@
     "text": "Caught in eye, tiny hairy thing proving elusive",
     "enumeration": "4"
    },
-   "solution": "YETI"
+   "solution": "YETI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "YETI",
+    "definitions": [
+     {
+      "text": "hairy thing proving elusive",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Caught in",
+      "for": "hidden_word",
+      "note": "caught in means held inside, so the letters are found within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eye, tiny",
+      "gives": "YETI",
+      "note": "runs across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A tiny stray hair caught in someone's eye that will not come out.",
+     "walkthrough": "The surface suggests an eyelash in the eye; the hairy thing is the abominable snowman.",
+     "definitionFit": "The yeti is a legendary shaggy ape-like creature of the Himalayas that nobody has ever reliably found."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hairy"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1712,42 @@
     "text": "Conscious, put on one's thinking cap",
     "enumeration": "10"
    },
-   "solution": "DELIBERATE"
+   "solution": "DELIBERATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DELIBERATE",
+    "definitions": [
+     {
+      "text": "Conscious",
+      "at": 0
+     },
+     {
+      "text": "put on one's thinking cap",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conscious",
+      "note": "first meaning: intentional, done on purpose, an adjective"
+     },
+     {
+      "clueFragment": "put on one's thinking cap",
+      "note": "second meaning: to ponder carefully, a verb"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "One word, two parts of speech: an adjective meaning intended, and a verb meaning to ponder, pronounced differently.",
+     "definitionFit": "A conscious act is a deliberate one, intended; and to deliberate is to think hard before deciding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cap"
+    }
+   }
   }
  ]
 }
