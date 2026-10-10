@@ -1553,6 +1553,12 @@ stats_blocks = 1.0
 got, _ = f.read_solution(f.page(ed, 3), sol, ["..."])
 check("solution answers keyed as fill() reads them, the grid cropped tight at 3x and read on its own rules",
       ({"1-across": "ABC"}, ((352 * 3, 352 * 3), True)), (got, seen[0]))
+# A crop another cut left at the path is never read: each read cuts afresh.
+stale = f.CROPS / "solutions" / f"{ed.name}_7.png"
+Image.new("L", (90, 90), 255).save(stale)
+seen.clear()
+f.read_solution(f.page(ed, 3), sol, ["..."])
+check("a solution crop saved by other code is not reused: the grid is cut again", (352 * 3, 352 * 3), seen[0][0])
 stats_blocks = 0.9
 got, info = f.read_solution(f.page(ed, 3), sol, ["..."])
 check("a solution grid whose blocks are not the puzzle's gives no answers", ({}, True), (got, "refused" in info))

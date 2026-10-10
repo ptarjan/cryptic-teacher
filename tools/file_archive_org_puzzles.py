@@ -3212,10 +3212,10 @@ def read_solution(img, sol, grid, above=False):
         return {}, {"refused": f"the ink under the heading is {bw}x{bh}"}
     path = CROPS / "solutions" / f"{d.name}_{sol['number']}.png"
     path.parent.mkdir(parents=True, exist_ok=True)
-    if not path.exists():
-        sol = img.crop((crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3]))
-        # The recogniser reads the ~23px cells far surer at three times the size.
-        sol.resize((sol.width * 3, sol.height * 3), Image.BICUBIC).save(path)
+    # Cut afresh on every read, so the crop is always this code's cut.
+    sol = img.crop((crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3]))
+    # The recogniser reads the ~23px cells far surer at three times the size.
+    sol.resize((sol.width * 3, sol.height * 3), Image.BICUBIC).save(path)
     # The crop is the grid, frame to frame: read on its own rules.
     answers, stats = trove_solution_ocr.read_answers(path, grid, tight=True)
     if stats["blocks"] < SOLUTION_BLOCKS:
