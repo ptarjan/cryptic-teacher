@@ -5,5 +5,5 @@
 # .prereset.log, which states the mode, never a label typed here.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-exec "${HOUSEHOLD_CHECKOUT:-$HOME/github/household}"/tools/track-job.sh --restart cryptic-crosswords --run "Burn" \
+exec "${TRACK_JOB:-/app/tools/track-job.sh}" --restart cryptic-crosswords --run "Burn" \
   "tail -1 .prereset.log" -- tools/prereset_backfill.sh
