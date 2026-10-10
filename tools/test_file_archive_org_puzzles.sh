@@ -1424,9 +1424,9 @@ check("a frame beside a heavy edge column found within 2px of its middle", True,
 # off read; a light whose cell the leader surely reads otherwise does not
 # stand (13977's even lattice read CREATED's D as an R).
 grid3 = ["...", ".#.", "..."]
-lead = ({(1, "across"): "CAT"}, {"cellsSure": 7}, {(0, 0): "C", (0, 1): "A", (0, 2): "T", (2, 2): "D"})
+lead = ({(1, "across"): "CAT"}, {"cellsSure": 7}, {(0, 0): "C", (0, 1): "A", (0, 2): "T", (2, 2): "D"}, {})
 other = ({(1, "across"): "COT", (1, "down"): "COB", (3, "across"): "BED", (2, "down"): "TOR"},
-         {"cellsSure": 5}, {})
+         {"cellsSure": 5}, {}, {})
 real_framings, real_lattice = tso.framings, tso.read_lattice
 tso.framings = lambda gray, grid: [("o", 0, 0), ("l", 0, 0)]
 tso.read_lattice = lambda g, ys, xs, grid: {"o": other, "l": lead}[g]
@@ -1444,8 +1444,8 @@ check("the surest lattice's lights stand; another's where every cell agrees",
 # NONET read as NONER (15549) stays in doubt.
 def framed(lead_sure):
     tso.framings = lambda gray, grid: [("o", 0, 0), ("l", 0, 0)]
-    tso.read_lattice = lambda g, ys, xs, grid: {"o": ({(3, "across"): "BED"}, {"cellsSure": 5}, {}),
-                                                "l": ({}, {"cellsSure": 7}, lead_sure)}[g]
+    tso.read_lattice = lambda g, ys, xs, grid: {"o": ({(3, "across"): "BED"}, {"cellsSure": 5}, {}, {}),
+                                                "l": ({}, {"cellsSure": 7}, lead_sure, {})}[g]
     try:
         return tso.read_framed(os.path.join(os.environ["TMP"], "grid3.png"), grid3)[0].get((3, "across"))
     finally:
@@ -1454,6 +1454,31 @@ check("a leader's sure misread spelling no word does not veto another lattice's 
       "BED", framed({(2, 0): "B", (2, 1): "Q", (2, 2): "D"}))
 check("a leader's sure letter spelling another word leaves the light unread",
       None, framed({(2, 0): "B", (2, 1): "E", (2, 2): "G"}))
+# agreed_reads(): two lattices reading a light surely in every cell as the
+# one listed word among its whole reads take it, though its numbered cell's
+# glyph match refused it (16752 REPINED, 14290 EGGDANCE); a rival whole read
+# that is a word leaves it unread (17469 DOUR, read with its number as BOUR).
+def lattices(word, *printed):
+    cells = [(0, i) for i in range(len(word))]
+    return {(1, "across"): cells}, [({}, {"cellsSure": 9}, dict(zip(cells, word)), {(1, "across"): set(p)})
+                                    for p in printed]
+check("two lattices reading every cell as the one word among the whole reads take it",
+      {(1, "across"): "REPINED"}, tso.agreed_reads(*lattices("REPINED", {"REPINED", "AEPINED"}, {"HEPINED"})))
+check("a rival whole read that is a word leaves the light unread",
+      {}, tso.agreed_reads(*lattices("BOUR", {"BOUR"}, {"BOUR", "DOUR"})))
+lts, one = lattices("REPINED", {"REPINED"})
+check("one lattice reading every cell is not two",
+      {}, tso.agreed_reads(lts, one + [({}, {"cellsSure": 9}, {}, {})]))
+# swapped_reads(): 1990s Times prints read an R as a sure A; the one listed
+# word an A-to-R swap makes is taken (18976 ESCAITOIRE, 18471 WOAKSHY), but
+# an R is never swapped to an A (BRLLOON stays unread, not BALLOON).
+def swapped(word):
+    lts = {(1, "across"): [(0, i) for i in range(len(word))]}
+    every = dict(zip(lts[(1, "across")], word))
+    return tso.swapped_reads(lts, every, {(1, "across"): {word}}, {}, every)
+check("a sure A whose swap to R makes the one word a letter away is that word",
+      {(1, "across"): "ESCRITOIRE"}, swapped("ESCAITOIRE"))
+check("a sure R is not swapped to an A", {}, swapped("BRLLOON"))
 # crossed_reads(): an unread light's cells take accepted crossings' letters
 # and plain cells' sure reads (Gale 1987: ?MADEUS, ?LEANOR); a numbered
 # cell's own sure read is no letter (DUCKINGSTOOL's D read as a sure B),
