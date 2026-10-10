@@ -38,6 +38,9 @@
   "date": "2021-07-25",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,60 @@
     "text": "A pole proclaims my job in saloon, say, at capital's west side",
     "enumeration": "6"
    },
-   "solution": "BARBER"
+   "solution": "BARBER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BARBER",
+    "definitions": [
+     {
+      "text": "A pole proclaims my job",
+      "at": 0,
+      "note": "names the person by the striped pole outside the shop"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "west side",
+      "for": "deletion",
+      "note": "the west side of a word written across is its left-hand half, so only the front part is kept"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saloon, say",
+      "gives": "BAR",
+      "note": "a saloon is one kind of bar, hence 'say'"
+     },
+     {
+      "clueFragment": "capital's",
+      "gives": "BERLIN",
+      "note": "the German capital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "BER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts that the pole outside a Wild West saloon advertises their trade.",
+     "walkthrough": "Only the western half of BERLIN, BER, is used. The red-and-white striped pole is the traditional sign of a barber's shop.",
+     "definitionFit": "A barber's shop is traditionally marked by a striped pole, so the pole announces the occupation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "saloon"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +121,78 @@
     "text": "Pneumatic tyres finally in sudden increase over year",
     "enumeration": "6"
    },
-   "solution": "BOSOMY"
+   "solution": "BOSOMY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "BOSOMY",
+    "definitions": [
+     {
+      "text": "Pneumatic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside another"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sudden",
+      "gives": "BO",
+      "note": "first half of the word for a sudden increase, split around the inserted letter"
+     },
+     {
+      "clueFragment": "tyres",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of tyres"
+     },
+     {
+      "clueFragment": "increase",
+      "gives": "OM",
+      "note": "a boom is a sudden increase; BOOM is split to take the inserted letter"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the standard abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "S",
+      "OM",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist notes a sudden rise in tyre pressure over the past year.",
+     "walkthrough": "S goes inside BOOM, a sudden increase, and Y follows. 'Pneumatic' in its jocular sense describes a full-figured woman.",
+     "definitionFit": "Pneumatic is a facetious adjective for a woman with an ample, curvaceous figure, which is what the answer describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pneumatic"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +206,62 @@
     "text": "Loads last of these aboard warships",
     "enumeration": "5"
    },
-   "solution": "REAMS"
+   "solution": "REAMS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "REAMS",
+    "definitions": [
+     {
+      "text": "Loads",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of picks out the closing letter of the next word"
+     },
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "something aboard a vessel is inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "these",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of these"
+     },
+     {
+      "clueFragment": "warships",
+      "gives": "RAMS",
+      "note": "rams were warships with a beak for striking enemy hulls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "AMS"
+     ]
+    },
+    "explanation": {
+     "surface": "Something about cargo stowed on naval vessels.",
+     "walkthrough": "E goes aboard RAMS, the ironclad warships with a ramming prow.",
+     "definitionFit": "Reams, informally, means large quantities, just as loads does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Loads"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +275,62 @@
     "text": "Old golfer's lofted ball: doubly excellent set up",
     "enumeration": "6"
    },
-   "solution": "BAFFED"
+   "solution": "BAFFED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BAFFED",
+    "definitions": [
+     {
+      "text": "Old golfer's lofted ball",
+      "at": 0,
+      "note": "a verb phrase: struck the ball so it rose"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down entry, setting something up turns it to read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doubly excellent",
+      "gives": "DEF",
+      "note": "def is slang for excellent"
+     },
+     {
+      "clueFragment": "doubly excellent",
+      "gives": "FAB",
+      "note": "fab is a second slang word for excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAF",
+      "FED"
+     ],
+     "reversals": [
+      {
+       "from": "DEFFAB",
+       "to": "BAFFED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer of yesteryear hits a lovely high shot, set up perfectly.",
+     "walkthrough": "Two slang words for excellent, DEF and FAB, are read upwards.",
+     "definitionFit": "To baff is an old Scottish golfing verb: to strike the ground behind the ball so that it flies high."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +344,47 @@
     "text": "English present a moment ago in Holyrood",
     "enumeration": "4"
    },
-   "solution": "ENOW"
+   "solution": "ENOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENOW",
+    "definitions": [
+     {
+      "text": "a moment ago in Holyrood",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "present",
+      "gives": "NOW",
+      "note": "the present moment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NOW"
+     ]
+    },
+    "explanation": {
+     "surface": "English are said to have been in the Scottish Parliament just now.",
+     "walkthrough": "Holyrood is the seat of the Scottish Parliament, signalling a Scots word.",
+     "definitionFit": "In Scots dialect the word means just now or presently, so it covers a moment ago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Holyrood"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +398,75 @@
     "text": "Lined up fairly, it'll vanish with due processing",
     "enumeration": "6"
    },
-   "solution": "QUEUED"
+   "solution": "QUEUED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "QUEUED",
+    "definitions": [
+     {
+      "text": "Lined up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vanish",
+      "for": "deletion",
+      "note": "something that vanishes is taken out of the word it was in"
+     },
+     {
+      "text": "processing",
+      "for": "anagram",
+      "note": "processing works material over into a different form"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fairly",
+      "gives": "QUITE",
+      "note": "fairly means somewhat, quite"
+     },
+     {
+      "clueFragment": "it'll",
+      "gives": "IT",
+      "note": "the letters that vanish"
+     },
+     {
+      "clueFragment": "due",
+      "gives": "DUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUE",
+      "UED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DUE",
+       "gives": "UED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shoppers queued politely, sure the wait would disappear once things were processed.",
+     "walkthrough": "QUITE loses IT to leave QUE, then DUE is rearranged.",
+     "definitionFit": "To queue is to stand in line, so having queued is having lined up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fairly"
+    }
+   }
   },
   {
    "number": 5,
@@ -135,7 +480,49 @@
     "text": "In the capacity of mouth's accumulation of greens?",
     "enumeration": "10"
    },
-   "solution": "QUAESTUARY"
+   "solution": "QUAESTUARY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "QUAESTUARY",
+    "definitions": [
+     {
+      "text": "accumulation of greens?",
+      "at": 27,
+      "note": "greens = greenbacks, money; the answer means money-making"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In the capacity of",
+      "gives": "QUA",
+      "note": "Latin qua, in the capacity of"
+     },
+     {
+      "clueFragment": "mouth's",
+      "gives": "ESTUARY",
+      "note": "an estuary is a river mouth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUA",
+      "ESTUARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling question about the greenery that collects at a river mouth.",
+     "walkthrough": "Greens are greenbacks, US dollars; the answer describes the pursuit of gain.",
+     "definitionFit": "Quaestuary relates to money-making and profit, the piling up of cash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "greens"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +536,53 @@
     "text": "I advocate impractical reform and put it so in shake-up",
     "enumeration": "7"
    },
-   "solution": "UTOPIST"
+   "solution": "UTOPIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UTOPIST",
+    "definitions": [
+     {
+      "text": "I advocate impractical reform",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in shake-up",
+      "for": "anagram",
+      "note": "a shake-up throws things into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put it so",
+      "gives": "PUTITSO",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUTITSO",
+       "gives": "UTOPIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reformer confesses to unrealistic schemes and to proposing a shake-up.",
+     "definitionFit": "A utopist is an idealist who champions perfect but unworkable social schemes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "shake-up"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +596,77 @@
     "text": "Uniform height in revolutionary Lyon is unconscionable",
     "enumeration": "6"
    },
-   "solution": "UNHOLY"
+   "solution": "UNHOLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "UNHOLY",
+    "definitions": [
+     {
+      "text": "unconscionable",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "anagram",
+      "note": "a revolution overturns the existing order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uniform",
+      "gives": "U",
+      "note": "U is Uniform in the NATO alphabet"
+     },
+     {
+      "clueFragment": "Lyon",
+      "gives": "LYON",
+      "note": "the city name, to be rearranged"
+     },
+     {
+      "clueFragment": "height",
+      "gives": "H",
+      "note": "H is the abbreviation for height"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "N",
+      "H",
+      "OLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LYON",
+       "gives": "NOLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A uniformed figure at a height in rebellious Lyon is behaving outrageously.",
+     "walkthrough": "LYON is rearranged to NOLY, with H set inside after the N.",
+     "definitionFit": "Unholy can mean outrageous or dreadful, matching something beyond what conscience allows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +680,56 @@
     "text": "Always good to drain marsh",
     "enumeration": "9"
    },
-   "solution": "EVERGLADE"
+   "solution": "EVERGLADE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVERGLADE",
+    "definitions": [
+     {
+      "text": "marsh",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Always",
+      "gives": "EVER",
+      "note": "ever means always"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "drain",
+      "gives": "LADE",
+      "note": "to lade is to bail or drain water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVER",
+      "G",
+      "LADE"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that it is always a good idea to drain a bog.",
+     "walkthrough": "Lade, an old verb, means to bail out or draw off water.",
+     "definitionFit": "An everglade is a tract of swampy, grassy land, a kind of marsh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drain"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +743,69 @@
     "text": "Shoot up with special aluminium fin",
     "enumeration": "6"
    },
-   "solution": "DORSAL"
+   "solution": "DORSAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DORSAL",
+    "definitions": [
+     {
+      "text": "fin",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shoot",
+      "gives": "ROD",
+      "note": "a rod is a slender shoot or stick"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is the abbreviation for special"
+     },
+     {
+      "clueFragment": "aluminium",
+      "gives": "AL",
+      "note": "Al is the chemical symbol for aluminium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOR",
+      "S",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "ROD",
+       "to": "DOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for injecting drugs with a special metallic fin.",
+     "definitionFit": "A dorsal fin is the one on the back of a fish, so the adjective stands for that fin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shoot"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +819,73 @@
     "text": "We study demersal life in high seas, caution is turned out",
     "enumeration": "9"
    },
-   "solution": "OCEANAUTS"
+   "solution": "OCEANAUTS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OCEANAUTS",
+    "definitions": [
+     {
+      "text": "We study demersal life",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned out",
+      "for": "deletion",
+      "note": "what is turned out is thrown out, so those letters go"
+     },
+     {
+      "text": "high",
+      "for": "anagram",
+      "note": "high means intoxicated, so the letters are in disorder"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seas",
+      "gives": "SEAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "caution",
+      "gives": "CAUTION",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "these two letters are expelled from the combined fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCEANAUTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEACAUTON",
+       "gives": "OCEANAUTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Undersea researchers note that on rough high seas caution has been abandoned.",
+     "walkthrough": "Take an I and an S out of SEAS CAUTION, then rearrange. Demersal life lives on or near the sea bed.",
+     "definitionFit": "Oceanauts are underwater explorers, so they would study creatures living near the seabed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +905,75 @@
      }
     ]
    },
-   "solution": "SEAFOG"
+   "solution": "SEAFOG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "SEA FOG",
+    "definitions": [
+     {
+      "text": "Hazard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "torpedoing",
+      "for": "anagram",
+      "note": "a torpedoed thing is wrecked and its parts scattered"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word runs right to left"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "safe",
+      "gives": "SAFE",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "journey",
+      "gives": "GO",
+      "note": "a go is a trip or turn, a journey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEAF",
+      "OG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAFE",
+       "gives": "SEAF"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A submarine attack ruins a safe voyage home.",
+     "definitionFit": "A sea fog is a danger to shipping, a navigational hazard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "torpedoing"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +993,59 @@
      }
     ]
    },
-   "solution": "GIANTPANDA"
+   "solution": "GIANTPANDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GIANT PANDA",
+    "definitions": [
+     {
+      "text": "herbivore",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pressed by",
+      "for": "charade",
+      "note": "in a down entry something pressed by another has that other piece sitting on top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whopping",
+      "gives": "GIANT",
+      "note": "giant means huge"
+     },
+     {
+      "clueFragment": "Face",
+      "gives": "PAN",
+      "note": "pan is slang for face"
+     },
+     {
+      "clueFragment": "father",
+      "gives": "DA",
+      "note": "da is an informal word for father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIANT",
+      "PAN",
+      "DA"
+     ]
+    },
+    "explanation": {
+     "surface": "A father's face squashed by something enormous.",
+     "definitionFit": "The giant panda lives almost entirely on bamboo, making it a plant-eating animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Face"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +1059,47 @@
     "text": "Second concern initially dodged",
     "enumeration": "5"
    },
-   "solution": "OTHER"
+   "solution": "OTHER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OTHER",
+    "definitions": [
+     {
+      "text": "Second",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially dodged",
+      "for": "deletion",
+      "note": "the opening letter is dodged, that is avoided and left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concern",
+      "gives": "BOTHER",
+      "note": "bother means concern or worry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A second worry was avoided at the start.",
+     "definitionFit": "Other means the second of two, as in every other day or the other one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1113,50 @@
     "text": "Pic goes on developing the art of farming",
     "enumeration": "9"
    },
-   "solution": "GEOPONICS"
+   "solution": "GEOPONICS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GEOPONICS",
+    "definitions": [
+     {
+      "text": "the art of farming",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developing",
+      "for": "anagram",
+      "note": "a developing photograph changes form, so the letters change order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pic goes on",
+      "gives": "PICGOESON",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PICGOESON",
+       "gives": "GEOPONICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A photograph keeps developing, showing agricultural skill.",
+     "definitionFit": "Geoponics is an old term for agriculture, the science and practice of cultivating land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "developing"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1170,50 @@
     "text": "Extreme pressure by French out of magistrates, as before",
     "enumeration": "6"
    },
-   "solution": "EPHORS"
+   "solution": "EPHORS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EPHORS",
+    "definitions": [
+     {
+      "text": "magistrates, as before",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extreme pressure",
+      "gives": "EP",
+      "note": "EP is the engineering abbreviation for extreme pressure, as on lubricants"
+     },
+     {
+      "clueFragment": "French out of",
+      "gives": "HORS",
+      "note": "French hors means out of, as in hors de combat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "HORS"
+     ]
+    },
+    "explanation": {
+     "surface": "Officials are forced out of power by heavy French pressure.",
+     "walkthrough": "'As before' signals that the magistrates belong to the ancient world.",
+     "definitionFit": "Ephors were the five senior magistrates of ancient Sparta, who oversaw even the kings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extreme"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1227,60 @@
     "text": "Greek's keynote brooded over plateaux",
     "enumeration": "7"
    },
-   "solution": "MESETAS"
+   "solution": "MESETAS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MESETAS",
+    "definitions": [
+     {
+      "text": "plateaux",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means the word is flipped end to end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek's keynote",
+      "gives": "MESE",
+      "note": "mese was the middle string, the keynote, of ancient Greek music"
+     },
+     {
+      "clueFragment": "brooded",
+      "gives": "SAT",
+      "note": "a hen broods when it sits on eggs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MESE",
+      "TAS"
+     ],
+     "reversals": [
+      {
+       "from": "SAT",
+       "to": "TAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek musician dwells on a key note above the high plains.",
+     "definitionFit": "A meseta is a high, flat tableland, especially in Spain, so it is a kind of plateau."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brooded"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1294,59 @@
     "text": "Large Australian on a possible feature of rock pool",
     "enumeration": "4"
    },
-   "solution": "ALGA"
+   "solution": "ALGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALGA",
+    "definitions": [
+     {
+      "text": "possible feature of rock pool",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry, one piece placed on another comes after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Large",
+      "gives": "LG",
+      "note": "lg is an abbreviation for large"
+     },
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A is an abbreviation for Australian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A big Australian lounges by a rock pool.",
+     "definitionFit": "Seaweeds and green scum are algae, often found growing in tidal rock pools."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Australian"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1370,67 @@
      }
     ]
    },
-   "solution": "YOUDONTSAY"
+   "solution": "YOUDONTSAY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "YOU DONT SAY",
+    "definitions": [
+     {
+      "text": "Ironic rejoinder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barely changed",
+      "for": "anagram",
+      "note": "only slightly altered, so a light reordering of the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "here",
+      "gives": "YO",
+      "note": "yo is a response like 'here!' at a roll call"
+     },
+     {
+      "clueFragment": "Donut's",
+      "gives": "DONUTS",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "alas",
+      "gives": "AY",
+      "note": "ay is an old exclamation of sorrow, as in 'ay me'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YO",
+      "UDONTS",
+      "AY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DONUTS",
+       "gives": "UDONTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sarcastically remarks that the doughnuts have hardly changed, sadly.",
+     "walkthrough": "Moving one letter is all the rearranging needed, hence 'barely'.",
+     "definitionFit": "The phrase is a mock-surprised retort to something obvious, an ironic reply."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "barely"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1450,69 @@
      }
     ]
    },
-   "solution": "OAKTREE"
+   "solution": "OAKTREE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OAK TREE",
+    "definitions": [
+     {
+      "text": "Royalist's sheltering spot?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one group of letters is put inside another"
+     }
+    ],
+    "linkWords": [
+     "finds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is an abbreviation for old"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "K",
+      "note": "K is the chess notation for king and an abbreviation for knight"
+     },
+     {
+      "clueFragment": "yard",
+      "gives": "TREE",
+      "note": "in old usage both words denote a wooden pole or beam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "A",
+      "K",
+      "TREE"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight in an old garden discovers where a Cavalier hid.",
+     "walkthrough": "After defeat at Worcester in 1651, the future Charles II hid from Parliamentary soldiers in an oak at Boscobel.",
+     "definitionFit": "The Royal Oak legend makes an oak the famous hiding place of a fleeing Royalist king."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "yard"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1526,54 @@
     "text": "Brother non-com and French nationalist general",
     "enumeration": "6"
    },
-   "solution": "FRANCO"
+   "solution": "FRANCO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRANCO",
+    "definitions": [
+     {
+      "text": "French",
+      "at": 20
+     },
+     {
+      "text": "nationalist general",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brother",
+      "gives": "FRA",
+      "note": "fra is the title of an Italian friar, brother"
+     },
+     {
+      "clueFragment": "non-com",
+      "gives": "NCO",
+      "note": "a non-commissioned officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRA",
+      "NCO"
+     ]
+    },
+    "explanation": {
+     "surface": "A brother, a corporal and a French general line up.",
+     "walkthrough": "Franco- is the combining form for French, as in Franco-Prussian, and Franco led the Nationalists in the Spanish Civil War.",
+     "definitionFit": "Franco- is the prefix meaning French, and General Franco commanded Spain's Nationalist forces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1593,74 @@
      }
     ]
    },
-   "solution": "STATUTECAP"
+   "solution": "STATUTECAP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "STATUTE CAP",
+    "definitions": [
+     {
+      "text": "what Elizabethan wore on Sunday",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poor",
+      "for": "anagram",
+      "note": "poor means in bad shape, so the word is reworked"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taste",
+      "gives": "TASTE",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "As",
+      "gives": "UT",
+      "note": "Latin ut means as"
+     },
+     {
+      "clueFragment": "covering",
+      "gives": "CAP",
+      "note": "a cap is a covering"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAT",
+      "UT",
+      "E",
+      "CAP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TASTE",
+       "gives": "STATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Commentary on the bad taste of some Elizabethan Sunday headwear.",
+     "walkthrough": "Latin ut is a common crossword gift for 'as'.",
+     "definitionFit": "A 1571 act required most English people to wear woollen caps on Sundays and holy days to support the wool trade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "As"
+    }
+   }
   },
   {
    "number": 21,
@@ -413,7 +1680,55 @@
      }
     ]
    },
-   "solution": "SEACAT"
+   "solution": "SEACAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEA CAT",
+    "definitions": [
+     {
+      "text": "shark",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted by",
+      "for": "container",
+      "note": "what is accepted is taken in, so it sits inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "capital city's",
+      "gives": "SEAT",
+      "note": "a capital is a seat of government"
+     },
+     {
+      "clueFragment": "Cases",
+      "gives": "CA",
+      "note": "ca is an abbreviation for cases"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "CA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Legal cases are taken on by a big-city con man.",
+     "walkthrough": "'Shark' looks like a swindler in the surface but is the fish.",
+     "definitionFit": "Sea cat is a name given to various fish, including a kind of dogfish shark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shark"
+    }
+   }
   },
   {
    "number": 22,
@@ -427,7 +1742,69 @@
     "text": "Third-party deed is more amiss revolving round Conservative",
     "enumeration": "6"
    },
-   "solution": "ESCROW"
+   "solution": "ESCROW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ESCROW",
+    "definitions": [
+     {
+      "text": "Third-party deed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolving",
+      "for": "reversal",
+      "note": "revolving turns the word around end to end"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "one piece goes around another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more amiss",
+      "gives": "WORSE",
+      "note": "worse means more wrong"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "C",
+      "ROW"
+     ],
+     "reversals": [
+      {
+       "from": "WORCSE",
+       "to": "ESCROW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A contract held by an outsider goes badly wrong when a Tory gets involved.",
+     "definitionFit": "An escrow is a deed or bond held by a third party until a condition is met."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolving"
+    }
+   }
   },
   {
    "number": 23,
@@ -441,7 +1818,45 @@
     "text": "Hebe is one more sorry in speech",
     "enumeration": "6"
    },
-   "solution": "POURER"
+   "solution": "POURER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "POURER",
+    "definitions": [
+     {
+      "text": "Hebe is one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in speech",
+      "for": "homophone",
+      "note": "in speech means we go by how a word is spoken, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more sorry",
+      "gives": "POURER",
+      "soundsLike": "POORER",
+      "note": "sorry means wretched or poor, so more sorry is poorer"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone claims Hebe is even more pitiable.",
+     "walkthrough": "Hebe was the Greek goddess who served nectar to the gods as cupbearer.",
+     "definitionFit": "As cupbearer to the gods, Hebe poured their nectar, so she is an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sorry"
+    }
+   }
   },
   {
    "number": 24,
@@ -455,7 +1870,60 @@
     "text": "Deer got up having hind part tucked in",
     "enumeration": "4"
    },
-   "solution": "ROES"
+   "solution": "ROES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ROES",
+    "definitions": [
+     {
+      "text": "Deer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucked in",
+      "for": "container",
+      "note": "something tucked in is pushed inside"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "got up",
+      "gives": "ROSE",
+      "note": "rose is the past of rise, got up"
+     },
+     {
+      "clueFragment": "hind part",
+      "gives": "E",
+      "note": "the final letter of the word before, which moves inward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A deer rose to its feet with its hindquarters folded under.",
+     "walkthrough": "The last letter of ROSE is detached and tucked in one place earlier.",
+     "definitionFit": "Roes are roe deer, a small European species."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hind"
+    }
+   }
   },
   {
    "number": 25,
@@ -469,7 +1937,50 @@
     "text": "Swashbuckler's thrust before gallant advance leading to fuss",
     "enumeration": "7"
    },
-   "solution": "PASSADO"
+   "solution": "PASSADO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASSADO",
+    "definitions": [
+     {
+      "text": "Swashbuckler's thrust",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before",
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gallant advance",
+      "gives": "PASS",
+      "note": "to make a pass is a flirtatious advance"
+     },
+     {
+      "clueFragment": "fuss",
+      "gives": "ADO",
+      "note": "ado means fuss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASS",
+      "ADO"
+     ]
+    },
+    "explanation": {
+     "surface": "A dashing hero's lunge precedes a romantic overture that causes a stir.",
+     "definitionFit": "A passado is a forward thrust in fencing, the stuff of swordplay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gallant"
+    }
+   }
   },
   {
    "number": 26,
@@ -483,7 +1994,43 @@
     "text": "Chap such as Big Toomai deployed this in riverbank, usefully",
     "enumeration": "5"
    },
-   "solution": "ANKUS"
+   "solution": "ANKUS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANKUS",
+    "definitions": [
+     {
+      "text": "Chap such as Big Toomai deployed this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is sitting inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "riverbank, usefully",
+      "gives": "ANKUS",
+      "note": "spans the end of one word and start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A mahout put this to good use on a riverbank.",
+     "walkthrough": "Big Toomai is the elephant driver in Kipling's 'Toomai of the Elephants'.",
+     "definitionFit": "An ankus is the hooked goad an Indian elephant driver uses to steer his animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "riverbank"
+    }
+   }
   },
   {
    "number": 27,
@@ -497,7 +2044,43 @@
     "text": "Colouring material in half of an attachment",
     "enumeration": "6"
    },
-   "solution": "ANATTA"
+   "solution": "ANATTA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANATTA",
+    "definitions": [
+     {
+      "text": "Colouring material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in half of",
+      "for": "hidden_word",
+      "note": "the answer occupies the front half of the words that follow, sitting in them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an attachment",
+      "gives": "ANATTA",
+      "note": "the first six of these twelve letters"
+     }
+    ],
+    "explanation": {
+     "surface": "Dye found in part of an attached item.",
+     "walkthrough": "Exactly half the letters are used, the front six of the twelve.",
+     "definitionFit": "Anatta, also annatto, is an orange-red dye from a tropical tree, used to colour cheese and butter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "attachment"
+    }
+   }
   },
   {
    "number": 28,
@@ -511,7 +2094,47 @@
     "text": "From times gone by mock a wartime restriction",
     "enumeration": "4"
    },
-   "solution": "DORA"
+   "solution": "DORA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DORA",
+    "definitions": [
+     {
+      "text": "wartime restriction",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "From times gone by mock",
+      "gives": "DOR",
+      "note": "dor is an obsolete verb meaning to mock"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOR",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Mocking an old wartime rule.",
+     "walkthrough": "DORA is the Defence of the Realm Act of 1914, which imposed many restrictions in Britain during the First World War.",
+     "definitionFit": "The Defence of the Realm Act gave the British government sweeping wartime powers to restrict civilian life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mock"
+    }
+   }
   },
   {
    "number": 29,
@@ -525,7 +2148,50 @@
     "text": "New decorator is more fastidious",
     "enumeration": "5"
    },
-   "solution": "NICER"
+   "solution": "NICER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NICER",
+    "definitions": [
+     {
+      "text": "more fastidious",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "decorator",
+      "gives": "ICER",
+      "note": "one who ices cakes decorates them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ICER"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly hired decorator is fussier.",
+     "walkthrough": "'Decorator' suggests a painter, but it is someone who ices cakes.",
+     "definitionFit": "Nice in its older sense means precise or particular, so nicer means more particular."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decorator"
+    }
+   }
   },
   {
    "number": 30,
@@ -539,7 +2205,61 @@
     "text": "Unknown or mostly unofficial delivery at Lords?",
     "enumeration": "6"
    },
-   "solution": "YORKER"
+   "solution": "YORKER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "YORKER",
+    "definitions": [
+     {
+      "text": "delivery at Lords?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unknown",
+      "gives": "Y",
+      "note": "algebra uses x, y and z for unknowns"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "unofficial",
+      "gives": "KERB",
+      "note": "kerb dealing is unofficial trading outside the stock exchange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "OR",
+      "KER"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether an unofficial delivery at Lords is unknown.",
+     "walkthrough": "Lord's is the London cricket ground; a yorker is a ball pitched right at the batsman's feet.",
+     "definitionFit": "A yorker is a type of ball bowled in cricket, which is played at Lord's."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 31,
@@ -559,7 +2279,51 @@
      }
     ]
    },
-   "solution": "REDGROUSE"
+   "solution": "REDGROUSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RED GROUSE",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupting",
+      "for": "anagram",
+      "note": "corrupting something distorts it out of its proper form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Our greed's",
+      "gives": "OURGREEDS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OURGREEDS",
+       "gives": "REDGROUSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Greed corrupts a sporting contest.",
+     "walkthrough": "'Game' is the sporting birds, not a contest.",
+     "definitionFit": "The red grouse is a moorland bird shot for sport, so it is game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 32,
@@ -573,7 +2337,58 @@
     "text": "Refurbished store with a source of aphrodisiac?",
     "enumeration": "6"
    },
-   "solution": "OSTREA"
+   "solution": "OSTREA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OSTREA",
+    "definitions": [
+     {
+      "text": "source of aphrodisiac?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Refurbished",
+      "for": "anagram",
+      "note": "refurbishing remakes something into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "store",
+      "gives": "STORE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STOREA",
+       "gives": "OSTREA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revamped shop selling love potions.",
+     "definitionFit": "Ostrea is the oyster genus, and oysters are reputed to be an aphrodisiac."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "store"
+    }
+   }
   },
   {
    "number": 33,
@@ -587,7 +2402,58 @@
     "text": "Yak hesitantly nearing one bound to graft cut cable",
     "enumeration": "6"
    },
-   "solution": "HAWSER"
+   "solution": "HAWSER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HAWSER",
+    "definitions": [
+     {
+      "text": "cable",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cutting trims the end off the word before it"
+     }
+    ],
+    "linkWords": [
+     "nearing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yak hesitantly",
+      "gives": "HAW",
+      "note": "to haw is to talk with hesitation, as in hum and haw"
+     },
+     {
+      "clueFragment": "one bound to graft",
+      "gives": "SERF",
+      "note": "a serf is tied to labour on the land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAW",
+      "SER"
+     ]
+    },
+    "explanation": {
+     "surface": "A yak approaches a labourer and nervously gnaws through a rope.",
+     "walkthrough": "'Yak' looks like the animal, but it means to chatter.",
+     "definitionFit": "A hawser is a heavy rope or cable used for mooring or towing ships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Yak"
+    }
+   }
   }
  ]
 }
