@@ -1540,6 +1540,18 @@ check("a whole read with a changeable cell no crossing holds is unread", {}, who
 check("a rival whole read a crossing contradicts leaves the word",
       {(5, "across"): "PETAL"}, whole({"PETAL", "PEDAL"}, range(5)))
 check("a whole read a crossing contradicts is unread", {}, whole({"FETAL"}, range(5)))
+# mended_reads(): an accepted light whole_listed() reads otherwise with it
+# left out is that word (15901 FETAL, its first cell PINUP's P); one it
+# reads alike, or not at all, stands.
+def mended(accepted_word, read, held_cols):
+    lts = {(5, "across"): [(1, j) for j in range(5)]}
+    lts.update({(j + 1, "down"): [(0, j), (1, j)] for j in range(5)})
+    accepted = {(j + 1, "down"): "X" + "PETAL"[j] for j in held_cols}
+    return tso.mended_reads(lts, {**accepted, (5, "across"): accepted_word}, [{(5, "across"): set(read)}])
+check("an accepted light its crossings and whole read settle otherwise is mended",
+      {(5, "across"): "PETAL"}, mended("FETAL", {"PETAL"}, range(5)))
+check("an accepted light read alike stands", {}, mended("PETAL", {"PETAL"}, range(5)))
+check("an accepted light whose changed cell no crossing holds stands", {}, mended("FETAL", {"PETAL"}, range(1, 5)))
 # crossed_reads(): an unread light's cells take accepted crossings' letters
 # and plain cells' sure reads (Gale 1987: ?MADEUS, ?LEANOR); a numbered
 # cell's own sure read is no letter (DUCKINGSTOOL's D read as a sure B),

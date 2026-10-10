@@ -773,7 +773,9 @@ def read_framed(image, grid):
         accepted.update(listed_reads(lts, accepted, everys))
         accepted.update(plain_swaps(lts, accepted, everys))
         accepted.update(whole_listed(lts, accepted, printeds))
-        if len(accepted) == before:
+        mended = mended_reads(lts, accepted, printeds)
+        accepted.update(mended)
+        if len(accepted) == before and not mended:
             break
     return accepted, {**stats, "accepted": len(accepted), "lattices": len(reads)}
 
@@ -945,6 +947,21 @@ def whole_listed(lts, accepted, printeds):
                 have[key] = out[key] = word
                 settled = True
                 break
+    return out
+
+
+def mended_reads(lts, accepted, printeds):
+    """{key: word} for `accepted` lights whole_listed() reads otherwise with
+    the light left out: its crossings, accepted, settle every letter a change
+    could make another word of, and a recogniser read the light whole as
+    that word. A light accepted by a run-together or a crossing's letters
+    (BRAYADO, CHEAPTACK, FETAL beside PINUP) is a misread there."""
+    out = {}
+    for key, word in accepted.items():
+        rest = {k: w for k, w in accepted.items() if k != key}
+        mine = whole_listed(lts, rest, printeds).get(key)
+        if mine and mine != word:
+            out[key] = mine
     return out
 
 
