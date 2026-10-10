@@ -264,6 +264,23 @@ check("1986's 'Solution to No' heading, no 'Puzzle' word", [16983],
       [n for n, _ in f.TIMES.headings([line("The Times Crossword Puzzle No 16,984"), line("Solution to No 16,983")])[1]])
 check("(mirror) with no middle word the first must read 'Solution'", [],
       f.TIMES.headings([line("The Times Crossword Puzzle No 16,984"), line("Paste on No 16,983")])[1])
+# The OCR ran the connective into "Puzzle" (1983-06-11's Saturday prize).
+check("a connective run into 'Puzzle' still reads, the prize six before the title", [[16147, 16152], [20105]],
+      [sorted(n for n, _ in f.TIMES.headings([line("The Times Crossword Puzzle No 16,153"),
+                                              line("Solution oTPnzzle No 16.147 Solution ofPitaie No 16,152")])[1]),
+       [n for n, _ in f.TIMES.headings([line("The Times Crossword Puzzle No 20,111"), line("Solution tnPuzzlc No 20.105")])[1]]])
+check("(mirror) a run-in heading whose number is no lag's, or both lags' alike, is no heading", [[], []],
+      [f.TIMES.headings([line("The Times Crossword Puzzle No 16,153"), line("Solution oTPnzzle No 16.150")])[1],
+       f.TIMES.headings([line("The Times Crossword Puzzle No 14,060"), line("Solution ofPuzzle No 14, OSS")])[1]])
+# Christmas took an issue: 16,618 (Saturday 1984-12-22) under 16,622, four
+# before. A clean read four or five before passes the scan; the filed dates
+# decide its link, so in a full week it links nothing.
+xmas = [n for n, _ in f.TIMES.headings([line("The Times Crossword Puzzle No 16,622"), line("Solution of Pnzzk No 16,618")])[1]]
+check("a holiday week's prize read clean links by the filed dates, a full week's not at all", [[16618], [16618], []],
+      [xmas, link(edition("1984-12-29", [16622], xmas), {16618: D("1984-12-22"), 16621: D("1984-12-28")}),
+       link(edition("1984-12-29", [16622], xmas), {16616: D("1984-12-22"), 16621: D("1984-12-28")})])
+check("(mirror) a garbled read four or five before is no heading", [],
+      f.TIMES.headings([line("The Times Crossword Puzzle No 16,323"), line("Sohtian of Puzzle No 16J18")])[1])
 check("(mirror) pieces costing alike to both lags are no heading", [],
       f.TIMES.headings([line("The Times Crossword Puzzle No 14,060"), line("Solution of Puzzle No 14, OSS")])[1])
 _, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 16,577", y=50), line("The Solution", 400, 900),
