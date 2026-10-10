@@ -606,40 +606,122 @@ check("both pages' status files are published before any Gale lookup",
 check("an open page calls the status dead only after a sync's longest gap between publishes",
       True, g.STALE_SECONDS > 2 * g.GALE_SECONDS)
 # staged_matches reads an unmoved edition dir once, across ticks, and again
-# once it moves. Temp cache and cache file only.
-import os, time, datetime, dir_cache
+# once it moves; while a year dir is unmoved, it is the one stat. Temp cache
+# and cache file only.
+import os, shutil, time, datetime, dir_cache, archive_coverage
 sc = Path(sys.argv[1]) / "staged_cache"
-def lay(day, data):
-    d = sc / g.ITEM.format(day.year) / day.isoformat()
-    d.mkdir(parents=True, exist_ok=True)
-    tmp = d / "x.tmp"
-    tmp.write_text(json.dumps(data))
-    os.replace(tmp, d / "sources-1.json")
+def age(*ds):
     old = time.time() - 3600
-    os.utime(d, (old, old))
+    for d in ds:
+        os.utime(d, (old, old))
+def lay(day, data, key="1"):
+    """As stage lays an edition out: built beside it, then swapped in whole."""
+    d = sc / g.ITEM.format(day.year) / day.isoformat()
+    tmp = d.with_name(d.name + ".new")
+    tmp.mkdir(parents=True)
+    (tmp / f"sources-{key}.json").write_text(json.dumps(data))
+    if d.exists():
+        shutil.rmtree(d)
+    tmp.rename(d)
+    age(d, d.parent)
 d1, d2 = datetime.date(1960, 1, 4), datetime.date(1961, 2, 6)
 lay(d1, [{"file": "a.pdf"}]); lay(d2, [{"file": "b.pdf"}])
 (sc / "GaleTimes1960UKEnglish" / "1960-01-05").mkdir()
+# A dir a killed stage left beside its edition is no edition.
+(sc / "GaleTimes1960UKEnglish" / "1960-01-06.new").mkdir()
+(sc / "GaleTimes1960UKEnglish" / "1960-01-06.new" / "sources-9.json").write_text("[]")
 (sc / "other").mkdir()
+age(*(sc / "GaleTimes1960UKEnglish").iterdir(), sc / "GaleTimes1960UKEnglish", sc)
 dir_cache._SEEN.clear()
 want = {d1: [{"file": "a.pdf"}], d2: [{"file": "b.pdf"}]}
-check("staged_matches reads each edition's sources, skipping dirs without", want, g.staged_matches(sc))
+check("staged_matches reads each edition's sources, skipping dirs without and a killed stage's .new",
+      want, g.staged_matches(sc))
 dir_cache.save(g.DIR_CACHE)
 dir_cache._SEEN.clear()
 dir_cache.load(g.DIR_CACHE)
-real_read = Path.read_text
+real_read, real_key = Path.read_text, dir_cache.dir_key
+stated = []
 def no_read(self, *a, **k):
     raise AssertionError(f"re-read an unmoved edition: {self}")
-Path.read_text = no_read
+def counted_key(d):
+    stated.append(Path(d).name)
+    return real_key(d)
+Path.read_text, dir_cache.dir_key = no_read, counted_key
 try:
     got = g.staged_matches(sc)
+    has = (g.has_sources(sc / g.ITEM.format(1960) / "1960-01-04", "sources-1.json"),
+           g.has_sources(sc / g.ITEM.format(1960) / "1960-01-04", "sources-2.json"),
+           g.has_sources(sc / g.ITEM.format(1960) / "1960-01-07", "sources-1.json"),
+           g.has_sources(sc / g.ITEM.format(1962) / "1962-01-01", "sources-1.json"))
 finally:
-    Path.read_text = real_read
+    Path.read_text, dir_cache.dir_key = real_read, real_key
 check("a later tick loads the unmoved editions from the cache file, reading none", want, got)
+check("stat-ing the cache and each year dir, no edition dir",
+      ["GaleTimes1960UKEnglish", "GaleTimes1961UKEnglish", "GaleTimes1962UKEnglish", "staged_cache"], sorted(set(stated)))
+check("has_sources: the edition's own sources file, not another key's, a missing day's or year's",
+      (True, False, False, False), has)
 got[d1].append("mutated")
 check("a caller changing a result does not change the next", want, g.staged_matches(sc))
-lay(d1, [{"file": "c.pdf"}])
-check("an edition whose dir moved is read again", {d1: [{"file": "c.pdf"}], d2: [{"file": "b.pdf"}]}, g.staged_matches(sc))
+lay(d1, [{"file": "c.pdf"}], key="2")
+check("an edition swapped in again moves its year dir, so is read again",
+      ({d1: [{"file": "c.pdf"}], d2: [{"file": "b.pdf"}]}, False, True),
+      (g.staged_matches(sc), g.has_sources(sc / g.ITEM.format(1960) / "1960-01-04", "sources-1.json"),
+       g.has_sources(sc / g.ITEM.format(1960) / "1960-01-04", "sources-2.json")))
+shutil.rmtree(sc / g.ITEM.format(1961) / d2.isoformat())
+age(sc / g.ITEM.format(1961))
+check("and one removed is gone", {d1: [{"file": "c.pdf"}]}, g.staged_matches(sc))
+# titleless stats no edition whose ledger row holds no scan; one that does
+# is still checked against its files.
+rel1 = f"{g.ITEM.format(1960)}/{d1.isoformat()}"
+real_hash = fa.input_hash
+hashed = []
+fa.input_hash = lambda d: hashed.append(d.name) or real_hash(d)
+try:
+    unscanned = g.titleless(g.staged_matches(sc), {rel1: {"filesHash": "x"}}, sc)
+    unhashed = list(hashed)
+    scanned_row = {"filesHash": real_hash(sc / rel1), "scanKey": fa.scan_key(), "scan": {"puzzles": []}}
+    scanned_one = g.titleless(g.staged_matches(sc), {rel1: scanned_row}, sc)
+finally:
+    fa.input_hash = real_hash
+check("titleless: an edition never scanned is no titleless one, its dir not stat-ed", ({}, []), (unscanned, unhashed))
+check("one scanned with its current files and no title read is titleless", [d1], list(scanned_one))
+# fresh_unread looks inside a year dir only when it moved within FRESH.
+year = sc / g.ITEM.format(1960)
+os.utime(year / d1.isoformat(), None)
+(year / d1.isoformat() / "pages.json").write_text("{}")
+real_glob = Path.glob
+def no_glob(self, pattern):
+    raise AssertionError(f"globbed a year dir unmoved for FRESH: {self}")
+Path.glob = no_glob
+try:
+    stale_year = g.fresh_unread(sc, {}, time.time())
+finally:
+    Path.glob = real_glob
+check("fresh_unread: a year dir unmoved for FRESH is not looked in", [], stale_year)
+os.utime(year, None)
+check("one that moved is, and its fresh edition found", [rel1], g.fresh_unread(sc, {}, time.time()))
+# wanted() asks unfiled only for the dates archive.org holds no scan of:
+# those it skips need the ledgers and a stat of each edition's dir.
+class _Paper:
+    series = "x"
+saved_ac = (archive_coverage.corpus, archive_coverage.scans, archive_coverage.printed_dates,
+            archive_coverage.ledger, archive_coverage.failed_fetches)
+archive_coverage.corpus = lambda series: ({"2000-01-01": 1}, {1: "2000-01-01"})
+archive_coverage.scans = lambda paper: ({"2000-01-03": "item/slug"}, {2000: True})
+archive_coverage.printed_dates = lambda series, today: ["2000-01-01", "2000-01-02", "2000-01-03"]
+archive_coverage.ledger, archive_coverage.failed_fetches = lambda: {}, set
+try:
+    full = list(archive_coverage.unfiled(_Paper, datetime.date(2000, 2, 1)))
+    def unread():
+        raise AssertionError("unfiled(scanned=False) read the ledgers")
+    archive_coverage.ledger = archive_coverage.failed_fetches = unread
+    unscanned_only = list(archive_coverage.unfiled(_Paper, datetime.date(2000, 2, 1), scanned=False))
+finally:
+    (archive_coverage.corpus, archive_coverage.scans, archive_coverage.printed_dates,
+     archive_coverage.ledger, archive_coverage.failed_fetches) = saved_ac
+check("unfiled(scanned=False): the dates with no scan, as the full run classes them, reading no ledger",
+      [r for r in full if not r[2]], unscanned_only)
+check("the full run still classes a scanned date", ("2000-01-03", "not-fetched", "item/slug"), full[-1])
 print("FAILS", fails)
 sys.exit(1 if fails else 0)
 PY
