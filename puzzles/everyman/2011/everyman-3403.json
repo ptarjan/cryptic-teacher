@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Lying down in middle of boulevard after drink",
     "enumeration": "6"
    },
-   "solution": "SUPINE"
+   "solution": "SUPINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SUPINE",
+    "definitions": [
+     {
+      "text": "Lying down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "boulevard",
+      "gives": "E",
+      "select": "middle",
+      "note": "the fifth of nine letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUP",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stretched out in the centre of a city avenue after a few drinks.",
+     "walkthrough": "'After drink' puts the drink first; IN plus the middle letter of boulevard follow it.",
+     "definitionFit": "Supine means lying flat on the back, face upwards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,51 @@
     "text": "Willy Loman? Name lass involved",
     "enumeration": "8"
    },
-   "solution": "SALESMAN"
+   "solution": "SALESMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SALESMAN",
+    "definitions": [
+     {
+      "text": "Willy Loman?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled up, so these letters are mixed together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Name lass",
+      "gives": "NAMELASS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NAMELASS",
+       "gives": "SALESMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Willy Loman, asked his name, gets a girl caught up in things.",
+     "walkthrough": "The question mark marks a definition by example: Willy Loman is the hero of Arthur Miller's play Death of a Salesman.",
+     "definitionFit": "Willy Loman is the travelling seller in Miller's play, an example of the profession."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +166,64 @@
     "text": "Roman god in place, cast out",
     "enumeration": "5"
    },
-   "solution": "PLUTO"
+   "solution": "PLUTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PLUTO",
+    "definitions": [
+     {
+      "text": "Roman god",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast",
+      "for": "anagram",
+      "note": "to cast is to throw or mould anew, so the next word's letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "PL",
+      "note": "Pl. is the street-name abbreviation for place"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "OUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "UTO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OUT",
+       "gives": "UTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Roman deity is banished from where he belongs.",
+     "walkthrough": "'Cast out' reads as one phrase meaning expelled, which fits the underworld god; split it, and cast works on the word out.",
+     "definitionFit": "Pluto is the Roman ruler of the underworld, counterpart of the Greek Hades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +237,55 @@
     "text": "Quack remedy in no way unusual",
     "enumeration": "7"
    },
-   "solution": "NOSTRUM"
+   "solution": "NOSTRUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOSTRUM",
+    "definitions": [
+     {
+      "text": "Quack remedy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "unusual",
+      "gives": "RUM",
+      "note": "rum is British slang for odd or strange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "ST",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A charlatan's cure that is in no respect out of the ordinary.",
+     "definitionFit": "A nostrum is a patent medicine sold with unproven claims by a quack doctor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +305,67 @@
      }
     ]
    },
-   "solution": "SWANLAKE"
+   "solution": "SWANLAKE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SWAN LAKE",
+    "definitions": [
+     {
+      "text": "In which one may see Odette",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the first word wraps the second"
+     },
+     {
+      "text": "leading",
+      "for": "charade",
+      "note": "leading means going in front of, so what precedes it is placed before what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boast",
+      "gives": "SWANK",
+      "note": "to swank is to show off or boast"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "la is the French feminine word for the"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWAN",
+      "LA",
+      "K",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about where a heroine named Odette might be spotted, then talk of bragging about French ahead of English.",
+     "walkthrough": "The French article goes inside the boast word just before its final letter, and English is tacked on the end. Swank is British slang for showing off.",
+     "definitionFit": "Odette is the princess turned into a swan in Tchaikovsky's ballet, so she is seen in that work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +385,86 @@
      }
     ]
    },
-   "solution": "WEATHERSTATION"
+   "solution": "WEATHERSTATION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "WEATHER STATION",
+    "definitions": [
+     {
+      "text": "meteorological facility",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Around",
+      "for": "anagram",
+      "note": "to move letters around is to rearrange them"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new is made afresh, signalling the letters take a fresh order"
+     },
+     {
+      "text": "northern tip of",
+      "for": "letter_selection",
+      "note": "in a down clue the northern tip of a word is its top, its first letter"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "region",
+      "gives": "R",
+      "select": "first",
+      "note": "the top letter in a down entry"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "STATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "WITH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RONESTATEWITHA",
+       "gives": "WEATHERSTATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Somewhere near the north of a region, a single state has just opened a weather facility.",
+     "walkthrough": "'Northern' looks like N, but in a down clue 'northern tip' means the first letter. The anagram uses ONE, STATE, WITH and A in full.",
+     "definitionFit": "A weather station is an installation of instruments recording atmospheric conditions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "northern"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +478,60 @@
     "text": "Chief magistrate upset about demo",
     "enumeration": "7"
    },
-   "solution": "NOMARCH"
+   "solution": "NOMARCH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOMARCH",
+    "definitions": [
+     {
+      "text": "Chief magistrate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so the word reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, as in a talk on a subject"
+     },
+     {
+      "clueFragment": "demo",
+      "gives": "MARCH",
+      "note": "a protest march is a demonstration"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "MARCH"
+     ],
+     "reversals": [
+      {
+       "from": "ON",
+       "to": "NO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official judge is angry about a protest.",
+     "definitionFit": "A nomarch was the governor of a nome, a province of ancient Egypt or modern Greece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +545,66 @@
     "text": "Inordinate praise about favourite hors d'oeuvre",
     "enumeration": "9"
    },
-   "solution": "APPETISER"
+   "solution": "APPETISER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "APPETISER",
+    "definitions": [
+     {
+      "text": "hors d'oeuvre",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Inordinate",
+      "for": "anagram",
+      "note": "inordinate means unrestrained, beyond proper order, so the letters lose their order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first part goes round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "praise",
+      "gives": "PRAISE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a pet is a favourite, as in teacher's pet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "PET",
+      "ISER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRAISE",
+       "gives": "APISER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Excessive compliments heaped on a favourite starter dish.",
+     "definitionFit": "An appetiser is a small dish served before the main meal, which is what hors d'oeuvre means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Inordinate"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +618,47 @@
     "text": "Use Forster device?",
     "enumeration": "6"
    },
-   "solution": "EMPLOY"
+   "solution": "EMPLOY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMPLOY",
+    "definitions": [
+     {
+      "text": "Use",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Forster",
+      "gives": "EM",
+      "note": "the novelist E. M. Forster's initials"
+     },
+     {
+      "clueFragment": "device",
+      "gives": "PLOY",
+      "note": "a ploy is a scheme or device"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "PLOY"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary question: what technique did the author Forster use?",
+     "walkthrough": "The question mark flags that Forster stands for his initials rather than the man.",
+     "definitionFit": "To employ something is to use it, as in employing a method."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Forster"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +686,49 @@
      }
     ]
    },
-   "solution": "TAKEINGOODPART"
+   "solution": "TAKEINGOODPART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAKE IN GOOD PART",
+    "definitions": [
+     {
+      "text": "Respond humorously to",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "TAKEIN",
+      "note": "to take someone in is to fool them"
+     },
+     {
+      "clueFragment": "comfortable role",
+      "gives": "GOODPART",
+      "note": "a comfortable role for an actor is a good part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKEIN",
+      "GOODPART"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor laughs off being tricked into a cushy role.",
+     "definitionFit": "To take something in good part is the idiom for accepting a joke or criticism cheerfully."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fool"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +742,59 @@
     "text": "Girl cuddling boy in a state",
     "enumeration": "9"
    },
-   "solution": "LOUISIANA"
+   "solution": "LOUISIANA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOUISIANA",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuddling",
+      "for": "container",
+      "note": "to cuddle someone is to wrap your arms around them, so one name surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "LOUISA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "IAN",
+      "note": "a boy's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOUIS",
+      "IAN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl hugs a boy while she is all worked up.",
+     "walkthrough": "'In a state' reads as agitated, but state is the definition; 'in a' just joins.",
+     "definitionFit": "Louisiana is one of the fifty states of the USA, on the Gulf of Mexico."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +814,47 @@
      }
     ]
    },
-   "solution": "MOPUP"
+   "solution": "MOPUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOP UP",
+    "definitions": [
+     {
+      "text": "Clear away",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thatch",
+      "gives": "MOP",
+      "note": "a mop and a thatch are both slang for a head of hair"
+     },
+     {
+      "clueFragment": "aloft",
+      "gives": "UP",
+      "note": "aloft means up high"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOP",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "Remove the straw roofing up there.",
+     "walkthrough": "'Thatch' suggests roofing straw, but it is the jokey sense, a shock of hair.",
+     "definitionFit": "To mop up is to clear away remaining mess, spillage or resistance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thatch"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +868,65 @@
     "text": "Cat, say, brought back after search",
     "enumeration": "7"
    },
-   "solution": "SCOURGE"
+   "solution": "SCOURGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SCOURGE",
+    "definitions": [
+     {
+      "text": "Cat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "brought back means returned the way it came, so the word reads right to left"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "search",
+      "gives": "SCOUR",
+      "note": "to scour is to search thoroughly"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example, as does say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOUR",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat, perhaps, returned home after people went looking for it.",
+     "walkthrough": "'Cat, say' reads as a pet with an example marker, but Cat alone is the definition: the cat o' nine tails.",
+     "definitionFit": "The cat o' nine tails was a many-thonged whip, and a scourge is a whip used for punishment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cat"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +940,66 @@
     "text": "Hornblower's short speech after end of clash",
     "enumeration": "7"
    },
-   "solution": "HORATIO"
+   "solution": "HORATIO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "HORATIO",
+    "definitions": [
+     {
+      "text": "Hornblower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the only one kept"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off before the end, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clash",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "speech",
+      "gives": "ORATION",
+      "note": "an oration is a formal speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ORATIO"
+     ]
+    },
+    "explanation": {
+     "surface": "The naval hero Hornblower makes a brief address once a fight is over.",
+     "walkthrough": "The 's stands for 'is'. Horatio Hornblower is C. S. Forester's fictional Royal Navy captain.",
+     "definitionFit": "Horatio is the first name of the fictional sea captain Hornblower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1013,60 @@
     "text": "Suspicious transaction with him, a republican?",
     "enumeration": "14"
    },
-   "solution": "ANTIMONARCHIST"
+   "solution": "ANTIMONARCHIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTIMONARCHIST",
+    "definitions": [
+     {
+      "text": "a republican",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Suspicious",
+      "for": "anagram",
+      "note": "a suspicious deal is a dodgy or crooked one, so the letters are bent out of order"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "transaction",
+      "gives": "TRANSACTION",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "him",
+      "gives": "HIM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRANSACTIONHIM",
+       "gives": "ANTIMONARCHIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady deal involving a man who may oppose the crown.",
+     "walkthrough": "Only the letters of 'transaction' and 'him' are rearranged; 'with' just links them.",
+     "definitionFit": "A republican wants an elected head of state, so opposes rule by a king or queen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Suspicious"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1080,54 @@
     "text": "Computer image of distressed lamb in hut",
     "enumeration": "9"
    },
-   "solution": "THUMBNAIL"
+   "solution": "THUMBNAIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THUMBNAIL",
+    "definitions": [
+     {
+      "text": "Computer image",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distressed",
+      "for": "anagram",
+      "note": "distressed means shaken and troubled, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lamb in hut",
+      "gives": "LAMBINHUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAMBINHUT",
+       "gives": "THUMBNAIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A photo on screen of a frightened lamb shut in a shed.",
+     "walkthrough": "'In' looks like a container signal, but it is just part of the letters being rearranged.",
+     "definitionFit": "A thumbnail is a small preview picture of an image or file on a computer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1141,57 @@
     "text": "Trendy types, carollers surrounding wife",
     "enumeration": "8"
    },
-   "solution": "SWINGERS"
+   "solution": "SWINGERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWINGERS",
+    "definitions": [
+     {
+      "text": "Trendy types",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "surrounding means enclosing, so one piece goes round the other"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carollers",
+      "gives": "SINGERS",
+      "note": "carol singers"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "W",
+      "INGERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Fashionable people singing carols gather round a married woman.",
+     "definitionFit": "Swingers were the lively, fashionable people of the 1960s scene."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wife"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1219,39 @@
      }
     ]
    },
-   "solution": "QUICKONTHEDRAW"
+   "solution": "QUICKONTHEDRAW",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "QUICK ON THE DRAW",
+    "definitions": [
+     {
+      "text": "Said of a gunslinger pulling a fast one?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Said of a gunslinger",
+      "note": "surface reading: a description of a cowboy gunman"
+     },
+     {
+      "clueFragment": "pulling a fast one",
+      "note": "setter's reading: not cheating but literally pulling the gun out speedily from its holster"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pulling a fast one' means tricking someone; read literally, the gunslinger yanks out his pistol at speed.",
+     "definitionFit": "The phrase describes someone who unholsters a gun rapidly, and by extension anyone who reacts swiftly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pulling"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1265,58 @@
     "text": "Jazz fan about to reveal what goes on in nightclub?",
     "enumeration": "7"
    },
-   "solution": "CABARET"
+   "solution": "CABARET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CABARET",
+    "definitions": [
+     {
+      "text": "what goes on in nightclub?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first word goes round the second"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jazz fan",
+      "gives": "CAT",
+      "note": "cat is old slang for a jazz enthusiast"
+     },
+     {
+      "clueFragment": "reveal",
+      "gives": "BARE",
+      "note": "to bare is to uncover or reveal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "BARE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A jazz lover is on the point of telling what really happens in a club.",
+     "walkthrough": "'About to' reads as 'on the point of', but about is the container signal and to just links.",
+     "definitionFit": "Cabaret is the entertainment of songs and dancing staged in a nightclub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1330,51 @@
     "text": "Choose artist showing a complex character",
     "enumeration": "7"
    },
-   "solution": "ELECTRA"
+   "solution": "ELECTRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELECTRA",
+    "definitions": [
+     {
+      "text": "a complex character",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Choose",
+      "gives": "ELECT",
+      "note": "to elect is to choose by vote"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECT",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "Pick a painter whose work reveals a complicated personality.",
+     "walkthrough": "'Complex character' sounds like a complicated person, but it is a character who gave her name to a psychological complex.",
+     "definitionFit": "Electra, the Greek heroine who avenged her father, gave her name to the Electra complex in psychology."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "complex"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1394,50 @@
      }
     ]
    },
-   "solution": "DIMSUM"
+   "solution": "DIMSUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIM SUM",
+    "definitions": [
+     {
+      "text": "Chinese food",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn down",
+      "gives": "DIM",
+      "note": "to dim a light is to turn it down"
+     },
+     {
+      "clueFragment": "quantity",
+      "gives": "SUM",
+      "note": "a sum is an amount or quantity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIM",
+      "SUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Refusing a helping of Chinese cooking.",
+     "walkthrough": "'Turn down' looks like refuse, but it means lowering a light.",
+     "definitionFit": "Dim sum are small Cantonese dumplings and snacks served with tea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1451,62 @@
     "text": "Drank one given by doctor, one by bunk",
     "enumeration": "7"
    },
-   "solution": "IMBIBED"
+   "solution": "IMBIBED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMBIBED",
+    "definitions": [
+     {
+      "text": "Drank",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given by",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB is a Bachelor of Medicine, a doctor"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "bunk",
+      "gives": "BED",
+      "note": "a bunk is a bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MB",
+      "I",
+      "BED"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient took one dose from the doctor and another at the bedside.",
+     "definitionFit": "To imbibe is to drink, especially alcohol, so imbibed is the past tense of drank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "given"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1520,59 @@
     "text": "Court finally presented with motive for act of betrayal",
     "enumeration": "7"
    },
-   "solution": "TREASON"
+   "solution": "TREASON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TREASON",
+    "definitions": [
+     {
+      "text": "act of betrayal",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word, its last letter"
+     }
+    ],
+    "linkWords": [
+     "presented with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Court",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "motive",
+      "gives": "REASON",
+      "note": "a motive is a reason for doing something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REASON"
+     ]
+    },
+    "explanation": {
+     "surface": "A trial at last hears why someone turned traitor.",
+     "definitionFit": "Treason is the crime of betraying one's country or sovereign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Court"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1586,48 @@
     "text": "Small girl gets fish",
     "enumeration": "5"
    },
-   "solution": "SKATE"
+   "solution": "SKATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKATE",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "KATE",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A little girl catches a fish.",
+     "definitionFit": "The skate is a flat cartilaginous sea fish related to the ray."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1641,54 @@
     "text": "Fuss about a single step in a series",
     "enumeration": "5"
    },
-   "solution": "STAIR"
+   "solution": "STAIR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAIR",
+    "definitions": [
+     {
+      "text": "single step in a series",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first word goes round the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fuss",
+      "gives": "STIR",
+      "note": "a stir is a commotion or fuss"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "A",
+      "IR"
+     ]
+    },
+    "explanation": {
+     "surface": "Making a fuss over one small stage of a process.",
+     "definitionFit": "A stair is one of the steps that together make up a staircase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fuss"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1708,52 @@
      }
     ]
    },
-   "solution": "ABOUTFACE"
+   "solution": "ABOUTFACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABOUT-FACE",
+    "definitions": [
+     {
+      "text": "Complete change of opinion",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "ABOUT",
+      "note": "about means concerning"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABOUT",
+      "F",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist colleague performs a U-turn in his views.",
+     "definitionFit": "An about-face, from the military command to turn round, is a reversal of attitude or policy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fellow"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1767,63 @@
     "text": "Provide forceful evidence against the Italian, Italian arrested by pair",
     "enumeration": "8"
    },
-   "solution": "MILITATE"
+   "solution": "MILITATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MILITATE",
+    "definitions": [
+     {
+      "text": "Provide forceful evidence against",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrested by",
+      "for": "container",
+      "note": "something arrested is held, so these pieces are held inside the next one"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Italian",
+      "gives": "IL",
+      "note": "il is the Italian masculine word for the"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "It is short for Italian vermouth, as in gin and It"
+     },
+     {
+      "clueFragment": "pair",
+      "gives": "MATE",
+      "note": "to pair animals is to mate them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ILIT",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Arguing hard against an Italian man held by two others.",
+     "walkthrough": "The definition covers 'against' because the verb is used as 'militate against'.",
+     "definitionFit": "Facts that militate against something are a strong influence or reason working against it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pair"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1837,50 @@
     "text": "Is worried about small son getting pet",
     "enumeration": "6"
    },
-   "solution": "CARESS"
+   "solution": "CARESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARESS",
+    "definitions": [
+     {
+      "text": "pet",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is worried about",
+      "gives": "CARES",
+      "note": "one who cares about something is concerned or worried over it"
+     },
+     {
+      "clueFragment": "small son",
+      "gives": "S",
+      "note": "S is the abbreviation for son, a small letter for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent frets over a little boy who wants an animal.",
+     "walkthrough": "'Pet' looks like an animal, but here it is the verb, to stroke fondly.",
+     "definitionFit": "To pet someone is to stroke them affectionately, and a caress is that gentle touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pet"
+    }
+   }
   }
  ]
 }
