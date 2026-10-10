@@ -24,6 +24,9 @@
   "date": "2025-06-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,51 @@
     "text": "Cooking salt reproduces quality of unhealthy food",
     "enumeration": "14"
    },
-   "solution": "ULTRAPROCESSED"
+   "solution": "ULTRAPROCESSED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ULTRAPROCESSED",
+    "definitions": [
+     {
+      "text": "quality of unhealthy food",
+      "at": 24,
+      "note": "a noun phrase for an adjective: read as 'having the quality of unhealthy food'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cooking",
+      "for": "anagram",
+      "note": "cooking works ingredients into a new form, so the following words are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salt reproduces",
+      "gives": "SALTREPRODUCES",
+      "note": "both words taken as written, fourteen letters in all"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SALTREPRODUCES",
+       "gives": "ULTRAPROCESSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that cooking with salt is what gives junk food its unhealthy character.",
+     "definitionFit": "Ultraprocessed food is heavily industrially altered, a label now attached to the least healthy diets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cooking"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +98,63 @@
     "text": "Vital not to lose the thread in this corrupt trial by discontented hangman",
     "enumeration": "9"
    },
-   "solution": "LABYRINTH"
+   "solution": "LABYRINTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LABYRINTH",
+    "definitions": [
+     {
+      "text": "Vital not to lose the thread in this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "something corrupt has been twisted out of its proper state, so the letters are rearranged"
+     },
+     {
+      "text": "discontented",
+      "for": "letter_selection",
+      "note": "with its contents emptied out, only the word's two ends remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trial by",
+      "gives": "TRIALBY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hangman",
+      "gives": "HN",
+      "select": "outer",
+      "note": "first and last letters of hangman"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIALBYHN",
+       "gives": "LABYRINTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim courtroom scene: a crooked trial ending with the hangman, where losing the thread is fatal.",
+     "walkthrough": "The definition is cryptic: Theseus unwound a thread through the Minotaur's maze so he could find his way out. 'by' is both part of the fodder and of the surface.",
+     "definitionFit": "Theseus survived the Cretan maze only by following Ariadne's ball of thread back out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "corrupt"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +168,56 @@
     "text": "Catholic priest kept this?",
     "enumeration": "5"
    },
-   "solution": "RELIC"
+   "solution": "RELIC",
+   "annotation": {
+    "type": [
+     "container",
+     "and_lit"
+    ],
+    "answer": "RELIC",
+    "definitions": [
+     {
+      "text": "Catholic priest kept this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept",
+      "for": "container",
+      "note": "to keep something is to hold it within, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catholic",
+      "gives": "RC",
+      "note": "RC stands for Roman Catholic"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli is the priest who raised Samuel in the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ELI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether a Catholic priest would have treasured this object.",
+     "walkthrough": "Eli is the crossword's stock priest. The whole clue doubles as the definition: a relic is just the kind of sacred object a Catholic priest keeps.",
+     "definitionFit": "A relic is a saint's remains or belongings, venerated and preserved by the Catholic church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "priest"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +231,51 @@
     "text": "Unexpectedly get shot and still attack",
     "enumeration": "9"
    },
-   "solution": "PHOTOBOMB"
+   "solution": "PHOTOBOMB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PHOTOBOMB",
+    "definitions": [
+     {
+      "text": "Unexpectedly get shot",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "PHOTO",
+      "note": "a still is a single photograph"
+     },
+     {
+      "clueFragment": "attack",
+      "gives": "BOMB",
+      "note": "to bomb is to attack from the air"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHOTO",
+      "BOMB"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is shot without warning and still keeps attacking, like an action film.",
+     "walkthrough": "'shot' reads as gunfire but means a photograph, and 'still' looks like an adverb but is the noun.",
+     "definitionFit": "To photobomb is to jump uninvited into someone else's picture, so you appear in the shot by surprise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +289,47 @@
     "text": "Carnivorous mammal bites head off wizard",
     "enumeration": "5"
    },
-   "solution": "OTTER"
+   "solution": "OTTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OTTER",
+    "definitions": [
+     {
+      "text": "Carnivorous mammal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bites head off",
+      "for": "deletion",
+      "note": "biting the head off removes the very first letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wizard",
+      "gives": "POTTER",
+      "note": "Harry Potter, the boy wizard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A savage animal attacks a wizard and decapitates him.",
+     "definitionFit": "The otter is a river-dwelling member of the weasel family that eats fish, a meat-eating animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bites"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +343,74 @@
     "text": "Customs letter's contents quite complicated inside",
     "enumeration": "9"
    },
-   "solution": "ETIQUETTE"
+   "solution": "ETIQUETTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "ETIQUETTE",
+    "definitions": [
+     {
+      "text": "Customs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contents",
+      "for": "letter_selection",
+      "note": "a word's contents are what lies within, leaving out its first and last letters"
+     },
+     {
+      "text": "complicated",
+      "for": "anagram",
+      "note": "making something complicated tangles it, so the word's letters are jumbled"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside tells us one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter",
+      "gives": "ETTE",
+      "select": "middle",
+      "note": "letter without its first and last letters"
+     },
+     {
+      "clueFragment": "quite",
+      "gives": "QUITE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "TIQUE",
+      "TTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "QUITE",
+       "gives": "TIQUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A customs officer finds the contents of a letter quite complicated.",
+     "walkthrough": "'Customs' suggests border control, but here it means social conventions.",
+     "definitionFit": "Etiquette is the code of polite behaviour, the accepted social customs of a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Customs"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +430,48 @@
      }
     ]
    },
-   "solution": "SCIFI"
+   "solution": "SCIFI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SCI-FI",
+    "definitions": [
+     {
+      "text": "genre",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders of",
+      "for": "letter_selection",
+      "note": "the leaders of a group are those at its front, so the opening letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "society contribute investments funding indie",
+      "gives": "SCIFI",
+      "select": "first",
+      "note": "first letter of each of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCIFI"
+     ]
+    },
+    "explanation": {
+     "surface": "Prominent people put up money to finance an independent film.",
+     "definitionFit": "Science fiction is a category of fiction and film, which is what a genre is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaders"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +485,51 @@
     "text": "In river, menace is at greatest depth",
     "enumeration": "7"
    },
-   "solution": "DEEPEST"
+   "solution": "DEEPEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEEPEST",
+    "definitions": [
+     {
+      "text": "at greatest depth",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "In",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Wales, England and Scotland"
+     },
+     {
+      "clueFragment": "menace",
+      "gives": "PEST",
+      "note": "a pest is a nuisance or menace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEE",
+      "PEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A danger lurking in the river is found where the water is deepest.",
+     "walkthrough": "The Dee is a stock crossword river, flowing through Chester in England.",
+     "definitionFit": "Deepest is the superlative of deep, describing what lies furthest down, the lowest point."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "menace"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +543,70 @@
     "text": "Malware hidden by China or Taiwan sent back after infiltration by Japan",
     "enumeration": "6"
    },
-   "solution": "TROJAN"
+   "solution": "TROJAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TROJAN",
+    "definitions": [
+     {
+      "text": "Malware",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "sent back means the run of letters is read the other way"
+     },
+     {
+      "text": "after infiltration by",
+      "for": "container",
+      "note": "infiltration means one piece slips inside another"
+     }
+    ],
+    "linkWords": [
+     "hidden by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China or Taiwan",
+      "gives": "NAORT",
+      "note": "the letters spanning the end of China, or, and the start of Taiwan"
+     },
+     {
+      "clueFragment": "Japan",
+      "gives": "J",
+      "note": "J is the international vehicle code for Japan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRO",
+      "J",
+      "AN"
+     ],
+     "reversals": [
+      {
+       "from": "NAORT",
+       "to": "TROAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news story about East Asian state hackers hiding malicious software.",
+     "walkthrough": "'hidden by' signals that the first piece is concealed across the words China, or and Taiwan, but because Japan is then inserted, the full answer itself is not hidden in the clue.",
+     "definitionFit": "A Trojan horse program disguises itself as harmless software to get inside a computer, like the Greek wooden horse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +620,65 @@
     "text": "Mutiny insic the Bounty's first piece of film collected",
     "enumeration": "5"
    },
-   "solution": "REBEL"
+   "solution": "REBEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "REBEL",
+    "definitions": [
+     {
+      "text": "Mutiny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means only the opening letter of the name is used"
+     },
+     {
+      "text": "collected",
+      "for": "container",
+      "note": "something that has collected another thing holds it inside"
+     }
+    ],
+    "linkWords": [
+     "insic"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece of film",
+      "gives": "REEL",
+      "note": "a reel is a length of cinema film"
+     },
+     {
+      "clueFragment": "the Bounty's",
+      "gives": "B",
+      "select": "first",
+      "note": "opening letter of Bounty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "B",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A film about the mutiny on the Bounty, where only the first reel was collected.",
+     "walkthrough": "'insic' is as the source shows it and appears garbled; it plays no part in the wordplay. The Bounty mutiny surface makes 'Mutiny' look like a noun, but it is the verb.",
+     "definitionFit": "To mutiny is to rise up against those in command, which is exactly what it means to rebel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bounty's"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +702,44 @@
      }
     ]
    },
-   "solution": "ONTHINICE"
+   "solution": "ONTHINICE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ON THIN ICE",
+    "definitions": [
+     {
+      "text": "Risky",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get undressed",
+      "for": "hidden_word",
+      "note": "undressing strips away the outer layers, leaving only what was concealed underneath"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "month in Iceland",
+      "gives": "ONTHINICE",
+      "note": "the letters left when the outer parts of these words are stripped"
+     }
+    ],
+    "explanation": {
+     "surface": "A dare: strip off in Iceland for a month, which is certainly risky.",
+     "walkthrough": "Stripping the M from 'month' and LAND from 'Iceland' leaves the answer.",
+     "definitionFit": "Being on thin ice is an idiom for being in a precarious, dangerous position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "undressed"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +753,61 @@
     "text": "City in France I love is full of wealthy people",
     "enumeration": "7"
    },
-   "solution": "JERICHO"
+   "solution": "JERICHO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "JERICHO",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is full of",
+      "for": "container",
+      "note": "something full of another thing holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in France I",
+      "gives": "JE",
+      "note": "je is French for I"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "wealthy people",
+      "gives": "RICH",
+      "note": "the rich are wealthy people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JE",
+      "RICH",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A French speaker saying they love a city full of the wealthy.",
+     "walkthrough": "'City in France' looks like the definition, but 'in France' goes with 'I'.",
+     "definitionFit": "Jericho is an ancient city in the West Bank, famed for the walls that fell to Joshua's trumpets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "France"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +821,55 @@
     "text": "Drill in severed artery",
     "enumeration": "7"
    },
-   "solution": "ROUTINE"
+   "solution": "ROUTINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROUTINE",
+    "definitions": [
+     {
+      "text": "Drill",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "severed",
+      "for": "container",
+      "note": "severing cuts a thing open, leaving a gap for something else to go into"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artery",
+      "gives": "ROUTE",
+      "note": "an artery is a main road or route"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUT",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical emergency where a drill has cut through an artery.",
+     "walkthrough": "The surface is about blood vessels and power tools; an artery is also a major traffic route.",
+     "definitionFit": "A drill is a practised, regularly repeated set of actions, the same as a routine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drill"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +883,56 @@
     "text": "Odd characters ignored ancient agreement for German assassin",
     "enumeration": "5"
    },
-   "solution": "NINJA"
+   "solution": "NINJA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NINJA",
+    "definitions": [
+     {
+      "text": "assassin",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd characters ignored",
+      "for": "letter_selection",
+      "note": "ignoring the odd-placed letters leaves the even ones, every second letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ancient",
+      "gives": "NIN",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of ancient"
+     },
+     {
+      "clueFragment": "agreement for German",
+      "gives": "JA",
+      "note": "ja is German for yes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIN",
+      "JA"
+     ]
+    },
+    "explanation": {
+     "surface": "Strange people ignoring an old treaty in order to hire a German hitman.",
+     "walkthrough": "'for German' reads as describing the assassin, but it belongs with 'agreement'.",
+     "definitionFit": "A ninja was a Japanese covert agent trained in espionage and killing, a hired assassin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +946,74 @@
     "text": "Speech introduces degree of competence following unlimited tax evasion",
     "enumeration": "9"
    },
-   "solution": "AVOIDANCE"
+   "solution": "AVOIDANCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "AVOIDANCE",
+    "definitions": [
+     {
+      "text": "evasion",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unlimited",
+      "for": "letter_selection",
+      "note": "without its limits a word loses its first and last letters, leaving the middle"
+     },
+     {
+      "text": "introduces",
+      "for": "container",
+      "note": "to introduce something is to bring it inside, so one piece goes within the other"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places one piece after another in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tax",
+      "gives": "A",
+      "select": "middle",
+      "note": "the middle letter of tax"
+     },
+     {
+      "clueFragment": "Speech",
+      "gives": "VOICE",
+      "note": "voice is the power of speech"
+     },
+     {
+      "clueFragment": "degree of competence",
+      "gives": "DAN",
+      "note": "a dan is a grade of skill in judo or karate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VOI",
+      "DAN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A political speech about tax evasion, delivered with some competence.",
+     "walkthrough": "'tax evasion' reads as one phrase, but 'evasion' alone is the definition and 'tax' supplies one letter.",
+     "definitionFit": "Avoidance is keeping away from or dodging something, which is what evasion means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tax"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1033,65 @@
      }
     ]
    },
-   "solution": "OBJETDART"
+   "solution": "OBJETDART",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OBJET DART",
+    "definitions": [
+     {
+      "text": "Faberge egg, perhaps",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "to return is to go back, so the word is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staff",
+      "gives": "BO",
+      "note": "a bo is a long martial-arts staff"
+     },
+     {
+      "clueFragment": "two aircraft",
+      "gives": "JETDART",
+      "note": "a jet, and the Dart, as in the Dart Herald airliner and Delta Dart fighter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "JETDART"
+     ],
+     "reversals": [
+      {
+       "from": "BO",
+       "to": "OB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Airline staff fly back on two planes to collect a precious Fabergé egg.",
+     "walkthrough": "'perhaps' marks the Fabergé egg as one example of the answer.",
+     "definitionFit": "An objet d'art is a small decorative object of artistic value, and the jewelled Fabergé eggs are famous examples."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1105,60 @@
     "text": "Controls small moments after ecstasy",
     "enumeration": "9"
    },
-   "solution": "JOYSTICKS"
+   "solution": "JOYSTICKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JOYSTICKS",
+    "definitions": [
+     {
+      "text": "Controls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says which piece comes later in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ecstasy",
+      "gives": "JOY",
+      "note": "joy is ecstasy, great happiness"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "moments",
+      "gives": "TICKS",
+      "note": "ticks are moments, as in 'just a tick'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JOY",
+      "S",
+      "TICKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone regains control a few moments after taking ecstasy.",
+     "walkthrough": "Ecstasy usually gives E in crosswords; here it is the full word for delight.",
+     "definitionFit": "Joysticks are levers used to steer aircraft or video games, so they are controls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ecstasy"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1172,51 @@
     "text": "A storey of humiliation",
     "enumeration": "9"
    },
-   "solution": "ABASEMENT"
+   "solution": "ABASEMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABASEMENT",
+    "definitions": [
+     {
+      "text": "humiliation",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "storey",
+      "gives": "BASEMENT",
+      "note": "a basement is the storey below ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BASEMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tale of humiliation, with 'storey' standing in for 'story'.",
+     "walkthrough": "The surface invites hearing 'storey' as 'story', but it means a floor of a building.",
+     "definitionFit": "Abasement is the act of lowering someone in dignity or esteem, i.e. humiliation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "storey"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1230,63 @@
     "text": "View through means of hole inside pupil",
     "enumeration": "9"
    },
-   "solution": "SCHOOLBOY"
+   "solution": "SCHOOLBOY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SCHOOLBOY",
+    "definitions": [
+     {
+      "text": "pupil",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside tells us one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "View",
+      "gives": "SCHOOL",
+      "note": "a school of thought is a shared view"
+     },
+     {
+      "clueFragment": "through means of",
+      "gives": "BY",
+      "note": "by means through, as in 'by train'"
+     },
+     {
+      "clueFragment": "hole",
+      "gives": "O",
+      "note": "O is shaped like a hole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCHOOL",
+      "B",
+      "O",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Peering through a hole to see inside the eye's pupil.",
+     "walkthrough": "'pupil' and 'View through ... hole' suggest an eye or a peephole; the pupil is a student.",
+     "definitionFit": "A schoolboy is a boy attending school, a young male student or pupil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pupil"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1300,60 @@
     "text": "Rock fragments combine harmonic intros and high-pitched noise",
     "enumeration": "7"
    },
-   "solution": "SCREECH"
+   "solution": "SCREECH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SCREECH",
+    "definitions": [
+     {
+      "text": "high-pitched noise",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intros",
+      "for": "letter_selection",
+      "note": "an intro is the opening of something, so each word gives its first letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rock fragments",
+      "gives": "SCREE",
+      "note": "scree is loose broken rock on a slope"
+     },
+     {
+      "clueFragment": "combine harmonic",
+      "gives": "CH",
+      "select": "first",
+      "note": "opening letters of combine and harmonic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCREE",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A band combines rock fragments and harmonic intros into a shrill noise.",
+     "walkthrough": "'Rock' suggests music, and so do 'harmonic' and 'intros', but it is stones.",
+     "definitionFit": "A screech is a harsh shrill cry or sound, the kind of high-pitched noise brakes or owls make."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1367,71 @@
     "text": "Cancel culture's ending with artist's exhibition debut",
     "enumeration": "5"
    },
-   "solution": "ERASE"
+   "solution": "ERASE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ERASE",
+    "definitions": [
+     {
+      "text": "Cancel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "a word's ending is its last letter"
+     },
+     {
+      "text": "debut",
+      "for": "letter_selection",
+      "note": "a debut is a first appearance, so the word's first letter is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "culture's",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of culture"
+     },
+     {
+      "clueFragment": "artist's",
+      "gives": "RAS",
+      "note": "RA, a Royal Academician, plus 's"
+     },
+     {
+      "clueFragment": "exhibition",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of exhibition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "RAS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's debut exhibition marks the end of cancel culture.",
+     "walkthrough": "'Cancel culture' reads as one phrase, but 'Cancel' alone is the definition. RA stands for Royal Academician, a member of Britain's Royal Academy of Arts.",
+     "definitionFit": "To erase is to wipe out or delete, so it can mean to cancel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "culture's"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1445,57 @@
     "text": "Residence and travel permit on note",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESTATE",
+    "definitions": [
+     {
+      "text": "Residence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down answer, on means placed above, so this piece comes first"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "travel permit",
+      "gives": "ESTA",
+      "note": "ESTA is the online authorisation needed to visit the US visa-free"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is the seventh note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESTA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Applying for residence and a travel permit on the strength of a note.",
+     "walkthrough": "ESTA is the US Electronic System for Travel Authorization.",
+     "definitionFit": "An estate is a large house with its grounds, a grand residence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1509,48 @@
     "text": "Screen repeats a second time?",
     "enumeration": "7"
    },
-   "solution": "REREDOS"
+   "solution": "REREDOS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REREDOS",
+    "definitions": [
+     {
+      "text": "Screen",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a second time",
+      "gives": "RE",
+      "note": "re- is the prefix meaning again"
+     },
+     {
+      "clueFragment": "repeats",
+      "gives": "REDOS",
+      "note": "redoes, here as a noun plural: redos are repeat attempts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "REDOS"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about something being repeated yet again.",
+     "walkthrough": "A reredos is an ornamental screen behind a church altar. The question mark flags the made-up word 're-redos'.",
+     "definitionFit": "A reredos is the decorated partition or panel standing behind an altar, a church screen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Screen"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1564,45 @@
     "text": "Fire curved component for flare up",
     "enumeration": "5"
    },
-   "solution": "RECUR"
+   "solution": "RECUR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RECUR",
+    "definitions": [
+     {
+      "text": "flare up",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "component",
+      "for": "hidden_word",
+      "note": "a component is one part of something, so the answer is a part of the words"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fire curved",
+      "gives": "RECUR",
+      "note": "the letters spanning the end of Fire and the start of curved"
+     }
+    ],
+    "explanation": {
+     "surface": "Instructions to fire a curved component of a flare gun.",
+     "definitionFit": "A condition that flares up comes back again, so it is said to recur, as with an illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fire"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1616,61 @@
     "text": "Authors omitting to rewrite chapter of the Quran",
     "enumeration": "5"
    },
-   "solution": "SURAH"
+   "solution": "SURAH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SURAH",
+    "definitions": [
+     {
+      "text": "chapter of the Quran",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "omitting",
+      "for": "deletion",
+      "note": "omitting means leaving out, so those letters are removed"
+     },
+     {
+      "text": "rewrite",
+      "for": "anagram",
+      "note": "to rewrite is to redo text in a new form, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Authors",
+      "gives": "AUTHORS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written, then removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AUHRS",
+       "gives": "SURAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Writers declining to revise a chapter of the Quran.",
+     "definitionFit": "A surah is one of the 114 divisions of the Quran, equivalent to a chapter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1684,58 @@
     "text": "Touch chap overlapping in line",
     "enumeration": "7"
    },
-   "solution": "TANGENT"
+   "solution": "TANGENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TANGENT",
+    "definitions": [
+     {
+      "text": "line",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlapping",
+      "for": "charade",
+      "note": "overlapping pieces share letters where they meet, so one letter is used for both"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Touch",
+      "gives": "TANG",
+      "note": "a tang is a touch or trace of flavour"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "GENT",
+      "note": "gent is short for gentleman, a chap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone touches a man who is pushing in to a queue.",
+     "walkthrough": "The G at the end of the first piece doubles as the start of the second. 'Touch' looks like the definition since a tangent touches a curve, but it supplies the first piece.",
+     "definitionFit": "A tangent is a straight line meeting a curve at one point without crossing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Touch"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1755,44 @@
      }
     ]
    },
-   "solution": "NOWIN"
+   "solution": "NOWIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NO-WIN",
+    "definitions": [
+     {
+      "text": "Depressing scenario",
+      "at": 0
+     },
+     {
+      "text": "describes batter",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Depressing scenario",
+      "note": "first meaning: a situation with no good outcome"
+     },
+     {
+      "clueFragment": "describes batter",
+      "note": "second meaning, split differently: the batsman currently at the crease"
+     }
+    ],
+    "explanation": {
+     "surface": "A grim situation is how one would sum up a struggling batter.",
+     "walkthrough": "The same letters read as two words split two ways; in cricket the batter who is batting is 'in'.",
+     "definitionFit": "A no-win situation is one where every option ends badly, a depressing prospect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "batter"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1806,43 @@
     "text": "Crank mechanical device",
     "enumeration": "9"
    },
-   "solution": "ECCENTRIC"
+   "solution": "ECCENTRIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ECCENTRIC",
+    "definitions": [
+     {
+      "text": "Crank",
+      "at": 0
+     },
+     {
+      "text": "mechanical device",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crank",
+      "note": "first meaning: an odd, unconventional person"
+     },
+     {
+      "clueFragment": "mechanical device",
+      "note": "second meaning: an off-centre disc that turns rotation into back-and-forth motion"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Crank' looks like the engine part, which suits 'mechanical device', but it is the oddball.",
+     "definitionFit": "Both senses share the idea of being off-centre: a person with odd ideas and a disc mounted off its axis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Crank"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1856,55 @@
     "text": "Firstly, we cook cereal",
     "enumeration": "5"
    },
-   "solution": "WHEAT"
+   "solution": "WHEAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WHEAT",
+    "definitions": [
+     {
+      "text": "cereal",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Firstly",
+      "for": "letter_selection",
+      "note": "firstly points to just the opening letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "we",
+      "gives": "W",
+      "select": "first",
+      "note": "first letter of we"
+     },
+     {
+      "clueFragment": "cook",
+      "gives": "HEAT",
+      "note": "to heat food is to cook it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HEAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A breakfast plan: first we cook the cereal.",
+     "definitionFit": "Wheat is a grain crop, one of the cereals ground into flour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +1924,58 @@
      }
     ]
    },
-   "solution": "HORSECHESTNUTS"
+   "solution": "HORSECHESTNUTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HORSE CHESTNUTS",
+    "definitions": [
+     {
+      "text": "trees",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Savagely",
+      "for": "anagram",
+      "note": "done savagely, things are torn apart and left in disorder"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he cuts",
+      "gives": "HECUTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shortens",
+      "gives": "SHORTENS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HECUTSSHORTENS",
+       "gives": "HORSECHESTNUTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree surgeon hacking at and lopping trees with savage force.",
+     "definitionFit": "Horse chestnuts are large deciduous trees that produce conkers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Savagely"
+    }
+   }
   }
  ]
 }
