@@ -261,7 +261,8 @@ def read_versions():
 #: The Windows priority class a session's server runs at, by the
 #: OCR_REMOTE_PRIORITY its Mac process sets: idle for reads, below normal
 #: (still under a game's normal) for the edition queue's scans, so a
-#: scan's title OCR is not starved by the 20 reads beside it.
+#: scan's title OCR is not starved by the 20 reads beside it; below normal
+#: too for tools/letter_facts.py's servers (SERVE_PRIORITY).
 PRIORITIES = {"idle": 0x40, "scan": 0x4000}
 
 
