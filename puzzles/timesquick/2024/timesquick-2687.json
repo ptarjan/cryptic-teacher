@@ -24,6 +24,9 @@
   "date": "2024-05-28",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,55 @@
     "text": "Delightful lake in rustic surroundings",
     "enumeration": "8"
    },
-   "solution": "PLEASANT"
+   "solution": "PLEASANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLEASANT",
+    "definitions": [
+     {
+      "text": "Delightful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in rustic surroundings",
+      "for": "container",
+      "note": "'in ... surroundings' says one piece sits inside the country word that is wrapped around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rustic",
+      "gives": "PEASANT",
+      "note": "a rustic is a country labourer"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "EASANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A charming lake set among unspoilt countryside.",
+     "walkthrough": "'rustic' looks like an adjective describing the surroundings, but here it is a noun for a country person, and L goes inside: PE-L-ASANT.",
+     "definitionFit": "Pleasant and delightful are near-synonyms, both meaning agreeable and enjoyable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rustic"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +108,44 @@
      }
     ]
    },
-   "solution": "LAYBARE"
+   "solution": "LAYBARE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAY BARE",
+    "definitions": [
+     {
+      "text": "Expose",
+      "at": 0
+     },
+     {
+      "text": "what nudists did on beach?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expose",
+      "note": "first meaning: to reveal or uncover"
+     },
+     {
+      "clueFragment": "what nudists did on beach?",
+      "note": "second, playful meaning: people with no clothes stretched out naked on the sand"
+     }
+    ],
+    "explanation": {
+     "surface": "A sly question about what goes on at a naturist beach.",
+     "walkthrough": "The second definition is cryptic, flagged by the question mark: read literally, the phrase says nudists lay there bare.",
+     "definitionFit": "To lay something bare is an idiom for revealing it fully, which is to expose it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nudists"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +159,45 @@
     "text": "Some in LA mourned this secret love affair",
     "enumeration": "5"
    },
-   "solution": "AMOUR"
+   "solution": "AMOUR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AMOUR",
+    "definitions": [
+     {
+      "text": "secret love affair",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some in",
+      "for": "hidden_word",
+      "note": "'some in' says only a part of the following words is wanted, sitting within them"
+     }
+    ],
+    "linkWords": [
+     "this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "LA mourned",
+      "gives": "AMOUR",
+      "note": "a run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "People in Los Angeles grieved over a clandestine romance.",
+     "definitionFit": "Amour, borrowed from French, is a love affair, especially an illicit or hidden one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mourned"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +211,53 @@
     "text": "Man, not married, drinking this in boozer?",
     "enumeration": "3"
    },
-   "solution": "ALE"
+   "solution": "ALE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALE",
+    "definitions": [
+     {
+      "text": "drinking this in boozer?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not married' tells you to take away the abbreviation for married from the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "MALE",
+      "note": "a man is a male"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the standard abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A single man having a drink at the pub.",
+     "walkthrough": "A boozer is British slang for a pub. The definition is by example, hence the question mark: what you might be drinking there.",
+     "definitionFit": "Ale is a type of beer, the typical drink served in a British pub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "married"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +271,58 @@
     "text": "Teens seen running wild in US state",
     "enumeration": "9"
    },
-   "solution": "TENNESSEE"
+   "solution": "TENNESSEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TENNESSEE",
+    "definitions": [
+     {
+      "text": "US state",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running wild",
+      "for": "anagram",
+      "note": "something running wild is out of control and disordered, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teens",
+      "gives": "TEENS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seen",
+      "gives": "SEEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEENSSEEN",
+       "gives": "TENNESSEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Teenagers spotted rampaging somewhere in America.",
+     "definitionFit": "Tennessee is one of the fifty American states, home of Nashville and Memphis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +336,43 @@
     "text": "Old-time chap from Scotland chosen, did you say?",
     "enumeration": "4"
    },
-   "solution": "PICT"
+   "solution": "PICT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PICT",
+    "definitions": [
+     {
+      "text": "Old-time chap from Scotland",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say?",
+      "for": "homophone",
+      "note": "asking what you said points to how the word is heard rather than written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chosen",
+      "gives": "PICT",
+      "soundsLike": "PICKED",
+      "note": "chosen means picked"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether an ancient Scottish man was the one selected.",
+     "definitionFit": "The Picts were an ancient people of northern and eastern Scotland, so one of them is an old-time Scot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chosen"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +386,47 @@
     "text": "Everyone steering clear of this drug den",
     "enumeration": "7"
    },
-   "solution": "POTHOLE"
+   "solution": "POTHOLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POTHOLE",
+    "definitions": [
+     {
+      "text": "Everyone steering clear of this",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drug",
+      "gives": "POT",
+      "note": "pot is slang for cannabis"
+     },
+     {
+      "clueFragment": "den",
+      "gives": "HOLE",
+      "note": "a hole is a squalid den or hideaway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POT",
+      "HOLE"
+     ]
+    },
+    "explanation": {
+     "surface": "People avoiding a place where drugs are taken.",
+     "walkthrough": "'drug den' reads as one phrase, but it splits into two pieces; the definition is a description of a road hazard drivers swerve around.",
+     "definitionFit": "A pothole is a hollow in a road surface, which all motorists try to steer around."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "den"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +440,57 @@
     "text": "Took refuge in church, getting rebuke",
     "enumeration": "5"
    },
-   "solution": "CHIDE"
+   "solution": "CHIDE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHIDE",
+    "definitions": [
+     {
+      "text": "rebuke",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the refuge word inside the church abbreviation"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE stands for the Church of England"
+     },
+     {
+      "clueFragment": "Took refuge",
+      "gives": "HID",
+      "note": "to take refuge is to hide"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HID",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sheltered in a church and was told off for it.",
+     "definitionFit": "To chide is to scold or reprove, the same as to rebuke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "church"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +504,76 @@
     "text": "Choose to make U-turn, concealing company's last mistake",
     "enumeration": "4"
    },
-   "solution": "TYPO"
+   "solution": "TYPO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "TYPO",
+    "definitions": [
+     {
+      "text": "mistake",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "make U-turn",
+      "for": "reversal",
+      "note": "a U-turn sends you back the way you came, so the word is read backwards"
+     },
+     {
+      "text": "concealing",
+      "for": "container",
+      "note": "to conceal is to hide inside, so the turned word wraps around another piece"
+     },
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "'last' keeps only the final letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Choose",
+      "gives": "OPT",
+      "note": "to choose is to opt"
+     },
+     {
+      "clueFragment": "company's",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "Y",
+      "PO"
+     ],
+     "reversals": [
+      {
+       "from": "OPT",
+       "to": "TPO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Deciding to turn back to hide a firm's latest blunder.",
+     "definitionFit": "A typo is a slip in typing or printing, a small textual mistake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "U-turn"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +587,49 @@
     "text": "A German mug? On the contrary",
     "enumeration": "8"
    },
-   "solution": "EINSTEIN"
+   "solution": "EINSTEIN",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "EINSTEIN",
+    "definitions": [
+     {
+      "text": "A German mug? On the contrary",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A German",
+      "gives": "EIN",
+      "note": "ein is German for a"
+     },
+     {
+      "clueFragment": "mug",
+      "gives": "STEIN",
+      "note": "a stein is a large beer mug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EIN",
+      "STEIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Is that German a fool? Quite the opposite.",
+     "walkthrough": "Read as a whole, the clue describes a German who is anything but a mug, that is, a fool: the opposite of a mug is a genius.",
+     "definitionFit": "Albert Einstein, the German-born physicist, is the byword for a genius, the opposite of a gullible fool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +643,46 @@
     "text": "Coach's posture",
     "enumeration": "8"
    },
-   "solution": "CARRIAGE"
+   "solution": "CARRIAGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARRIAGE",
+    "definitions": [
+     {
+      "text": "Coach",
+      "at": 0
+     },
+     {
+      "text": "posture",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coach",
+      "note": "first meaning: a railway passenger vehicle"
+     },
+     {
+      "clueFragment": "posture",
+      "note": "second meaning: the way a person holds their body"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The possessive makes it look like a sports coach's stance; it is really two separate meanings joined by 'is'.",
+     "definitionFit": "A carriage is a railway coach, and also the bearing or deportment of a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Coach"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +696,45 @@
     "text": "Your share of vegetable patch?",
     "enumeration": "9"
    },
-   "solution": "ALLOTMENT"
+   "solution": "ALLOTMENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALLOTMENT",
+    "definitions": [
+     {
+      "text": "Your share",
+      "at": 0
+     },
+     {
+      "text": "vegetable patch",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Your share",
+      "note": "first meaning: the portion allotted to you"
+     },
+     {
+      "clueFragment": "vegetable patch",
+      "note": "second meaning: a rented plot for growing produce"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Britain an allotment is a small plot of council land rented for growing vegetables.",
+     "definitionFit": "An allotment is both an apportioned share and a rented garden plot used for growing crops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "share"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +748,53 @@
     "text": "Sign submarine captain will return",
     "enumeration": "4"
    },
-   "solution": "OMEN"
+   "solution": "OMEN",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "OMEN",
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will return",
+      "for": "reversal",
+      "note": "returning means going back, so the captain's name is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "submarine captain",
+      "gives": "NEMO",
+      "note": "Captain Nemo commands the submarine Nautilus in Jules Verne's novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OMEN"
+     ],
+     "reversals": [
+      {
+       "from": "NEMO",
+       "to": "OMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An augury that a submarine's commander is coming back.",
+     "definitionFit": "An omen is a portent or sign of what is to come."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "submarine"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +808,43 @@
     "text": "Women I allowed to retain a servant",
     "enumeration": "6"
    },
-   "solution": "MENIAL"
+   "solution": "MENIAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MENIAL",
+    "definitions": [
+     {
+      "text": "servant",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to retain",
+      "for": "hidden_word",
+      "note": "to retain is to hold onto, so the words keep the answer inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women I allowed",
+      "gives": "MENIAL",
+      "note": "a run of letters across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman was permitted to keep a domestic helper.",
+     "walkthrough": "'allowed to' reads as permission, but 'to retain' is the signal for letters held within the words before.",
+     "definitionFit": "A menial is a domestic servant, especially one doing lowly work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retain"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +858,55 @@
     "text": "Test cricket perhaps absorbing papa",
     "enumeration": "7"
    },
-   "solution": "INSPECT"
+   "solution": "INSPECT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INSPECT",
+    "definitions": [
+     {
+      "text": "Test",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "absorbing means taking something in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cricket perhaps",
+      "gives": "INSECT",
+      "note": "a cricket is an example of an insect"
+     },
+     {
+      "clueFragment": "papa",
+      "gives": "P",
+      "note": "Papa is P in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INS",
+      "P",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Test match in cricket that soaks up Dad's attention.",
+     "walkthrough": "'Test cricket' looks like one phrase about an international match; split it so Test is the definition and cricket is the chirping creature.",
+     "definitionFit": "To inspect is to examine closely, which is to test or check something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cricket"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +920,49 @@
     "text": "Drawing of small boat",
     "enumeration": "6"
    },
-   "solution": "SKETCH"
+   "solution": "SKETCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKETCH",
+    "definitions": [
+     {
+      "text": "Drawing",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "boat",
+      "gives": "KETCH",
+      "note": "a ketch is a two-masted sailing boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KETCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A picture of a little boat.",
+     "definitionFit": "A sketch is a rough drawing made quickly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +976,57 @@
     "text": "Vehicle about to go over animal's remains",
     "enumeration": "7"
    },
-   "solution": "CARCASS"
+   "solution": "CARCASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARCASS",
+    "definitions": [
+     {
+      "text": "remains",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "to go over",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C stands for circa, Latin for about"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "ASS",
+      "note": "an ass is a donkey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "C",
+      "ASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A vehicle about to run over the body of a dead animal.",
+     "walkthrough": "In a down clue 'go over' means sit on top, so the abbreviation for about stands above the animal; 'animal's remains' reads as one phrase, but the 's is 'is'.",
+     "definitionFit": "A carcass is the dead body of an animal, its remains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1040,39 @@
     "text": "No Rolling Stone will have such a hanger-on",
     "enumeration": "4"
    },
-   "solution": "MOSS"
+   "solution": "MOSS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MOSS",
+    "definitions": [
+     {
+      "text": "No Rolling Stone will have such a hanger-on",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No Rolling Stone",
+      "note": "surface reading: no member of the rock band would put up with a groupie or hanger-on"
+     },
+     {
+      "clueFragment": "such a hanger-on",
+      "note": "setter's reading: the proverb says a rolling stone gathers no plant growth, so a stone that keeps moving never has this clinging to it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The capitals suggest Mick Jagger's band; the clue really rests on the proverb 'a rolling stone gathers no ...', and the hanger-on is a plant that clings to stones.",
+     "definitionFit": "Moss is a small plant that grows clinging to stones, gathering only on those that stay still."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stone"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1086,57 @@
     "text": "Hold forth in Old English about traitor",
     "enumeration": "5"
    },
-   "solution": "ORATE"
+   "solution": "ORATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORATE",
+    "definitions": [
+     {
+      "text": "Hold forth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means around, so the language abbreviation wraps the traitor word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old English",
+      "gives": "OE",
+      "note": "OE is the standard abbreviation for Old English"
+     },
+     {
+      "clueFragment": "traitor",
+      "gives": "RAT",
+      "note": "a rat is a traitor or informer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sounding off in archaic language about a betrayer.",
+     "definitionFit": "To orate is to speak pompously at length, the same as to hold forth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1150,57 @@
     "text": "Remedy almost certain to produce riches",
     "enumeration": "8"
    },
-   "solution": "TREASURE"
+   "solution": "TREASURE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TREASURE",
+    "definitions": [
+     {
+      "text": "riches",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter of the remedy word is dropped"
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remedy",
+      "gives": "TREAT",
+      "note": "to remedy an ailment is to treat it"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "certain means sure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREA",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cure that is all but guaranteed to make a fortune.",
+     "definitionFit": "Treasure is a store of wealth or valuables, which is to say riches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remedy"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1214,67 @@
     "text": "Wretched chap, one interrupting news broadcast",
     "enumeration": "5"
    },
-   "solution": "SWINE"
+   "solution": "SWINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SWINE",
+    "definitions": [
+     {
+      "text": "Wretched chap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "to broadcast seed is to scatter it, so these letters are scattered into a new order"
+     },
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "something interrupting breaks into the middle, so it goes inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "news",
+      "gives": "NEWS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "I",
+      "NE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEWS",
+       "gives": "SWNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A miserable man cutting into a news bulletin.",
+     "walkthrough": "'news broadcast' looks like a TV bulletin, but broadcast here means scattered, the old farming sense.",
+     "definitionFit": "Swine is an insult for a contemptible or nasty person, a wretched fellow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1288,51 @@
     "text": "Obscure travelling salesmen",
     "enumeration": "8"
    },
-   "solution": "NAMELESS"
+   "solution": "NAMELESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NAMELESS",
+    "definitions": [
+     {
+      "text": "Obscure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "travelling means moving about, so the letters move into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salesmen",
+      "gives": "SALESMEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SALESMEN",
+       "gives": "NAMELESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unknown sales reps on the road.",
+     "walkthrough": "'travelling salesmen' is a stock phrase, which hides that travelling is the signal and Obscure the definition.",
+     "definitionFit": "An obscure person is unknown or unremarked, so without a name anyone recognises."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "travelling"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1346,47 @@
     "text": "Outspoken Pole in Bath perhaps",
     "enumeration": "3"
    },
-   "solution": "SPA"
+   "solution": "SPA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SPA",
+    "definitions": [
+     {
+      "text": "Bath perhaps",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Outspoken",
+      "for": "homophone",
+      "note": "outspoken means said out loud, so the word for pole is heard rather than written"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pole",
+      "gives": "SPA",
+      "soundsLike": "SPAR",
+      "note": "a pole, such as a ship's mast or boom"
+     }
+    ],
+    "explanation": {
+     "surface": "A frank Polish person visiting an English city.",
+     "walkthrough": "Pole looks like a nationality; it is a length of wood. In British speech the final R is silent. Bath is an English city famous for its Roman hot springs.",
+     "definitionFit": "Bath is an example of a spa town, a place with mineral springs where people take the waters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1400,46 @@
     "text": "Country I was the leader of",
     "enumeration": "4"
    },
-   "solution": "IRAN"
+   "solution": "IRAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRAN",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "was the leader of",
+      "gives": "RAN",
+      "note": "to lead an organisation is to run it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A former ruler boasting about the nation they governed.",
+     "definitionFit": "Iran is a nation in western Asia, formerly known as Persia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 24,
@@ -379,7 +1453,52 @@
     "text": "As drunk as this, went mad?",
     "enumeration": "4"
    },
-   "solution": "NEWT"
+   "solution": "NEWT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEWT",
+    "definitions": [
+     {
+      "text": "As drunk as this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mad",
+      "for": "anagram",
+      "note": "mad means crazy and disordered, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "went",
+      "gives": "WENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WENT",
+       "gives": "NEWT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Was someone so inebriated they lost their mind?",
+     "walkthrough": "'Pissed as a newt' is a British idiom for very drunk; the definition asks for the creature in that comparison.",
+     "definitionFit": "The idiom 'drunk as a newt' compares an extremely intoxicated person to this small amphibian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "mad"
+    }
+   }
   },
   {
    "number": 25,
@@ -393,7 +1512,64 @@
     "text": "Revolutionary art and poetry making you cross",
     "enumeration": "8"
    },
-   "solution": "TRAVERSE"
+   "solution": "TRAVERSE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRAVERSE",
+    "definitions": [
+     {
+      "text": "cross",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolutionary",
+      "for": "reversal",
+      "note": "something revolutionary turns round, so the word art is read backwards"
+     }
+    ],
+    "linkWords": [
+     "making you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "art",
+      "gives": "ART",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "poetry",
+      "gives": "VERSE",
+      "note": "poetry is verse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "VERSE"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Radical paintings and poems that leave you angry.",
+     "walkthrough": "'cross' looks like the adjective for angry, but it is the verb meaning to go across.",
+     "definitionFit": "To traverse is to travel across or over, so it is a synonym of cross as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   }
  ]
 }
