@@ -240,9 +240,10 @@ SOLUTION = re.compile(r"^\W*solution\s+(?:t[o0n]|o[fl])\s+puzzle\s+n[o0]\.?\s*" 
 SOLUTION_LAGS = (1, 6)
 #: A solution heading as the OCR garbles it ("Solution of Push No. 15,645",
 #: "Solution to Tuzzle No I5.13S"): a word, a connective, a word, maybe "No",
-#: then the number, maybe read in pieces ("15 ,751", "19,7 1 1");
+#: then the number, maybe read in pieces ("15 ,751", "19,7 1 1", "1 9.037",
+#: ". 15, 244");
 #: solution_number() decides.
-LOOSE_NUMBER = r"(?:[nm][^\s\d]{0,2}\s*)?(\S{2,7}(?:\s\S{1,4}){0,2})$"
+LOOSE_NUMBER = r"(?:[nm][^\s\d]{0,2}\s*)?(\S{1,7}(?:\s\S{1,5}){0,2})$"
 LOOSE_SOLUTION = re.compile(r"^\W*(\S{4,11})\s+(\S{1,3})\s+(\S{3,8})\s+" + LOOSE_NUMBER, re.IGNORECASE)
 #: The 1980s-90s heading: "The Solution" over "No 16,219".
 SOLUTION_OVER = re.compile(r"^\W*(?:the\s+)?(\S{6,10})\W*$", re.IGNORECASE)
@@ -303,45 +304,69 @@ def solution_headings(lines, titles):
     expected = {t - lag for t in titles for lag in SOLUTION_LAGS}
     found = []
     for ws in lines:
-        hit = None
-        for k in range(len(ws)):
-            text = ""
-            for j in range(k, len(ws)):
-                text = (text + " " + ws[j][4]).strip()
-                m = LOOSE_SOLUTION.match(text)
-                if not m or not (like(m[1], "solution") or like(m[3], "puzzle")) or re.search(r"\d", m[1] + m[3]):
-                    continue
-                n = solution_number(m[4], expected)
-                if n is not None:
-                    part = ws[k:j + 1]
-                    hit = (n, (min(v[0] for v in part), min(v[1] for v in part),
-                               max(v[2] for v in part), max(v[3] for v in part)))
-                    break
-            if hit:
-                break
-        if hit:
-            found.append(hit)
+        k = 0
+        while k < len(ws):
+            end = solution_at(ws, k, expected)
+            if end is None:
+                k += 1
+                continue
+            n, j = end
+            part = ws[k:j + 1]
+            found.append((n, (min(v[0] for v in part), min(v[1] for v in part),
+                              max(v[2] for v in part), max(v[3] for v in part))))
+            k = j + 1
     return found + solutions_over(lines, expected)
+
+
+def solution_at(ws, k, expected):
+    """(number, last word's index) of the shortest LOOSE_SOLUTION heading
+    opening at word `k` of a line whose number is one of `expected`
+    (solution_number), or None. A line may hold two ("Solution to Puzzle
+    No 19,243 Solution to Punk No 19.248"): solution_headings reads on past
+    the first."""
+    text = ""
+    for j in range(k, len(ws)):
+        text = (text + " " + ws[j][4]).strip()
+        m = LOOSE_SOLUTION.match(text)
+        if not m or not (like(m[1], "solution") or like(m[3], "puzzle")) or re.search(r"\d", m[1] + m[3]):
+            continue
+        n = solution_number(m[4], expected)
+        if n is not None:
+            return n, j
+    return None
 
 
 def solutions_over(lines, expected):
     """[(number, box)] of each "The Solution" line (SOLUTION_OVER) with a
     "No 16,219" line (NUMBER_UNDER, solution_number) next under it, the two
-    overlapping across."""
+    overlapping across, or under a "Prize Puzzle" line (PRIZE_UNDER) next
+    under it (the 1984 Monday's Saturday prize solution)."""
     found = []
     for ws in lines:
         m = SOLUTION_OVER.match(" ".join(w[4] for w in ws))
         if not m or not like(m[1], "solution"):
             continue
-        top = box_of(ws)
-        under = [u for u in lines if u is not ws and top[3] <= box_of(u)[1] <= top[3] + 2 * (top[3] - top[1])
-                 and box_of(u)[0] < top[2] and box_of(u)[2] > top[0]]
-        for u in sorted(under, key=lambda u: box_of(u)[1])[:1]:
+        under = lines_under(lines, ws)
+        if under and PRIZE_UNDER.match(" ".join(w[4] for w in under[0])):
+            under = lines_under(lines, under[0])
+        for u in under[:1]:
             num = NUMBER_UNDER.match(" ".join(w[4] for w in u))
             n = num and solution_number(num[1], expected)
             if n:
                 found.append((n, box_of(ws + u)))
     return found
+
+
+def lines_under(lines, ws):
+    """The `lines` starting within two of line `ws`'s heights under it and
+    overlapping it across, top first."""
+    top = box_of(ws)
+    return sorted((u for u in lines if u is not ws and top[3] <= box_of(u)[1] <= top[3] + 2 * (top[3] - top[1])
+                   and box_of(u)[0] < top[2] and box_of(u)[2] > top[0]), key=lambda u: box_of(u)[1])
+
+
+#: The line between "The Solution" and its number on a prize puzzle's.
+PRIZE_UNDER = re.compile(r"^\W*prize\s+p\S{4,6}\W*$", re.IGNORECASE)
 
 
 #: A column line that ends the clues.
