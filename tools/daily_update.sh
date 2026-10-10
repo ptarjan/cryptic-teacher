@@ -96,6 +96,10 @@ cd "$REPO" || exit 1
 # nothing else generated, and every tick finds HEAD moved.
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 [ $# -eq 0 ] && CT_GENERATED=none
+# A unit gets them at start only if its kind reads them (daily_units.py
+# GENERATED); an unknown kind gets them.
+# shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
+[ "${1:-}" = unit ] && [ "$(python3 tools/daily_units.py generated "${2:-}")" = none ] && CT_GENERATED=none
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_SALVAGE_PATHS=""
 . "$(dirname "$0")/nightly_worktree.sh"
@@ -808,6 +812,9 @@ unit_reports() {
 
 $bad_hints"
           # A unit stopped mid-run leaves this, and the next pass resumes it.
+          # The fix pass runs the validators and node harnesses, which read
+          # the generated files this unit skipped at start (daily_units.py).
+          ct_generated "$REPO"
           fix_sid="$(worker_runs daily_update)/reports.sid"
           session_args "$fix_sid" sess fix_task
           claude -p "$fix_task" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \

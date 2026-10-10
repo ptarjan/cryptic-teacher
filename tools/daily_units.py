@@ -4,6 +4,7 @@
     python3 tools/daily_units.py keyed --record   # note the puzzles whose official key this tree just gained
     python3 tools/daily_units.py keyed --recent   # those noted within FRESH_DAYS, for the annotation queue
     python3 tools/daily_units.py job <key>        # the unit's name in its commit subject
+    python3 tools/daily_units.py generated <key>  # "all" or "none": does it need the generated files at start
 
 tools/daily_update.sh with no argument is the tick: it chooses the puzzles to
 annotate (its selection blocks, under the usage gates) and hands them here in
@@ -36,7 +37,8 @@ from unit_queue import STATE, Unit, main_checkout
 
 LOG = ".update.log"
 #: Trees daily_unit-1 .. daily_unit-SLOTS: at most this many units at once.
-#: Each start rebuilds its tree's index, one at a time (nightly_worktree.sh).
+#: A start whose kind reads the generated files rebuilds them, one at a time
+#: (GENERATED below).
 SLOTS = 6
 TREE = "daily_unit"
 #: Model runs (annotate, miss, reports) at once, and backfills draining at
@@ -84,7 +86,7 @@ FRESH_DAYS = 2
 #: one that stopped with backlog left runs again at the next tick
 #: (unit_queue.backlog_left), so `every` is only how often it looks for new
 #: work once drained. A limit covers the unit's tree setup
-#: too, which waits its turn to rebuild the index (nightly_worktree.sh), and
+#: too, which may wait its turn to rebuild the index (GENERATED), and
 #: is set from the old nightly's phase times on a busy machine (2026-10-07:
 #: the Telegraph filer 45m, blog_facts 28-57m), with room to spare.
 PHASES = [
@@ -102,6 +104,39 @@ PHASES = [
     ("minute", 6 * HOUR, 30 * 60, ()),
     ("reports", 2 * HOUR, 90 * 60, ()),
 ]
+
+
+#: Whether a unit kind (its key up to the first ':') reads the generated
+#: files (puzzles/index.*, the puzzle shims, abbreviations.js) before its own
+#: build step. Those that do have them rebuilt as their tree is set up
+#: (nightly_worktree.sh ct_generated) whenever HEAD moved, which is nearly
+#: every start: a whole-corpus pass. The rest skip it, and their commit step
+#: needs none of them (a rebase conflict rebuilds what it needs itself). Every
+#: kind daily_update.sh runs is named, so a new one has to choose.
+GENERATED = {
+    "fetch": False,
+    "solutions": False,
+    "blog": False,
+    "bucket": False,
+    "xval": False,
+    "ft": False,
+    "azed": False,
+    "blog-facts": False,
+    "ratings": False,
+    "minute": False,
+    # Only its Claude fix pass does, which builds them first (daily_update.sh).
+    "reports": False,
+    # tools/coverage_report.py reads puzzles/index.json.
+    "checks": True,
+    # The validators and tools/smoke_test.js read index.js, the shims and
+    # abbreviations.js, and a run that edits tools/ pushes through its tests.
+    "annotate": True,
+    "miss": True,
+}
+
+
+def reads_generated(key):
+    return GENERATED[key.split(":", 1)[0]]
 
 
 def unit(key, *args, **kw):
@@ -207,6 +242,12 @@ def job(key):
 def main(argv):
     if argv[:1] == ["job"] and len(argv) == 2:
         print(job(argv[1]))
+        return 0
+    if argv[:1] == ["generated"] and len(argv) == 2:
+        if argv[1].split(":", 1)[0] not in GENERATED:
+            print(f"daily_units.py: no unit kind {argv[1]!r} in GENERATED", file=sys.stderr)
+            return 2
+        print("all" if reads_generated(argv[1]) else "none")
         return 0
     if argv[:2] == ["keyed", "--record"]:
         record_keyed()
