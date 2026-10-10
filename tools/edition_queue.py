@@ -814,7 +814,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if u["kind"] == "read" and any((u["paper"], r) in scanning for r in u["needs"]):
                 continue
-            if u["kind"] == "read" and u["reason"] == "scan stale" and any((u["paper"], r) in rescanned for r in u["needs"]):
+            if u["kind"] == "read" and u["reason"] in fa.STALE_SCAN and any((u["paper"], r) in rescanned for r in u["needs"]):
                 continue
             if starved or (yielding and u["kind"] != "fetch"):
                 continue

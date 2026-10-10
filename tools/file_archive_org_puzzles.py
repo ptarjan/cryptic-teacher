@@ -3519,7 +3519,13 @@ def staged_at(d):
 #: Every reason due_reason or plan gives is named here.
 RANKS = {"saved by hand": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution read in part before its fix": 2,
-         **{f"refused {c} before its fix": 2 for c in REFUSALS}, "scan stale": 3, "--reread": 3}
+         **{f"refused {c} before its fix": 2 for c in REFUSALS}, "scan stale, answers missing": 2,
+         "scan stale": 3, "--reread": 3}
+#: The reasons of a read whose scan is by older scan code: "answers missing"
+#: when a stored title is the one after a puzzle read without answers that no
+#: page links a solution heading to (six after a Saturday's prize), the issue
+#: printing that solution (the scan code that moved may now read its heading).
+STALE_SCAN = ("scan stale, answers missing", "scan stale")
 #: The rank of the re-reads that sweep the whole corpus.
 BLANKET = 3
 
@@ -3557,6 +3563,10 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
     held = held_dates(paper.series)
     solutions, sources = solution_sources(every, scans, rels, held, sister_solutions(cache, paper))
     asked = set(asked)
+    answerless = {v["number"] + (6 if datetime.date.fromisoformat(row["scan"]["date"]).weekday() == 5 else 1)
+                  for row in known.values() if (row.get("scan") or {}).get("date") for v in row.get("verdicts", ())
+                  if v.get("number") and not (v.get("solutionFrom") or v.get("refused") or v.get("pending"))
+                  and v["number"] not in solutions}
     reads = {}
     for d in dirs:
         rel, row = rels[d], known.get(rels[d]) or {}
@@ -3564,7 +3574,8 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
             # Its files moved, or only the scan code: the latter is every
             # edition at once, a whole-corpus re-read.
             why = ("never read" if "inputs" not in row else
-                   "inputs changed" if row.get("filesHash") != fhs[d] else "scan stale")
+                   "inputs changed" if row.get("filesHash") != fhs[d] else
+                   STALE_SCAN[0] if any(p["number"] in answerless for p in scans[rel]["puzzles"]) else STALE_SCAN[1])
         else:
             sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
             why = due_reason(row, inputs_of(row["filesHash"], scans[rel], paper.series), sol_seen, seen_by, reread,
