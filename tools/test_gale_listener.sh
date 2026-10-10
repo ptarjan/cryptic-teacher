@@ -6,7 +6,8 @@
 # their numbers in bands across two columns when a heading goes unread, a
 # clue a line when the lists print no counts; is each file read once (the
 # ledger is keyed by its hash; one whose OCR times out stays unread); is a
-# read on the desktop the read here, its OCR and grids kept here; and
+# read on the desktop the read here, its OCR and grids kept here, a page's
+# grids found there cached as found here; and
 # does the checklist list every puzzle of
 # the index, earliest first, marking what is filed or saved, and what the
 # 3-minute tick saw arrive (matched by name or citation, each file once),
@@ -735,7 +736,11 @@ g.read_file = cached_read
 calls = []
 def over_json(name, *args, data=b"", **kwargs):
     calls.append(name)
-    result, back = ocr_remote.run_call(name, data, json.loads(json.dumps(args)), kwargs)
+    mac, ocr_remote.call = ocr_remote.call, lambda *a, **k: None  # the desktop names no desktop of its own
+    try:
+        result, back = ocr_remote.run_call(name, data, json.loads(json.dumps(args)), kwargs)
+    finally:
+        ocr_remote.call = mac
     return json.loads(json.dumps(result)), back
 saved = inbox / "1930-04-02.png"
 Image.new("RGB", (300, 200), "white").save(saved)
@@ -756,6 +761,29 @@ check("the OCR it cached there is cached here", here_ocr, {f.name: f.read_text()
 check("and the page's grids are filing's, read here from the cache", here_grids, fgl.page_grids(saved, h))
 read(over_json, tmp / "there2")
 check("a read there again is sent the OCR cached here", [False, False, True], had)
+
+# A page's grids found there (page_grids over "listener_grids") are cached
+# byte for byte as found here, and given back as here. The search is stubbed:
+# a grid with numpy floats and tuple-keyed sides, fitted to tuples.
+import numpy as np
+lg = fgl.lg
+real = lg.find_grids, lg.printed_numbers, lg.fit
+lg.find_grids = lambda gray: [{"box": (1, 2, 30, 40), "rows": ["..", ".#"], "why": None, "filled": 0.1,
+                               "sides": {(0, 0, "r"): 1.5}, "thin": 2.0,
+                               "lattice": [np.array([1.25, 2.5]), np.array([3.0, 4.75])]},
+                              {"box": (0, 0, 9, 9), "rows": None, "why": "too small", "filled": 0.0}]
+lg.printed_numbers = lambda gray, g: {(0, 0): 1}
+lg.fit = lambda g, printed: {"rows": ["..", ".#"], "at": (0, 1)}
+calls.clear()
+ocr_remote.call = lambda *a, **k: None
+here = fgl.page_grids(saved, "a-sha", cache=tmp / "grids-h")
+ocr_remote.call = over_json
+there = fgl.page_grids(saved, "a-sha", cache=tmp / "grids-t")
+check("a page's grids found there are cached as found here, and given back the same",
+      (["listener_grids"], (tmp / "grids-h" / "a-sha.json").read_bytes(), here),
+      (calls, (tmp / "grids-t" / "a-sha.json").read_bytes(), there))
+check("and as the cache gives them back", here, fgl.page_grids(saved, "a-sha", cache=tmp / "grids-h"))
+lg.find_grids, lg.printed_numbers, lg.fit = real
 ocr_remote.call = lambda *a, **k: None
 
 root = Path(sys.argv[1]) / "repo"

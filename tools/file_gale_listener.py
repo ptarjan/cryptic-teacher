@@ -59,7 +59,8 @@ clue this reading corrects (file_archive_org_puzzles.corrected_clues: a
 reader's fix to its words) takes the new words.
 
 Each page's grids are read once per version of listener_grid.py (~35 s a
-page: find_grids, then the printed numbers of each unfilled grid), each
+page: find_grids, then the printed numbers of each unfilled grid; on the
+desktop, SEARCH_SLOTS pages at once, when tools/ocr_remote.py can), each
 report's letters once per puzzle grid, cached under GRIDS. STORE/filed.json
 records each puzzle's verdict: what it lacks, or that it filed.
 tools/gale_listener.py sync runs this after reading the new pages, so a
@@ -74,6 +75,7 @@ import math
 import re
 import subprocess
 import sys
+import threading
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
@@ -626,8 +628,10 @@ def join(reading, grids, reports, read_letters):
 def page_grids(path, sha, cache=GRIDS):
     """Every grid on the saved file's page images, cached by its hash and
     listener_grid's code: [{"grid": find_grids' dict, "fit": fit() or None}]
-    (the unfilled ones fitted to their printed numbers)."""
-    import numpy as np
+    (the unfilled ones fitted to their printed numbers), as read back from
+    the cache. Found on the desktop when tools/ocr_remote.py can (grids_there),
+    else here, one page at a time a process."""
+    import ocr_remote
     key = code_key(lg, *GRID_CODE)
     dest = cache / f"{sha}.json"
     if dest.exists():
@@ -636,8 +640,31 @@ def page_grids(path, sha, cache=GRIDS):
             got["code"] = key
             dest.write_text(json.dumps(got))
         if got.get("code") == key:
-            return [{"grid": {**g["grid"], "sides": {tuple(json.loads(k)): v for k, v in g["grid"]["sides"].items()}},
-                     "fit": g["fit"]} for g in got["grids"]]
+            return loaded_grids(got["grids"])
+    got = ocr_remote.call("listener_grids", path.name, data=path.read_bytes())
+    if got is None:
+        with _HERE, ocr_remote.local_slot():
+            grids = grids_here(path)
+    else:
+        grids = got[0]
+    cache.mkdir(parents=True, exist_ok=True)
+    dest.write_text(json.dumps({"code": key, "grids": grids}))
+    return loaded_grids(json.loads(json.dumps(grids)))
+
+
+#: Held while this process finds a page's grids here (~600 MB a page).
+_HERE = threading.Lock()
+
+
+def loaded_grids(grids):
+    """page_grids' result from its cache's "grids"."""
+    return [{"grid": {**g["grid"], "sides": {tuple(json.loads(k)): v for k, v in g["grid"]["sides"].items()}},
+             "fit": g["fit"]} for g in grids]
+
+
+def grids_here(path):
+    """The cache's "grids" of the saved file `path`, found here."""
+    import numpy as np
     out = []
     for i, (img, _) in enumerate(gi.images(path)):
         gray = np.asarray(img.convert("L"), dtype=np.uint8)
@@ -645,14 +672,21 @@ def page_grids(path, sha, cache=GRIDS):
             if not g["rows"] or g["why"]:
                 continue
             fit = lg.fit(g, lg.printed_numbers(gray, g)) if g["filled"] <= 0.5 else None
-            out.append({"grid": {"page": i, "box": list(g["box"]), "rows": g["rows"], "sides": g["sides"],
+            out.append({"grid": {"page": i, "box": list(g["box"]), "rows": g["rows"],
+                                 "sides": {json.dumps(list(k)): v for k, v in g["sides"].items()},
                                  "thin": g["thin"], "lattice": [list(map(float, a)) for a in g["lattice"]],
                                  "filled": g["filled"]}, "fit": fit})
-    cache.mkdir(parents=True, exist_ok=True)
-    dest.write_text(json.dumps({"code": key, "grids": [
-        {"grid": {**g["grid"], "sides": {json.dumps(list(k)): v for k, v in g["grid"]["sides"].items()}},
-         "fit": g["fit"]} for g in out]}))
     return out
+
+
+def grids_there(data, name):
+    """tools/ocr_remote.py's "listener_grids", run on the desktop:
+    (grids_here() of the saved file named `name`, its bytes `data`, b"")."""
+    import tempfile
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        path = Path(tmp) / name
+        path.write_bytes(data)
+        return grids_here(path), b""
 
 
 def letters_reader(inbox=gl.MIRROR, cache=GRIDS):
@@ -697,13 +731,21 @@ def run(store=gl.STORE, inbox=gl.MIRROR, puzzles=None, write=True, out=sys.stdou
     if numbers is not None:
         files = [(sha, e) for sha, e in files if any(
             isinstance(e.get("number"), int) and 0 <= e["number"] - n <= REPORT_WITHIN for n in numbers)]
-    grids = {}
-    for sha, e in sorted(files, key=lambda f: (f[1].get("number") not in readings, f[1]["file"])):
+    def page(f):
+        sha, e = f
         try:
-            grids[e["file"]] = grids_of(Path(inbox) / e["file"], sha)
+            return grids_of(Path(inbox) / e["file"], sha)
         except subprocess.TimeoutExpired as err:
             # A loaded host's OCR: the page is read again next run.
             print(f"{e['file']}: OCR timed out after {err.timeout:.0f} s; its grids are read next run", file=out)
+            return None
+    from concurrent.futures import ThreadPoolExecutor
+
+    import ocr_remote
+    ordered = sorted(files, key=lambda f: (f[1].get("number") not in readings, f[1]["file"]))
+    # With the desktop named, SEARCH_SLOTS pages' grids are found there at once.
+    with ThreadPoolExecutor(ocr_remote.SEARCH_SLOTS if ocr_remote.hosts() else 1) as pool:
+        grids = {e["file"]: gs for (_, e), gs in zip(ordered, pool.map(page, ordered)) if gs is not None}
     reports = [{"grid": g["grid"], "page": f} for f, gs in grids.items() for g in gs if g["fit"] is None]
     verdicts = {}
     for n, reading in sorted(readings.items()):

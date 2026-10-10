@@ -16,8 +16,9 @@ one of CALLS there: an image PDF's pages searched for grids
 (reconstruct(), the Trove filer's rebuild), an edition's scan for its
 headings (scan(), the edition queue's scan units), RapidOCR's text of a
 Trove article's clue zones (tools/trove_clue_ocr.py's read_text) and a
-saved Gale page's match (tools/gale_inbox.py's match_anywhere) and a saved
-Listener page's whole read (tools/gale_listener.py's read_remote). The desktop
+saved Gale page's match (tools/gale_inbox.py's match_anywhere), a saved
+Listener page's whole read (tools/gale_listener.py's read_remote) and its
+grids (tools/file_gale_listener.py's page_grids). The desktop
 runs the same code (every tracked file under tools/ but UNSHIPPED, shipped
 once into a directory named by their hash, so a running session's files are
 never overwritten), the same reader models and the same Python, Pillow,
@@ -458,7 +459,7 @@ def _trove_text_there(data, sizes):
 #: imported there when it runs: a module the page build need not import.
 CALLS = {"reconstruct": _reconstruct_there, "pdf_pages": _pdf_pages_there, "scan": _scan_there,
          "trove_text": _trove_text_there, "gale_match": "gale_inbox.match_there",
-         "listener_read": "gale_listener.read_there"}
+         "listener_read": "gale_listener.read_there", "listener_grids": "file_gale_listener.grids_there"}
 
 
 def run_call(name, data, args, kwargs):
