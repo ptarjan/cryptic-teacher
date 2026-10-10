@@ -207,4 +207,42 @@ assert not bad, "\n".join(bad)
 assert "durable_run" in corpus_queue.FULL_PASS.read_text(), "the full pass files without checkpoints"
 print(f"long jobs: {', '.join(sorted(long_jobs))}")
 PY
+# 7. The full pass re-execs itself between slices when a resync moves its
+#    shell code: the real tools/ocr_full_pass.sh, its queue stubbed. The first
+#    slice hands over (an empty list) and pushes a change to the script to
+#    origin, as a fix landing mid-pass would; the second slice runs the new
+#    code, in the same process, with the handover kept.
+git clone -q "$tmp/origin.git" "$tmp/fp" 2>/dev/null
+cp tools/ocr_full_pass.sh "$tmp/fp/tools/"
+for stub in gale_inbox trove_solution_ocr file_archive_org_puzzles; do echo 'pass' >"$tmp/fp/tools/$stub.py"; done
+cat >"$tmp/fp/tools/edition_queue.py" <<'EOF'
+import os, subprocess, sys
+home = os.environ["HOME"]
+handoff = sys.argv[sys.argv.index("--handoff") + 1]
+n = 1 + sum(1 for _ in open(f"{home}/slices")) if os.path.exists(f"{home}/slices") else 1
+with open(f"{home}/slices", "a") as f:
+    f.write(f"{n}\n")
+if n == 1:
+    open(handoff, "w").write("[]")
+    edit = f"{home}/fp-edit"
+    subprocess.run(["git", "clone", "-q", os.environ["FP_ORIGIN"], edit], check=True)
+    path = f"{edit}/tools/ocr_full_pass.sh"
+    text = open(path).read()
+    assert '=== $what: slice from' in text
+    open(path, "w").write(text.replace('=== $what: slice from', '=== $what: new code, slice from'))
+    subprocess.run(["git", "-C", edit, "commit", "-qam", "a fix to the pass"], check=True)
+    subprocess.run(["git", "-C", edit, "push", "-q", "origin", "HEAD:master"], check=True)
+    print("3 left for the next run")
+else:
+    print("handoff kept" if os.path.exists(handoff) else "handoff lost")
+EOF
+git -C "$tmp/fp" add -A && git -C "$tmp/fp" commit -qm "the full pass" && git -C "$tmp/fp" push -q origin HEAD:master 2>/dev/null
+FP_ORIGIN="$tmp/origin.git" setsid bash "$tmp/fp/tools/ocr_full_pass.sh" >"$tmp/fp.log" 2>&1 & pid=$!
+wait "$pid" || { cat "$tmp/fp.log"; fail "the full pass failed across its re-exec"; }
+pid=""
+grep -q "=== shell code moved: re-execing onto" "$tmp/fp.log" || { cat "$tmp/fp.log"; fail "the full pass did not re-exec when its script moved"; }
+grep -q "new code, slice from" "$tmp/fp.log" || { cat "$tmp/fp.log"; fail "the slice after the re-exec ran the old code"; }
+grep -q "handoff kept" "$tmp/fp.log" || { cat "$tmp/fp.log"; fail "the re-exec dropped what the slice before it handed over"; }
+[ "$(grep -c "new code, slice from" "$tmp/fp.log")" = 1 ] || fail "the pass re-ran a slice"
+
 echo "durable: ok"
