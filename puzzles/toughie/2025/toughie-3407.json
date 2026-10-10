@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Undistinguished doctor about to take over",
     "enumeration": "8"
    },
-   "solution": "MEDIOCRE"
+   "solution": "MEDIOCRE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MEDIOCRE",
+    "definitions": [
+     {
+      "text": "Undistinguished",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take over",
+      "for": "container",
+      "note": "to take something is to receive it into yourself, so the doctor word holds the next piece inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "MEDIC",
+      "note": "a medic is a doctor"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorecard abbreviation for an over"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEDI",
+      "O",
+      "C",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull, unremarkable doctor is about to assume control of something.",
+     "walkthrough": "'Take over' reads as seizing control, but here the doctor takes in the cricket abbreviation; in cricket an over is a set of six balls.",
+     "definitionFit": "Mediocre describes something only average, lacking any distinction or quality to set it apart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +105,43 @@
     "text": "Tolerated pain in the neck",
     "enumeration": "4"
    },
-   "solution": "BORE"
+   "solution": "BORE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BORE",
+    "definitions": [
+     {
+      "text": "Tolerated",
+      "at": 0
+     },
+     {
+      "text": "pain in the neck",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tolerated",
+      "note": "first meaning: past tense of bear, to put up with"
+     },
+     {
+      "clueFragment": "pain in the neck",
+      "note": "second meaning: a tiresome, tedious person"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests putting up with a physical ache; the two halves are separate meanings of one short word.",
+     "definitionFit": "The word is the past tense of bear, meaning endured, and also a noun for a tedious person or thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pain"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +155,48 @@
     "text": "Reportedly prohibited sex? It's criminal!",
     "enumeration": "6"
    },
-   "solution": "BANDIT"
+   "solution": "BANDIT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BANDIT",
+    "definitions": [
+     {
+      "text": "criminal",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so we want a sound rather than a spelling"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prohibited sex",
+      "gives": "BANDIT",
+      "soundsLike": "BANNED IT",
+      "note": "banned means prohibited, and it is a coy slang word for sex"
+     }
+    ],
+    "explanation": {
+     "surface": "A mock-outraged cry that forbidding sex ought to be against the law.",
+     "walkthrough": "'It' as a euphemism for sex is a well-worn crossword convention; spoken quickly, banned it matches the outlaw word.",
+     "definitionFit": "A bandit is a robber or outlaw, so the noun criminal is a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +210,57 @@
     "text": "Material covering hat is alligator, perhaps",
     "enumeration": "7"
    },
-   "solution": "REPTILE"
+   "solution": "REPTILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPTILE",
+    "definitions": [
+     {
+      "text": "alligator, perhaps",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "charade",
+      "note": "in a down clue one piece covering another sits on top of it, so the material word comes first"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Material",
+      "gives": "REP",
+      "note": "rep is a ribbed fabric used in upholstery"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "TILE",
+      "note": "tile is old slang for a hat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "TILE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion note that the fabric over a hat is made of alligator skin.",
+     "walkthrough": "Tile as slang for a hat is dated British usage; rep is a corded cloth.",
+     "definitionFit": "An alligator is one example of a reptile, the perhaps flagging a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alligator"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +274,59 @@
     "text": "From nude dirty state getting frocked?",
     "enumeration": "10"
    },
-   "solution": "ORDINATION"
+   "solution": "ORDINATION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ORDINATION",
+    "definitions": [
+     {
+      "text": "getting frocked?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nude",
+      "for": "deletion",
+      "note": "a nude thing is stripped of its outer covering, so the outside letters are removed"
+     }
+    ],
+    "linkWords": [
+     "From"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dirty",
+      "gives": "SORDID",
+      "note": "sordid means dirty or squalid"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "NATION",
+      "note": "a nation is a state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORDI",
+      "NATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone goes from naked squalor to being dressed, with a hint of clerical robes.",
+     "walkthrough": "SORDID loses its first and last letters to leave ORDI. Getting frocked is the playful definition: a frock is a priest's gown, and to be frocked is to be made a priest.",
+     "definitionFit": "Ordination is the ceremony making someone a priest, which a frock symbolises, so being frocked describes it wittily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nude"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +340,55 @@
     "text": "Queen formerly adopting former attachment",
     "enumeration": "6"
    },
-   "solution": "ANNEXE"
+   "solution": "ANNEXE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANNEXE",
+    "definitions": [
+     {
+      "text": "attachment",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "adopting means taking someone in, so the queen's name holds the next word inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen formerly",
+      "gives": "ANNE",
+      "note": "Queen Anne reigned in the early eighteenth century"
+     },
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex means former, as in ex-wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANN",
+      "EX",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A former queen taking on some attachment from her past.",
+     "walkthrough": "'Formerly' and 'former' look like a repetition but do different jobs: one dates the queen, one gives letters.",
+     "definitionFit": "An annexe is a building attached to a larger main building, an extension of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "attachment"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +402,67 @@
     "text": "Sound judge admitting beak is reversed",
     "enumeration": "8"
    },
-   "solution": "RESONATE"
+   "solution": "RESONATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RESONATE",
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is reversed",
+      "for": "reversal",
+      "note": "something reversed runs back the other way, so the beak word is read from its end"
+     },
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit is to let in, so the judge word takes the next piece inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "RATE",
+      "note": "to rate is to judge or assess"
+     },
+     {
+      "clueFragment": "beak",
+      "gives": "NOSE",
+      "note": "beak is slang for nose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ESON",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "NOSE",
+       "to": "ESON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sound judge lets in evidence that a beak is turned round.",
+     "walkthrough": "'Sound' looks like an adjective praising the judge but is the verb definition. Beak is also British slang for a magistrate, adding to the courtroom picture.",
+     "definitionFit": "To resonate is to sound with a deep, echoing, reverberating tone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +476,48 @@
     "text": "Lavatory commonly found in shed, say",
     "enumeration": "6"
    },
-   "solution": "THRONE"
+   "solution": "THRONE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "THRONE",
+    "definitions": [
+     {
+      "text": "Lavatory commonly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks us to speak the word, so its sound matters rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shed",
+      "gives": "THRONE",
+      "soundsLike": "THROWN",
+      "note": "shed means cast off or thrown off, as a horse throws its rider"
+     }
+    ],
+    "explanation": {
+     "surface": "A toilet is discovered sitting in a garden shed.",
+     "walkthrough": "'Shed' wants to be the outbuilding, but it is the past participle meaning cast off. Throne is an informal joke name for the toilet.",
+     "definitionFit": "Throne is a colloquial, jokey word for a toilet seat, the commonly flagging informal usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +531,57 @@
     "text": "Twister in stir following bust",
     "enumeration": "7"
    },
-   "solution": "TORNADO"
+   "solution": "TORNADO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORNADO",
+    "definitions": [
+     {
+      "text": "Twister",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the stir word is placed second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bust",
+      "gives": "TORN",
+      "note": "bust means broken or ripped"
+     },
+     {
+      "clueFragment": "stir",
+      "gives": "ADO",
+      "note": "a stir is a fuss or commotion, an ado"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORN",
+      "ADO"
+     ]
+    },
+    "explanation": {
+     "surface": "A twister is locked in prison after an arrest.",
+     "walkthrough": "'Stir' and 'bust' suggest prison slang and a police raid; here they mean fuss and broken. Twister is American slang for this storm.",
+     "definitionFit": "A tornado is a violent rotating windstorm, commonly called a twister in North America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stir"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +595,43 @@
     "text": "Perform play",
     "enumeration": "4"
    },
-   "solution": "GIVE"
+   "solution": "GIVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GIVE",
+    "definitions": [
+     {
+      "text": "Perform",
+      "at": 0
+     },
+     {
+      "text": "play",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perform",
+      "note": "first meaning: to put on"
+     },
+     {
+      "clueFragment": "play",
+      "note": "second meaning: slack or flexibility, as in a rope with some play"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads like staging a drama, but play is the noun for looseness.",
+     "definitionFit": "We give a concert or speech, and a structure that has give has slack or flexibility in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +645,61 @@
     "text": "Resolved, check this compiler's crossword, finally",
     "enumeration": "10"
    },
-   "solution": "DETERMINED"
+   "solution": "DETERMINED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DETERMINED",
+    "definitions": [
+     {
+      "text": "Resolved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the closing letter of the word before it only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "check",
+      "gives": "DETER",
+      "note": "to deter is to check or hold back"
+     },
+     {
+      "clueFragment": "this compiler's",
+      "gives": "MINE",
+      "note": "the setter speaking of themselves: what is the compiler's is mine"
+     },
+     {
+      "clueFragment": "crossword",
+      "gives": "D",
+      "select": "last",
+      "note": "final letter of crossword"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETER",
+      "MINE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone firmly decides to check the setter's own puzzle to the end.",
+     "definitionFit": "Determined and resolved are synonyms, both meaning firmly decided upon a purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "check"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +713,60 @@
     "text": "Standing firstly before tomb, recited words",
     "enumeration": "6"
    },
-   "solution": "SCRIPT"
+   "solution": "SCRIPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "homophone",
+     "charade"
+    ],
+    "answer": "SCRIPT",
+    "definitions": [
+     {
+      "text": "words",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "firstly",
+      "for": "letter_selection",
+      "note": "firstly singles out only the opening letter of the word it follows"
+     },
+     {
+      "text": "recited",
+      "for": "homophone",
+      "note": "something recited is spoken out, so the tomb word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Standing",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of standing"
+     },
+     {
+      "clueFragment": "tomb",
+      "gives": "CRIPT",
+      "soundsLike": "CRYPT",
+      "note": "a crypt is an underground burial vault"
+     }
+    ],
+    "explanation": {
+     "surface": "A mourner stands at a grave and recites some words.",
+     "walkthrough": "The homophone covers only the tomb word, spelt to match the answer.",
+     "definitionFit": "A script is the written words of a play or speech, the text to be spoken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Standing"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +780,49 @@
     "text": "United inside wide target nicely turned",
     "enumeration": "10"
    },
-   "solution": "INTEGRATED"
+   "solution": "INTEGRATED",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "INTEGRATED",
+    "definitions": [
+     {
+      "text": "United",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "hidden_word",
+      "note": "inside says the letters sit within the run of words that follows"
+     },
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "something turned round faces the other way, so those letters are read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wide target nicely",
+      "gives": "DETARGETNI",
+      "note": "the run of letters straddling these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A football commentary: United shoot wide when the target was nicely in view.",
+     "walkthrough": "United looks like Manchester United but is the past-tense verb or adjective meaning joined.",
+     "definitionFit": "Integrated means combined into a whole, so united is a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +836,62 @@
     "text": "Meadow nuisance beginning to eat greenery",
     "enumeration": "7"
    },
-   "solution": "LEAFAGE"
+   "solution": "LEAFAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEAFAGE",
+    "definitions": [
+     {
+      "text": "greenery",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of the next word means only its opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meadow",
+      "gives": "LEA",
+      "note": "lea is a poetic word for a meadow"
+     },
+     {
+      "clueFragment": "nuisance",
+      "gives": "FAG",
+      "note": "fag is British informal for a tiresome chore"
+     },
+     {
+      "clueFragment": "eat",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "FAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A meadow pest starts munching on the plants.",
+     "walkthrough": "In British slang a fag is a tedious, irksome task, as in 'what a fag'.",
+     "definitionFit": "Leafage is foliage, the mass of leaves on plants, so it is green growth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nuisance"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +905,58 @@
     "text": "Hide from sweetheart in panic",
     "enumeration": "7"
    },
-   "solution": "LEATHER"
+   "solution": "LEATHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEATHER",
+    "definitions": [
+     {
+      "text": "Hide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the word that follows"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "panic",
+      "gives": "LATHER",
+      "note": "to be in a lather is to be agitated or flustered"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "note": "the heart of sweet is its central letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "E",
+      "ATHER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone panics and hides from their sweetheart.",
+     "walkthrough": "'Hide' looks like a verb but is the noun for an animal skin. The E of sweet goes after the L of LATHER.",
+     "definitionFit": "Leather is tanned animal hide, the skin of a cow or similar beast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hide"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +970,54 @@
     "text": "Concentrate more sitting over court",
     "enumeration": "7"
    },
-   "solution": "EXTRACT"
+   "solution": "EXTRACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXTRACT",
+    "definitions": [
+     {
+      "text": "Concentrate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sitting over",
+      "for": "charade",
+      "note": "in a down clue sitting over means being placed above, so this piece comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more",
+      "gives": "EXTRA",
+      "note": "extra means more or additional"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the standard abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXTRA",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to focus harder while presiding over a court.",
+     "walkthrough": "'Concentrate' wants to be a verb, but it is the noun for a condensed substance.",
+     "definitionFit": "An extract is a concentrated preparation, such as vanilla extract, so the two nouns match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Concentrate"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1031,58 @@
     "text": "Security camera putting idiot into dock",
     "enumeration": "7"
    },
-   "solution": "MONITOR"
+   "solution": "MONITOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MONITOR",
+    "definitions": [
+     {
+      "text": "Security camera",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into places the preceding word inside the word that comes after it"
+     }
+    ],
+    "linkWords": [
+     "putting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dock",
+      "gives": "MOOR",
+      "note": "to moor a boat is to dock it"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "NIT",
+      "note": "nit is British slang for a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NIT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A CCTV camera catches a fool being put into the dock in court.",
+     "walkthrough": "'Dock' suggests the courtroom enclosure but is the verb to berth a ship.",
+     "definitionFit": "A monitor is a device that watches or screens, and a security camera is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dock"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1096,42 @@
     "text": "Lover, all smiles, purchasing work clothing",
     "enumeration": "8"
    },
-   "solution": "OVERALLS"
+   "solution": "OVERALLS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OVERALLS",
+    "definitions": [
+     {
+      "text": "work clothing",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "purchasing",
+      "for": "hidden_word",
+      "note": "purchasing here means acquiring, so the phrase before it holds the answer within itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lover, all smiles",
+      "gives": "OVERALLS",
+      "note": "the run starting after the first L and ending before mile"
+     }
+    ],
+    "explanation": {
+     "surface": "A beaming lover buys something to wear for work.",
+     "definitionFit": "Overalls are protective one-piece garments worn by workers over their ordinary clothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "purchasing"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1145,55 @@
     "text": "Service book not written about noise",
     "enumeration": "7"
    },
-   "solution": "ORDINAL"
+   "solution": "ORDINAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORDINAL",
+    "definitions": [
+     {
+      "text": "Service book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the not-written word wraps around the noise word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not written",
+      "gives": "ORAL",
+      "note": "oral means spoken rather than written down"
+     },
+     {
+      "clueFragment": "noise",
+      "gives": "DIN",
+      "note": "a din is a loud noise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "DIN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A church service book that is not written about noise.",
+     "walkthrough": "Besides the number sense, an ordinal is a book setting out the order of church services or ordination rites.",
+     "definitionFit": "An ordinal is a liturgical book of rites, so it is a book of church services."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Service"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1207,43 @@
     "text": "Barge could be after being unloaded?",
     "enumeration": "7"
    },
-   "solution": "LIGHTER"
+   "solution": "LIGHTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIGHTER",
+    "definitions": [
+     {
+      "text": "Barge",
+      "at": 0
+     },
+     {
+      "text": "could be after being unloaded?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barge",
+      "note": "first meaning: a flat-bottomed boat for unloading ships"
+     },
+     {
+      "clueFragment": "could be after being unloaded?",
+      "note": "second meaning: less heavy, as anything is once its load is removed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half reads as a description of a barge after its cargo is off, which is apt since that is the craft's job.",
+     "definitionFit": "A lighter is a barge used to ferry cargo, and lighter also means less heavy, as a vessel is once emptied."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "unloaded"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1257,51 @@
     "text": "Songs fabricated by Queen once",
     "enumeration": "6"
    },
-   "solution": "LIEDER"
+   "solution": "LIEDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIEDER",
+    "definitions": [
+     {
+      "text": "Songs",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fabricated",
+      "gives": "LIED",
+      "note": "lied means told falsehoods, made things up"
+     },
+     {
+      "clueFragment": "by",
+      "note": "places one piece beside the other"
+     },
+     {
+      "clueFragment": "Queen once",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, was the queen of the late reign"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIED",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Songs were invented by a former queen.",
+     "walkthrough": "ER is Elizabeth Regina; 'once' marks her as a past monarch now that a king reigns.",
+     "definitionFit": "Lieder are German art songs, typically for solo voice and piano, the plural of Lied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fabricated"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1315,43 @@
     "text": "Better person to steer vessel",
     "enumeration": "6"
    },
-   "solution": "PUNTER"
+   "solution": "PUNTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUNTER",
+    "definitions": [
+     {
+      "text": "Better",
+      "at": 0
+     },
+     {
+      "text": "person to steer vessel",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Better",
+      "note": "first meaning: one who bets, a gambler"
+     },
+     {
+      "clueFragment": "person to steer vessel",
+      "note": "second meaning: one who propels a flat river boat with a pole"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Better' reads as the comparative of good but is one who places bets. A punt is a flat-bottomed boat pushed with a pole, familiar on Oxford and Cambridge rivers.",
+     "definitionFit": "Punter is British slang for a gambler and also names whoever poles a punt along a river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Better"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1365,43 @@
     "text": "Hammered and tried to find gold",
     "enumeration": "6"
    },
-   "solution": "PANNED"
+   "solution": "PANNED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PANNED",
+    "definitions": [
+     {
+      "text": "Hammered",
+      "at": 0
+     },
+     {
+      "text": "tried to find gold",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hammered",
+      "note": "first meaning: harshly criticised, as a critic slams a show"
+     },
+     {
+      "clueFragment": "tried to find gold",
+      "note": "second meaning: washed river gravel in a shallow dish to search for gold"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Hammered' suggests metalworking beside gold, but it means savaged by reviewers.",
+     "definitionFit": "Panned is the past tense both of criticising severely and of sifting gravel in a pan for gold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hammered"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1415,65 @@
     "text": "Bond stealing a kiss for fun",
     "enumeration": "10"
    },
-   "solution": "RELAXATION"
+   "solution": "RELAXATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RELAXATION",
+    "definitions": [
+     {
+      "text": "fun",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stealing",
+      "for": "container",
+      "note": "stealing means taking something and keeping it, so the bond word holds the next pieces inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bond",
+      "gives": "RELATION",
+      "note": "a relation is a bond or connection"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "X",
+      "note": "X stands for a kiss, as at the end of a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REL",
+      "A",
+      "X",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "James Bond steals a kiss just for the fun of it.",
+     "walkthrough": "'Bond' looks like 007 but is a link between people; the kiss pair goes in after the third letter.",
+     "definitionFit": "Relaxation is recreation or leisure, so fun is a loose but fair equivalent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1487,49 @@
     "text": "Some con artists may, initially",
     "enumeration": "4"
    },
-   "solution": "SCAM"
+   "solution": "SCAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "SCAM",
+    "definitions": [
+     {
+      "text": "Some con artists may, initially",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some con artists may",
+      "gives": "SCAM",
+      "select": "first",
+      "note": "first letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry warning that a few con artists might strike.",
+     "walkthrough": "The whole clue is the definition too: what some con artists may do is pull exactly this trick.",
+     "definitionFit": "A scam is a fraudulent scheme, which is precisely what con artists carry out on victims."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1543,56 @@
     "text": "Beneath ocean is large marine creature",
     "enumeration": "4"
    },
-   "solution": "SEAL"
+   "solution": "SEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEAL",
+    "definitions": [
+     {
+      "text": "marine creature",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Beneath",
+      "for": "charade",
+      "note": "in a down clue beneath means placed below, so the ocean word sits on top"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ocean",
+      "gives": "SEA",
+      "note": "a sea is an ocean"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Below the ocean lives a large sea animal.",
+     "definitionFit": "A seal is a sea mammal that hunts in the ocean and hauls out on shore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1606,55 @@
     "text": "Premier accepts explosive demand",
     "enumeration": "6"
    },
-   "solution": "BEHEST"
+   "solution": "BEHEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEHEST",
+    "definitions": [
+     {
+      "text": "demand",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "accepting something means taking it in, so the premier word holds the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Premier",
+      "gives": "BEST",
+      "note": "premier means first or best"
+     },
+     {
+      "clueFragment": "explosive",
+      "gives": "HE",
+      "note": "HE is the abbreviation for high explosive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "HE",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A prime minister agrees to a volatile demand.",
+     "walkthrough": "'Premier' suggests a prime minister but is the adjective meaning top.",
+     "definitionFit": "A behest is a command or request, as in at the king's behest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Premier"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1668,56 @@
     "text": "Alpha males, fit and flexible",
     "enumeration": "8"
    },
-   "solution": "AMENABLE"
+   "solution": "AMENABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMENABLE",
+    "definitions": [
+     {
+      "text": "flexible",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alpha",
+      "gives": "A",
+      "note": "alpha is the NATO alphabet word for A"
+     },
+     {
+      "clueFragment": "males",
+      "gives": "MEN",
+      "note": "men are males"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "ABLE",
+      "note": "able means fit or capable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MEN",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Dominant alpha males who are also fit and supple.",
+     "walkthrough": "'Alpha males' reads as a single phrase but splits into two pieces.",
+     "definitionFit": "Amenable means open to persuasion, willing to go along, so flexible in attitude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Alpha"
+    }
+   }
   }
  ]
 }
