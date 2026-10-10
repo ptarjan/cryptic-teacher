@@ -3855,9 +3855,11 @@ RANKS = {"saved by hand": 0, "never read": 1, "annotation asked": 1, "inputs cha
          **{f"refused {c} before its fix": 2 for c in REFUSALS}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "scan stale": 3, "--reread": 3}
 #: The reasons of a read whose scan is by older scan code: "answers missing"
-#: when a stored title is the one after a puzzle read without answers that no
-#: page links a solution heading to (six after a Saturday's prize), the issue
-#: printing that solution (the scan code that moved may now read its heading);
+#: when a stored title is a puzzle read without answers that no page links a
+#: solution heading to and an edition is dated within SOLUTION_DAYS after it
+#: (its read waits on that scan, whose code may now read the heading), or the
+#: one after such a puzzle (six after a Saturday's prize), the issue printing
+#: that solution;
 #: "answers linked" when a puzzle it read without answers would now file
 #: whole (likely(): a stored scan links its solution heading now).
 STALE_SCAN = ("scan stale, answers missing", "scan stale", "scan stale, answers linked")
@@ -3904,10 +3906,18 @@ def _plan_paper(paper, cache, ledger, reread, asked, dirs):
     held = held_dates(paper.series)
     solutions, sources = solution_sources(every, scans, rels, held, sister_solutions(cache, paper))
     asked = set(asked)
-    answerless = {v["number"] + (6 if datetime.date.fromisoformat(row["scan"]["date"]).weekday() == 5 else 1)
+    unanswered = {(v["number"], datetime.date.fromisoformat(row["scan"]["date"]).weekday() == 5)
                   for row in known.values() if (row.get("scan") or {}).get("date") for v in row.get("verdicts", ())
                   if v.get("number") and not (v.get("solutionFrom") or v.get("refused") or v.get("pending"))
                   and v["number"] not in solutions}
+    later = sorted(filter(None, map(edition_date, every)))
+
+    def has_host(d):
+        day = edition_date(d)
+        k = len(later) if day is None else bisect.bisect_right(later, day)
+        return k < len(later) and (later[k] - day).days <= SOLUTION_DAYS
+    answerless = {n + (6 if sat else 1) for n, sat in unanswered}
+    answerless_own = {n for n, _ in unanswered}
     reads = {}
     for d in dirs:
         rel, row = rels[d], known.get(rels[d]) or {}
@@ -3916,7 +3926,8 @@ def _plan_paper(paper, cache, ledger, reread, asked, dirs):
             # edition at once, a whole-corpus re-read.
             why = ("never read" if "inputs" not in row else
                    "inputs changed" if row.get("filesHash") != fhs[d] else
-                   STALE_SCAN[0] if any(p["number"] in answerless for p in scans[rel]["puzzles"]) else
+                   STALE_SCAN[0] if any(p["number"] in answerless or p["number"] in answerless_own and has_host(d)
+                                        for p in scans[rel]["puzzles"]) else
                    fix_reason(row) or STALE_SCAN[1])
         else:
             sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
