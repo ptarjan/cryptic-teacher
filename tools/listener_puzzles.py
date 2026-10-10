@@ -55,9 +55,9 @@ SITE = "https://www.listenercrossword.com"
 GENERATOR = "tools/listener_puzzles.py"
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; github.com/ptarjan/cryptic-teacher)"}
 
-#: The archive PDFs, with the print day the site's 1930-31 year pages give.
-PDFS = {1: "1930-04-02", 3: "1930-04-16", 29: "1930-10-15", 93: "1932-01-06",
-        111: "1932-05-11"}
+#: The archive PDFs' numbers. Each one's print day is the site's year index's
+#: (gale_listener.index()), the one table every Listener filer dates by.
+PDFS = (1, 3, 29, 93, 111)
 
 #: Puzzles read and deliberately not filed, and why.
 SKIP = {
@@ -826,8 +826,11 @@ def file_times(write=True, log=print):
 
 
 def file_pdfs(write=True, log=print):
+    import gale_listener  # imports this module, so not at the top
+    dates = {r["number"]: r["date"].isoformat() for r in gale_listener.index()}
     filed = []
-    for number, date in sorted(PDFS.items()):
+    for number in PDFS:
+        date = dates[number]
         if number in SKIP:
             log(f"  {number}: skipped, {SKIP[number]}")
             continue
