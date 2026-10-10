@@ -112,20 +112,21 @@ def shipped():
             if not n.startswith(UNSHIPPED) and n != MANIFEST and (root / n).is_file()}
 
 
-#: Where code_hash() and versions() are kept for each clean commit of the
-#: tree (kept()): hashing the shipped files reads 45 MB, and versions()
+#: Where code_hash() and versions() are kept for each clean git tree of
+#: tools/ (kept()): hashing the shipped files reads 45 MB, and versions()
 #: loads the readers' packages, in every process that opens a session.
 KEPT = Path.home() / ".cache" / "ocr_remote"
 
 
-def tree_commit():
-    """The commit the shipped files are, or None: on the desktop (MANIFEST,
+def tools_tree():
+    """The git tree of tools/ the shipped files are (a commit touching no
+    tools/ file keeps it), or None: on the desktop (MANIFEST,
     no git) or with a file under tools/ changed from it."""
     root = TOOLS.parent
     if (root / MANIFEST).exists():
         return None
     try:
-        head = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD"], capture_output=True, text=True,
+        head = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD:tools"], capture_output=True, text=True,
                               check=True).stdout.strip()
         clean = subprocess.run(["git", "-C", str(root), "diff", "--quiet", "HEAD", "--", "tools"],
                                capture_output=True, check=False).returncode == 0
@@ -165,7 +166,7 @@ def hash_of(files):
 
 def code_hash():
     """hash_of(shipped())."""
-    return kept("code", tree_commit, lambda: hash_of(shipped()))
+    return kept("code", tools_tree, lambda: hash_of(shipped()))
 
 
 def code_dir():
@@ -195,11 +196,11 @@ def versions():
 
 
 def versions_key():
-    """versions()'s key, or None (made afresh): the tree's commit
-    (tree_commit) with this Python, its package directories' mtimes (an
+    """versions()'s key, or None (made afresh): the tools/ tree
+    (tools_tree) with this Python, its package directories' mtimes (an
     install or upgrade adds or renames an entry), tesseract's and each
     model's stamp."""
-    head = tree_commit()
+    head = tools_tree()
     if head is None:
         return None
     import shutil
