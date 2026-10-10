@@ -763,11 +763,18 @@ def read_framed(image, grid):
             take(key, word)
     for key, word in agreed_reads(lts, reads).items():
         take(key, word)
-    accepted.update(crossed_reads(lts, accepted, every))
-    everys = [r[2] for r in reads]
-    accepted.update(numbered_swaps(lts, accepted, everys))
-    accepted.update(listed_reads(lts, accepted, everys))
-    accepted.update(plain_swaps(lts, accepted, everys))
+    everys, printeds = [r[2] for r in reads], [r[3] for r in reads]
+    # Each light taken settles letters for its crossings: the rules run
+    # again until none takes a light.
+    while True:
+        before = len(accepted)
+        accepted.update(crossed_reads(lts, accepted, every))
+        accepted.update(numbered_swaps(lts, accepted, everys))
+        accepted.update(listed_reads(lts, accepted, everys))
+        accepted.update(plain_swaps(lts, accepted, everys))
+        accepted.update(whole_listed(lts, accepted, printeds))
+        if len(accepted) == before:
+            break
     return accepted, {**stats, "accepted": len(accepted), "lattices": len(reads)}
 
 
@@ -907,6 +914,38 @@ def plain_swaps(lts, accepted, everys):
         if len(near) == 1 and not listed(word):
             return near[0][1]
     return settled_reads(lts, accepted, everys, pick)
+
+
+def whole_listed(lts, accepted, printeds):
+    """{key: word} for lights not `accepted` that a recogniser read whole,
+    on any lattice (`printeds`: read_lattice's whole reads), as exactly one
+    listed() word agreeing with every accepted light it crosses, where every
+    letter change making another listed word lands in a cell an accepted
+    crossing holds, and half or more of its crossings are accepted. A heavy
+    print's cells are rarely each read surely, yet its lights are read
+    whole (PATRONISE, PITCHER), and the crossings settle the letters a
+    misread could change (HESTER for TESTER). Each light taken counts for
+    its crossings, until none is taken."""
+    crossing = {key: [k for k, cs in lts.items() if k != key and set(cs) & set(cells)]
+                for key, cells in lts.items()}
+    have, out = dict(accepted), {}
+    settled = True
+    while settled:
+        settled = False
+        held = {rc: ch for key, w in have.items() for rc, ch in zip(lts[key], w)}
+        for key, cells in lts.items():
+            if key in have or 2 * sum(k in have for k in crossing[key]) < len(crossing[key]):
+                continue
+            words = {w for p in printeds for w in p.get(key, ()) if listed(w)
+                     and all(held.get(rc, ch) == ch for rc, ch in zip(cells, w))}
+            if len(words) != 1:
+                continue
+            word = words.pop()
+            if all(cells[i] in held for i, _ in one_change(word)):
+                have[key] = out[key] = word
+                settled = True
+                break
+    return out
 
 
 def read_lattice(gray, ys, xs, grid):
