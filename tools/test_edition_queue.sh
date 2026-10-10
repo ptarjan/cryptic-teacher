@@ -159,9 +159,9 @@ def v(n, **kw):
 part = lambda gap: {"solutionFrom": "x", "solution": {"lights": 30, "accepted": 30 - gap}}
 q.append(lc / "filed.jsonl", [
     lrow("1980-02-04_1", [90100], [v(90100)]),  # answerless; 02-05's stored heading links it now
-    lrow("1980-02-05_2", [90101], [v(90101)], sols=[90100]),  # answerless; 02-06's text prints its heading
+    lrow("1980-02-05_2", [90101], [v(90101)], sols=[90100]),  # answerless, a later edition held: rank 2; 02-06's text prints its heading
     lrow("1980-02-06_3", [90102], [v(90102, **part(5))]),  # the next issue of 90101: its text links it
-    lrow("1980-02-12_9", [90104], [v(90104)]),  # answerless, its next issue's text links nothing
+    lrow("1980-02-12_9", [90104], [v(90104)]),  # answerless, a later edition held: rank 2; its next issue's text links nothing
     lrow("1980-02-13_10", [90105], [v(90105)]),  # the next issue of 90104, newer than 02-06
     lrow("1980-01-21_0", [90090], [v(90090, **part(1))], scanKey=f.scan_key()),  # a grid two lights short
     lrow("1980-01-22_0", [90091], [v(90091, **part(5))], scanKey=f.scan_key())])  # mirror: five short, newer
@@ -179,7 +179,8 @@ check("a stale scan whose puzzle a stored heading now answers ranks 2, not with 
       ("1980-02-04_1", "scan stale, answers linked", 2, {"answers linked": 1}),
       next(g for g in got if g[0] == "1980-02-04_1"))
 check("within rank 2 the predicted re-reads go first, newest first among equals; then the rest newest first",
-      ["1980-02-06_3", "1980-02-04_1", "1980-01-21_0", "1980-02-13_10", "1980-01-22_0"],
+      ["1980-02-06_3", "1980-02-04_1", "1980-01-21_0", "1980-02-13_10", "1980-02-12_9", "1980-02-05_2",
+       "1980-01-22_0"],
       [g[0] for g in got if g[2] == 2])
 check("the next issue of an answerless puzzle its text links is predicted; one its text does not link is not",
       ({"answers in the next issue's text": 1}, None),
@@ -188,7 +189,7 @@ check("a grid read before read_framed two lights short is predicted, five short 
       ({"solution grid read before read_framed": 1}, None),
       tuple(next(g[3] for g in got if g[0] == n) for n in ("1980-01-21_0", "1980-01-22_0")))
 check("only the editions due as an answerless puzzle's next issue have their text read",
-      ["1980-02-06_3", "1980-02-13_10"], sorted(text_read))
+      ["1980-02-05_2", "1980-02-06_3", "1980-02-12_9", "1980-02-13_10"], sorted(text_read))
 whole = T / "times-90100.json"
 whole.write_text(json.dumps({"entries": [{"clue": "c", "solution": "S"}]}))
 f._HELD_PATH[("times", 90100)] = whole
