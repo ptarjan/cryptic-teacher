@@ -3406,7 +3406,13 @@ def _fold_standing(known, line):
 
 def standing(paper, cache=CACHE):
     """{edition: ledger row} of `paper`'s ledger now, for scan_stands."""
-    return dir_cache.appended(ledger_of(cache, paper), dict, _fold_standing)
+    return _standing(ledger_of(cache, paper))
+
+
+def _standing(ledger):
+    """standing() of `ledger`: the queue's main thread's fold of it, shared
+    by scan_stands and brief(), which read its rows and change none."""
+    return dir_cache.appended(ledger, dict, _fold_standing)
 
 
 def scan_stands(paper, rel, cache=CACHE, rows=None):
@@ -3994,7 +4000,9 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     prepared = bool((unit or {}).get("brief"))
     # A row appended past here is one brief()'s unit looks for (edition_commit.read_since).
     ledger_size = ledger.stat().st_size if prepared and ledger.exists() else 0
-    known = load_known(ledger)
+    # brief() shares the queue's standing() rows (only lines appended since
+    # parsed): it returns before any scan or read writes to known.
+    known = _standing(ledger) if prepared else load_known(ledger)
     # A unit (read_unit) adds the rows it changed to the ledger; a run
     # holding the ledger's lock throughout rewrites it whole.
     changed = set()

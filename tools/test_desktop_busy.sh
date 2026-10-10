@@ -93,6 +93,11 @@ check("idle again: resumes, logging one line", (None, 2), (db.busy([DESK]), len(
 now[0] += db.PROBE_EVERY + 1
 answer[0] = None
 check("a desktop that stops answering is not busy, and is no new transition", (None, 2), (db.busy([DESK]), len(logs)))
+check("mirror: one that does not answer has no free memory to tell", None, db.free_mb([DESK]))
+now[0] += db.PROBE_EVERY + 1
+answer[0] = {**reading(), "freeMB": 6000}
+check("its free memory is the probe's, with when it was read", (now[0], 6000), db.free_mb([DESK]))
+check("mirror: a host that is not the desktop has none", None, db.free_mb(["nobody@127.0.0.1"]))
 
 # ocr_remote: a busy desktop closes the session before its next read and
 # abandons one waiting on a read; it is tried again once idle, not in RETRY.
