@@ -37,6 +37,9 @@
   "date": "2021-03-14",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,54 @@
     "text": "Counts about one hundred lymphocytes",
     "enumeration": "6"
    },
-   "solution": "TCELLS"
+   "solution": "TCELLS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TCELLS",
+    "definitions": [
+     {
+      "text": "lymphocytes",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing set about another surrounds it, so the counting word wraps the number"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Counts",
+      "gives": "TELLS",
+      "note": "to tell is an old sense of to count, as in telling beads"
+     },
+     {
+      "clueFragment": "one hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "C",
+      "ELLS"
+     ]
+    },
+    "explanation": {
+     "surface": "A lab technician tallies white blood cells under the microscope.",
+     "definitionFit": "T-cells are a class of white blood cell central to the immune response, so they are lymphocytes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Counts"
+    }
+   }
   },
   {
    "number": 1,
@@ -64,7 +114,80 @@
     "text": "Leader on pandemic missed, Telegraph's too subtle for shallow minister",
     "enumeration": "12"
    },
-   "solution": "THEOLOGASTER"
+   "solution": "THEOLOGASTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "THEOLOGASTER",
+    "definitions": [
+     {
+      "text": "shallow minister",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leader on",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter, so only the start of the next word is wanted"
+     },
+     {
+      "text": "missed",
+      "for": "deletion",
+      "note": "something missed is left out, so that letter is taken away from the rest"
+     },
+     {
+      "text": "subtle",
+      "for": "anagram",
+      "note": "subtle suggests cunning or intricate working, so the remaining letters are artfully rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pandemic",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of pandemic, the one to be dropped"
+     },
+     {
+      "clueFragment": "Telegraph's",
+      "gives": "TELEGRAPHS",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "too",
+      "gives": "TOO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEOLOGASTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TELEGRAHSTOO",
+       "gives": "THEOLOGASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper's leader skips the pandemic and is too clever for a shallow clergyman to follow.",
+     "walkthrough": "Remove the P from TELEGRAPHS + TOO and the twelve letters left rearrange into THEOLOGASTER.",
+     "definitionFit": "A theologaster is a petty or superficial theologian, a sciolist in divinity, so a shallow minister fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "subtle"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +201,56 @@
     "text": "Look out from nearby areas for folded over pizzas",
     "enumeration": "8"
    },
-   "solution": "CALZONES"
+   "solution": "CALZONES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CALZONES",
+    "definitions": [
+     {
+      "text": "folded over pizzas",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out from",
+      "for": "deletion",
+      "note": "putting something out from a phrase removes it, leaving the rest behind"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo is an old exclamation meaning look"
+     },
+     {
+      "clueFragment": "nearby areas",
+      "gives": "LOCALZONES",
+      "note": "nearby areas are local zones"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CALZONES"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to watch out for folded pizzas from the takeaways in the neighbourhood.",
+     "walkthrough": "Strike LO from the front of LOCAL ZONES.",
+     "definitionFit": "A calzone is an Italian turnover made by folding a pizza base over its filling and baking it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Look"
+    }
+   }
   },
   {
    "number": 3,
@@ -92,7 +264,73 @@
     "text": "Bang on about cutting levy on energy going up",
     "enumeration": "5"
    },
-   "solution": "EXACT"
+   "solution": "EXACT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "EXACT",
+    "definitions": [
+     {
+      "text": "Bang on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going up",
+      "for": "reversal",
+      "note": "in a down entry, going up reads the letters from bottom to top, so backwards"
+     },
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "something cutting into a word is inserted inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "levy",
+      "gives": "TAX",
+      "note": "a tax is a levy"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c. (circa) means about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXA",
+      "C",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TAXE",
+       "to": "EXAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a tax cut on energy is going up is exactly right.",
+     "walkthrough": "Here 'about' supplies a letter (c. for circa), not a container signal; 'cutting' does that job.",
+     "definitionFit": "Bang on is informal for precisely right, which is what exact means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +344,55 @@
     "text": "Stories going round interest flyers",
     "enumeration": "7"
    },
-   "solution": "LINTIES"
+   "solution": "LINTIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LINTIES",
+    "definitions": [
+     {
+      "text": "flyers",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "a word going round another encircles it, holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stories",
+      "gives": "LIES",
+      "note": "lies are made-up stories"
+     },
+     {
+      "clueFragment": "interest",
+      "gives": "INT",
+      "note": "INT is the standard abbreviation for interest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "INT",
+      "IES"
+     ]
+    },
+    "explanation": {
+     "surface": "Rumours circulating stir up curiosity in leaflets being handed round.",
+     "definitionFit": "Linties is a Scots name for linnets, small songbirds, so they are flyers in the bird sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flyers"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +406,60 @@
     "text": "Scorer starts with screen activated before match",
     "enumeration": "5"
    },
-   "solution": "SATIE"
+   "solution": "SATIE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SATIE",
+    "definitions": [
+     {
+      "text": "Scorer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts with",
+      "for": "letter_selection",
+      "note": "the starts of the following words are their opening letters only"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "screen activated",
+      "gives": "SA",
+      "select": "first",
+      "note": "opening letters of screen and activated"
+     },
+     {
+      "clueFragment": "match",
+      "gives": "TIE",
+      "note": "a tie is a match, as in a cup tie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "TIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer's goal shown when the screen comes on before kick-off.",
+     "walkthrough": "'Scorer' looks like a goalscorer; it means one who writes scores.",
+     "definitionFit": "Erik Satie was a French composer, and a composer writes musical scores, so he is a scorer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Scorer"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +473,72 @@
     "text": "Gold coins found by the way in US state? Pinch of salt applied",
     "enumeration": "6"
    },
-   "solution": "KOBANS"
+   "solution": "KOBANS",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KOBANS",
+    "definitions": [
+     {
+      "text": "Gold coins",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found",
+      "for": "container",
+      "note": "something found in a place sits inside it, so the abbreviation goes within the state"
+     },
+     {
+      "text": "Pinch of",
+      "for": "letter_selection",
+      "note": "a pinch is a tiny amount, here only the first letter"
+     }
+    ],
+    "linkWords": [
+     "applied"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US state",
+      "gives": "KAN",
+      "note": "KAN is an old three-letter abbreviation for Kansas"
+     },
+     {
+      "clueFragment": "by the way",
+      "gives": "OB",
+      "note": "ob. abbreviates obiter, Latin for by the way"
+     },
+     {
+      "clueFragment": "salt",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of salt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "OB",
+      "AN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds gold coins by the roadside in America, though the story is to be taken with a pinch of salt.",
+     "walkthrough": "The US state needs its old three-letter abbreviation KAN, not the modern postal KS.",
+     "definitionFit": "The koban was an oval gold coin of feudal Japan, so kobans are gold coins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +552,43 @@
     "text": "Start where shooting takes place",
     "enumeration": "5"
    },
-   "solution": "ONSET"
+   "solution": "ONSET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONSET",
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     },
+     {
+      "text": "where shooting takes place",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Start",
+      "note": "first meaning: a beginning"
+     },
+     {
+      "clueFragment": "where shooting takes place",
+      "note": "second meaning, read as two words: the location where filming happens"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Shooting means filming, not firearms; split the answer into ON SET for the second meaning.",
+     "definitionFit": "An onset is the beginning of something, while on set is where a film crew shoots scenes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shooting"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +602,68 @@
     "text": "Sharp character, governor's holding barrister up",
     "enumeration": "5"
    },
-   "solution": "BECKY"
+   "solution": "BECKY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BECKY",
+    "definitions": [
+     {
+      "text": "Sharp character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the letters are read from the bottom, backwards"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "something holding another keeps it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "governor's",
+      "gives": "BEY",
+      "note": "a bey was a Turkish provincial governor"
+     },
+     {
+      "clueFragment": "barrister",
+      "gives": "KC",
+      "note": "a KC is a King's Counsel, a senior barrister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "CK",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "KC",
+       "to": "CK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shrewd personality: the governor is propping up his lawyer.",
+     "walkthrough": "'Sharp character' is a fictional one: Becky Sharp, the scheming heroine of Thackeray's Vanity Fair.",
+     "definitionFit": "Becky is the first name of Becky Sharp, so the character named Sharp is Becky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sharp"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +677,49 @@
     "text": "Field in Hebridean isle, a little hard to get to the bottom",
     "enumeration": "6"
    },
-   "solution": "ARRISH"
+   "solution": "ARRISH",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ARRISH",
+    "definitions": [
+     {
+      "text": "Field",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little hard to get to the bottom",
+      "for": "cycling",
+      "note": "the little abbreviation for hard is sent to the bottom, which in a down entry is the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hebridean isle",
+      "gives": "HARRIS",
+      "note": "Harris is part of Lewis and Harris in the Outer Hebrides"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARRIS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A field on a Scottish island where the ground is a bit hard to dig down into.",
+     "walkthrough": "H is the usual abbreviation for hard, as on pencils, and it is the first letter of the island that moves to the end.",
+     "definitionFit": "Arrish is a dialect word for a stubble field after harvest, so it is a kind of field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +733,64 @@
     "text": "Gripping topmost of hotel skyscraper, I get to slip badly?",
     "enumeration": "12"
    },
-   "solution": "STEGOPHILIST"
+   "solution": "STEGOPHILIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "STEGOPHILIST",
+    "definitions": [
+     {
+      "text": "Gripping topmost of hotel skyscraper, I get to slip badly?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topmost of",
+      "for": "letter_selection",
+      "note": "the topmost letter of a word in a down entry is its first"
+     },
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "done badly, the words are jumbled into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel skyscraper",
+      "gives": "HS",
+      "select": "first",
+      "note": "the first letters of hotel and skyscraper"
+     },
+     {
+      "clueFragment": "I get to slip",
+      "gives": "IGETTOSLIP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HSIGETTOSLIP",
+       "gives": "STEGOPHILIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A climber clinging to the top of a hotel tower fears a slip.",
+     "walkthrough": "The whole clue is the definition: such a climber, gripping a building's top, might well slip.",
+     "definitionFit": "A stegophilist is someone who climbs buildings for sport, so clinging to a skyscraper's top describes one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Gripping"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +804,68 @@
     "text": "One Knight facing another in felt cap? Could be me",
     "enumeration": "8"
    },
-   "solution": "BANNERET"
+   "solution": "BANNERET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BANNERET",
+    "definitions": [
+     {
+      "text": "Could be me",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "facing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "Knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "N",
+      "note": "another knight, so a second N"
+     },
+     {
+      "clueFragment": "felt cap",
+      "gives": "BERET",
+      "note": "a beret is a soft felt cap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ANN",
+      "ERET"
+     ]
+    },
+    "explanation": {
+     "surface": "Two knights face off, and one in a felt cap says it could be him.",
+     "walkthrough": "The answer speaks for itself: a banneret is a knight, so the knights in the wordplay could be it.",
+     "definitionFit": "A knight banneret led his own troops under a banner, so the knight described could be one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "facing"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +879,74 @@
     "text": "Local rules mostly to stop teens flying kites",
     "enumeration": "7"
    },
-   "solution": "ELANETS"
+   "solution": "ELANETS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "ELANETS",
+    "definitions": [
+     {
+      "text": "kites",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not all, so the last letter is dropped"
+     },
+     {
+      "text": "flying",
+      "for": "anagram",
+      "note": "letters sent flying are scattered into a new order"
+     },
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "to stop a gap something fills it, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Local rules",
+      "gives": "LAW",
+      "note": "local rules are law"
+     },
+     {
+      "clueFragment": "teens",
+      "gives": "TEENS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LA",
+      "NETS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEENS",
+       "gives": "ENETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Local regulations are meant to stop youngsters flying kites.",
+     "walkthrough": "Kites are the birds, not the toys; 'Local rules' is just law.",
+     "definitionFit": "Elanets are birds of prey of the genus Elanus, a group of small kites."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kites"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +960,70 @@
     "text": "Charlie in spikes returning from gravelly slope in the Cairngorms",
     "enumeration": "5"
    },
-   "solution": "SCRAE"
+   "solution": "SCRAE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SCRAE",
+    "definitions": [
+     {
+      "text": "gravelly slope in the Cairngorms",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning goes back the way it came, so read the word backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     },
+     {
+      "clueFragment": "spikes",
+      "gives": "EARS",
+      "note": "ears of grain are spikes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "RAE"
+     ],
+     "reversals": [
+      {
+       "from": "EARS",
+       "to": "SRAE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner called Charlie wearing spiked shoes comes back from a scree slope in the Scottish mountains.",
+     "walkthrough": "Spikes are ears of corn, not running shoes; the Cairngorms are a Scottish mountain range, marking a Scots word.",
+     "definitionFit": "Scrae is a Scots form of scree, the loose stones covering a mountain slope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spikes"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +1037,46 @@
     "text": "Royal deputy is most important purveyor of depravity",
     "enumeration": "8"
    },
-   "solution": "VICEKING"
+   "solution": "VICEKING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VICEKING",
+    "definitions": [
+     {
+      "text": "Royal deputy",
+      "at": 0
+     },
+     {
+      "text": "most important purveyor of depravity",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal deputy",
+      "note": "first meaning: one ruling in place of a monarch"
+     },
+     {
+      "clueFragment": "most important purveyor of depravity",
+      "note": "second meaning, read as two words: the top dealer in vice"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning splits the answer into VICE KING, a kingpin of the vice trade.",
+     "definitionFit": "A viceking is a viceroy, governing for the sovereign; a vice king is the chief racketeer in immorality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "depravity"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +1090,62 @@
     "text": "Stick that's good for large number in tribe",
     "enumeration": "4"
    },
-   "solution": "CLAG"
+   "solution": "CLAG",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CLAG",
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "good for large number in",
+      "for": "substitution",
+      "note": "one letter for another in a word means swapping it in"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G abbreviates good"
+     },
+     {
+      "clueFragment": "large number",
+      "gives": "N",
+      "note": "N stands for an unspecified large number"
+     },
+     {
+      "clueFragment": "tribe",
+      "gives": "CLAN",
+      "note": "a clan is a tribe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLA",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A walking stick that suits a whole tribe.",
+     "walkthrough": "Swap the N of CLAN for G.",
+     "definitionFit": "Clag is a dialect verb meaning to stick or clog, as wet mud clings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1159,65 @@
     "text": "Quickly going round behind line associated with running water",
     "enumeration": "5"
    },
-   "solution": "LOTIC"
+   "solution": "LOTIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LOTIC",
+    "definitions": [
+     {
+      "text": "associated with running water",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "reversal",
+      "note": "going round turns about to face the other way, so read it backwards"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places one piece after another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L abbreviates line"
+     },
+     {
+      "clueFragment": "Quickly",
+      "gives": "CITO",
+      "note": "cito is Latin for quickly, used on prescriptions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OTIC"
+     ],
+     "reversals": [
+      {
+       "from": "CITO",
+       "to": "OTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurries round behind a queue near a stream.",
+     "definitionFit": "Lotic describes habitats or organisms of flowing freshwater, as opposed to lentic still waters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Quickly"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1231,65 @@
     "text": "As before, I'd arrange day with expert screening internet business",
     "enumeration": "8"
    },
-   "solution": "DISPONER"
+   "solution": "DISPONER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DISPONER",
+    "definitions": [
+     {
+      "text": "As before, I'd arrange",
+      "at": 0,
+      "note": "the definition is first person: one who would arrange, so a noun for that person"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screening",
+      "for": "container",
+      "note": "something screening another hides it behind or within itself"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D abbreviates day"
+     },
+     {
+      "clueFragment": "internet business",
+      "gives": "ISP",
+      "note": "an ISP is an internet service provider"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ONER",
+      "note": "a oner is someone expert at something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ISP",
+      "ONER"
+     ]
+    },
+    "explanation": {
+     "surface": "A planner, as before, intends to set up a meeting with an expert from a web company.",
+     "walkthrough": "'As before' marks an archaic sense: 'I'd arrange' is said by the arranger, and dispone once meant to arrange.",
+     "definitionFit": "A disponer is one who disposes or arranges, an obsolete sense, so it names the speaker who would arrange."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "arrange"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1303,67 @@
     "text": "The ground crews knowing position of Polish officer",
     "enumeration": "10"
    },
-   "solution": "HETMANSHIP"
+   "solution": "HETMANSHIP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HETMANSHIP",
+    "definitions": [
+     {
+      "text": "position of Polish officer",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "something ground is crushed up, so these letters break up and re-form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "crews",
+      "gives": "MANS",
+      "note": "to crew a ship is to man it"
+     },
+     {
+      "clueFragment": "knowing",
+      "gives": "HIP",
+      "note": "hip means in the know"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HET",
+      "MANS",
+      "HIP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THE",
+       "gives": "HET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Groundstaff who know the score about a Polish military rank.",
+     "walkthrough": "'The ground crews' looks like a phrase about groundstaff; 'ground' is the anagram signal for THE.",
+     "definitionFit": "A hetman was a Polish military commander, so hetmanship is the rank or office of that officer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 19,
@@ -316,7 +1377,57 @@
     "text": "Ambling without purpose not very good for crowd",
     "enumeration": "4"
    },
-   "solution": "MONG"
+   "solution": "MONG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MONG",
+    "definitions": [
+     {
+      "text": "crowd",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ambling without purpose",
+      "gives": "MOPING",
+      "note": "moping about is wandering aimlessly"
+     },
+     {
+      "clueFragment": "very good",
+      "gives": "PI",
+      "note": "pi is short for pious, very good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "Wandering aimlessly isn't much good for a crowd.",
+     "walkthrough": "Take PI out of MOPING.",
+     "definitionFit": "Mong is an Australian slang and dialect word for a mixed crowd or mixture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1441,68 @@
     "text": "More than one saw deplorable meetings about dropping English",
     "enumeration": "7"
    },
-   "solution": "STADDAS"
+   "solution": "STADDAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "STADDAS",
+    "definitions": [
+     {
+      "text": "More than one saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping English",
+      "for": "deletion",
+      "note": "dropping the English letter takes the abbreviation for English out"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about, the whole sequence faces the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deplorable",
+      "gives": "SAD",
+      "note": "sad means deplorable"
+     },
+     {
+      "clueFragment": "meetings",
+      "gives": "DATES",
+      "note": "dates are meetings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAD",
+      "DAS"
+     ],
+     "reversals": [
+      {
+       "from": "SADDATS",
+       "to": "STADDAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saw a run of miserable meetings with the English dropped.",
+     "walkthrough": "Remove the E from DATES, join to SAD, and reverse everything. 'Saw' looks like a verb; it is the noun.",
+     "definitionFit": "A stadda is a double-edged comb-maker's saw, so staddas is the plural, more than one such tool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1522,58 @@
      }
     ]
    },
-   "solution": "GENSTOGATA"
+   "solution": "GENSTOGATA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GENS TOGATA",
+    "definitions": [
+     {
+      "text": "The Romans",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dealing",
+      "for": "anagram",
+      "note": "dealing deals out cards in a new order, so these letters are redistributed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get on",
+      "gives": "GETON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a stag",
+      "gives": "ASTAG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETONASTAG",
+       "gives": "GENSTOGATA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Romans got on with hunting a stag.",
+     "definitionFit": "Gens togata, the toga-wearing nation, is Virgil's phrase for the Romans as a people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dealing"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1587,64 @@
     "text": "Hurry up witch for the Tower",
     "enumeration": "6"
    },
-   "solution": "NURHAG"
+   "solution": "NURHAG",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NURHAG",
+    "definitions": [
+     {
+      "text": "the Tower",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up reads the letters from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hurry",
+      "gives": "RUN",
+      "note": "to run is to hurry"
+     },
+     {
+      "clueFragment": "witch",
+      "gives": "HAG",
+      "note": "a hag is a witch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUR",
+      "HAG"
+     ],
+     "reversals": [
+      {
+       "from": "RUN",
+       "to": "NUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A witch is urged to hurry to the Tower, like a prisoner in an old tale.",
+     "walkthrough": "'The Tower' suggests the Tower of London, but it is a Sardinian stone tower.",
+     "definitionFit": "A nurhag, or nuraghe, is a prehistoric round stone tower found in Sardinia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tower"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1658,65 @@
     "text": "Nirvana contrived in failing Hindu caste",
     "enumeration": "5"
    },
-   "solution": "VARNA"
+   "solution": "VARNA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "VARNA",
+    "definitions": [
+     {
+      "text": "Hindu caste",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing",
+      "for": "deletion",
+      "note": "failing means lacking, so those letters are absent"
+     },
+     {
+      "text": "contrived",
+      "for": "anagram",
+      "note": "something contrived is artificially put together, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nirvana",
+      "gives": "NIRVANA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the word in, to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VARNA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RVANA",
+       "gives": "VARNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bliss is artificially attained within a Hindu caste that is in decline.",
+     "walkthrough": "Take IN from NIRVANA and rearrange what is left.",
+     "definitionFit": "Varna is any of the four great classes of traditional Hindu society, the broad caste groups."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nirvana"
+    }
+   }
   },
   {
    "number": 24,
@@ -392,7 +1730,72 @@
     "text": "Do absorbing new series on heart of Whitehall? Not yet firm",
     "enumeration": "5"
    },
-   "solution": "UNSET"
+   "solution": "UNSET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UNSET",
+    "definitions": [
+     {
+      "text": "Not yet firm",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart of",
+      "for": "letter_selection",
+      "note": "the heart of a word is its central letter"
+     },
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "something absorbing others takes them inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do",
+      "gives": "UT",
+      "note": "ut is the old name for the note do in sol-fa"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N abbreviates new"
+     },
+     {
+      "clueFragment": "series",
+      "gives": "S",
+      "note": "S abbreviates series"
+     },
+     {
+      "clueFragment": "Whitehall",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of Whitehall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NSE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A government event features a new series of policies, though plans are not yet fixed.",
+     "walkthrough": "'Do' is the sol-fa note, whose older name is ut; Whitehall is the street of British government ministries.",
+     "definitionFit": "Unset describes something like jelly or concrete that has not yet hardened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Do"
+    }
+   }
   },
   {
    "number": 25,
@@ -406,7 +1809,54 @@
     "text": "Quiet apart from attending home",
     "enumeration": "5"
    },
-   "solution": "PLACE"
+   "solution": "PLACE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PLACE",
+    "definitions": [
+     {
+      "text": "home",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "apart from",
+      "for": "deletion",
+      "note": "apart from means except, so that part is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "PLACATE",
+      "note": "to quiet someone is to placate them"
+     },
+     {
+      "clueFragment": "attending",
+      "gives": "AT",
+      "note": "at means present at, attending"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAC",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A request for silence except from those who attend.",
+     "walkthrough": "'Quiet' is a verb here; remove AT from PLACATE.",
+     "definitionFit": "Place is informal for someone's home, as in coming back to my place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Quiet"
+    }
+   }
   },
   {
    "number": 26,
@@ -420,7 +1870,50 @@
     "text": "Poet's together with sanctimonious Greek character",
     "enumeration": "5"
    },
-   "solution": "SAMPI"
+   "solution": "SAMPI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAMPI",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet's together",
+      "gives": "SAM",
+      "note": "sam is Spenser's word for together"
+     },
+     {
+      "clueFragment": "sanctimonious",
+      "gives": "PI",
+      "note": "pi is short for pious, sanctimonious"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAM",
+      "PI"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet joins forces with a self-righteous Greek.",
+     "walkthrough": "'Poet's' signals a word used by a poet, here Spenser.",
+     "definitionFit": "Sampi is an obsolete letter of the Greek alphabet used as the numeral 900."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 27,
@@ -434,7 +1927,68 @@
     "text": "What signifies no end of fishermen close to shore? Lots of herring",
     "enumeration": "5"
    },
-   "solution": "MEASE"
+   "solution": "MEASE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MEASE",
+    "definitions": [
+     {
+      "text": "Lots of herring",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no end of",
+      "for": "deletion",
+      "note": "no end of something leaves its final letter missing"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What signifies",
+      "gives": "MEANS",
+      "note": "means is the thing that signifies, as in what it means"
+     },
+     {
+      "clueFragment": "fishermen",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of fishermen, to be removed"
+     },
+     {
+      "clueFragment": "shore",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of shore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEAS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A sign for fishermen that no end of herring are near the shore.",
+     "walkthrough": "Remove the final letter of fishermen, N, from MEANS, then add the last letter of shore.",
+     "definitionFit": "A mease is an old measure of herring, about five hundred fish, so it means lots of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "signifies"
+    }
+   }
   },
   {
    "number": 28,
@@ -448,7 +2002,55 @@
     "text": "Spot to defend Resistance struggle",
     "enumeration": "8"
    },
-   "solution": "SPRANGLE"
+   "solution": "SPRANGLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPRANGLE",
+    "definitions": [
+     {
+      "text": "struggle",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to defend",
+      "for": "container",
+      "note": "to defend something you surround it protectively"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spot",
+      "gives": "SPANGLE",
+      "note": "a spangle is a small glittering spot"
+     },
+     {
+      "clueFragment": "Resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "R",
+      "ANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel group's fight, spotted defending the Resistance.",
+     "walkthrough": "'Resistance' suggests wartime fighters; it is just R from physics.",
+     "definitionFit": "Sprangle is a Scots and dialect verb meaning to struggle or sprawl about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Resistance"
+    }
+   }
   },
   {
    "number": 29,
@@ -462,7 +2064,63 @@
     "text": "What may be seen in peaks of Tibetan range surefootedly?",
     "enumeration": "5"
    },
-   "solution": "TEHRS"
+   "solution": "TEHRS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "and_lit"
+    ],
+    "answer": "TEHRS",
+    "definitions": [
+     {
+      "text": "What may be seen in peaks of Tibetan range surefootedly?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "peaks of",
+      "for": "letter_selection",
+      "note": "the peaks of words are their tops, so their initial letters"
+     },
+     {
+      "text": "seen in",
+      "for": "container",
+      "note": "something seen in a place is inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tibetan range surefootedly",
+      "gives": "TRS",
+      "select": "first",
+      "note": "the first letters of these three words"
+     },
+     {
+      "clueFragment": "What",
+      "gives": "EH",
+      "note": "eh? is a request for repetition, like what?"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EH",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle about which creature roams the Himalayan peaks surefootedly.",
+     "walkthrough": "The whole clue defines: wild goats are seen in Tibetan peaks moving surefootedly, and the wordplay also uses all of it.",
+     "definitionFit": "Tehrs, usually spelt tahrs, are wild Himalayan goats famous for agile climbing on steep crags."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 30,
@@ -476,7 +2134,68 @@
     "text": "Conserve and supply one flowery muslin",
     "enumeration": "7"
    },
-   "solution": "JAMDANI"
+   "solution": "JAMDANI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "JAMDANI",
+    "definitions": [
+     {
+      "text": "flowery muslin",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "supply as an adverb means in a supple, bendy way, so the word is bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conserve",
+      "gives": "JAM",
+      "note": "jam is a fruit conserve"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JAM",
+      "DAN",
+      "I"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AND",
+       "gives": "DAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jam and one provider of fancy cloth.",
+     "walkthrough": "'Supply' reads as provide, but it is the adverb from supple, so it signals the anagram.",
+     "definitionFit": "Jamdani is a fine Bengal muslin woven with floral figures, hence a flowery fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 31,
@@ -490,7 +2209,72 @@
     "text": "Blades overwhelmed by City and close to fatigue fade away",
     "enumeration": "8"
    },
-   "solution": "EVANESCE"
+   "solution": "EVANESCE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EVANESCE",
+    "definitions": [
+     {
+      "text": "fade away",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "something overwhelmed by another is engulfed within it"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its last letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "EC",
+      "note": "EC is the postcode for the City of London"
+     },
+     {
+      "clueFragment": "Blades",
+      "gives": "VANES",
+      "note": "the vanes of a windmill or turbine are its blades"
+     },
+     {
+      "clueFragment": "fatigue",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of fatigue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VANES",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Sheffield United's team, the Blades, are overrun by City and tire badly.",
+     "walkthrough": "The Blades is Sheffield United's nickname, and City suggests a football rival; here City is the London postcode EC.",
+     "definitionFit": "To evanesce is to vanish gradually, the verb behind evanescent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blades"
+    }
+   }
   },
   {
    "number": 32,
@@ -504,7 +2288,51 @@
     "text": "Wrinkly's game entry",
     "enumeration": "6"
    },
-   "solution": "RUGATE"
+   "solution": "RUGATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUGATE",
+    "definitions": [
+     {
+      "text": "Wrinkly",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union"
+     },
+     {
+      "clueFragment": "entry",
+      "gives": "GATE",
+      "note": "a gate is a way of entry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "GATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An old person's admission to a match.",
+     "walkthrough": "'Wrinkly' looks like the slang noun for an old person; it is the adjective.",
+     "definitionFit": "Rugate is a botanical and zoological term for surfaces marked with ridges, so wrinkled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wrinkly"
+    }
+   }
   },
   {
    "number": 33,
@@ -518,7 +2346,62 @@
     "text": "Both sides of Xmas tree awkwardly stick out",
     "enumeration": "6"
    },
-   "solution": "EXSERT"
+   "solution": "EXSERT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EXSERT",
+    "definitions": [
+     {
+      "text": "stick out",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Both sides of",
+      "for": "letter_selection",
+      "note": "both sides of a word are its outermost letters"
+     },
+     {
+      "text": "awkwardly",
+      "for": "anagram",
+      "note": "arranged awkwardly, the letters are put in a clumsy new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Xmas",
+      "gives": "XS",
+      "select": "outer",
+      "note": "the outside letters of Xmas"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "TREE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "XSTREE",
+       "gives": "EXSERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The edges of a Christmas tree poke out at awkward angles.",
+     "definitionFit": "Exsert is a biology term meaning to thrust out or protrude, as stamens beyond a petal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tree"
+    }
+   }
   }
  ]
 }
