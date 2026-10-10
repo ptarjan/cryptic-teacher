@@ -1635,13 +1635,8 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const MONS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const seen = {};
-  // The date column, or for a date-keyed paper (its column left empty) the
-  // title, which is then the dated form: one date per row either way.
-  const rowDate = (li) => {
-    const h = li.children[0].innerHTML;
-    const meta = (/<span class="p-meta">([^<]*)</.exec(h) || [])[1] || "";
-    return meta || (/<span class="p-num"[^>]*>([^<]*)</.exec(h) || [])[1] || "";
-  };
+  // The date column: every row carries its date there.
+  const rowDate = (li) => (/<span class="p-meta">([^<]*)</.exec(li.children[0].innerHTML) || [])[1] || "";
   pickerRows().forEach((li) => {
     const m = rowDate(li).match(/^(\w{3}) ((\d{1,2}) (\w{3}) (\d{4}))$/);
     if (!assert(m && MONS.includes(m[4]), "every picker row carries a weekday and a date: " + rowDate(li))) return;

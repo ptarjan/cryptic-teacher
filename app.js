@@ -691,8 +691,10 @@
   }
 
   // The series whose stored number is the print date (tools/series.py
-  // numberIsDate), so the number is shown as the day it names.
-  const DATE_NUMBERED = new Set(INDEX.dateNumbered || []);
+  // numberIsDate), each with its kind ("Cryptic"): the number is shown as the
+  // day it names, and the picker row's title slot says the kind.
+  const DATE_NUMBERED = INDEX.dateNumbered || {};
+  const isDateNumbered = (p) => Object.hasOwn(DATE_NUMBERED, p.series) && !!p.date;
 
   // What a solver reads instead of the stored number: display_number() in
   // tools/series.py, which writes the same row on the archive pages, so the two
@@ -702,7 +704,7 @@
   function displayNumber(p) {
     const b = bookOf(p.series, p.number);
     if (b) return `${b.row.shelf} ${b.row.volume} No ${b.position}`;
-    if (DATE_NUMBERED.has(p.series) && p.date) return puzzleDate(p).shortWords;
+    if (isDateNumbered(p)) return puzzleDate(p).shortWords;
     return `No ${Number(p.number).toLocaleString("en-GB")}`;
   }
 
@@ -6836,12 +6838,11 @@
     // Abbreviated, and the weekday leads. The row is tight — see the note
     // below about the nowrap element shoving the line — and "Sat" in front is
     // read at a glance where a trailing full "Saturday" would just be length.
-    let d = dd.short ? `${dd.short} ${dd.shortWords}` : dd.shortWords;
-    // A date-keyed number is the date, so the title is the dated form and the
-    // date column is left empty: one date per row (hub_row in build_seo_pages.py).
-    const dated = DATE_NUMBERED.has(p.series) && p.date;
-    const title = dated ? d : displayNumber(p);
-    if (dated) d = "";
+    const d = dd.short ? `${dd.short} ${dd.shortWords}` : dd.shortWords;
+    // The date column carries the date on every row. A date-keyed paper prints
+    // no number, so its title slot says the kind instead ("Cryptic"), as
+    // hub_row in build_seo_pages.py does.
+    const title = isDateNumbered(p) ? DATE_NUMBERED[p.series] : displayNumber(p);
     const btn = document.createElement("button");
     // Order here is the grid's, not the eye's: the badges are markup-last but
     // render on their own second line (see .p-tags in style.css). Progress

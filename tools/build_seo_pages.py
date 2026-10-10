@@ -785,9 +785,10 @@ def hub_row(p, note=None):
     its answer page, which is how a crawler reaches every one (homepage_nav)."""
     d = p.get("difficulty") or {}
     when = row_date(p)
-    # A date-keyed number is the date, so the row's title is the dated form
-    # and the date column is left empty: one date per row (pickerRow in app.js).
-    title, when = (when, "") if number_day(p) else (display_number(p), when)
+    # The date column carries the date on every row. A date-keyed paper prints
+    # no number, so its title slot says the kind instead ("Cryptic"), as
+    # pickerRow in app.js does.
+    title = series_meta.kind(p.get("series")) if number_day(p) else display_number(p)
     badge = diff_badge(d["band"]) if d.get("band") else ""
     # The app's hintsBadge() in the same words: ours, a blog's (the index's
     # `blog`, see has_blog_hints), or none.

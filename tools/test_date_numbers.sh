@@ -43,6 +43,21 @@ for key, prefix in dated.items():
         print(f"BAD display {key}: {S.display_number(key, num)!r}")
 print("PAGES", ok)
 
+# The archive row: the date in the date column like every other row, the
+# series' kind in the title slot.
+rows = True
+for key in dated:
+    num = int("20260922"[len(dated[key]):])
+    day = S.number_date(key, num)
+    row = B.hub_row({"id": f"{key}-{num}", "series": key, "number": num, "setter": None,
+                     "date": day.isoformat()})
+    want_num = f'<span class="p-num">{S.kind(key)}</span>'
+    meta = re.search(r'<span class="p-meta">(.*?)</span>', row).group(1)
+    if want_num not in row or not meta or str(day.year) not in meta:
+        rows = False
+        print(f"BAD row {key}: {row!r}")
+print("ROWS", rows)
+
 # Mirror: a non-date number still names itself.
 print("PLAIN", S.number_date("cryptic", 30111) is None
       and B.named({"series": "cryptic", "number": 30111}) == "Guardian Cryptic No 30,111")
@@ -72,7 +87,7 @@ const body = cut("  const BOOKS = INDEX.books", "function displayNumber")
 const f = new Function("INDEX", body + "; return { displayNumber };")(JSON.parse(process.argv[1]));
 console.log(JSON.stringify(JSON.parse(process.argv[2]).map(f.displayNumber)));
 """
-got = json.loads(subprocess.run(["node", "-e", js, json.dumps({"books": books, "dateNumbered": dated}),
+got = json.loads(subprocess.run(["node", "-e", js, json.dumps({"books": books, "dateNumbered": {k: S.kind(k) for k in dated}}),
                                  json.dumps(cases)], capture_output=True, text=True, check=True).stdout)
 ok = True
 for c, g in zip(cases, got):
@@ -86,7 +101,7 @@ PY
 out="$out
 $mirror"
 echo "$out"
-for k in SOME PAGES PLAIN MIRROR; do
+for k in SOME PAGES ROWS PLAIN MIRROR; do
   grep -qx "$k True" <<<"$out" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"
