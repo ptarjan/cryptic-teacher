@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,52 @@
     "text": "The people about to flee China perhaps",
     "enumeration": "6"
    },
-   "solution": "PUBLIC"
+   "solution": "PUBLIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PUBLIC",
+    "definitions": [
+     {
+      "text": "The people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to flee",
+      "for": "deletion",
+      "note": "whatever flees leaves, so the word for about is taken away from the start of the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China perhaps",
+      "gives": "REPUBLIC",
+      "note": "China is the People's Republic, an example of a republic"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "RE means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUBLIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A populace preparing to escape from China.",
+     "definitionFit": "The public is the general population, ordinary citizens taken together as a body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flee"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +94,59 @@
     "text": "Stake best placed on cert, ignoring the odds",
     "enumeration": "6"
    },
-   "solution": "PICKET"
+   "solution": "PICKET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PICKET",
+    "definitions": [
+     {
+      "text": "Stake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring the odds",
+      "for": "letter_selection",
+      "note": "the odd-numbered letters are skipped, keeping only the even ones"
+     }
+    ],
+    "linkWords": [
+     "placed on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "best",
+      "gives": "PICK",
+      "note": "the pick of the bunch is the best"
+     },
+     {
+      "clueFragment": "cert",
+      "gives": "ET",
+      "select": "alternate",
+      "note": "second and fourth letters of cert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PICK",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A punter's best bet on a sure thing, without checking the odds.",
+     "walkthrough": "The betting surface makes 'Stake' a wager; it is a pointed post. A cert is a racing certainty.",
+     "definitionFit": "A picket is a pointed wooden post driven into the ground, which is a stake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stake"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +160,79 @@
     "text": "Pompous abbot is wrong about inspiring monk originally",
     "enumeration": "9"
    },
-   "solution": "BOMBASTIC"
+   "solution": "BOMBASTIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BOMBASTIC",
+    "definitions": [
+     {
+      "text": "Pompous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "wrong order signals the letters must be put right by rearranging"
+     },
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the origin, so only the opening letter counts"
+     },
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "inspiring literally means breathing in, so one part takes another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abbot is",
+      "gives": "ABBOTIS",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c for circa, about"
+     },
+     {
+      "clueFragment": "monk",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of monk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "M",
+      "BASTIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABBOTISC",
+       "gives": "BOBASTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-important abbot is mistaken in having influenced a monk early on.",
+     "walkthrough": "The rearranged abbot letters plus the C are written out, then M goes inside after BO.",
+     "definitionFit": "Bombastic speech is grandiose and inflated, the manner of a pompous person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +246,42 @@
     "text": "European capital I, a newcomer, must embrace",
     "enumeration": "7"
    },
-   "solution": "ITALIAN"
+   "solution": "ITALIAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ITALIAN",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must embrace",
+      "for": "hidden_word",
+      "note": "the words embrace or hold the answer within their run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "capital I, a newcomer",
+      "gives": "ITALIAN",
+      "note": "the run of letters spanning these words"
+     }
+    ],
+    "explanation": {
+     "surface": "As a new arrival in a European city, I must welcome it.",
+     "definitionFit": "An Italian is a native of Italy, one kind of European."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +295,51 @@
     "text": "Cheek and criticise one simmering in the kitchen?",
     "enumeration": "8"
    },
-   "solution": "SAUCEPAN"
+   "solution": "SAUCEPAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAUCEPAN",
+    "definitions": [
+     {
+      "text": "one simmering in the kitchen?",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheek",
+      "gives": "SAUCE",
+      "note": "sauce is impudence or cheek"
+     },
+     {
+      "clueFragment": "criticise",
+      "gives": "PAN",
+      "note": "to pan a play is to criticise it harshly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAUCE",
+      "PAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smouldering in the kitchen after being given lip and criticism.",
+     "walkthrough": "The surface suggests a cook seething with anger; the definition really means the pot that sits simmering on the stove.",
+     "definitionFit": "A cooking pot is the vessel left to simmer on the hob, described playfully as one simmering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "simmering"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +353,48 @@
     "text": "Almost alter end of prayer",
     "enumeration": "4"
    },
-   "solution": "AMEN"
+   "solution": "AMEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AMEN",
+    "definitions": [
+     {
+      "text": "end of prayer",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is left off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alter",
+      "gives": "AMEND",
+      "note": "to amend is to alter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMEN"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to nearly change how a prayer finishes.",
+     "walkthrough": "'end of prayer' looks like an instruction to take a last letter, but it is the definition.",
+     "definitionFit": "Amen is the word said at the close of a prayer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +414,47 @@
      }
     ]
    },
-   "solution": "CASHCOW"
+   "solution": "CASHCOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASH COW",
+    "definitions": [
+     {
+      "text": "Reliable income stream",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wimbledon champion",
+      "gives": "CASH",
+      "note": "Pat Cash won the Wimbledon men's singles in 1987"
+     },
+     {
+      "clueFragment": "neat",
+      "gives": "COW",
+      "note": "neat is an old word for cattle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASH",
+      "COW"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis champion's dependable earnings, with an exclamation of approval.",
+     "walkthrough": "'neat!' reads as praise but neat is an old word for cattle.",
+     "definitionFit": "A cash cow is a business or product that brings in steady profits with little effort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "neat"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +468,49 @@
     "text": "Investigate pair given award",
     "enumeration": "5"
    },
-   "solution": "PROBE"
+   "solution": "PROBE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROBE",
+    "definitions": [
+     {
+      "text": "Investigate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pair",
+      "gives": "PR",
+      "note": "PR is the abbreviation for pair"
+     },
+     {
+      "clueFragment": "award",
+      "gives": "OBE",
+      "note": "OBE, Order of the British Empire, is an honour awarded in Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "OBE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to look into two people who have received an honour.",
+     "definitionFit": "To probe is to investigate or examine closely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pair"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +530,63 @@
      }
     ]
    },
-   "solution": "NAMETAGS"
+   "solution": "NAMETAGS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NAME TAGS",
+    "definitions": [
+     {
+      "text": "IDs",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes round",
+      "for": "reversal",
+      "note": "going round means turning to face the other way, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "obtaining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S for second"
+     },
+     {
+      "clueFragment": "bouncer perhaps",
+      "gives": "GATEMAN",
+      "note": "a doorman such as a bouncer guards the gate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAMETAG",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SGATEMAN",
+       "to": "NAMETAGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A second doorman does the rounds checking identity cards.",
+     "definitionFit": "Name tags are badges identifying the wearer, a form of ID."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +600,58 @@
     "text": "Film captures doctor in action",
     "enumeration": "6"
    },
-   "solution": "COMBAT"
+   "solution": "COMBAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMBAT",
+    "definitions": [
+     {
+      "text": "action",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captures",
+      "for": "container",
+      "note": "to capture something is to hold it, so one word is placed around the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Film",
+      "gives": "COAT",
+      "note": "a coat or film is a thin layer covering a surface"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MB",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A movie shows a medic working in a war zone.",
+     "walkthrough": "'Film' looks like a movie but means a coating.",
+     "definitionFit": "Combat is fighting, the action soldiers see in battle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Film"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +665,50 @@
     "text": "Where reporters work men row so freely",
     "enumeration": "8"
    },
-   "solution": "NEWSROOM"
+   "solution": "NEWSROOM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEWSROOM",
+    "definitions": [
+     {
+      "text": "Where reporters work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freely",
+      "for": "anagram",
+      "note": "letters moving freely are not tied to their printed order and can be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men row so",
+      "gives": "MENROWSO",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENROWSO",
+       "gives": "NEWSROOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of an office where journalists squabble without restraint.",
+     "definitionFit": "A newsroom is the office in which journalists gather and write the news."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +722,51 @@
     "text": "Persist developing features of Brentford's home shirts, say",
     "enumeration": "7"
    },
-   "solution": "STRIPES"
+   "solution": "STRIPES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRIPES",
+    "definitions": [
+     {
+      "text": "features of Brentford's home shirts, say",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developing",
+      "for": "anagram",
+      "note": "something developing is changing shape, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Persist",
+      "gives": "PERSIST",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERSIST",
+       "gives": "STRIPES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football club's kit design keeps evolving.",
+     "walkthrough": "Brentford is a London football club whose home kit has red and white vertical bands.",
+     "definitionFit": "Brentford's home shirts carry vertical bands, and 'say' marks them as one example of shirts with them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Persist"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +780,66 @@
     "text": "Letter Greek writes, one issued about waste",
     "enumeration": "8"
    },
-   "solution": "EMACIATE"
+   "solution": "EMACIATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EMACIATE",
+    "definitions": [
+     {
+      "text": "waste",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the whole string is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Letter Greek writes",
+      "gives": "ETA",
+      "note": "eta is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "issued",
+      "gives": "CAME",
+      "note": "came forth, as something issued from a source"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMAC",
+      "I",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "ETAICAME",
+       "to": "EMACIATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek correspondent sends a letter about rubbish.",
+     "definitionFit": "To emaciate is to make thin and wasted, as illness wastes the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +853,56 @@
     "text": "Stress from tragedy papers ignored",
     "enumeration": "6"
    },
-   "solution": "ACCENT"
+   "solution": "ACCENT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ACCENT",
+    "definitions": [
+     {
+      "text": "Stress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "what is ignored is left out, so those letters drop from the longer word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tragedy",
+      "gives": "ACCIDENT",
+      "note": "an accident is a misfortune or tragedy"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "ID is identity papers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACC",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suffering stress after a disaster left the documents unread.",
+     "definitionFit": "An accent is the emphasis placed on a syllable, its stress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +916,45 @@
     "text": "Inclined to be underhand",
     "enumeration": "7"
    },
-   "solution": "OBLIQUE"
+   "solution": "OBLIQUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OBLIQUE",
+    "definitions": [
+     {
+      "text": "Inclined",
+      "at": 0
+     },
+     {
+      "text": "underhand",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inclined",
+      "note": "first meaning: slanting, not perpendicular"
+     },
+     {
+      "clueFragment": "underhand",
+      "note": "second meaning: indirect or devious"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tempted to behave sneakily.",
+     "definitionFit": "The word means both slanting at an angle and evasive or not straightforward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Inclined"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +974,40 @@
      }
     ]
    },
-   "solution": "TENPINBOWLING"
+   "solution": "TENPINBOWLING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TENPIN BOWLING",
+    "definitions": [
+     {
+      "text": "Strikes not uncommon by players in this sport?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strikes not uncommon by players",
+      "note": "surface reading: athletes walking out in industrial action"
+     },
+     {
+      "clueFragment": "Strikes not uncommon by players in this sport?",
+      "note": "setter's reading: a game where knocking every pin down with one ball is a frequent and welcome result"
+     }
+    ],
+    "explanation": {
+     "surface": "A sport plagued by players' industrial disputes.",
+     "walkthrough": "A strike is both a walkout and knocking down all ten pins with the first ball.",
+     "definitionFit": "In this alley game a strike is the best roll, and good players score them regularly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Strikes"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1021,70 @@
     "text": "Purpose in lying debatable essentially for Victor",
     "enumeration": "9"
    },
-   "solution": "INTENTION"
+   "solution": "INTENTION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "INTENTION",
+    "definitions": [
+     {
+      "text": "Purpose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is at its heart, so the middle letter is taken"
+     },
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "for means in place of, so one letter swaps in where another stood"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lying",
+      "gives": "INVENTION",
+      "note": "an invention is a fabrication or lie"
+     },
+     {
+      "clueFragment": "debatable",
+      "gives": "T",
+      "select": "middle",
+      "note": "the central letter of debatable"
+     },
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "Victor is V in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "T",
+      "ENTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's aim in telling a doubtful lie on behalf of a man called Victor.",
+     "walkthrough": "Lying here is a noun, an invention, and the middle letter of debatable replaces the V.",
+     "definitionFit": "An intention is what you mean to do, your aim or purpose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Victor"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1098,54 @@
     "text": "Regard too highly past culinary utensil removing peel",
     "enumeration": "8"
    },
-   "solution": "OVERRATE"
+   "solution": "OVERRATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OVERRATE",
+    "definitions": [
+     {
+      "text": "Regard too highly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing peel",
+      "for": "deletion",
+      "note": "peel is the outer skin, so the outer letters are stripped away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "past",
+      "gives": "OVER",
+      "note": "over means finished or past"
+     },
+     {
+      "clueFragment": "culinary utensil",
+      "gives": "GRATER",
+      "note": "a kitchen tool for shredding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thinks too much of an old kitchen gadget for peeling.",
+     "definitionFit": "To overrate is to value or esteem something more than it deserves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "peel"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1165,62 @@
      }
     ]
    },
-   "solution": "VICEPRESIDENT"
+   "solution": "VICEPRESIDENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "VICE-PRESIDENT",
+    "definitions": [
+     {
+      "text": "Maybe Humphrey once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "something put briefly is cut short, so the final letter is dropped"
+     },
+     {
+      "text": "when polluted",
+      "for": "anagram",
+      "note": "polluted means spoiled and mixed up, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inspected",
+      "gives": "INSPECTED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "RIVE",
+      "note": "river without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSPECTEDRIVE",
+       "gives": "VICEPRESIDENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone once checked a dirty waterway on a quick visit.",
+     "walkthrough": "Hubert Humphrey was US Vice-President under Lyndon Johnson; 'maybe' flags him as one example.",
+     "definitionFit": "Humphrey held America's second-highest office in the 1960s, so he is an example of that post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Humphrey"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1234,55 @@
     "text": "Liked tree planted outside for all to see",
     "enumeration": "7"
    },
-   "solution": "POPULAR"
+   "solution": "POPULAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POPULAR",
+    "definitions": [
+     {
+      "text": "Liked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "planted outside",
+      "for": "container",
+      "note": "something planted outside surrounds what is within, so one word wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "POPLAR",
+      "note": "a tall fast-growing tree"
+     },
+     {
+      "clueFragment": "for all to see",
+      "gives": "U",
+      "note": "U is the British film certificate for universal viewing, suitable for all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "U",
+      "LAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A popular tree planted in public view.",
+     "walkthrough": "U is the British film rating meaning suitable for everyone.",
+     "definitionFit": "Something popular is widely liked, so the adjective matches liked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "planted"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1296,48 @@
     "text": "Approve not all shelves Rod neatly put up",
     "enumeration": "7"
    },
-   "solution": "ENDORSE"
+   "solution": "ENDORSE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ENDORSE",
+    "definitions": [
+     {
+      "text": "Approve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not all",
+      "for": "hidden_word",
+      "note": "not all the words are used, only a stretch of letters inside them"
+     },
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down entry, putting up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shelves Rod neatly",
+      "gives": "ESRODNE",
+      "note": "the run of letters spanning these words"
+     }
+    ],
+    "explanation": {
+     "surface": "Approving of most of the shelving Rod tidily installed.",
+     "definitionFit": "To endorse is to approve or give official support to something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shelves"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1351,71 @@
     "text": "Vicious, endless health reforms Liberal introduces",
     "enumeration": "6"
    },
-   "solution": "LETHAL"
+   "solution": "LETHAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "LETHAL",
+    "definitions": [
+     {
+      "text": "Vicious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     },
+     {
+      "text": "reforms",
+      "for": "anagram",
+      "note": "to reform is to form again, so the letters are reshaped"
+     },
+     {
+      "text": "introduces",
+      "for": "charade",
+      "note": "introducing something puts it before the rest, so the party letter comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L for Liberal"
+     },
+     {
+      "clueFragment": "health",
+      "gives": "HEALT",
+      "note": "health without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ETHAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEALT",
+       "gives": "ETHAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political party unveils savage, unending health service changes.",
+     "definitionFit": "Lethal means deadly, and something vicious can be deadly in its ferocity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reforms"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1429,69 @@
     "text": "Formula ready, English child's beginning to feed",
     "enumeration": "6"
    },
-   "solution": "RECIPE"
+   "solution": "RECIPE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "RECIPE",
+    "definitions": [
+     {
+      "text": "Formula",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "a beginning is the start, so only the opening letter of that word is used"
+     },
+     {
+      "text": "to feed",
+      "for": "container",
+      "note": "feeding something puts it inside, so these letters go into the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ready",
+      "gives": "RIPE",
+      "note": "ripe means ready to eat"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "child's",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of child's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "C",
+      "IPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Ready-made baby formula for an English infant.",
+     "walkthrough": "'Formula' suggests baby milk in the surface; here it means a set of instructions.",
+     "definitionFit": "A recipe is a formula listing ingredients and steps for making a dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Formula"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1505,58 @@
     "text": "Fool friend with prank primarily",
     "enumeration": "5"
    },
-   "solution": "CHUMP"
+   "solution": "CHUMP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHUMP",
+    "definitions": [
+     {
+      "text": "Fool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so the first letter is taken"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "CHUM",
+      "note": "a chum is a friend"
+     },
+     {
+      "clueFragment": "prank",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of prank"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHUM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend who is foolish chiefly because of a practical joke.",
+     "definitionFit": "A chump is a silly or foolish person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prank"
+    }
+   }
   },
   {
    "number": 24,
@@ -392,7 +1570,63 @@
     "text": "Ex-con Sandy I'd urge to return regularly for counselling",
     "enumeration": "8"
    },
-   "solution": "GUIDANCE"
+   "solution": "GUIDANCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "GUIDANCE",
+    "definitions": [
+     {
+      "text": "counselling",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning is going back the way you came, so the kept letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ex-con Sandy I'd urge",
+      "gives": "ECNADIUG",
+      "select": "alternate",
+      "note": "the first, third, fifth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUIDANCE"
+     ],
+     "reversals": [
+      {
+       "from": "ECNADIUG",
+       "to": "GUIDANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a released prisoner called Sandy to come back for therapy sessions.",
+     "definitionFit": "Guidance is advice given to help someone, which is what counselling provides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sandy"
+    }
+   }
   },
   {
    "number": 25,
@@ -406,7 +1640,48 @@
     "text": "Gin maker is boring in conversation",
     "enumeration": "4"
    },
-   "solution": "SLOE"
+   "solution": "SLOE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SLOE",
+    "definitions": [
+     {
+      "text": "Gin maker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in conversation",
+      "for": "homophone",
+      "note": "in conversation words are spoken, so it is their sound that counts"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boring",
+      "gives": "SLOE",
+      "soundsLike": "SLOW",
+      "note": "slow means tedious or dull"
+     }
+    ],
+    "explanation": {
+     "surface": "A distiller who is dull to talk to.",
+     "walkthrough": "Sloe gin is a British liqueur made by steeping blackthorn berries in gin.",
+     "definitionFit": "The sloe is the blackthorn berry used to flavour sloe gin, so it makes that drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "maker"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1701,76 @@
      }
     ]
    },
-   "solution": "ARUMLILY"
+   "solution": "ARUMLILY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ARUM LILY",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "deletion",
+      "note": "read as dis-covered, the word loses its cover, meaning its outer letters"
+     },
+     {
+      "text": "Exotic",
+      "for": "anagram",
+      "note": "exotic means strange and foreign, suggesting the letters are rearranged unusually"
+     }
+    ],
+    "linkWords": [
+     "beside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "primulas",
+      "gives": "RIMULA",
+      "note": "primulas without first and last letters"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L for large, as on clothing sizes"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is an unknown quantity in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARUMLI",
+      "L",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIMULA",
+       "gives": "ARUMLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rare foreign primroses found growing next to a big mysterious plant.",
+     "walkthrough": "'Discovered' looks like 'found' but means uncovered, stripping the outer letters.",
+     "definitionFit": "The arum lily is a flowering plant with a white trumpet-shaped spathe, so it is a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1784,48 @@
     "text": "Spirit in Scottish football team, we hear",
     "enumeration": "6"
    },
-   "solution": "WRAITH"
+   "solution": "WRAITH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WRAITH",
+    "definitions": [
+     {
+      "text": "Spirit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is the sound of a word, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish football team",
+      "gives": "WRAITH",
+      "soundsLike": "RAITH",
+      "note": "Raith Rovers is a football club from Kirkcaldy in Scotland"
+     }
+    ],
+    "explanation": {
+     "surface": "Team spirit at a Scottish football club.",
+     "walkthrough": "Raith Rovers is a Scottish football club; its first name sounds the same as the answer.",
+     "definitionFit": "A wraith is a ghost or apparition, a spirit of the dead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spirit"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1839,46 @@
     "text": "Old malt liquor, one that sells overseas",
     "enumeration": "8"
    },
-   "solution": "EXPORTER"
+   "solution": "EXPORTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPORTER",
+    "definitions": [
+     {
+      "text": "one that sells overseas",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex means former or old"
+     },
+     {
+      "clueFragment": "malt liquor",
+      "gives": "PORTER",
+      "note": "porter is a dark malted beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PORTER"
+     ]
+    },
+    "explanation": {
+     "surface": "An aged beer described as a product shipped abroad.",
+     "definitionFit": "An exporter is a firm or person that sells goods to foreign countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 29,
@@ -468,7 +1892,59 @@
     "text": "Names visiting part of Hull, arriving at setter's house?",
     "enumeration": "6"
    },
-   "solution": "KENNEL"
+   "solution": "KENNEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KENNEL",
+    "definitions": [
+     {
+      "text": "setter's house?",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "visitors go inside a place, so these letters are put inside the other word"
+     }
+    ],
+    "linkWords": [
+     "arriving at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of Hull",
+      "gives": "KEEL",
+      "note": "the keel is the backbone running along the bottom of a ship's hull"
+     },
+     {
+      "clueFragment": "Names",
+      "gives": "NN",
+      "note": "N is name, twice for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KE",
+      "NN",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "People named in a trip to the city of Hull end up at the crossword compiler's home.",
+     "walkthrough": "The capital H makes Hull the Yorkshire city; it is a ship's hull. A setter here is the dog breed, not the puzzle compiler.",
+     "definitionFit": "A kennel is a dog's shelter, and a setter is a breed of gun dog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "setter's"
+    }
+   }
   }
  ]
 }
