@@ -87,8 +87,10 @@ RETRY = 600
 #: Grid searches a job runs on the desktop at once, each thread over its own
 #: session (tools/acquire_book.py's books, tools/times_grids.py's posts).
 SEARCH_SLOTS = 8
-#: Reads made here at once, host-wide, while OCR_REMOTE is set (local_slot).
-LOCAL_SLOTS = int(os.environ.get("OCR_LOCAL_SLOTS") or max(1, (os.cpu_count() or 2) - 1))
+#: Reads made here at once, host-wide, while OCR_REMOTE is set (local_slot):
+#: a third of the cores, so a desktop away for hours (a game) leaves the
+#: rest to the burn and the host's own work.
+LOCAL_SLOTS = int(os.environ.get("OCR_LOCAL_SLOTS") or max(1, (os.cpu_count() or 3) // 3))
 
 
 def shipped():

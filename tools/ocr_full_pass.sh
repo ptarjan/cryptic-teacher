@@ -89,7 +89,7 @@ GRACE=1800
 # so most of each worker's time is a wait on it: this host keeps the scans'
 # headings, the Trove filer's parsing and the filing, at nice 19, one OCR
 # thread a worker. Whatever is read here (the desktop off or gaming) holds
-# one of ocr_remote's LOCAL_SLOTS (cores - 1) host-wide, so the 20 workers
+# one of ocr_remote's LOCAL_SLOTS (a third of the cores) host-wide, so the 20 workers
 # never put 20 reads on this 4-core host.
 export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 export OCR_THREADS="${OCR_THREADS:-1}"
