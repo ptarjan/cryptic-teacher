@@ -643,7 +643,7 @@ def numbered_letters(lts, letters, numbers, allowed, printed):
             rc = open_[0]
             words = {ch: "".join(letters.get(x) or ch for x in cells) for ch in sorted(allowed.get(rc, ()))}
             fit = [ch for ch, w in words.items() if known(w)]
-            if len(fit) != 1 or words[fit[0]] not in printed.get(key, ()) or words[fit[0]].lower() not in _WORDS:
+            if len(fit) != 1 or words[fit[0]] not in printed.get(key, ()) or words[fit[0]].lower() not in wordnet():
                 continue
             ch = fit[0]
             if all(answer("".join(letters.get(x) or ch for x in lts[k]), printed.get(k, ()))
@@ -675,7 +675,7 @@ def whole_reads(lts, letters, allowed, printed, numbered, glyphs, models):
         return all(letters.get(rc, ch) == ch and ch in allowed.get(rc, ()) for rc, ch in zip(lts[key], w))
 
     def words(key):
-        return {w for w in printed.get(key, ()) if len(w) >= 4 and w.lower() in _WORDS and agree(key, w)}
+        return {w for w in printed.get(key, ()) if len(w) >= 4 and w.lower() in wordnet() and agree(key, w)}
 
     whole = {}
 
@@ -968,20 +968,18 @@ def answer(word, reads):
     if not known(word):
         return False
     w = word.lower()
-    if w in _WORDS:
+    if w in wordnet():
         return True
     ends = {0}
     for i in range(3, len(w) + 1):
-        if any(j in ends and w[j:i] in _WORDS for j in range(i - 2)):
+        if any(j in ends and w[j:i] in wordnet() for j in range(i - 2)):
             ends.add(i)
     return word in reads and len(w) in ends
 
 
-def known(word):
-    """Whether an answer is WordNet's (a lemma or a regular inflection of one),
-    or up to four such words run together, each of four letters or more
-    unless it is one of SHORT_WORDS. A misread letter rarely leaves a
-    word: RUSE read as RUGE is caught here."""
+def wordnet():
+    """The words known() builds on: WordNet's lemmas, their regular
+    inflections and SHORT_WORDS, loaded on first use."""
     global _WORDS
     if _WORDS is None:
         with gzip.open(TOOLS / "data" / "wordnet.json.gz", "rt", encoding="utf-8") as f:
@@ -996,10 +994,19 @@ def known(word):
                 _WORDS.add(w + "es")
             if w.endswith("y"):
                 _WORDS.update((w[:-1] + "ies", w[:-1] + "ied"))
+    return _WORDS
+
+
+def known(word):
+    """Whether an answer is WordNet's (a lemma or a regular inflection of one),
+    or up to four such words run together, each of four letters or more
+    unless it is one of SHORT_WORDS. A misread letter rarely leaves a
+    word: RUSE read as RUGE is caught here."""
+    words = wordnet()
     w = word.lower()
     parts = {0: 0}   # prefix length -> fewest words that spell it
     for i in range(1, len(w) + 1):
-        best = min((parts[j] + 1 for j in parts if j < i and w[j:i] in _WORDS
+        best = min((parts[j] + 1 for j in parts if j < i and w[j:i] in words
                     and (i - j > 3 or w[j:i] in SHORT_WORDS or (j, i) == (0, len(w)))),
                    default=None)
         if best is not None and best <= 4:
@@ -1032,7 +1039,7 @@ def listed(word):
         with gzip.open(TOOLS / "data" / "cmudict.txt.gz", "rt", encoding="utf-8") as f:
             _LISTED |= {line.split("\t", 1)[0].upper() for line in f if not line.startswith("#")}
     known("A")
-    return word.lower() in _WORDS or word.upper() in _LISTED or word.upper() in corpus_words()
+    return word.lower() in wordnet() or word.upper() in _LISTED or word.upper() in corpus_words()
 
 
 #: The repo whose committed puzzles/ corpus_words() reads (tests point it at

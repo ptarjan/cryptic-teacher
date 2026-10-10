@@ -316,6 +316,14 @@ print(*[O.known(w) for w in ('WOOFR', 'WOOFST', 'WOOFD', 'WOOFES', 'RUGE')],
       *[O.known(w) for w in ('WOOER', 'WISER', 'WISEST', 'BAKED', 'BOXES', 'WOOFED')])")
 check "a misread on an inflection is no word" "False False False False False True True True True True True" "$got"
 
+# whole_reads() as a process's first word lookup (no known() call before it)
+# loads the word list itself: it crashed on 15416's first light.
+got=$(cd "$REPO/tools" && python3 -c "
+import trove_solution_ocr as O
+lts = {(1, 'across'): [(0, c) for c in range(4)]}
+print(O.whole_reads(lts, {}, {rc: set('TIDE') for rc in lts[(1, 'across')]}, {(1, 'across'): {'TIDE'}}, {}, {}, {}))")
+check "whole_reads loads the word list on first use" "{(0, 0): 'T', (0, 1): 'I', (0, 2): 'D', (0, 3): 'E'}" "$got"
+
 # A light read surely in every cell and whole may be a UKACD word or a
 # cmudict name WordNet lacks (REDINGOTE, OLOROSO, HILARY); a letter misread surely still leaves no word
 # (PIRSTREFUSAL, AGREETNG), and glyph matching keeps known() alone.
