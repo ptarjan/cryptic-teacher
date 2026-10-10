@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,68 @@
     "text": "Campaign ad covers front of office in maroon",
     "enumeration": "7"
    },
-   "solution": "CRUSADE"
+   "solution": "CRUSADE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "CRUSADE",
+    "definitions": [
+     {
+      "text": "Campaign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "covers",
+      "for": "substitution",
+      "note": "one thing covering another hides it from view, so the ad stands in place of the letter it sits on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maroon",
+      "gives": "CRUSOE",
+      "note": "a maroon is a person left on a desert island, and Robinson Crusoe is the most famous one"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of office"
+     },
+     {
+      "clueFragment": "ad",
+      "gives": "AD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRUS",
+      "AD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An advertising campaign is lavished on an office painted dark red.",
+     "walkthrough": "Maroon looks like a colour, but here it is the rare noun for a castaway; swap the O in CRUSOE for AD.",
+     "definitionFit": "A crusade is a vigorous organised campaign for a cause, so the two are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "maroon"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +111,60 @@
     "text": "Comic of little value new, cents tops",
     "enumeration": "5"
    },
-   "solution": "CLOWN"
+   "solution": "CLOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLOWN",
+    "definitions": [
+     {
+      "text": "Comic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tops",
+      "for": "charade",
+      "note": "in a down answer, what tops the rest sits above it, at the start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cents",
+      "gives": "C",
+      "note": "c is the abbreviation for cents"
+     },
+     {
+      "clueFragment": "of little value",
+      "gives": "LOW",
+      "note": "low means of little worth"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOW",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheap new comic book costing a few cents at most.",
+     "walkthrough": "Comic looks like a magazine in the surface, but it is a person who makes people laugh.",
+     "definitionFit": "A clown is a comic performer, someone who acts the fool to amuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Comic"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +178,78 @@
     "text": "One holding 26 up, edition not bound",
     "enumeration": "9"
    },
-   "solution": "UNLIMITED"
+   "solution": "UNLIMITED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "UNLIMITED",
+    "definitions": [
+     {
+      "text": "not bound",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down answer, going up means reading from bottom to top, so backwards"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it within, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "UNIT",
+      "note": "a unit is a single one"
+     },
+     {
+      "clueFragment": "26",
+      "gives": "MIL",
+      "note": "the answer to 26-down"
+     },
+     {
+      "clueFragment": "edition",
+      "gives": "ED",
+      "note": "ed is the abbreviation for edition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "LIM",
+      "IT",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "MIL",
+       "to": "LIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A limited edition copy of a book, still unbound, is held up.",
+     "walkthrough": "In a bookish setting 'edition not bound' suggests a paperback, but 'not bound' is the definition, meaning unrestricted.",
+     "definitionFit": "Unlimited means without restriction, free of any bounds or limits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +263,52 @@
     "text": "Some drama fellow misplaced in non-fiction",
     "enumeration": "3"
    },
-   "solution": "ACT"
+   "solution": "ACT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ACT",
+    "definitions": [
+     {
+      "text": "Some drama",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misplaced",
+      "for": "deletion",
+      "note": "something misplaced has gone missing, so that letter is lost from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "non-fiction",
+      "gives": "FACT",
+      "note": "fact is the opposite of fiction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who wandered into the factual section by mistake causes a little drama.",
+     "definitionFit": "An act is one of the main divisions of a play, so it is a portion of drama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fellow"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +322,64 @@
     "text": "Feeling upset by large bestseller in 16?",
     "enumeration": "7"
    },
-   "solution": "EMOTION"
+   "solution": "EMOTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EMOTION",
+    "definitions": [
+     {
+      "text": "Feeling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down answer, set upside down means the letters are read from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bestseller in 16?",
+      "gives": "NOI",
+      "note": "a number one in a book shop, the top seller, with I as the numeral one"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "TOME",
+      "note": "a tome is a large heavy book, the bestseller in question"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMOT",
+      "ION"
+     ],
+     "reversals": [
+      {
+       "from": "NOITOME",
+       "to": "EMOTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author is distressed by a hefty bestseller on the bookshop shelves.",
+     "walkthrough": "The bestseller is a large book: a number one tome. 16 refers to 16-down's answer, BOOKSHOPS.",
+     "definitionFit": "An emotion is a feeling, such as joy or anger, so the words are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +399,49 @@
      }
     ]
    },
-   "solution": "PROTEA"
+   "solution": "PROTEA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROTEA",
+    "definitions": [
+     {
+      "text": "Flora of South Africa",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For",
+      "gives": "PRO",
+      "note": "pro means in favour of, for"
+     },
+     {
+      "clueFragment": "leaves",
+      "gives": "TEA",
+      "note": "tea is the dried leaves of the tea plant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "TEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A botanist notes the leaves of the plants of South Africa.",
+     "definitionFit": "The protea is a South African flowering plant, the country's national flower, so it is an example of its flora."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +461,66 @@
      }
     ]
    },
-   "solution": "PIPECLEANER"
+   "solution": "PIPECLEANER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PIPE CLEANER",
+    "definitions": [
+     {
+      "text": "brush for narrow flue",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, the only ones taken"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dickensian lad",
+      "gives": "PIP",
+      "note": "Pip is the boy hero of Dickens's Great Expectations"
+     },
+     {
+      "clueFragment": "explain chimney-sweeping",
+      "gives": "EC",
+      "select": "first",
+      "note": "the opening letters of explain and chimney-sweeping"
+     },
+     {
+      "clueFragment": "thinner",
+      "gives": "LEANER",
+      "note": "leaner means slimmer, thinner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIP",
+      "EC",
+      "LEANER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Dickensian boy chimney-sweep explains that a thinner brush suits a narrow flue.",
+     "walkthrough": "The surface paints a Victorian climbing boy, but the narrow flue is the stem of a tobacco pipe.",
+     "definitionFit": "A pipe cleaner is a thin bristled wire for cleaning the narrow stem of a smoker's pipe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flue"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +540,77 @@
      }
     ]
    },
-   "solution": "OXFAM"
+   "solution": "OXFAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution",
+     "anagram"
+    ],
+    "answer": "OXFAM",
+    "definitions": [
+     {
+      "text": "a charitable enterprise",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is meant"
+     },
+     {
+      "text": "making",
+      "for": "substitution",
+      "note": "making something into something else turns it into another thing, so one letter becomes another"
+     },
+     {
+      "text": "Fantastic",
+      "for": "anagram",
+      "note": "fantastic means fanciful and unreal, so the letters are reworked freely"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mr Fox",
+      "gives": "MRFOX",
+      "note": "the title character's name taken letter by letter"
+     },
+     {
+      "clueFragment": "robbery",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of robbery"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OXFAM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAFOX",
+       "gives": "OXFAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dahl's Fantastic Mr Fox, a story of farmyard theft, as a charity project.",
+     "walkthrough": "Change the R of MR FOX into A, then rearrange. Fantastic Mr Fox is a Roald Dahl title, so its first word hides the anagram signal.",
+     "definitionFit": "Oxfam is a large British charity, which also runs many second-hand shops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fantastic"
+    }
+   }
   },
   {
    "number": 7,
@@ -175,7 +636,66 @@
      }
     ]
    },
-   "solution": "ENTERKEYS"
+   "solution": "ENTERKEYS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ENTER KEYS",
+    "definitions": [
+     {
+      "text": "Carriage returns",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "collecting things means gathering them in, so the notes go inside"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the crossword shorthand for the Queen"
+     },
+     {
+      "clueFragment": "Notes",
+      "gives": "NTE",
+      "note": "N for note plus te, a note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "From a Small Island",
+      "gives": "KEYS",
+      "note": "a key is a low small island, so of a key reads KEY'S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NTE",
+      "R",
+      "KEYS"
+     ]
+    },
+    "explanation": {
+     "surface": "Royal carriages come back with the Queen reading Bill Bryson's Notes From a Small Island.",
+     "walkthrough": "Carriage returns are the keyboard keys that start a new line, nothing to do with horse-drawn coaches.",
+     "definitionFit": "On a computer keyboard the enter key does the job of the typewriter's carriage return."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Carriage"
+    }
+   }
   },
   {
    "number": 8,
@@ -195,7 +715,65 @@
      }
     ]
    },
-   "solution": "TOILETSOAP"
+   "solution": "TOILETSOAP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TOILET SOAP",
+    "definitions": [
+     {
+      "text": "bar with perfume",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "something disturbed has been thrown out of its settled order, so the poet's name gets rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "T S Eliot",
+      "gives": "TSELIOT",
+      "note": "the poet's name taken letter by letter"
+     },
+     {
+      "clueFragment": "retiree",
+      "gives": "OAP",
+      "note": "OAP, old-age pensioner, is the British term for a retired person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOILETS",
+      "OAP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TSELIOT",
+       "gives": "TOILETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The poet T S Eliot is upset by a pensioner in a pub wearing too much scent.",
+     "walkthrough": "'Bar' looks like a pub in the surface, but it is a bar of soap.",
+     "definitionFit": "Toilet soap is the scented kind sold in bars for washing, so a perfumed bar describes it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 9,
@@ -209,7 +787,45 @@
     "text": "Mates Scott and Gerald divided by the sound of it",
     "enumeration": "4"
    },
-   "solution": "FITS"
+   "solution": "FITS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FITS",
+    "definitions": [
+     {
+      "text": "Mates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "we are told to judge by how the word is pronounced, not how it is spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scott and Gerald divided by",
+      "gives": "FITS",
+      "soundsLike": "FITZ",
+      "note": "in the writer F Scott Fitzgerald's name, Fitz separates Scott from Gerald"
+     }
+    ],
+    "explanation": {
+     "surface": "A literary note on the two Scotts and Geralds, friends who were split up.",
+     "walkthrough": "Mates is a verb here, as in 'this lid mates with the jar'.",
+     "definitionFit": "To fit is to match or join up with something, which is what a part mating with another does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mates"
+    }
+   }
   },
   {
    "number": 10,
@@ -223,7 +839,69 @@
     "text": "Dictator embraced by the French, after revolution - Napoleon, according to Orwell",
     "enumeration": "6"
    },
-   "solution": "ANIMAL"
+   "solution": "ANIMAL",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ANIMAL",
+    "definitions": [
+     {
+      "text": "Napoleon, according to Orwell",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraced by",
+      "for": "container",
+      "note": "being embraced means being held inside arms, so one word sits within the other"
+     },
+     {
+      "text": "after revolution",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so the result is read backwards"
+     }
+    ],
+    "linkWords": [
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "la is French for the, feminine form"
+     },
+     {
+      "clueFragment": "Dictator",
+      "gives": "AMIN",
+      "note": "Idi Amin was the dictator of Uganda"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANIMAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAMINA",
+       "to": "ANIMAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dictator taken in by the French after the Revolution suggests Napoleon, as judged by Orwell.",
+     "walkthrough": "Napoleon seems to be the French emperor, but in Orwell's Animal Farm he is the pig who becomes dictator.",
+     "definitionFit": "In Animal Farm Napoleon is a pig, so for Orwell he is a farm creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Napoleon"
+    }
+   }
   },
   {
    "number": 11,
@@ -243,7 +921,70 @@
      }
     ]
    },
-   "solution": "LEGALTENDER"
+   "solution": "LEGALTENDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "LEGAL TENDER",
+    "definitions": [
+     {
+      "text": "money",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with a line crossed through",
+      "for": "substitution",
+      "note": "putting a crossbar through the stem of a capital letter changes its shape into a different letter"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pound",
+      "gives": "L",
+      "note": "L, from Latin libra, is the abbreviation for pound"
+     },
+     {
+      "clueFragment": "for one",
+      "gives": "EG",
+      "note": "eg, for example, means for one"
+     },
+     {
+      "clueFragment": "Allende",
+      "gives": "ALLENDE",
+      "note": "the surname of Chilean novelist Isabel Allende"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EG",
+      "ALTENDE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A pound, say, given to Allende is crossed off, and right money.",
+     "walkthrough": "Cross the second L of ALLENDE with a horizontal stroke and it becomes a T. Pound looks like an example of the definition, but it is the letter.",
+     "definitionFit": "Legal tender is money that must be accepted in payment of a debt, coins and notes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pound"
+    }
+   }
   },
   {
    "number": 12,
@@ -257,7 +998,50 @@
     "text": "New visitor mad on crime",
     "enumeration": "7"
    },
-   "solution": "INCOMER"
+   "solution": "INCOMER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INCOMER",
+    "definitions": [
+     {
+      "text": "New visitor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mad",
+      "for": "anagram",
+      "note": "something mad is out of its right mind and order, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on crime",
+      "gives": "ONCRIME",
+      "note": "the two words taken letter by letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCRIME",
+       "gives": "INCOMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh arrival in town is crazy about crime.",
+     "definitionFit": "An incomer is a person newly arrived in a place, a newcomer rather than a native."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mad"
+    }
+   }
   },
   {
    "number": 13,
@@ -277,7 +1061,79 @@
      }
     ]
    },
-   "solution": "KHAT"
+   "solution": "KHAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "KHAT",
+    "definitions": [
+     {
+      "text": "African leaves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the only one kept"
+     },
+     {
+      "text": "taken aback",
+      "for": "reversal",
+      "note": "aback means backwards, so these letters run from right to left"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "placed beside, so one piece is set next to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "Watch",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of watch"
+     },
+     {
+      "clueFragment": "old volunteers",
+      "gives": "TA",
+      "note": "the TA, Territorial Army, was the British volunteer reserve force, now renamed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "H",
+      "AT"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stephen King's novel End of Watch, about old volunteers, is taken from Africa.",
+     "walkthrough": "End of Watch is a real Stephen King title, which disguises 'End of' as part of a book name.",
+     "definitionFit": "Khat is an East African shrub whose leaves are chewed as a stimulant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 14,
@@ -297,7 +1153,46 @@
      }
     ]
    },
-   "solution": "HANDSFREE"
+   "solution": "HANDSFREE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDS-FREE",
+    "definitions": [
+     {
+      "text": "worked safely without touching",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staff",
+      "gives": "HANDS",
+      "note": "hands are workers, the staff"
+     },
+     {
+      "clueFragment": "paid nothing",
+      "gives": "FREE",
+      "note": "something free costs nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HANDS",
+      "FREE"
+     ]
+    },
+    "explanation": {
+     "surface": "Unpaid staff worked carefully and never laid a finger on anything.",
+     "definitionFit": "A hands-free device, such as a car phone kit, is operated without being held, which is safer when driving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 15,
@@ -317,7 +1212,67 @@
      }
     ]
    },
-   "solution": "GINGERBEER"
+   "solution": "GINGERBEER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "GINGER BEER",
+    "definitions": [
+     {
+      "text": "17's pop",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half a word is one of its two halves, here the opening one"
+     },
+     {
+      "text": "rock",
+      "for": "anagram",
+      "note": "to rock is to shake about, so the letters are tossed into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greene",
+      "gives": "GREENE",
+      "note": "the novelist Graham Greene's surname"
+     },
+     {
+      "clueFragment": "Brighton",
+      "gives": "BRIG",
+      "select": "first",
+      "note": "the first four of the eight letters of Brighton"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREENEBRIG",
+       "gives": "GINGERBEER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Graham Greene's novel Brighton Rock seems to be the subject, compared to a children's author's work.",
+     "walkthrough": "Brighton Rock is a Greene novel and a seaside sweet, but 'rock' is the anagram signal. Pop is a fizzy drink, and 17 is the children's author in 17-across.",
+     "definitionFit": "Ginger beer is a fizzy soft drink famously linked to the Famous Five stories, so it is that author's pop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 16,
@@ -331,7 +1286,68 @@
     "text": "Some 6 outlets smell, certainly hot inside concessions",
     "enumeration": "9"
    },
-   "solution": "BOOKSHOPS"
+   "solution": "BOOKSHOPS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BOOKSHOPS",
+    "definitions": [
+     {
+      "text": "Some 6 outlets",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "one thing inside another sits within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smell",
+      "gives": "BO",
+      "note": "BO, body odour, is an unpleasant smell"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "OK",
+      "note": "OK as an answer means yes, certainly"
+     },
+     {
+      "clueFragment": "concessions",
+      "gives": "SOPS",
+      "note": "sops are small concessions made to placate someone"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "OK",
+      "S",
+      "H",
+      "OPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Some charity outlets do smell, and the concession stands are very hot.",
+     "walkthrough": "6 refers to 6-down's answer, OXFAM, whose shops include many selling second-hand books.",
+     "definitionFit": "Oxfam runs dedicated bookshops among its many charity stores, so some of its outlets are of this kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concessions"
+    }
+   }
   },
   {
    "number": 17,
@@ -351,7 +1367,51 @@
      }
     ]
    },
-   "solution": "ENIDBLYTON"
+   "solution": "ENIDBLYTON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENID BLYTON",
+    "definitions": [
+     {
+      "text": "writer criticised for being dumb",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new and different, so the letters take a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tiny blonde",
+      "gives": "TINYBLONDE",
+      "note": "the two words taken letter by letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TINYBLONDE",
+       "gives": "ENIDBLYTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A petite fair-haired novelist is attacked for being stupid.",
+     "walkthrough": "'Novel' looks like a noun describing a book, but it is the anagram signal; dumb here means dumbed down.",
+     "definitionFit": "Enid Blyton, the prolific children's author, was long criticised for her simple vocabulary and limited style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 18,
@@ -365,7 +1425,43 @@
     "text": "Second-hand dealer's wobbles when walking",
     "enumeration": "7"
    },
-   "solution": "TOTTERS"
+   "solution": "TOTTERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOTTERS",
+    "definitions": [
+     {
+      "text": "Second-hand dealer's",
+      "at": 0
+     },
+     {
+      "text": "wobbles when walking",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second-hand dealer's",
+      "note": "first meaning: a totter is a British rag-and-bone man, a scrap dealer; with 's for the possessive"
+     },
+     {
+      "clueFragment": "wobbles when walking",
+      "note": "second meaning: moves unsteadily on one's feet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A totter is a rag-and-bone man, a dealer in scrap and old goods, as in TV's Steptoe and Son.",
+     "definitionFit": "The word is both a possessive of a scrap collector and a verb for staggering unsteadily along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dealer's"
+    }
+   }
   },
   {
    "number": 19,
@@ -385,7 +1481,58 @@
      }
     ]
    },
-   "solution": "OISE"
+   "solution": "OISE",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "OISE",
+    "definitions": [
+     {
+      "text": "Part of France",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes from",
+      "for": "reversal",
+      "note": "Dahl's title is a word spelt backwards, so its source is found by turning it round"
+     }
+    ],
+    "linkWords": [
+     "which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Esio Trot's first name",
+      "gives": "ESIO",
+      "note": "the first word of Roald Dahl's book title Esio Trot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OISE"
+     ],
+     "reversals": [
+      {
+       "from": "ESIO",
+       "to": "OISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A playful question about where the title of Roald Dahl's book Esio Trot comes from.",
+     "walkthrough": "Esio Trot is tortoise written backwards, so its first word came from the end of tortoise.",
+     "definitionFit": "The Oise is a department of northern France, named after its river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "name"
+    }
+   }
   },
   {
    "number": 20,
@@ -405,7 +1552,47 @@
      }
     ]
    },
-   "solution": "SUBTEXT"
+   "solution": "SUBTEXT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUBTEXT",
+    "definitions": [
+     {
+      "text": "It's not obvious to the reader",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Das Boot",
+      "gives": "SUB",
+      "note": "Das Boot is the German film about a submarine, a sub"
+     },
+     {
+      "clueFragment": "typed with thumbs?",
+      "gives": "TEXT",
+      "note": "a phone message is tapped out with the thumbs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "TEXT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thumbs out a message about the war film Das Boot, though its meaning is unclear.",
+     "definitionFit": "Subtext is the meaning beneath the surface of a text, something a reader must infer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "typed"
+    }
+   }
   },
   {
    "number": 21,
@@ -425,7 +1612,44 @@
      }
     ]
    },
-   "solution": "BONDS"
+   "solution": "BONDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BONDS",
+    "definitions": [
+     {
+      "text": "Security instruments",
+      "at": 0
+     },
+     {
+      "text": "of The Spy Who Loved Me",
+      "at": 21,
+      "note": "a phrase meaning belonging to the spy defines the possessive Bond's, which sounds and reads the same as the plural noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Security instruments",
+      "note": "first meaning: certificates of debt issued by a government or company"
+     },
+     {
+      "clueFragment": "of The Spy Who Loved Me",
+      "note": "second meaning: belonging to James Bond, hero of that Fleming title"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Spy Who Loved Me is a James Bond novel and film, so 'of' it is Bond's.",
+     "definitionFit": "Bonds are tradeable financial securities, while Bond's is the possessive of the fictional spy James Bond."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Security"
+    }
+   }
   },
   {
    "number": 22,
@@ -445,7 +1669,43 @@
      }
     ]
    },
-   "solution": "RUSSIA"
+   "solution": "RUSSIA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RUSSIA",
+    "definitions": [
+     {
+      "text": "scene of War and Peace",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read out",
+      "for": "homophone",
+      "note": "reading out means speaking the words, so we go by their pronunciation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person in a hurry",
+      "gives": "RUSSIA",
+      "soundsLike": "RUSHER",
+      "note": "one who rushes"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hastily reading aloud a passage from Tolstoy's War and Peace.",
+     "definitionFit": "Tolstoy's War and Peace is set in Russia during the Napoleonic invasion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "read"
+    }
+   }
   },
   {
    "number": 23,
@@ -465,7 +1725,51 @@
      }
     ]
    },
-   "solution": "ISLAY"
+   "solution": "ISLAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISLAY",
+    "definitions": [
+     {
+      "text": "Whisky Galore there",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "butcher",
+      "gives": "SLAY",
+      "note": "to butcher is to slaughter, slay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SLAY"
+     ]
+    },
+    "explanation": {
+     "surface": "An island with a butcher, the setting of the film Whisky Galore.",
+     "walkthrough": "Whisky Galore looks like the Compton Mackenzie title, but it means lots of whisky: Islay is famous for its many distilleries.",
+     "definitionFit": "Islay is a Hebridean island packed with distilleries, a place of plentiful Scotch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Galore"
+    }
+   }
   },
   {
    "number": 24,
@@ -489,7 +1793,64 @@
      }
     ]
    },
-   "solution": "IRON"
+   "solution": "IRON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "IRON",
+    "definitions": [
+     {
+      "text": "One of Elements",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Through the Looking Glass",
+      "for": "reversal",
+      "note": "a mirror shows writing back to front, so the letters are read in the opposite order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and not",
+      "gives": "NOR",
+      "note": "nor means and not"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RON"
+     ],
+     "reversals": [
+      {
+       "from": "NORI",
+       "to": "IRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Book titles: one of Euclid's Elements, and not one of Carroll's Through the Looking-Glass.",
+     "walkthrough": "Elements and Through the Looking-Glass look like book titles, but one is the chemical elements and the other a reversal signal.",
+     "definitionFit": "Iron is a metallic chemical element, number 26 in the periodic table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Elements"
+    }
+   }
   },
   {
    "number": 25,
@@ -503,7 +1864,74 @@
     "text": "Doctor Marlowe fashioned, leading character in devilish fantasy",
     "enumeration": "10"
    },
-   "solution": "DREAMWORLD"
+   "solution": "DREAMWORLD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DREAMWORLD",
+    "definitions": [
+     {
+      "text": "fantasy",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fashioned",
+      "for": "anagram",
+      "note": "something fashioned has been shaped anew, so the playwright's letters are remade"
+     },
+     {
+      "text": "leading character in",
+      "for": "letter_selection",
+      "note": "the leading character of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "Marlowe",
+      "gives": "MARLOWE",
+      "note": "the playwright's name taken letter by letter"
+     },
+     {
+      "clueFragment": "devilish",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of devilish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "EAMWORL",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MARLOWE",
+       "gives": "EAMWORL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Marlowe's Doctor Faustus is created, its lead character in a diabolical fantasy.",
+     "walkthrough": "Doctor and Marlowe together evoke Doctor Faustus with its devil, but Doctor just gives the abbreviation.",
+     "definitionFit": "A dreamworld is an imaginary, unreal realm, the stuff of fantasy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 26,
@@ -517,7 +1945,53 @@
     "text": "A Brontë's inside small volume",
     "enumeration": "3"
    },
-   "solution": "MIL"
+   "solution": "MIL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "MIL",
+    "definitions": [
+     {
+      "text": "small volume",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "letter_selection",
+      "note": "the inside of a word is everything bar its outer letters"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A Brontë",
+      "gives": "MIL",
+      "select": "middle",
+      "note": "Emily Brontë, minus her first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIL"
+     ]
+    },
+    "explanation": {
+     "surface": "One of the Brontë sisters appears within a slim book.",
+     "walkthrough": "Mil is informal for millilitre, as in '250 mil of water'.",
+     "definitionFit": "A millilitre is a tiny measure of liquid, so it is a small volume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 27,
@@ -531,7 +2005,56 @@
     "text": "Time to relax with reading/writing puzzle",
     "enumeration": "6"
    },
-   "solution": "TEASER"
+   "solution": "TEASER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEASER",
+    "definitions": [
+     {
+      "text": "puzzle",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "to relax",
+      "gives": "EASE",
+      "note": "to ease is to relax"
+     },
+     {
+      "clueFragment": "reading/writing",
+      "gives": "R",
+      "note": "reading and writing are two of the three Rs, each written as R"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EASE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Time to unwind with some reading or a writing puzzle.",
+     "walkthrough": "The three Rs are reading, writing and arithmetic, so either of the first two is an R.",
+     "definitionFit": "A teaser, short for brain-teaser, is a tricky problem or riddle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reading/writing"
+    }
+   }
   },
   {
    "number": 28,
@@ -551,7 +2074,55 @@
      }
     ]
    },
-   "solution": "SPLASHY"
+   "solution": "SPLASHY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPLASHY",
+    "definitions": [
+     {
+      "text": "for show",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in means sitting inside, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whip",
+      "gives": "LASH",
+      "note": "a lash is a whip"
+     },
+     {
+      "clueFragment": "The Secret Agent",
+      "gives": "SPY",
+      "note": "a secret agent is a spy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "LASH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A whip appears in Conrad's novel The Secret Agent purely for effect.",
+     "walkthrough": "The Secret Agent is a Joseph Conrad novel title, but here it just means a spy.",
+     "definitionFit": "Something splashy is showy and ostentatious, done to attract attention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Whip"
+    }
+   }
   }
  ]
 }
