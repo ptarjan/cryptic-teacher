@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Drunk used to be lout, many years ago",
     "enumeration": "6"
    },
-   "solution": "WASTED"
+   "solution": "WASTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WASTED",
+    "definitions": [
+     {
+      "text": "Drunk",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used to be",
+      "gives": "WAS",
+      "note": "past tense of 'is'"
+     },
+     {
+      "clueFragment": "lout, many years ago",
+      "gives": "TED",
+      "note": "a Teddy boy, a 1950s British youth tough"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAS",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunken man once was a yob back in his youth.",
+     "walkthrough": "A Ted, or Teddy boy, was a 1950s British youth in Edwardian-style dress, often seen as a hooligan.",
+     "definitionFit": "Wasted is slang for heavily intoxicated, a synonym of drunk as an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,62 @@
     "text": "American lecturer regularly taking ecstasy by herself",
     "enumeration": "5"
    },
-   "solution": "ALONE"
+   "solution": "ALONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALONE",
+    "definitions": [
+     {
+      "text": "by herself",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "common abbreviation"
+     },
+     {
+      "clueFragment": "lecturer",
+      "gives": "L",
+      "note": "abbreviation for lecturer"
+     },
+     {
+      "clueFragment": "regularly",
+      "gives": "ON",
+      "note": "as in 'on and on' or 'on a regular basis'"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "ON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An American academic habitually takes drugs on her own.",
+     "walkthrough": "'Regularly' looks like an instruction to take alternate letters, but here it simply stands for ON.",
+     "definitionFit": "Being by oneself means being unaccompanied, so the adverb alone fits the phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +159,59 @@
     "text": "Swear about losing a hairpiece",
     "enumeration": "5"
    },
-   "solution": "TRESS"
+   "solution": "TRESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "TRESS",
+    "definitions": [
+     {
+      "text": "hairpiece",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing a",
+      "for": "deletion",
+      "note": "losing tells us a letter drops out, and the letter named is the a"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the remaining letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swear",
+      "gives": "ASSERT",
+      "note": "to swear is to declare firmly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRESS"
+     ],
+     "reversals": [
+      {
+       "from": "SSERT",
+       "to": "TRESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone curses over the loss of their wig.",
+     "definitionFit": "A tress is a long lock of hair, loosely a piece of hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Swear"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +225,53 @@
     "text": "Old map I revised for academic qualification",
     "enumeration": "7"
    },
-   "solution": "DIPLOMA"
+   "solution": "DIPLOMA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIPLOMA",
+    "definitions": [
+     {
+      "text": "academic qualification",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revised",
+      "for": "anagram",
+      "note": "something revised has been reworked, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old map I",
+      "gives": "OLDMAPI",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLDMAPI",
+       "gives": "DIPLOMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old map is updated so a student can earn a qualification.",
+     "definitionFit": "A diploma is a certificate awarded on completing a course of study."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revised"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +285,64 @@
     "text": "C Kent's partner gets bad back in market town",
     "enumeration": "8"
    },
-   "solution": "LLANELLI"
+   "solution": "LLANELLI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LLANELLI",
+    "definitions": [
+     {
+      "text": "market town",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the word for bad is read right to left"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "C Kent's partner",
+      "gives": "LLANE",
+      "note": "Clark Kent's partner is Lois Lane, written in the same initial-plus-surname style"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "ILL",
+      "note": "ill means bad, as in ill effects"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LLANE",
+      "LLI"
+     ],
+     "reversals": [
+      {
+       "from": "ILL",
+       "to": "LLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Superman's sweetheart is having back trouble while in a country town.",
+     "walkthrough": "Just as Clark Kent becomes C Kent, Lois Lane becomes L Lane. Llanelli is a town in South Wales.",
+     "definitionFit": "Llanelli is a Welsh town in Carmarthenshire that grew up around its market and docks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kent"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +356,72 @@
     "text": "Left behind end of extension for sun lamp",
     "enumeration": "7"
    },
-   "solution": "LANTERN"
+   "solution": "LANTERN",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution",
+     "letter_selection"
+    ],
+    "answer": "LANTERN",
+    "definitions": [
+     {
+      "text": "lamp",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing given for another is a swap, so one letter stands in place of another"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "'end of' keeps only the last letter of 'extension'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "ASTERN",
+      "note": "astern means at the back of a ship"
+     },
+     {
+      "clueFragment": "extension",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of extension"
+     },
+     {
+      "clueFragment": "sun",
+      "gives": "S",
+      "note": "S is the abbreviation for sun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ANTERN"
+     ]
+    },
+    "explanation": {
+     "surface": "An extension's far end is left with a sun lamp in it.",
+     "walkthrough": "The N replaces the S of the word for behind.",
+     "definitionFit": "A lantern is a portable lamp with a protective case around the light."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sun"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +441,63 @@
      }
     ]
    },
-   "solution": "ALLEYES"
+   "solution": "ALLEYES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALL EYES",
+    "definitions": [
+     {
+      "text": "Observant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in sets one piece inside another word"
+     },
+     {
+      "text": "On the contrary",
+      "for": "container",
+      "note": "on the contrary flips the stated relationship, so the holder and the held swap roles"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passages",
+      "gives": "ALLEYS",
+      "note": "alleys are narrow passages"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLEY",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone watchful of corridors in English buildings, or perhaps the reverse.",
+     "walkthrough": "Read literally, passages go inside English; 'On the contrary' turns it round so E sits inside the passages.",
+     "definitionFit": "Being all eyes is an idiom for watching very attentively, so it describes someone observant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +517,52 @@
      }
     ]
    },
-   "solution": "EARLYBIRD"
+   "solution": "EARLYBIRD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARLY BIRD",
+    "definitions": [
+     {
+      "text": "worm-catcher",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upsetting",
+      "for": "anagram",
+      "note": "upsetting knocks things over, so these letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I err badly",
+      "gives": "IERRBADLY",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IERRBADLY",
+       "gives": "EARLYBIRD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confession of a bad mistake that annoys someone who catches worms.",
+     "walkthrough": "'Badly' feels like the anagram signal but belongs in the letters; 'upsetting' does that job.",
+     "definitionFit": "The proverb says the early bird catches the worm, so a worm-catcher is a playful description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "upsetting"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +576,71 @@
     "text": "People hanging round Italy abandoning women's underwear with arse exposed",
     "enumeration": "9"
    },
-   "solution": "LINGERERS"
+   "solution": "LINGERERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LINGERERS",
+    "definitions": [
+     {
+      "text": "People hanging round",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoning",
+      "for": "deletion",
+      "note": "abandoning something leaves it behind, so the country's letter is dropped"
+     },
+     {
+      "text": "exposed",
+      "for": "letter_selection",
+      "note": "exposed means stripped of its covering, so the outside letters of the word are peeled away"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "women's underwear",
+      "gives": "LINGERIE",
+      "note": "lingerie is women's underwear"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     },
+     {
+      "clueFragment": "arse",
+      "gives": "RS",
+      "select": "middle",
+      "note": "the inner letters once the outer ones are stripped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LINGERE",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky image of someone ditching their knickers and showing their bottom.",
+     "walkthrough": "The final I of the underwear word goes, then the inner letters of arse follow.",
+     "definitionFit": "Lingerers are those who hang about or loiter, so people hanging round is a plural noun phrase match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "exposed"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +654,45 @@
     "text": "Simple announcement of \"A lemon tree, my dear Watson\"?",
     "enumeration": "8"
    },
-   "solution": "HOMESPUN"
+   "solution": "HOMESPUN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HOMESPUN",
+    "definitions": [
+     {
+      "text": "Simple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announcement of",
+      "for": "homophone",
+      "note": "an announcement is spoken, so what we need is how the phrase sounds when said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"A lemon tree, my dear Watson\"",
+      "gives": "HOMESPUN",
+      "soundsLike": "HOLMES PUN",
+      "note": "a pun on 'Elementary, my dear Watson', so a pun by Sherlock Holmes"
+     }
+    ],
+    "explanation": {
+     "surface": "A daft quip by the great detective, misquoting his famous line.",
+     "walkthrough": "'A lemon tree' said quickly sounds like 'elementary', so the line is a Holmes pun.",
+     "definitionFit": "Homespun means plain and unsophisticated, a synonym of simple as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lemon"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +706,70 @@
     "text": "Cat eats a rat's head and part of respiratory tract",
     "enumeration": "6"
    },
-   "solution": "LARYNX"
+   "solution": "LARYNX",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LARYNX",
+    "definitions": [
+     {
+      "text": "part of respiratory tract",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eats",
+      "for": "container",
+      "note": "what is eaten goes inside, so the cat word swallows the rest"
+     },
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its front, so only its opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cat",
+      "gives": "LYNX",
+      "note": "a lynx is a wild cat"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rat's",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter of rat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "R",
+      "YNX"
+     ]
+    },
+    "explanation": {
+     "surface": "A cat devours a rat's head, which then lodges in its throat.",
+     "definitionFit": "The larynx, or voice box, is an organ in the airway between the throat and the windpipe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +793,42 @@
      }
     ]
    },
-   "solution": "SETSTOREBY"
+   "solution": "SETSTOREBY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SET STORE BY",
+    "definitions": [
+     {
+      "text": "Greatly value",
+      "at": 0
+     },
+     {
+      "text": "what happened in a very quick tennis match",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greatly value",
+      "note": "first meaning: an idiom for prizing something highly"
+     },
+     {
+      "clueFragment": "what happened in a very quick tennis match",
+      "note": "second meaning: split differently"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Re-spaced, the phrase becomes SETS TORE BY: in a quick match the sets raced past.",
+     "definitionFit": "To set store by something is an idiom for regarding it as very important."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +842,42 @@
     "text": "Primordial matter found in mouldy lemons",
     "enumeration": "4"
    },
-   "solution": "YLEM"
+   "solution": "YLEM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "YLEM",
+    "definitions": [
+     {
+      "text": "Primordial matter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "found in means sitting inside, so the letters lie within the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mouldy lemons",
+      "gives": "YLEM",
+      "note": "spans the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Primitive life-stuff growing on rotting fruit.",
+     "definitionFit": "Ylem is the hypothetical primordial substance from which the elements were formed in the Big Bang theory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mouldy"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +897,61 @@
      }
     ]
    },
-   "solution": "ACIDRAIN"
+   "solution": "ACIDRAIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACID RAIN",
+    "definitions": [
+     {
+      "text": "Unpleasant shower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly cancelled",
+      "for": "letter_selection",
+      "note": "cancelling the odd places deletes every first, third and fifth character, keeping the even ones"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the drink word is placed second, following the letters from the exercise word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tai-chi",
+      "gives": "ACI",
+      "select": "alternate",
+      "note": "even letters of the word"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "DRAIN",
+      "note": "to drain a glass is to drink it all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACI",
+      "DRAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A soaking in the rain after a tai-chi class was called off.",
+     "walkthrough": "'After' puts the drink word after the letters from tai-chi.",
+     "definitionFit": "Acid rain is rainfall polluted with acids, so it is literally a nasty shower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "shower"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +971,81 @@
      }
     ]
    },
-   "solution": "CRABAPPLE"
+   "solution": "CRABAPPLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "CRAB APPLE",
+    "definitions": [
+     {
+      "text": "fruit tree",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after banks rejected",
+      "for": "letter_selection",
+      "note": "the banks of a river are its edges, so rejecting them leaves only the inner letters"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the following letters from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     },
+     {
+      "clueFragment": "helps",
+      "gives": "ELP",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     },
+     {
+      "clueFragment": "father",
+      "gives": "PA",
+      "note": "informal word for father"
+     },
+     {
+      "clueFragment": "saving",
+      "gives": "BAR",
+      "note": "saving in the sense 'except', as is bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RABAPPLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELPPABAR",
+       "to": "RABAPPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A financial tale: banks refuse help, so Charlie assists a dad saving money.",
+     "walkthrough": "Saving and bar both mean 'except'; the trimmed helps, father and saving are reversed together after C.",
+     "definitionFit": "A crab apple is a small wild apple tree bearing sour fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "saving"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1065,70 @@
      }
     ]
    },
-   "solution": "DOLCEVITA"
+   "solution": "DOLCEVITA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DOLCE VITA",
+    "definitions": [
+     {
+      "text": "Life of luxury",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absurd",
+      "for": "anagram",
+      "note": "something absurd makes no sense as it stands, so these letters must be rearranged"
+     }
+    ],
+    "linkWords": [
+     "portrayed in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "OLD",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "show about lady's rise to power",
+      "gives": "EVITA",
+      "note": "the musical about Eva Perón's rise in Argentina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOL",
+      "C",
+      "EVITA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLD",
+       "gives": "DOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "High living depicted in a silly old Tory musical about a woman's ascent.",
+     "walkthrough": "Evita is the Lloyd Webber musical about Eva Perón.",
+     "definitionFit": "La dolce vita is Italian for 'the sweet life', a phrase for indulgent luxurious living."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1142,65 @@
     "text": "Flavours of fish, hint of smoke moving to the fore",
     "enumeration": "6"
    },
-   "solution": "SPICES"
+   "solution": "SPICES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "SPICES",
+    "definitions": [
+     {
+      "text": "Flavours",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hint of",
+      "for": "letter_selection",
+      "note": "a hint is just a trace, so only the first letter of smoke is wanted"
+     },
+     {
+      "text": "moving to the fore",
+      "for": "deletion",
+      "note": "moving to the front takes that letter out of its current place before setting it at the start"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smoke",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "PISCES",
+      "note": "Pisces, the zodiac Fishes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PICES"
+     ]
+    },
+    "explanation": {
+     "surface": "Smoked fish flavours, with the smokiness pushed to the front.",
+     "walkthrough": "The first S of the fish sign moves to the front.",
+     "definitionFit": "Spices are substances that add flavour to food, so the plural noun matches flavours."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1214,42 @@
     "text": "A song that Cinderella would like to reply to?",
     "enumeration": "6"
    },
-   "solution": "BALLAD"
+   "solution": "BALLAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BALLAD",
+    "definitions": [
+     {
+      "text": "A song",
+      "at": 0
+     },
+     {
+      "text": "that Cinderella would like to reply to",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A song",
+      "note": "first meaning: a narrative song"
+     },
+     {
+      "clueFragment": "that Cinderella would like to reply to",
+      "note": "second meaning: read as two words, a notice for a dance"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split in two, the word is a BALL AD, an advertisement for a dance that Cinderella would love to answer.",
+     "definitionFit": "A ballad is a song that tells a story, often sentimental."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1263,55 @@
     "text": "Change course, wanting to take Latin",
     "enumeration": "7"
    },
-   "solution": "DEFLECT"
+   "solution": "DEFLECT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEFLECT",
+    "definitions": [
+     {
+      "text": "Change course",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take",
+      "for": "container",
+      "note": "taking something means holding it, so one part goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wanting",
+      "gives": "DEFECT",
+      "note": "a defect is a want or shortcoming"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEF",
+      "L",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A student switches courses because they need to study Latin.",
+     "walkthrough": "'Change course' reads like switching studies; it is the definition, a verb meaning swerve.",
+     "definitionFit": "To deflect is to turn aside from a path, a verb synonym of changing course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1325,55 @@
     "text": "Mimic cricket matches, in part",
     "enumeration": "8"
    },
-   "solution": "PARODIST"
+   "solution": "PARODIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARODIST",
+    "definitions": [
+     {
+      "text": "Mimic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one set of letters inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part",
+      "gives": "PART",
+      "note": "taken as written, the outer letters"
+     },
+     {
+      "clueFragment": "cricket matches",
+      "gives": "ODIS",
+      "note": "ODIs are One Day Internationals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "ODIS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An impersonator plays some cricket on the side.",
+     "walkthrough": "ODI is the standard abbreviation for a one-day international cricket match.",
+     "definitionFit": "A parodist imitates others for comic effect, so a mimic is a noun synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mimic"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1387,58 @@
     "text": "Allegorical story of Scotsman dividing pasty",
     "enumeration": "7"
    },
-   "solution": "PARABLE"
+   "solution": "PARABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARABLE",
+    "definitions": [
+     {
+      "text": "Allegorical story",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dividing",
+      "for": "container",
+      "note": "something dividing another splits it, sitting in the middle"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pasty",
+      "gives": "PALE",
+      "note": "pasty as an adjective, meaning wan"
+     },
+     {
+      "clueFragment": "Scotsman",
+      "gives": "RAB",
+      "note": "a typical Scots name, short for Robert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "RAB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tale about a Scot sharing out a meat pie.",
+     "walkthrough": "'Pasty' looks like a pie but here is the adjective meaning pale.",
+     "definitionFit": "A parable is a short tale with a moral or spiritual lesson, an allegory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pasty"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1452,60 @@
     "text": "Author arguing about ladies, primarily",
     "enumeration": "7"
    },
-   "solution": "ROWLING"
+   "solution": "ROWLING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ROWLING",
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word goes around the other"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the leading letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arguing",
+      "gives": "ROWING",
+      "note": "a row is a quarrel; rhymes with 'cow'"
+     },
+     {
+      "clueFragment": "ladies",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROW",
+      "L",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer quarrelling about women, mostly.",
+     "definitionFit": "J K Rowling is the author of the Harry Potter books."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1519,50 @@
     "text": "Cloak is carbon copy",
     "enumeration": "4"
    },
-   "solution": "CAPE"
+   "solution": "CAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPE",
+    "definitions": [
+     {
+      "text": "Cloak",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carbon",
+      "gives": "C",
+      "note": "chemical symbol"
+     },
+     {
+      "clueFragment": "copy",
+      "gives": "APE",
+      "note": "to ape is to copy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A garment that is a mere duplicate.",
+     "walkthrough": "'Carbon copy' looks like one phrase but splits into two pieces.",
+     "definitionFit": "A cape is a sleeveless cloak worn over the shoulders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carbon"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1582,51 @@
      }
     ]
    },
-   "solution": "FIREWARDEN"
+   "solution": "FIREWARDEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FIRE WARDEN",
+    "definitions": [
+     {
+      "text": "Safety officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorrectly",
+      "for": "anagram",
+      "note": "something done incorrectly is wrong as it stands, so the letters need rearranging"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rewired fan",
+      "gives": "REWIREDFAN",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REWIREDFAN",
+       "gives": "FIREWARDEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A health and safety inspector botches the wiring of a fan.",
+     "walkthrough": "'Rewired' feels like the signal but is part of the letters.",
+     "definitionFit": "A fire warden is the person responsible for fire safety and evacuation in a building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rewired"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1640,62 @@
     "text": "I acknowledge that wordy compiler must shorten 20D's opening",
     "enumeration": "5"
    },
-   "solution": "ROGER"
+   "solution": "ROGER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROGER",
+    "definitions": [
+     {
+      "text": "I acknowledge that",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must shorten",
+      "for": "deletion",
+      "note": "shortening a word cuts off its end, losing its last letter"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is a beginning, so only the first letter of the referenced entry counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wordy compiler",
+      "gives": "ROGET",
+      "note": "Peter Roget compiled the famous thesaurus"
+     },
+     {
+      "clueFragment": "20D's",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of the answer to 20 down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROGE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A setter admits a thesaurus compiler should trim the start of another clue.",
+     "walkthrough": "Roget, compiler of the thesaurus, loses his T; 20 down is ROWLING, giving R.",
+     "definitionFit": "Roger is radio procedure for 'message received', so it acknowledges what was said."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "compiler"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1709,66 @@
     "text": "Team up to restrict temperature changes",
     "enumeration": "5"
    },
-   "solution": "EDITS"
+   "solution": "EDITS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EDITS",
+    "definitions": [
+     {
+      "text": "changes",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the team word from bottom to top"
+     },
+     {
+      "text": "to restrict",
+      "for": "container",
+      "note": "restricting means hemming in, so the letters close around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Team",
+      "gives": "SIDE",
+      "note": "a side is a team"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDI",
+      "T",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SIDE",
+       "to": "EDIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A squad gears up to limit shifts in temperature.",
+     "definitionFit": "Edits are alterations made to a text, so changes is a plural noun synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "temperature"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1782,55 @@
     "text": "Large quill pens key",
     "enumeration": "6"
    },
-   "solution": "SPLINE"
+   "solution": "SPLINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPLINE",
+    "definitions": [
+     {
+      "text": "key",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pens",
+      "for": "container",
+      "note": "to pen something is to shut it in, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quill",
+      "gives": "SPINE",
+      "note": "a porcupine's quill is a spine"
+     },
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "L",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A big feather pen as the essential writing tool.",
+     "walkthrough": "'Quill' and 'pens' suggest writing; quill means spine, and pens means encloses.",
+     "definitionFit": "In engineering, a spline is a key or ridge on a shaft that locks it to a mating part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pens"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1850,55 @@
      }
     ]
    },
-   "solution": "BRINGSIN"
+   "solution": "BRINGSIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRINGS IN",
+    "definitions": [
+     {
+      "text": "Introduces",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the span of, so one word sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scrap",
+      "gives": "BIN",
+      "note": "to bin is to scrap"
+     },
+     {
+      "clueFragment": "gangs",
+      "gives": "RINGS",
+      "note": "a ring is a gang, as in a drugs ring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RINGS",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Gangs are brought into a street fight.",
+     "walkthrough": "'Scrap' suggests a fight, but here it means throw away.",
+     "definitionFit": "To bring in a measure or person is to introduce them, a phrasal verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scrap"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +1912,55 @@
     "text": "Supply pear tree, which is what Partridge wanted on show",
     "enumeration": "8"
    },
-   "solution": "REPARTEE"
+   "solution": "REPARTEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPARTEE",
+    "definitions": [
+     {
+      "text": "what Partridge wanted on show",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Supply",
+      "for": "anagram",
+      "note": "supply here is the adverb from supple, so the letters bend into a new shape"
+     }
+    ],
+    "linkWords": [
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pear tree",
+      "gives": "PEARTREE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PEARTREE",
+       "gives": "REPARTEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request for a pear tree, as wanted by a partridge in the Christmas song.",
+     "walkthrough": "'Supply' reads as a verb but is the adverb of supple. Alan Partridge is Steve Coogan's hopeless TV chat-show host.",
+     "definitionFit": "Repartee is quick witty conversation, exactly what a chat show host hopes for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Supply"
+    }
+   }
   },
   {
    "number": 28,
@@ -491,7 +1974,43 @@
     "text": "Flashy and fishy?",
     "enumeration": "6"
    },
-   "solution": "GARISH"
+   "solution": "GARISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GARISH",
+    "definitions": [
+     {
+      "text": "Flashy",
+      "at": 0
+     },
+     {
+      "text": "fishy",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flashy",
+      "note": "first meaning: gaudy, showy"
+     },
+     {
+      "clueFragment": "fishy",
+      "note": "second meaning: like a gar, a long-snouted fish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is a joke: 'gar-ish' means resembling a gar, a fish with a long pointed snout.",
+     "definitionFit": "Garish means tastelessly bright and showy, an adjective synonym of flashy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fishy"
+    }
+   }
   }
  ]
 }
