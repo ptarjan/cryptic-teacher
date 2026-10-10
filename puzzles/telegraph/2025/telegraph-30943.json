@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,54 @@
     "text": "Large meal European tucked into quickly",
     "enumeration": "5"
    },
-   "solution": "FEAST"
+   "solution": "FEAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FEAST",
+    "definitions": [
+     {
+      "text": "Large meal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "something tucked into another thing sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quickly",
+      "gives": "FAST",
+      "note": "fast means quickly"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "E",
+      "AST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from Europe wolfs down a big dinner in a hurry.",
+     "definitionFit": "A feast is a lavish, plentiful meal, so the noun phrase is a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quickly"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +96,69 @@
     "text": "Blooming fine cow in centre of Margate",
     "enumeration": "9"
    },
-   "solution": "FLOWERING"
+   "solution": "FLOWERING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FLOWERING",
+    "definitions": [
+     {
+      "text": "Blooming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre is the middle, so only the middle letter of the town's name is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the abbreviation for fine, as on pencils"
+     },
+     {
+      "clueFragment": "cow",
+      "gives": "LOWER",
+      "note": "a lower is one that lows, as a cow does"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Margate",
+      "gives": "G",
+      "select": "middle",
+      "note": "the middle letter of the seven-letter Margate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOWER",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A splendid cow turns up in the middle of a Kent seaside town.",
+     "walkthrough": "Margate is an English seaside resort. A cow lows (moos), so it is a 'lower', rhyming with mower.",
+     "definitionFit": "Blooming means producing flowers, and flowering is the same participle in another word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cow"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +172,56 @@
     "text": "Prevent State Department's termination",
     "enumeration": "5"
    },
-   "solution": "AVERT"
+   "solution": "AVERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AVERT",
+    "definitions": [
+     {
+      "text": "Prevent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "termination",
+      "for": "letter_selection",
+      "note": "termination is the end, so only the final letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State",
+      "gives": "AVER",
+      "note": "to aver is to state firmly"
+     },
+     {
+      "clueFragment": "Department's",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of Department"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to block the State Department from being shut down.",
+     "walkthrough": "'State Department' looks like the US ministry; split it into a verb and a separate word.",
+     "definitionFit": "To avert a disaster is to prevent it happening, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +241,55 @@
      }
     ]
    },
-   "solution": "TEASETS"
+   "solution": "TEASETS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TEA SETS",
+    "definitions": [
+     {
+      "text": "cups and saucers?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "50 per cent off",
+      "for": "deletion",
+      "note": "half taken off means removing half of the word's letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guy",
+      "gives": "TEASE",
+      "note": "to guy is to mock or tease"
+     },
+     {
+      "clueFragment": "gets",
+      "gives": "GETS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEASE",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "A man picks up crockery in a half-price sale.",
+     "walkthrough": "Guy is a verb here: to ridicule. The question mark shows cups and saucers are an example of the definition.",
+     "definitionFit": "Tea sets are matching crockery collections that typically include cups and saucers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Guy"
+    }
+   }
   },
   {
    "number": 4,
@@ -100,7 +309,43 @@
      }
     ]
    },
-   "solution": "COMEAGAIN"
+   "solution": "COMEAGAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COME AGAIN",
+    "definitions": [
+     {
+      "text": "What",
+      "at": 0
+     },
+     {
+      "text": "satisfied customer would do this",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "note": "first meaning: an exclamation asking someone to repeat themselves"
+     },
+     {
+      "clueFragment": "satisfied customer would do this",
+      "note": "second meaning: return to a shop or restaurant for more"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'What' reads as the start of a question, but it is a definition on its own: the spoken request to repeat something.",
+     "definitionFit": "The phrase is both a colloquial request for repetition, like 'pardon?', and a description of a happy patron returning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 4,
@@ -114,7 +359,56 @@
     "text": "Edward supports child I had told off",
     "enumeration": "6"
    },
-   "solution": "CHIDED"
+   "solution": "CHIDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHIDED",
+    "definitions": [
+     {
+      "text": "told off",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "supports"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "CH",
+      "note": "ch is the abbreviation for child"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd is the contraction of I had"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "ED",
+      "note": "Ed is short for Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "ID",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Edward backs up a child who admits being reprimanded.",
+     "walkthrough": "In a down clue, 'supports' puts the first piece underneath the others.",
+     "definitionFit": "To be told off is to be scolded, and chided is the past tense for that rebuke."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supports"
+    }
+   }
   },
   {
    "number": 5,
@@ -128,7 +422,39 @@
     "text": "One engaged by church?",
     "enumeration": "8"
    },
-   "solution": "MINISTER"
+   "solution": "MINISTER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MINISTER",
+    "definitions": [
+     {
+      "text": "One engaged by church?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One engaged by church?",
+      "note": "surface reading: someone betrothed in a church wedding"
+     },
+     {
+      "clueFragment": "engaged",
+      "note": "setter's reading: employed, as a member of the clergy is hired by a church"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Engaged' suggests a couple marrying, but here it means taken on as an employee.",
+     "definitionFit": "A clergyman serving a congregation is employed by the church, so he is one the church has engaged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "engaged"
+    }
+   }
   },
   {
    "number": 6,
@@ -142,7 +468,55 @@
     "text": "Claims benefits without resistance",
     "enumeration": "7"
    },
-   "solution": "ASSERTS"
+   "solution": "ASSERTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASSERTS",
+    "definitions": [
+     {
+      "text": "Claims",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "benefits",
+      "gives": "ASSETS",
+      "note": "assets are benefits or advantages"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSE",
+      "R",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes welfare payments without any fuss.",
+     "walkthrough": "'Without' reads as lacking, but the setter uses the older sense, outside.",
+     "definitionFit": "Claims as a verb means states as true, and asserts is the same, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 7,
@@ -156,7 +530,71 @@
     "text": "Saw around five American books generating profit",
     "enumeration": "9"
    },
-   "solution": "ADVANTAGE"
+   "solution": "ADVANTAGE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ADVANTAGE",
+    "definitions": [
+     {
+      "text": "profit",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the saying encloses the other pieces"
+     }
+    ],
+    "linkWords": [
+     "generating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saw",
+      "gives": "ADAGE",
+      "note": "a saw is an old saying, an adage"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is the Roman numeral five"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "V",
+      "A",
+      "NT",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A carpenter cuts through several US books to make money.",
+     "walkthrough": "'Saw' looks like the tool or a past tense, but it is a noun for a proverb.",
+     "definitionFit": "Profit as a noun means gain or benefit, and an advantage is a benefit gained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 8,
@@ -170,7 +608,60 @@
     "text": "Sister swapping uniform with old Scandinavian",
     "enumeration": "5"
    },
-   "solution": "NORSE"
+   "solution": "NORSE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "NORSE",
+    "definitions": [
+     {
+      "text": "Scandinavian",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swapping",
+      "for": "substitution",
+      "note": "swapping one thing for another means a letter is exchanged for a different one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sister",
+      "gives": "NURSE",
+      "note": "a sister is a senior nurse in British hospitals"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is Uniform in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "O",
+      "RSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse changes out of her uniform alongside an ageing Scandinavian.",
+     "walkthrough": "'Swapping uniform with old' means the U is replaced by O; 'old' looks like part of the definition but supplies the new letter. Sister is the British title for a senior ward nurse.",
+     "definitionFit": "Norse is an adjective for the people and languages of Scandinavia, especially in its medieval form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 9,
@@ -184,7 +675,74 @@
     "text": "Aida perhaps not reflecting about current surgical procedure",
     "enumeration": "9"
    },
-   "solution": "OPERATION"
+   "solution": "OPERATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "OPERATION",
+    "definitions": [
+     {
+      "text": "surgical procedure",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflecting",
+      "for": "reversal",
+      "note": "a reflection shows things the wrong way round, so the word is read backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aida perhaps",
+      "gives": "OPERA",
+      "note": "Aida is an opera by Verdi"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "TON",
+      "note": "the word not, read backwards"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPERA",
+      "T",
+      "I",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A staging of Verdi's opera is likened, oddly, to a medical operation done backwards.",
+     "walkthrough": "'Perhaps' marks Aida as one example of the category. The reversed word wraps around the current symbol before following the opera.",
+     "definitionFit": "An operation is a surgical procedure performed on a patient, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 10,
@@ -198,7 +756,57 @@
     "text": "Boats ultimately always dock",
     "enumeration": "5"
    },
-   "solution": "SEVER"
+   "solution": "SEVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEVER",
+    "definitions": [
+     {
+      "text": "dock",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the end, so only the final letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boats",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of Boats"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Boats in the end always tie up at the dock.",
+     "walkthrough": "'Dock' looks like a harbour noun, but it is the verb meaning to cut off, as with docking a tail.",
+     "definitionFit": "To dock is to cut short or remove, and to sever is to cut off, so the verbs match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dock"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +820,68 @@
     "text": "Great old US band hugged by teen, oddly",
     "enumeration": "7"
    },
-   "solution": "EXTREME"
+   "solution": "EXTREME",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EXTREME",
+    "definitions": [
+     {
+      "text": "Great",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugged by",
+      "for": "container",
+      "note": "something hugged by another is held inside its arms, so it sits within"
+     },
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the letters in odd-numbered positions only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex means former or old"
+     },
+     {
+      "clueFragment": "teen",
+      "gives": "TE",
+      "select": "alternate",
+      "note": "first and third letters of teen"
+     },
+     {
+      "clueFragment": "US band",
+      "gives": "REM",
+      "note": "R.E.M. is an American rock band"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "T",
+      "REM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A teenager clings to a vintage American group in a fan's embrace.",
+     "definitionFit": "Great in the sense of very large in degree, as in great or extreme danger, is synonymous here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +895,47 @@
     "text": "Weird stone assortment",
     "enumeration": "7"
    },
-   "solution": "STRANGE"
+   "solution": "STRANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRANGE",
+    "definitions": [
+     {
+      "text": "Weird",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "st is the abbreviation for stone, the weight"
+     },
+     {
+      "clueFragment": "assortment",
+      "gives": "RANGE",
+      "note": "a range is an assortment or variety"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An odd collection of rocks.",
+     "walkthrough": "Stone here is the British unit of weight, fourteen pounds, abbreviated st.",
+     "definitionFit": "Weird and strange are adjectives meaning odd or unusual, plain synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +949,67 @@
     "text": "Take a firm stand in street following Starmer's incompetence, initially",
     "enumeration": "6"
    },
-   "solution": "INSIST"
+   "solution": "INSIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INSIST",
+    "definitions": [
+     {
+      "text": "Take a firm stand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so the first letter of each of the two words is kept"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places the street abbreviation after the initials, so it comes second in the chain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Starmer's incompetence",
+      "gives": "SI",
+      "select": "first",
+      "note": "first letters of Starmer's and incompetence"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SI",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone digs in on a street protest after the Prime Minister's blunders.",
+     "walkthrough": "Keir Starmer is a UK Prime Minister. 'Following' places the street abbreviation after the two initials.",
+     "definitionFit": "To insist is to hold firmly to a position and refuse to yield, an idiom-level synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "incompetence"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +1023,68 @@
     "text": "Adult enthralled by scariest cuckoo's flight",
     "enumeration": "9"
    },
-   "solution": "STAIRCASE"
+   "solution": "STAIRCASE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STAIRCASE",
+    "definitions": [
+     {
+      "text": "flight",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralled by",
+      "for": "container",
+      "note": "something enthralled by another is held captive inside it"
+     },
+     {
+      "text": "cuckoo's",
+      "for": "anagram",
+      "note": "cuckoo means crazy, so the letters go haywire into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scariest",
+      "gives": "SCARIEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Adult",
+      "gives": "A",
+      "note": "A is the abbreviation for adult, as in film certificates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "A",
+      "IRCASE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCARIEST",
+       "gives": "STIRCASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up is gripped by the most frightening bird's escape.",
+     "walkthrough": "'Cuckoo's flight' suggests a bird flying, but cuckoo means mad and flight is a set of stairs.",
+     "definitionFit": "A flight of stairs is a staircase, so the noun is a synonym in that architectural sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +1098,65 @@
     "text": "Convince doctor he's a prude, leaving hospital",
     "enumeration": "8"
    },
-   "solution": "PERSUADE"
+   "solution": "PERSUADE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PERSUADE",
+    "definitions": [
+     {
+      "text": "Convince",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so that letter is removed"
+     },
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "to doctor is to tamper with or alter, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he's a prude",
+      "gives": "HESAPRUDE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERSUADE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ESAPRUDE",
+       "gives": "PERSUADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to talk a medic into accepting that a man is prudish and should be discharged.",
+     "walkthrough": "'Doctor' looks like a noun for a medic but is a verb meaning tamper with. Remove the H, then rearrange.",
+     "definitionFit": "To persuade someone is to convince them by argument, a straight synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +1170,50 @@
     "text": "Considered mate's diet unusual",
     "enumeration": "9"
    },
-   "solution": "ESTIMATED"
+   "solution": "ESTIMATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESTIMATED",
+    "definitions": [
+     {
+      "text": "Considered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "unusual means out of the ordinary, so the letters fall into an unfamiliar order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mate's diet",
+      "gives": "MATESDIET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MATESDIET",
+       "gives": "ESTIMATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone regards a friend's eating habits as odd.",
+     "definitionFit": "Considered, as in judged or reckoned, matches estimated in the sense of an approximate assessment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Considered"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1227,50 @@
     "text": "Star once playing grandfather, maybe",
     "enumeration": "8"
    },
-   "solution": "ANCESTOR"
+   "solution": "ANCESTOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANCESTOR",
+    "definitions": [
+     {
+      "text": "grandfather, maybe",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests letters at play, moving about into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Star once",
+      "gives": "STARONCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STARONCE",
+       "gives": "ANCESTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former celebrity actor takes on the role of an old man.",
+     "definitionFit": "A grandfather is one example of a forebear in the family line, hence 'maybe'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1284,56 @@
     "text": "Good boy studies, getting cheers",
     "enumeration": "8"
    },
-   "solution": "GLADDENS"
+   "solution": "GLADDENS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GLADDENS",
+    "definitions": [
+     {
+      "text": "cheers",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "studies",
+      "gives": "DENS",
+      "note": "dens are private studies, rooms for reading"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LAD",
+      "DENS"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-behaved boy earns applause for his schoolwork.",
+     "walkthrough": "'Cheers' looks like a noun for applause, but it is the verb meaning makes happy.",
+     "definitionFit": "To cheer someone is to lift their spirits, which is exactly what gladdens means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "studies"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1347,68 @@
     "text": "German article's covering upsetting fight for boxers?",
     "enumeration": "7"
    },
-   "solution": "DRAWERS"
+   "solution": "DRAWERS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DRAWERS",
+    "definitions": [
+     {
+      "text": "boxers?",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upsetting",
+      "for": "reversal",
+      "note": "in a down clue, upsetting turns the word upside down so it reads bottom to top"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapped over, so the article's letters enclose the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German article's",
+      "gives": "DERS",
+      "note": "der is a German definite article, plus the s"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "WAR",
+      "note": "a war is a fight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RAW",
+      "ERS"
+     ],
+     "reversals": [
+      {
+       "from": "WAR",
+       "to": "RAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German newspaper piece covers an upsetting boxing bout.",
+     "walkthrough": "'Boxers' suggests fighters, chiming with the fight, but it means boxer shorts; drawers is an old word for underpants.",
+     "definitionFit": "Boxers are a kind of men's underpants, and drawers is the older general word for underpants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boxers"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1422,42 @@
     "text": "Focus attention on Cockney?",
     "enumeration": "6"
    },
-   "solution": "ACCENT"
+   "solution": "ACCENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACCENT",
+    "definitions": [
+     {
+      "text": "Focus attention on",
+      "at": 0
+     },
+     {
+      "text": "Cockney",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Focus attention on",
+      "note": "first meaning: a verb, to emphasise or highlight"
+     },
+     {
+      "clueFragment": "Cockney",
+      "note": "second meaning: the way of speaking of East Londoners, an example of a regional pronunciation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Cockney is the working-class dialect of East London; the question mark flags it as one example of the noun.",
+     "definitionFit": "The word is a verb meaning emphasise and a noun for a distinctive regional pronunciation, of which Cockney is a case."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cockney"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1471,73 @@
     "text": "Wealthy man endlessly angry about rising employment",
     "enumeration": "7"
    },
-   "solution": "CROESUS"
+   "solution": "CROESUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "CROESUS",
+    "definitions": [
+     {
+      "text": "Wealthy man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without its end, so the final letter is dropped"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means reading upwards, so the word runs backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angry",
+      "gives": "CROSS",
+      "note": "cross means angry"
+     },
+     {
+      "clueFragment": "employment",
+      "gives": "USE",
+      "note": "use means employment, as in putting something to use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRO",
+      "ESU",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "USE",
+       "to": "ESU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rich man is furious at growing unemployment, or at least the employment figures.",
+     "walkthrough": "Croesus was a king of ancient Lydia famed for his riches, hence 'as rich as Croesus'.",
+     "definitionFit": "Croesus is the proverbial byword for great wealth, so he is the archetypal wealthy man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "employment"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1551,54 @@
     "text": "Fruit blocking ship's weapons",
     "enumeration": "6"
    },
-   "solution": "SPEARS"
+   "solution": "SPEARS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPEARS",
+    "definitions": [
+     {
+      "text": "weapons",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "something blocking a passage sits inside it, so one piece is lodged within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship's",
+      "gives": "SS",
+      "note": "SS is steamship, plus the s"
+     },
+     {
+      "clueFragment": "Fruit",
+      "gives": "PEAR",
+      "note": "a pear is a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEAR",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A cargo of fruit is clogging up a warship's armoury.",
+     "definitionFit": "Spears are long pointed throwing or thrusting weapons, an example of the class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blocking"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1612,53 @@
     "text": "Top on Parisian female? Wonderful!",
     "enumeration": "7"
    },
-   "solution": "SURFACE"
+   "solution": "SURFACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SURFACE",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on Parisian",
+      "gives": "SUR",
+      "note": "sur is French for on"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "Wonderful",
+      "gives": "ACE",
+      "note": "ace means excellent, wonderful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUR",
+      "F",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admires a stylish blouse on a Frenchwoman.",
+     "walkthrough": "'Parisian' tells you to put on into French.",
+     "definitionFit": "The surface of something is its top or outermost layer, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1672,42 @@
     "text": "Leave city in Croatia",
     "enumeration": "5"
    },
-   "solution": "SPLIT"
+   "solution": "SPLIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPLIT",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     },
+     {
+      "text": "city in Croatia",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "note": "first meaning: a slang verb, to depart quickly"
+     },
+     {
+      "clueFragment": "city in Croatia",
+      "note": "second meaning: a port city on the Dalmatian coast"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as a travel instruction; 'leave' is the informal verb 'to split'.",
+     "definitionFit": "To split is slang for departing, and Split is Croatia's second-largest city on the Adriatic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Leave"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1721,70 @@
     "text": "Stumbling-block for this writer with large book sent back",
     "enumeration": "7"
    },
-   "solution": "PROBLEM"
+   "solution": "PROBLEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PROBLEM",
+    "definitions": [
+     {
+      "text": "Stumbling-block",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "something sent back returns the way it came, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "this writer",
+      "gives": "ME",
+      "note": "the setter refers to themselves"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "BLEM"
+     ],
+     "reversals": [
+      {
+       "from": "MELB",
+       "to": "BLEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer finds a big book an obstacle and returns it.",
+     "definitionFit": "A stumbling-block is an obstacle or difficulty, which is what a problem is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1798,55 @@
     "text": "John almost set free",
     "enumeration": "5"
    },
-   "solution": "LOOSE"
+   "solution": "LOOSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LOOSE",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "John",
+      "gives": "LOO",
+      "note": "john is slang for a toilet, as is loo"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "John has nearly been released from custody.",
+     "walkthrough": "'John' looks like a man's name but is slang for a lavatory; loo is the British word for one.",
+     "definitionFit": "Free as an adjective means unconfined, and loose means not tied up or held, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1860,47 @@
     "text": "Let student rest",
     "enumeration": "5"
    },
-   "solution": "LEASE"
+   "solution": "LEASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEASE",
+    "definitions": [
+     {
+      "text": "Let",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is for learner, as on a learner driver's plate"
+     },
+     {
+      "clueFragment": "rest",
+      "gives": "EASE",
+      "note": "ease means rest or relaxation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A command to allow a pupil some downtime.",
+     "walkthrough": "'Let' looks like 'allow', but it is the verb meaning rent out. British learner drivers display an L-plate.",
+     "definitionFit": "To let a property is to rent it out, which is what leasing it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Let"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1914,43 @@
     "text": "Perhaps ferry entrance",
     "enumeration": "9"
    },
-   "solution": "TRANSPORT"
+   "solution": "TRANSPORT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRANSPORT",
+    "definitions": [
+     {
+      "text": "Perhaps ferry",
+      "at": 0
+     },
+     {
+      "text": "entrance",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps ferry",
+      "note": "first meaning: a means of carrying people, of which a ferry is an example"
+     },
+     {
+      "clueFragment": "entrance",
+      "note": "second meaning: a verb, to fill with delight, stressed on the second syllable"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Entrance' reads as a doorway, but it is the verb en-TRANCE, to enchant.",
+     "definitionFit": "A ferry is one form of conveyance, and to entrance someone is to carry them away with delight, both senses of the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "entrance"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1964,66 @@
     "text": "Criminal rates pinching certain valuable objects",
     "enumeration": "9"
    },
-   "solution": "TREASURES"
+   "solution": "TREASURES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TREASURES",
+    "definitions": [
+     {
+      "text": "valuable objects",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "criminal suggests something crooked or corrupt, so the letters are bent out of order"
+     },
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "pinching means grabbing and holding, so one piece is gripped inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rates",
+      "gives": "RATES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREA",
+      "SURE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATES",
+       "gives": "TREAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Extortionate charges are a way of stealing people's precious possessions.",
+     "definitionFit": "Treasures are prized, valuable possessions, a direct synonym for the plural noun phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pinching"
+    }
+   }
   },
   {
    "number": 29,
@@ -478,7 +2037,49 @@
     "text": "Golfer is in demand on a regular basis",
     "enumeration": "5"
    },
-   "solution": "SNEAD"
+   "solution": "SNEAD",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SNEAD",
+    "definitions": [
+     {
+      "text": "Golfer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on a regular basis",
+      "for": "letter_selection",
+      "note": "regular means at even intervals, so every second letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is in demand",
+      "gives": "SNEAD",
+      "select": "alternate",
+      "note": "second, fourth, sixth, eighth and tenth letters of the phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer is constantly sought after.",
+     "walkthrough": "Sam Snead was a famous American golfer of the mid-twentieth century.",
+     "definitionFit": "Snead was a champion professional player, so the name fits as an example of a golfer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "demand"
+    }
+   }
   }
  ]
 }
