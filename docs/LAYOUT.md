@@ -1753,8 +1753,9 @@ tools/test_placeholder_clues.sh               a puzzle whose clues are pointers 
 tools/sweep_series.py                         probe every number of a Guardian series between
                                               two bounds, file what is served
 tools/ocr_remote.py                           the clue OCR, whole scan editions, image-PDF page
-                                              searches and Trove grid searches run on Paul's
-                                              desktop over ssh; what runs here instead shares
+                                              searches, Gale page matches, Listener page reads
+                                              and Trove grid searches run on Paul's desktop
+                                              over ssh; what runs here instead shares
                                               LOCAL_SLOTS
 tools/test_sync_skip_published.sh             the burn's sync with runs in flight: publishes or
                                               drops each local commit, brings origin's code in,
@@ -1801,7 +1802,9 @@ tools/gale_listener.py                        the Listener crosswords of 1930-91
                                               archive_org_listener's vote into a clues-only
                                               reading, then file_gale_listener.py run, each
                                               page a unit of the full pass's edition queue
-                                              (read_unit, its ledger rows appended); the
+                                              (read_unit, its ledger rows appended), read on
+                                              the desktop but for its whole-page Tesseract read
+                                              (ocr_remote's listener_read) and filed here; the
                                               checklist asks for a saved puzzle's solution
                                               report and links each next puzzle to Gale's
                                               Download (gale_docs.py)
@@ -1838,9 +1841,10 @@ tools/test_gale_listener.sh                   is a saved Listener page matched b
                                               or a footnote no run-on, a grid's numbers beside
                                               a list and a footnote's dagger read as a letter;
                                               does a page say the page its clues or diagram are
-                                              on; is each file read once, and does the
-                                              checklist mark what is saved or filed and ask for
-                                              a missing solution?
+                                              on; is each file read once, a read on the desktop
+                                              the read here (its OCR and grids kept here), and
+                                              does the checklist mark what is saved or filed
+                                              and ask for a missing solution?
 tools/listener_grid.py                        reads a 1930s Listener grid off a scanned Gale
                                               page: every grid on the page found as a lattice
                                               of long rules (prose, column rules and boxes are
