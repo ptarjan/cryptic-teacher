@@ -1617,12 +1617,16 @@ def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None,
         for tail in group[1:]:
             if not (laid.get(tail) or ("",))[0].strip():
                 laid[tail] = (f"See {lid.split('-')[0]}", None, None)
-    from fetch_puzzle import source_clue
+    from fetch_puzzle import has_words, source_clue
     pid = series_meta.puzzle_id(series, number)
     for e in entries:
         lid = entry_id(e)
         text, enum, _ = laid.get(lid, ("", None, None))
         text = source_clue(pid, lid, text)
+        # A reading that kept only a count ("(8)") has lost the clue: file it
+        # as the blank it is, not as words that are really an enumeration.
+        if not has_words(text):
+            text = ""
         line = f"{text} ({enum})" if enum else text
         e["clue"] = enumeration.clue(line, separators=seps.get(lid), missing=not text.strip())
         if lid in groups:

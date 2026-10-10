@@ -1292,6 +1292,12 @@ check("a built puzzle's source url is the edition url given",
       "https://archive.org/details/TheGuardian1996UKEnglish/page/n15/mode/1up", pz["source"]["url"])
 check("a linked light the paper prints no clue for reads 'See 1'", "See 1",
       next(e["clue"]["text"] for e in pz["entries"] if (e["number"], e["direction"]) == (4, "across")))
+pz = f.build(20540, datetime.date(1996, 1, 4), g, "image",
+             {"1-across": ("(8)", "3", None), "4-across": ("Ancient patriarch", "3", None)},
+             "TheGuardian1996UKEnglish", 15, series="cryptic", name="Cryptic crossword No 20,540")
+one = next(e["clue"] for e in pz["entries"] if (e["number"], e["direction"]) == (1, "across"))
+check("a reading that kept only a count (ftcryptic-9610 3-down) is filed missing, with no text",
+      {"enumeration": "3", "missing": True}, one)
 
 # match_canberra(): the reading sharing the clue list, printed first, same grid.
 def puzzle(pid, date, clues, cols=3):

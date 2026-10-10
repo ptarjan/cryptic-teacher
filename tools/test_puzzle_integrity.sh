@@ -645,5 +645,31 @@ same "blanking an OCR reading's clue on two lights loses nothing, any other clue
   "$(field REWRITE_OCR "$out9")" "1-down"
 same "a feed's clue on two lights is a clue a rewrite keeps" "$(field REWRITE_FEED "$out9")" "1-down,16-down"
 
+echo "a clue whose text is only a count is refused; stored as missing with no text, it passes"
+out10=$(PYTHONPATH="$REPO/tools" python3 - 2>&1 <<'PY'
+import copy
+from datetime import date
+import puzzle_integrity as pi
+from groups import entry_id
+
+p0 = pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-24104"))
+
+
+def shape(clue):
+    p = copy.deepcopy(p0)
+    next(e for e in p["entries"] if entry_id(e) == "1-across")["clue"] = clue
+    flags = []
+    pi.check_puzzle(p, date(2026, 10, 5), flags)
+    return sum("only an enumeration" in f[2] for f in flags)
+
+
+print("BARE", shape({"text": "(8)", "enumeration": "9"}))
+print("MISSING", shape({"enumeration": "9", "missing": True}))
+PY
+)
+died "$out10" "the bare-count fixture"
+same "text of nothing but a count is flagged" "$(field BARE "$out10")" "1"
+same "missing with no text is not" "$(field MISSING "$out10")" "0"
+
 [ "$fails" = 0 ] && echo "puzzle_integrity: all checks passed" || echo "puzzle_integrity: $fails FAILED"
 exit $((fails > 0))
