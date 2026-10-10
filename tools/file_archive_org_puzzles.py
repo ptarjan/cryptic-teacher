@@ -137,12 +137,14 @@ throughout) holds them off: a unit then ends "held", left for the next plan.
 """
 import argparse
 import bisect
+import contextlib
 import datetime
 import gzip
 import hashlib
 import json
 import math
 import os
+import pickle
 import re
 import subprocess
 import sys
@@ -2420,9 +2422,51 @@ def issues_between(a, b):
 _HELD = {}
 
 
-#: {series: held_files(series)} while this thread runs a brief(): one unit
-#: start reads a series once, not once for each of its askers.
+#: Paths held_files parsed since save_held last wrote _HELD.
+_HELD_MOVED = []
+
+#: {series: held_files(series)} while this thread is inside held_once(): a
+#: unit start or a paper's plan reads a series once, not once per asker.
 _HELD_NOW = threading.local()
+
+
+@contextlib.contextmanager
+def held_once():
+    """Within it, held_files reads each series once (this thread); nested,
+    the outer scope's reads stand."""
+    if getattr(_HELD_NOW, "files", None) is not None:
+        yield
+        return
+    _HELD_NOW.files = {}
+    try:
+        yield
+    finally:
+        _HELD_NOW.files = None
+
+
+def save_held(path):
+    """Write _HELD to `path` when held_files parsed a file since the last
+    save, for load_held in the next process (a re-exec or the next slice)."""
+    if not _HELD_MOVED:
+        return
+    _HELD_MOVED.clear()
+    tmp = f"{os.fspath(path)}.{os.getpid()}.tmp"
+    os.makedirs(os.path.dirname(os.fspath(path)) or ".", exist_ok=True)
+    with open(tmp, "wb") as f:
+        pickle.dump(dict(_HELD), f, protocol=pickle.HIGHEST_PROTOCOL)
+    os.replace(tmp, path)
+
+
+def load_held(path):
+    """Take the parses save_held wrote to `path` for each file this process
+    has not parsed; each stands only while its stat is unmoved (held_files)."""
+    try:
+        with open(path, "rb") as f:
+            snap = pickle.load(f)
+    except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError):
+        return
+    for k, v in snap.items():
+        _HELD.setdefault(k, v)
 
 
 def held_files(series):
@@ -2442,6 +2486,7 @@ def held_files(series):
             date = d.get("date")
             seen = _HELD[p] = (stamp, (date and datetime.date.fromisoformat(date[:10]),
                                        (d.get("source") or {}).get("url"), (date or "")[:10]))
+            _HELD_MOVED.append(p)
         out.append((int(p.stem.split("-")[1]), seen[1]))
     if now is not None:
         now[series] = list(out)
@@ -3585,6 +3630,11 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
     `dirs` limits the plan to those editions. Each list is by rank, then
     newest first: by edition date ("date", day_of), NEWEST_FIRST papers by
     staged_at (the page Paul saved last first)."""
+    with held_once():
+        return _plan_paper(paper, cache, ledger, reread, asked, dirs)
+
+
+def _plan_paper(paper, cache, ledger, reread, asked, dirs):
     ledger = ledger_of(cache, paper, ledger)
     known = _planned_known(ledger)
     every = _PLANNED_DIRS[(str(cache), paper.key)] = edition_dirs(cache, paper)
@@ -3709,12 +3759,9 @@ def brief(paper, rel, cache=CACHE, ledger=None, puzzles=None, source=SOURCE, rer
     dirs = _PLANNED_DIRS.get((str(cache), paper.key))
     if dirs is not None and Path(cache) / rel not in dirs:
         dirs = [*dirs, Path(cache) / rel]
-    _HELD_NOW.files = {}
-    try:
+    with held_once():
         return _run(cache, False, ledger, None, puzzles, None, source, paper, None, 1, reread, editions=[rel],
                     unit={"force": force, "dirs": dirs, "brief": True})
-    finally:
-        _HELD_NOW.files = None
 
 
 def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread, editions=None,

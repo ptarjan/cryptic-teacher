@@ -1056,6 +1056,29 @@ inside = f.held_files("zz")
 f._HELD_NOW.files = None
 check("held_files within a brief is its first read; outside it a new file is seen",
       ([1], [1], [1, 2]), ([n for n, _ in before], [n for n, _ in inside], sorted(n for n, _ in f.held_files("zz"))))
+# held_once nests (the outer read stands); save_held/load_held carry the parses to a
+# new process, and a file whose stat moved since is parsed again.
+with f.held_once():
+    first = f.held_files("zz")
+    (hp / "puzzles" / "zz" / "1999" / "zz-3.json").write_text('{"date": "1999-01-03"}')
+    with f.held_once():
+        nested = f.held_files("zz")
+check("held_once nested keeps the outer read", [1, 2], sorted(n for n, _ in nested))
+hc = hp / "held.pickle"
+f.held_files("zz")
+f.save_held(hc)
+f._HELD.clear()
+f.load_held(hc)
+f._HELD_MOVED.clear()
+import time
+time.sleep(0.01)
+(hp / "puzzles" / "zz" / "1999" / "zz-1.json").write_text('{"date": "1999-02-01", "moved": 1}')
+loaded = dict(f.held_files("zz"))
+check("a loaded parse stands for an unmoved file; a moved one is read again",
+      (datetime.date(1999, 1, 2), datetime.date(1999, 2, 1), [hp / "puzzles" / "zz" / "1999" / "zz-1.json"]),
+      (loaded[2][0], loaded[1][0], f._HELD_MOVED))
+f.save_held(hc)
+check("save_held writes only after a parse", [], f._HELD_MOVED)
 f.ROOT = real_root
 # plan() lists a settled dir once (dir_cache.seen): a replaced file, a new edition or
 # a moved ledger row each make an edition due again; a fresh dir is not kept.

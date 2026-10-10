@@ -37,6 +37,7 @@ def check(what, want, got):
         print(f"FAIL {what}: expected {want!r}, got {got!r}")
 
 T = Path(os.environ["TMP"])
+eq.DIR_CACHE, eq.HELD_CACHE = T / "dir_cache.pickle", T / "held_files.pickle"  # never this host's caches
 q.LEDGERS = {k: T / f"none-{k}.jsonl" for k in ("archive", "gale", "trove")}
 q.REQUESTS = T / "requests.jsonl"
 
