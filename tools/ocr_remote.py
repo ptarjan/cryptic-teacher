@@ -1050,8 +1050,8 @@ def there(fn):
 
 def edition_request(d, found, solutions):
     """(header, tar) asking the desktop for read_edition(d, found): the
-    edition's text and leaves, each title's solution leaf and cached
-    solution crop, the edition's cached readings, the readings of each
+    edition's text and leaves, each title's solution leaf, the edition's
+    cached readings, the readings of each
     title's Canberra Times reprint, and its series' filed dates."""
     import io
     import tarfile
@@ -1078,7 +1078,6 @@ def edition_request(d, found, solutions):
             sd = sol["dir"]
             sols[str(n)] = {**sol, "dir": f"{sd.parent.name}/{sd.name}"}
             files[f"ed/{sd.parent.name}/{sd.name}/leaf_{sol['leaf']:04d}.jpg"] = sd / f"leaf_{sol['leaf']:04d}.jpg"
-            files[f"crops/solutions/{sd.name}_{n}.png"] = fa.CROPS / "solutions" / f"{sd.name}_{n}.png"
     rapid = fa.CROPS / "rapid"
     for name in os.listdir(rapid) if rapid.is_dir() else ():
         if name.startswith(f"{d.name}_"):
