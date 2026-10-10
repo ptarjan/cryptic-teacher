@@ -589,6 +589,7 @@ LAYOUT = [
     ("fetching", "tools/test_trove_articles_index.sh", "does tools/trove_solution_ocr.py's _articles keep what it read in a file, reread only an article whose files changed, and return the same list warm?"),
     ("fetching", "tools/await_preamble.py", "hold back a puzzle that cannot be explained without the preamble we lack"),
     ("fetching", "tools/test_reconstruct_grid_cli.sh", "tools/reconstruct_grid.py's command line: several --lights run as separate searches (on the desktop under OCR_REMOTE; here, with it unset, in-process), and --words reaches the search"),
+    ("fetching", "tools/track_prereset.sh", "register the pre-reset burn as a status lane for the cryptic room. The label names the job only: which meter it is pacing (weekly or five-hour) changes with `prereset_plan.py --five-hour`, so the lane's text is the last line of .prereset.log, which states the mode, never a label typed here"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
