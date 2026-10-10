@@ -239,12 +239,13 @@ SOLUTION = re.compile(r"^\W*solution\s+(?:t[o0n]|o[fl])\s+puzzle\s+n[o0]\.?\s*" 
 #: before's, and on a Saturday also the prize from the Saturday before.
 SOLUTION_LAGS = (1, 6)
 #: A solution heading as the OCR garbles it ("Solution of Push No. 15,645",
-#: "Solution to Tuzzle No I5.13S"): a word, a connective, a word, maybe "No",
+#: "Solution to Tuzzle No I5.13S", 1986's "Solution to No 16,983"): a word, a
+#: connective, a word ("Puzzle"; none when the first is "Solution"), maybe "No",
 #: then the number, maybe read in pieces ("15 ,751", "19,7 1 1", "1 9.037",
 #: ". 15, 244");
 #: solution_number() decides.
 LOOSE_NUMBER = r"(?:[nm][^\s\d]{0,2}\s*)?(\S{1,7}(?:\s\S{1,5}){0,2})$"
-LOOSE_SOLUTION = re.compile(r"^\W*(\S{4,11})\s+(\S{1,3})\s+(\S{3,8})\s+" + LOOSE_NUMBER, re.IGNORECASE)
+LOOSE_SOLUTION = re.compile(r"^\W*(\S{4,11})\s+(\S{1,3})\s+(?:(\S{3,8})\s+)?" + LOOSE_NUMBER, re.IGNORECASE)
 #: The 1980s-90s heading: "The Solution" over "No 16,219".
 SOLUTION_OVER = re.compile(r"^\W*(?:the\s+)?(\S{6,10})\W*$", re.IGNORECASE)
 NUMBER_UNDER = re.compile(r"^\W*" + LOOSE_NUMBER, re.IGNORECASE)
@@ -333,7 +334,8 @@ def solution_at(ws, k, expected):
     for j in range(k, len(ws)):
         text = (text + " " + ws[j][4]).strip()
         m = LOOSE_SOLUTION.match(text)
-        if not m or not (like(m[1], "solution") or like(m[3], "puzzle")) or re.search(r"\d", m[1] + m[3]):
+        if not m or not (like(m[1], "solution") or m[3] and like(m[3], "puzzle")) \
+                or re.search(r"\d", m[1] + (m[3] or "")):
             continue
         n = solution_number(m[4], expected)
         if n is not None:
@@ -1670,7 +1672,7 @@ def _scan(d):
                 ocr_titles(page(d, leaf), paper, datetime.date.fromisoformat(pages["date"]), f"{d.name}_{leaf}")
             if paper is TIMES and titles and not sols:
                 sols = band_solutions(page(d, leaf), [t[0] for t in titles], text[leaf],
-                                      f"{d.parent.name}_{d.name}_{leaf}")
+                                      f"{d.parent.name}_{d.name}_{leaf}", [t[1] for t in titles])
         for n, box, setter, readers in titles:
             found["puzzles"].append({"number": n, "leaf": leaf, "box": box,
                                      **({"setterRead": setter} if setter else {}),
@@ -1942,15 +1944,40 @@ def ocr_headings(img, paper, key):
             [(n, reads[0][1]) for n, reads in sols.items()])
 
 
-def band_solutions(img, titles, lines, key):
+#: The strip under a Times title that the day before's solution heading is
+#: printed in, under the clues (the heading and its grid where archive.org's
+#: text holds no word of them and grids_on finds no solution grid: 1986-08-12,
+#: 1996-02-09): from this far left of the title to this far right of its
+#: left edge, in pixels at SCAN_WIDTH, down to the page's foot.
+TITLE_STRIP = (40, 900)
+
+
+def title_strips(img, boxes):
+    """The bands (x0, y0, x1, y1) under each title box in `boxes`
+    (TITLE_STRIP)."""
+    k = img.width / SCAN_WIDTH
+    left, right = (int(v * k) for v in TITLE_STRIP)
+    return [(max(0, int(b[0]) - left), int(b[3]), min(img.width, int(b[0]) + right), img.height)
+            for b in boxes if b and int(b[3]) < img.height]
+
+
+def band_solutions(img, titles, lines, key, boxes=()):
     """[(number, box)] of the solution headings on a Times leaf whose
     archive.org text `lines` reads none for its titles `titles` ("Solution,
     of PnzZle-No'lS^GZ" for 15,562, "No 164750" for 16,950): each band
     solution_bands() finds off the text's words, read by every reader, and a
     number standing where at least half read it as a heading one
-    SOLUTION_LAGS before a title (solution_headings)."""
+    SOLUTION_LAGS before a title (solution_headings). Where those bands read
+    none, the strip under each title box in `boxes` (title_strips) is read
+    the same way."""
+    found = band_votes(img, solution_bands(img, [w for ws in lines for w in ws]), titles, key)
+    return found or band_votes(img, title_strips(img, boxes), titles, key)
+
+
+def band_votes(img, bands, titles, key):
+    """band_solutions' vote over `bands`."""
     reads = {}
-    for band in solution_bands(img, [w for ws in lines for w in ws]):
+    for band in bands:
         for which in READERS:
             path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
             try:
