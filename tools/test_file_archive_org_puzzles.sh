@@ -247,6 +247,10 @@ check("(mirror) a second heading on the line numbered neither lag is no heading"
 check("a number read in short pieces", [[19037], [15244]],
       [[n for n, _ in f.TIMES.headings([line(f"The Times Crossword Puzzle No {t}"), line(h)])[1]]
        for t, h in (("19,038", "Solution to Puzzle No 1 9.037"), ("15,245", "Solution of Puzzle No . 15, 244"))])
+check("1986's 'Solution to No' heading, no 'Puzzle' word", [16983],
+      [n for n, _ in f.TIMES.headings([line("The Times Crossword Puzzle No 16,984"), line("Solution to No 16,983")])[1]])
+check("(mirror) with no middle word the first must read 'Solution'", [],
+      f.TIMES.headings([line("The Times Crossword Puzzle No 16,984"), line("Paste on No 16,983")])[1])
 check("(mirror) pieces costing alike to both lags are no heading", [],
       f.TIMES.headings([line("The Times Crossword Puzzle No 14,060"), line("Solution of Puzzle No 14, OSS")])[1])
 _, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 16,577", y=50), line("The Solution", 400, 900),
@@ -2044,6 +2048,31 @@ for heading, want in (("Solution to Puzzle No 21X162", ([20162], [1])),
     got = f._scan(td)
     check(f"a Times text leaf reading {heading!r} under its title: the band re-read only when the text has no heading",
           want, ([s["number"] for s in got["solutions"]], called))
+# A leaf whose text holds no word of its solution heading and whose solution
+# grid grids_on misses (1986-08-12) places no band: the strip under its
+# title, down the page, is read instead. The mirrors: no title box reads no
+# strip; a band that reads the heading is not followed by the strip.
+def strip_reads(bands, boxes, heading_in):
+    read = []
+    f.solution_bands = lambda img, words: bands
+    def words(img, band, which, path):
+        read.append(band)
+        return ([(band[0] + 10, band[1] + 300, band[0] + 60, band[1] + 320, "Solution"),
+                 (band[0] + 70, band[1] + 300, band[0] + 90, band[1] + 320, "to"),
+                 (band[0] + 100, band[1] + 300, band[0] + 150, band[1] + 320, "Puzzle"),
+                 (band[0] + 160, band[1] + 300, band[0] + 180, band[1] + 320, "No"),
+                 (band[0] + 190, band[1] + 300, band[0] + 260, band[1] + 320, "20,162")]
+                if band == heading_in else [])
+    f.band_words = words
+    return [n for n, _ in f.band_solutions(page_img, [20163], [], "strip_test", boxes)], sorted(set(read))
+strip = (26, 90, 139, 600)  # 40 and 900 px at SCAN_WIDTH, on a 400px page
+check("no band from text or grid: the strip under the title is read", ([20162], [strip]),
+      strip_reads([], [(30, 50, 300, 90)], strip))
+check("(mirror) a band that reads nothing, then the strip", ([20162], [(0, 0, 400, 40), strip]),
+      strip_reads([(0, 0, 400, 40)], [(30, 50, 300, 90)], strip))
+check("(mirror) no title box, no strip", ([], []), strip_reads([], [], strip))
+check("(mirror) a band that reads the heading: no strip", ([20162], [(0, 0, 400, 40)]),
+      strip_reads([(0, 0, 400, 40)], [(30, 50, 300, 90)], (0, 0, 400, 40)))
 f.band_words, f.solution_bands, f.leaf_lines = saved_bw, saved_sb, saved_ll
 # A reader timing out on a whole Gale page (tesseract, 300s, Gale
 # 1987-08-06) reads nothing; the others' title still stands.
