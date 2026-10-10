@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,84 @@
     "text": "Word that qualifies dog rolling over in awful mire",
     "enumeration": "8"
    },
-   "solution": "MODIFIER"
+   "solution": "MODIFIER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "MODIFIER",
+    "definitions": [
+     {
+      "text": "Word that qualifies",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolling over",
+      "for": "reversal",
+      "note": "something rolling over ends up upside down, so the dog's name is read backwards"
+     },
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "an awful state is a mess, so the letters of mire are jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placing one thing in another means the reversed name sits inside the jumbled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mire",
+      "gives": "M",
+      "note": "first letter of the jumbled mire"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "FIDO",
+      "note": "Fido is the stock name for a dog"
+     },
+     {
+      "clueFragment": "mire",
+      "gives": "IER",
+      "note": "remaining letters of the jumbled mire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ODIF",
+      "IER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MIRE",
+       "gives": "MIER"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "FIDO",
+       "to": "ODIF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog wallows on its back in some horrible mud.",
+     "walkthrough": "The jumbled mire splits around the reversed dog: M before it, IER after, giving MODIFIER.",
+     "definitionFit": "In grammar a modifier is a term, such as an adjective, that limits or describes another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Word"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +127,53 @@
     "text": "Took off dressed like Batman, about to leave",
     "enumeration": "4"
    },
-   "solution": "APED"
+   "solution": "APED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "APED",
+    "definitions": [
+     {
+      "text": "Took off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about to leave",
+      "for": "deletion",
+      "note": "about stands for the abbreviation c, which is told to leave, so it is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dressed like Batman",
+      "gives": "CAPED",
+      "note": "Batman wears a cape"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c is short for circa, about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a Batman costume headed off.",
+     "walkthrough": "Removing C from CAPED leaves APED. 'Took off' sounds like departing but means imitated.",
+     "definitionFit": "To take someone off is to mimic them, which is what aping means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +187,62 @@
     "text": "Grunt holding large article from German plane",
     "enumeration": "6"
    },
-   "solution": "GLIDER"
+   "solution": "GLIDER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GLIDER",
+    "definitions": [
+     {
+      "text": "plane",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "something holding another keeps it inside, so the soldier wraps around the size letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grunt",
+      "gives": "GI",
+      "note": "a grunt is slang for a US infantryman, a GI"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing abbreviation for large"
+     },
+     {
+      "clueFragment": "article from German",
+      "gives": "DER",
+      "note": "der is a German definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "L",
+      "I",
+      "DER"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier grumbles while carrying a big piece of something from Germany.",
+     "walkthrough": "G(L)I followed by DER gives GLIDER. 'From German' reads as a link to plane, but belongs to the article.",
+     "definitionFit": "A glider is an aircraft without an engine, a kind of plane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grunt"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +256,58 @@
     "text": "Hard rock in set of bars around UK province",
     "enumeration": "7"
    },
-   "solution": "GRANITE"
+   "solution": "GRANITE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRANITE",
+    "definitions": [
+     {
+      "text": "Hard rock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "bars set around something enclose it, so the province goes inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set of bars",
+      "gives": "GRATE",
+      "note": "a grate is a frame of metal bars"
+     },
+     {
+      "clueFragment": "UK province",
+      "gives": "NI",
+      "note": "Northern Ireland, abbreviated NI"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRA",
+      "NI",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tough rock sits within a barred enclosure surrounding Northern Ireland.",
+     "walkthrough": "Hard rock suggests loud music, but the definition is literal stone.",
+     "definitionFit": "Granite is a very tough igneous stone, the classic example of hard rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hard"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +321,62 @@
     "text": "Manage to check everything with one inspiring figure",
     "enumeration": "8"
    },
-   "solution": "CALLIOPE"
+   "solution": "CALLIOPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CALLIOPE",
+    "definitions": [
+     {
+      "text": "inspiring figure",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to check",
+      "for": "container",
+      "note": "to check something is to hold it back, so the verb's letters hold the next part inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manage",
+      "gives": "COPE",
+      "note": "to cope is to manage"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ALL",
+      "I",
+      "OPE"
+     ]
+    },
+    "explanation": {
+     "surface": "An inspirational leader manages to keep an eye on everything.",
+     "walkthrough": "Calliope is the Muse of epic poetry; check here means hold in, not inspect.",
+     "definitionFit": "Calliope is one of the nine Muses, figures who inspire artists and poets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +390,60 @@
     "text": "Outspoken, taboo comedian aboard small vehicles in parade",
     "enumeration": "10"
    },
-   "solution": "BANDWAGONS"
+   "solution": "BANDWAGONS",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "BANDWAGONS",
+    "definitions": [
+     {
+      "text": "vehicles in parade",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Outspoken",
+      "for": "homophone",
+      "note": "outspoken means said out loud, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taboo",
+      "gives": "BAND",
+      "soundsLike": "BANNED",
+      "note": "taboo means prohibited"
+     },
+     {
+      "clueFragment": "comedian",
+      "gives": "WAG",
+      "note": "a wag is a joker"
+     },
+     {
+      "clueFragment": "aboard",
+      "gives": "ON",
+      "note": "on board"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "explanation": {
+     "surface": "A frank comic with forbidden material rides on little floats in a procession.",
+     "walkthrough": "BAND sounds like banned; then WAG, ON and S.",
+     "definitionFit": "Bandwagons were wagons carrying a band at the head of a parade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Outspoken"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +457,55 @@
     "text": "Deliver key, entering street abroad",
     "enumeration": "6"
    },
-   "solution": "RESCUE"
+   "solution": "RESCUE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESCUE",
+    "definitions": [
+     {
+      "text": "Deliver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes inside, so the key sits within the street"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street abroad",
+      "gives": "RUE",
+      "note": "rue is French for street"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "ESC",
+      "note": "the Escape key on a keyboard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ESC",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "Delivering a key into a foreign road.",
+     "walkthrough": "R(ESC)UE.",
+     "definitionFit": "To deliver someone from danger is to save them, a synonym of rescue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deliver"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +519,70 @@
     "text": "Vulcan, say, heading for metal heap? I'm amazed about it",
     "enumeration": "8"
    },
-   "solution": "COMPILER"
+   "solution": "COMPILER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "COMPILER",
+    "definitions": [
+     {
+      "text": "Vulcan, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its first letter"
+     },
+     {
+      "text": "about it",
+      "for": "container",
+      "note": "an exclamation placed about something wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm amazed",
+      "gives": "COR",
+      "note": "cor is a British exclamation of surprise"
+     },
+     {
+      "clueFragment": "metal",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of metal"
+     },
+     {
+      "clueFragment": "heap",
+      "gives": "PILE",
+      "note": "a pile is a heap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "M",
+      "PILE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Spotting a Star Trek Vulcan beside a scrap heap draws gasps.",
+     "walkthrough": "Vulcan is a Guardian crossword setter, so the definition is self-referential; CO(M PILE)R. Vulcan wants to be the Roman smith god with his metal heap.",
+     "definitionFit": "A crossword compiler is the setter; Vulcan was a pseudonym used by one for the Guardian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Vulcan"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +596,62 @@
     "text": "Bit of Flora's drink quaffed by jazzman occasionally",
     "enumeration": "6"
    },
-   "solution": "AZALEA"
+   "solution": "AZALEA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AZALEA",
+    "definitions": [
+     {
+      "text": "Bit of Flora",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "something done occasionally happens at intervals, so only every other letter counts"
+     },
+     {
+      "text": "quaffed by",
+      "for": "container",
+      "note": "a drink quaffed by someone goes inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jazzman",
+      "gives": "AZA",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "ALE",
+      "note": "ale is a drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AZ",
+      "ALE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A jazz musician now and then downs Flora's beverage.",
+     "walkthrough": "AZ(ALE)A. Flora reads as a woman's name but is the plant life, flora.",
+     "definitionFit": "An azalea is a flowering shrub, one item from the plant kingdom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flora's"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +665,65 @@
     "text": "Maiden popular with Delphi's leader is Psyche",
     "enumeration": "4"
    },
-   "solution": "MIND"
+   "solution": "MIND",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MIND",
+    "definitions": [
+     {
+      "text": "Psyche",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maiden",
+      "gives": "M",
+      "note": "M is the cricket abbreviation for a maiden over"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "Delphi's",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of Delphi"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl favoured by the oracle's chief is Psyche of Greek myth.",
+     "walkthrough": "Psyche looks like the mythical maiden, but here it is the common noun for the mind.",
+     "definitionFit": "Psyche is the human soul or spirit, the mind in psychological terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Psyche"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +743,67 @@
      }
     ]
    },
-   "solution": "DONALDDUCK"
+   "solution": "DONALDDUCK",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DONALD DUCK",
+    "definitions": [
+     {
+      "text": "Pluto's friend",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked, so the letters are bent out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crime boss",
+      "gives": "DON",
+      "note": "a Mafia boss is a don"
+     },
+     {
+      "clueFragment": "lad",
+      "gives": "ALD",
+      "note": "lad rearranged"
+     },
+     {
+      "clueFragment": "avoid",
+      "gives": "DUCK",
+      "note": "to duck is to dodge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DON",
+      "ALD",
+      "DUCK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAD",
+       "gives": "ALD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Mafia boss and a crooked youth dodge someone linked to the underworld god.",
+     "walkthrough": "Pluto suggests the Roman god of the underworld, matching the crime story; it is Disney's dog.",
+     "definitionFit": "Pluto is Mickey Mouse's dog, and Donald Duck is part of the same Disney cartoon gang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pluto's"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +817,44 @@
     "text": "Mercury, say, is a scorcher?",
     "enumeration": "6"
    },
-   "solution": "SINGER"
+   "solution": "SINGER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SINGER",
+    "definitions": [
+     {
+      "text": "Mercury, say",
+      "at": 0
+     },
+     {
+      "text": "a scorcher",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mercury, say",
+      "note": "Freddie Mercury, frontman of Queen"
+     },
+     {
+      "clueFragment": "a scorcher",
+      "note": "one who singes things"
+     }
+    ],
+    "explanation": {
+     "surface": "Is the planet or element Mercury a hot thing?",
+     "walkthrough": "Mercury hints at the hottest planet, matching scorcher; the second meaning reads the answer as singe plus -er.",
+     "definitionFit": "Freddie Mercury was a famous vocalist, and anyone who singes something is, whimsically, a singer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mercury"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +874,56 @@
      }
     ]
    },
-   "solution": "GREATGROSS"
+   "solution": "GREATGROSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREAT GROSS",
+    "definitions": [
+     {
+      "text": "1728",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King George",
+      "gives": "GR",
+      "note": "Georgius Rex"
+     },
+     {
+      "clueFragment": "to consume",
+      "gives": "EAT",
+      "note": "eat means consume"
+     },
+     {
+      "clueFragment": "fat",
+      "gives": "GROSS",
+      "note": "gross can mean obese"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "EAT",
+      "GROSS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Georgian king eats heavily in the year 1728.",
+     "walkthrough": "1728 looks like a date in George II's reign, but it is a number: twelve gross.",
+     "definitionFit": "A gross is 144 and a great gross is twelve of those, 1,728 items."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "1728"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +943,50 @@
      }
     ]
    },
-   "solution": "TWOFACED"
+   "solution": "TWOFACED",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "TWO-FACED",
+    "definitions": [
+     {
+      "text": "Janus-like",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reporter's",
+      "for": "homophone",
+      "note": "a reporter speaks the news, so the word is taken by how it sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also",
+      "gives": "TWO",
+      "soundsLike": "TOO",
+      "note": "too means also"
+     },
+     {
+      "clueFragment": "confronted",
+      "gives": "FACED",
+      "note": "faced means confronted"
+     }
+    ],
+    "explanation": {
+     "surface": "A journalist who resembles Janus has likewise been challenged.",
+     "walkthrough": "Janus is the Roman god with two faces looking opposite ways.",
+     "definitionFit": "Janus has a pair of faces, and two-faced also means deceitful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "reporter's"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +1000,45 @@
     "text": "What happens when weekend starts for Phoebe et al",
     "enumeration": "7"
    },
-   "solution": "FRIENDS"
+   "solution": "FRIENDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRIENDS",
+    "definitions": [
+     {
+      "text": "Phoebe et al",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What happens when weekend starts",
+      "gives": "FRIENDS",
+      "note": "when the weekend begins, Friday ends: FRI plus ENDS"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRIENDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Something happens at the start of the weekend for Phoebe and her mates.",
+     "walkthrough": "FRI is the abbreviation for Friday; Phoebe Buffay is a character in the US sitcom Friends.",
+     "definitionFit": "Phoebe, Rachel, Monica and the rest are the six title characters of the sitcom Friends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "weekend"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1052,67 @@
     "text": "News about nitwit losing heart in a dozy way",
     "enumeration": "8"
    },
-   "solution": "DROWSILY"
+   "solution": "DROWSILY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "DROWSILY",
+    "definitions": [
+     {
+      "text": "in a dozy way",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about faces the other way, so the word is read backwards"
+     },
+     {
+      "text": "losing heart",
+      "for": "deletion",
+      "note": "losing the heart means the centre letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "News",
+      "gives": "WORD",
+      "note": "word means news, as in 'send word'"
+     },
+     {
+      "clueFragment": "nitwit",
+      "gives": "SILLY",
+      "note": "a silly is a foolish person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROW",
+      "SILY"
+     ],
+     "reversals": [
+      {
+       "from": "WORD",
+       "to": "DROW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reports about a fool who has lost his nerve, told sleepily.",
+     "walkthrough": "SILLY loses its middle L to give SILY.",
+     "definitionFit": "Drowsily describes acting sleepily, which is what dozy means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "News"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1126,69 @@
     "text": "Echo possibly roused about Narcissus's face",
     "enumeration": "7"
    },
-   "solution": "RESOUND"
+   "solution": "RESOUND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "RESOUND",
+    "definitions": [
+     {
+      "text": "Echo possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "face",
+      "for": "letter_selection",
+      "note": "the face of a word is its front, its first letter"
+     },
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly roused hints at roused in some other arrangement"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "letters placed about something surround it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roused",
+      "gives": "ROUSED",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "Narcissus's",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter of Narcissus"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROUSEDN",
+       "gives": "RESOUND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The nymph Echo was perhaps stirred by the sight of Narcissus's face.",
+     "walkthrough": "Echo and Narcissus are lovers in Greek myth, but echo here is the verb.",
+     "definitionFit": "To resound is to ring out again with sound, as an echo does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Echo"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1202,72 @@
     "text": "Old French city near ground around former capital",
     "enumeration": "8"
    },
-   "solution": "NARBONNE"
+   "solution": "NARBONNE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NARBONNE",
+    "definitions": [
+     {
+      "text": "Old French city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed up, so the letters are broken down and remixed"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "letters around something enclose it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "near",
+      "gives": "NAR",
+      "note": "first part of near rearranged"
+     },
+     {
+      "clueFragment": "former capital",
+      "gives": "BONN",
+      "note": "Bonn was West Germany's capital"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "E",
+      "note": "the remaining letter of the rearranged near"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAR",
+      "BONN",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEAR",
+       "gives": "NARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient French town lies on land close to an onetime capital.",
+     "walkthrough": "Bonn was capital of West Germany until reunification; the rearranged letters split around it.",
+     "definitionFit": "Narbonne in southern France was founded by the Romans as Narbo Martius."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1281,50 @@
     "text": "Shakespearean killer with tongue for slander",
     "enumeration": "7"
    },
-   "solution": "ASPERSE"
+   "solution": "ASPERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASPERSE",
+    "definitions": [
+     {
+      "text": "slander",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shakespearean killer",
+      "gives": "ASP",
+      "note": "Cleopatra dies from an asp's bite in Antony and Cleopatra"
+     },
+     {
+      "clueFragment": "tongue",
+      "gives": "ERSE",
+      "note": "Erse is Scottish or Irish Gaelic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASP",
+      "ERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A murderer in Shakespeare uses his tongue to defame.",
+     "walkthrough": "Shakespearean killer suggests Macbeth or Iago; it is the snake.",
+     "definitionFit": "To asperse is to cast damaging remarks on someone's reputation, to slander them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tongue"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1338,64 @@
     "text": "One running through data for Victoria etc",
     "enumeration": "8"
    },
-   "solution": "STATIONS"
+   "solution": "STATIONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STATIONS",
+    "definitions": [
+     {
+      "text": "Victoria etc",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "through",
+      "for": "container",
+      "note": "something running through another passes inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "data",
+      "gives": "STATS",
+      "note": "stats are statistics, data"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "running",
+      "gives": "ON",
+      "note": "a machine that is running is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAT",
+      "ION",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "One person runs through figures concerning Victoria and others.",
+     "walkthrough": "STAT(I ON)S. Victoria is a major London railway terminus.",
+     "definitionFit": "Victoria, Waterloo and Euston are London railway stations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Victoria"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1409,55 @@
     "text": "Prince wearing drunkard's hat",
     "enumeration": "6"
    },
-   "solution": "TOPPER"
+   "solution": "TOPPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOPPER",
+    "definitions": [
+     {
+      "text": "hat",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "a prince wearing a coat is inside it, so his letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunkard's",
+      "gives": "TOPER",
+      "note": "a toper is a heavy drinker"
+     },
+     {
+      "clueFragment": "Prince",
+      "gives": "P",
+      "note": "P abbreviates prince"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "P",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal sports a sot's headgear.",
+     "walkthrough": "TO(P)PER.",
+     "definitionFit": "A topper is a top hat, a tall formal hat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1471,61 @@
     "text": "Old man put on Daphne's clothing for Eros",
     "enumeration": "6"
    },
-   "solution": "DESIRE"
+   "solution": "DESIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DESIRE",
+    "definitions": [
+     {
+      "text": "Eros",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing",
+      "for": "letter_selection",
+      "note": "clothing is worn on the outside, so only the outer letters count"
+     }
+    ],
+    "linkWords": [
+     "put on",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daphne's",
+      "gives": "DE",
+      "select": "outer",
+      "note": "outer letters of Daphne"
+     },
+     {
+      "clueFragment": "Old man",
+      "gives": "SIRE",
+      "note": "a sire is a father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly man dons Daphne's clothes for Eros.",
+     "walkthrough": "Put on means added after, not worn: the father follows the outer letters. Eros is the Greek god of love, and also a word for longing.",
+     "definitionFit": "Eros, from the god, is used as a noun for erotic love or longing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1539,69 @@
     "text": "Readers wanting English changed in bold characters",
     "enumeration": "6"
    },
-   "solution": "DARERS"
+   "solution": "DARERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DARERS",
+    "definitions": [
+     {
+      "text": "bold characters",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so a letter is left out"
+     },
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed letters are put in a different order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Readers",
+      "gives": "READERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E abbreviates English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DARERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RADERS",
+       "gives": "DARERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Readers lacking English are changed into bold type.",
+     "walkthrough": "Remove one E from READERS and rearrange RADERS. Bold characters looks like typography but means daring people.",
+     "definitionFit": "Darers are people who dare, brave or bold types."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1615,59 @@
     "text": "Promise to protect harbours in Nike's domain",
     "enumeration": "10"
    },
-   "solution": "SPORTSWEAR"
+   "solution": "SPORTSWEAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPORTSWEAR",
+    "definitions": [
+     {
+      "text": "Nike's domain",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to protect",
+      "for": "container",
+      "note": "to protect something is to surround it, so the vow wraps around the harbours"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Promise",
+      "gives": "SWEAR",
+      "note": "to swear is to promise"
+     },
+     {
+      "clueFragment": "harbours",
+      "gives": "PORTS",
+      "note": "ports are harbours"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PORTS",
+      "WEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A vow to guard harbours in the realm of Nike, the Greek victory goddess.",
+     "walkthrough": "S(PORTS)WEAR. Nike suggests the goddess of victory, but it is the sportswear brand.",
+     "definitionFit": "Nike is a brand of athletic clothing, so its area of business is sportswear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nike's"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1681,55 @@
     "text": "Day tours round Apollo's destination",
     "enumeration": "4"
    },
-   "solution": "MOON"
+   "solution": "MOON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOON",
+    "definitions": [
+     {
+      "text": "Apollo's destination",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tours",
+      "for": "container",
+      "note": "to tour is to go around something, so the day surrounds the round shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Day",
+      "gives": "MON",
+      "note": "Monday, abbreviated"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "O",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A day trip circles to where the god Apollo was heading.",
+     "walkthrough": "MO(O)N. Apollo looks like the Greek god but is the NASA space programme.",
+     "definitionFit": "NASA's Apollo missions flew astronauts to the Moon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Apollo's"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1743,61 @@
     "text": "Come across motorway, with help for driving northwards",
     "enumeration": "4"
    },
-   "solution": "MEET"
+   "solution": "MEET",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MEET",
+    "definitions": [
+     {
+      "text": "Come across",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "northwards",
+      "for": "reversal",
+      "note": "in a down entry, going northwards means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "M for a UK motorway, as in M1"
+     },
+     {
+      "clueFragment": "help for driving",
+      "gives": "TEE",
+      "note": "a golfer drives the ball off a tee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EET"
+     ],
+     "reversals": [
+      {
+       "from": "TEE",
+       "to": "EET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Encounter a motorway with assistance for driving north.",
+     "walkthrough": "Driving suggests cars on the motorway, but it is a golf drive.",
+     "definitionFit": "To come across someone is to encounter or meet them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "driving"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1811,57 @@
     "text": "Perhaps Pan, in fables, severely upset",
     "enumeration": "6"
    },
-   "solution": "VESSEL"
+   "solution": "VESSEL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "VESSEL",
+    "definitions": [
+     {
+      "text": "Perhaps Pan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the following words"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned over, so the run of letters reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fables, severely",
+      "gives": "LESSEV",
+      "note": "letters spanning the end of fables and the start of severely"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LESSEV",
+       "to": "VESSEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The god Pan, perhaps, is badly troubled in old stories.",
+     "walkthrough": "Pan suggests the Greek god of fables, but it is a cooking pan.",
+     "definitionFit": "A pan is a container for liquids or food, one example of a vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pan"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1875,55 @@
     "text": "Encourage aboard 25 people looking after Ops",
     "enumeration": "8"
    },
-   "solution": "SURGEONS"
+   "solution": "SURGEONS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SURGEONS",
+    "definitions": [
+     {
+      "text": "people looking after Ops",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "aboard means inside a ship, so the verb goes within the vessel letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "25",
+      "gives": "SS",
+      "note": "25 is VESSEL, and a steamship is SS"
+     },
+     {
+      "clueFragment": "Encourage",
+      "gives": "URGEON",
+      "note": "urge on means encourage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "URGEON",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Urge people on board a ship who look after operations.",
+     "walkthrough": "S(URGE ON)S. Ops reads like military operations; it is surgical operations.",
+     "definitionFit": "Surgeons perform and oversee operations, abbreviated ops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Ops"
+    }
+   }
   }
  ]
 }
