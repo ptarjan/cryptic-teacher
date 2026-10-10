@@ -24,6 +24,9 @@
   "date": "2024-06-17",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,49 @@
     "text": "Go quickly in second vehicle",
     "enumeration": "7"
    },
-   "solution": "SCAMPER"
+   "solution": "SCAMPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCAMPER",
+    "definitions": [
+     {
+      "text": "Go quickly",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the standard abbreviation for second"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAMPER",
+      "note": "a camper is a motor vehicle fitted out for living in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAMPER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dashes off in their second car.",
+     "definitionFit": "To scamper is to run with quick light steps, like a child or small animal hurrying along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +96,46 @@
     "text": "Determined to find some tennis",
     "enumeration": "3"
    },
-   "solution": "SET"
+   "solution": "SET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SET",
+    "definitions": [
+     {
+      "text": "Determined",
+      "at": 0
+     },
+     {
+      "text": "some tennis",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Determined",
+      "note": "first meaning: resolved"
+     },
+     {
+      "clueFragment": "some tennis",
+      "note": "second meaning: a unit of play in a tennis match, made up of games"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is resolved to get a game of tennis in.",
+     "walkthrough": "'Some tennis' looks like a request for a hidden word, but it is a definition: a portion of a tennis match.",
+     "definitionFit": "The short word is both an adjective for being firmly resolved and the noun for a scoring unit in tennis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +149,62 @@
     "text": "Shock to include extremely risible clothing",
     "enumeration": "7"
    },
-   "solution": "APPAREL"
+   "solution": "APPAREL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "APPAREL",
+    "definitions": [
+     {
+      "text": "clothing",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points at the extremities of the word, its first and last letters"
+     },
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include means the first word takes the next piece inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shock",
+      "gives": "APPAL",
+      "note": "to appal is to shock or horrify"
+     },
+     {
+      "clueFragment": "risible",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the first and last letters of risible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APPA",
+      "RE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is shocked by laughably silly outfits.",
+     "walkthrough": "'Shock' looks like a noun in the surface, but here it is the verb meaning to horrify.",
+     "definitionFit": "Apparel is a formal word for garments, so it is a synonym of clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shock"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +218,51 @@
     "text": "Scrap coin article",
     "enumeration": "5"
    },
-   "solution": "PIECE"
+   "solution": "PIECE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PIECE",
+    "definitions": [
+     {
+      "text": "Scrap",
+      "at": 0
+     },
+     {
+      "text": "coin",
+      "at": 6
+     },
+     {
+      "text": "article",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scrap",
+      "note": "first meaning: a fragment or bit of something"
+     },
+     {
+      "clueFragment": "coin",
+      "note": "second meaning: a coin"
+     },
+     {
+      "clueFragment": "article",
+      "note": "third meaning: an item or written article"
+     }
+    ],
+    "explanation": {
+     "surface": "A list of junk: a scrap coin and some item.",
+     "walkthrough": "This has three definitions, not two, each a separate sense of the same word.",
+     "definitionFit": "The word covers a fragment, a coin of a given value, and a single item or newspaper article."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scrap"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +276,65 @@
     "text": "Platform, retro, empty on street — strange",
     "enumeration": "7"
    },
-   "solution": "ROSTRUM"
+   "solution": "ROSTRUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROSTRUM",
+    "definitions": [
+     {
+      "text": "Platform",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an emptied word has its middle removed, leaving only its outside letters"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retro",
+      "gives": "RO",
+      "select": "outer",
+      "note": "the first and last letters of retro"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the standard abbreviation for street"
+     },
+     {
+      "clueFragment": "strange",
+      "gives": "RUM",
+      "note": "rum is an old British word for odd or strange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "ST",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A list describing an old-fashioned, deserted stage standing oddly on a street.",
+     "walkthrough": "'Retro' looks like a reversal signal, but it is just a word to be emptied. In a down clue, 'on' puts one piece above the next.",
+     "definitionFit": "A rostrum is a raised platform for a speaker or conductor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retro"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +348,45 @@
     "text": "Cry — \"Sounds like bouncer!\"",
     "enumeration": "4"
    },
-   "solution": "BAWL"
+   "solution": "BAWL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BAWL",
+    "definitions": [
+     {
+      "text": "Cry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounds like",
+      "for": "homophone",
+      "note": "sounds like tells us to go by how a word is spoken, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bouncer",
+      "gives": "BAWL",
+      "soundsLike": "BALL",
+      "note": "a ball is something that bounces"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shouts that a nightclub doorman is coming.",
+     "walkthrough": "A bouncer is a nightclub doorman in the surface, but here it is a thing that bounces.",
+     "definitionFit": "To bawl is to cry loudly, wailing or sobbing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bouncer"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +400,49 @@
     "text": "Colour of summit, northern",
     "enumeration": "5"
    },
-   "solution": "BROWN"
+   "solution": "BROWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROWN",
+    "definitions": [
+     {
+      "text": "Colour",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "summit",
+      "gives": "BROW",
+      "note": "the brow of a hill is its top"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the standard abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROW",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what shade a northern mountain top is.",
+     "definitionFit": "Brown is a colour, the shade of earth or wood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "summit"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +456,75 @@
     "text": "Gloomy, we ask person to include option upfront",
     "enumeration": "9"
    },
-   "solution": "WOEBEGONE"
+   "solution": "WOEBEGONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "WOEBEGONE",
+    "definitions": [
+     {
+      "text": "Gloomy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upfront",
+      "for": "letter_selection",
+      "note": "upfront means only the leading letter of the word is wanted"
+     },
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include means the first word wraps around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "option",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of option"
+     },
+     {
+      "clueFragment": "ask",
+      "gives": "BEG",
+      "note": "to beg is to ask earnestly"
+     },
+     {
+      "clueFragment": "person",
+      "gives": "ONE",
+      "note": "one means a person, as in 'one must'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "O",
+      "E",
+      "BEG",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling down, we ask somebody to put an option on the table first.",
+     "walkthrough": "The wrapping word comes first in the clue, though the signal 'to include' sits further on; 'person' as a pronoun for anyone is a common crossword trick.",
+     "definitionFit": "Woebegone means looking sad or miserable, a synonym of gloomy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upfront"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +538,41 @@
     "text": "Most important one holds paper sheets together",
     "enumeration": "6"
    },
-   "solution": "STAPLE"
+   "solution": "STAPLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAPLE",
+    "definitions": [
+     {
+      "text": "Most important",
+      "at": 0
+     },
+     {
+      "text": "one holds paper sheets together",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most important",
+      "note": "first meaning: main or principal"
+     },
+     {
+      "clueFragment": "one holds paper sheets together",
+      "note": "second meaning: a bent wire fastener for paper"
+     }
+    ],
+    "explanation": {
+     "surface": "The key item is whatever keeps the pages together.",
+     "definitionFit": "As an adjective it means chief or principal; as a noun it is the small metal fastener driven through paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +586,44 @@
     "text": "One displaying bathroom feature",
     "enumeration": "6"
    },
-   "solution": "SHOWER"
+   "solution": "SHOWER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHOWER",
+    "definitions": [
+     {
+      "text": "One displaying",
+      "at": 0
+     },
+     {
+      "text": "bathroom feature",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One displaying",
+      "note": "first meaning: someone who shows"
+     },
+     {
+      "clueFragment": "bathroom feature",
+      "note": "second meaning: a spray of water to wash under"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shows off a fitting in the bathroom.",
+     "walkthrough": "The first sense is a made-up agent noun: one who shows, pronounced to rhyme with 'grower', not 'flower'.",
+     "definitionFit": "The word means both a person who exhibits something and the fixture you stand under to wash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "displaying"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +637,64 @@
     "text": "Big beast with article? Force outside showing self-control",
     "enumeration": "11"
    },
-   "solution": "FORBEARANCE"
+   "solution": "FORBEARANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FORBEARANCE",
+    "definitions": [
+     {
+      "text": "self-control",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means one word sits around the other pieces, wrapping them"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Force",
+      "gives": "FORCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Big beast",
+      "gives": "BEAR",
+      "note": "a bear is a big wild animal"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "BEAR",
+      "AN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about a large animal and a news piece, then force restraining itself.",
+     "definitionFit": "Forbearance is patient restraint, holding back from acting on anger or impulse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +708,58 @@
     "text": "Country fellow's entering for right to vote",
     "enumeration": "9"
    },
-   "solution": "FRANCHISE"
+   "solution": "FRANCHISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRANCHISE",
+    "definitions": [
+     {
+      "text": "right to vote",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means one piece goes into the middle of another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "gives": "FRANCE",
+      "note": "France, the European country"
+     },
+     {
+      "clueFragment": "fellow's",
+      "gives": "HIS",
+      "note": "his means belonging to a fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRANC",
+      "HIS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A rural man goes in to cast his vote.",
+     "walkthrough": "'Country fellow' reads as a farmer, but the words split: the country and then the possessive.",
+     "definitionFit": "The franchise is the legal right to vote in public elections."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +773,55 @@
     "text": "Everyone in Republican Party in speedy action",
     "enumeration": "6"
    },
-   "solution": "GALLOP"
+   "solution": "GALLOP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GALLOP",
+    "definitions": [
+     {
+      "text": "speedy action",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican Party",
+      "gives": "GOP",
+      "note": "the GOP, Grand Old Party, is the US Republican Party"
+     },
+     {
+      "clueFragment": "Everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ALL",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "All members of the Republican Party are taking quick action.",
+     "walkthrough": "GOP stands for Grand Old Party, the nickname of the US Republicans.",
+     "definitionFit": "A gallop is a horse's fastest pace, and by extension any rapid movement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +835,64 @@
     "text": "Dangerous swimmer's power country has cut",
     "enumeration": "7"
    },
-   "solution": "PIRANHA"
+   "solution": "PIRANHA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PIRANHA",
+    "definitions": [
+     {
+      "text": "Dangerous swimmer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut has been shortened, here by its final letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the standard abbreviation for power"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "IRAN",
+      "note": "Iran, the Middle Eastern country"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "IRAN",
+      "HA"
+     ]
+    },
+    "explanation": {
+     "surface": "A risky swimmer's strength has been reduced by the nation.",
+     "walkthrough": "The 's after 'swimmer' stands for 'is', linking definition to wordplay.",
+     "definitionFit": "A piranha is a South American fish with sharp teeth, notorious for attacking in shoals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "swimmer's"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +906,57 @@
     "text": "One bringing luck in racecourse, miles ahead",
     "enumeration": "6"
    },
-   "solution": "MASCOT"
+   "solution": "MASCOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASCOT",
+    "definitions": [
+     {
+      "text": "One bringing luck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ahead",
+      "for": "charade",
+      "note": "ahead says this piece goes in front of the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "miles",
+      "gives": "M",
+      "note": "M is the standard abbreviation for miles"
+     },
+     {
+      "clueFragment": "racecourse",
+      "gives": "ASCOT",
+      "note": "Ascot is a famous racecourse in Berkshire, England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASCOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lucky charm at the racecourse, miles in the lead.",
+     "walkthrough": "ASCOT is an English racecourse known for Royal Ascot.",
+     "definitionFit": "A mascot is a person, animal or object thought to bring good fortune."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "miles"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +970,60 @@
     "text": "Obsequious, wait with one learner inside",
     "enumeration": "7"
    },
-   "solution": "SERVILE"
+   "solution": "SERVILE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SERVILE",
+    "definitions": [
+     {
+      "text": "Obsequious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means the pieces named are put within the first word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wait",
+      "gives": "SERVE",
+      "note": "to wait at table is to serve"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L for learner, as on a learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SERV",
+      "I",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fawning waiter, with a trainee working inside.",
+     "definitionFit": "Servile means excessively eager to please, slavishly fawning, which is what obsequious describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wait"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1037,53 @@
     "text": "A raider came to rock friendly feeling",
     "enumeration": "11"
    },
-   "solution": "CAMARADERIE"
+   "solution": "CAMARADERIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAMARADERIE",
+    "definitions": [
+     {
+      "text": "friendly feeling",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rock",
+      "for": "anagram",
+      "note": "to rock is to shake, so the letters are shaken up into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A raider came",
+      "gives": "ARAIDERCAME",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARAIDERCAME",
+       "gives": "CAMARADERIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An attacker turned up to shake the goodwill.",
+     "definitionFit": "Camaraderie is mutual trust and comradeship among a group of people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1097,55 @@
     "text": "Place to stay in Seattle tomorrow on way back",
     "enumeration": "5"
    },
-   "solution": "MOTEL"
+   "solution": "MOTEL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MOTEL",
+    "definitions": [
+     {
+      "text": "Place to stay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     },
+     {
+      "text": "on way back",
+      "for": "reversal",
+      "note": "on the way back means the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seattle tomorrow",
+      "gives": "LETOM",
+      "note": "the letters spanning the end of one word and start of the next"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LETOM",
+       "to": "MOTEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Somewhere to stay in Seattle tomorrow on the return trip.",
+     "definitionFit": "A motel is a roadside hotel for motorists, a place to stay the night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1159,47 @@
     "text": "Arab city call — excellent",
     "enumeration": "5"
    },
-   "solution": "DUBAI"
+   "solution": "DUBAI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUBAI",
+    "definitions": [
+     {
+      "text": "Arab city",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "call",
+      "gives": "DUB",
+      "note": "to dub is to name or call"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "AI",
+      "note": "A1 means excellent, with the 1 read as the letter I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUB",
+      "AI"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a phone call from somewhere in Arabia.",
+     "walkthrough": "AI is A1, first-rate, with the digit standing for the letter I.",
+     "definitionFit": "Dubai is a city in the United Arab Emirates on the Persian Gulf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1213,42 @@
     "text": "Pay attention: deli's tenant missing some letters outside",
     "enumeration": "6"
    },
-   "solution": "LISTEN"
+   "solution": "LISTEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LISTEN",
+    "definitions": [
+     {
+      "text": "Pay attention",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing some letters outside",
+      "for": "hidden_word",
+      "note": "dropping the letters on the outside leaves a run from the middle of the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deli's tenant",
+      "gives": "LISTEN",
+      "note": "the run inside, with the outer letters dropped"
+     }
+    ],
+    "explanation": {
+     "surface": "A warning to a shop occupant whose sign is missing letters.",
+     "definitionFit": "To listen is to give attention with the ears, i.e. to pay attention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tenant"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1262,43 @@
     "text": "Describing marrying girl, show anger, we hear",
     "enumeration": "6"
    },
-   "solution": "BRIDAL"
+   "solution": "BRIDAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BRIDAL",
+    "definitions": [
+     {
+      "text": "Describing marrying girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear points to the sound of a word rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "show anger",
+      "gives": "BRIDAL",
+      "soundsLike": "BRIDLE",
+      "note": "to bridle is to bristle with anger or resentment"
+     }
+    ],
+    "explanation": {
+     "surface": "A girl about to wed becomes angry.",
+     "definitionFit": "Bridal is the adjective for things relating to a bride, the woman getting married."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "show"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1312,48 @@
     "text": "Do some maths at first after dinner date",
     "enumeration": "3"
    },
-   "solution": "ADD"
+   "solution": "ADD",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ADD",
+    "definitions": [
+     {
+      "text": "Do some maths",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first means only the opening letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after dinner date",
+      "gives": "ADD",
+      "select": "first",
+      "note": "the opening letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADD"
+     ]
+    },
+    "explanation": {
+     "surface": "Sorting out the sums after a dinner date, splitting the bill.",
+     "definitionFit": "Adding is a basic arithmetic operation, so to add is to do some maths."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "date"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1367,46 @@
     "text": "Terrible place — greeting cut short",
     "enumeration": "4"
    },
-   "solution": "HELL"
+   "solution": "HELL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HELL",
+    "definitions": [
+     {
+      "text": "Terrible place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cut short means the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greeting",
+      "gives": "HELLO",
+      "note": "hello is a greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HELL"
+     ]
+    },
+    "explanation": {
+     "surface": "An awful place where even a hello is clipped.",
+     "definitionFit": "Hell is the place of eternal punishment, and by extension any dreadful situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1420,50 @@
     "text": "Flavouring aid, seen differently",
     "enumeration": "7"
    },
-   "solution": "ANISEED"
+   "solution": "ANISEED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANISEED",
+    "definitions": [
+     {
+      "text": "Flavouring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "differently",
+      "for": "anagram",
+      "note": "seen differently suggests the letters arranged another way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aid, seen",
+      "gives": "AIDSEEN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AIDSEEN",
+       "gives": "ANISEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cooking aid that looks different from another angle.",
+     "definitionFit": "Aniseed is the liquorice-tasting seed of the anise plant, used to flavour sweets and drinks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aid"
+    }
+   }
   }
  ]
 }
