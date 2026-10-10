@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "Right to go after bankrupt agent",
     "enumeration": "6"
    },
-   "solution": "BROKER"
+   "solution": "BROKER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROKER",
+    "definitions": [
+     {
+      "text": "agent",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go after",
+      "for": "charade",
+      "note": "going after something means being placed behind it, so this letter comes at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bankrupt",
+      "gives": "BROKE",
+      "note": "someone bankrupt is broke, out of money"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROKE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A permission to chase an insolvent representative, perhaps after a failed business.",
+     "definitionFit": "A broker is an agent who arranges deals or sales on behalf of a client."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Right"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +96,44 @@
     "text": "Intensely cold beer",
     "enumeration": "6"
    },
-   "solution": "BITTER"
+   "solution": "BITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BITTER",
+    "definitions": [
+     {
+      "text": "Intensely cold",
+      "at": 0
+     },
+     {
+      "text": "beer",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Intensely cold",
+      "note": "first meaning: of weather, piercingly cold"
+     },
+     {
+      "clueFragment": "beer",
+      "note": "second meaning: a hoppy British ale"
+     }
+    ],
+    "explanation": {
+     "surface": "A beer served at an icy temperature.",
+     "walkthrough": "Bitter is a well-hopped British draught ale, so the clue reads like a pub order but holds two separate senses.",
+     "definitionFit": "A bitter wind is a piercingly chilly one, and bitter is also a type of pale English ale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +147,55 @@
     "text": "Clear above top of tower",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a down entry's word is its first letter, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "above",
+      "gives": "OVER",
+      "note": "above and over are synonyms"
+     },
+     {
+      "clueFragment": "tower",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of tower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Something visible high over the summit of a tower.",
+     "definitionFit": "Overt means open and plain to see, the same as clear or obvious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clear"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +209,67 @@
     "text": "Stares at the old globes after end of lecture",
     "enumeration": "8"
    },
-   "solution": "EYEBALLS"
+   "solution": "EYEBALLS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EYEBALLS",
+    "definitions": [
+     {
+      "text": "Stares at",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which alone is taken"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "what comes after is placed second, so the selected letter leads the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lecture",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of lecture"
+     },
+     {
+      "clueFragment": "the old",
+      "gives": "YE",
+      "note": "ye is an archaic spelling of the"
+     },
+     {
+      "clueFragment": "globes",
+      "gives": "BALLS",
+      "note": "globes are balls, round objects"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "YE",
+      "BALLS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gazing at antique globes once a talk has finished.",
+     "walkthrough": "YE, as in 'Ye Olde Shoppe', is the old form of 'the'.",
+     "definitionFit": "To eyeball someone is to stare at them hard, so the verb forms match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "globes"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +283,63 @@
     "text": "Calmed down sailor on disastrous date",
     "enumeration": "6"
    },
-   "solution": "ABATED"
+   "solution": "ABATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ABATED",
+    "definitions": [
+     {
+      "text": "Calmed down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disastrous",
+      "for": "anagram",
+      "note": "something disastrous has gone badly wrong, so the word's letters fall into disorder"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is a sailor"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "DATE",
+      "note": "taken as written, its letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "ATED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DATE",
+       "gives": "ATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman soothed after a romantic evening went badly.",
+     "definitionFit": "When a storm or anger has abated it has lessened and subsided, which is what calmed down means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "date"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +353,54 @@
     "text": "Helplessly drunk, bishop before game",
     "enumeration": "6"
    },
-   "solution": "BLOTTO"
+   "solution": "BLOTTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOTTO",
+    "definitions": [
+     {
+      "text": "Helplessly drunk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before means placed in front, so this piece starts the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "LOTTO",
+      "note": "lotto is a game of chance like bingo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LOTTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop paralytic with drink before a game.",
+     "definitionFit": "Blotto is informal British slang for extremely intoxicated, unable to stand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +420,51 @@
      }
     ]
    },
-   "solution": "THESTRAND"
+   "solution": "THESTRAND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE STRAND",
+    "definitions": [
+     {
+      "text": "London street",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vandalised",
+      "for": "anagram",
+      "note": "vandalised things are wrecked and broken up, so the letters are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that nerds",
+      "gives": "THATNERDS",
+      "note": "taken as written, nine letters to shuffle"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THATNERDS",
+       "gives": "THESTRAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city street that some geeks have defaced.",
+     "walkthrough": "The Strand is a major street in central London running from Trafalgar Square towards the City.",
+     "definitionFit": "The Strand is a well-known thoroughfare in London's West End, home to the Savoy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vandalised"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +478,50 @@
     "text": "Identify San Diego criminal",
     "enumeration": "8"
    },
-   "solution": "DIAGNOSE"
+   "solution": "DIAGNOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIAGNOSE",
+    "definitions": [
+     {
+      "text": "Identify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests something crooked and bent out of its proper form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "San Diego",
+      "gives": "SANDIEGO",
+      "note": "the city's name taken letter by letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SANDIEGO",
+       "gives": "DIAGNOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A witness asked to pick out a crook from San Diego.",
+     "definitionFit": "To diagnose is to identify an illness or problem from its symptoms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +545,72 @@
      }
     ]
    },
-   "solution": "THEBEGGARSOPERA"
+   "solution": "THEBEGGARSOPERA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "THE BEGGARS OPERA",
+    "definitions": [
+     {
+      "text": "Musical drama",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "performed",
+      "for": "anagram",
+      "note": "performed hints at the letters being worked over and put into a fresh routine"
+     },
+     {
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its outermost letters, first and last"
+     }
+    ],
+    "linkWords": [
+     "in which",
+     "receiving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "she",
+      "gives": "SHE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Greta Garbo",
+      "gives": "GRETAGARBO",
+      "note": "the actress's name taken as written"
+     },
+     {
+      "clueFragment": "praise",
+      "gives": "PE",
+      "select": "outer",
+      "note": "the first and last letters of praise"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHEGRETAGARBOPE",
+       "gives": "THEBEGGARSOPERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stage work in which the screen star Greta Garbo acted to critical acclaim.",
+     "walkthrough": "The bracket makes Garbo look like a note on who she is; in fact her name and 'she' are all fodder, plus the two outer letters of praise.",
+     "definitionFit": "John Gay's 1728 ballad opera is a satirical musical play, so a musical drama."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "performed"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +634,63 @@
      }
     ]
    },
-   "solution": "GIVEANDTAKE"
+   "solution": "GIVEANDTAKE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "GIVE AND TAKE",
+    "definitions": [
+     {
+      "text": "Fair exchange of repartee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means in some unspecified way, inviting the letters to be arranged differently"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evading",
+      "gives": "EVADING",
+      "note": "taken as written, its letters to be rearranged"
+     },
+     {
+      "clueFragment": "capture",
+      "gives": "TAKE",
+      "note": "to capture is to take"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIVEAND",
+      "TAKE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EVADING",
+       "gives": "GIVEAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Witty banter traded after someone has narrowly slipped arrest.",
+     "definitionFit": "Give and take is mutual concession or a lively back-and-forth exchange of remarks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capture"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +710,51 @@
      }
     ]
    },
-   "solution": "RINGSPANNER"
+   "solution": "RINGSPANNER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RING SPANNER",
+    "definitions": [
+     {
+      "text": "box wrench?",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Phones",
+      "gives": "RINGS",
+      "note": "to phone someone is to ring them"
+     },
+     {
+      "clueFragment": "harsh critic",
+      "gives": "PANNER",
+      "note": "a critic who pans a show reviews it savagely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RINGS",
+      "PANNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tough reviewer calls up to ask for a particular tool.",
+     "walkthrough": "The question mark marks the definition as an example: box wrench is the American name for this tool.",
+     "definitionFit": "A ring spanner has a closed loop end gripping the nut, which Americans call a box wrench."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Phones"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +768,52 @@
     "text": "Additional passage from book court ignored",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "Additional",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "what is ignored is left out, so these letters are dropped from the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passage from book",
+      "gives": "EXTRACT",
+      "note": "a quoted passage from a book is an extract"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXTRA"
+     ]
+    },
+    "explanation": {
+     "surface": "A further excerpt from a legal volume that the judges disregarded.",
+     "definitionFit": "Extra and additional are synonyms: more than the usual amount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 12,
@@ -243,7 +837,64 @@
      }
     ]
    },
-   "solution": "VINGTETUN"
+   "solution": "VINGTETUN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VINGT-ET-UN",
+    "definitions": [
+     {
+      "text": "pontoon",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "something lost has gone astray, so its letters wander out of order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     },
+     {
+      "clueFragment": "in tug",
+      "gives": "INTUG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "TEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VINTUGTEN",
+       "gives": "VINGTETUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Five people pulling on a tug-of-war rope, with ten more lost on a floating platform.",
+     "walkthrough": "The first 'in' looks like a container signal but is fodder. Pontoon is the British name for the card game also called twenty-one or blackjack.",
+     "definitionFit": "Vingt-et-un is French for twenty-one and is the card game better known in Britain as pontoon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pontoon"
+    }
+   }
   },
   {
    "number": 13,
@@ -263,7 +914,51 @@
      }
     ]
    },
-   "solution": "BELPAESE"
+   "solution": "BELPAESE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BEL PAESE",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spread",
+      "for": "anagram",
+      "note": "spread means scattered about, so the letters are dispersed and regathered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A Peebles",
+      "gives": "APEEBLES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APEEBLES",
+       "gives": "BELPAESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheese spread made in Peebles, a Scottish town.",
+     "walkthrough": "'Spread' looks like part of the food picture, a cheese spread, but it is the shuffle signal.",
+     "definitionFit": "Bel Paese is a mild, soft Italian cheese."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 13,
@@ -283,7 +978,48 @@
      }
     ]
    },
-   "solution": "BONECHINA"
+   "solution": "BONECHINA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BONE CHINA",
+    "definitions": [
+     {
+      "text": "porcelain",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steal",
+      "gives": "BONE",
+      "note": "bone is old slang for steal"
+     },
+     {
+      "clueFragment": "mate's",
+      "gives": "CHINA",
+      "note": "china, from rhyming slang china plate, means mate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BONE",
+      "CHINA"
+     ]
+    },
+    "explanation": {
+     "surface": "Pinching a friend's fine crockery.",
+     "walkthrough": "Cockney rhyming slang: china plate rhymes with mate, so a china is a pal.",
+     "definitionFit": "Bone china is a type of fine porcelain made with bone ash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mate's"
+    }
+   }
   },
   {
    "number": 14,
@@ -297,7 +1033,52 @@
     "text": "Fish, black when small",
     "enumeration": "4"
    },
-   "solution": "BASS"
+   "solution": "BASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BASS",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as and when are synonyms in 'as I left'"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish that looks black while it is still young.",
+     "definitionFit": "The bass is a spiny-finned sea or freshwater fish caught for food and sport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "when"
+    }
+   }
   },
   {
    "number": 15,
@@ -311,7 +1092,48 @@
     "text": "Son caught and punished",
     "enumeration": "8"
    },
-   "solution": "STRAPPED"
+   "solution": "STRAPPED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRAPPED",
+    "definitions": [
+     {
+      "text": "punished",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "TRAPPED",
+      "note": "caught and trapped are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRAPPED"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy was caught and then disciplined.",
+     "definitionFit": "To be strapped was to be beaten with a leather strap as a punishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -331,7 +1153,70 @@
      }
     ]
    },
-   "solution": "SCOUTCAR"
+   "solution": "SCOUTCAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SCOUT CAR",
+    "definitions": [
+     {
+      "text": "reconnaissance vehicle",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means read from bottom to top, so the word runs backwards"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the span of, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "search",
+      "gives": "SCOUR",
+      "note": "to scour is to search thoroughly"
+     },
+     {
+      "clueFragment": "Act",
+      "gives": "ACT",
+      "note": "taken as written, then turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOU",
+      "TCA",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "ACT",
+       "to": "TCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone misbehaving while out searching in an army scouting vehicle.",
+     "walkthrough": "'Act up' reads as a phrase meaning misbehave, but 'up' acts alone on 'Act'.",
+     "definitionFit": "A scout car is a fast, lightly armoured military vehicle used for reconnaissance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 17,
@@ -345,7 +1230,61 @@
     "text": "Fish, a freak, thrown back",
     "enumeration": "4"
    },
-   "solution": "TUNA"
+   "solution": "TUNA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TUNA",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown back",
+      "for": "reversal",
+      "note": "thrown back means sent in the opposite direction, so the letters are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "freak",
+      "gives": "NUT",
+      "note": "a nut is a crazy person or a fanatic, a freak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUN",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ANUT",
+       "to": "TUNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An oddity of a fish returned to the water by the angler.",
+     "walkthrough": "'Thrown back' fits the angling picture of releasing a catch, but it turns the letters round.",
+     "definitionFit": "Tuna is a large ocean fish, widely eaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "freak"
+    }
+   }
   },
   {
    "number": 18,
@@ -359,7 +1298,43 @@
     "text": "Forward subbed",
     "enumeration": "8"
    },
-   "solution": "ADVANCED"
+   "solution": "ADVANCED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ADVANCED",
+    "definitions": [
+     {
+      "text": "Forward",
+      "at": 0
+     },
+     {
+      "text": "subbed",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Forward",
+      "note": "first meaning: ahead of others in progress"
+     },
+     {
+      "clueFragment": "subbed",
+      "note": "second meaning: lent money ahead of payday"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Subbed' looks like a sports substitution next to a forward, but it is British slang for lending someone money before they are paid.",
+     "definitionFit": "Advanced means progressive or ahead, and to advance cash is to sub someone a loan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "subbed"
+    }
+   }
   },
   {
    "number": 19,
@@ -373,7 +1348,55 @@
     "text": "Understood by few, British composer seen round about",
     "enumeration": "6"
    },
-   "solution": "ARCANE"
+   "solution": "ARCANE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARCANE",
+    "definitions": [
+     {
+      "text": "Understood by few",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen round",
+      "for": "container",
+      "note": "seen round means wrapped around the outside, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British composer",
+      "gives": "ARNE",
+      "note": "Thomas Arne wrote Rule, Britannia!"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "CA, circa, means about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "CA",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "An obscure British composer spotted wandering nearby.",
+     "walkthrough": "Thomas Arne was an 18th-century English composer, a crossword regular.",
+     "definitionFit": "Arcane means secret or obscure, grasped by only a select few."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 20,
@@ -393,7 +1416,51 @@
      }
     ]
    },
-   "solution": "URGEON"
+   "solution": "URGEON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "URGE ON",
+    "definitions": [
+     {
+      "text": "Encourage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "without its top, a down entry loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "to appear"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "operator",
+      "gives": "SURGEON",
+      "note": "a surgeon is one who operates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URGEON"
+     ]
+    },
+    "explanation": {
+     "surface": "Urging a theatre surgeon to show up shirtless.",
+     "definitionFit": "To urge on is to spur someone forward, the same as encouraging them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "operator"
+    }
+   }
   },
   {
    "number": 21,
@@ -407,7 +1474,46 @@
     "text": "Discover arsenic? Sure",
     "enumeration": "9"
    },
-   "solution": "ASCERTAIN"
+   "solution": "ASCERTAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASCERTAIN",
+    "definitions": [
+     {
+      "text": "Discover",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arsenic",
+      "gives": "AS",
+      "note": "As is the chemical symbol for arsenic"
+     },
+     {
+      "clueFragment": "Sure",
+      "gives": "CERTAIN",
+      "note": "sure and certain are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "CERTAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective checking whether a poison was arsenic, and being sure.",
+     "definitionFit": "To ascertain is to find out for certain, to discover a fact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arsenic"
+    }
+   }
   },
   {
    "number": 22,
@@ -421,7 +1527,56 @@
     "text": "No power in golf club, say",
     "enumeration": "5"
    },
-   "solution": "UTTER"
+   "solution": "UTTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UTTER",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "no means without, so the named letter is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the abbreviation for power"
+     },
+     {
+      "clueFragment": "golf club",
+      "gives": "PUTTER",
+      "note": "a putter is the golf club used on the green"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A golf club with no force behind it, as one might put it.",
+     "walkthrough": "'Say' looks like 'for example' after the golf club, but it is the definition.",
+     "definitionFit": "To utter is to speak or say something aloud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 23,
@@ -435,7 +1590,46 @@
     "text": "Fine German object",
     "enumeration": "5"
    },
-   "solution": "THING"
+   "solution": "THING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THING",
+    "definitions": [
+     {
+      "text": "object",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "THIN",
+      "note": "fine thread is thin"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A splendid German artefact.",
+     "definitionFit": "A thing is any object or article."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 24,
@@ -455,7 +1649,47 @@
      }
     ]
    },
-   "solution": "PRIVATEPRACTICE"
+   "solution": "PRIVATEPRACTICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRIVATE PRACTICE",
+    "definitions": [
+     {
+      "text": "not the NHS's concern",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier's",
+      "gives": "PRIVATE",
+      "note": "a private is a soldier of the lowest rank"
+     },
+     {
+      "clueFragment": "operation",
+      "gives": "PRACTICE",
+      "note": "a practice is a professional business, as a doctor's operation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIVATE",
+      "PRACTICE"
+     ]
+    },
+    "explanation": {
+     "surface": "An army private's surgery that the public health service did not handle.",
+     "walkthrough": "The NHS is Britain's state-funded National Health Service; 'operation' suggests surgery but means a business here.",
+     "definitionFit": "Private practice is medicine paid for by patients rather than by the state health system."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "operation"
+    }
+   }
   },
   {
    "number": 25,
@@ -469,7 +1703,39 @@
     "text": "The person to give one a hand",
     "enumeration": "6"
    },
-   "solution": "DEALER"
+   "solution": "DEALER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DEALER",
+    "definitions": [
+     {
+      "text": "The person to give one a hand",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The person to give one a hand",
+      "note": "surface reading: a helper who lends assistance"
+     },
+     {
+      "clueFragment": "give one a hand",
+      "note": "setter's reading: the one who hands out playing cards at the table"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A 'hand' is the set of cards a player holds, so the helper is really the one distributing them.",
+     "definitionFit": "In card games the dealer distributes each player's hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 26,
@@ -483,7 +1749,57 @@
     "text": "Mineral's exhausted, for the most part, in the Beaver State",
     "enumeration": "6"
    },
-   "solution": "OREGON"
+   "solution": "OREGON",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OREGON",
+    "definitions": [
+     {
+      "text": "the Beaver State",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the most part",
+      "for": "deletion",
+      "note": "for the most part means mostly, not wholly, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mineral's",
+      "gives": "ORE",
+      "note": "ore is mineral-bearing rock; the 's is 'is'"
+     },
+     {
+      "clueFragment": "exhausted",
+      "gives": "GONE",
+      "note": "exhausted supplies are gone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORE",
+      "GON"
+     ]
+    },
+    "explanation": {
+     "surface": "Mining has largely run dry in a north-western American state.",
+     "definitionFit": "Oregon's official nickname is the Beaver State, after the animal's role in its fur-trading history."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exhausted"
+    }
+   }
   }
  ]
 }
