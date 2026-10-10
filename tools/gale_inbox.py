@@ -40,6 +40,7 @@ import argparse
 import bisect
 import collections
 import contextlib
+import copy
 import datetime
 import hashlib
 import html
@@ -60,6 +61,7 @@ TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import archive_coverage
 import code_reach
+import dir_cache
 import file_archive_org_puzzles as fa
 import gale_arrived
 import gale_docs
@@ -107,6 +109,8 @@ MATCHER = code_reach.key("gale_inbox", {"match"})[:12]
 MATCH_SECONDS = 60
 #: The Downloads files already looked at and found not to be Gale's.
 SEEN = MIRROR.parent / "seen.json"
+#: The edition dirs' listings and staged matches between ticks (dir_cache.save).
+DIR_CACHE = MIRROR.parent / "dir_cache.pickle"
 LOCK = MIRROR.parent / "sync.lock"
 #: A tick re-renders the checklist when the inbox moved, else this often,
 #: so a puzzle the full pass filed leaves it.
@@ -958,11 +962,34 @@ def start_reads(out=sys.stdout, job=READ_JOB, log=READ_LOG):
     return p
 
 
+def _staged_in(d):
+    """The parsed sources-*.json of edition dir `d`: kept in dir_cache's memo
+    (and so between ticks, dir_cache.save) until the dir moves, not read off
+    the media mount again."""
+    _, names, memo = dir_cache.seen(d)
+    if "sources" not in memo:
+        found = [json.loads((d / n).read_text()) for n in names if n.startswith("sources-") and n.endswith(".json")]
+        memo["sources"] = found[-1] if found else None
+    return copy.deepcopy(memo["sources"])
+
+
 def staged_matches(cache=CACHE):
     """{date: [match]} of the inbox pages staged as editions (stage's
-    sources-*.json)."""
-    return {datetime.date.fromisoformat(src.parent.name): json.loads(src.read_text())
-            for src in cache.glob(ITEM.format("*") + "/*/sources-*.json")}
+    sources-*.json). Each edition dir is stat-ed, not listed and read, while
+    it is unmoved (dir_cache)."""
+    out = {}
+    years = re.compile(ITEM.format(r"\d+"))
+    for item in dir_cache.listed(cache):
+        if not years.fullmatch(item):
+            continue
+        for day in dir_cache.listed(cache / item):
+            try:
+                found = _staged_in(cache / item / day)
+            except (FileNotFoundError, NotADirectoryError):
+                continue
+            if found is not None:
+                out[datetime.date.fromisoformat(day)] = found
+    return out
 
 
 def staged_files(cache=CACHE):
@@ -1529,10 +1556,12 @@ def sync(out=sys.stdout, force=False):
             print("another sync holds the lock; this one skips", file=out)
             return
         _TICK_HELD[:] = [fa.held_dates(fa.TIMES.series)]
+        dir_cache.load(DIR_CACHE)
         try:
             _sync_locked(out, force, gale_listener)
         finally:
             _TICK_HELD.clear()
+            dir_cache.save(DIR_CACHE)
     start_reads(out)
     install_watcher(out)
 

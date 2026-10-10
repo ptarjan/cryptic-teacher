@@ -28,7 +28,7 @@ _READ = {}
 
 #: The memo entries save() keeps: facts of the files (each name's size, a
 #: meta.json's title), not values derived by code that may change.
-FACTS = ("sizes", "title", "with_pages")
+FACTS = ("sizes", "title", "with_pages", "sources")
 
 #: {(file, derive): ((mtime_ns, size), derive(its parsed JSON))} (derived).
 _DERIVED = {}

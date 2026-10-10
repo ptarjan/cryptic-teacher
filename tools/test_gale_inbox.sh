@@ -31,6 +31,7 @@ def _no_mac(command, **kw):
 g.ssh = _no_mac
 # Nor read the live mirror and its matches (~/.cache).
 g.MIRROR, g.MATCHES = Path(sys.argv[1]) / "mirror", Path(sys.argv[1]) / "matches.json"
+g.DIR_CACHE = Path(sys.argv[1]) / "dir_cache.pickle"
 
 fails = 0
 def check(what, want, got):
@@ -604,6 +605,41 @@ check("both pages' status files are published before any Gale lookup",
       [(g.CHECKLIST.name, 0.0), (gl2.CHECKLIST.name, 0.0)], published[:2])
 check("an open page calls the status dead only after a sync's longest gap between publishes",
       True, g.STALE_SECONDS > 2 * g.GALE_SECONDS)
+# staged_matches reads an unmoved edition dir once, across ticks, and again
+# once it moves. Temp cache and cache file only.
+import os, time, datetime, dir_cache
+sc = Path(sys.argv[1]) / "staged_cache"
+def lay(day, data):
+    d = sc / g.ITEM.format(day.year) / day.isoformat()
+    d.mkdir(parents=True, exist_ok=True)
+    tmp = d / "x.tmp"
+    tmp.write_text(json.dumps(data))
+    os.replace(tmp, d / "sources-1.json")
+    old = time.time() - 3600
+    os.utime(d, (old, old))
+d1, d2 = datetime.date(1960, 1, 4), datetime.date(1961, 2, 6)
+lay(d1, [{"file": "a.pdf"}]); lay(d2, [{"file": "b.pdf"}])
+(sc / "GaleTimes1960UKEnglish" / "1960-01-05").mkdir()
+(sc / "other").mkdir()
+dir_cache._SEEN.clear()
+want = {d1: [{"file": "a.pdf"}], d2: [{"file": "b.pdf"}]}
+check("staged_matches reads each edition's sources, skipping dirs without", want, g.staged_matches(sc))
+dir_cache.save(g.DIR_CACHE)
+dir_cache._SEEN.clear()
+dir_cache.load(g.DIR_CACHE)
+real_read = Path.read_text
+def no_read(self, *a, **k):
+    raise AssertionError(f"re-read an unmoved edition: {self}")
+Path.read_text = no_read
+try:
+    got = g.staged_matches(sc)
+finally:
+    Path.read_text = real_read
+check("a later tick loads the unmoved editions from the cache file, reading none", want, got)
+got[d1].append("mutated")
+check("a caller changing a result does not change the next", want, g.staged_matches(sc))
+lay(d1, [{"file": "c.pdf"}])
+check("an edition whose dir moved is read again", {d1: [{"file": "c.pdf"}], d2: [{"file": "b.pdf"}]}, g.staged_matches(sc))
 print("FAILS", fails)
 sys.exit(1 if fails else 0)
 PY
