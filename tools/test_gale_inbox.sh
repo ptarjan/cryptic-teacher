@@ -180,7 +180,7 @@ g.usual_pages = lambda: {1988: (16, 24, 18)}
 rows = [(D(1987, 3, 2), "no-scan"), (D(1988, 1, 12), "no-scan"), (D(1988, 1, 13), "no-scan"),
         (D(1988, 1, 14), "no-scan")]
 LOG = Path(sys.argv[1]) / "set_aside.json"
-html = g.checklist(rows, cache, un, docs={"TTDA/1988-01-13": {"doc": "IF0502610073", "title": "Crossword", "page": 18, "records": ["IF0502610073"]}}, log=LOG)
+html = g.checklist(rows, cache, un, docs={"TTDA/1988-01-13": {"doc": "IF0502610073", "title": "Crossword", "page": 18, "records": ["IF0502610073"]}}, ledger={}, log=LOG)
 check("the worst year first", True, html.index("<b>1988</b>: 3 missing") < html.index("<b>1987</b>: 1 missing"))
 check("progress counts the files downloaded (2 for one date and 1 naming none) against those and the editions to go",
       True, '<b id="count">3 of 6</b> files downloaded, <span id="togo">3</span> to go' in html)
@@ -290,7 +290,7 @@ aside = g.aside_days(LOG)
 check("Gale has no cryptic: no issue, or no crossword listed and the page found another puzzle; else still to fetch",
       (True, True, None), (bool(g.not_on_gale(D(1988, 1, 14), docs, aside)), bool(g.not_on_gale(D(1987, 3, 2), docs, aside)),
                            g.not_on_gale(D(1988, 1, 13), docs, aside)))
-html3 = g.checklist(rows, cache, un, docs=docs, log=LOG)
+html3 = g.checklist(rows, cache, un, docs=docs, ledger={}, log=LOG)
 nxt3 = html3[html3.index("<h2>Next up"):html3.index("<h2>Everything")]
 check("such a date leaves next up, its year row saying why", (False, True),
       ("Thu 14 Jan 1988" in nxt3, "contents list no cryptic that day" in html3))

@@ -8,4 +8,7 @@
 CT_GENERATED=none
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
+# A file's page work (match) runs on the desktop (tools/ocr_remote.py) while
+# it is idle; OCR_REMOTE= keeps it here.
+export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 exec python3 tools/gale_inbox.py "$@"

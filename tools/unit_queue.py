@@ -40,7 +40,6 @@ row says "more", and it is due again at the next tick, whatever its `every`.
 """
 import argparse
 import dataclasses
-import fcntl
 import hashlib
 import importlib
 import json
@@ -129,6 +128,7 @@ def lock_path(queue, key):
 
 def try_lock(path):
     """An open file holding `path`'s lock, or None when another holds it."""
+    import fcntl
     f = open(path, "a")  # noqa: SIM115 -- returned open: the lock is held while it is
     try:
         fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)

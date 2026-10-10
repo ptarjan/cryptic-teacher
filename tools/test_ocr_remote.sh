@@ -2,7 +2,8 @@
 # Does tools/ocr_remote.py compare every reader model a read can load, send
 # back an edition whose read on the desktop opened a file it was not sent,
 # give the same grids from a search run there (its answer through JSON) as
-# here, the same headings and cached readings from a scan run there, wait on a search for as long as the desktop says it is still
+# here, the same headings and cached readings from a scan run there, the same
+# match and pages of a saved Gale page, wait on a search for as long as the desktop says it is still
 # searching, let no more than LOCAL_SLOTS reads run here at once, and does
 # every module the desktop imports import without fcntl (Windows)?
 #
@@ -53,7 +54,7 @@ import reconstruct_grid
 spec = [(1, "across", 3), (4, "across", 3), (5, "across", 3), (1, "down", 3), (2, "down", 3), (3, "down", 3)]
 kw = {"cols": 3, "rows": 3, "limit": 5}
 def over_json(name, *args, data=b"", **kwargs):  # call() as the desktop answers it
-    result, back = ocr_remote.CALLS[name](data, *json.loads(json.dumps(args)), **kwargs)
+    result, back = ocr_remote.run_call(name, data, json.loads(json.dumps(args)), kwargs)
     return json.loads(json.dumps(result)), back
 ocr_remote.call = over_json
 check("a search run there gives the grids a search here does",
@@ -126,6 +127,21 @@ trove_clue_ocr.read_here = lambda images: "\n".join(
     f"{im.size} {im.getpixel((0, 0))}" for im in map(Image.open, images))
 check("a Trove article's zones read there are its zone files here",
       trove_clue_ocr.read_here(zones), trove_clue_ocr.read_text(zones))
+
+# A saved Gale page is matched there from its bytes (match_anywhere): the
+# same match and the same pixels as match() here.
+import datetime
+import gale_inbox
+saved = tmp / "Times 1976-07-02 crossword.png"
+leaf.save(saved)
+fa.CROPS = tmp / "crops-gale"
+by_number = {14100: datetime.date(1976, 7, 1)}
+here, there = gale_inbox.match(saved, by_number), gale_inbox.match_anywhere(saved, by_number)
+fa.CROPS = tmp / "crops-gale"
+check("a Gale page matched there is its match here",
+      {k: v for k, v in here.items() if k != "pages"}, {k: v for k, v in there.items() if k != "pages"})
+check("and its pages are the same pixels", [(p.size, p.tobytes()) for p in here["pages"]],
+      [(p.size, p.tobytes()) for p in there["pages"]])
 
 # Off the desktop an OCR process runs OCR_THREADS threads, or one: cv2's
 # pool ignores OMP_NUM_THREADS, so it is capped beside onnxruntime's, and
@@ -235,14 +251,16 @@ rc=$?
 echo "$out"
 
 # The desktop is Windows: every module its serve path can import (each
-# import statement, in a function or not, followed from ocr_remote) must
+# import statement, in a function or not, followed from ocr_remote and the
+# modules its CALLS name) must
 # import without the POSIX-only modules, or each read there fails and runs
 # here instead.
 out=$(cd "$REPO/tools" && python3 - <<'PY'
 import ast, importlib.abc, sys
 from pathlib import Path
 POSIX_ONLY = {"fcntl", "termios", "pwd", "grp", "resource"}
-reach, todo = set(), ["ocr_remote"]
+import ocr_remote
+reach, todo = set(), ["ocr_remote"] + [f.split(".")[0] for f in ocr_remote.CALLS.values() if isinstance(f, str)]
 while todo:
     m = todo.pop()
     if m in reach or not Path(f"{m}.py").exists():
