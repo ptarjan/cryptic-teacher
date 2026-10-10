@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Volcanic rock turned up by little creatures",
     "enumeration": "6"
    },
-   "solution": "PUMICE"
+   "solution": "PUMICE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PUMICE",
+    "definitions": [
+     {
+      "text": "Volcanic rock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down-reading sense, something turned up is flipped over, so the word up is read backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written, then reversed"
+     },
+     {
+      "clueFragment": "little creatures",
+      "gives": "MICE",
+      "note": "mice are small animals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "MICE"
+     ],
+     "reversals": [
+      {
+       "from": "UP",
+       "to": "PU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geologist's find of lava stone dug up by scurrying rodents.",
+     "walkthrough": "'Turned up' looks like 'discovered', but it tells you to flip the word 'up' itself, which then sits in front of the little creatures.",
+     "definitionFit": "Pumice is a light, porous stone formed from frothy lava, so it is a kind of volcanic rock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +107,45 @@
     "text": "One requiring treatment and prepared to wait",
     "enumeration": "7"
    },
-   "solution": "PATIENT"
+   "solution": "PATIENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PATIENT",
+    "definitions": [
+     {
+      "text": "One requiring treatment",
+      "at": 0
+     },
+     {
+      "text": "prepared to wait",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One requiring treatment",
+      "note": "first meaning: a person under a doctor's care"
+     },
+     {
+      "clueFragment": "prepared to wait",
+      "note": "second meaning: tolerant of delay"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone in a hospital waiting room, needing care and ready to sit it out.",
+     "definitionFit": "A patient is a person receiving medical care, and being patient means calmly accepting a delay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,47 @@
     "text": "Was blue bike seen here?",
     "enumeration": "5"
    },
-   "solution": "MOPED"
+   "solution": "MOPED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MOPED",
+    "definitions": [
+     {
+      "text": "Was blue",
+      "at": 0
+     },
+     {
+      "text": "bike",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "seen here"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was blue",
+      "note": "first meaning: sulked or felt low"
+     },
+     {
+      "clueFragment": "bike",
+      "note": "second meaning: a small motorised two-wheeler"
+     }
+    ],
+    "explanation": {
+     "surface": "Was a blue bicycle spotted in this spot?",
+     "walkthrough": "'Blue' looks like the bike's colour, but it means sad.",
+     "definitionFit": "To mope is to be listless and gloomy, so moped is past tense; a moped is also a light motorcycle with pedals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +213,56 @@
     "text": "Old TV series about Les? Miserable!",
     "enumeration": "9"
    },
-   "solution": "CHEERLESS"
+   "solution": "CHEERLESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHEERLESS",
+    "definitions": [
+     {
+      "text": "Miserable",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old TV series",
+      "gives": "CHEERS",
+      "note": "the American sitcom set in a Boston bar"
+     },
+     {
+      "clueFragment": "Les",
+      "gives": "LES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEER",
+      "LES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A nod to Les Misérables, with the musical's miserable hero in a sitcom.",
+     "walkthrough": "'Les? Miserable!' plays on Les Misérables; the punctuation splits name from definition.",
+     "definitionFit": "Cheerless means gloomy and joyless, the same as miserable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Les"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +276,39 @@
     "text": "As discs they are unsurpassed",
     "enumeration": "7"
    },
-   "solution": "RECORDS"
+   "solution": "RECORDS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RECORDS",
+    "definitions": [
+     {
+      "text": "As discs they are unsurpassed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As discs",
+      "note": "surface reading: vinyl platters that play music"
+     },
+     {
+      "clueFragment": "they are unsurpassed",
+      "note": "setter's reading: best-ever performances that nobody has beaten"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The one word means both gramophone discs and best-ever performances, so the clue describes both senses at once.",
+     "definitionFit": "A vinyl album is a record, and an achievement nobody has bettered is also a record, so both senses fit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "unsurpassed"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +322,46 @@
     "text": "Payment to author from people in palaces?",
     "enumeration": "7"
    },
-   "solution": "ROYALTY"
+   "solution": "ROYALTY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROYALTY",
+    "definitions": [
+     {
+      "text": "Payment to author",
+      "at": 0
+     },
+     {
+      "text": "people in palaces?",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Payment to author",
+      "note": "first meaning: a share of sales paid to a writer"
+     },
+     {
+      "clueFragment": "people in palaces?",
+      "note": "second meaning: kings, queens and their family"
+     }
+    ],
+    "explanation": {
+     "surface": "A writer's earnings coming from the royal household.",
+     "definitionFit": "A royalty is a fee paid to a creator per copy sold, and royalty also means the monarch's family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "author"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +375,60 @@
     "text": "Popular holiday destination caught four out",
     "enumeration": "5"
    },
-   "solution": "CORFU"
+   "solution": "CORFU",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CORFU",
+    "definitions": [
+     {
+      "text": "Popular holiday destination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests something put out of order, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "four",
+      "gives": "ORFU",
+      "note": "the letters of four rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ORFU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FOUR",
+       "gives": "ORFU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket report: four batsmen out, caught, at a resort.",
+     "definitionFit": "Corfu is a Greek island in the Ionian Sea, much visited by tourists on holiday."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +442,43 @@
     "text": "Those who keep servants",
     "enumeration": "9"
    },
-   "solution": "RETAINERS"
+   "solution": "RETAINERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RETAINERS",
+    "definitions": [
+     {
+      "text": "Those who keep",
+      "at": 0
+     },
+     {
+      "text": "servants",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Those who keep",
+      "note": "first meaning: people who retain or keep possession of things"
+     },
+     {
+      "clueFragment": "servants",
+      "note": "second meaning: long-standing household attendants"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as employers who keep staff; split it after 'keep' to find two meanings.",
+     "definitionFit": "A retainer is literally one who retains, and is also a traditional term for a faithful household servant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +492,42 @@
     "text": "Clean cake",
     "enumeration": "6"
    },
-   "solution": "SPONGE"
+   "solution": "SPONGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPONGE",
+    "definitions": [
+     {
+      "text": "Clean",
+      "at": 0
+     },
+     {
+      "text": "cake",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clean",
+      "note": "first meaning: to wipe with a soft absorbent pad"
+     },
+     {
+      "clueFragment": "cake",
+      "note": "second meaning: a light, airy bake"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To sponge is to wash with a soft pad, and a sponge is also a light fluffy cake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Clean"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +541,47 @@
     "text": "Such a flight would be the first for Virgin",
     "enumeration": "6"
    },
-   "solution": "MAIDEN"
+   "solution": "MAIDEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAIDEN",
+    "definitions": [
+     {
+      "text": "Such a flight would be the first",
+      "at": 0
+     },
+     {
+      "text": "Virgin",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Such a flight would be the first",
+      "note": "first meaning: the inaugural trip of an aircraft"
+     },
+     {
+      "clueFragment": "Virgin",
+      "note": "second meaning: an unmarried young woman, untouched"
+     }
+    ],
+    "explanation": {
+     "surface": "A new airline route launching for Virgin Atlantic.",
+     "walkthrough": "'Virgin' looks like the airline, but it is a plain synonym.",
+     "definitionFit": "A maiden flight is an aircraft's first, and a maiden is a girl or virgin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Virgin"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +595,64 @@
     "text": "End woeful prayer in Irish county",
     "enumeration": "9"
    },
-   "solution": "TIPPERARY"
+   "solution": "TIPPERARY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TIPPERARY",
+    "definitions": [
+     {
+      "text": "Irish county",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "woeful",
+      "for": "anagram",
+      "note": "something woeful is in a sorry state, a sign that the letters that follow are a mess to be rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "End",
+      "gives": "TIP",
+      "note": "the tip of something is its end"
+     },
+     {
+      "clueFragment": "prayer",
+      "gives": "PERARY",
+      "note": "the letters of prayer rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIP",
+      "PERARY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRAYER",
+       "gives": "PERARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad prayer said at the end of someone's life in rural Ireland.",
+     "walkthrough": "'End' looks like a verb, but it is a noun meaning tip.",
+     "definitionFit": "Tipperary is one of the counties of the Republic of Ireland, in the province of Munster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +666,52 @@
     "text": "Nine-to-five, say, when allowance is curtailed",
     "enumeration": "5"
    },
-   "solution": "RATIO"
+   "solution": "RATIO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RATIO",
+    "definitions": [
+     {
+      "text": "Nine-to-five, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "to curtail is to cut short, here meaning the tail letter is chopped off"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "allowance",
+      "gives": "RATION",
+      "note": "a ration is a fixed allowance of food or supplies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATIO"
+     ]
+    },
+    "explanation": {
+     "surface": "An office worker's nine-to-five day when the pay allowance is being cut.",
+     "walkthrough": "'Nine-to-five' suggests working hours, but read as 9:5 it is a proportion between two numbers.",
+     "definitionFit": "Nine to five, written 9:5, is an example of a ratio, a comparison between two quantities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nine-to-five"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +725,46 @@
     "text": "Source of berries for community leader",
     "enumeration": "5"
    },
-   "solution": "ELDER"
+   "solution": "ELDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ELDER",
+    "definitions": [
+     {
+      "text": "Source of berries",
+      "at": 0
+     },
+     {
+      "text": "community leader",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Source of berries",
+      "note": "first meaning: a shrub whose dark berries make wine and cordial"
+     },
+     {
+      "clueFragment": "community leader",
+      "note": "second meaning: a senior, respected figure in a church or tribe"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone collects berries to hand to the village head.",
+     "definitionFit": "The elder tree bears elderberries, and an elder is also a senior person with authority in a community."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Source"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +778,50 @@
     "text": "Old genius transformed pest control treatment",
     "enumeration": "9"
    },
-   "solution": "DELOUSING"
+   "solution": "DELOUSING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DELOUSING",
+    "definitions": [
+     {
+      "text": "pest control treatment",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transformed",
+      "for": "anagram",
+      "note": "something transformed has changed its shape, so these letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old genius",
+      "gives": "OLDGENIUS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLDGENIUS",
+       "gives": "DELOUSING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aging mastermind has reinvented the way we deal with vermin.",
+     "definitionFit": "Delousing removes lice from a person or animal, which is a treatment to control a pest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "genius"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +841,63 @@
      }
     ]
    },
-   "solution": "TRADEIN"
+   "solution": "TRADEIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRADE-IN",
+    "definitions": [
+     {
+      "text": "part-exchange",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the wrong way, so the word for dash is read from its end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dash",
+      "gives": "DART",
+      "note": "to dart is to dash quickly"
+     },
+     {
+      "clueFragment": "German article",
+      "gives": "EIN",
+      "note": "ein is the German for 'a'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAD",
+      "EIN"
+     ],
+     "reversals": [
+      {
+       "from": "DART",
+       "to": "TRAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushes back with a German item to swap at a dealer.",
+     "definitionFit": "A trade-in is an old item handed over as part payment for a new one, which is what part-exchange means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +911,55 @@
     "text": "The inn, as a resort for Greeks",
     "enumeration": "9"
    },
-   "solution": "ATHENIANS"
+   "solution": "ATHENIANS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ATHENIANS",
+    "definitions": [
+     {
+      "text": "Greeks",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resort",
+      "for": "anagram",
+      "note": "read as re-sort, it asks for the letters to be sorted again into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The inn, as a",
+      "gives": "THEINNASA",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEINNASA",
+       "gives": "ATHENIANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tavern that serves as a holiday haunt for Greek visitors.",
+     "walkthrough": "'Resort' looks like a holiday place, but split it as re-sort.",
+     "definitionFit": "Athenians are citizens of Athens, the Greek capital, so they are Greeks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +979,61 @@
      }
     ]
    },
-   "solution": "YESMEN"
+   "solution": "YESMEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "YES-MEN",
+    "definitions": [
+     {
+      "text": "Obsequious subordinates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its ending, so only its last letter is wanted"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside another word, enclosed by its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arab country",
+      "gives": "YEMEN",
+      "note": "the country at the southern tip of the Arabian peninsula"
+     },
+     {
+      "clueFragment": "tears",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of tears"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YE",
+      "S",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Fawning underlings nearly weeping somewhere in the Middle East.",
+     "definitionFit": "Yes-men are people who always agree with their boss, i.e. sycophantic underlings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1047,54 @@
     "text": "Stand near helter-skelter in Spanish city",
     "enumeration": "9"
    },
-   "solution": "SANTANDER"
+   "solution": "SANTANDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SANTANDER",
+    "definitions": [
+     {
+      "text": "Spanish city",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "helter-skelter",
+      "for": "anagram",
+      "note": "helter-skelter means in wild disorder, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stand near",
+      "gives": "STANDNEAR",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STANDNEAR",
+       "gives": "SANTANDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Waiting beside a fairground slide in Spain.",
+     "walkthrough": "A helter-skelter is also a spiral fairground slide, which is the surface picture.",
+     "definitionFit": "Santander is a port city on Spain's northern coast, capital of Cantabria."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "helter-skelter"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1108,51 @@
     "text": "Good landlords providing spirits",
     "enumeration": "6"
    },
-   "solution": "GHOSTS"
+   "solution": "GHOSTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GHOSTS",
+    "definitions": [
+     {
+      "text": "spirits",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "landlords",
+      "gives": "HOSTS",
+      "note": "a pub landlord is the host"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "HOSTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Kindly pub landlords serving drinks behind the bar.",
+     "walkthrough": "Landlords and spirits paint a pub with whisky on the shelves, but the spirits are phantoms.",
+     "definitionFit": "Ghosts are the spirits of the dead, a second sense of spirits beside strong drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spirits"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1166,44 @@
     "text": "Weather forecast no longer an issue?",
     "enumeration": "7"
    },
-   "solution": "SETTLED"
+   "solution": "SETTLED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SETTLED",
+    "definitions": [
+     {
+      "text": "Weather forecast",
+      "at": 0
+     },
+     {
+      "text": "no longer an issue?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weather forecast",
+      "note": "first meaning: a forecaster's word for calm, unchanging weather"
+     },
+     {
+      "clueFragment": "no longer an issue?",
+      "note": "second meaning: resolved, decided"
+     }
+    ],
+    "explanation": {
+     "surface": "Is the weather forecast no longer something to argue about?",
+     "walkthrough": "The first definition is an example: a typical word heard in a forecast.",
+     "definitionFit": "Forecasters call stable weather settled, and a dispute that is resolved is also settled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1217,45 @@
     "text": "Barbara Castle?",
     "enumeration": "7"
    },
-   "solution": "WINDSOR"
+   "solution": "WINDSOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WINDSOR",
+    "definitions": [
+     {
+      "text": "Barbara",
+      "at": 0,
+      "note": "the surname of the actress Barbara Windsor"
+     },
+     {
+      "text": "Castle",
+      "at": 8,
+      "note": "the royal residence Windsor Castle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barbara",
+      "note": "first meaning: Barbara ___, the Carry On and EastEnders actress"
+     },
+     {
+      "clueFragment": "Castle",
+      "note": "second meaning: ___ Castle, the royal home west of London"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Barbara Castle was a Labour cabinet minister, so the clue reads as her name. Instead one surname completes both words: Barbara Windsor, the actress, and Windsor Castle, the royal residence.",
+     "definitionFit": "The same surname fills both gaps: the actress Barbara Windsor and the monarch's home at Windsor Castle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Castle"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1269,56 @@
     "text": "View, finally, that is most extensive",
     "enumeration": "6"
    },
-   "solution": "WIDEST"
+   "solution": "WIDEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WIDEST",
+    "definitions": [
+     {
+      "text": "most extensive",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word before it, so just its closing letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "View",
+      "gives": "W",
+      "select": "last",
+      "note": "the final letter of view"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IDEST",
+      "note": "id est is the Latin for 'that is', usually shortened to i.e."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "IDEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A view that, in the end, stretches furthest.",
+     "walkthrough": "Most solvers know 'that is' as IE; here the full Latin id est is needed.",
+     "definitionFit": "Widest is the superlative of wide, meaning the greatest in extent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "that"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1338,53 @@
      }
     ]
    },
-   "solution": "ROUGHIT"
+   "solution": "ROUGHIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROUGH IT",
+    "definitions": [
+     {
+      "text": "Take no comfort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "to organise is to arrange, so these letters are put into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "riot — ugh",
+      "gives": "RIOTUGH",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIOTUGH",
+       "gives": "ROUGHIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "No consolation to be found in a planned disturbance, ugh!",
+     "definitionFit": "To rough it is to live without the usual comforts, for example when camping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comfort"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1398,47 @@
     "text": "A group of notes, we hear, producing harmony",
     "enumeration": "6"
    },
-   "solution": "ACCORD"
+   "solution": "ACCORD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ACCORD",
+    "definitions": [
+     {
+      "text": "harmony",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "hearing points to how the words sound when spoken rather than how they are written"
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A group of notes",
+      "gives": "ACCORD",
+      "soundsLike": "A CHORD",
+      "note": "a chord is several notes played together"
+     }
+    ],
+    "explanation": {
+     "surface": "A chord that makes a pleasing harmony.",
+     "definitionFit": "Accord means agreement or concord, which is harmony in a non-musical sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "harmony"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1452,50 @@
     "text": "Cocky prisoner in the chair, so to speak",
     "enumeration": "9"
    },
-   "solution": "CONCEITED"
+   "solution": "CONCEITED",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "CONCEITED",
+    "definitions": [
+     {
+      "text": "Cocky",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "so to speak",
+      "for": "homophone",
+      "note": "speaking a phrase means we go by its sound, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "con is short for convict"
+     },
+     {
+      "clueFragment": "in the chair",
+      "gives": "CEITED",
+      "soundsLike": "SEATED",
+      "note": "someone in the chair is seated, and this ending sounds the same"
+     }
+    ],
+    "explanation": {
+     "surface": "An arrogant inmate sitting in the chair, almost literally.",
+     "walkthrough": "'In the chair' could mean chairing a meeting, but here it simply means sitting down.",
+     "definitionFit": "Cocky and conceited both describe someone with too high an opinion of themselves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chair"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1509,50 @@
     "text": "Panic, losing head? There's something wrong there",
     "enumeration": "5"
    },
-   "solution": "ERROR"
+   "solution": "ERROR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ERROR",
+    "definitions": [
+     {
+      "text": "something wrong there",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing head",
+      "for": "deletion",
+      "note": "losing its head means the word drops its first letter"
+     }
+    ],
+    "linkWords": [
+     "There's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Panic",
+      "gives": "TERROR",
+      "note": "terror is extreme fear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERROR"
+     ]
+    },
+    "explanation": {
+     "surface": "Panic over a mistake once a decapitation is on the cards.",
+     "definitionFit": "An error is a mistake, i.e. something wrong in the place pointed to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1566,62 @@
     "text": "Farewell from police officer in a multinational group",
     "enumeration": "5"
    },
-   "solution": "ADIEU"
+   "solution": "ADIEU",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADIEU",
+    "definitions": [
+     {
+      "text": "Farewell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the others, wrapped by them"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "police officer",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector"
+     },
+     {
+      "clueFragment": "multinational group",
+      "gives": "EU",
+      "note": "the European Union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DI",
+      "EU"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective says goodbye on leaving an international body.",
+     "definitionFit": "Adieu is the French word for goodbye, used in English as a formal farewell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1635,54 @@
     "text": "Bury artist after pop's popped off",
     "enumeration": "5"
    },
-   "solution": "INTER"
+   "solution": "INTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INTER",
+    "definitions": [
+     {
+      "text": "Bury",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "popped off",
+      "for": "deletion",
+      "note": "popping off means leaving, so that word departs from the artist"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "PAINTER",
+      "note": "a painter is an artist"
+     },
+     {
+      "clueFragment": "pop's",
+      "gives": "PA",
+      "note": "pop and pa are both words for father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Burying an artist after Dad has died.",
+     "walkthrough": "'Popped off' is slang for died, which fits the burial surface, but it signals removal of pop's letters from the artist.",
+     "definitionFit": "To inter is to place a body in a grave, which is to bury it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pop's"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1702,70 @@
      }
     ]
    },
-   "solution": "ONAIR"
+   "solution": "ONAIR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ON AIR",
+    "definitions": [
+     {
+      "text": "being broadcast",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means only the opening letter of network is used"
+     },
+     {
+      "text": "to plug",
+      "for": "container",
+      "note": "a plug fills a hole, so this letter goes into the gap between the other two pieces"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "Network's",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening letter of network"
+     },
+     {
+      "clueFragment": "tune",
+      "gives": "AIR",
+      "note": "an air is a melody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "N",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A TV channel promoting a golden oldie that is playing now.",
+     "walkthrough": "'Plug' suggests advertising, but here it means stopping a gap.",
+     "definitionFit": "A programme on air is being transmitted live, i.e. currently broadcast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plug"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1785,43 @@
      }
     ]
    },
-   "solution": "LASTDITCH"
+   "solution": "LASTDITCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAST-DITCH",
+    "definitions": [
+     {
+      "text": "Desperate",
+      "at": 0
+     },
+     {
+      "text": "jockey's final obstacle?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Desperate",
+      "note": "first meaning: a last-gasp attempt when all else has failed"
+     },
+     {
+      "clueFragment": "jockey's final obstacle?",
+      "note": "second meaning, read literally: the final ditch jumped in a steeplechase"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the second definition as a playful, literal reading of the phrase.",
+     "definitionFit": "A last-ditch effort is a final desperate attempt; literally, it would be the last ditch a horse clears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Desperate"
+    }
+   }
   },
   {
    "number": 28,
@@ -483,7 +1835,43 @@
     "text": "Section of étude Sir Edward wanted",
     "enumeration": "7"
    },
-   "solution": "DESIRED"
+   "solution": "DESIRED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DESIRED",
+    "definitions": [
+     {
+      "text": "wanted",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Section of",
+      "for": "hidden_word",
+      "note": "a section is a part cut from a whole, so the answer is a run of letters within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "étude Sir Edward",
+      "gives": "DESIRED",
+      "note": "read straight through the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Elgar wanted a certain passage of a musical study.",
+     "walkthrough": "The accent on the e is ignored, as accents always are in crosswords.",
+     "definitionFit": "Desired and wanted are synonyms, both past forms of verbs meaning to wish for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Section"
+    }
+   }
   },
   {
    "number": 29,
@@ -503,7 +1891,64 @@
      }
     ]
    },
-   "solution": "DRYROT"
+   "solution": "DRYROT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DRY ROT",
+    "definitions": [
+     {
+      "text": "decay",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing implies going backwards, so the word for Conservative runs from its end"
+     }
+    ],
+    "linkWords": [
+     "to reveal"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviated title"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "TORY",
+      "note": "a Tory is a member of the UK Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "YROT"
+     ],
+     "reversals": [
+      {
+       "from": "TORY",
+       "to": "YROT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor who gets Tory support turns out to be rotten.",
+     "walkthrough": "'Backing' reads as political support, but it tells you to reverse.",
+     "definitionFit": "Dry rot is a fungal decay that destroys timber in buildings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   }
  ]
 }
