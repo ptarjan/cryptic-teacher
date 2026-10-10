@@ -1935,7 +1935,10 @@ def ocr_headings(img, paper, key):
     heading read on the page (the day before's, printed under the clues).
     A solution heading is read again in its own band (solution_bands) by
     every reader, and stands where at least half read its number there: a
-    whole-page read misses its small type or runs it into the clue column."""
+    whole-page read misses its small type or runs it into the clue column.
+    A band is read against the titles at least half read on the page
+    (solution_headings), as a leaf's text is: "Solution to -— No 17,694"
+    under 17,695 is its heading."""
     box = img.convert("L").point(lambda v: 255 if v < 128 else 0).getbbox()
     if box is None:
         return [], []
@@ -1952,6 +1955,8 @@ def ocr_headings(img, paper, key):
         for n, b, setter in paper.headings(lines)[0]:
             if which not in (r[0] for r in titles.get(n, ())):
                 titles.setdefault(n, []).append((which, b, setter))
+    least = len(READERS) / 2
+    voted = [n for n, reads in titles.items() if len(reads) >= least]
     sols = {}
     for band in solution_bands(img, page_words):
         for which in READERS:
@@ -1959,10 +1964,9 @@ def ocr_headings(img, paper, key):
             words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, band, which, path)]
             lines = row_lines(words)
             lines += [ln[k:] for ln in lines for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]
-            for n, b in {n: b for n, b in reversed(paper.headings(lines)[1])}.items():
+            for n, b in {n: b for n, b in reversed(paper.headings(lines, voted)[1])}.items():
                 if which not in (r[0] for r in sols.get(n, ())):
                     sols.setdefault(n, []).append((which, b))
-    least = len(READERS) / 2
     sols = {n: reads for n, reads in sols.items() if len(reads) >= least}
     return ([(n, reads[0][1], reads[0][2], [r[0] for r in reads]) for n, reads in titles.items()
              if len(reads) >= least or n - 1 in sols],
@@ -2325,7 +2329,11 @@ class Paper:
         #: this one reads too.
         self.also = also
 
-    def headings(self, lines):
+    def headings(self, lines, titles=()):
+        """([(number, box, setter)], [(number, box)]) of the titles and
+        solution headings in `lines`; a solution heading is read against
+        those titles and `titles`, read elsewhere on the page (a solution
+        band holds no title)."""
         if self.key == "times1930":
             return times1930_headings(lines)
         if self.key == "ft":
@@ -2334,8 +2342,8 @@ class Paper:
             return guardian_headings(lines)
         if self.key == "telegraph":
             return telegraph_headings(lines)
-        titles = headings(lines, TITLE)
-        return [(n, box, None) for n, box in titles], solution_headings(lines, [n for n, _ in titles])
+        found = headings(lines, TITLE)
+        return [(n, box, None) for n, box in found], solution_headings(lines, [n for n, _ in found] + list(titles))
 
 
 #: The 1930 Times: archive.org's pub_times, one item an issue
