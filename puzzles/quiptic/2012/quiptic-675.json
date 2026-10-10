@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "One conservative in Far Eastern country rejected party",
     "enumeration": "6"
    },
-   "solution": "SOCIAL"
+   "solution": "SOCIAL",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "SOCIAL",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the first pieces inside the country's name"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the whole build is read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Far Eastern country",
+      "gives": "LAOS",
+      "note": "Laos is a country in South-East Asia"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOCIAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAICOS",
+       "to": "SOCIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone Tory living in an Asian state turns down an invitation to a party.",
+     "walkthrough": "I and C go inside LAOS to make LAICOS, which read backwards is SOCIAL.",
+     "definitionFit": "A social is an informal gathering or get-together, a noun synonym for a party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +113,43 @@
     "text": "European characters from Brussels love Neighbours",
     "enumeration": "7"
    },
-   "solution": "SLOVENE"
+   "solution": "SLOVENE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SLOVENE",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "characters from",
+      "for": "hidden_word",
+      "note": "the answer is made of consecutive letters taken straight out of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brussels love Neighbours",
+      "gives": "SLOVENE",
+      "note": "the run of letters across the end of Brussels, all of love and the start of Neighbours"
+     }
+    ],
+    "explanation": {
+     "surface": "Belgian viewers fall for the Australian soap Neighbours.",
+     "walkthrough": "Neighbours is a long-running Australian TV soap, popular in Britain; it is only a source of letters here.",
+     "definitionFit": "A Slovene is a native of Slovenia, a nation in central Europe, so a European person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Neighbours"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +163,54 @@
     "text": "Agent in court behaved furtively",
     "enumeration": "5"
    },
-   "solution": "CREPT"
+   "solution": "CREPT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CREPT",
+    "definitions": [
+     {
+      "text": "behaved furtively",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' puts the agent inside the abbreviation for court"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the standard abbreviation for court"
+     },
+     {
+      "clueFragment": "Agent",
+      "gives": "REP",
+      "note": "a rep is a sales representative, an agent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "REP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy in the courtroom acted shiftily.",
+     "definitionFit": "To creep is to move stealthily; the past tense crept matches the past-tense phrase about acting by stealth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +224,50 @@
     "text": "Analgesic distributed in Paris",
     "enumeration": "7"
    },
-   "solution": "ASPIRIN"
+   "solution": "ASPIRIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASPIRIN",
+    "definitions": [
+     {
+      "text": "Analgesic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distributed",
+      "for": "anagram",
+      "note": "distributed letters are spread around and dealt out in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Paris",
+      "gives": "INPARIS",
+      "note": "the seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INPARIS",
+       "gives": "ASPIRIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painkiller handed out in the French capital.",
+     "definitionFit": "Aspirin is a common painkilling drug, and an analgesic is any medicine that relieves pain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Paris"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +281,50 @@
     "text": "Snatch sailor approaching Channel",
     "enumeration": "6"
    },
-   "solution": "ABDUCT"
+   "solution": "ABDUCT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABDUCT",
+    "definitions": [
+     {
+      "text": "Snatch",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "approaching"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is a common crossword sailor"
+     },
+     {
+      "clueFragment": "Channel",
+      "gives": "DUCT",
+      "note": "a duct is a channel or tube carrying fluid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "DUCT"
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman nearing the English Channel is grabbed.",
+     "walkthrough": "'Approaching' just places the sailor before the channel.",
+     "definitionFit": "To abduct is to carry someone off by force, the same verb sense as to snatch a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Channel"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +338,43 @@
     "text": "Cases for silk underwear?",
     "enumeration": "6"
    },
-   "solution": "BRIEFS"
+   "solution": "BRIEFS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BRIEFS",
+    "definitions": [
+     {
+      "text": "Cases for silk",
+      "at": 0
+     },
+     {
+      "text": "underwear",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cases for silk",
+      "note": "first meaning: a silk is a senior barrister (Queen's or King's Counsel), and the cases handed to a barrister are called this"
+     },
+     {
+      "clueFragment": "underwear",
+      "note": "second meaning: close-fitting underpants"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as one phrase it suggests silk lingerie in a box; in British legal slang a 'silk' is a senior barrister, who wears a silk gown.",
+     "definitionFit": "A barrister's instructions for a case are documents called by this name, and the same word means short underpants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "silk"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +388,63 @@
     "text": "Poor clue adjudged to be corrupted",
     "enumeration": "9"
    },
-   "solution": "ULCERATED"
+   "solution": "ULCERATED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ULCERATED",
+    "definitions": [
+     {
+      "text": "corrupted",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "a poor version is badly formed, so these letters must be put into a better order"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clue",
+      "gives": "CLUE",
+      "note": "the four letters to rearrange"
+     },
+     {
+      "clueFragment": "adjudged",
+      "gives": "RATED",
+      "note": "to rate is to judge or assess"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ULCE",
+      "RATED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLUE",
+       "gives": "ULCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword critic decides a weak clue has gone rotten.",
+     "definitionFit": "Ulcerated tissue has open sores and is festering, so it has been corrupted in the old sense of decayed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +464,51 @@
      }
     ]
    },
-   "solution": "TEALADY"
+   "solution": "TEALADY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEA LADY",
+    "definitions": [
+     {
+      "text": "Office worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distressed",
+      "for": "anagram",
+      "note": "distressed suggests being upset and disturbed, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at delay",
+      "gives": "ATDELAY",
+      "note": "the seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATDELAY",
+       "gives": "TEALADY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clerk gets upset about being held up.",
+     "walkthrough": "A tea lady was a woman employed in British offices to bring round tea, often late, as the surface hints.",
+     "definitionFit": "The tea lady was a staff member who served hot drinks in a workplace, so a kind of office employee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "distressed"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +528,54 @@
      }
     ]
    },
-   "solution": "GOLDENJUBILEE"
+   "solution": "GOLDENJUBILEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GOLDEN JUBILEE",
+    "definitions": [
+     {
+      "text": "Particular party",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "may be reformed",
+      "for": "anagram",
+      "note": "something reformed is remade in a new shape, so these letters are rebuilt in another order"
+     }
+    ],
+    "linkWords": [
+     "to which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Julie belonged",
+      "gives": "JULIEBELONGED",
+      "note": "the thirteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "JULIEBELONGED",
+       "gives": "GOLDENJUBILEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political party that Julie once joined could be reorganised.",
+     "walkthrough": "'Party' looks political, but it means a celebration; the fiftieth-anniversary event is one specific kind.",
+     "definitionFit": "A golden jubilee marks fifty years, an occasion for a celebration, so it is one particular kind of festivity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +599,51 @@
    "group": [
     "9-across",
     "11-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOVE LETTER",
+    "definitions": [
+     {
+      "text": "Words written to court",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "mean"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "LOVE",
+      "note": "love is zero in tennis scoring"
+     },
+     {
+      "clueFragment": "landlord",
+      "gives": "LETTER",
+      "note": "a landlord lets property, so is a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOVE",
+      "LETTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Legal documents sent to a court count for nothing with the property owner.",
+     "walkthrough": "'Court' here is the verb, to woo, not a law court.",
+     "definitionFit": "A love letter is a written message sent to woo a sweetheart, which is what courting means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +657,62 @@
     "text": "Small-town travellin' agents in place shortly",
     "enumeration": "10"
    },
-   "solution": "PROVINCIAL"
+   "solution": "PROVINCIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PROVINCIAL",
+    "definitions": [
+     {
+      "text": "Small-town",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' sets the travelling and the agents inside the short form of place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place shortly",
+      "gives": "PL",
+      "note": "PL is the short form of place, as in street names"
+     },
+     {
+      "clueFragment": "travellin'",
+      "gives": "ROVIN",
+      "note": "roving is travelling; the apostrophe drops the final G here as it does in the clue word"
+     },
+     {
+      "clueFragment": "agents",
+      "gives": "CIA",
+      "note": "the CIA is the US intelligence agency, full of agents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROVIN",
+      "CIA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Travelling salesmen in a provincial spot, written in folksy shorthand.",
+     "walkthrough": "The dropped G of travellin' is the setter's signal to drop the G of the synonym too.",
+     "definitionFit": "Provincial describes life outside the capital, often with a narrow outlook, matching the adjective small-town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "travellin'"
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +739,72 @@
     "text": "Delay agreement about return of right match official",
     "enumeration": "8"
    },
-   "solution": "DEFERRAL"
+   "solution": "DEFERRAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "DEFERRAL",
+    "definitions": [
+     {
+      "text": "Delay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return of",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the next words are read backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means going round, so the agreement wraps the reversed pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreement",
+      "gives": "DEAL",
+      "note": "a deal is an agreement"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "match official",
+      "gives": "REF",
+      "note": "a ref is a referee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "FERR",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "RREF",
+       "to": "FERR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An agreement held up over the comeback of the right referee.",
+     "definitionFit": "A deferral is a postponement, a noun synonym for delay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Delay"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +818,66 @@
     "text": "Single perversion brought about senator's decline",
     "enumeration": "9"
    },
-   "solution": "LESSENING"
+   "solution": "LESSENING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LESSENING",
+    "definitions": [
+     {
+      "text": "decline",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perversion",
+      "for": "anagram",
+      "note": "a perversion twists something out of its proper form, so the letters are turned round"
+     },
+     {
+      "text": "brought about",
+      "for": "container",
+      "note": "brought about means placed around, so the scrambled word wraps the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Single",
+      "gives": "SINGLE",
+      "note": "the six letters to rearrange"
+     },
+     {
+      "clueFragment": "senator's",
+      "gives": "SEN",
+      "note": "Sen. is the abbreviation for senator; the 's is the verb 'is' and gives nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LES",
+      "SEN",
+      "ING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SINGLE",
+       "gives": "LESING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone act of perversion caused a politician's downfall.",
+     "definitionFit": "Lessening means becoming smaller or reducing, and decline as a noun is a gradual fall or reduction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perversion"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +891,73 @@
     "text": "In backward places a fly becomes inactive",
     "enumeration": "9"
    },
-   "solution": "STAGNATES"
+   "solution": "STAGNATES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "STAGNATES",
+    "definitions": [
+     {
+      "text": "becomes inactive",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backward",
+      "for": "reversal",
+      "note": "backward means the word for places runs from right to left"
+     },
+     {
+      "text": "In",
+      "for": "container",
+      "note": "'In' puts the following words inside the reversed word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "places",
+      "gives": "SETS",
+      "note": "to set is to place, so places is sets"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fly",
+      "gives": "GNAT",
+      "note": "a gnat is a small fly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "A",
+      "GNAT",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SETS",
+       "to": "STES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In remote spots, an insect falls dormant.",
+     "walkthrough": "'Backward places' suggests underdeveloped regions, but places is a verb here.",
+     "definitionFit": "To stagnate is to stop flowing or developing, which is to go sluggish or idle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backward"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +971,54 @@
     "text": "Stop tenor coming in, for example",
     "enumeration": "4"
    },
-   "solution": "STAY"
+   "solution": "STAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAY",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming in",
+      "for": "container",
+      "note": "coming in means entering, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "SAY",
+      "note": "say is used for 'for example', as in 'a fruit, say, an apple'"
+     },
+     {
+      "clueFragment": "tenor",
+      "gives": "T",
+      "note": "T is the abbreviation for tenor in music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Halt the tenor's entrance, for instance.",
+     "definitionFit": "To stay is to remain or stop somewhere, as in stop the night, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tenor"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +1032,53 @@
     "text": "Earl given away by worthless fellow",
     "enumeration": "4"
    },
-   "solution": "CHAP"
+   "solution": "CHAP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHAP",
+    "definitions": [
+     {
+      "text": "fellow",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given away by",
+      "for": "deletion",
+      "note": "something given away leaves its owner, so a letter is lost from the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worthless",
+      "gives": "CHEAP",
+      "note": "cheap means of little value"
+     },
+     {
+      "clueFragment": "Earl",
+      "gives": "E",
+      "note": "E is the abbreviation for earl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "AP"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman betrayed by a good-for-nothing man.",
+     "definitionFit": "Chap is informal British for a man, the same everyday sense as fellow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "given"
+    }
+   }
   },
   {
    "number": 16,
@@ -292,7 +1092,39 @@
     "text": "His job depends on mine",
     "enumeration": "7"
    },
-   "solution": "COLLIER"
+   "solution": "COLLIER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "COLLIER",
+    "definitions": [
+     {
+      "text": "His job depends on mine",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "His job depends on mine",
+      "note": "surface reading: someone's employment rests on the speaker's, a colleague or subordinate"
+     },
+     {
+      "clueFragment": "mine",
+      "note": "setter's reading: mine is a pit for digging coal, so this worker's living comes from one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Mine' reads as the possessive pronoun, but it is the noun, a coal pit.",
+     "definitionFit": "A collier is a coal miner, whose work exists only because the pit does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +1138,72 @@
     "text": "Habit male discarded, laid-back under guard",
     "enumeration": "9"
    },
-   "solution": "CUSTODIAL"
+   "solution": "CUSTODIAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "CUSTODIAL",
+    "definitions": [
+     {
+      "text": "under guard",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discarded",
+      "for": "deletion",
+      "note": "discarded means thrown out, so a letter is removed from the habit word"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "'back' after laid tells us to read that word in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Habit",
+      "gives": "CUSTOM",
+      "note": "a custom is a habit"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "laid",
+      "gives": "LAID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUSTO",
+      "DIAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAID",
+       "to": "DIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monk's habit is shed, and he is relaxed while in detention.",
+     "walkthrough": "'Laid-back' looks like one word meaning relaxed, but it splits into laid and a reversal signal.",
+     "definitionFit": "Custodial means held in custody, as in a custodial sentence, so being under guard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "laid-back"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1217,72 @@
     "text": "Brewing tank turns up near dilapidated Greek bar",
     "enumeration": "7"
    },
-   "solution": "TAVERNA"
+   "solution": "TAVERNA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "TAVERNA",
+    "definitions": [
+     {
+      "text": "Greek bar",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns up",
+      "for": "reversal",
+      "note": "in a down entry, turning up means the word is read from bottom to top"
+     },
+     {
+      "text": "dilapidated",
+      "for": "anagram",
+      "note": "a dilapidated thing has fallen apart, so its letters are rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brewing tank",
+      "gives": "VAT",
+      "note": "a vat is a large vessel used in brewing"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "NEAR",
+      "note": "the four letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAV",
+      "ERNA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEAR",
+       "gives": "ERNA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "VAT",
+       "to": "TAV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brewery tank appears near a run-down Greek tavern.",
+     "definitionFit": "A taverna is a small Greek restaurant or tavern, an eating and drinking place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "near"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1306,61 @@
      }
     ]
    },
-   "solution": "ATALOSS"
+   "solution": "ATALOSS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AT A LOSS",
+    "definitions": [
+     {
+      "text": "perplexed",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "something that keeps another holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What a test begins with",
+      "gives": "ATOSS",
+      "note": "a cricket Test match starts with the captains tossing a coin: a toss"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is for learner, as on British L-plates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "A",
+      "L",
+      "OSS"
+     ]
+    },
+    "explanation": {
+     "surface": "An exam's opening question holds a student who is baffled.",
+     "walkthrough": "'Test' suggests an exam, but it is a Test match in cricket, which begins with a coin toss to decide who bats.",
+     "definitionFit": "To be at a loss is an idiom for being puzzled and not knowing what to do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1374,57 @@
     "text": "Little fish from river pinched by fairies",
     "enumeration": "6"
    },
-   "solution": "ELVERS"
+   "solution": "ELVERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ELVERS",
+    "definitions": [
+     {
+      "text": "Little fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pinched by",
+      "for": "container",
+      "note": "something pinched is gripped on both sides, so it sits inside the other word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fairies",
+      "gives": "ELVES",
+      "note": "elves are fairy folk"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELVE",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Tiny fish stolen from a stream by the little people.",
+     "definitionFit": "Elvers are young eels, small fish that swim up rivers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pinched"
+    }
+   }
   },
   {
    "number": 21,
@@ -372,7 +1438,67 @@
     "text": "Welsh rugby team backs sick after p-passage",
     "enumeration": "8"
    },
-   "solution": "LLANELLI"
+   "solution": "LLANELLI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LLANELLI",
+    "definitions": [
+     {
+      "text": "Welsh rugby team",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backs",
+      "for": "reversal",
+      "note": "'backs' means the word for sick goes into reverse"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' says the sick piece comes second, following the passage piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "p-passage",
+      "gives": "LLANE",
+      "note": "a passage is a lane, and the stutter in p-passage tells us to repeat its first letter"
+     },
+     {
+      "clueFragment": "sick",
+      "gives": "ILL",
+      "note": "ill means sick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LLANE",
+      "LLI"
+     ],
+     "reversals": [
+      {
+       "from": "ILL",
+       "to": "LLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Welsh side falters, feeling queasy after a stammering spell.",
+     "walkthrough": "The stammered p-passage means the synonym is stammered too.",
+     "definitionFit": "Llanelli is a town in south Wales famous for its rugby union club, the Scarlets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backs"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1512,54 @@
     "text": "Fresh meat cut into by sailors",
     "enumeration": "6"
    },
-   "solution": "VERNAL"
+   "solution": "VERNAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VERNAL",
+    "definitions": [
+     {
+      "text": "Fresh",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut into by",
+      "for": "container",
+      "note": "something cut into has another piece pushed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat",
+      "gives": "VEAL",
+      "note": "veal is calf meat"
+     },
+     {
+      "clueFragment": "sailors",
+      "gives": "RN",
+      "note": "the RN, Royal Navy, is full of sailors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VE",
+      "RN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Fresh meat being carved by seamen.",
+     "definitionFit": "Vernal means belonging to spring, so youthful and new, which is a poetic sense of fresh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fresh"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1573,59 @@
     "text": "Some contrary people persuaded to drive off",
     "enumeration": "5"
    },
-   "solution": "REPEL"
+   "solution": "REPEL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "REPEL",
+    "definitions": [
+     {
+      "text": "drive off",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "'Some' means only part of the following words is used, as a consecutive run"
+     },
+     {
+      "text": "contrary",
+      "for": "reversal",
+      "note": "contrary means going the opposite way, so the run is read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "people persuaded",
+      "gives": "LEPER",
+      "note": "the run of letters across the end of people and start of persuaded"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LEPER",
+       "to": "REPEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A few awkward folk were talked into chasing someone away.",
+     "definitionFit": "To repel is to drive back or ward off an attacker, the same as drive off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1645,60 @@
      }
     ]
    },
-   "solution": "LITTLEBEAR"
+   "solution": "LITTLEBEAR",
+   "annotation": {
+    "type": [
+     "substitution",
+     "charade"
+    ],
+    "answer": "LITTLE BEAR",
+    "definitions": [
+     {
+      "text": "Stars",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Far from it",
+      "for": "substitution",
+      "note": "'Far from it' denies what came before, so the amount is swapped for its opposite"
+     }
+    ],
+    "linkWords": [
+     "having",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lot",
+      "gives": "LITTLE",
+      "note": "the opposite of a lot is little"
+     },
+     {
+      "clueFragment": "put up with",
+      "gives": "BEAR",
+      "note": "to bear is to put up with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LITTLE",
+      "BEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Celebrities who have so much to tolerate? Not at all.",
+     "walkthrough": "The clue reads 'having a lot to bear'; the denial turns this into having little to bear.",
+     "definitionFit": "The Little Bear, Ursa Minor, is a constellation, a group of stars containing the Pole Star."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stars"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1712,42 @@
     "text": "Mere indoor sport",
     "enumeration": "4"
    },
-   "solution": "POOL"
+   "solution": "POOL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POOL",
+    "definitions": [
+     {
+      "text": "Mere",
+      "at": 0
+     },
+     {
+      "text": "indoor sport",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mere",
+      "note": "first meaning: a mere is a small lake"
+     },
+     {
+      "clueFragment": "indoor sport",
+      "note": "second meaning: a cue game played on a table, a relative of billiards"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Mere' looks like the adjective meaning only, but it is the noun for a lake.",
+     "definitionFit": "The word names both a small body of still water and the table game played with cues and balls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mere"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1761,54 @@
     "text": "Fight is eclipsed by all others",
     "enumeration": "6"
    },
-   "solution": "RESIST"
+   "solution": "RESIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESIST",
+    "definitions": [
+     {
+      "text": "Fight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eclipsed by",
+      "for": "container",
+      "note": "something eclipsed is covered over, so it sits inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all others",
+      "gives": "REST",
+      "note": "the rest means all the others"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A contest overshadowed by every other one.",
+     "definitionFit": "To resist is to oppose or struggle against, a verb synonym for to fight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eclipsed"
+    }
+   }
   },
   {
    "number": 27,
@@ -462,7 +1822,65 @@
     "text": "Sorry about everything going west in TV series!",
     "enumeration": "6"
    },
-   "solution": "DALLAS"
+   "solution": "DALLAS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "DALLAS",
+    "definitions": [
+     {
+      "text": "TV series",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means around, so one word surrounds the other"
+     },
+     {
+      "text": "going west",
+      "for": "reversal",
+      "note": "in an across entry, going west means travelling right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sorry",
+      "gives": "SAD",
+      "note": "sorry can mean sad, as in a sorry state"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DALLAS"
+     ],
+     "reversals": [
+      {
+       "from": "SALLAD",
+       "to": "DALLAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An apology over everything going wrong in a television show.",
+     "walkthrough": "'Going west' also suggests going wrong, a fitting nod to the Texas setting of the show.",
+     "definitionFit": "Dallas was a long-running American TV drama about the oil-rich Ewing family of Texas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "west"
+    }
+   }
   }
  ]
 }
