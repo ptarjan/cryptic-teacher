@@ -38,6 +38,9 @@
   "date": "2021-04-11",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,47 @@
     "text": "Mess up wrong raw material for French bread?",
     "enumeration": "6"
    },
-   "solution": "BUMBLE"
+   "solution": "BUMBLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUMBLE",
+    "definitions": [
+     {
+      "text": "Mess up",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrong",
+      "gives": "BUM",
+      "note": "bum as an adjective means bad or wrong, as in a bum note"
+     },
+     {
+      "clueFragment": "raw material for French bread",
+      "gives": "BLE",
+      "note": "blé is French for wheat, the raw material of a French loaf"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUM",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ruins a batch of baguettes by using the wrong flour.",
+     "walkthrough": "You need the French word blé (wheat); the question mark admits the definition-by-example of bread's raw material.",
+     "definitionFit": "To bumble is to act clumsily and botch things, a synonym of messing up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +108,63 @@
     "text": "Assert loan must be raised, causing quarrel",
     "enumeration": "6"
    },
-   "solution": "BUSTUP"
+   "solution": "BUSTUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BUSTUP",
+    "definitions": [
+     {
+      "text": "quarrel",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must be raised",
+      "for": "reversal",
+      "note": "in a down entry, raising something lifts it so it reads from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assert",
+      "gives": "PUT",
+      "note": "to put a case is to assert it"
+     },
+     {
+      "clueFragment": "loan",
+      "gives": "SUB",
+      "note": "a sub is an advance of money, a loan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUS",
+      "TUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUTSUB",
+       "to": "BUSTUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists a loan be increased, and a row breaks out.",
+     "definitionFit": "A bust-up is informal for a violent quarrel or falling-out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +178,67 @@
     "text": "Loose, run free, almost free",
     "enumeration": "6"
    },
-   "solution": "UNROPE"
+   "solution": "UNROPE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "UNROPE",
+    "definitions": [
+     {
+      "text": "Loose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "free",
+      "for": "anagram",
+      "note": "the first free, read as a verb, sets the preceding word loose to rearrange itself"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter of the following word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "UNR",
+      "note": "the letters of run, rearranged"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "OPE",
+      "note": "free means open, here cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNR",
+      "OPE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUN",
+       "gives": "UNR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runaway description: loose, running free, almost at liberty.",
+     "walkthrough": "Loose is a verb here: climbers unrope when they release themselves from a rope.",
+     "definitionFit": "To unrope is to undo or loosen the rope tying climbers together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Loose"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +252,54 @@
     "text": "Quivering with 'it' – call me 'brassy' perhaps",
     "enumeration": "8"
    },
-   "solution": "METALLIC"
+   "solution": "METALLIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "METALLIC",
+    "definitions": [
+     {
+      "text": "brassy' perhaps",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Quivering",
+      "for": "anagram",
+      "note": "something quivering is shaking and unsteady, so the letters jumble"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'it' – call me",
+      "gives": "ITCALLME",
+      "note": "the letters of it, call and me together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITCALLME",
+       "gives": "METALLIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trembling speaker brands themselves the brassy one, with 'it'.",
+     "walkthrough": "Brassy is a single example of a metal-like quality, hence perhaps.",
+     "definitionFit": "Brass is an alloy, so something brassy in sound or look is one kind of metal-like quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Quivering"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +313,62 @@
     "text": "Bullet blasted me, at rest – head of corps?",
     "enumeration": "12"
    },
-   "solution": "BALLETMASTER"
+   "solution": "BALLETMASTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BALLETMASTER",
+    "definitions": [
+     {
+      "text": "head of corps?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blasted",
+      "for": "anagram",
+      "note": "blasted means blown apart, so the following letters are scattered and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bullet",
+      "gives": "BALL",
+      "note": "a ball is an old word for a bullet, as in musket ball"
+     },
+     {
+      "clueFragment": "me, at rest",
+      "gives": "ETMASTER",
+      "note": "the letters of me, at and rest, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALL",
+      "ETMASTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEATREST",
+       "gives": "ETMASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier shot and now lying still asks about the commander of the corps.",
+     "walkthrough": "Corps suggests the army, but the corps de ballet is meant; the question mark flags the pun.",
+     "definitionFit": "The ballet master trains and rehearses a company's dancers, so heads the corps de ballet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corps"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +382,64 @@
     "text": "Watching hygiene after treatment, leaving hospital",
     "enumeration": "6"
    },
-   "solution": "EYEING"
+   "solution": "EYEING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EYEING",
+    "definitions": [
+     {
+      "text": "Watching",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after treatment",
+      "for": "anagram",
+      "note": "treatment processes and changes things, so the letters are worked into a new order"
+     },
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving says one element departs from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hygiene",
+      "gives": "HYGIENE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital, removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYEING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "YGIENE",
+       "gives": "EYEING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone observes hygiene levels after a patient is treated and discharged.",
+     "definitionFit": "Eyeing means looking at closely, a synonym of watching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +453,61 @@
     "text": "Splash pint? Pan's needed with this all over the place",
     "enumeration": "6"
    },
-   "solution": "SPILTH"
+   "solution": "SPILTH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "and_lit"
+    ],
+    "answer": "SPILTH",
+    "definitions": [
+     {
+      "text": "Splash pint? Pan's needed with this all over the place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "all over the place means scattered in disorder, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Splash pint",
+      "gives": "SPLASHPINT",
+      "note": "the letters of both words, the pool to be rearranged"
+     },
+     {
+      "clueFragment": "Pan's",
+      "gives": "PANS",
+      "note": "these letters, together with the answer, make up that pool, so they are taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPILTH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPLASHPINT",
+       "gives": "PANSSPILTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Slopped beer everywhere means someone needs a pan to catch it.",
+     "walkthrough": "A compound anagram: Pan's plus the answer together rearrange to splash pint, and the whole clue pictures spilt liquid.",
+     "definitionFit": "Spilth is a literary word for something spilt, such as liquid slopped over the brim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Pan's"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +521,62 @@
     "text": "Slap penetrated round performer's face",
     "enumeration": "5"
    },
-   "solution": "SPANK"
+   "solution": "SPANK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPANK",
+    "definitions": [
+     {
+      "text": "Slap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round says one part encircles another"
+     },
+     {
+      "text": "face",
+      "for": "letter_selection",
+      "note": "a face is what is at the front, so only the opening letter counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "penetrated",
+      "gives": "SANK",
+      "note": "a ball that penetrated the pocket or net sank"
+     },
+     {
+      "clueFragment": "performer's",
+      "gives": "P",
+      "select": "first",
+      "note": "the front letter of performer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "ANK"
+     ]
+    },
+    "explanation": {
+     "surface": "A slap goes straight through to an actor's face.",
+     "walkthrough": "The opening letter of performer sits inside the past tense meaning went in.",
+     "definitionFit": "To spank is to slap, usually on the buttocks with the open hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +590,46 @@
     "text": "Dolly, say, one in cast performing",
     "enumeration": "6"
    },
-   "solution": "PARTON"
+   "solution": "PARTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARTON",
+    "definitions": [
+     {
+      "text": "Dolly, say",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one in cast",
+      "gives": "PART",
+      "note": "a part is a role, one of those in a cast"
+     },
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "a performer on stage is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Dolly is described as one of the cast in a show.",
+     "walkthrough": "Dolly looks like a doll or a film camera trolley, but it is the singer's first name; say marks her as an example.",
+     "definitionFit": "Dolly Parton, the American country singer, is one bearer of the surname."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +643,61 @@
     "text": "Iris, tent shaking, was courting, with parts woven together",
     "enumeration": "12"
    },
-   "solution": "INTERTISSUED"
+   "solution": "INTERTISSUED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INTERTISSUED",
+    "definitions": [
+     {
+      "text": "with parts woven together",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shaking",
+      "for": "anagram",
+      "note": "shaking jumbles things up, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iris, tent",
+      "gives": "INTERTIS",
+      "note": "the letters of iris and tent, rearranged"
+     },
+     {
+      "clueFragment": "was courting",
+      "gives": "SUED",
+      "note": "to sue is an old word for to woo or court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTERTIS",
+      "SUED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IRISTENT",
+       "gives": "INTERTIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Iris's tent was shaking while someone came courting.",
+     "walkthrough": "Sue in the old sense of paying court to someone, not litigation.",
+     "definitionFit": "Intertissued is an archaic term for interwoven, of fabric with threads of different kinds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "courting"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +711,55 @@
     "text": "The endless beat (relating to the downbeat)",
     "enumeration": "6"
    },
-   "solution": "THETIC"
+   "solution": "THETIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "THETIC",
+    "definitions": [
+     {
+      "text": "relating to the downbeat",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means without an end, so the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "beat",
+      "gives": "TICK",
+      "note": "a tick is a beat, as of a clock, here losing its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical gloss: the endless beat, explained in brackets as the downbeat.",
+     "walkthrough": "In prosody and music the thesis is the stressed or down beat, and thetic is its adjective.",
+     "definitionFit": "Thetic is the adjective from thesis, the term for the accented downbeat of a bar or metrical foot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +773,58 @@
     "text": "Scottish hacks active with entertainers around",
     "enumeration": "6"
    },
-   "solution": "HOASTS"
+   "solution": "HOASTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOASTS",
+    "definitions": [
+     {
+      "text": "Scottish hacks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the entertainers surround the other piece"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entertainers",
+      "gives": "HOSTS",
+      "note": "hosts entertain guests"
+     },
+     {
+      "clueFragment": "active",
+      "gives": "A",
+      "note": "A is the grammar abbreviation for active"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "A",
+      "STS"
+     ]
+    },
+    "explanation": {
+     "surface": "Busy Scottish journalists are surrounded by entertainers.",
+     "walkthrough": "Hacks suggests journalists, but here it is the verb-noun for coughs.",
+     "definitionFit": "A hoast is a Scots word for a cough, and a hack is a dry cough, so the plurals match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hacks"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +838,73 @@
     "text": "Feeble (lacking power) about rough sea, windy?",
     "enumeration": "6"
    },
-   "solution": "UNEASY"
+   "solution": "UNEASY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "UNEASY",
+    "definitions": [
+     {
+      "text": "windy?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking power",
+      "for": "deletion",
+      "note": "power is abbreviated P, and lacking it means that letter is removed"
+     },
+     {
+      "text": "rough",
+      "for": "anagram",
+      "note": "rough water is churned up, so these letters are disordered"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feeble",
+      "gives": "PUNY",
+      "note": "puny means feeble; without its P it is the outer piece"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "EAS",
+      "note": "the letters of sea, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "EAS",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEA",
+       "gives": "EAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weak sailor without strength is caught out on a stormy, windy sea.",
+     "walkthrough": "Windy is British slang for nervous or scared, not blowy; the question mark flags the shift.",
+     "definitionFit": "Being windy in informal British use means frightened or nervous, which is to be anxious and unsettled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "windy"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +918,70 @@
     "text": "Villa, maybe one with central heating in the middle of Napoli",
     "enumeration": "6"
    },
-   "solution": "PANCHO"
+   "solution": "PANCHO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PANCHO",
+    "definitions": [
+     {
+      "text": "Villa, maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within the other"
+     },
+     {
+      "text": "the middle of",
+      "for": "letter_selection",
+      "note": "the middle of keeps only the central letters of the Italian city name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "AN",
+      "note": "an means one"
+     },
+     {
+      "clueFragment": "central heating",
+      "gives": "CH",
+      "note": "CH is the estate-agent abbreviation for central heating"
+     },
+     {
+      "clueFragment": "Napoli",
+      "gives": "PO",
+      "select": "middle",
+      "note": "the two central letters of the six"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AN",
+      "CH",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An estate agent lists a villa with central heating in central Naples.",
+     "walkthrough": "Villa reads as a house, but it is Pancho Villa, the Mexican revolutionary leader.",
+     "definitionFit": "Pancho Villa was the Mexican revolutionary general, so he is one person with that first name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Villa"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +995,63 @@
     "text": "Try untangling a pet in tropical climber",
     "enumeration": "8"
    },
-   "solution": "HEARTPEA"
+   "solution": "HEARTPEA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HEARTPEA",
+    "definitions": [
+     {
+      "text": "tropical climber",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "untangling",
+      "for": "anagram",
+      "note": "untangling rearranges strands, so these letters are sorted into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "HEAR",
+      "note": "a judge tries a case, that is hears it"
+     },
+     {
+      "clueFragment": "a pet",
+      "gives": "TPEA",
+      "note": "the letters of a and pet, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAR",
+      "TPEA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "APET",
+       "gives": "TPEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries freeing a pet caught up in a jungle vine.",
+     "definitionFit": "The heart pea, or balloon vine, is a tropical climbing plant with heart-marked seeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Try"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +1064,52 @@
    "clue": {
     "text": "In contact with the whole camp, virtually (12, three words)"
    },
-   "solution": "TOALLINTENTS"
+   "solution": "TOALLINTENTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOALLINTENTS",
+    "definitions": [
+     {
+      "text": "virtually",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In contact with",
+      "gives": "TO",
+      "note": "to can mean touching, as in cheek to cheek"
+     },
+     {
+      "clueFragment": "the whole",
+      "gives": "ALL",
+      "note": "all means the whole"
+     },
+     {
+      "clueFragment": "camp",
+      "gives": "IN TENTS",
+      "note": "to camp is to be in tents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "ALL",
+      "INTENTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday report: we were close to the entire campsite, more or less.",
+     "definitionFit": "To all intents and purposes is an idiom meaning in effect, practically, virtually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "camp"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +1123,47 @@
     "text": "Winning, not fat? Rest one's weight as before",
     "enumeration": "6"
    },
-   "solution": "UPLEAN"
+   "solution": "UPLEAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPLEAN",
+    "definitions": [
+     {
+      "text": "Rest one's weight as before",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Winning",
+      "gives": "UP",
+      "note": "a team ahead is up"
+     },
+     {
+      "clueFragment": "not fat",
+      "gives": "LEAN",
+      "note": "lean means thin, not fat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "LEAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A slimmed-down winner settles back into the old stance.",
+     "walkthrough": "As before marks the definition as an archaic usage.",
+     "definitionFit": "Uplean is an obsolete verb meaning to lean or rest upon something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Winning"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1177,37 @@
     "text": "Mechanical spinning machine",
     "enumeration": "8"
    },
-   "solution": "FILATORY"
+   "solution": "FILATORY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FILATORY",
+    "definitions": [
+     {
+      "text": "Mechanical spinning machine",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mechanical spinning machine",
+      "note": "surface reading: the plain dictionary meaning, a device that spins thread"
+     },
+     {
+      "clueFragment": "Mechanical spinning machine",
+      "note": "setter's reading: this is the puzzle's competition entry, which solvers were invited to clue themselves, so no wordplay is printed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "This was Azed's clue-writing competition word: the printed clue is only the definition, and solvers had to supply their own wordplay.",
+     "definitionFit": "From Latin filum (thread), the word names a machine that forms or spins threads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1221,61 @@
     "text": "Who is fitted out with one? Hoplite was",
     "enumeration": "5"
    },
-   "solution": "PELTA"
+   "solution": "PELTA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "and_lit"
+    ],
+    "answer": "PELTA",
+    "definitions": [
+     {
+      "text": "Who is fitted out with one? Hoplite was",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fitted out",
+      "for": "anagram",
+      "note": "fitted out suggests putting together anew, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hoplite was",
+      "gives": "HOPLITEWAS",
+      "note": "the letters of both words, the pool to be rearranged"
+     },
+     {
+      "clueFragment": "Who is",
+      "gives": "WHOIS",
+      "note": "these letters, together with the answer, use up that pool, so they are taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PELTA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOPLITEWAS",
+       "gives": "WHOISPELTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quiz on armour: who carried this piece of kit? The Greek foot soldier did.",
+     "walkthrough": "A compound anagram: who is plus the answer rearrange to hoplite was. Strictly, the pelta belonged to the lightly armed peltast rather than the hoplite.",
+     "definitionFit": "A pelta is a small light shield of ancient Greek infantry, so the one the soldier is equipped with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1289,45 @@
     "text": "High jinks? Not for civil servants as a whole",
     "enumeration": "6"
    },
-   "solution": "ANTICS"
+   "solution": "ANTICS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANTICS",
+    "definitions": [
+     {
+      "text": "High jinks?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not for",
+      "gives": "ANTI",
+      "note": "anti means against, not for"
+     },
+     {
+      "clueFragment": "civil servants as a whole",
+      "gives": "CS",
+      "note": "CS is the abbreviation for Civil Service, the body of civil servants"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTI",
+      "CS"
+     ]
+    },
+    "explanation": {
+     "surface": "A disapproving question: horseplay is no way for government officials to behave.",
+     "definitionFit": "Antics are playful or absurd capers, which is what high jinks means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1341,55 @@
     "text": "Defective train going into sea",
     "enumeration": "6"
    },
-   "solution": "MAIMED"
+   "solution": "MAIMED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAIMED",
+    "definitions": [
+     {
+      "text": "Defective",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going into",
+      "for": "container",
+      "note": "going into places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "MED",
+      "note": "the Med is the Mediterranean Sea"
+     },
+     {
+      "clueFragment": "train",
+      "gives": "AIM",
+      "note": "to train a gun is to aim it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AIM",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A faulty train runs off into the sea.",
+     "walkthrough": "Train looks like the railway noun, but it is the verb meaning point a weapon.",
+     "definitionFit": "Maimed means mutilated or crippled, so damaged and defective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1403,55 @@
     "text": "Plan to win nothing is admitted by club",
     "enumeration": "6"
    },
-   "solution": "MISERE"
+   "solution": "MISERE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MISERE",
+    "definitions": [
+     {
+      "text": "Plan to win nothing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is admitted by",
+      "for": "container",
+      "note": "being admitted by something means being let inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club",
+      "gives": "MERE",
+      "note": "a mere is a Maori war club"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IS",
+      "ERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A club confesses its strategy is to win nothing.",
+     "walkthrough": "Club suggests a sports club or the card suit, but it is the Maori weapon.",
+     "definitionFit": "In card games such as solo whist, misère is a bid undertaking to take no tricks at all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1465,57 @@
     "text": "Our distant ancestors, or a writer about them",
     "enumeration": "6"
    },
-   "solution": "APEMEN"
+   "solution": "APEMEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APEMEN",
+    "definitions": [
+     {
+      "text": "Our distant ancestors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the writer encloses the other piece"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a writer",
+      "gives": "A PEN",
+      "note": "a pen is a writing instrument"
+     },
+     {
+      "clueFragment": "them",
+      "gives": "EM",
+      "note": "'em is the informal short form of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "EM",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Our remote forebears, or else an author writing about them.",
+     "definitionFit": "Ape-men are the primitive hominids from which modern humans descend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 21,
@@ -372,7 +1529,51 @@
     "text": "Charger maybe in sparkling get-up, all but extremes",
     "enumeration": "6"
    },
-   "solution": "EQUINE"
+   "solution": "EQUINE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EQUINE",
+    "definitions": [
+     {
+      "text": "Charger maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all but extremes",
+      "for": "deletion",
+      "note": "all but the extremes keeps everything except the two end letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sparkling get-up",
+      "gives": "SEQUINED",
+      "note": "a sparkly outfit is sequined, covered in spangles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EQUINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A warhorse is decked out in glittering show tack.",
+     "walkthrough": "A charger is a cavalry horse, so one example of a horse-like creature.",
+     "definitionFit": "A charger is a horse ridden in battle, and equine as a noun means a member of the horse family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charger"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1587,46 @@
     "text": "Eye-catching feature in paper providing a little tonic",
     "enumeration": "6"
    },
-   "solution": "SPLASH"
+   "solution": "SPLASH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPLASH",
+    "definitions": [
+     {
+      "text": "Eye-catching feature in paper",
+      "at": 0
+     },
+     {
+      "text": "a little tonic",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eye-catching feature in paper",
+      "note": "first meaning: a prominent front-page story or display"
+     },
+     {
+      "clueFragment": "a little tonic",
+      "note": "second meaning: a small dash of a mixer added to a drink"
+     }
+    ],
+    "explanation": {
+     "surface": "A newspaper's lead feature acts as a pick-me-up for readers.",
+     "definitionFit": "A splash is both a headline story given big display and a small quantity of liquid poured into a drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tonic"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1640,55 @@
     "text": "French pronoun found in dictionary rather the worse for wear",
     "enumeration": "5"
    },
-   "solution": "OILED"
+   "solution": "OILED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OILED",
+    "definitions": [
+     {
+      "text": "rather the worse for wear",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "found in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dictionary",
+      "gives": "OED",
+      "note": "OED is the Oxford English Dictionary"
+     },
+     {
+      "clueFragment": "French pronoun",
+      "gives": "IL",
+      "note": "il is French for he or it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "IL",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A French word turns up in a tattered old dictionary.",
+     "walkthrough": "The worse for wear describes the dictionary on the surface but here means tipsy.",
+     "definitionFit": "Oiled is informal for drunk, and being the worse for wear is a euphemism for drunkenness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wear"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1702,57 @@
     "text": "What means game's up? Reverse of that for inventor",
     "enumeration": "6"
    },
-   "solution": "EDISON"
+   "solution": "EDISON",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EDISON",
+    "definitions": [
+     {
+      "text": "inventor",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reverse of that",
+      "for": "reversal",
+      "note": "the reverse of that answer to the question reads it from its end back to its start"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What means game's up?",
+      "gives": "NOSIDE",
+      "note": "no side is the referee's call ending a rugby match"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDISON"
+     ],
+     "reversals": [
+      {
+       "from": "NOSIDE",
+       "to": "EDISON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle about the signal that ends a game, turned round to name an inventor.",
+     "walkthrough": "In rugby the referee calls no side to end the match.",
+     "definitionFit": "Thomas Edison was the prolific American inventor of the phonograph and a practical electric light bulb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game's"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1766,45 @@
     "text": "Paper's edge to adorn with article from Paris",
     "enumeration": "6"
    },
-   "solution": "DECKLE"
+   "solution": "DECKLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DECKLE",
+    "definitions": [
+     {
+      "text": "Paper's edge",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to adorn",
+      "gives": "DECK",
+      "note": "to deck is to adorn"
+     },
+     {
+      "clueFragment": "article from Paris",
+      "gives": "LE",
+      "note": "le is a French definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECK",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Decorating the margin of a page with something bought in Paris.",
+     "definitionFit": "A deckle edge is the rough, untrimmed edge of handmade paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1818,54 @@
     "text": "Transfer given upward move made stronger?",
     "enumeration": "5"
    },
-   "solution": "LACED"
+   "solution": "LACED",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LACED",
+    "definitions": [
+     {
+      "text": "made stronger?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given upward move",
+      "for": "reversal",
+      "note": "in a down entry an upward move turns the word so it reads from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Transfer",
+      "gives": "DECAL",
+      "note": "a decal is a transfer picture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LACED"
+     ],
+     "reversals": [
+      {
+       "from": "DECAL",
+       "to": "LACED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A transfer moved higher up is now stuck on more firmly.",
+     "walkthrough": "The question mark fits the sense of a drink fortified with spirits.",
+     "definitionFit": "A laced drink has had alcohol added to it, so it is made more potent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Transfer"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1879,55 @@
     "text": "First character to perform admits stiff dressage manoeuvre",
     "enumeration": "6"
    },
-   "solution": "PESADE"
+   "solution": "PESADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PESADE",
+    "definitions": [
+     {
+      "text": "dressage manoeuvre",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "admits means lets in, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First character to perform",
+      "gives": "PEE",
+      "note": "the name of the first letter of perform, spelt out"
+     },
+     {
+      "clueFragment": "stiff",
+      "gives": "SAD",
+      "note": "in Chambers, sad describes heavy, stiff, badly risen dough"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "SAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An opening act takes on a rigid horse-riding routine.",
+     "walkthrough": "The letter P is written as its spoken name, pee, to hold the three letters.",
+     "definitionFit": "A pesade is the dressage movement in which the horse rears on its hind legs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 28,
@@ -470,7 +1941,56 @@
     "text": "A lustiness unbridled, I see – could be this",
     "enumeration": "12"
    },
-   "solution": "SENSUALISTIC"
+   "solution": "SENSUALISTIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "SENSUALISTIC",
+    "definitions": [
+     {
+      "text": "A lustiness unbridled, I see – could be this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unbridled",
+      "for": "anagram",
+      "note": "unbridled means unrestrained and wild, so the letters run loose into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A lustiness",
+      "gives": "ALUSTINESS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I see",
+      "gives": "IC",
+      "note": "I and C, the letter that sounds like see"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALUSTINESSIC",
+       "gives": "SENSUALISTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An observer notes that unchecked lust might deserve this label.",
+     "walkthrough": "The whole clue defines: someone of unbridled lustiness could well be called this.",
+     "definitionFit": "Sensualistic means given to pleasures of the senses, which describes unrestrained lust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 29,
@@ -484,7 +2004,66 @@
     "text": "Resident alien once tucked into ale, terribly sick-making",
     "enumeration": "8"
    },
-   "solution": "EMETICAL"
+   "solution": "EMETICAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EMETICAL",
+    "definitions": [
+     {
+      "text": "sick-making",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "tucked into places one piece snugly inside the other"
+     },
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "terribly suggests something badly done, so the letters are mangled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ale",
+      "gives": "EAL",
+      "note": "the letters of ale, rearranged and split around the other piece"
+     },
+     {
+      "clueFragment": "Resident alien once",
+      "gives": "METIC",
+      "note": "a metic was a resident foreigner in an ancient Greek city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "METIC",
+      "AL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALE",
+       "gives": "EAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foreigner drinks so much ale that the drinker turns terribly ill.",
+     "definitionFit": "Emetical is an old form of emetic, causing vomiting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alien"
+    }
+   }
   },
   {
    "number": 30,
@@ -498,7 +2077,45 @@
     "text": "Which secret enemy's grasped? It's extracted from tar",
     "enumeration": "6"
    },
-   "solution": "RETENE"
+   "solution": "RETENE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RETENE",
+    "definitions": [
+     {
+      "text": "It's extracted from tar",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grasped",
+      "for": "hidden_word",
+      "note": "grasped means held within, so the answer is held inside the neighbouring words"
+     }
+    ],
+    "linkWords": [
+     "Which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret enemy's",
+      "gives": "RETENE",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A spy novel line: which hidden foe's plot has been understood?",
+     "definitionFit": "Retene is a hydrocarbon obtained from pine tar and other resinous distillates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grasped"
+    }
+   }
   },
   {
    "number": 31,
@@ -512,7 +2129,55 @@
     "text": "Solid alcohol that gets ostler reeling",
     "enumeration": "6"
    },
-   "solution": "STEROL"
+   "solution": "STEROL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEROL",
+    "definitions": [
+     {
+      "text": "Solid alcohol",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reeling",
+      "for": "anagram",
+      "note": "reeling means staggering about, so the letters lurch into a new order"
+     }
+    ],
+    "linkWords": [
+     "that gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ostler",
+      "gives": "OSTLER",
+      "note": "an ostler is a stableman at an inn"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OSTLER",
+       "gives": "STEROL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Strong drink that leaves the inn's stableman staggering.",
+     "walkthrough": "Solid alcohol sounds like hard liquor, but it is chemistry: an alcohol in solid form.",
+     "definitionFit": "Sterols, such as cholesterol, are a class of solid steroid alcohols found in animal and plant tissue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Solid"
+    }
+   }
   },
   {
    "number": 32,
@@ -526,7 +2191,65 @@
     "text": "Hardened revolutionary pursuing name in European group",
     "enumeration": "6"
    },
-   "solution": "ENURED"
+   "solution": "ENURED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ENURED",
+    "definitions": [
+     {
+      "text": "Hardened",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within the other"
+     }
+    ],
+    "linkWords": [
+     "pursuing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European group",
+      "gives": "EU",
+      "note": "EU is the European Union"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "RED",
+      "note": "a Red is a communist revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "U",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A seasoned radical follows a name on a European committee list.",
+     "walkthrough": "Pursuing means coming after, so the revolutionary goes at the end.",
+     "definitionFit": "Enured is a variant spelling of inured, accustomed and toughened by exposure to hardship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pursuing"
+    }
+   }
   },
   {
    "number": 33,
@@ -540,7 +2263,67 @@
     "text": "What'll launch rocket aloft, we hear, and deny malfunctioning",
     "enumeration": "6"
    },
-   "solution": "HYDYNE"
+   "solution": "HYDYNE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "anagram",
+     "charade"
+    ],
+    "answer": "HYDYNE",
+    "definitions": [
+     {
+      "text": "What'll launch rocket",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear points to a word as spoken rather than as spelt"
+     },
+     {
+      "text": "malfunctioning",
+      "for": "anagram",
+      "note": "malfunctioning means not working properly, so the letters go out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aloft",
+      "gives": "HY",
+      "soundsLike": "HIGH",
+      "note": "aloft means high up, and the two letters sound the same"
+     },
+     {
+      "clueFragment": "deny",
+      "gives": "DYNE",
+      "note": "the letters of deny, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HY",
+      "DYNE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DENY",
+       "gives": "DYNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mission control reports a rocket going up and a refusal to fail.",
+     "definitionFit": "Hydyne is a liquid rocket propellant, used in early American launch vehicles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deny"
+    }
+   }
   }
  ]
 }
