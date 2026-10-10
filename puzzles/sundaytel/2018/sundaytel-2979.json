@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,55 @@
     "text": "Grand reserve bottles for every one",
     "enumeration": "6"
    },
-   "solution": "SUPERB"
+   "solution": "SUPERB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUPERB",
+    "definitions": [
+     {
+      "text": "Grand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottles",
+      "for": "container",
+      "note": "to bottle something is to hold it inside, so one piece wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reserve",
+      "gives": "SUB",
+      "note": "a sub is a substitute or reserve player"
+     },
+     {
+      "clueFragment": "for every one",
+      "gives": "PER",
+      "note": "per means for each, as in a pound per head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "PER",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine merchant's grand reserve is bottled so that every customer gets one.",
+     "walkthrough": "'Bottles' reads as wine bottles in a reserve cellar, but it is a verb: SUB holds PER to make SUPERB.",
+     "definitionFit": "Superb and grand are both words of high praise for something magnificent, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +97,74 @@
     "text": "Time awaiting payment nerve-racking at first, cause to get agitated about it?",
     "enumeration": "6"
    },
-   "solution": "USANCE"
+   "solution": "USANCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "USANCE",
+    "definitions": [
+     {
+      "text": "Time awaiting payment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to just the opening letter of the word before it"
+     },
+     {
+      "text": "to get agitated",
+      "for": "anagram",
+      "note": "something agitated is shaken up, so the letters are stirred into a new order"
+     },
+     {
+      "text": "about it",
+      "for": "container",
+      "note": "about means going round, so the shaken letters surround the single letter already taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nerve-racking",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of nerve-racking"
+     },
+     {
+      "clueFragment": "cause",
+      "gives": "CAUSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USA",
+      "N",
+      "CE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAUSE",
+       "gives": "USACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Waiting to be paid is nerve-racking and makes you agitated about the money.",
+     "walkthrough": "CAUSE is rearranged as USACE and then wrapped round N to give USANCE.",
+     "definitionFit": "Usance is a banking term for the period allowed before a foreign bill of exchange must be paid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "agitated"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +178,43 @@
     "text": "Siren improvised music",
     "enumeration": "4"
    },
-   "solution": "VAMP"
+   "solution": "VAMP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VAMP",
+    "definitions": [
+     {
+      "text": "Siren",
+      "at": 0
+     },
+     {
+      "text": "improvised music",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Siren",
+      "note": "first meaning: a seductive woman who lures men"
+     },
+     {
+      "clueFragment": "improvised music",
+      "note": "second meaning: a simple repeated accompaniment made up on the spot"
+     }
+    ],
+    "explanation": {
+     "surface": "A siren, the alarm sort, plays improvised music.",
+     "definitionFit": "A vamp is a femme fatale, a temptress like the sirens of myth, and also a jazz term for an improvised repeated passage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Siren"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +238,56 @@
      }
     ]
    },
-   "solution": "IDARESAY"
+   "solution": "IDARESAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "I DARE SAY",
+    "definitions": [
+     {
+      "text": "probably",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Credentials",
+      "gives": "ID",
+      "note": "ID is identification, the papers that prove who you are"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "report",
+      "gives": "SAY",
+      "note": "to report something is to say it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "ARE",
+      "SAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's credentials are probably listed on a report.",
+     "walkthrough": "In a down clue 'on' places ARE above SAY.",
+     "definitionFit": "I dare say is a conversational phrase meaning I suppose, it is likely, which fits probably as an adverbial aside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Credentials"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +301,55 @@
     "text": "Two animals, one tailless, one living on island",
     "enumeration": "8"
    },
-   "solution": "ANTIGUAN"
+   "solution": "ANTIGUAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANTIGUAN",
+    "definitions": [
+     {
+      "text": "one living on island",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "tailless means the final letter is cut off the second creature's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two animals",
+      "gives": "ANT",
+      "note": "the first animal is the ant"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "IGUANA",
+      "note": "the second animal is the iguana lizard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "IGUAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Two creatures on a desert island, one of which has lost its tail.",
+     "walkthrough": "ANT plus IGUANA without its last A gives ANTIGUAN.",
+     "definitionFit": "An Antiguan is a native or resident of Antigua, the Caribbean island, so a person who lives there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 6,
@@ -112,7 +363,44 @@
     "text": "Fine not yet paid",
     "enumeration": "11"
    },
-   "solution": "OUTSTANDING"
+   "solution": "OUTSTANDING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUTSTANDING",
+    "definitions": [
+     {
+      "text": "Fine",
+      "at": 0
+     },
+     {
+      "text": "not yet paid",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "note": "first meaning: excellent, exceptional"
+     },
+     {
+      "clueFragment": "not yet paid",
+      "note": "second meaning: still owed, unsettled"
+     }
+    ],
+    "explanation": {
+     "surface": "A fine, the penalty sort, that has not been paid yet.",
+     "walkthrough": "'Fine' looks like a noun for a penalty, which suits the unpaid debt; it is really the adjective meaning excellent.",
+     "definitionFit": "Outstanding means both remarkably good and, of a debt, still remaining to be settled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 7,
@@ -126,7 +414,50 @@
     "text": "US president with nothing in diary, apparently",
     "enumeration": "5"
    },
-   "solution": "NIXON"
+   "solution": "NIXON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NIXON",
+    "definitions": [
+     {
+      "text": "US president",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with",
+     "apparently"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "NIX",
+      "note": "nix is slang for nothing"
+     },
+     {
+      "clueFragment": "in diary",
+      "gives": "ON",
+      "note": "an event in the diary is on, scheduled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIX",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A president whose schedule is completely empty.",
+     "definitionFit": "Richard Nixon was the 37th president of the United States, so he is one example of a US president."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "diary"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +481,47 @@
      }
     ]
    },
-   "solution": "AGOGO"
+   "solution": "AGOGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "A GO-GO",
+    "definitions": [
+     {
+      "text": "as much as you like",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Back",
+      "gives": "AGO",
+      "note": "as in years back, meaning years ago"
+     },
+     {
+      "clueFragment": "move",
+      "gives": "GO",
+      "note": "your go is your move in a game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGO",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to go back and make whatever moves you please.",
+     "walkthrough": "'Back' wants to be a reversal signal, but nothing here is read backwards; it simply means ago.",
+     "definitionFit": "A gogo means in abundance, without limit, as in wine a gogo, so plenty, as much as wanted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +535,61 @@
     "text": "Gannet, one curious bird",
     "enumeration": "6"
    },
-   "solution": "PIGEON"
+   "solution": "PIGEON",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PIGEON",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curious",
+      "for": "anagram",
+      "note": "curious means odd or strange, so the letters of the word before it are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gannet",
+      "gives": "PIG",
+      "note": "a gannet is slang for a greedy eater, a pig"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "EON",
+      "note": "the three letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIG",
+      "EON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONE",
+       "gives": "EON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gannet looks at another bird with curiosity.",
+     "walkthrough": "'Gannet' looks like the bird of the definition, but it is the glutton; the actual definition is the last word.",
+     "definitionFit": "A pigeon is a common bird of the dove family, so it is an example of a bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gannet"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +603,44 @@
     "text": "Food that's served inside",
     "enumeration": "8"
    },
-   "solution": "PORRIDGE"
+   "solution": "PORRIDGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PORRIDGE",
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     },
+     {
+      "text": "that's served inside",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food",
+      "note": "first meaning: a hot oat breakfast cereal"
+     },
+     {
+      "clueFragment": "that's served inside",
+      "note": "second meaning: British slang for a prison sentence, time served behind bars"
+     }
+    ],
+    "explanation": {
+     "surface": "A dish that is served indoors.",
+     "walkthrough": "'Served' suggests dishing up food, but it is serving time; porridge is British slang for a stretch in prison.",
+     "definitionFit": "Porridge is oatmeal cooked in milk or water, and also slang for time spent as a prisoner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +660,61 @@
      }
     ]
    },
-   "solution": "DOUBLEBASS"
+   "solution": "DOUBLEBASS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DOUBLE BASS",
+    "definitions": [
+     {
+      "text": "one's played",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Clipped",
+      "for": "deletion",
+      "note": "clipped means trimmed short, so the word loses its last letter"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means in the middle of, so the shortened word goes inside the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game of tennis",
+      "gives": "DOUBLES",
+      "note": "doubles is a tennis match played in pairs"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "BASH",
+      "note": "to have a bash is to have a shot at something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOUBLE",
+      "BAS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A sliced shot in the middle of a tennis rally.",
+     "walkthrough": "'Clipped shot' sounds like a tennis stroke, which suits the court picture, but the shot is a try at something and the tennis is the pairs game.",
+     "definitionFit": "A double bass is the largest stringed instrument of the orchestra, so it is something that gets played."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +728,42 @@
     "text": "Blooming colourful circle inside kaleidoscope",
     "enumeration": "3"
    },
-   "solution": "LEI"
+   "solution": "LEI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEI",
+    "definitions": [
+     {
+      "text": "Blooming colourful circle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "hidden_word",
+      "note": "inside says the letters sit within the next word, waiting to be found"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kaleidoscope",
+      "gives": "LEI",
+      "note": "the third to fifth letters of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A bright ring of colour blooms within a kaleidoscope's view.",
+     "definitionFit": "A lei is a Hawaiian garland of flowers worn round the neck, a ring of colourful blossoms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Blooming"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +777,45 @@
     "text": "Dish out thousands and thousands to the auditor?",
     "enumeration": "5"
    },
-   "solution": "ALLOT"
+   "solution": "ALLOT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ALLOT",
+    "definitions": [
+     {
+      "text": "Dish out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the auditor",
+      "for": "homophone",
+      "note": "an auditor is a listener, so the words are taken as heard rather than as written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thousands and thousands",
+      "gives": "ALLOT",
+      "soundsLike": "A LOT",
+      "note": "thousands upon thousands is a great many"
+     }
+    ],
+    "explanation": {
+     "surface": "Handing out thousands to the accountant who audits the books.",
+     "walkthrough": "'Auditor' suggests an accountant checking the books; here it just means a listener.",
+     "definitionFit": "To allot is to distribute or apportion a share, which is to dish it out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "auditor"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +829,48 @@
     "text": "Itch to get rid of, head scratched",
     "enumeration": "4"
    },
-   "solution": "URGE"
+   "solution": "URGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "URGE",
+    "definitions": [
+     {
+      "text": "Itch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head scratched",
+      "for": "deletion",
+      "note": "with the head scratched out, the opening letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to get rid of",
+      "gives": "PURGE",
+      "note": "to purge is to rid yourself of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An itch you want rid of, so you scratch your head.",
+     "walkthrough": "PURGE loses its first letter P.",
+     "definitionFit": "An itch to do something is a strong desire or longing, which is what an urge is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scratched"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +884,51 @@
     "text": "Hen's job to come by good egg — skill of home-making perhaps?",
     "enumeration": "11"
    },
-   "solution": "BRICKLAYING"
+   "solution": "BRICKLAYING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRICKLAYING",
+    "definitions": [
+     {
+      "text": "skill of home-making perhaps?",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "to come by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good egg",
+      "gives": "BRICK",
+      "note": "a brick is an old-fashioned word for a reliable, generous person, a good egg"
+     },
+     {
+      "clueFragment": "Hen's job",
+      "gives": "LAYING",
+      "note": "a hen's work is laying eggs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRICK",
+      "LAYING"
+     ]
+    },
+    "explanation": {
+     "surface": "A hen's task is to produce a good egg; is that the skill of home-making?",
+     "walkthrough": "'Good egg' sounds like the hen's output but means a decent person. The definition plays on house-building rather than housekeeping.",
+     "definitionFit": "Bricklaying is the craft of building walls, so literally the skill of making homes, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "egg"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +948,51 @@
      }
     ]
    },
-   "solution": "RINGPULL"
+   "solution": "RINGPULL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RING-PULL",
+    "definitions": [
+     {
+      "text": "opener",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sound",
+      "gives": "RING",
+      "note": "to ring is to make a sound like a bell"
+     },
+     {
+      "clueFragment": "cricket shot",
+      "gives": "PULL",
+      "note": "the pull is a cricket stroke to the leg side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RING",
+      "PULL"
+     ]
+    },
+    "explanation": {
+     "surface": "A solid cricket stroke from the opening batsman.",
+     "walkthrough": "'Opener' points to cricket's opening batsman; here it is a device for opening a can.",
+     "definitionFit": "A ring-pull is the metal tab on a drinks can that you pull to open it, so a kind of opener."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1012,55 @@
      }
     ]
    },
-   "solution": "CASTIRON"
+   "solution": "CASTIRON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAST-IRON",
+    "definitions": [
+     {
+      "text": "for sure",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Gatecrashing",
+      "for": "container",
+      "note": "a gatecrasher pushes into a party uninvited, so one piece forces its way inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little party",
+      "gives": "CON",
+      "note": "Con is the short form of Conservative, a UK political party"
+     },
+     {
+      "clueFragment": "excited",
+      "gives": "ASTIR",
+      "note": "astir means stirred up, excited"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ASTIR",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "An excited guest crashing a small party, absolutely certain of a welcome.",
+     "walkthrough": "'Party' suggests a social gathering, but it is the political sort.",
+     "definitionFit": "A cast-iron guarantee is one that cannot fail, so cast-iron means certain, definite, for sure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1074,51 @@
     "text": "Dessert, sweet without topping",
     "enumeration": "3"
    },
-   "solution": "ICE"
+   "solution": "ICE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ICE",
+    "definitions": [
+     {
+      "text": "Dessert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without topping",
+      "for": "deletion",
+      "note": "without its top, a down entry loses its uppermost, first letter"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweet",
+      "gives": "NICE",
+      "note": "sweet and nice both mean pleasant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pudding that is sweet but has no topping.",
+     "walkthrough": "'Sweet' and 'topping' lead to puddings, but sweet here means pleasant.",
+     "definitionFit": "An ice is an ice cream or water ice, a frozen dessert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1132,44 @@
     "text": "Green vegetable black, by the sound of it?",
     "enumeration": "5"
    },
-   "solution": "CHARD"
+   "solution": "CHARD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHARD",
+    "definitions": [
+     {
+      "text": "Green vegetable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "by the sound of it says to go by pronunciation, not spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "CHARD",
+      "soundsLike": "CHARRED",
+      "note": "something charred is burnt black"
+     }
+    ],
+    "explanation": {
+     "surface": "A green vegetable that has turned black, apparently.",
+     "definitionFit": "Chard, or Swiss chard, is a leafy green vegetable related to beet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1183,63 @@
     "text": "One admitting failure at the outset — probably not working out?",
     "enumeration": "5"
    },
-   "solution": "UNFIT"
+   "solution": "UNFIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UNFIT",
+    "definitions": [
+     {
+      "text": "probably not working out?",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit is to let in, so one piece takes another inside it"
+     },
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "at the outset points to only the opening letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "UNIT",
+      "note": "a unit is a single thing, one"
+     },
+     {
+      "clueFragment": "failure",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of failure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "F",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits failing from the start because they never exercise.",
+     "walkthrough": "The definition is cryptic: someone unfit is probably someone who does not work out at the gym.",
+     "definitionFit": "Unfit means out of condition physically, which is what you would expect of a person who never exercises."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1253,44 @@
     "text": "Slight reduction of figure",
     "enumeration": "4"
    },
-   "solution": "THIN"
+   "solution": "THIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THIN",
+    "definitions": [
+     {
+      "text": "Slight",
+      "at": 0
+     },
+     {
+      "text": "reduction of figure",
+      "at": 7,
+      "note": "a noun phrase standing for the verb, to thin"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slight",
+      "note": "first meaning: slender, meagre"
+     },
+     {
+      "clueFragment": "reduction of figure",
+      "note": "second meaning: to make slimmer or fewer, to cut down"
+     }
+    ],
+    "explanation": {
+     "surface": "A dieter reports a slight loss of weight.",
+     "walkthrough": "The surface reads as one phrase, a small weight loss, but it splits after the first word.",
+     "definitionFit": "Thin means slender as an adjective, and as a verb it means to reduce or make slimmer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Slight"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1304,40 @@
     "text": "Community decision",
     "enumeration": "10"
    },
-   "solution": "SETTLEMENT"
+   "solution": "SETTLEMENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SETTLEMENT",
+    "definitions": [
+     {
+      "text": "Community",
+      "at": 0
+     },
+     {
+      "text": "decision",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Community",
+      "note": "first meaning: a place where people have made their homes"
+     },
+     {
+      "clueFragment": "decision",
+      "note": "second meaning: an agreed resolution of a dispute"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A settlement is a village or colony of settlers and also the agreement that ends an argument or lawsuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1351,61 @@
     "text": "Starter of mutton scoffed by priests in RC feast once",
     "enumeration": "6"
    },
-   "solution": "LAMMAS"
+   "solution": "LAMMAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LAMMAS",
+    "definitions": [
+     {
+      "text": "RC feast once",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starter of",
+      "for": "letter_selection",
+      "note": "the starter of a word is its opening letter alone"
+     },
+     {
+      "text": "scoffed by",
+      "for": "container",
+      "note": "something scoffed is eaten up, swallowed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priests",
+      "gives": "LAMAS",
+      "note": "lamas are Tibetan Buddhist priests"
+     },
+     {
+      "clueFragment": "mutton",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of mutton"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAM",
+      "M",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "Priests eating mutton at an old Catholic feast day.",
+     "definitionFit": "Lammas, 1 August, was a harvest festival in the medieval Church calendar, when loaves from the new wheat were blessed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "priests"
+    }
+   }
   },
   {
    "number": 24,
@@ -392,7 +1419,51 @@
     "text": "Scene imagined blowing a gasket close to Watford Gap services, possibly?",
     "enumeration": "6"
    },
-   "solution": "MIRAGE"
+   "solution": "MIRAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MIRAGE",
+    "definitions": [
+     {
+      "text": "Scene imagined",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "close to",
+     "possibly?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Watford Gap services",
+      "gives": "MI",
+      "note": "Watford Gap services is a service station on the M1, Britain's main north-south motorway, with 1 written as I"
+     },
+     {
+      "clueFragment": "blowing a gasket",
+      "gives": "RAGE",
+      "note": "to blow a gasket is to fly into a rage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver losing their temper near a motorway service station.",
+     "walkthrough": "'close to' puts the motorway beside RAGE; the order is M1 then RAGE.",
+     "definitionFit": "A mirage is an optical illusion, a scene that appears but is not really there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "services"
+    }
+   }
   },
   {
    "number": 25,
@@ -406,7 +1477,55 @@
     "text": "Grey substance Greek character found among the ashes?",
     "enumeration": "8"
    },
-   "solution": "GRAPHITE"
+   "solution": "GRAPHITE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRAPHITE",
+    "definitions": [
+     {
+      "text": "Grey substance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found among",
+      "for": "container",
+      "note": "found among means sitting in the midst of something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the ashes",
+      "gives": "GRATE",
+      "note": "the grate of a fireplace is where ashes collect"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "PHI",
+      "note": "phi is a letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRA",
+      "PHI",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grey residue found among the ashes of a fire.",
+     "walkthrough": "The Ashes is also cricket's England-Australia trophy, but here it is the fireplace.",
+     "definitionFit": "Graphite is a soft dark grey form of carbon used in pencil leads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ashes"
+    }
+   }
   },
   {
    "number": 26,
@@ -420,7 +1539,53 @@
     "text": "London landmark burning up",
     "enumeration": "4"
    },
-   "solution": "EROS"
+   "solution": "EROS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EROS",
+    "definitions": [
+     {
+      "text": "London landmark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from the bottom to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "burning",
+      "gives": "SORE",
+      "note": "a sore, inflamed spot feels like it is burning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EROS"
+     ],
+     "reversals": [
+      {
+       "from": "SORE",
+       "to": "EROS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous London landmark going up in flames.",
+     "definitionFit": "The statue known as Eros stands at Piccadilly Circus and is one of London's best-known sights."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "burning"
+    }
+   }
   },
   {
    "number": 27,
@@ -434,7 +1599,64 @@
     "text": "Swallow egg and stuff on the counter",
     "enumeration": "6"
    },
-   "solution": "MARTIN"
+   "solution": "MARTIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MARTIN",
+    "definitions": [
+     {
+      "text": "Swallow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the counter",
+      "for": "reversal",
+      "note": "counter means contrary, running the opposite way, so the pieces are read in reverse"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "egg",
+      "gives": "NIT",
+      "note": "a nit is the egg of a louse"
+     },
+     {
+      "clueFragment": "stuff",
+      "gives": "RAM",
+      "note": "to ram is to stuff or cram"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "TIN"
+     ],
+     "reversals": [
+      {
+       "from": "NITRAM",
+       "to": "MARTIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swallowing an egg and other food left out on the kitchen counter.",
+     "walkthrough": "'Swallow' looks like a verb about eating, but it is the bird; 'egg' is not a hen's but a louse's.",
+     "definitionFit": "The martin is a small bird of the swallow family, such as the house martin, so a kind of swallow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Swallow"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1676,52 @@
      }
     ]
    },
-   "solution": "BLOODORANGE"
+   "solution": "BLOODORANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOOD ORANGE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "BLOOD",
+      "note": "read as flow-er: blood is something that flows"
+     },
+     {
+      "clueFragment": "blossom?",
+      "gives": "ORANGE",
+      "note": "orange blossom is the white flower of the orange tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOOD",
+      "ORANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit bowl decorated with flowers and blossom.",
+     "walkthrough": "'Flower' is the old crossword trick: not a bloom but a thing that flows, as blood or a river does.",
+     "definitionFit": "A blood orange is a citrus fruit with red-streaked flesh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   }
  ]
 }
