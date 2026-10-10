@@ -19,7 +19,9 @@
 #   - a puzzle without all its answers is solved and annotated by one run, its
 #     fill applied again from the committed puzzle before it is committed;
 #   - a puzzle held clues-only commits its clues-only file's removal with the
-#     grid its solve filed.
+#     grid its solve filed;
+#   - a sync that brings new shell code re-execs the pool onto it, the runs in
+#     flight adopted and committed by the new code, none lost or run twice.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 SCRIPT="$REPO/tools/prereset_backfill.sh"
@@ -46,6 +48,9 @@ for fn in pool_live pool_mark pool_launch pool_reap pool_drain pool_interval_sta
   if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
   eval "$block"
 done
+# The shell code never moves here; the re-exec is checked at the end.
+shell_sum() { :; }
+SHELL_SUM=""
 # The per-puzzle worker the script sources; its model calls are stubbed below.
 . "$(dirname "$SCRIPT")/puzzle_worker.sh"
 
@@ -209,6 +214,101 @@ check "a reordering pool re-plans once per sync interval, not per checkpoint" \
   "1 checkpoints=1" \
   "$(grep -c '^replan' "$EVENTS") checkpoints=$(( $(grep -c '^after' "$EVENTS") > 1 ))"
 grep -q '^ALERT' "$EVENTS" && { echo "FAIL alert raised: $(grep '^ALERT' "$EVENTS")"; fails=$((fails + 1)); }
+
+# A sync that brings new shell code: the pool re-execs itself onto it at its
+# loop top, adopts the runs in flight, reaps them with the new code, and goes
+# on with the queue. A harness of the pool's own functions stands in for the
+# script, and its "sync" rewrites the harness, as a sync moving the tree does.
+# Two runs outlast the sync, so they are in flight at the exec.
+HARNESS="$tree/harness.sh"
+REEXEC_EVENTS="$tree/reexec-events"
+cat >"$HARNESS" <<'EOF'
+set -uo pipefail
+CODE=old
+eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
+for fn in pool_live pool_mark pool_launch pool_reap pool_adopted_done pool_interval_start \
+          pool_checkpoint run_pool resumed_first shell_sum reexec_self reexec_load; do
+  block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
+  [ -n "$block" ] || { echo "ALERT tools/prereset_backfill.sh no longer defines $fn()" >>"$EVENTS"; exit 1; }
+  eval "$block"
+done
+eval "$(sed -n '/^REEXEC_VARS=(/,/)$/p' "$SCRIPT")"
+POOL_LAUNCH_GAP_US=100000 POOL_CHECK_SECS=0 POOL_SYNC_SECS=1 POOL_POLL_SECS=0.2
+RUN_LOG="$tree/runlog" PRERESET_SELF="$0" SHELL_FILES=("$0") RUNS="$tree/runs" DRY_RUN=0
+queue=($IDS) at=0 requeued=" " resumed=" " naps=0 NAPPED=0 WAVE_FAILED_IDS=() wide=""
+resets_in=1 RESET_AT=0 STOP_AT=0 MAX_NAPS=1 POOL_PHASE=annotate fields=() field_i=0
+if [ -n "${CT_PRERESET_STATE:-}" ]; then
+  st=$CT_PRERESET_STATE; unset CT_PRERESET_STATE
+  reexec_load "$st"
+  echo "adopted $$ ${POOL_RUNS[*]}" >>"$EVENTS"
+fi
+SHELL_SUM=$(shell_sum)
+run_claude() {
+  echo "start $1 $CODE" >>"$EVENTS"
+  case "$1" in *-x1) sleep 1.5 ;; *-x2|*-x3) sleep 4 ;; *) sleep 0.5 ;; esac
+  echo "end $1" >>"$EVENTS"
+}
+commit_puzzle() { echo "ok $1 $CODE $$" >>"$EVENTS"; }
+handle_failed_run() { echo "fail $1 $CODE" >>"$EVENTS"; }
+sync_wave() {
+  echo "sync ${#POOL_RUNS[@]}" >>"$EVENTS"
+  [ -e "$tree/moved" ] && return
+  touch "$tree/moved"
+  sed 's/^CODE=old$/CODE=new/' "$PRERESET_SELF" >"$PRERESET_SELF.new" && mv "$PRERESET_SELF.new" "$PRERESET_SELF"
+}
+after_wave() { return 0; }
+requeue_failed() { :; }
+wave_width() { echo 3; }
+past_deadline() { false; }
+needs_solve() { false; }
+worker_put_back() { :; }
+worker_kind() { echo; }
+alert() { echo "ALERT $*" >>"$EVENTS"; }
+git() { echo abc1234; }
+python3() {
+  case "$1" in
+    tools/puzzle_paths.py) echo "puzzles/x/$2.json" ;;
+    tools/weekly_usage.py) echo 10 ;;
+    *) echo "ALERT unexpected python3 $*" >>"$EVENTS"; return 1 ;;
+  esac
+}
+run_pool Annotate "Annotate @" 0
+echo "finished $$ $CODE" >>"$EVENTS"
+EOF
+reexec_ids=""; for i in $(seq 1 6); do reexec_ids="$reexec_ids pooltest-$$-x$i"; done
+mkdir -p "$tree/runs"
+EVENTS="$REEXEC_EVENTS" IDS="$reexec_ids" SCRIPT="$SCRIPT" tree="$tree" \
+  bash "$HARNESS" >"$tree/reexec-out" 2>&1
+check "the re-exec ran the harness to its end, onto the new code" "new" \
+  "$(awk '$1 == "finished" { print $3 }' "$REEXEC_EVENTS")"
+check "it adopted the two runs in flight" "2" \
+  "$(awk '$1 == "adopted" { print NF - 2 }' "$REEXEC_EVENTS")"
+check "each id started once and committed once, none failed" "6 6 0" \
+  "$(awk '$1 == "start" { s[$2]++ } $1 == "ok" { o[$2]++ } $1 == "fail" { f++ }
+         END { n = 0; for (i in s) if (s[i] == 1) n++; m = 0; for (i in o) if (o[i] == 1) m++; print n, m, f + 0 }' "$REEXEC_EVENTS")"
+check "the adopted runs, started by the old code, are committed by the new" \
+  "pooltest-$$-x2 pooltest-$$-x3" \
+  "$(awk '$1 == "start" && $3 == "old" { old[$2] = 1 } $1 == "ok" && $3 == "new" && old[$2] { print $2 }' "$REEXEC_EVENTS" | sort | tr '\n' ' ' | sed 's/ $//')"
+check "one process throughout: the exec keeps the pid" 1 \
+  "$(awk '$1 == "ok" || $1 == "adopted" || $1 == "finished" { print $1 == "ok" ? $4 : $2 }' "$REEXEC_EVENTS" | sort -u | wc -l | tr -d ' ')"
+check "the state file is gone after the load" "" "$(ls "$tree"/runlog.state 2>/dev/null)"
+if grep -q '^ALERT' "$REEXEC_EVENTS"; then
+  echo "FAIL re-exec: $(grep '^ALERT' "$REEXEC_EVENTS")"; fails=$((fails + 1))
+fi
+[ "$fails" -gt 0 ] && { echo "--- re-exec events"; cat "$REEXEC_EVENTS"; echo "--- re-exec output"; cat "$tree/reexec-out"; }
+
+# A burn started from a bridge session must not hand the bridge's claude
+# variables to its runs: entrypoint sdk-py makes the usage tally skip their
+# spend as bridge turns. tools/claude_path.sh drops them, and every script that
+# runs claude -p sources it.
+check "a run started with the bridge's env carries none of its claude variables" "" \
+  "$(CLAUDE_CODE_ENTRYPOINT=sdk-py CLAUDECODE=1 CLAUDE_CODE_SESSION_ID=bridge CLAUDE_CONFIG_DIR=/keep \
+     bash -c '. "$1/tools/claude_path.sh"; env' _ "$REPO" | grep -E '^(CLAUDECODE|CLAUDE_CODE_ENTRYPOINT|CLAUDE_CODE_SESSION_ID)=')"
+check "CLAUDE_CONFIG_DIR, where the login lives, is kept" "CLAUDE_CONFIG_DIR=/keep" \
+  "$(CLAUDE_CONFIG_DIR=/keep bash -c '. "$1/tools/claude_path.sh"; env' _ "$REPO" | grep '^CLAUDE_CONFIG_DIR=')"
+check "every script that runs claude -p sources tools/claude_path.sh" "" \
+  "$(cd "$REPO" && for f in $(grep -l 'claude -p' tools/*.sh | grep -v -e '/test_' -e '/puzzle_worker.sh$'); do
+       grep -q 'claude_path.sh' "$f" || echo "$f"; done)"
 
 if [ "$fails" -gt 0 ]; then
   echo "--- events"; cat "$EVENTS"; echo "--- output"; printf '%s\n' "$out"

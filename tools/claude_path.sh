@@ -16,3 +16,14 @@ if ! command -v claude >/dev/null 2>&1; then
     export PATH="$bundled:$PATH"
   fi
 fi
+
+# A job started from a bridge session (track-job, a hand start) inherits the
+# bridge's own claude variables, and its runs would pass for bridge turns:
+# tagged entrypoint sdk-py, which the usage tally skips as the bridge's, and
+# carrying the bridge's session id. Every run starts from none of them.
+# CLAUDE_CONFIG_DIR stays: it is where the job's login lives.
+unset CLAUDECODE CLAUDE_PID CLAUDE_EFFORT CLAUDE_MODEL CLAUDE_AGENT_SDK_VERSION \
+  CLAUDE_CODE_ENTRYPOINT CLAUDE_CODE_SESSION_ID CLAUDE_CODE_CHILD_SESSION \
+  CLAUDE_CODE_MESSAGING_SOCKET CLAUDE_CODE_MESSAGING_TOKEN CLAUDE_CODE_SHELL_PREFIX \
+  CLAUDE_CODE_SESSION_ATTENDED CLAUDE_CODE_EXECPATH CLAUDE_CODE_TMPDIR \
+  CLAUDE_CODE_STREAM_CLOSE_TIMEOUT CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION

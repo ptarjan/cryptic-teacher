@@ -63,6 +63,10 @@ CT_GENERATED=none
 . "$(dirname "$0")/nightly_worktree.sh"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
+# Set when this process is the burn re-execing itself onto new shell code
+# (reexec_self): the file holding the pool's state, beside the run log.
+REEXEC_STATE="${CT_PRERESET_STATE:-}"
+unset CT_PRERESET_STATE
 . "$REPO/tools/claude_path.sh"
 # Without this the CLI reads the legacy un-suffixed keychain entry, which a
 # file-based /login leaves empty, and every run dies on "Failed to
@@ -93,8 +97,13 @@ RUNS="$(worker_runs prereset_backfill)" || exit 1
 # Spelled out rather than `mktemp -t cryptic-prereset`: -t takes a bare prefix on macOS
 # but a template that must contain X's on GNU, so the one spelling cannot mean
 # the same thing on both. Every mktemp below is written this way.
-RUN_LOG="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset.XXXXXX")"
-exec > >(tee -a "$RUN_LOG") 2>&1
+# A re-exec keeps the log and the tee its output already goes to.
+if [ -n "$REEXEC_STATE" ]; then
+  RUN_LOG="${REEXEC_STATE%.state}"
+else
+  RUN_LOG="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset.XXXXXX")"
+  exec > >(tee -a "$RUN_LOG") 2>&1
+fi
 
 # Kept in step with daily_update.sh — Opus, benchmarked against Fable on 30078
 # (APP.md). Matching quality at a third the cost matters more here than
@@ -134,7 +143,11 @@ LOCKOUT_PCT="${LOCKOUT_PCT:-90}"
 # ungated inference in parallel and cannot be rehearsed any other way.
 DRY_RUN="${DRY_RUN:-0}"
 
-echo "=== cryptic-teacher pre-reset backfill $(date '+%Y-%m-%d %H:%M') ==="
+if [ -n "$REEXEC_STATE" ]; then
+  echo "=== pre-reset backfill re-execed onto $(git rev-parse --short HEAD) $(date '+%Y-%m-%d %H:%M') ==="
+else
+  echo "=== cryptic-teacher pre-reset backfill $(date '+%Y-%m-%d %H:%M') ==="
+fi
 
 # One at a time. This runs for days, so an hourly fire and a hand run overlap
 # easily — and two copies would double the width and race each other's commits
@@ -154,7 +167,13 @@ lock_is_dead() {
   ps -o command= -p "$pid" 2>/dev/null | grep prereset_backfill >/dev/null || return 0
   return 1
 }
-if ! mkdir "$LOCK" 2>/dev/null; then
+# A re-exec is the same process, so the lock it took is its own already.
+if [ -n "$REEXEC_STATE" ]; then
+  [ "$(cat "$LOCK/pid" 2>/dev/null)" = "$$" ] || {
+    alert "the pre-reset backfill re-execed onto new code and found its lock no longer names it (pid $$) — stopping; the runs it had in flight resume at the next start."
+    exit 1
+  }
+elif ! mkdir "$LOCK" 2>/dev/null; then
   if lock_is_dead; then
     # A lock older than the container is the expected leftover of a restart
     # and needs nobody; one taken since means a run died here, which does.
@@ -182,6 +201,10 @@ trap 'rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures 
 # was then. A run this start finds still recorded in $RUNS was stopped by the
 # restart, and its note is written afresh at its launch (worker_put_back), about
 # the tree as it is now.
+#
+# Everything from here to the pool is the start's alone: a re-exec carries the
+# deadline and the meters' reads in its state, and keeps its resume notes.
+if [ -z "$REEXEC_STATE" ]; then
 rm -f /tmp/ct-prereset-*.resume
 
 # The run is bounded by the weekly reset, which is a timestamp the usage API
@@ -194,6 +217,7 @@ if [ -z "$resets_in" ]; then
   exit 1
 fi
 RESET_AT=$(awk -v n="$(date +%s)" -v h="$resets_in" 'BEGIN{printf "%d", n + h * 3600}')
+fi
 
 # What the week actually landed at, said once, after it is too late to change —
 # because otherwise nobody ever finds out. A run that dies or stalls ends the
@@ -202,7 +226,7 @@ RESET_AT=$(awk -v n="$(date +%s)" -v h="$resets_in" 'BEGIN{printf "%d", n + h * 
 # leftovers were worth having.
 LANDING_FILE=".prereset_landing"
 LANDING_OK="${LANDING_OK:-90}"
-if [ -f "$LANDING_FILE" ]; then
+if [ -z "$REEXEC_STATE" ] && [ -f "$LANDING_FILE" ]; then
   read -r landed deadline < "$LANDING_FILE"
   if [ "$(date +%s)" -ge "${deadline:-0}" ]; then
     rm -f "$LANDING_FILE"
@@ -214,6 +238,7 @@ fi
 
 # A spent week has nothing to buy, and everything below — the archive fetch,
 # the republish, the smoke test — is not worth running hourly for nothing.
+if [ -z "$REEXEC_STATE" ]; then
 weekly_now=$(python3 tools/weekly_usage.py 2>/dev/null)
 if [ -n "$weekly_now" ] && awk -v n="$weekly_now" -v e="$EXHAUSTED" 'BEGIN{exit !(n >= e)}'; then
   echo "weekly window is spent (${weekly_now}%) — nothing to do until it resets in ${resets_in}h"
@@ -229,13 +254,14 @@ STOP_AT=$(( RESET_AT - 300 ))
 # things and this argument is an epoch second. (The -r above it is a directory,
 # which both agree on.)
 echo "deadline $(python3 -c "import sys,time; print(time.strftime('%a %H:%M', time.localtime(int(sys.argv[1]))))" "$STOP_AT")"
+fi
 past_deadline() {
   [ "$(date +%s)" -ge "$STOP_AT" ]
 }
 # One nap per five-hour window left in the week is the plan, not a failure, so
 # the allowance is that count with slack. It only bounds runs failing fast for
 # some reason other than a lockout; each nap is capped at the deadline anyway.
-MAX_NAPS=$(awk -v h="$resets_in" 'BEGIN{printf "%d", h / 5 + 3}')
+[ -n "$REEXEC_STATE" ] || MAX_NAPS=$(awk -v h="$resets_in" 'BEGIN{printf "%d", h / 5 + 3}')
 
 # Minutes until the five-hour window turns over. Empty when it cannot be read.
 session_left_min() {
@@ -384,6 +410,7 @@ POOL_CHECK_SECS="${POOL_CHECK_SECS:-300}"
 POOL_SYNC_SECS="${POOL_SYNC_SECS:-3600}"
 declare -A POOL_RUNS=()  # pid -> puzzle id, every run in flight
 declare -A POOL_SOLVING=()  # pid -> 1 for each of those that solves its puzzle first
+declare -A POOL_ADOPTED=()  # pid -> 1 for each of those the shell before a re-exec started
 POOL_RUN_US=0            # run-microseconds in flight since the checkpoint
 POOL_MARK_US=0           # when POOL_RUN_US was last brought up to date
 POOL_STARTED_US=0        # when the interval since the last checkpoint began
@@ -392,6 +419,8 @@ POOL_LAUNCHED_US=0
 POOL_DONE=0              # runs finished since the checkpoint
 POOL_FIXING=0            # 1 while commit_puzzle's fix run holds this shell
 POOL_REPLANNED_US=0      # when the queue was last re-read and re-ordered
+POOL_POLL_SECS=5         # how often pool_reap looks for an adopted run's end
+POOL_RESUMING=0          # 1 when run_pool picks up a pool a re-exec carried over
 
 # How many of POOL_RUNS are still running; the rest have finished and wait
 # for pool_reap to commit them, holding their slots until it does.
@@ -428,11 +457,23 @@ pool_launch() {
     fill="$RUNS/$id.fill"
   fi
   prompt="${POOL_TMPL//@PATH@/$(python3 tools/puzzle_paths.py "$id")}"
-  run_claude "$id" "${prompt//@/$id}" "$fill" &
+  # The run leaves its status in a file too, for a shell that re-execed while
+  # it ran and so cannot wait for it (pool_reap).
+  rm -f "/tmp/ct-prereset-$id.rc"
+  { run_claude "$id" "${prompt//@/$id}" "$fill"; rc=$?; echo "$rc" >"/tmp/ct-prereset-$id.rc"; exit "$rc"; } &
   [ -n "$fill" ] && POOL_SOLVING[$!]=1
   POOL_RUNS[$!]="$id"
   POOL_LAUNCHED_US=${EPOCHREALTIME/[.,]/}
   echo "  [$id] started$again (${#POOL_RUNS[@]} of $wide in flight)"
+}
+
+# Whether an adopted run has ended: its status file is written, or it is gone
+# (or a zombie) without one, which pool_reap counts as a failure.
+pool_adopted_done() {
+  [ -s "/tmp/ct-prereset-${POOL_RUNS[$1]}.rc" ] && return 0
+  kill -0 "$1" 2>/dev/null || return 0
+  case "$(ps -o stat= -p "$1" 2>/dev/null)" in Z*) return 0 ;; esac
+  return 1
 }
 
 # Wait for whichever run finishes first, and commit it or note it for a retry.
@@ -443,6 +484,14 @@ pool_reap() {
     # to wait -n ("no such job"), though plain wait still returns its status. So
     # finished runs are looked for first, and wait -n only blocks on live ones.
     for p in "${!POOL_RUNS[@]}"; do
+      if [ -n "${POOL_ADOPTED[$p]:-}" ]; then
+        pool_adopted_done "$p" || continue
+        pid=$p
+        rc=$(cat "/tmp/ct-prereset-${POOL_RUNS[$p]}.rc" 2>/dev/null)
+        case "$rc" in ''|*[!0-9]*) rc=1 ;; esac
+        unset "POOL_ADOPTED[$p]"
+        break
+      fi
       kill -0 "$p" 2>/dev/null && continue
       pid=$p
       wait "$p"
@@ -450,6 +499,9 @@ pool_reap() {
       break
     done
     [ -n "$pid" ] && break
+    # wait -n sees only this shell's children, so while an adopted run is in
+    # flight the pool polls instead.
+    if [ ${#POOL_ADOPTED[@]} -gt 0 ]; then sleep "$POOL_POLL_SECS"; continue; fi
     wait -n -p pid "${!POOL_RUNS[@]}" 2>/dev/null
     rc=$?
     pid=${pid:-}
@@ -466,6 +518,7 @@ pool_reap() {
   pool_mark
   id="${POOL_RUNS[$pid]}"
   unset "POOL_RUNS[$pid]"
+  rm -f "/tmp/ct-prereset-$id.rc"
   POOL_DONE=$((POOL_DONE + 1))
   if [ -n "${POOL_SOLVING[$pid]:-}" ]; then
     unset "POOL_SOLVING[$pid]"
@@ -564,10 +617,16 @@ pool_checkpoint() {
 # Returns non-zero when the run should stop: the deadline, or after_wave said so.
 # Either way no new run starts and the ones in flight finish and are handled.
 run_pool() {
-  WAVE_WHAT="$1" POOL_TMPL="$2" POOL_REORDER="${3:-0}" POOL_PLANNED=0
   local stop=0
-  resumed_first
-  pool_interval_start
+  if [ "$POOL_RESUMING" = 1 ]; then
+    # Re-execed mid-pool: the pool's state, its runs in flight among it, is the
+    # shell's before the exec.
+    POOL_RESUMING=0
+  else
+    WAVE_WHAT="$1" POOL_TMPL="$2" POOL_REORDER="${3:-0}" POOL_PLANNED=0
+    resumed_first
+    pool_interval_start
+  fi
   while :; do
     if [ "$stop" = 0 ] && past_deadline; then echo "deadline reached — stopping"; stop=1; fi
     if [ "$stop" = 0 ] &&
@@ -575,6 +634,8 @@ run_pool() {
       sync_wave
       POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
     fi
+    # A sync that brought new shell code, here or in after_wave's drain.
+    [ "$stop" = 0 ] && [ "$(shell_sum)" != "$SHELL_SUM" ] && reexec_self
     while [ "$stop" = 0 ] && [ ${#POOL_RUNS[@]} -lt "$wide" ] && [ "$at" -lt "${#queue[@]}" ]; do
       pool_launch "${queue[$at]}"
       at=$((at + 1))
@@ -603,6 +664,55 @@ run_pool() {
   sync_wave
   POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
   return $stop
+}
+
+# --- re-exec onto new shell code ----------------------------------------------
+# Bash keeps the functions it parsed at the start, so a sync that moves this
+# tree's shell code (this script and what it sources) reaches the burn only
+# when it re-execs: at run_pool's loop top, between reaps. The exec keeps the
+# pid, so the lock, the tree's lease (fd 9), the log's tee and the runs in
+# flight all stay; the new shell adopts the runs (POOL_ADOPTED), reading each
+# one's end off its status file since it cannot wait for them, and goes on
+# with the queue where the old one stopped. Nothing in flight is stopped or
+# run again.
+SHELL_FILES=("$REPO/tools/prereset_backfill.sh" "$REPO/tools/puzzle_worker.sh"
+  "$REPO/tools/claude_session.sh" "$REPO/tools/alert.sh" "$REPO/tools/claude_path.sh")
+PRERESET_SELF="$REPO/tools/prereset_backfill.sh"
+shell_sum() {
+  cat "${SHELL_FILES[@]}" 2>/dev/null </dev/null | cksum
+}
+SHELL_SUM=$(shell_sum)
+# The state the main sequence and run_pool carry across the exec.
+REEXEC_VARS=(queue at requeued resumed naps NAPPED WAVE_FAILED_IDS WAVE_WHAT POOL_TMPL
+  POOL_REORDER POOL_PLANNED POOL_RUNS POOL_SOLVING POOL_RUN_US POOL_MARK_US POOL_STARTED_US
+  POOL_SYNCED_US POOL_LAUNCHED_US POOL_DONE POOL_REPLANNED_US POOL_BEFORE POOL_BEFORE_S wide
+  resets_in RESET_AT STOP_AT MAX_NAPS POOL_PHASE fields field_i)
+reexec_self() {
+  local state="$RUN_LOG.state" err
+  # New code that does not parse would kill the burn with its runs in flight.
+  if ! err=$(bash -n "$PRERESET_SELF" 2>&1); then
+    alert "the pre-reset backfill's tree has shell code that does not parse, so it keeps running the old: $err"
+    SHELL_SUM=$(shell_sum)
+    return 1
+  fi
+  declare -p "${REEXEC_VARS[@]}" | sed 's/^declare -/declare -g -/' >"$state" || return 1
+  echo "=== shell code moved: re-execing onto $(git rev-parse --short HEAD), adopting ${#POOL_RUNS[@]} runs in flight ==="
+  export CT_PRERESET_STATE="$state"
+  shopt -s execfail
+  exec "$BASH" -c '. "$0"' "$PRERESET_SELF"
+  shopt -u execfail
+  unset CT_PRERESET_STATE
+  rm -f "$state"
+  alert "the pre-reset backfill could not re-exec onto its new shell code, so it keeps running the old"
+  SHELL_SUM=$(shell_sum)
+}
+# In the new shell: the old one's state, every run in flight adopted.
+reexec_load() {
+  local p
+  eval "$(cat "$1")" || return 1
+  rm -f "$1"
+  for p in "${!POOL_RUNS[@]}"; do POOL_ADOPTED[$p]=1; done
+  POOL_RESUMING=1
 }
 
 # One try at publishing every commit of this tree origin/master lacks, run
@@ -803,6 +913,14 @@ if ! command -v claude >/dev/null 2>&1; then
   exit 1
 fi
 
+POOL_PHASE="" fields=() field_i=0
+if [ -n "$REEXEC_STATE" ]; then
+  reexec_load "$REEXEC_STATE" || { alert "the pre-reset backfill re-execed but could not read its state $REEXEC_STATE — stopping; the runs it had in flight resume at the next start."; exit 1; }
+  echo "adopted ${#POOL_ADOPTED[@]} runs in flight: ${POOL_RUNS[*]}"
+fi
+# The start's alone: a re-exec has runs in flight reading the index, and its
+# queue already.
+if [ -z "$REEXEC_STATE" ]; then
 python3 tools/fetch_puzzle.py --reindex >/dev/null
 
 # Top the queue up from the archives before reading it. A window spent with
@@ -834,6 +952,10 @@ echo "un-annotated backlog, newest first:"
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
 solve_blocked=$(python3 tools/failed_inputs.py skipped solve)
 todo=$(python3 tools/prereset_plan.py --backlog "$annotate_blocked" "$solve_blocked")
+naps=0
+queue=($todo)
+at=0
+fi
 
 # Not "Guardian crossword": the queue spans every series. The puzzle file
 # records its own series and publisher.
@@ -843,12 +965,16 @@ ANNOTATE_PROMPT="Annotate the crossword @ in this repo, whose clues and answers 
 # reason daily_update.sh does it: the run should not have to grep for a rule.
 python3 "$REPO/tools/build_annotate_prompt.py"
 
-naps=0
-queue=($todo)
-at=0
 # Reordered at every checkpoint (pool_interval_start). A stop here still runs
 # the backfills below, which stop at once if it was the deadline.
-[ ${#queue[@]} -gt 0 ] && run_pool "Annotate" "$ANNOTATE_PROMPT" 1
+if [ "$POOL_PHASE" = "" ] || [ "$POOL_PHASE" = annotate ]; then
+  POOL_PHASE=annotate
+  [ ${#queue[@]} -gt 0 ] && run_pool "Annotate" "$ANNOTATE_PROMPT" 1
+  # Read here, so a re-exec in the field backfills keeps the list it was
+  # draining.
+  fields=($(python3 -c 'import json;print(" ".join(k for k in json.load(open("tools/annotation_backlog.json")) if not k.startswith("_")))'))
+  field_i=0
+fi
 
 # --- 2. grandfathered-field backfill ------------------------------------------
 # Additive only: these puzzles are already annotated and their hints are fine,
@@ -859,9 +985,8 @@ at=0
 # next month is drained by this job without anyone editing it. Fields drain in
 # the file's key order, which is BACKLOG_MARKERS order in
 # tools/validate_annotations.py (write_backlog writes them so).
-backlog_fields=$(python3 -c 'import json;print(" ".join(k for k in json.load(open("tools/annotation_backlog.json")) if not k.startswith("_")))')
-
-for field in $backlog_fields; do
+for ((; field_i < ${#fields[@]}; field_i++)); do
+  field=${fields[$field_i]}
   # Smallest backlog first: with an unknown amount of quota left, finishing four
   # puzzles beats getting most of the way through one.
   nums=$(python3 -c 'import json,sys
@@ -883,8 +1008,12 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
   prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. tools/annotate_prompt.md (appended to your system prompt) and STYLE.md set the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
-  queue=($nums)
-  at=0
+  # The field a re-exec came back into keeps its queue.
+  if [ "$POOL_PHASE" != "$field" ]; then
+    POOL_PHASE=$field
+    queue=($nums)
+    at=0
+  fi
   if [ ${#queue[@]} -gt 0 ]; then
     run_pool "Backfill $field for" "$prompt" || break
   fi
