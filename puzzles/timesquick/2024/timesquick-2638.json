@@ -24,6 +24,9 @@
   "date": "2024-04-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,51 @@
      }
     ]
    },
-   "solution": "SCOTLANDYARD"
+   "solution": "SCOTLANDYARD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCOTLAND YARD",
+    "definitions": [
+     {
+      "text": "police headquarters",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is wrecked and broken up, so its letters can be rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dastardly con",
+      "gives": "DASTARDLYCON",
+      "note": "the twelve letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DASTARDLYCON",
+       "gives": "SCOTLANDYARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wicked swindle has been wrecked, apparently by the police.",
+     "walkthrough": "SCOTLAND YARD is the headquarters of London's Metropolitan Police.",
+     "definitionFit": "Scotland Yard is the familiar name for the London Metropolitan Police base, so it is literally a police headquarters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "destroyed"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +104,58 @@
     "text": "Knocked around Northern Ireland and drove off",
     "enumeration": "8"
    },
-   "solution": "BANISHED"
+   "solution": "BANISHED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BANISHED",
+    "definitions": [
+     {
+      "text": "drove off",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says one word is wrapped about the outside of the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knocked",
+      "gives": "BASHED",
+      "note": "to bash is to hit or knock"
+     },
+     {
+      "clueFragment": "Northern Ireland",
+      "gives": "NI",
+      "note": "NI is the standard abbreviation for Northern Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "NI",
+      "SHED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was roughed up in Northern Ireland and then drove away.",
+     "walkthrough": "'Drove off' reads as a motoring past tense, but here it is transitive: sent someone away.",
+     "definitionFit": "To banish someone is to expel them or send them away, which is what 'drove off' means as a transitive verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drove"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +169,48 @@
     "text": "Correct leaders of European directorate in triplicate",
     "enumeration": "4"
    },
-   "solution": "EDIT"
+   "solution": "EDIT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EDIT",
+    "definitions": [
+     {
+      "text": "Correct",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders of",
+      "for": "letter_selection",
+      "note": "leaders are those at the front, so take the opening letter of each following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European directorate in triplicate",
+      "gives": "EDIT",
+      "select": "first",
+      "note": "the initial letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A bureaucratic picture of EU directors issuing correct paperwork in three copies.",
+     "definitionFit": "To edit a text is to revise it and put its errors right, a straightforward verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +224,59 @@
     "text": "Working in America getting billed regularly",
     "enumeration": "6"
    },
-   "solution": "USABLE"
+   "solution": "USABLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "USABLE",
+    "definitions": [
+     {
+      "text": "Working",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so keep every other letter of the word"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "USA",
+      "note": "USA is the abbreviation for the United States of America"
+     },
+     {
+      "clueFragment": "billed",
+      "gives": "BLE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of billed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USA",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at work in the States is getting charged at regular intervals.",
+     "definitionFit": "Something usable is in working order and able to be put to use, so the adjectives match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "billed"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +290,58 @@
     "text": "Transplant trees and let develop",
     "enumeration": "8"
    },
-   "solution": "RESETTLE"
+   "solution": "RESETTLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESETTLE",
+    "definitions": [
+     {
+      "text": "Transplant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "develop",
+      "for": "anagram",
+      "note": "to develop is to change and grow into a new form, so the letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trees",
+      "gives": "TREES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "let",
+      "gives": "LET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TREESLET",
+       "gives": "RESETTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gardening advice: move your trees and let them grow.",
+     "definitionFit": "To transplant a population is to move people and settle them somewhere new, which is to resettle them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Transplant"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +355,49 @@
     "text": "Want thing by church",
     "enumeration": "4"
    },
-   "solution": "ITCH"
+   "solution": "ITCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ITCH",
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thing",
+      "gives": "IT",
+      "note": "it is a pronoun standing for a thing"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants a particular item placed beside the church.",
+     "definitionFit": "An itch is a restless longing or craving, so it is a noun meaning a want or desire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Want"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +411,55 @@
     "text": "Start to cook tough vegetable",
     "enumeration": "5"
    },
-   "solution": "CHARD"
+   "solution": "CHARD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHARD",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cook",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of cook"
+     },
+     {
+      "clueFragment": "tough",
+      "gives": "HARD",
+      "note": "tough and hard are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Kitchen advice: start cooking a vegetable that is stringy and tough.",
+     "definitionFit": "Chard is a leafy green plant eaten as a cooked vegetable, an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Start"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +473,54 @@
     "text": "Lieutenant protected by very thin shield",
     "enumeration": "7"
    },
-   "solution": "SHELTER"
+   "solution": "SHELTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHELTER",
+    "definitions": [
+     {
+      "text": "shield",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protected by",
+      "for": "container",
+      "note": "something protected by another is surrounded and guarded by it, so it sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very thin",
+      "gives": "SHEER",
+      "note": "sheer fabric is very thin and fine"
+     },
+     {
+      "clueFragment": "Lieutenant",
+      "gives": "LT",
+      "note": "LT is the military abbreviation for lieutenant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "LT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An army officer is defended by only a flimsy shield.",
+     "definitionFit": "A shelter is a cover or refuge that protects, so it is a noun meaning a shield or protective screen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thin"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +540,54 @@
      }
     ]
    },
-   "solution": "RESTINGPLACE"
+   "solution": "RESTINGPLACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESTING-PLACE",
+    "definitions": [
+     {
+      "text": "bedroom perhaps",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "things that are moved are shifted around, so the letters are placed differently"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Single carpet",
+      "gives": "SINGLECARPET",
+      "note": "the twelve letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINGLECARPET",
+       "gives": "RESTINGPLACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone rug has been carried through into a bedroom.",
+     "walkthrough": "'Perhaps' signals that a bedroom is only one example of the answer.",
+     "definitionFit": "A bedroom is one example of a place where people lie down to sleep and recover, hence a place for repose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "carpet"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +607,61 @@
      }
     ]
    },
-   "solution": "TWINTUB"
+   "solution": "TWINTUB",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TWIN TUB",
+    "definitions": [
+     {
+      "text": "washing machine",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the word merely is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Counterpart",
+      "gives": "TWIN",
+      "note": "a twin is an exact counterpart or match"
+     },
+     {
+      "clueFragment": "merely",
+      "gives": "BUT",
+      "note": "but can mean merely or only, as in 'but a child'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWIN",
+      "TUB"
+     ],
+     "reversals": [
+      {
+       "from": "BUT",
+       "to": "TUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's double simply comes back home with a washing machine.",
+     "walkthrough": "A twin tub is an older style of washing machine, common in Britain, with one drum for washing and another for spinning.",
+     "definitionFit": "A twin tub is a type of domestic laundry appliance with two separate drums, so it is an example of a washing machine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "merely"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +675,48 @@
     "text": "Distinctive character of those moving last to first",
     "enumeration": "5"
    },
-   "solution": "ETHOS"
+   "solution": "ETHOS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ETHOS",
+    "definitions": [
+     {
+      "text": "Distinctive character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving last to first",
+      "for": "cycling",
+      "note": "the final letter is shifted round to the front of the word, rotating it by one place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those",
+      "gives": "THOSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "THOS"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of people whose personality shows as they come from behind to win.",
+     "definitionFit": "An ethos is the characteristic spirit or set of values that marks out a group or culture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +730,62 @@
     "text": "Repugnant sailor with house by river split",
     "enumeration": "9"
    },
-   "solution": "ABHORRENT"
+   "solution": "ABHORRENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABHORRENT",
+    "definitions": [
+     {
+      "text": "Repugnant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able seaman, is a sailor"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     },
+     {
+      "clueFragment": "split",
+      "gives": "RENT",
+      "note": "rent is the past tense of rend, to tear apart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "HO",
+      "R",
+      "RENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim scene: a sailor's house beside a river has been torn apart.",
+     "definitionFit": "Something abhorrent inspires loathing and disgust, which is the sense of repugnant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +799,48 @@
     "text": "Just disagreeable head is missing",
     "enumeration": "8"
    },
-   "solution": "RIGHTFUL"
+   "solution": "RIGHTFUL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIGHTFUL",
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head is missing",
+      "for": "deletion",
+      "note": "a word with no head has lost its first letter, so drop the opening one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disagreeable",
+      "gives": "FRIGHTFUL",
+      "note": "frightful means very unpleasant or disagreeable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHTFUL"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that an unpleasant person in charge has gone absent.",
+     "walkthrough": "'Just' looks like a mere adverb but is the adjective meaning fair.",
+     "definitionFit": "Rightful means legitimate or deserved, which is the adjective sense of just, as in a just claim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +854,49 @@
     "text": "Cold greeting in Greek letter",
     "enumeration": "3"
    },
-   "solution": "CHI"
+   "solution": "CHI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHI",
+    "definitions": [
+     {
+      "text": "Greek letter",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "greeting",
+      "gives": "HI",
+      "note": "hi is an informal greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HI"
+     ]
+    },
+    "explanation": {
+     "surface": "A frosty hello is written in Greek script.",
+     "definitionFit": "Chi is the twenty-second character of the Greek alphabet, written like an X."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cold"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +910,62 @@
     "text": "Prize pig beginning to destroy item of furniture",
     "enumeration": "8"
    },
-   "solution": "CUPBOARD"
+   "solution": "CUPBOARD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CUPBOARD",
+    "definitions": [
+     {
+      "text": "item of furniture",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prize",
+      "gives": "CUP",
+      "note": "a cup is a trophy awarded as a prize"
+     },
+     {
+      "clueFragment": "pig",
+      "gives": "BOAR",
+      "note": "a boar is a male pig"
+     },
+     {
+      "clueFragment": "destroy",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of destroy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUP",
+      "BOAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An award-winning hog starts wrecking the furniture.",
+     "definitionFit": "A cupboard is a cabinet with doors and shelves, an example of a piece of household furniture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Prize"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +979,51 @@
     "text": "Druid oddly is no good",
     "enumeration": "3"
    },
-   "solution": "DUD"
+   "solution": "DUD",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "DUD",
+    "definitions": [
+     {
+      "text": "no good",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly points to the odd-numbered positions, the first, third and fifth letters"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Druid",
+      "gives": "DUD",
+      "select": "alternate",
+      "note": "letters one, three and five of Druid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUD"
+     ]
+    },
+    "explanation": {
+     "surface": "A verdict that a strange pagan priest is useless.",
+     "definitionFit": "A dud is something that fails to work, so as an adjective it means useless or no good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Druid"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1043,64 @@
      }
     ]
    },
-   "solution": "GUINEAPIG"
+   "solution": "GUINEAPIG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GUINEA PIG",
+    "definitions": [
+     {
+      "text": "pet",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so take just the first letter of the word"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "gives": "GUINEA",
+      "note": "a guinea is an old British gold coin worth twenty-one shillings"
+     },
+     {
+      "clueFragment": "private investigator",
+      "gives": "PI",
+      "note": "PI is the abbreviation for private investigator"
+     },
+     {
+      "clueFragment": "gets",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of gets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUINEA",
+      "PI",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective is paid and, at first, comes across a pet.",
+     "definitionFit": "A guinea pig is a small rodent commonly kept by children, an example of a household pet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Money"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1114,62 @@
     "text": "Drink that is covering minute part of apron",
     "enumeration": "6"
    },
-   "solution": "IMBIBE"
+   "solution": "IMBIBE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IMBIBE",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping around the outside, so one piece encloses the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, Latin for that is"
+     },
+     {
+      "clueFragment": "minute",
+      "gives": "M",
+      "note": "M is the abbreviation for minute"
+     },
+     {
+      "clueFragment": "part of apron",
+      "gives": "BIB",
+      "note": "the bib is the upper section of an apron covering the chest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "BIB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A quick drink is taken while wearing a tiny bit of an apron.",
+     "walkthrough": "'Minute' reads as tiny in the surface, but it is the unit of time.",
+     "definitionFit": "To imbibe is to drink, usually alcohol, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "minute"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1183,47 @@
     "text": "Bit of lamb I threw in range",
     "enumeration": "5"
    },
-   "solution": "AMBIT"
+   "solution": "AMBIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AMBIT",
+    "definitions": [
+     {
+      "text": "range",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bit of",
+      "for": "hidden_word",
+      "note": "a bit of something is a portion of it, so the answer is a run of letters within the words"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lamb I threw",
+      "gives": "AMBIT",
+      "note": "the run of letters spanning these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hurled a piece of lamb across the range in the kitchen.",
+     "walkthrough": "'Range' suggests a cooker in this kitchen scene; it means scope.",
+     "definitionFit": "Ambit is the scope or extent of something's influence, which is one sense of range."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1237,42 @@
     "text": "Fish deep",
     "enumeration": "4"
    },
-   "solution": "BASS"
+   "solution": "BASS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BASS",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     },
+     {
+      "text": "deep",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "note": "first meaning: a spiny-finned fish, pronounced to rhyme with mass"
+     },
+     {
+      "clueFragment": "deep",
+      "note": "second meaning: low in pitch, as of a voice, rhyming with base"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two meanings are spelt the same but pronounced differently.",
+     "definitionFit": "The word names an edible fish and, as an adjective, describes a sound low in pitch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deep"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1292,55 @@
      }
     ]
    },
-   "solution": "BARNOWL"
+   "solution": "BARNOWL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARN OWL",
+    "definitions": [
+     {
+      "text": "Predator",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tavern",
+      "gives": "BAR",
+      "note": "a bar is a place serving drinks, like a tavern"
+     },
+     {
+      "clueFragment": "immediately",
+      "gives": "NOW",
+      "note": "now means at once, immediately"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "NOW",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A dangerous person in a pub has just walked out.",
+     "definitionFit": "A barn owl is a nocturnal bird of prey that hunts mice and voles, so it is a predator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Predator"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1354,63 @@
     "text": "Annoy king having a fortune but missing penny",
     "enumeration": "4"
    },
-   "solution": "RILE"
+   "solution": "RILE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RILE",
+    "definitions": [
+     {
+      "text": "Annoy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means lacking something, so a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     },
+     {
+      "clueFragment": "a fortune",
+      "gives": "PILE",
+      "note": "a pile is informal for a large amount of money"
+     },
+     {
+      "clueFragment": "penny",
+      "gives": "P",
+      "note": "P is the abbreviation for penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ILE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rich monarch who is short of a single penny gets cross.",
+     "walkthrough": "PILE loses its P to leave ILE.",
+     "definitionFit": "To rile someone is to irritate or anger them, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fortune"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1424,50 @@
     "text": "Dirt bus dispersed causes upset",
     "enumeration": "7"
    },
-   "solution": "DISTURB"
+   "solution": "DISTURB",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISTURB",
+    "definitions": [
+     {
+      "text": "causes upset",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dispersed",
+      "for": "anagram",
+      "note": "dispersed means scattered in all directions, so the letters are spread into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dirt bus",
+      "gives": "DIRTBUS",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIRTBUS",
+       "gives": "DISTURB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dust cart scattering muck makes people annoyed.",
+     "definitionFit": "To disturb someone is to unsettle or agitate them, which is what causing upset means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bus"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1481,50 @@
     "text": "Poem disturbed Cyril",
     "enumeration": "5"
    },
-   "solution": "LYRIC"
+   "solution": "LYRIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LYRIC",
+    "definitions": [
+     {
+      "text": "Poem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "something disturbed is thrown out of its settled state, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cyril",
+      "gives": "CYRIL",
+      "note": "the name supplies the five letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CYRIL",
+       "gives": "LYRIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A verse upset a man named Cyril.",
+     "definitionFit": "A lyric is a short poem expressing personal feeling, so it is a kind of poem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cyril"
+    }
+   }
   }
  ]
 }
