@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Coherent American serving in pub",
     "enumeration": "7"
    },
-   "solution": "LOGICAL"
+   "solution": "LOGICAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOGICAL",
+    "definitions": [
+     {
+      "text": "Coherent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "serving in",
+      "for": "container",
+      "note": "someone serving in a place is stationed inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "LOCAL",
+      "note": "your local is your nearest pub"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "GI",
+      "CAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sensible American is working behind the bar of a pub.",
+     "walkthrough": "Serving looks like pulling pints, but it is soldiering. A local is the British term for one's regular neighbourhood pub.",
+     "definitionFit": "A coherent argument is a reasoned one that hangs together, which is what logical describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "serving"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,53 @@
     "text": "Dropping ecstasy, US singer looked angry",
     "enumeration": "6"
    },
-   "solution": "LOURED"
+   "solution": "LOURED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOURED",
+    "definitions": [
+     {
+      "text": "looked angry",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dropping",
+      "for": "deletion",
+      "note": "to drop something is to let it go, so that letter is taken out of the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "US singer",
+      "gives": "LOUREED",
+      "note": "Lou Reed, the American singer of the Velvet Underground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOURED"
+     ]
+    },
+    "explanation": {
+     "surface": "An American rock star gives up drugs and scowls.",
+     "walkthrough": "Removing the E from LOU REED leaves LOURED.",
+     "definitionFit": "To lour (or lower) is to frown or scowl, so loured is a past-tense verb meaning glowered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ecstasy"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +158,56 @@
     "text": "Contagious virus – complaint with extra power",
     "enumeration": "6"
    },
-   "solution": "GRIPPE"
+   "solution": "GRIPPE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRIPPE",
+    "definitions": [
+     {
+      "text": "Contagious virus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with extra",
+      "for": "container",
+      "note": "something extra is added into the word, here slotted in among its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "complaint",
+      "gives": "GRIPE",
+      "note": "a gripe is a grumble"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRIP",
+      "P",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Catching an infectious bug is a complaint with real force.",
+     "walkthrough": "The surface reads complaint as an illness; it is a grumble, with the extra P placed inside.",
+     "definitionFit": "Grippe is an old name, borrowed from French, for influenza, an infectious viral illness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +227,55 @@
      }
     ]
    },
-   "solution": "CHERRYPICK"
+   "solution": "CHERRYPICK",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "CHERRY-PICK",
+    "definitions": [
+     {
+      "text": "Unfairly select",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "what is on the radio is heard rather than seen, so the spelling follows the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pop diva",
+      "gives": "CHER",
+      "note": "Cher, the singer"
+     },
+     {
+      "clueFragment": "track",
+      "gives": "RY",
+      "note": "RY is short for railway"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "PICK",
+      "soundsLike": "PIC",
+      "note": "a still is a photograph, a pic"
+     }
+    ],
+    "explanation": {
+     "surface": "A DJ unfairly favours a particular diva's song, still being played on air.",
+     "walkthrough": "Track looks like a song and still like 'even now'; they are the railway and a photograph.",
+     "definitionFit": "To cherry-pick is to choose only the most favourable items, a biased kind of selection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +289,56 @@
     "text": "Lizzie's jacket fitting Rose remarkably",
     "enumeration": "5"
    },
-   "solution": "LEAPT"
+   "solution": "LEAPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEAPT",
+    "definitions": [
+     {
+      "text": "Rose remarkably",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jacket",
+      "for": "letter_selection",
+      "note": "a jacket is the outer layer, so only the outside letters of the name are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lizzie's",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the first and last letters of Lizzie"
+     },
+     {
+      "clueFragment": "fitting",
+      "gives": "APT",
+      "note": "fitting means suitable, apt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "APT"
+     ]
+    },
+    "explanation": {
+     "surface": "Elizabeth's coat suits a woman called Rose remarkably well.",
+     "walkthrough": "Rose looks like a woman's name, but it is the past tense of rise.",
+     "definitionFit": "Leapt is a past-tense verb for jumping up, a sudden and striking way of rising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rose"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +358,60 @@
      }
     ]
    },
-   "solution": "OPENTOP"
+   "solution": "OPENTOP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPEN-TOP",
+    "definitions": [
+     {
+      "text": "with no roof",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to save",
+      "for": "container",
+      "note": "to save something is to hold onto it, so the pieces wrap around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work",
+      "gives": "OP",
+      "note": "OP is short for opus, a work"
+     },
+     {
+      "clueFragment": "part of hospital",
+      "gives": "ENT",
+      "note": "the ear, nose and throat department"
+     },
+     {
+      "clueFragment": "repeatedly",
+      "gives": "OP",
+      "note": "the work is given a second time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "ENT",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Hospital staff keep working on a ward whose roof has gone.",
+     "walkthrough": "Repeatedly asks for OP twice, and the pair holds ENT: OP-ENT-OP.",
+     "definitionFit": "An open-top vehicle, such as a sightseeing bus, has no roof over its passengers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "save"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +425,55 @@
     "text": "Old fellows with lots of cash getting dumped",
     "enumeration": "9"
    },
-   "solution": "OFFLOADED"
+   "solution": "OFFLOADED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFLOADED",
+    "definitions": [
+     {
+      "text": "dumped",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "fellows",
+      "gives": "FF",
+      "note": "F for fellow, doubled for the plural"
+     },
+     {
+      "clueFragment": "with lots of cash",
+      "gives": "LOADED",
+      "note": "loaded means very rich"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "FF",
+      "LOADED"
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly wealthy men find themselves being dumped by their partners.",
+     "definitionFit": "To offload is to get rid of something unwanted, so offloaded is a synonym for dumped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fellows"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +487,67 @@
     "text": "Old French bread and sauce American leaves out",
     "enumeration": "4"
    },
-   "solution": "ECUS"
+   "solution": "ECUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ECUS",
+    "definitions": [
+     {
+      "text": "Old French bread",
+      "at": 0,
+      "note": "bread is a mass noun here; the answer is plural coins"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "whatever leaves is no longer there, so that letter goes"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or disordered, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sauce",
+      "gives": "SAUCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUCE",
+       "gives": "ECUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American skips the sauce and has plain French bread.",
+     "walkthrough": "Bread looks like food, but it is slang for money: the écu was an old French coin.",
+     "definitionFit": "Ecus were historical French coins, and bread is slang for money, so old French money fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +561,53 @@
     "text": "Pious hairstyles certainly embraced by many",
     "enumeration": "8"
    },
-   "solution": "TONSURES"
+   "solution": "TONSURES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TONSURES",
+    "definitions": [
+     {
+      "text": "Pious hairstyles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraced by",
+      "for": "container",
+      "note": "what is embraced is held in someone's arms, so it sits inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many",
+      "gives": "TONS",
+      "note": "tons means lots"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "SURE",
+      "note": "sure as an emphatic yes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TON",
+      "SURE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Religious haircuts are, of course, popular with many people.",
+     "definitionFit": "A tonsure is the shaved crown worn by monks, a haircut adopted for religious devotion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +621,67 @@
     "text": "Sunak welcoming sale on modified foreign imports, say",
     "enumeration": "8"
    },
-   "solution": "PLEONASM"
+   "solution": "PLEONASM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PLEONASM",
+    "definitions": [
+     {
+      "text": "foreign imports, say",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "modified",
+      "for": "anagram",
+      "note": "something modified has been changed, so these letters are rearranged"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so the outer piece goes around the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sunak",
+      "gives": "PM",
+      "note": "Rishi Sunak was Prime Minister"
+     },
+     {
+      "clueFragment": "sale on",
+      "gives": "SALEON",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEONAS",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SALEON",
+       "gives": "LEONAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Prime Minister welcomes a discount on altered goods brought in from abroad.",
+     "walkthrough": "The definition is an example: imports are foreign by nature, so the phrase says the same thing twice.",
+     "definitionFit": "A pleonasm is a redundant use of words, as in calling imports foreign when that is already implied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "imports"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +695,43 @@
     "text": "Waste hour in Ealing? Not all of it",
     "enumeration": "5"
    },
-   "solution": "URINE"
+   "solution": "URINE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "URINE",
+    "definitions": [
+     {
+      "text": "Waste",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not all of it",
+      "for": "hidden_word",
+      "note": "only part of the phrase is used, so the answer sits inside the run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hour in Ealing",
+      "gives": "URINE",
+      "note": "inside hoUR IN Ealing"
+     }
+    ],
+    "explanation": {
+     "surface": "Wasting an hour in a London suburb, though not the whole of it.",
+     "walkthrough": "Ealing is a district of west London.",
+     "definitionFit": "Urine is the liquid waste the body passes, so waste works as a general term for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Waste"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +745,62 @@
     "text": "Having cash to flash, a dodgy dealer catches 2",
     "enumeration": "9"
    },
-   "solution": "AFFLUENCE"
+   "solution": "AFFLUENCE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AFFLUENCE",
+    "definitions": [
+     {
+      "text": "Having cash to flash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catches",
+      "for": "container",
+      "note": "to catch something is to trap it, so the dealer surrounds the illness"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dodgy dealer",
+      "gives": "FENCE",
+      "note": "a fence deals in stolen goods"
+     },
+     {
+      "clueFragment": "2",
+      "gives": "FLU",
+      "note": "2 refers to the answer at 2 Down, a name for influenza"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "F",
+      "FLU",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shady dealer with money to show off catches a nasty bug.",
+     "walkthrough": "The bare number is a cross-reference: it stands for the answer at 2 Down, whose everyday name supplies the inner piece.",
+     "definitionFit": "Affluence is wealth, the state of having plenty of money to spend and show off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "catches"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +814,69 @@
     "text": "Old detective, one entering shop for a wheeze, say",
     "enumeration": "10"
    },
-   "solution": "EXPIRATION"
+   "solution": "EXPIRATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXPIRATION",
+    "definitions": [
+     {
+      "text": "a wheeze, say",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes inside, so the single letter is placed within the verb"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "detective",
+      "gives": "PI",
+      "note": "a private investigator"
+     },
+     {
+      "clueFragment": "shop",
+      "gives": "RATON",
+      "note": "to shop someone is to rat on them"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PI",
+      "RAT",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A retired sleuth breaks into a shop as some clever scheme.",
+     "walkthrough": "Shop is a verb, British slang for informing on someone; wheeze looks like a scheme but is a breath.",
+     "definitionFit": "Expiration is breathing out, and a wheeze is one noisy example of an outgoing breath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wheeze"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +890,57 @@
     "text": "Scottish writer cutting the BS and the pot",
     "enumeration": "3"
    },
-   "solution": "URN"
+   "solution": "URN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "URN",
+    "definitions": [
+     {
+      "text": "pot",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "deletion",
+      "note": "cutting things means removing them, here the named letters"
+     }
+    ],
+    "linkWords": [
+     "and the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish writer",
+      "gives": "BURNS",
+      "note": "Robert Burns, the Scottish poet"
+     },
+     {
+      "clueFragment": "the BS",
+      "gives": "BS",
+      "note": "the letters B and S to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish author drops the nonsense and the drugs.",
+     "walkthrough": "BS looks like slang for nonsense and pot like cannabis; one names two letters, the other a vessel.",
+     "definitionFit": "An urn is a large vase or pot, often for ashes or for serving tea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +954,54 @@
     "text": "Sixty engineers stopping a source of excitement on match day",
     "enumeration": "10"
    },
-   "solution": "THREESCORE"
+   "solution": "THREESCORE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THREESCORE",
+    "definitions": [
+     {
+      "text": "Sixty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "something stopping a hole plugs it, so it sits inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "engineers",
+      "gives": "RE",
+      "note": "the Royal Engineers"
+     },
+     {
+      "clueFragment": "a source of excitement on match day",
+      "gives": "THESCORE",
+      "note": "fans keep checking the current score"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "RE",
+      "ESCORE"
+     ]
+    },
+    "explanation": {
+     "surface": "Sixty engineers block a thrilling moment on the day of the game.",
+     "definitionFit": "A score is twenty, so three of them make the archaic number sixty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stopping"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1015,75 @@
     "text": "Maybe Marge Simpson's opening these funny programs",
     "enumeration": "12"
    },
-   "solution": "SPREADSHEETS"
+   "solution": "SPREADSHEETS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SPREADSHEETS",
+    "definitions": [
+     {
+      "text": "programs",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is the start, so only the first letter of the surname is used"
+     },
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny means peculiar, so the letters are rearranged oddly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe Marge",
+      "gives": "SPREAD",
+      "note": "marge, short for margarine, is a spread"
+     },
+     {
+      "clueFragment": "Simpson's",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Simpson"
+     },
+     {
+      "clueFragment": "these",
+      "gives": "THESE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPREAD",
+      "S",
+      "HEETS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THESE",
+       "gives": "HEETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Marge from The Simpsons launches some comic television shows.",
+     "walkthrough": "Marge Simpson is the cartoon mother, but marge is British shorthand for margarine.",
+     "definitionFit": "Spreadsheets are software applications, so programs (computer sense) covers them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Marge"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1097,62 @@
     "text": "English setter better without clothing decoration",
     "enumeration": "9"
    },
-   "solution": "EPAULETTE"
+   "solution": "EPAULETTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EPAULETTE",
+    "definitions": [
+     {
+      "text": "decoration",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without clothing",
+      "for": "letter_selection",
+      "note": "a word stripped of clothing has lost its outer layer, so only its inside remains"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "PAUL",
+      "note": "Paul is a fellow Guardian crossword setter"
+     },
+     {
+      "clueFragment": "better",
+      "gives": "ETTE",
+      "select": "middle",
+      "note": "the inside letters of better"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PAUL",
+      "ETTE"
+     ]
+    },
+    "explanation": {
+     "surface": "An English crossword setter, better off undressed, says something about ornament.",
+     "walkthrough": "Setter looks like a dog, but it is a crossword compiler, here Paul from the same paper.",
+     "definitionFit": "An epaulette is an ornamental shoulder piece on a uniform, a decoration worn on clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1166,66 @@
     "text": "Speaks incoherently, even leaving S Club 7",
     "enumeration": "8"
    },
-   "solution": "SPUTTERS"
+   "solution": "SPUTTERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SPUTTERS",
+    "definitions": [
+     {
+      "text": "Speaks incoherently",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "what is leaving departs, so those letters are taken out of the number word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "S",
+      "gives": "S",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Club",
+      "gives": "PUTTER",
+      "note": "a putter is a golf club"
+     },
+     {
+      "clueFragment": "even",
+      "gives": "EVEN",
+      "note": "the letters to remove"
+     },
+     {
+      "clueFragment": "7",
+      "gives": "SEVEN",
+      "note": "the number written as a word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PUTTER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mumbles nonsense, even as they quit a pop group.",
+     "walkthrough": "S Club 7 is a British pop group, but the name splits apart: even is an instruction acting on the number written out in words.",
+     "definitionFit": "To sputter is to speak in hasty, spluttering bursts, which comes out incoherent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Club"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1239,62 @@
     "text": "Performed start of play, Chekhov's first with a message",
     "enumeration": "8"
    },
-   "solution": "DIDACTIC"
+   "solution": "DIDACTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DIDACTIC",
+    "definitions": [
+     {
+      "text": "with a message",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means the opening letter only of the playwright's name is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Performed",
+      "gives": "DID",
+      "note": "did as in carried out"
+     },
+     {
+      "clueFragment": "start of play",
+      "gives": "ACTI",
+      "note": "a play begins with Act I"
+     },
+     {
+      "clueFragment": "Chekhov's",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of Chekhov"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DID",
+      "ACTI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre company performed the opening of a Chekhov play, which carried a moral.",
+     "walkthrough": "Start of play looks like a letter-selection clue for P, but it is the opening act, Act I.",
+     "definitionFit": "Didactic means intended to teach, so a didactic work carries a moral or instructive lesson."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1314,65 @@
      }
     ]
    },
-   "solution": "PRINCEANDREW"
+   "solution": "PRINCEANDREW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRINCE ANDREW",
+    "definitions": [
+     {
+      "text": "not a sweater?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish, so the letters are a mess to be rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nerd",
+      "gives": "NERD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "NEW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Capri",
+      "gives": "CAPRI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NERDNEWCAPRI",
+       "gives": "PRINCEANDREW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geek in fresh capri trousers asks whether he avoids wearing a jumper.",
+     "walkthrough": "Pants look like the trousers but are the signal; the royal claimed in a 2019 TV interview that he could not sweat.",
+     "definitionFit": "The prince said a medical condition left him unable to perspire, so he is jokingly someone who does not sweat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sweater"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1386,50 @@
     "text": "It's heard in Kabul at posh parties",
     "enumeration": "6"
    },
-   "solution": "PASHTO"
+   "solution": "PASHTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PASHTO",
+    "definitions": [
+     {
+      "text": "It's heard in Kabul",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parties",
+      "for": "anagram",
+      "note": "parties is read as a verb, splitting up and dividing, so the letters are broken and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at posh",
+      "gives": "ATPOSH",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATPOSH",
+       "gives": "PASHTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Talk overheard at smart gatherings in Afghanistan's capital.",
+     "definitionFit": "Pashto is one of Afghanistan's official languages, spoken by many people in Kabul."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "parties"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1443,57 @@
     "text": "Swiss banker, briefly working, gets indicator of time",
     "enumeration": "6"
    },
-   "solution": "GNOMON"
+   "solution": "GNOMON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GNOMON",
+    "definitions": [
+     {
+      "text": "indicator of time",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swiss banker",
+      "gives": "GNOME",
+      "note": "Zurich bankers are nicknamed the gnomes of Zurich"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GNOM",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A Swiss banker, putting in short hours, acquires a timepiece.",
+     "definitionFit": "A gnomon is the pin on a sundial whose shadow shows the hour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "briefly"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1517,66 @@
    "group": [
     "21-across",
     "24-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TEA-CAKE",
+    "definitions": [
+     {
+      "text": "sweet food",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Only half of",
+      "for": "letter_selection",
+      "note": "only half of each word is kept, its front portion, and the rest discarded"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teachers",
+      "gives": "TEAC",
+      "select": "first",
+      "note": "the first four of its eight letters"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "A",
+      "select": "first",
+      "note": "the first of its two letters"
+     },
+     {
+      "clueFragment": "keen",
+      "gives": "KE",
+      "select": "first",
+      "note": "the first two of its four letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAC",
+      "A",
+      "KE"
+     ]
+    },
+    "explanation": {
+     "surface": "Only half the teaching staff are eager for a sweet treat.",
+     "walkthrough": "The surface suggests half of the teachers as people; it means the first half of each word that follows.",
+     "definitionFit": "A teacake is a sweet bun, often with dried fruit, served toasted and buttered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1590,52 @@
     "text": "Drop of claret is too bland when drunk",
     "enumeration": "10"
    },
-   "solution": "BLOODSTAIN"
+   "solution": "BLOODSTAIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLOODSTAIN",
+    "definitions": [
+     {
+      "text": "Drop of claret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when drunk",
+      "for": "anagram",
+      "note": "drunk means intoxicated and unsteady, so the letters stagger into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is too bland",
+      "gives": "ISTOOBLAND",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISTOOBLAND",
+       "gives": "BLOODSTAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wine critic finds a sip of Bordeaux lacking flavour once drunk.",
+     "walkthrough": "Claret looks like the wine, but it is old boxing slang for blood.",
+     "definitionFit": "A bloodstain is the mark left by a drop of blood, and claret is slang for blood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "claret"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1649,58 @@
     "text": "Marx, after revolution, becoming media personality",
     "enumeration": "5"
    },
-   "solution": "OPRAH"
+   "solution": "OPRAH",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "OPRAH",
+    "definitions": [
+     {
+      "text": "media personality",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after revolution",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so the name is read the other way"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marx",
+      "gives": "HARPO",
+      "note": "Harpo Marx, one of the Marx Brothers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPRAH"
+     ],
+     "reversals": [
+      {
+       "from": "HARPO",
+       "to": "OPRAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Following the revolution, Marx becomes a TV star.",
+     "walkthrough": "Marx points to Karl and revolution, but it is Harpo of the comedy Marx Brothers.",
+     "definitionFit": "Oprah Winfrey is a famous American talk-show host and television personality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1727,56 @@
     "text": "Spear carrier hasn't finished with e.g. Brad Pitt fan?",
     "enumeration": "9"
    },
-   "solution": "EXTRACTOR"
+   "solution": "EXTRACTOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EXTRACTOR",
+    "definitions": [
+     {
+      "text": "fan?",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hasn't finished",
+      "for": "deletion",
+      "note": "something not finished lacks its end, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spear carrier",
+      "gives": "EXTRA",
+      "note": "a spear carrier is a non-speaking extra on stage"
+     },
+     {
+      "clueFragment": "e.g. Brad Pitt",
+      "gives": "ACTOR",
+      "note": "Brad Pitt is an example of a film actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXTR",
+      "ACTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A bit-part player who hasn't made it is an admirer of a Hollywood star.",
+     "walkthrough": "Fan suggests an admirer of Brad Pitt; it is an electric fan that draws out air.",
+     "definitionFit": "An extractor fan removes stale air or steam, so a fan can be an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fan"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1790,64 @@
     "text": "Ancient characters travel westwards with unsubtle performer",
     "enumeration": "5"
    },
-   "solution": "OGHAM"
+   "solution": "OGHAM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OGHAM",
+    "definitions": [
+     {
+      "text": "Ancient characters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "westwards",
+      "for": "reversal",
+      "note": "in an across answer westwards means right to left, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "travel",
+      "gives": "GO",
+      "note": "to go is to travel"
+     },
+     {
+      "clueFragment": "unsubtle performer",
+      "gives": "HAM",
+      "note": "a ham is an over-the-top actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OG",
+      "HAM"
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly characters head west with a hammy actor.",
+     "walkthrough": "Characters look like people in a story; they are letters of an old alphabet.",
+     "definitionFit": "Ogham is an early Irish alphabet of strokes cut on stone, so its letters are ancient characters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1861,58 @@
     "text": "Conceal what tourists may do in Greece, losing energy once",
     "enumeration": "7"
    },
-   "solution": "SECRETE"
+   "solution": "SECRETE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SECRETE",
+    "definitions": [
+     {
+      "text": "Conceal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it is gone, so that letter is removed from the phrase"
+     },
+     {
+      "text": "once",
+      "for": "deletion",
+      "note": "once limits the loss to a single occurrence, since the phrase holds the letter twice"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what tourists may do in Greece",
+      "gives": "SEECRETE",
+      "note": "visitors might see Crete, a Greek island"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SECRETE"
+     ]
+    },
+    "explanation": {
+     "surface": "Hiding what holidaymakers get up to in Greece after their stamina has gone.",
+     "walkthrough": "Crete is a Greek island; of the two E letters in the phrase, only one goes.",
+     "definitionFit": "To secrete something is to hide it away, a less common sense than producing a fluid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1926,81 @@
     "text": "Oddly, Hoover now wild about Democratic Party in US",
     "enumeration": "7"
    },
-   "solution": "HOEDOWN"
+   "solution": "HOEDOWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "HOEDOWN",
+    "definitions": [
+     {
+      "text": "Party in US",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the letters in odd-numbered positions only"
+     },
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means out of control, so the letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the rearranged letters go round the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hoover",
+      "gives": "HOE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     },
+     {
+      "clueFragment": "now",
+      "gives": "NOW",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "Democratic",
+      "gives": "D",
+      "note": "D is the abbreviation for Democratic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOE",
+      "D",
+      "OWN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOW",
+       "gives": "OWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Strangely, a Hoover now goes crazy over the Democratic Party in America.",
+     "walkthrough": "Hoover suggests the US president and Party the political party; it is a barn-dance party.",
+     "definitionFit": "A hoedown is an American country dance or party with folk music and square dancing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Party"
+    }
+   }
   }
  ]
 }
