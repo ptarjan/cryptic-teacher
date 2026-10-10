@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Fall of assassin that's central to Ides",
     "enumeration": "7"
    },
-   "solution": "CASCADE"
+   "solution": "CASCADE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CASCADE",
+    "definitions": [
+     {
+      "text": "Fall",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "central to",
+      "for": "letter_selection",
+      "note": "what is central to a word is its middle, so only the inner letters of the following word are kept"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "assassin",
+      "gives": "CASCA",
+      "note": "Casca was one of the conspirators who stabbed Julius Caesar"
+     },
+     {
+      "clueFragment": "Ides",
+      "gives": "DE",
+      "select": "middle",
+      "note": "the two middle letters of Ides"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASCA",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Roman conspirator's downfall, tied to the Ides of March when Caesar was murdered.",
+     "walkthrough": "The Caesar setting makes 'Fall' look like the assassin's ruin; it is the definition, a noun for falling water.",
+     "definitionFit": "A cascade is a waterfall, water falling in stages down rocks, so a fall in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fall"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +103,44 @@
     "text": "Hit hard and take into custody",
     "enumeration": "4"
    },
-   "solution": "CUFF"
+   "solution": "CUFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CUFF",
+    "definitions": [
+     {
+      "text": "Hit hard",
+      "at": 0
+     },
+     {
+      "text": "take into custody",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit hard",
+      "note": "first meaning: strike with the hand"
+     },
+     {
+      "clueFragment": "take into custody",
+      "note": "second meaning: put handcuffs on"
+     }
+    ],
+    "explanation": {
+     "surface": "A police officer roughing up a suspect while arresting them.",
+     "definitionFit": "To cuff is to strike someone with an open hand, and also informal for handcuffing an arrested person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +154,71 @@
     "text": "Founder of NSYNC vocalised after Justin finally left",
     "enumeration": "4"
    },
-   "solution": "SINK"
+   "solution": "SINK",
+   "annotation": {
+    "type": [
+     "homophone",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "SINK",
+    "definitions": [
+     {
+      "text": "Founder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vocalised",
+      "for": "homophone",
+      "note": "vocalised means spoken, so the band name is taken by its sound rather than its spelling"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the name before it"
+     },
+     {
+      "text": "left",
+      "for": "deletion",
+      "note": "something that has left is gone, so that letter's sound is removed"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "NSYNC",
+      "gives": "NSINK",
+      "soundsLike": "EN SINK",
+      "note": "the boy band's name is pronounced like the letter N followed by a word for a basin"
+     },
+     {
+      "clueFragment": "Justin",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of Justin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINK"
+     ]
+    },
+    "explanation": {
+     "surface": "The band founding member left after Justin Timberlake went solo.",
+     "walkthrough": "'Founder' looks like the person who started NSYNC; it is the verb. NSYNC is an American boy band whose lead singer was Justin Timberlake.",
+     "definitionFit": "A ship that founders fills with water and goes down, so it sinks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Founder"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +238,70 @@
      }
     ]
    },
-   "solution": "ACADEMICDEGREES"
+   "solution": "ACADEMICDEGREES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "ACADEMIC DEGREES",
+    "definitions": [
+     {
+      "text": "B.S. and more",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a name is its first letter, which is all that is kept"
+     },
+     {
+      "text": "Around",
+      "for": "container",
+      "note": "the following words go around that single letter, enclosing it"
+     },
+     {
+      "text": "Nonsense",
+      "for": "anagram",
+      "note": "nonsense makes no sense as ordered, so the letters must be rearranged to make sense"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America seceded",
+      "gives": "AMERICASECEDED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "G7",
+      "gives": "G",
+      "select": "first",
+      "note": "first character of G7"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMERICASECEDEDG",
+       "gives": "ACADEMICDEGREES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political fantasy that the US quit the G7 group of nations, dismissed as nonsense.",
+     "walkthrough": "B.S. is the American abbreviation for a Bachelor of Science; the British write BSc. The question mark flags the absurd political premise.",
+     "definitionFit": "A Bachelor of Science is one university qualification, and masters and doctorates are more of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nonsense"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +315,51 @@
     "text": "Animal on which Darwin rode, starting out",
     "enumeration": "5"
    },
-   "solution": "EAGLE"
+   "solution": "EAGLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EAGLE",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starting out",
+      "for": "deletion",
+      "note": "with its start out, the first letter of the ship's name is removed"
+     }
+    ],
+    "linkWords": [
+     "on which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Darwin rode",
+      "gives": "BEAGLE",
+      "note": "Charles Darwin sailed round the world on HMS Beagle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Recalling the vessel Darwin travelled on when first setting out.",
+     "walkthrough": "'Animal on which Darwin rode' suggests a horse or tortoise; the animal is the definition, and what he rode was a ship.",
+     "definitionFit": "An eagle is a large bird of prey, and birds are animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rode"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +373,50 @@
     "text": "Casper travels a long way",
     "enumeration": "6"
    },
-   "solution": "PARSEC"
+   "solution": "PARSEC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PARSEC",
+    "definitions": [
+     {
+      "text": "a long way",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travels",
+      "for": "anagram",
+      "note": "a name that travels moves about, so its letters are set in motion into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Casper",
+      "gives": "CASPER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CASPER",
+       "gives": "PARSEC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Casper, perhaps the friendly ghost, goes on a lengthy journey.",
+     "definitionFit": "A parsec is an astronomical unit of distance of about 3.26 light years, certainly a long way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "travels"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +436,50 @@
      }
     ]
    },
-   "solution": "APOTHECARYSSHOP"
+   "solution": "APOTHECARYSSHOP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APOTHECARYS SHOP",
+    "definitions": [
+     {
+      "text": "where chemist's seen",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Insane",
+      "for": "anagram",
+      "note": "insane means deranged, so the letters lose their order and are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "psychopath arose",
+      "gives": "PSYCHOPATHAROSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PSYCHOPATHAROSE",
+       "gives": "APOTHECARYSSHOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deranged killer emerges at the local pharmacy.",
+     "definitionFit": "An apothecary was an old-fashioned pharmacist, so his shop is where a chemist (pharmacist) would be found."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "psychopath"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +493,55 @@
     "text": "Stinking initials B.O. elicit sound of disapproval",
     "enumeration": "10"
    },
-   "solution": "SIBILATION"
+   "solution": "SIBILATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIBILATION",
+    "definitions": [
+     {
+      "text": "sound of disapproval",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stinking",
+      "for": "anagram",
+      "note": "something stinking is rotten, so the letters are spoiled and rearranged"
+     }
+    ],
+    "linkWords": [
+     "elicit"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "initials B.O.",
+      "gives": "INITIALSBO",
+      "note": "taken as written, dots dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INITIALSBO",
+       "gives": "SIBILATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The letters B.O. for body odour provoke a hiss of disgust.",
+     "walkthrough": "B.O. is body odour, which explains the 'Stinking'.",
+     "definitionFit": "Sibilation is a hissing sound, the noise an audience makes to show it disapproves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stinking"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +561,51 @@
      }
     ]
    },
-   "solution": "CROSSDRESS"
+   "solution": "CROSSDRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSS-DRESS",
+    "definitions": [
+     {
+      "text": "A 'queen' may do this",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snappy",
+      "gives": "CROSS",
+      "note": "someone snappy is irritable, cross"
+     },
+     {
+      "clueFragment": "ornamentation",
+      "gives": "DRESS",
+      "note": "to dress is to adorn, as in dressing a window or a tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "DRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A drag queen pairing a sharp outfit with elaborate accessories.",
+     "walkthrough": "The quotation marks around 'queen' point to a drag queen, not royalty. Snappy looks like stylish but means bad-tempered.",
+     "definitionFit": "Drag queens perform in women's clothes, wearing the garments of the opposite sex."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "snappy"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +619,69 @@
     "text": "Dance nut beginning to dance a dance without an introduction",
     "enumeration": "8"
    },
-   "solution": "FANDANGO"
+   "solution": "FANDANGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "FANDANGO",
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, which is all that is kept of the next word"
+     },
+     {
+      "text": "without an introduction",
+      "for": "deletion",
+      "note": "with no introduction the opening letter is dropped from the named dance"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nut",
+      "gives": "FAN",
+      "note": "a nut is an enthusiast, a fan"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of dance"
+     },
+     {
+      "clueFragment": "a dance",
+      "gives": "TANGO",
+      "note": "the tango is a dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAN",
+      "D",
+      "ANGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A jumble of dance instructions about a dance-mad enthusiast starting a dance, word repeated to dizzy effect.",
+     "walkthrough": "With 'dance' three times, the first is the definition, the second supplies its first letter, and the third is the tango beheaded.",
+     "definitionFit": "The fandango is a lively Spanish courtship dance in triple time, performed with castanets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +701,48 @@
      }
     ]
    },
-   "solution": "BOOBOO"
+   "solution": "BOOBOO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOO-BOO",
+    "definitions": [
+     {
+      "text": "Stupid mistake",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You're awful",
+      "gives": "BOO",
+      "note": "a boo is the jeer that tells a performer they are awful"
+     },
+     {
+      "clueFragment": "You're terrible",
+      "gives": "BOO",
+      "note": "another jeer at a terrible act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOO",
+      "BOO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone berating a person who has just blundered, exclamation after exclamation.",
+     "walkthrough": "The two insults are each the sound an audience makes to say so.",
+     "definitionFit": "A boo-boo is an informal word for a silly blunder or embarrassing error."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "awful"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +756,58 @@
     "text": "Unclear that king covered in Times",
     "enumeration": "6"
    },
-   "solution": "BLEARY"
+   "solution": "BLEARY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLEARY",
+    "definitions": [
+     {
+      "text": "Unclear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "a thing covered in something has that something wrapped around it on both sides"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "BY",
+      "note": "by means times in multiplication, as in four by three"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "LEAR",
+      "note": "King Lear of Shakespeare's tragedy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LEAR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A vague complaint that some monarch was written up in the Times newspaper.",
+     "walkthrough": "Times looks like the newspaper; it is the multiplication sign.",
+     "definitionFit": "Bleary eyes are dim and blurred, so things look unclear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +827,65 @@
      }
     ]
    },
-   "solution": "BEVERLYHILLS"
+   "solution": "BEVERLYHILLS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BEVERLY HILLS",
+    "definitions": [
+     {
+      "text": "fancy area",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drowning in",
+      "for": "container",
+      "note": "something drowning in a liquid is surrounded by it, so these pieces sit inside the word for expenses"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A singing brother",
+      "gives": "EVERLY",
+      "note": "Don and Phil Everly were the Everly Brothers, a 1950s-60s singing duo"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the phonetic alphabet"
+     },
+     {
+      "clueFragment": "expenses",
+      "gives": "BILLS",
+      "note": "bills are expenses to pay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EVERLY",
+      "H",
+      "ILLS"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous singer, staying at a hotel, swamped by charges in some smart neighbourhood.",
+     "walkthrough": "'Drowning in expenses' reads as being swamped by costs, but it places the singer and hotel inside the word for expenses.",
+     "definitionFit": "Beverly Hills is the wealthy Los Angeles enclave synonymous with luxury living, a posh district."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drowning"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +899,77 @@
     "text": "Yank, engrossed by clue for bloodhound, sits nervously for investigators",
     "enumeration": "10"
    },
-   "solution": "SCIENTISTS"
+   "solution": "SCIENTISTS",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SCIENTISTS",
+    "definitions": [
+     {
+      "text": "investigators",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engrossed by",
+      "for": "container",
+      "note": "to be engrossed by something is to be absorbed into it, so this goes inside"
+     },
+     {
+      "text": "nervously",
+      "for": "anagram",
+      "note": "a nervous person fidgets, so these letters shift into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clue for bloodhound",
+      "gives": "SCENT",
+      "note": "a bloodhound tracks by scent"
+     },
+     {
+      "clueFragment": "Yank",
+      "gives": "I",
+      "note": "Yank is the setter, so the setter's pronoun I"
+     },
+     {
+      "clueFragment": "sits",
+      "gives": "ISTS",
+      "note": "sits rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "I",
+      "ENT",
+      "ISTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SITS",
+       "gives": "ISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter, absorbed by a puzzle about a tracking dog, waits anxiously for detectives.",
+     "walkthrough": "A setter often refers to themself by their pseudonym, here Yank, giving I.",
+     "definitionFit": "Scientists investigate the natural world through experiments, so they are researchers or investigators."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yank"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +993,65 @@
      }
     ]
    },
-   "solution": "FERDELANCE"
+   "solution": "FERDELANCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FER-DE-LANCE",
+    "definitions": [
+     {
+      "text": "a spewer of venom",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in error",
+      "for": "anagram",
+      "note": "letters in error are wrongly placed and need putting into the right order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Freed",
+      "gives": "FERDE",
+      "note": "freed rearranged"
+     },
+     {
+      "clueFragment": "Pierce",
+      "gives": "LANCE",
+      "note": "to lance is to pierce, as with a boil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FERDE",
+      "LANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FREED",
+       "gives": "FERDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner named Pierce, released by mistake, rants bitterly.",
+     "walkthrough": "Pierce looks like a man's name; it is a verb.",
+     "definitionFit": "The fer-de-lance is a highly venomous Central and South American pit viper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pierce"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +1071,56 @@
      }
     ]
    },
-   "solution": "CHENINBLANC"
+   "solution": "CHENINBLANC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHENIN BLANC",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine-born revolutionary"
+     },
+     {
+      "clueFragment": "diarist",
+      "gives": "NIN",
+      "note": "Anaïs Nin, famous for her published diaries"
+     },
+     {
+      "clueFragment": "peak",
+      "gives": "BLANC",
+      "note": "Mont Blanc, the highest peak in the Alps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "NIN",
+      "BLANC"
+     ]
+    },
+    "explanation": {
+     "surface": "A revolutionary and a writer sharing a top-quality wine together.",
+     "walkthrough": "'Peak wine' reads as excellent wine, but peak is Mont Blanc and wine alone is the definition.",
+     "definitionFit": "Chenin blanc is a white grape variety from the Loire, and the white wine made from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peak"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1134,51 @@
     "text": "Prohibition on headgear for fowl",
     "enumeration": "6"
    },
-   "solution": "BANTAM"
+   "solution": "BANTAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANTAM",
+    "definitions": [
+     {
+      "text": "fowl",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "on",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prohibition",
+      "gives": "BAN",
+      "note": "a ban is a prohibition"
+     },
+     {
+      "clueFragment": "headgear",
+      "gives": "TAM",
+      "note": "a tam, or tam-o'-shanter, is a Scottish woollen cap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "TAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A rule forbidding hats on chickens.",
+     "walkthrough": "In a down clue, A on B puts A above B.",
+     "definitionFit": "A bantam is a small breed of domestic chicken, a kind of fowl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1192,53 @@
     "text": "Besmirch quisling in retreat",
     "enumeration": "3"
    },
-   "solution": "TAR"
+   "solution": "TAR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TAR",
+    "definitions": [
+     {
+      "text": "Besmirch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in retreat",
+      "for": "reversal",
+      "note": "an army in retreat goes back the way it came, so the word is read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quisling",
+      "gives": "RAT",
+      "note": "a rat is a traitor, like the Norwegian collaborator Quisling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAT",
+       "to": "TAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Blackening the name of a traitor who is fleeing.",
+     "definitionFit": "To tar someone is to smear their reputation, as in tarring with the same brush."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1252,51 @@
     "text": "Barrie heroine stripped off, showing rear",
     "enumeration": "3"
    },
-   "solution": "END"
+   "solution": "END",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "END",
+    "definitions": [
+     {
+      "text": "rear",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped off",
+      "for": "deletion",
+      "note": "stripping off removes the outer layer, so the first and last letters of the name go"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barrie heroine",
+      "gives": "WENDY",
+      "note": "Wendy Darling is the heroine of J. M. Barrie's Peter Pan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A storybook heroine undressing and revealing her backside, a cheeky picture.",
+     "definitionFit": "The end of something is its back part, the rear or tail end."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stripped"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1310,49 @@
     "text": "Marie's singing brother Mel in wild brawls",
     "enumeration": "11"
    },
-   "solution": "DONNYBROOKS"
+   "solution": "DONNYBROOKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DONNYBROOKS",
+    "definitions": [
+     {
+      "text": "wild brawls",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marie's singing brother",
+      "gives": "DONNY",
+      "note": "Donny Osmond, singing brother of Marie Osmond"
+     },
+     {
+      "clueFragment": "Mel",
+      "gives": "BROOKS",
+      "note": "Mel Brooks, the comedy film director"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DONNY",
+      "BROOKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Two American entertainers caught up in a wild punch-up.",
+     "definitionFit": "A donnybrook is a chaotic free-for-all fight, named after a rowdy Dublin fair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mel"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1366,59 @@
     "text": "Rap sheet torn apart with glee in terse language",
     "enumeration": "12"
    },
-   "solution": "TELEGRAPHESE"
+   "solution": "TELEGRAPHESE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TELEGRAPHESE",
+    "definitions": [
+     {
+      "text": "terse language",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "torn apart",
+      "for": "anagram",
+      "note": "something torn apart is broken into bits that can be put back in a different order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rap sheet",
+      "gives": "RAPSHEET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "with glee",
+      "gives": "GLEE",
+      "note": "glee taken as written, added by with"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAPSHEETGLEE",
+       "gives": "TELEGRAPHESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone happily ripping up their criminal record, described in few words.",
+     "walkthrough": "A rap sheet is an American term for a criminal record.",
+     "definitionFit": "Telegraphese is the clipped style of telegrams, where words were charged individually, so clipped and brief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "glee"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1432,55 @@
     "text": "Theft of cuckoo shite",
     "enumeration": "5"
    },
-   "solution": "HEIST"
+   "solution": "HEIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEIST",
+    "definitions": [
+     {
+      "text": "Theft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuckoo",
+      "for": "anagram",
+      "note": "cuckoo means crazy, so the letters go wild into another order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shite",
+      "gives": "SHITE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHITE",
+       "gives": "HEIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stealing the droppings of a cuckoo, a crude and silly crime.",
+     "walkthrough": "Shite is British vulgar slang for excrement.",
+     "definitionFit": "A heist is a robbery, especially a large, carefully planned one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cuckoo"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1494,56 @@
     "text": "Bear's shown up in circus apparatus",
     "enumeration": "4"
    },
-   "solution": "HOOP"
+   "solution": "HOOP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "HOOP",
+    "definitions": [
+     {
+      "text": "circus apparatus",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shown up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the word from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bear",
+      "gives": "POOH",
+      "note": "Winnie-the-Pooh, the bear of A. A. Milne's stories"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOOP"
+     ],
+     "reversals": [
+      {
+       "from": "POOH",
+       "to": "HOOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bear performing in a circus ring with props.",
+     "definitionFit": "Hoops are rings used by circus performers and animals to jump through or spin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1557,46 @@
     "text": "Stick together with fool",
     "enumeration": "4"
    },
-   "solution": "CLOT"
+   "solution": "CLOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLOT",
+    "definitions": [
+     {
+      "text": "Stick together",
+      "at": 0
+     },
+     {
+      "text": "fool",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stick together",
+      "note": "first meaning: thicken into a lump, as blood does"
+     },
+     {
+      "clueFragment": "fool",
+      "note": "second meaning: a dimwit"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to stay loyal to a silly friend.",
+     "walkthrough": "Clot as a fool is British informal slang.",
+     "definitionFit": "Blood clots by congealing into a mass, and a clot is a British word for a stupid person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fool"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1610,46 @@
     "text": "Pick up one teacher",
     "enumeration": "6"
    },
-   "solution": "SENSEI"
+   "solution": "SENSEI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SENSEI",
+    "definitions": [
+     {
+      "text": "teacher",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pick up",
+      "gives": "SENSE",
+      "note": "to pick up something is to detect or sense it"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SENSE",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Collecting a single teacher, say from school.",
+     "definitionFit": "Sensei is the Japanese title for a teacher or martial-arts master."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pick"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1669,62 @@
      }
     ]
    },
-   "solution": "NIGHTOWL"
+   "solution": "NIGHTOWL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NIGHT OWL",
+    "definitions": [
+     {
+      "text": "Later, he's active",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts of a place are its edges, so only the outer letters of the name are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "close",
+      "gives": "NIGH",
+      "note": "nigh means near or close"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Whitehall",
+      "gives": "WL",
+      "select": "outer",
+      "note": "first and last letters of Whitehall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGH",
+      "TO",
+      "WL"
+     ]
+    },
+    "explanation": {
+     "surface": "A civil servant who keeps working late on the edge of Whitehall, the London street of government offices.",
+     "walkthrough": "'Close to' reads as one phrase meaning near; here it is split into two pieces.",
+     "definitionFit": "A night owl is a person who is most alert and active late into the night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1738,48 @@
     "text": "Tip reduced by 1/3? Crikey!",
     "enumeration": "6"
    },
-   "solution": "SHEESH"
+   "solution": "SHEESH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SHEESH",
+    "definitions": [
+     {
+      "text": "Crikey",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced by 1/3",
+      "for": "deletion",
+      "note": "cutting a word by a third removes a third of its letters, here the front portion"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tip",
+      "gives": "BAKSHEESH",
+      "note": "baksheesh is a tip or gratuity, a word from the Middle East"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHEESH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shocked at a gratuity cut by a third.",
+     "walkthrough": "The nine-letter word for a tip loses three letters, BAK, from its start.",
+     "definitionFit": "Sheesh is an exclamation of exasperation or surprise, like the British crikey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tip"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1799,47 @@
      }
     ]
    },
-   "solution": "TOPSPOT"
+   "solution": "TOPSPOT",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "TOP SPOT",
+    "definitions": [
+     {
+      "text": "Great position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "any way you look at it",
+      "for": "palindrome",
+      "note": "a word that is the same whichever way you look reads identically forwards and backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great position",
+      "gives": "TOPSPOT",
+      "note": "a leading place, which reads the same in both directions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOPSPOT"
+     ]
+    },
+    "explanation": {
+     "surface": "An enviable place, however you view it.",
+     "definitionFit": "The top spot is first place, the most prestigious ranking in any list."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
