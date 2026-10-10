@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,62 @@
     "text": "Evil genius regularly cooled off in the embrace of a Spice Girl",
     "enumeration": "10"
    },
-   "solution": "GOLDFINGER"
+   "solution": "GOLDFINGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GOLDFINGER",
+    "definitions": [
+     {
+      "text": "Evil genius",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "something done regularly happens at even intervals, so only every second letter is kept"
+     },
+     {
+      "text": "in the embrace of",
+      "for": "container",
+      "note": "being in someone's embrace means being held inside their arms, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Spice Girl",
+      "gives": "GINGER",
+      "note": "Ginger Spice, Geri Halliwell, was one of the Spice Girls"
+     },
+     {
+      "clueFragment": "cooled off",
+      "gives": "OLDF",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OLDF",
+      "INGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A scheming mastermind cools down in the arms of one of the Spice Girls.",
+     "walkthrough": "The even letters of 'cooled off' sit inside GINGER after its G, giving GOLDFINGER.",
+     "definitionFit": "Auric Goldfinger is the criminal mastermind villain of Ian Fleming's James Bond novel and film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +104,61 @@
     "text": "Golf – a miserable, vacuous pastime",
     "enumeration": "4"
    },
-   "solution": "GAME"
+   "solution": "GAME",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GAME",
+    "definitions": [
+     {
+      "text": "pastime",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacuous",
+      "for": "letter_selection",
+      "note": "vacuous means empty, so the word is emptied of its inner letters and only its ends remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golf",
+      "gives": "G",
+      "note": "G is Golf in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "miserable",
+      "gives": "ME",
+      "select": "outer",
+      "note": "the first and last letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "A",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that golf is a dreary, empty way to spend time.",
+     "definitionFit": "A game is any activity played for amusement, which is what a pastime is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacuous"
+    }
+   }
   },
   {
    "number": 2,
@@ -66,7 +178,63 @@
      }
     ]
    },
-   "solution": "LASCALA"
+   "solution": "LASCALA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "LA SCALA",
+    "definitions": [
+     {
+      "text": "here?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "players perform a piece in their own way, so these letters are performed in a new order"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word, so only its closing letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Callas",
+      "gives": "CALLAS",
+      "note": "taken as written: Maria Callas, the opera singer"
+     },
+     {
+      "clueFragment": "Aida",
+      "gives": "A",
+      "select": "last",
+      "note": "the last letter of the opera's name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CALLASA",
+       "gives": "LASCALA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Maria Callas singing Verdi's Aida: where might that take place?",
+     "walkthrough": "'here?' is the definition: a place where Callas might sing Aida, the question mark marking it as an example.",
+     "definitionFit": "La Scala is the celebrated Milan opera house where Callas often sang, a likely venue for such a performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +248,61 @@
     "text": "Honest, intense, moving work by Shelley",
     "enumeration": "12"
    },
-   "solution": "FRANKENSTEIN"
+   "solution": "FRANKENSTEIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FRANKENSTEIN",
+    "definitions": [
+     {
+      "text": "work by Shelley",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "letters that are moving shift position and land in a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Honest",
+      "gives": "FRANK",
+      "note": "frank means candid, honest"
+     },
+     {
+      "clueFragment": "intense",
+      "gives": "ENSTEIN",
+      "note": "these seven letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRANK",
+      "ENSTEIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTENSE",
+       "gives": "ENSTEIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A review praising one of Shelley's works as truthful, powerful and emotionally affecting.",
+     "walkthrough": "'moving' reads as praise for the book, but it signals the rearrangement. The Shelley is Mary, not her husband Percy.",
+     "definitionFit": "Frankenstein is the 1818 novel written by Mary Shelley."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +316,45 @@
     "text": "Game played with cards for gold coin once",
     "enumeration": "8"
    },
-   "solution": "NAPOLEON"
+   "solution": "NAPOLEON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NAPOLEON",
+    "definitions": [
+     {
+      "text": "Game played with cards",
+      "at": 0
+     },
+     {
+      "text": "gold coin once",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game played with cards",
+      "note": "first meaning: a card game, also called nap, in which players bid for tricks"
+     },
+     {
+      "clueFragment": "gold coin once",
+      "note": "second meaning: a former French twenty-franc gold piece"
+     }
+    ],
+    "explanation": {
+     "surface": "Gambling at cards with an old gold coin as the stake.",
+     "definitionFit": "Napoleon names both a trick-taking card game and the old French gold coin bearing the emperor's head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +374,56 @@
      }
     ]
    },
-   "solution": "ELNINO"
+   "solution": "ELNINO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EL NINO",
+    "definitions": [
+     {
+      "text": "that might have a global impact?",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Trouble",
+      "for": "anagram",
+      "note": "to trouble something is to stir it up, so these letters are disturbed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "LINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONLINE",
+       "gives": "ELNINO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fault on a communications line that could have worldwide consequences.",
+     "walkthrough": "'Trouble on line' sounds like a phone fault, but the first word stirs up the other two.",
+     "definitionFit": "El Niño is a periodic warming of the Pacific Ocean that disrupts weather patterns around the world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Trouble"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +437,62 @@
     "text": "Young bear munching tail of fresh fish",
     "enumeration": "4"
    },
-   "solution": "CHUB"
+   "solution": "CHUB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHUB",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail of",
+      "for": "letter_selection",
+      "note": "an animal's tail is at its back end, so only the final letter is taken"
+     },
+     {
+      "text": "munching",
+      "for": "container",
+      "note": "something munching food holds it in its mouth, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Young bear",
+      "gives": "CUB",
+      "note": "a cub is a young bear"
+     },
+     {
+      "clueFragment": "fresh",
+      "gives": "H",
+      "select": "last",
+      "note": "the last letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "H",
+      "UB"
+     ]
+    },
+    "explanation": {
+     "surface": "A bear cub eating the end of a freshly caught fish.",
+     "walkthrough": "'fresh fish' looks like a phrase, but 'fresh' supplies a letter and 'fish' alone is the definition.",
+     "definitionFit": "The chub is a European freshwater fish of the carp family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fresh"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +506,55 @@
     "text": "Tough to accept extra official here in Cambridge",
     "enumeration": "7"
    },
-   "solution": "HARVARD"
+   "solution": "HARVARD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HARVARD",
+    "definitions": [
+     {
+      "text": "here in Cambridge",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "accepting something means taking it in, so one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tough",
+      "gives": "HARD",
+      "note": "hard means tough"
+     },
+     {
+      "clueFragment": "extra official",
+      "gives": "VAR",
+      "note": "VAR, the video assistant referee, is an additional match official in football"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAR",
+      "VAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A rigid institution in Cambridge struggling to take on another administrator.",
+     "walkthrough": "Cambridge suggests the English university, but this is Cambridge, Massachusetts.",
+     "definitionFit": "Harvard University is located in Cambridge, Massachusetts, so it is a place found there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cambridge"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +568,57 @@
     "text": "Codswallop, tosh sad Red Labourite pens when upset",
     "enumeration": "10"
    },
-   "solution": "BALDERDASH"
+   "solution": "BALDERDASH",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BALDERDASH",
+    "definitions": [
+     {
+      "text": "Codswallop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pens",
+      "for": "hidden_word",
+      "note": "to pen is to enclose, so the run of words holds the solution within it"
+     },
+     {
+      "text": "when upset",
+      "for": "reversal",
+      "note": "in a down clue, upsetting something tips it over so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tosh sad Red Labourite",
+      "gives": "HSADREDLAB",
+      "note": "the letters running from the end of the first word to the start of the last"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "HSADREDLAB",
+       "to": "BALDERDASH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dismissive verdict on what a gloomy left-wing Labour writer produces when angry.",
+     "walkthrough": "'tosh' looks like a second definition beside Codswallop, but it is part of the string that holds the answer.",
+     "definitionFit": "Codswallop and balderdash are both informal British words for senseless talk or nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pens"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +632,64 @@
     "text": "More canapés prepared without European cheese",
     "enumeration": "10"
    },
-   "solution": "MASCARPONE"
+   "solution": "MASCARPONE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MASCARPONE",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the named letter is left out"
+     },
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "food that is prepared has been worked over, so these letters are reworked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More canapés",
+      "gives": "MORECANAPES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASCARPONE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MORCANAPES",
+       "gives": "MASCARPONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Extra party nibbles made up without any continental cheese on them.",
+     "definitionFit": "Mascarpone is a soft, creamy Italian cheese, used in tiramisu."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +703,50 @@
     "text": "Test alloy of gold and aluminium",
     "enumeration": "4"
    },
-   "solution": "ORAL"
+   "solution": "ORAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORAL",
+    "definitions": [
+     {
+      "text": "Test",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "alloy of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "aluminium",
+      "gives": "AL",
+      "note": "Al is the chemical symbol for aluminium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A lab test on a metal mixture of gold and aluminium.",
+     "walkthrough": "'alloy of' fits the metallurgy picture but just joins the two metals.",
+     "definitionFit": "An oral is a spoken examination, a kind of test."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alloy"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +766,39 @@
      }
     ]
    },
-   "solution": "ASSEMBLYLINE"
+   "solution": "ASSEMBLYLINE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ASSEMBLY LINE",
+    "definitions": [
+     {
+      "text": "The part of a plant where reproduction takes place?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The part of a plant where reproduction takes place?",
+      "note": "surface reading: the flower or organ of a living plant where it breeds"
+     },
+     {
+      "clueFragment": "The part of a plant where reproduction takes place?",
+      "note": "setter's reading: the part of a factory where identical copies of a product are turned out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Plant and reproduction both suggest botany; here a plant is a factory and reproduction is making copies of a product.",
+     "definitionFit": "On a factory's production line, workers or machines put together the same item over and over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +812,56 @@
     "text": "Prohibit Kenya's premier financial institution",
     "enumeration": "4"
    },
-   "solution": "BANK"
+   "solution": "BANK",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BANK",
+    "definitions": [
+     {
+      "text": "financial institution",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "premier",
+      "for": "letter_selection",
+      "note": "premier means first in rank, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prohibit",
+      "gives": "BAN",
+      "note": "to ban is to prohibit"
+     },
+     {
+      "clueFragment": "Kenya's",
+      "gives": "K",
+      "select": "first",
+      "note": "the first letter of the country's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Kenya's prime minister outlawing a lender.",
+     "walkthrough": "'Kenya's premier' wants to be the country's prime minister, but it means only its first letter.",
+     "definitionFit": "A bank is a business that holds deposits and lends money, so it is a financial institution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "premier"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +875,50 @@
     "text": "Captures head, but not in portrait",
     "enumeration": "9"
    },
-   "solution": "LANDSCAPE"
+   "solution": "LANDSCAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LANDSCAPE",
+    "definitions": [
+     {
+      "text": "not in portrait",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Captures",
+      "gives": "LANDS",
+      "note": "lands, as in lands a fish, means captures"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "CAPE",
+      "note": "a cape or headland is a head of land jutting into the sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANDS",
+      "CAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Photography talk: a camera captures a head, but not in portrait format.",
+     "walkthrough": "Portrait and landscape are the two page or screen orientations, upright and sideways.",
+     "definitionFit": "A landscape layout is the wide, horizontal orientation, the alternative to the tall portrait format."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +932,71 @@
     "text": "One tossed Charlie aside supported by Donald and Ian – a Scot",
     "enumeration": "10"
    },
-   "solution": "ABERDONIAN"
+   "solution": "ABERDONIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ABERDONIAN",
+    "definitions": [
+     {
+      "text": "a Scot",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aside",
+      "for": "deletion",
+      "note": "putting something aside sets it apart, so that letter is dropped"
+     },
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down entry a support sits underneath, so what follows is placed below"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One tossed",
+      "gives": "CABER",
+      "note": "a caber is the long pole tossed at Highland games"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "C is Charlie in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Donald",
+      "gives": "DON",
+      "note": "Don is short for Donald"
+     },
+     {
+      "clueFragment": "Ian",
+      "gives": "IAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABER",
+      "DON",
+      "IAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thrown aside, with Donald and Ian holding them up, all Scots together.",
+     "walkthrough": "'One tossed' is not a person: caber tossing is a Highland games event, a fitting thing to find in a Scottish clue.",
+     "definitionFit": "An Aberdonian is a native or inhabitant of Aberdeen, a city in Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tossed"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +1010,48 @@
     "text": "Mensa member packed underwear",
     "enumeration": "8"
    },
-   "solution": "BRAINBOX"
+   "solution": "BRAINBOX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRAINBOX",
+    "definitions": [
+     {
+      "text": "Mensa member",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underwear",
+      "gives": "BRA",
+      "note": "a bra is an item of underwear"
+     },
+     {
+      "clueFragment": "packed",
+      "gives": "INBOX",
+      "note": "something packed is in a box"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRA",
+      "IN",
+      "BOX"
+     ]
+    },
+    "explanation": {
+     "surface": "A member of the high-IQ society has packed some underwear.",
+     "walkthrough": "The clue order is reversed: the underwear comes first in the answer, followed by 'in box'.",
+     "definitionFit": "A brainbox is an informal word for a very clever person, the kind who might join the high-IQ society Mensa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "packed"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1065,48 @@
     "text": "First edition that might have been given a four-star rating?",
     "enumeration": "6"
    },
-   "solution": "LEADED"
+   "solution": "LEADED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEADED",
+    "definitions": [
+     {
+      "text": "that might have been given a four-star rating?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First",
+      "gives": "LEAD",
+      "note": "to be in the lead is to be first"
+     },
+     {
+      "clueFragment": "edition",
+      "gives": "ED",
+      "note": "ed. is the abbreviation for edition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAD",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A collectible first edition that a reviewer would have rated four stars.",
+     "walkthrough": "The four stars are not a critic's: in Britain leaded petrol was sold as four-star.",
+     "definitionFit": "Four-star was the British grade name for leaded petrol, so leaded fuel carried that rating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "four-star"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1126,48 @@
      }
     ]
    },
-   "solution": "HAIRBALL"
+   "solution": "HAIRBALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAIR-BALL",
+    "definitions": [
+     {
+      "text": "that's produced by Tom?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musical",
+      "gives": "HAIR",
+      "note": "Hair is the 1960s rock musical"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "BALL",
+      "note": "a ball is a formal dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIR",
+      "BALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical dance number put on by someone called Tom.",
+     "walkthrough": "Tom looks like a person's name, but a tom is a male cat.",
+     "definitionFit": "Cats cough up hairballs of swallowed fur, so a tomcat might produce one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tom"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1181,50 @@
     "text": "Distant meteor exploded",
     "enumeration": "6"
    },
-   "solution": "REMOTE"
+   "solution": "REMOTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REMOTE",
+    "definitions": [
+     {
+      "text": "Distant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exploded",
+      "for": "anagram",
+      "note": "something that has exploded is blown apart, so these letters land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meteor",
+      "gives": "METEOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "METEOR",
+       "gives": "REMOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A far-off meteor burst apart.",
+     "definitionFit": "Remote and distant are synonyms for far away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exploded"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1238,67 @@
     "text": "Mum can put on extremely exclusive daytime show",
     "enumeration": "7"
    },
-   "solution": "MATINEE"
+   "solution": "MATINEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MATINEE",
+    "definitions": [
+     {
+      "text": "daytime show",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "in a down entry, what is put on something sits above it"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its outer letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mum",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "exclusive",
+      "gives": "EE",
+      "select": "outer",
+      "note": "the first and last letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "TIN",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "Mother is able to stage a very select show in the daytime.",
+     "walkthrough": "'can' reads as a verb, but it is the noun meaning a tin.",
+     "definitionFit": "A matinee is an afternoon performance of a play or film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1312,61 @@
     "text": "Airline boards excited sunseekers jetting off here",
     "enumeration": "8"
    },
-   "solution": "BARBADOS"
+   "solution": "BARBADOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BARBADOS",
+    "definitions": [
+     {
+      "text": "sunseekers jetting off here",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited things are agitated and stirred about, so these letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Airline",
+      "gives": "BA",
+      "note": "BA is British Airways"
+     },
+     {
+      "clueFragment": "boards",
+      "gives": "RBADOS",
+      "note": "these six letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "RBADOS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOARDS",
+       "gives": "RBADOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eager holidaymakers board a plane bound for the sun.",
+     "walkthrough": "'boards' reads as a verb for getting on the plane; it is the fodder.",
+     "definitionFit": "Barbados is a sunny Caribbean island, a popular destination for holidaymakers flying in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boards"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1380,62 @@
     "text": "Sleeping dung-beetle chap touched at the front",
     "enumeration": "7"
    },
-   "solution": "DORMANT"
+   "solution": "DORMANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DORMANT",
+    "definitions": [
+     {
+      "text": "Sleeping",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the front",
+      "for": "letter_selection",
+      "note": "the front of a word is its beginning, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dung-beetle",
+      "gives": "DOR",
+      "note": "a dor is a kind of dung beetle"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "touched",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOR",
+      "MAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A fellow resting beside a dung beetle, gently tapped at the front.",
+     "walkthrough": "DOR is an old name for the dung beetle, rarely seen outside crosswords.",
+     "definitionFit": "Dormant means inactive or asleep, as a hibernating animal is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touched"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1449,72 @@
     "text": "Measure of power flipped in old American capital",
     "enumeration": "6"
    },
-   "solution": "OTTAWA"
+   "solution": "OTTAWA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "OTTAWA",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipped",
+      "for": "reversal",
+      "note": "something flipped is turned over, so the word reads the other way round"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Measure of power",
+      "gives": "WATT",
+      "note": "the watt is the unit of power"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "TTAW",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "WATT",
+       "to": "TTAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A unit of power turned upside down in a former American capital city.",
+     "walkthrough": "'old American capital' reads as one phrase, but 'old' and 'American' are the outer letters and 'capital' alone is the definition.",
+     "definitionFit": "Ottawa is the capital city of Canada."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1528,69 @@
     "text": "Oh, you loudly giggle about fine clothier",
     "enumeration": "9"
    },
-   "solution": "OUTFITTER"
+   "solution": "OUTFITTER",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container",
+     "charade"
+    ],
+    "answer": "OUTFITTER",
+    "definitions": [
+     {
+      "text": "clothier",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loudly",
+      "for": "homophone",
+      "note": "loudly means spoken out, so the words are heard rather than spelt"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oh, you",
+      "gives": "OU",
+      "soundsLike": "OH YOU",
+      "note": "the two words said out sound like the letters O and U"
+     },
+     {
+      "clueFragment": "giggle",
+      "gives": "TITTER",
+      "note": "to titter is to giggle"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the abbreviation for fine, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OU",
+      "T",
+      "F",
+      "ITTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone teasing a tailor by giggling about how fine he is.",
+     "walkthrough": "TITTER goes round F after its first letter.",
+     "definitionFit": "An outfitter sells clothes and equipment, so is a clothier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 24,
@@ -392,7 +1604,53 @@
     "text": "Reversed wagon three feet",
     "enumeration": "4"
    },
-   "solution": "YARD"
+   "solution": "YARD",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "YARD",
+    "definitions": [
+     {
+      "text": "three feet",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reversed",
+      "for": "reversal",
+      "note": "reversed means turned back to front, so the word is read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wagon",
+      "gives": "DRAY",
+      "note": "a dray is a low cart for heavy loads"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YARD"
+     ],
+     "reversals": [
+      {
+       "from": "DRAY",
+       "to": "YARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wagon backing up a short distance.",
+     "definitionFit": "A yard is an imperial length equal to three feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reversed"
+    }
+   }
   },
   {
    "number": 25,
@@ -406,7 +1664,44 @@
     "text": "Island broadcaster using radio",
     "enumeration": "4"
    },
-   "solution": "SKYE"
+   "solution": "SKYE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SKYE",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using radio",
+      "for": "homophone",
+      "note": "radio is heard and not seen, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broadcaster",
+      "gives": "SKYE",
+      "soundsLike": "SKY",
+      "note": "Sky is a British satellite broadcaster"
+     }
+    ],
+    "explanation": {
+     "surface": "An island's broadcaster sending out programmes over the airwaves.",
+     "walkthrough": "Sky is a TV broadcaster, which is why the clue specifies radio for the sound.",
+     "definitionFit": "Skye is the largest island of the Inner Hebrides, off the west coast of Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "radio"
+    }
+   }
   },
   {
    "number": 26,
@@ -420,7 +1715,47 @@
     "text": "Bars popular Poles",
     "enumeration": "4"
    },
-   "solution": "INNS"
+   "solution": "INNS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INNS",
+    "definitions": [
+     {
+      "text": "Bars",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "Poles",
+      "gives": "NS",
+      "note": "N and S are the north and south poles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "Pubs that are well liked by Polish people.",
+     "walkthrough": "'Poles' suggests people from Poland; it means the two magnetic poles.",
+     "definitionFit": "Inns are pubs, places where drinks are served at a bar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1775,80 @@
      }
     ]
    },
-   "solution": "SAFARIPARK"
+   "solution": "SAFARIPARK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SAFARI PARK",
+    "definitions": [
+     {
+      "text": "Pride here?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocking back",
+      "for": "reversal",
+      "note": "knocking back a drink tips it up, so this word is read from end to start"
+     },
+     {
+      "text": "drained",
+      "for": "letter_selection",
+      "note": "a drained word has its contents emptied, leaving only its outer letters"
+     },
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after places the remaining pieces behind the first one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rafa's",
+      "gives": "SAFAR",
+      "note": "the name with its S, read backwards"
+     },
+     {
+      "clueFragment": "IPA",
+      "gives": "IPA",
+      "note": "taken as written: India pale ale"
+     },
+     {
+      "clueFragment": "Rick",
+      "gives": "RK",
+      "select": "outer",
+      "note": "the first and last letters of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAFAR",
+      "IPA",
+      "RK"
+     ],
+     "reversals": [
+      {
+       "from": "RAFAS",
+       "to": "SAFAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rafa downs his pale ale and Rick finishes his, in a scene at the pub.",
+     "walkthrough": "A pride is a group of lions, which visitors drive past in a safari park.",
+     "definitionFit": "Lions are kept in safari parks, so a pride might be found living there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pride"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1862,61 @@
     "text": "November over, starts to enjoy later festival",
     "enumeration": "4"
    },
-   "solution": "NOEL"
+   "solution": "NOEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NOEL",
+    "definitions": [
+     {
+      "text": "festival",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, so each word gives only its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "November",
+      "gives": "N",
+      "note": "N is November in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     },
+     {
+      "clueFragment": "enjoy later",
+      "gives": "EL",
+      "select": "first",
+      "note": "the opening letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "O",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "Once November has ended, a festival comes along later to be enjoyed.",
+     "definitionFit": "Noel is another name for Christmas, the winter festival."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "November"
+    }
+   }
   },
   {
    "number": 29,
@@ -474,7 +1936,59 @@
      }
     ]
    },
-   "solution": "CALLCENTRE"
+   "solution": "CALLCENTRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CALL CENTRE",
+    "definitions": [
+     {
+      "text": "Phone bank",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "California",
+      "gives": "CAL",
+      "note": "Cal. is the abbreviation for California"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for 50"
+     },
+     {
+      "clueFragment": "¢",
+      "gives": "CENT",
+      "note": "the sign stands for a cent"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "RE",
+      "note": "re is the second note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAL",
+      "L",
+      "CENT",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A California fifty-cent note: does it come from a telephone bank?",
+     "walkthrough": "'50¢ note' looks like a banknote, but splits into a numeral, a coin and a musical note.",
+     "definitionFit": "A call centre is an office where staff handle large volumes of phone calls, also called a phone bank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   }
  ]
 }
