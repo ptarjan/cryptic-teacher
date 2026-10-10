@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,42 @@
     "text": "Knock party",
     "enumeration": "4"
    },
-   "solution": "BASH"
+   "solution": "BASH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BASH",
+    "definitions": [
+     {
+      "text": "Knock",
+      "at": 0
+     },
+     {
+      "text": "party",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knock",
+      "note": "first meaning: a heavy blow"
+     },
+     {
+      "clueFragment": "party",
+      "note": "second meaning: an informal lively celebration"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two separate meanings of one short word sit side by side; 'Knock party' reads like a rap on the door of a gathering.",
+     "definitionFit": "The word is informal both for a hard strike and for a festive get-together, making it a neat double meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Knock"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +84,50 @@
     "text": "Picture disbandment of forces",
     "enumeration": "6"
    },
-   "solution": "FRESCO"
+   "solution": "FRESCO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FRESCO",
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disbandment of",
+      "for": "anagram",
+      "note": "a disbanded unit is broken up and scattered, so the letters that follow are dispersed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forces",
+      "gives": "FORCES",
+      "note": "taken as written, as the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FORCES",
+       "gives": "FRESCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An image showing troops being demobilised after a war.",
+     "definitionFit": "A fresco is a painting made on wet plaster, a type of picture found on walls and ceilings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disbandment"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +141,53 @@
     "text": "European getting rid of an infectious organism",
     "enumeration": "4"
    },
-   "solution": "GERM"
+   "solution": "GERM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GERM",
+    "definitions": [
+     {
+      "text": "infectious organism",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting rid of",
+      "for": "deletion",
+      "note": "getting rid of something means discarding it, so the words after are removed from the first word's letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "GERMAN",
+      "note": "a person from Germany is one kind of European"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written, the part to drop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GERM"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller from Europe ridding themselves of a contagious bug.",
+     "walkthrough": "GERMAN loses its final AN, leaving GERM.",
+     "definitionFit": "A germ is a microbe that spreads disease, so it is an infectious microorganism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +201,43 @@
     "text": "Shells emptied of peas, I regret",
     "enumeration": "6"
    },
-   "solution": "SHUCKS"
+   "solution": "SHUCKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHUCKS",
+    "definitions": [
+     {
+      "text": "Shells emptied of peas",
+      "at": 0
+     },
+     {
+      "text": "I regret",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shells emptied of peas",
+      "note": "first meaning: pods or husks with their contents removed"
+     },
+     {
+      "clueFragment": "I regret",
+      "note": "second meaning: a mild exclamation of embarrassment or disappointment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads like a sorry cook confessing about empty pods; the two halves are separate meanings.",
+     "definitionFit": "Shucks are husks or pods, and 'shucks!' is an informal exclamation of mild regret or modesty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "regret"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +251,66 @@
     "text": "It's a headache as I dash into myself!",
     "enumeration": "8"
    },
-   "solution": "MIGRAINE"
+   "solution": "MIGRAINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MIGRAINE",
+    "definitions": [
+     {
+      "text": "headache",
+      "at": 7
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means being placed inside it, so the first pieces sit within the outer word"
+     }
+    ],
+    "linkWords": [
+     "It's a",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "myself",
+      "gives": "ME",
+      "note": "the speaker referring to themselves"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dash",
+      "gives": "GRAIN",
+      "note": "a dash is a tiny amount, as is a grain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "I",
+      "GRAIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complaining that rushing about gives them a pounding head.",
+     "walkthrough": "'Dash' looks like running, but here it means a small quantity; 'myself' is the outer piece that wraps the rest.",
+     "definitionFit": "A migraine is a severe, recurring type of headache, often with nausea and visual disturbance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dash"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +330,50 @@
      }
     ]
    },
-   "solution": "WHITENOISE"
+   "solution": "WHITENOISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHITE NOISE",
+    "definitions": [
+     {
+      "text": "random sound",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broadcast",
+      "for": "anagram",
+      "note": "to broadcast seed is to scatter it widely, so the letters that follow are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I see, on with",
+      "gives": "ISEEONWITH",
+      "note": "taken as written, the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISEEONWITH",
+       "gives": "WHITENOISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A viewer noting that a transmission is going ahead.",
+     "definitionFit": "White noise is a hiss containing all frequencies at equal intensity, a meaningless random signal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Broadcast"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +387,66 @@
     "text": "Sport where a pass gets collected by flankers in line",
     "enumeration": "8"
    },
-   "solution": "LACROSSE"
+   "solution": "LACROSSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LACROSSE",
+    "definitions": [
+     {
+      "text": "Sport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flankers",
+      "for": "letter_selection",
+      "note": "flankers are those at the sides, so only the outermost letters of the next word are kept"
+     },
+     {
+      "text": "collected by",
+      "for": "container",
+      "note": "something collected by another is gathered up inside it, so the pass sits between the outer pair"
+     }
+    ],
+    "linkWords": [
+     "where",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "a pass",
+      "gives": "ACROSS",
+      "note": "in football a cross is a pass from the wing; with A in front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ACROSS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A field game where a ball moved sideways is caught by wing players standing in formation.",
+     "walkthrough": "'Flankers' sounds like rugby players, but it asks for the end letters of 'line'.",
+     "definitionFit": "Lacrosse is a team game played with netted sticks, a field sport of North American origin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flankers"
+    }
+   }
   },
   {
    "number": 8,
@@ -136,7 +460,56 @@
     "text": "Striking boxer, dispatched hooks",
     "enumeration": "7"
    },
-   "solution": "SALIENT"
+   "solution": "SALIENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALIENT",
+    "definitions": [
+     {
+      "text": "Striking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hooks",
+      "for": "container",
+      "note": "to hook something is to catch and hold it, so the second word wraps around the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dispatched",
+      "gives": "SENT",
+      "note": "dispatched means sent off"
+     },
+     {
+      "clueFragment": "boxer",
+      "gives": "ALI",
+      "note": "Muhammad Ali, the famous heavyweight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALI",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fighter punching hard, sending an opponent down with hooks.",
+     "walkthrough": "In the boxing scene 'hooks' is a punch, but here it means holding the boxer inside.",
+     "definitionFit": "Salient means prominent or most noticeable, so a salient point is a striking one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hooks"
+    }
+   }
   },
   {
    "number": 9,
@@ -150,7 +523,50 @@
     "text": "Peak figure attending hospital",
     "enumeration": "6"
    },
-   "solution": "HEIGHT"
+   "solution": "HEIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEIGHT",
+    "definitions": [
+     {
+      "text": "Peak",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "attending"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "the standard abbreviation on road signs"
+     },
+     {
+      "clueFragment": "figure",
+      "gives": "EIGHT",
+      "note": "a numeral, a number figure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Maximum number of people attending hospital at any time.",
+     "walkthrough": "'Attending' means sitting beside, so H joins EIGHT.",
+     "definitionFit": "A height is a high point or summit, so a peak in both the literal and figurative sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +580,42 @@
     "text": "Tool found in ditch is electronic",
     "enumeration": "6"
    },
-   "solution": "CHISEL"
+   "solution": "CHISEL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHISEL",
+    "definitions": [
+     {
+      "text": "Tool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "something found in a phrase is sitting inside it, so the letters run across the word boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ditch is electronic",
+      "gives": "CHISEL",
+      "note": "the run of letters across these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A digging implement turned up in a trench happens to be a gadget.",
+     "definitionFit": "A chisel is a bladed hand tool used for cutting or shaping wood, stone or metal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "electronic"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +629,51 @@
     "text": "Steep charge by staff",
     "enumeration": "8"
    },
-   "solution": "MACERATE"
+   "solution": "MACERATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MACERATE",
+    "definitions": [
+     {
+      "text": "Steep",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "staff",
+      "gives": "MACE",
+      "note": "a mace is a ceremonial staff of office"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "RATE",
+      "note": "a rate is a fee or price"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MACE",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Employees complaining that a fee imposed by their workforce is excessive.",
+     "walkthrough": "'Steep' looks like an adjective for high prices; here it is the verb for soaking.",
+     "definitionFit": "To macerate is to soften food by soaking it in liquid, which is to steep it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Steep"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +693,63 @@
      }
     ]
    },
-   "solution": "WHOOPEECUSHION"
+   "solution": "WHOOPEECUSHION",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "WHOOPEE CUSHION",
+    "definitions": [
+     {
+      "text": "source of juvenile amusement",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having been stolen",
+      "for": "container",
+      "note": "stolen goods are taken in by the thief, so the ring ends up held inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minor",
+      "gives": "WEE",
+      "note": "wee is Scottish and informal for small"
+     },
+     {
+      "clueFragment": "Ring",
+      "gives": "HOOP",
+      "note": "a hoop is a circular band"
+     },
+     {
+      "clueFragment": "case holding down",
+      "gives": "CUSHION",
+      "note": "cryptically, a fabric case stuffed with feathers, which are down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HOOP",
+      "EE",
+      "CUSHION"
+     ]
+    },
+    "explanation": {
+     "surface": "A child's jewellery theft, wrapped up as a story of a juvenile prank.",
+     "walkthrough": "'Down' looks like a direction but means feathers: a cushion is a fabric case stuffed with them. 'Minor' is Scots-flavoured small, not a child.",
+     "definitionFit": "A whoopee cushion is an inflatable joke toy that makes a rude noise when sat on, much loved by children."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +769,42 @@
      }
     ]
    },
-   "solution": "HARDBOILED"
+   "solution": "HARDBOILED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HARD-BOILED",
+    "definitions": [
+     {
+      "text": "Unsentimental",
+      "at": 0
+     },
+     {
+      "text": "way to serve an egg",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unsentimental",
+      "note": "first meaning: tough and cynical"
+     },
+     {
+      "clueFragment": "way to serve an egg",
+      "note": "second meaning: cooked in the shell until the yolk sets solid"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful link between a tough person and a firmly cooked egg.",
+     "definitionFit": "The compound describes both a tough, cynical attitude and an egg boiled until fully set."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +818,55 @@
     "text": "Feature split by a trading group",
     "enumeration": "5"
    },
-   "solution": "CHAIN"
+   "solution": "CHAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHAIN",
+    "definitions": [
+     {
+      "text": "trading group",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "split by",
+      "for": "container",
+      "note": "a word split by something is broken apart with that thing in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feature",
+      "gives": "CHIN",
+      "note": "a facial feature"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "A",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A characteristic dividing a commercial consortium.",
+     "walkthrough": "'Feature' means a part of the face here.",
+     "definitionFit": "A chain is a group of shops or hotels under one owner, so a trading group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Feature"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +880,53 @@
     "text": "Snaring device, component backfiring",
     "enumeration": "4"
    },
-   "solution": "TRAP"
+   "solution": "TRAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TRAP",
+    "definitions": [
+     {
+      "text": "Snaring device",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backfiring",
+      "for": "reversal",
+      "note": "something backfiring goes back the way it came, so the word is read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "component",
+      "gives": "PART",
+      "note": "a component is a part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snare failing because one of its pieces misfires.",
+     "definitionFit": "A trap is a contraption for catching animals, which is exactly a snaring device."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backfiring"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +940,74 @@
     "text": "Ornament someone installing equipment lifted in middle of shipyard",
     "enumeration": "8"
    },
-   "solution": "PRETTIFY"
+   "solution": "PRETTIFY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "PRETTIFY",
+    "definitions": [
+     {
+      "text": "Ornament",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central part, so only the two central letters are kept"
+     },
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down clue, lifted means raised upward, so the word runs bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in something means set inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shipyard",
+      "gives": "PY",
+      "select": "middle",
+      "note": "the central two of its eight letters"
+     },
+     {
+      "clueFragment": "someone installing equipment",
+      "gives": "FITTER",
+      "note": "a fitter installs machinery or fittings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RETTIF",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "FITTER",
+       "to": "RETTIF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Decorating a technician who was hoisted up mid-dockyard.",
+     "walkthrough": "'Ornament' is a verb here, meaning to decorate.",
+     "definitionFit": "To prettify is to make something look pretty, often superficially, so to decorate or adorn it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ornament"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1021,63 @@
     "text": "Characteristic skill returns with technological subject",
     "enumeration": "5"
    },
-   "solution": "TRAIT"
+   "solution": "TRAIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRAIT",
+    "definitions": [
+     {
+      "text": "Characteristic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returning means going back, so the word for skill is read backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skill",
+      "gives": "ART",
+      "note": "art is skill, as in the art of persuasion"
+     },
+     {
+      "clueFragment": "technological subject",
+      "gives": "IT",
+      "note": "information technology, a school subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "IT"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Aptitude for computing coming back to a pupil.",
+     "definitionFit": "A trait is a distinguishing quality of someone's character, so a characteristic in noun form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1091,56 @@
     "text": "Badly bitten, a native of Lhasa, say?",
     "enumeration": "7"
    },
-   "solution": "TIBETAN"
+   "solution": "TIBETAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIBETAN",
+    "definitions": [
+     {
+      "text": "a native of Lhasa, say",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Badly",
+      "for": "anagram",
+      "note": "something done badly is messed up, so the letters following are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bitten",
+      "gives": "BITTEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BITTENA",
+       "gives": "TIBETAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A resident of a Himalayan city who has been badly bitten.",
+     "walkthrough": "Lhasa is the capital of Tibet; 'say' marks it as one example among many places.",
+     "definitionFit": "A Tibetan is a person from Tibet, and someone born in its capital Lhasa is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bitten"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1154,54 @@
     "text": "Issue proverbial healer rejected",
     "enumeration": "4"
    },
-   "solution": "EMIT"
+   "solution": "EMIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EMIT",
+    "definitions": [
+     {
+      "text": "Issue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is turned back, so the word is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "proverbial healer",
+      "gives": "TIME",
+      "note": "from the saying that time heals all wounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIME",
+       "to": "EMIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute in which a supposed cure for grief is turned down.",
+     "walkthrough": "'Issue' is a verb here, meaning to send out.",
+     "definitionFit": "To emit is to send out or give off, as when one issues a sound or signal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1225,70 @@
      }
     ]
    },
-   "solution": "BREADANDBUTTER"
+   "solution": "BREADANDBUTTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BREAD AND BUTTER",
+    "definitions": [
+     {
+      "text": "basic source of income",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wasted",
+      "for": "anagram",
+      "note": "something wasted is ruined, so the letters of the preceding word are broken and rearranged"
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "gives": "BREAD",
+      "note": "bread is slang for money"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "BAND",
+      "note": "taken as written, the letters to rearrange"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to say is to utter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREAD",
+      "ANDB",
+      "UTTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BAND",
+       "gives": "ANDB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pop group squandering cash, yet the gigs still pay the rent.",
+     "walkthrough": "'Say' looks like 'for example' but it is a verb.",
+     "definitionFit": "Bread-and-butter describes the routine work that provides one's dependable main livelihood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1302,62 @@
     "text": "Outsiders on estates in desperate want",
     "enumeration": "6"
    },
-   "solution": "DESIRE"
+   "solution": "DESIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DESIRE",
+    "definitions": [
+     {
+      "text": "want",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Outsiders on",
+      "for": "letter_selection",
+      "note": "outsiders are those on the edge, so only the two end letters are taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in a word means put inside it, so the selected letters sit within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desperate",
+      "gives": "DIRE",
+      "note": "dire straits are desperate ones"
+     },
+     {
+      "clueFragment": "estates",
+      "gives": "ES",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ES",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "People excluded from housing estates living in great poverty.",
+     "walkthrough": "'Want' reads like poverty in the surface, but it is the noun for longing.",
+     "definitionFit": "Desire is a strong wish or craving, which is what want means as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "want"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1371,54 @@
     "text": "Vegetable container in rubbish dump",
     "enumeration": "6"
    },
-   "solution": "TURNIP"
+   "solution": "TURNIP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TURNIP",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something placed in another is enclosed by it, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rubbish dump",
+      "gives": "TIP",
+      "note": "a tip is British for a refuse dump"
+     },
+     {
+      "clueFragment": "container",
+      "gives": "URN",
+      "note": "an urn is a vessel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "URN",
+      "IP"
+     ]
+    },
+    "explanation": {
+     "surface": "A root crop dumped in a bin at the refuse site.",
+     "definitionFit": "A turnip is a round root vegetable, a common winter crop in the brassica family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1432,50 @@
     "text": "Loathing test, said to be complicated",
     "enumeration": "8"
    },
-   "solution": "DISTASTE"
+   "solution": "DISTASTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISTASTE",
+    "definitions": [
+     {
+      "text": "Loathing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be complicated",
+      "for": "anagram",
+      "note": "complicated means intricate and tangled, so the letters before are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test, said",
+      "gives": "TESTSAID",
+      "note": "taken as written, the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TESTSAID",
+       "gives": "DISTASTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student hating an exam they have been told will be difficult.",
+     "definitionFit": "Distaste is a feeling of dislike or aversion, which loathing expresses more strongly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "said"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1489,43 @@
     "text": "Encountered in debate, a sticking point",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EAST",
+    "definitions": [
+     {
+      "text": "point",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Encountered in",
+      "for": "hidden_word",
+      "note": "something encountered in a phrase is met inside it, so the letters run across the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debate, a sticking",
+      "gives": "EAST",
+      "note": "the run of letters across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A contentious issue that comes up during a discussion.",
+     "walkthrough": "'Sticking point' looks like one phrase, but 'point' alone is the definition: a compass point.",
+     "definitionFit": "East is one of the four cardinal points of the compass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1539,43 @@
     "text": "Seat lost deliberately, it's said",
     "enumeration": "6"
    },
-   "solution": "THRONE"
+   "solution": "THRONE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "THRONE",
+    "definitions": [
+     {
+      "text": "Seat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "something said is heard rather than read, so the answer matches the sound of another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lost deliberately",
+      "gives": "THRONE",
+      "soundsLike": "THROWN",
+      "note": "a match thrown is one lost on purpose"
+     }
+    ],
+    "explanation": {
+     "surface": "An election seat surrendered on purpose.",
+     "definitionFit": "A throne is the ceremonial chair of a monarch, a seat of state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1589,48 @@
     "text": "Man neither starting nor finishing close",
     "enumeration": "4"
    },
-   "solution": "NIGH"
+   "solution": "NIGH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NIGH",
+    "definitions": [
+     {
+      "text": "close",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "neither starting nor finishing",
+      "for": "deletion",
+      "note": "with no start and no finish the word loses its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "KNIGHT",
+      "note": "in chess the pieces are called men, and a knight is one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGH"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner who never begins or ends the race, staying close behind.",
+     "walkthrough": "KNIGHT loses its K and T to leave NIGH.",
+     "definitionFit": "Nigh is an old word for near, so close in distance or time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1644,39 @@
     "text": "Jersey perhaps on the small side?",
     "enumeration": "6"
    },
-   "solution": "HEIFER"
+   "solution": "HEIFER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HEIFER",
+    "definitions": [
+     {
+      "text": "Jersey perhaps on the small side?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jersey perhaps on the small side?",
+      "note": "surface reading: a pullover sized a little too small"
+     },
+     {
+      "clueFragment": "Jersey perhaps",
+      "note": "setter's reading: a cow of the Jersey breed, and a young one at that"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Jersey' suggests a sweater, but it is also a breed of dairy cow, named after the Channel Island.",
+     "definitionFit": "A heifer is a young cow that has not calved, so a Jersey heifer is a smaller one of the breed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jersey"
+    }
+   }
   },
   {
    "number": 28,
@@ -444,7 +1696,55 @@
      }
     ]
    },
-   "solution": "SANDIEGO"
+   "solution": "SANDIEGO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAN DIEGO",
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sculpture of",
+      "for": "anagram",
+      "note": "sculpture shapes material into a new form, so the following letters are remodelled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea god",
+      "gives": "SEAGOD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEAGODIN",
+       "gives": "SANDIEGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A statue of Neptune standing in an American town.",
+     "definitionFit": "San Diego is a large Pacific coast city in southern California, near the Mexican border."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sculpture"
+    }
+   }
   }
  ]
 }
