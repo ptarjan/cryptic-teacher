@@ -292,6 +292,18 @@ check("a number read in short pieces", [[19037], [15244]],
        for t, h in (("19,038", "Solution to Puzzle No 1 9.037"), ("15,245", "Solution of Puzzle No . 15, 244"))])
 check("1986's 'Solution to No' heading, no 'Puzzle' word", [16983],
       [n for n, _ in f.TIMES.headings([line("The Times Crossword Puzzle No 16,984"), line("Solution to No 16,983")])[1]])
+# A speck read as a word, or a mark the OCR glued between the heading's
+# words (Gale 1976-1989 bands), is no part of it.
+check("a speck or glued mark between a heading's words", [[14277], [14276], [17559], [17581], [16725], [17997]],
+      [[n for n, _ in f.TIMES.headings([line(f"The Times Crossword Puzzle No {t}"), ws])[1]]
+       for t, ws in (("14,278", [(100, 100, 196, 123, "Solution"), (185, 100, 436, 129, "n of Puzzle No 14,277")]),
+                     ("14,277", line("Solution of Puzzle No : 14,276")), ("17,560", line("Solution to.Puzzle No 17,559")),
+                     ("17,582", line("Solution 1 to Puzzle No 17,581")), ("16,726", line("Solution of Puzzle:No.16,725")),
+                     ("17,998", line("Solution to Puzzle-No 17,997")))])
+check("(mirror) unspecked, a heading still needs its lag's number and a 'Solution' or 'Puzzle' word", [[], [], []],
+      [f.TIMES.headings([line(f"The Times Crossword Puzzle No {t}"), line(h)])[1]
+       for t, h in (("17,582", "Solution 1 to Puzzle No 17,590"), ("16,984", "Paste-on No 16,983"),
+                    ("16,984", "Paste i on No 16,983"))])
 check("(mirror) with no middle word the first must read 'Solution'", [],
       f.TIMES.headings([line("The Times Crossword Puzzle No 16,984"), line("Paste on No 16,983")])[1])
 # The OCR ran the connective into "Puzzle" (1983-06-11's Saturday prize).
@@ -2260,17 +2272,19 @@ page_img.save(gd / "leaf_0000.jpg")
                                            "crossword_pages": [{"leaf": 0}]}))
 saved_h, saved_t = f.ocr_headings, f.ocr_titles
 asked = []
-f.ocr_headings = lambda img, paper, key: ([], [])
+saved_bw = f.band_words
+f.band_words = lambda img, band, which, path: []
 f.ocr_titles = lambda img, paper, day, key, far=False: asked.append(far) or [(17398, (0, 0, 1, 1), None, ["ch", "en5"])]
 check("a Gale page with no whole-page title is read in the bands round its grid", ([17398], [True]),
       ([p["number"] for p in f._scan(gd)["puzzles"]], asked))
-f.ocr_headings = lambda img, paper, key: ([(17398, (0, 0, 1, 1), None, ["ch", "en5"])], [])
+f.band_words = saved_bw
+f.ocr_headings = lambda img, paper, key, day=None: ([(17398, (0, 0, 1, 1), None, ["ch", "en5"])], [])
 asked.clear()
 check("(mirror) one whose whole-page read has its title is not read again", ([17398], []),
       ([p["number"] for p in f._scan(gd)["puzzles"]], asked))
 # A solution heading read as its own edition's title (15,682's grid under
 # 15,683, read "15,683") is dropped from the scan: 15,683 never takes it.
-f.ocr_headings = lambda img, paper, key: ([(15683, (0, 0, 1, 1), None, ["ch", "en5"])],
+f.ocr_headings = lambda img, paper, key, day=None: ([(15683, (0, 0, 1, 1), None, ["ch", "en5"])],
                                           [(15683, (0, 2, 1, 3)), (15682, (0, 4, 1, 5))])
 check("a scan drops a solution numbered like its own edition's title", [15682],
       [s["number"] for s in f._scan(gd)["solutions"]])
@@ -2442,6 +2456,26 @@ got = gale_bands({r: puzzie[:1] for r in rs}, {r: puzzie for r in rs})
 check("(mirror) with no title read on the page it is not", [], got[1])
 got = gale_bands({r: title("The Times Crossword Puzzle No 17,720") + puzzie[:1] for r in rs}, {r: puzzie for r in rs})
 check("(mirror) nor under a title it is no lag before", [], got[1])
+# A page no title has half the readers on (Gale 1989-06-20: "PUZZLE NO
+# 18,013" a line under "THE TIMES CROSSWORD") reads its bands against the
+# titles ocr_titles finds round its grids, given the edition's day.
+solation = [(40, 300, 110, 320, "Solation"), (115, 300, 135, 320, "to"), (140, 300, 190, 320, "Puzzle"),
+            (195, 300, 215, 320, "No"), (220, 300, 275, 320, "18,012")]
+saved_t = f.ocr_titles
+f.ocr_titles = lambda img, paper, day, key, far=False: [(18013, (0, 0, 1, 1), None, ["ch", "en5"])]
+def gale_day(day):
+    saved_bw = f.band_words
+    f.band_words = lambda img, box, which, path: [(40, 300, 110, 320, "Solution")] if "_page." in str(path) else solation
+    try:
+        return f.ocr_headings(wide_img, f.GALE, "test", day)
+    finally:
+        f.band_words = saved_bw
+got = gale_day(D("1989-06-20"))
+check("a heading read against the titles round the grid where the page voted none", ([18013], [18012]),
+      ([t[0] for t in got[0]], [s_[0] for s_ in got[1]]))
+got = gale_day(None)
+check("(mirror) with no day, no grid titles: only an exact heading stands", ([], []), got)
+f.ocr_titles = saved_t
 notice = title("The solution of Saturday's Prize Puzzle No 17,250 will appear next Saturday")
 notice = [(w[0], 300, w[2], 320, w[4]) for w in notice]
 got = gale_bands({r: notice for r in rs}, {r: notice for r in rs})

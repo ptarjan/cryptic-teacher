@@ -348,7 +348,7 @@ def solution_at(ws, k, expected, clean=()):
     text = ""
     for j in range(k, len(ws)):
         text = (text + " " + ws[j][4]).strip()
-        m = LOOSE_SOLUTION.match(text)
+        m = LOOSE_SOLUTION.match(text) or LOOSE_SOLUTION.match(unspecked(text))
         if not m or not (like(m[1], "solution") or m[3] and like(m[3], "puzzle")) \
                 or re.search(r"\d", m[1] + (m[3] or "")):
             continue
@@ -359,6 +359,23 @@ def solution_at(ws, k, expected, clean=()):
         if n is not None:
             return n, j
     return None
+
+
+#: Marks the OCR glues between a heading's words ("Solution to.Puzzle",
+#: "Solution-to", "Puzzle:No").
+GLUED_MARKS = re.compile(r"(?<=[A-Za-z])[.:\-'’`]+(?=[A-Za-z])")
+#: A speck read as a word of its own between a heading's words: marks
+#: ("No : 14,276"), or one character before a word ("Solution 1 to Puzzle",
+#: RapidOCR's "Solution" + "n of Puzzle" where its second box starts inside
+#: the first).
+SPECK = re.compile(r"(?<=\s)(?:[^\w\s]+\s+|\w\s+(?=[A-Za-z]))")
+
+
+def unspecked(text):
+    """A heading line's `text` with GLUED_MARKS parted and SPECK words
+    dropped: what solution_at reads where the line as read is no
+    LOOSE_SOLUTION."""
+    return SPECK.sub("", GLUED_MARKS.sub(" ", text))
 
 
 def solutions_over(lines, expected):
@@ -1707,11 +1724,10 @@ def _scan(d):
     for leaf in sorted(leaves):
         if leaf not in text:
             img = page(d, leaf)
-            titles, sols = ocr_headings(img, paper, f"{d.parent.name}_{d.name}_{leaf}")
             # A whole-page read runs a title into the column beside it; the
-            # bands round each grid read it alone.
-            titles = titles or ocr_titles(img, paper, datetime.date.fromisoformat(pages["date"]),
-                                          f"{d.parent.name}_{d.name}_{leaf}", far=True)
+            # bands round each grid read it alone (ocr_titles).
+            titles, sols = ocr_headings(img, paper, f"{d.parent.name}_{d.name}_{leaf}",
+                                        datetime.date.fromisoformat(pages["date"]))
         else:
             titles, sols = paper.headings(text[leaf])
             titles = [(n, box, setter, None) for n, box, setter in titles] or \
@@ -1948,7 +1964,7 @@ def row_lines(words):
     return rows
 
 
-def ocr_headings(img, paper, key):
+def ocr_headings(img, paper, key, day=None):
     """([(number, box, setter, readers)], [(number, box)]) of the titles and
     solution headings on a page archive.org has no text for (a Gale page:
     one article, so its whole ink is read): each title's number at least
@@ -1960,10 +1976,14 @@ def ocr_headings(img, paper, key):
     whole-page read misses its small type or runs it into the clue column.
     A band is read against the titles at least half read on the page
     (solution_headings), as a leaf's text is: "Solution to -— No 17,694"
-    under 17,695 is its heading."""
+    under 17,695 is its heading. Where no title has half the readers and
+    the edition's `day` is given, the titles ocr_titles reads round the
+    page's grids stand instead, and the bands are read against them (the
+    1988 Gale page's title "PUZZLE NO 17,581" a line under "THE TIMES
+    CROSSWORD")."""
     box = img.convert("L").point(lambda v: 255 if v < 128 else 0).getbbox()
     if box is None:
-        return [], []
+        return ([] if day is None else ocr_titles(img, paper, day, key, far=True)), []
     titles, page_words = {}, []
     for which in READERS:
         path = CROPS / "titles" / f"{key}_page.{reader_key(which)}.json"
@@ -1979,6 +1999,8 @@ def ocr_headings(img, paper, key):
                 titles.setdefault(n, []).append((which, b, setter))
     least = len(READERS) / 2
     voted = [n for n, reads in titles.items() if len(reads) >= least]
+    near = [] if voted or day is None else ocr_titles(img, paper, day, key, far=True)
+    voted = voted or [t[0] for t in near]
     sols = {}
     for band in solution_bands(img, page_words):
         for which in READERS:
@@ -1991,7 +2013,7 @@ def ocr_headings(img, paper, key):
                     sols.setdefault(n, []).append((which, b))
     sols = {n: reads for n, reads in sols.items() if len(reads) >= least}
     return ([(n, reads[0][1], reads[0][2], [r[0] for r in reads]) for n, reads in titles.items()
-             if len(reads) >= least or n - 1 in sols],
+             if len(reads) >= least or n - 1 in sols] or near,
             [(n, reads[0][1]) for n, reads in sols.items()])
 
 
