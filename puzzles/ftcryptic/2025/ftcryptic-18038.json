@@ -24,6 +24,9 @@
   "date": "2025-04-28",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,46 @@
     "text": "Deny policeman's allegation",
     "enumeration": "8"
    },
-   "solution": "DISCLAIM"
+   "solution": "DISCLAIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCLAIM",
+    "definitions": [
+     {
+      "text": "Deny",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "policeman's",
+      "gives": "DIS",
+      "note": "a DI is a Detective Inspector, so a policeman's is DI'S"
+     },
+     {
+      "clueFragment": "allegation",
+      "gives": "CLAIM",
+      "note": "an allegation is a claim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "CLAIM"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer's accusation is flatly denied.",
+     "definitionFit": "To disclaim something is to renounce or refuse to own it, a synonym of deny."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deny"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +93,51 @@
     "text": "To protect against infection I clean out building",
     "enumeration": "9"
    },
-   "solution": "INOCULATE"
+   "solution": "INOCULATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INOCULATE",
+    "definitions": [
+     {
+      "text": "To protect against infection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "building",
+      "for": "anagram",
+      "note": "building means constructing something new, so the letters are put together in a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I clean out",
+      "gives": "ICLEANOUT",
+      "note": "taken as written: the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICLEANOUT",
+       "gives": "INOCULATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scrubs out a building to keep infection at bay.",
+     "walkthrough": "'Out' looks like the anagram signal, but it is part of the fodder; 'building' does the stirring.",
+     "definitionFit": "To inoculate is to give a vaccine, which shields a person from catching a disease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +151,54 @@
     "text": "Best stuff has E in it",
     "enumeration": "5"
    },
-   "solution": "CREAM"
+   "solution": "CREAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CREAM",
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has E in it",
+      "for": "container",
+      "note": "having something in it means one word holds the other inside its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stuff",
+      "gives": "CRAM",
+      "note": "to stuff is to cram"
+     },
+     {
+      "clueFragment": "E",
+      "gives": "E",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "E",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "The finest product contains vitamin E.",
+     "definitionFit": "The cream is the choicest part of anything, as cream rises to the top of milk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +212,70 @@
     "text": "Tyrannical king ousted by beginning of May? It's inevitable",
     "enumeration": "9"
    },
-   "solution": "AUTOMATIC"
+   "solution": "AUTOMATIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "AUTOMATIC",
+    "definitions": [
+     {
+      "text": "inevitable",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning of",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter alone"
+     },
+     {
+      "text": "ousted by",
+      "for": "substitution",
+      "note": "something ousted is thrown out and something else takes its place"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tyrannical",
+      "gives": "AUTOCRATIC",
+      "note": "a tyrannical ruler is autocratic"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "CR",
+      "note": "CR, Carolus Rex, is a king's abbreviation"
+     },
+     {
+      "clueFragment": "May",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of May"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUTO",
+      "M",
+      "ATIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A despotic monarch toppled at the start of May was always bound to happen.",
+     "walkthrough": "Swap the king (CR) in AUTOCRATIC for M to get AUTOMATIC.",
+     "definitionFit": "Something automatic follows as a matter of course, so it cannot be avoided."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "May"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +289,66 @@
     "text": "Snake biting retired Irish music-maker",
     "enumeration": "7"
    },
-   "solution": "MARIMBA"
+   "solution": "MARIMBA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MARIMBA",
+    "definitions": [
+     {
+      "text": "music-maker",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retired means drawn back, so the abbreviation is read backwards"
+     },
+     {
+      "text": "biting",
+      "for": "container",
+      "note": "a snake biting something holds it in its jaws, so one word goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snake",
+      "gives": "MAMBA",
+      "note": "a mamba is a venomous African snake"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "IR is the abbreviation for Irish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "RI",
+      "MBA"
+     ],
+     "reversals": [
+      {
+       "from": "IR",
+       "to": "RI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A serpent sinks its fangs into an elderly Irish musician.",
+     "definitionFit": "A marimba is a percussion instrument like a large xylophone, and an instrument makes music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +362,44 @@
     "text": "Trump a gambler, might one say?",
     "enumeration": "6"
    },
-   "solution": "BETTER"
+   "solution": "BETTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BETTER",
+    "definitions": [
+     {
+      "text": "Trump",
+      "at": 0
+     },
+     {
+      "text": "a gambler, might one say?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump",
+      "note": "first meaning: to outdo or surpass"
+     },
+     {
+      "clueFragment": "a gambler, might one say?",
+      "note": "second meaning: one who bets, a whimsical coinage"
+     }
+    ],
+    "explanation": {
+     "surface": "Is Donald Trump a gambling man, one might ask?",
+     "walkthrough": "The capital T makes Trump look like the politician; here it is the verb meaning to beat.",
+     "definitionFit": "To better someone is to outdo them, and a person who places bets could jokingly be called one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trump"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +413,43 @@
     "text": "Children's ride full of creepy-crawlies?",
     "enumeration": "5"
    },
-   "solution": "BUGGY"
+   "solution": "BUGGY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUGGY",
+    "definitions": [
+     {
+      "text": "Children's ride",
+      "at": 0
+     },
+     {
+      "text": "full of creepy-crawlies?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Children's ride",
+      "note": "first meaning: a pushchair for small children"
+     },
+     {
+      "clueFragment": "full of creepy-crawlies?",
+      "note": "second meaning: infested with insects"
+     }
+    ],
+    "explanation": {
+     "surface": "A pram ride crawling with insects.",
+     "walkthrough": "A buggy is the British word for a lightweight pushchair or stroller.",
+     "definitionFit": "A buggy is a baby's pushchair, and something buggy is teeming with insects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +463,51 @@
     "text": "Call Harry then elope",
     "enumeration": "9"
    },
-   "solution": "TELEPHONE"
+   "solution": "TELEPHONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TELEPHONE",
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Harry",
+      "for": "anagram",
+      "note": "to harry is to harass and disturb, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "then elope",
+      "gives": "THENELOPE",
+      "note": "taken as written: the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THENELOPE",
+       "gives": "TELEPHONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to phone Harry and then run off to get married.",
+     "walkthrough": "Harry looks like a person's name; it is the verb to harass.",
+     "definitionFit": "To telephone someone is to call them, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Harry"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +521,56 @@
     "text": "John's left boarding school",
     "enumeration": "5"
    },
-   "solution": "ELTON"
+   "solution": "ELTON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ELTON",
+    "definitions": [
+     {
+      "text": "John's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boarding",
+      "for": "container",
+      "note": "boarding means going aboard, getting inside, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "ETON",
+      "note": "Eton is the famous English boarding school"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "L",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "John has quit his boarding school.",
+     "walkthrough": "The definition is the possessive: the singer Elton John's first name.",
+     "definitionFit": "Elton is the forename belonging to the pop star Elton John, so it is John's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boarding"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +584,54 @@
     "text": "Secret court gathering concluded",
     "enumeration": "6"
    },
-   "solution": "COVERT"
+   "solution": "COVERT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COVERT",
+    "definitions": [
+     {
+      "text": "Secret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "gathering means drawing something in, so the abbreviation surrounds the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     },
+     {
+      "clueFragment": "concluded",
+      "gives": "OVER",
+      "note": "something concluded is over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A clandestine court session has ended.",
+     "definitionFit": "Covert operations are hidden or undercover ones, a synonym for secret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gathering"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +645,66 @@
     "text": "Sled turned back in speed control",
     "enumeration": "8"
    },
-   "solution": "REGULATE"
+   "solution": "REGULATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "REGULATE",
+    "definitions": [
+     {
+      "text": "control",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned back",
+      "for": "reversal",
+      "note": "turned back means facing the other way, so the word is read from end to start"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speed",
+      "gives": "RATE",
+      "note": "speed is rate"
+     },
+     {
+      "clueFragment": "Sled",
+      "gives": "LUGE",
+      "note": "a luge is a racing sled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EGUL",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "LUGE",
+       "to": "EGUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sledge spun round while trying to keep its speed in check.",
+     "definitionFit": "To regulate is to control or adjust something, a direct synonym of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "control"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +724,49 @@
      }
     ]
    },
-   "solution": "YUMMYMUMMY"
+   "solution": "YUMMYMUMMY",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "YUMMY MUMMY",
+    "definitions": [
+     {
+      "text": "Attractive young producer?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attractive",
+      "gives": "YUMMY",
+      "note": "informally, yummy means delicious, hence attractive"
+     },
+     {
+      "clueFragment": "young producer",
+      "gives": "MUMMY",
+      "note": "a mother is the one who produces young"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YUMMY",
+      "MUMMY"
+     ]
+    },
+    "explanation": {
+     "surface": "A good-looking youthful film or record producer.",
+     "walkthrough": "'Young' looks like it describes the producer's age, but it is the offspring being produced. The whole clue also defines the answer.",
+     "definitionFit": "The British slang phrase names a stylish, attractive young mother, and a mother is one who produces young."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "young"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +780,47 @@
     "text": "Long for courage, heading off",
     "enumeration": "4"
    },
-   "solution": "PINE"
+   "solution": "PINE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PINE",
+    "definitions": [
+     {
+      "text": "Long for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its head off, a word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "courage",
+      "gives": "SPINE",
+      "note": "spine means backbone, courage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone yearns for bravery as they set off.",
+     "definitionFit": "To pine for something is to yearn or ache for it, a synonym of long for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +834,55 @@
     "text": "Empty one container into another",
     "enumeration": "6"
    },
-   "solution": "VACANT"
+   "solution": "VACANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VACANT",
+    "definitions": [
+     {
+      "text": "Empty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means placing these pieces inside the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another",
+      "gives": "VAT",
+      "note": "another container, here a vat"
+     },
+     {
+      "clueFragment": "one container",
+      "gives": "CAN",
+      "note": "a can is a container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VA",
+      "CAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for pouring one vessel's contents into another.",
+     "walkthrough": "The can goes between the A and T of VAT.",
+     "definitionFit": "Vacant means unoccupied or with nothing in it, a synonym of empty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Empty"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +896,57 @@
     "text": "Drink with followers after a battle",
     "enumeration": "9"
    },
-   "solution": "AGINCOURT"
+   "solution": "AGINCOURT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGINCOURT",
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "with",
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Drink",
+      "gives": "GIN",
+      "note": "gin is a drink"
+     },
+     {
+      "clueFragment": "followers",
+      "gives": "COURT",
+      "note": "a court is a sovereign's retinue of followers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GIN",
+      "COURT"
+     ]
+    },
+    "explanation": {
+     "surface": "Having a drink with fans after a fight.",
+     "walkthrough": "'After a' puts A in front of the drink and followers.",
+     "definitionFit": "Agincourt was the 1415 battle in which Henry V's English army defeated the French."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "followers"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +960,51 @@
     "text": "Region producing a Laotian?",
     "enumeration": "8"
    },
-   "solution": "ANATOLIA"
+   "solution": "ANATOLIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANATOLIA",
+    "definitions": [
+     {
+      "text": "Region",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "producing",
+      "for": "anagram",
+      "note": "producing suggests turning out something new from the given material, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Laotian",
+      "gives": "ALAOTIAN",
+      "note": "taken as written: the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALAOTIAN",
+       "gives": "ANATOLIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Which area of the world turns out someone from Laos?",
+     "definitionFit": "Anatolia is the peninsula forming the Asian part of Turkey, a geographical region."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "producing"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1018,51 @@
     "text": "To whom postman will deliver speech on drugs?",
     "enumeration": "9"
    },
-   "solution": "ADDRESSEE"
+   "solution": "ADDRESSEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADDRESSEE",
+    "definitions": [
+     {
+      "text": "To whom postman will deliver",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speech",
+      "gives": "ADDRESS",
+      "note": "an address is a formal speech"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "EE",
+      "note": "E is ecstasy, so two Es are drugs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADDRESS",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "A query about whom a postal worker would deliver a talk on narcotics to.",
+     "walkthrough": "'Deliver speech' looks like one phrase; the definition ends at deliver and speech starts the wordplay.",
+     "definitionFit": "The addressee is the person named on a letter, the recipient a postal worker brings it to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "speech"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1076,57 @@
     "text": "Lethargy of northern sentries appalling",
     "enumeration": "9"
    },
-   "solution": "INERTNESS"
+   "solution": "INERTNESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INERTNESS",
+    "definitions": [
+     {
+      "text": "Lethargy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appalling",
+      "for": "anagram",
+      "note": "something appalling is in a terrible state, so the letters are mangled into a new order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     },
+     {
+      "clueFragment": "sentries",
+      "gives": "SENTRIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NSENTRIES",
+       "gives": "INERTNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Guards in the north are shockingly sluggish.",
+     "definitionFit": "Inertness is a lack of activity or vigour, matching the sluggishness of lethargy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1140,59 @@
     "text": "Undistinguished doctor about to admit nothing",
     "enumeration": "8"
    },
-   "solution": "MEDIOCRE"
+   "solution": "MEDIOCRE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MEDIOCRE",
+    "definitions": [
+     {
+      "text": "Undistinguished",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to admit",
+      "for": "container",
+      "note": "to admit is to let in, so one word takes the other inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "MEDIC",
+      "note": "a medic is a doctor"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, O"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEDIOC",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "An ordinary doctor is on the point of confessing to nothing.",
+     "definitionFit": "Mediocre means of only average quality, with no distinction, a synonym of undistinguished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1206,61 @@
     "text": "Thoughtful article about Hemingway? On the contrary",
     "enumeration": "7"
    },
-   "solution": "EARNEST"
+   "solution": "EARNEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EARNEST",
+    "definitions": [
+     {
+      "text": "Thoughtful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps the other"
+     },
+     {
+      "text": "On the contrary",
+      "for": "container",
+      "note": "on the contrary flips the stated roles, so the word said to be wrapped does the wrapping"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hemingway",
+      "gives": "ERNEST",
+      "note": "Ernest Hemingway, the American novelist"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "A is an indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "A",
+      "RNEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Is this a serious piece of writing about Hemingway, or is it the reverse?",
+     "walkthrough": "'On the contrary' tells the solver to swap roles: Hemingway goes about the article, not the article about Hemingway.",
+     "definitionFit": "Earnest means serious and sincere in intention, close to thoughtful in the sense of grave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1274,42 @@
     "text": "Prussian chap who's counting the calories?",
     "enumeration": "6"
    },
-   "solution": "DIETER"
+   "solution": "DIETER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIETER",
+    "definitions": [
+     {
+      "text": "Prussian chap",
+      "at": 0
+     },
+     {
+      "text": "who's counting the calories?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prussian chap",
+      "note": "first meaning: a common German male first name"
+     },
+     {
+      "clueFragment": "who's counting the calories?",
+      "note": "second meaning: one who is on a diet"
+     }
+    ],
+    "explanation": {
+     "surface": "Which German man is watching his weight?",
+     "definitionFit": "Dieter is a German forename, and a person on a slimming diet is a dieter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1323,63 @@
     "text": "Married a right Charlie? That's the spirit!",
     "enumeration": "4"
    },
-   "solution": "MARC"
+   "solution": "MARC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARC",
+    "definitions": [
+     {
+      "text": "the spirit",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "R",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wed a proper fool and is cheered for their pluck.",
+     "walkthrough": "A right Charlie is British slang for a complete fool, which hides the letters.",
+     "definitionFit": "Marc is a brandy distilled from grape pressings, so it is a spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1393,61 @@
     "text": "Informed about conflict between America and half of EU",
     "enumeration": "5"
    },
-   "solution": "AWARE"
+   "solution": "AWARE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AWARE",
+    "definitions": [
+     {
+      "text": "Informed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "between",
+      "for": "container",
+      "note": "between puts one piece in the middle, with the other two either side"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A is the abbreviation for America"
+     },
+     {
+      "clueFragment": "conflict",
+      "gives": "WAR",
+      "note": "a war is a conflict"
+     },
+     {
+      "clueFragment": "half of EU",
+      "gives": "E",
+      "note": "one of the two letters of EU"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone knows about a dispute between the US and Europe.",
+     "definitionFit": "Being aware means having knowledge of something, the same as being informed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1461,52 @@
     "text": "Intransigence of priest very strange",
     "enumeration": "10"
    },
-   "solution": "PERVERSITY"
+   "solution": "PERVERSITY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERVERSITY",
+    "definitions": [
+     {
+      "text": "Intransigence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "strange means out of the ordinary, so the letters are put in an unusual order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest very",
+      "gives": "PRIESTVERY",
+      "note": "taken as written: the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRIESTVERY",
+       "gives": "PERVERSITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric's stubbornness is most odd.",
+     "definitionFit": "Perversity is a wilful contrariness, refusing to be reasonable, much like intransigence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1526,54 @@
      }
     ]
    },
-   "solution": "PUTON"
+   "solution": "PUTON",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "PUT ON",
+    "definitions": [
+     {
+      "text": "Don",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means overturned, and in a down clue the phrase is read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still in bed",
+      "gives": "NOTUP",
+      "note": "someone still in bed is not up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUTON"
+     ],
+     "reversals": [
+      {
+       "from": "NOTUP",
+       "to": "PUTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Oxbridge tutor lies in bed, distressed.",
+     "walkthrough": "Don looks like a university lecturer; it is the verb meaning to put clothes on.",
+     "definitionFit": "To don clothes is to put them on, a direct synonym for the phrasal verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Don"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1587,65 @@
     "text": "Skin up after son's siesta?",
     "enumeration": "5"
    },
-   "solution": "SLEEP"
+   "solution": "SLEEP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SLEEP",
+    "definitions": [
+     {
+      "text": "siesta",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "up in a down clue means the word is written from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "Skin",
+      "gives": "PEEL",
+      "note": "peel is the skin of a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEEL",
+       "to": "LEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cannabis joint is rolled after the boy's afternoon nap.",
+     "walkthrough": "'Skin up' is British slang for rolling a joint; here skin and up are separate.",
+     "definitionFit": "A siesta is an afternoon nap, a period of sleep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Skin"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1659,39 @@
     "text": "The pain enjoyed by the Marquis de Sade?",
     "enumeration": "8"
    },
-   "solution": "BAGUETTE"
+   "solution": "BAGUETTE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BAGUETTE",
+    "definitions": [
+     {
+      "text": "The pain enjoyed by the Marquis de Sade?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The pain enjoyed by the Marquis de Sade?",
+      "note": "surface reading: the suffering a notorious sadist took pleasure in"
+     },
+     {
+      "clueFragment": "The pain enjoyed by the Marquis de Sade?",
+      "note": "setter's reading: pain is French for bread, so a Frenchman's loaf"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pain is the French word for bread, and the Marquis de Sade, being French, would eat a long French loaf.",
+     "definitionFit": "A baguette is the long thin loaf typical of France, the bread a Frenchman would enjoy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pain"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1705,39 @@
     "text": "Ready for your trip to Tel Aviv?",
     "enumeration": "6"
    },
-   "solution": "SHEKEL"
+   "solution": "SHEKEL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SHEKEL",
+    "definitions": [
+     {
+      "text": "Ready for your trip to Tel Aviv?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ready for your trip to Tel Aviv?",
+      "note": "surface reading: asking if you are prepared for your journey"
+     },
+     {
+      "clueFragment": "Ready for your trip to Tel Aviv?",
+      "note": "setter's reading: ready is slang for cash, so the money you take to Israel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Readies' is British slang for cash, so 'Ready' is the currency, not being prepared.",
+     "definitionFit": "The shekel is the currency of Israel, the money a traveller to Tel Aviv would spend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ready"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1751,54 @@
     "text": "Scoffed after British defeated",
     "enumeration": "6"
    },
-   "solution": "BEATEN"
+   "solution": "BEATEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEATEN",
+    "definitions": [
+     {
+      "text": "defeated",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sends the word before it to come second, behind the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "Scoffed",
+      "gives": "EATEN",
+      "note": "to scoff food is to eat it greedily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EATEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneered after the British lost.",
+     "walkthrough": "Scoffed looks like mocked; in British slang it means gobbled up.",
+     "definitionFit": "Beaten means having lost a contest, a synonym of defeated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scoffed"
+    }
+   }
   },
   {
    "number": 28,
@@ -455,7 +1812,50 @@
     "text": "Nancy's very amorous advance causing offence",
     "enumeration": "8"
    },
-   "solution": "TRESPASS"
+   "solution": "TRESPASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRESPASS",
+    "definitions": [
+     {
+      "text": "offence",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nancy's very",
+      "gives": "TRES",
+      "note": "Nancy is a French city, so its word for very is tres"
+     },
+     {
+      "clueFragment": "amorous advance",
+      "gives": "PASS",
+      "note": "to make a pass is to make an amorous advance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRES",
+      "PASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Nancy's overly romantic overture gave offence.",
+     "walkthrough": "Nancy looks like a woman's name; it is the city in north-east France, signalling a French word.",
+     "definitionFit": "A trespass is an archaic word for a sin or wrongdoing, as in the Lord's Prayer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nancy's"
+    }
+   }
   }
  ]
 }
