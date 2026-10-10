@@ -1311,6 +1311,20 @@ for r in range(15):
         heavy[(top + foot) // 2 - 3:(top + foot) // 2 + 3, 7:39] = True
 ys, xs = tso.rules(np.where(heavy, 0, 255).astype(np.uint8), edge)
 check("a frame beside a heavy edge column found within 2px of its middle", True, abs(xs[0] - 2) <= 2)
+# framed_rules(): blocks read alike on any lattice near the grid, so an
+# even lattice reading one more cell's block right is no better fit. A
+# heavy skewed print (Times 14486, 15960) cut on such a lattice lost every
+# light right of its middle; rules() wins unless RULES_SLACK cells behind.
+plain = np.asarray(sheared.convert("L"))
+real_agreement = tso.block_agreement
+def picked(behind):
+    tso.block_agreement = lambda g, grid, lat: 1.0 if g is plain else 1.0 - behind / 225
+    try:
+        return tso.framed_rules(plain, grid17246)[0] is plain
+    finally:
+        tso.block_agreement = real_agreement
+check("rules() kept when an even lattice reads one cell's block better, not three",
+      (False, True), (picked(1), picked(3)))
 # numbers_printed(): a Times solution grid from the mid-1980s prints no clue
 # numbers; blanking its numbered cells' corners makes a D a sure J (20006
 # DELETE lost), so only a grid whose numbered corners carry ink is blanked.

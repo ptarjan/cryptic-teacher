@@ -637,12 +637,20 @@ def numbered_letters(lts, letters, numbers, allowed, printed):
     return out
 
 
+#: How many cells' blocks an even lattice must read better than rules() does
+#: to be taken over it.
+RULES_SLACK = 2
+
+
 def framed_rules(gray, grid):
     """(gray, ys, xs): the grid image and its rules that read its blocks
     as the grid's best, of: its largest patch of ink straightened() and
     ruled by rules(), else (a crop that is no clean frame: a column cut
     off, a caption touching) that patch's lattice() between its outer
-    rules or fitted in it, evenly apart. Ties go to rules()."""
+    rules or fitted in it, evenly apart. rules() wins unless another reads
+    more than RULES_SLACK cells' blocks better: blocks read alike on a
+    lattice half a cell off, so a lead of a cell or two says nothing of
+    the fit."""
     n = len(grid)
     box = trove_grid.largest_component(gray < trove_grid.otsu(gray))
     if box is None:
@@ -663,7 +671,11 @@ def framed_rules(gray, grid):
             pass
     if not tried:
         raise ValueError("no lattice in the image")
-    return max(tried, key=lambda g: block_agreement(g[0], grid, (g[1], g[2])))
+    scores = [block_agreement(g[0], grid, (g[1], g[2])) for g in tried]
+    best = max(scores)
+    if tried[0][0] is patch and scores[0] >= best - RULES_SLACK / (n * len(grid[0])):
+        return tried[0]
+    return tried[scores.index(best)]
 
 
 def read_framed(image, grid):
