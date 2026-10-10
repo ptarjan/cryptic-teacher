@@ -380,6 +380,20 @@ with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
 check("the first plan starts its reads before the fetch plan is made, and the fetches after", (True, True),
       (plan_saw[:1] == [True], "start fetch e0" in log.read_text()))
 
+# A fetch source's plan is made again only fetch_replan after the last; the
+# scans' and reads' plans every replan meanwhile.
+eq.plan = units([], [("r1", [])])
+made = {}
+for every in (60, 0):
+    log.unlink(missing_ok=True)
+    fake(default=0.3, ends=False, sleep={"r1": 1.0})
+    eq.FETCHERS = {"src": {"plan": lambda e=every: made.setdefault(e, []).append(1) or [],
+                           "workers": 1, "seconds": 5}}
+    with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+        eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.1, fetch_replan=every)
+check("a fetch plan is made once per fetch_replan, not every replan; mirror: at 0 every replan",
+      (1, True), (len(made[60]), len(made[0]) > 2))
+
 # Each unit's command line names its kind, paper and edition, not the queue's.
 log.unlink()
 fake(ps=True)

@@ -1059,8 +1059,10 @@ def input_hash(d):
     the read's output."""
     h = hashlib.sha256()
     for name in ("meta.json", "ocr.txt", "grid.jpg"):
-        p = d / name
-        st = p.stat() if p.exists() else None
+        try:
+            st = os.stat(d / name)
+        except (FileNotFoundError, NotADirectoryError):
+            st = None
         h.update((f"{name}:{st.st_size}:{st.st_mtime_ns}" if st else f"{name}:-").encode())
     h.update(" ".join(p.name for p in trove_clue_ocr.zone_images(d.name, clue_zones(d))).encode())
     return h.hexdigest()[:16]
