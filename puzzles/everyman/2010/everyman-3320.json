@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Quiet place visited by a group of policemen",
     "enumeration": "6"
    },
-   "solution": "PLACID"
+   "solution": "PLACID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLACID",
+    "definitions": [
+     {
+      "text": "Quiet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "visited by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "PL",
+      "note": "Pl. is the street-sign abbreviation for Place"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "group of policemen",
+      "gives": "CID",
+      "note": "the Criminal Investigation Department, Britain's plain-clothes detectives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "A",
+      "CID"
+     ]
+    },
+    "explanation": {
+     "surface": "A peaceful spot suddenly gets a call from a squad of police officers.",
+     "walkthrough": "'Place' shrinks to its address abbreviation, and 'visited by' just puts the detectives after it.",
+     "definitionFit": "Placid describes a calm, untroubled person or scene, a close synonym of quiet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +99,59 @@
     "text": "Rope left round beast inside",
     "enumeration": "5"
    },
-   "solution": "LASSO"
+   "solution": "LASSO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LASSO",
+    "definitions": [
+     {
+      "text": "Rope",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside says the animal sits within the ring-shaped letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "beast",
+      "gives": "ASS",
+      "note": "a donkey"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round shape looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ASSO"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for tethering an animal: loop the rope round it, leaving the beast inside.",
+     "definitionFit": "A lasso is a looped rope used by cowboys for catching cattle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +165,52 @@
     "text": "I torch a clapped-out vehicle",
     "enumeration": "7"
    },
-   "solution": "CHARIOT"
+   "solution": "CHARIOT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "CHARIOT",
+    "definitions": [
+     {
+      "text": "vehicle",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clapped-out",
+      "for": "anagram",
+      "note": "clapped-out means worn out and broken, so the letters fall apart and are rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I torch a",
+      "gives": "ITORCHA",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITORCHA",
+       "gives": "CHARIOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses to setting fire to a broken-down old car.",
+     "walkthrough": "Clapped-out is British slang for worn out and unreliable, usually said of an old car.",
+     "definitionFit": "A chariot is a two-wheeled horse-drawn vehicle of ancient warfare and racing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clapped-out"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +224,66 @@
     "text": "Advance payment is brought over in terminal",
     "enumeration": "7"
    },
-   "solution": "DEPOSIT"
+   "solution": "DEPOSIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DEPOSIT",
+    "definitions": [
+     {
+      "text": "Advance payment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought over",
+      "for": "reversal",
+      "note": "brought over suggests flipping the short word end to end"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the flipped word inside the station word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terminal",
+      "gives": "DEPOT",
+      "note": "a depot is a bus or rail terminus"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "SI",
+      "note": "the word is written backwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEPO",
+      "SI",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A down payment is handed over at the station.",
+     "definitionFit": "A deposit is a sum paid up front to secure a purchase, an advance payment by another name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terminal"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +297,64 @@
     "text": "Storyteller getting adult to sit back",
     "enumeration": "5"
    },
-   "solution": "AESOP"
+   "solution": "AESOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AESOP",
+    "definitions": [
+     {
+      "text": "Storyteller",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back tells the solver to read the word for sit in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film-rating abbreviation for adult"
+     },
+     {
+      "clueFragment": "sit",
+      "gives": "POSE",
+      "note": "to sit for a portrait is to pose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ESOP"
+     ],
+     "reversals": [
+      {
+       "from": "POSE",
+       "to": "ESOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A storyteller persuades a grown-up to settle down and listen.",
+     "definitionFit": "Aesop was the ancient Greek teller of fables such as the tortoise and the hare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sit"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +368,61 @@
     "text": "Sailor, instead, amazingly, went on the wagon",
     "enumeration": "9"
    },
-   "solution": "ABSTAINED"
+   "solution": "ABSTAINED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ABSTAINED",
+    "definitions": [
+     {
+      "text": "went on the wagon",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amazingly",
+      "for": "anagram",
+      "note": "amazingly suggests something astonishing has happened to the word before it, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman"
+     },
+     {
+      "clueFragment": "instead",
+      "gives": "INSTEAD",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "STAINED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INSTEAD",
+       "gives": "STAINED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor, surprisingly, gave up the drink rather than the usual rum.",
+     "walkthrough": "Sailors are famed for drinking, which is what makes the surface's surprise.",
+     "definitionFit": "To go on the wagon is an idiom for giving up alcohol, which is to abstain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "instead"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +442,50 @@
      }
     ]
    },
-   "solution": "SQUASHRACKETS"
+   "solution": "SQUASHRACKETS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SQUASH RACKETS",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suppress",
+      "gives": "SQUASH",
+      "note": "to squash a rebellion is to suppress it"
+     },
+     {
+      "clueFragment": "illegal dealings",
+      "gives": "RACKETS",
+      "note": "rackets are criminal money-making schemes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUASH",
+      "RACKETS"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to crack down on crooked dealing in some sport.",
+     "definitionFit": "Squash rackets is the full formal name of the indoor racket sport squash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Suppress"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +499,59 @@
     "text": "Groom about to be put in prison",
     "enumeration": "5"
    },
-   "solution": "PREEN"
+   "solution": "PREEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PREEN",
+    "definitions": [
+     {
+      "text": "Groom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "put in tells the solver to set one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "PEN",
+      "note": "pen is US slang for a penitentiary"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning, about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RE",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A bridegroom is about to be locked up.",
+     "walkthrough": "'Groom' looks like a bridegroom noun, but it is the verb to tidy oneself.",
+     "definitionFit": "To preen is to groom oneself carefully, as a bird does its feathers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Groom"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +565,65 @@
     "text": "Bubbly does it, and port",
     "enumeration": "6"
    },
-   "solution": "ODESSA"
+   "solution": "ODESSA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ODESSA",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bubbly",
+      "for": "anagram",
+      "note": "bubbly suggests fizzing and churning, so the letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "does",
+      "gives": "DOES",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "SA",
+      "note": "it is slang for sex appeal, abbreviated SA"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODES",
+      "SA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOES",
+       "gives": "ODES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Champagne does the trick, and so does a glass of port.",
+     "walkthrough": "'Bubbly' and 'port' both look like drinks; one is the anagram signal and the other the definition.",
+     "definitionFit": "Odessa is a major Black Sea seaport in Ukraine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +643,52 @@
      }
     ]
    },
-   "solution": "DOGSBREAKFAST"
+   "solution": "DOGSBREAKFAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOGS BREAKFAST",
+    "definitions": [
+     {
+      "text": "mess",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "having",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Terriers, say",
+      "gives": "DOGS",
+      "note": "terriers are an example of dogs, flagged by say"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "BREAKFAST",
+      "note": "the morning meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOGS",
+      "BREAKFAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Little dogs eating their food make a mess of the kitchen.",
+     "walkthrough": "A dog's breakfast is British slang for a complete muddle.",
+     "definitionFit": "The idiom describes something botched and chaotic, a mess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "meal"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +702,61 @@
     "text": "A way through unspoilt meadow",
     "enumeration": "7"
    },
-   "solution": "PASTURE"
+   "solution": "PASTURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PASTURE",
+    "definitions": [
+     {
+      "text": "meadow",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "through",
+      "for": "container",
+      "note": "through means passing within, so the first pieces go inside the word for unspoilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unspoilt",
+      "gives": "PURE",
+      "note": "pure means untainted"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "ST",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "A footpath crosses an untouched field.",
+     "definitionFit": "Pasture is grassland for grazing livestock, a meadow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +776,53 @@
      }
     ]
    },
-   "solution": "GLORIASWANSON"
+   "solution": "GLORIASWANSON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GLORIA SWANSON",
+    "definitions": [
+     {
+      "text": "Actress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so these letters are strewn and reassembled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oslo as warning",
+      "gives": "OSLOASWARNING",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OSLOASWARNING",
+       "gives": "GLORIASWANSON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actress in Norway's capital becomes the subject of a public alert.",
+     "definitionFit": "Gloria Swanson was a Hollywood star, famous for Sunset Boulevard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +836,50 @@
     "text": "No head for details in book",
     "enumeration": "4"
    },
-   "solution": "ACTS"
+   "solution": "ACTS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ACTS",
+    "definitions": [
+     {
+      "text": "book",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No head for",
+      "for": "deletion",
+      "note": "no head means the word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "details",
+      "gives": "FACTS",
+      "note": "details are facts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone without the mind for fine points in a book.",
+     "definitionFit": "The Acts of the Apostles is a book of the New Testament, usually called Acts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +893,69 @@
     "text": "Floor show has nude appearing in kinky act",
     "enumeration": "7"
    },
-   "solution": "CABARET"
+   "solution": "CABARET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CABARET",
+    "definitions": [
+     {
+      "text": "Floor show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kinky",
+      "for": "anagram",
+      "note": "kinky means twisted, so the short word is twisted into a new order"
+     },
+     {
+      "text": "appearing in",
+      "for": "container",
+      "note": "appearing in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "act",
+      "gives": "ACT",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "nude",
+      "gives": "BARE",
+      "note": "bare means naked"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "BARE",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACT",
+       "gives": "CAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A risqué nightclub show features a naked performer.",
+     "definitionFit": "Cabaret is entertainment performed in a nightclub while the audience sits at tables, a floor show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kinky"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +969,50 @@
     "text": "Extraordinary count, rare anecdotalist",
     "enumeration": "9"
    },
-   "solution": "RACONTEUR"
+   "solution": "RACONTEUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RACONTEUR",
+    "definitions": [
+     {
+      "text": "anecdotalist",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extraordinary",
+      "for": "anagram",
+      "note": "extraordinary means out of the ordinary, so the letters are taken out of their usual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "count, rare",
+      "gives": "COUNTRARE",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COUNTRARE",
+       "gives": "RACONTEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remarkable, unusual nobleman who loves telling stories.",
+     "definitionFit": "A raconteur is a skilled teller of stories and anecdotes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "count"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1026,64 @@
     "text": "First to tackle worker having bizarre fit of bad temper",
     "enumeration": "7"
    },
-   "solution": "TANTRUM"
+   "solution": "TANTRUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TANTRUM",
+    "definitions": [
+     {
+      "text": "fit of bad temper",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First to",
+      "for": "letter_selection",
+      "note": "first to keeps only the opening letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tackle",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker ant is the crossword's standard worker"
+     },
+     {
+      "clueFragment": "bizarre",
+      "gives": "RUM",
+      "note": "rum is British slang for odd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ANT",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "The first person to confront a staff member gets a strange angry outburst.",
+     "definitionFit": "A tantrum is an uncontrolled outburst of anger, especially a child's."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tackle"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1097,46 @@
     "text": "Fist fight in factory",
     "enumeration": "4"
    },
-   "solution": "MILL"
+   "solution": "MILL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MILL",
+    "definitions": [
+     {
+      "text": "Fist fight",
+      "at": 0
+     },
+     {
+      "text": "factory",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fist fight",
+      "note": "first meaning: old slang for a boxing bout"
+     },
+     {
+      "clueFragment": "factory",
+      "note": "second meaning: a manufacturing works such as a cotton or paper works"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface pictures a punch-up on the shop floor; the boxing sense is old slang.",
+     "definitionFit": "The word means both a fisticuffs bout in old slang and an industrial works."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fist"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1150,51 @@
     "text": "Client's ordered copy",
     "enumeration": "7"
    },
-   "solution": "STENCIL"
+   "solution": "STENCIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STENCIL",
+    "definitions": [
+     {
+      "text": "copy",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means arranged, so the letters are put into a new sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Client's",
+      "gives": "CLIENTS",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLIENTS",
+       "gives": "STENCIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A customer has requested a duplicate.",
+     "walkthrough": "'Ordered' reads as requested, but it signals rearranging.",
+     "definitionFit": "A stencil is a cut-out template used to reproduce a design or lettering, a way to copy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1208,61 @@
     "text": "Animal no less uneasy about one",
     "enumeration": "7"
    },
-   "solution": "LIONESS"
+   "solution": "LIONESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LIONESS",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uneasy",
+      "for": "anagram",
+      "note": "uneasy means unsettled, so the letters are shaken out of order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the rearranged letters go around the numeral"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no less",
+      "gives": "NOLESS",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOLESSI",
+       "gives": "LIONESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal that is just as restless about a single thing.",
+     "definitionFit": "A lioness is the female lion, an example of an animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "less"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1276,54 @@
     "text": "Claimed to be relaxed in examination",
     "enumeration": "7"
    },
-   "solution": "MEDICAL"
+   "solution": "MEDICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEDICAL",
+    "definitions": [
+     {
+      "text": "examination",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "relaxed",
+      "for": "anagram",
+      "note": "relaxed means loosened, so the letters loosen into a different order"
+     }
+    ],
+    "linkWords": [
+     "to be",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Claimed",
+      "gives": "CLAIMED",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLAIMED",
+       "gives": "MEDICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A candidate insists they stayed calm during the test.",
+     "definitionFit": "A medical is a physical check-up by a doctor, an examination of health."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relaxed"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1337,63 @@
     "text": "Wind more vicious round centre of Cadiz",
     "enumeration": "7"
    },
-   "solution": "MEANDER"
+   "solution": "MEANDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MEANDER",
+    "definitions": [
+     {
+      "text": "Wind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "centre of keeps only the middle letter of the place name"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the word for nastier goes around the kept letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more vicious",
+      "gives": "MEANER",
+      "note": "meaner means nastier"
+     },
+     {
+      "clueFragment": "Cadiz",
+      "gives": "D",
+      "select": "middle",
+      "note": "the middle letter of the five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEAN",
+      "D",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A fiercer gale blows around a Spanish port.",
+     "walkthrough": "'Wind' looks like moving air, but it is the verb to twist and turn.",
+     "definitionFit": "To meander is to wind or wander along a twisting course, as a river does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wind"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1421,39 @@
      }
     ]
    },
-   "solution": "TAKENFORARIDE"
+   "solution": "TAKENFORARIDE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TAKEN FOR A RIDE",
+    "definitions": [
+     {
+      "text": "duped",
+      "at": 35
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The car's passenger, on a trip",
+      "note": "surface reading: someone driven somewhere as a passenger on a journey"
+     },
+     {
+      "clueFragment": "is duped?",
+      "note": "setter's reading: the same idiom means having been tricked or swindled"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase literally describes a car passenger, and idiomatically someone conned; the question mark flags the double reading.",
+     "definitionFit": "The idiom for being cheated or deceived means exactly duped."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1467,57 @@
     "text": "Very young child, alone, drops one that's full",
     "enumeration": "5"
    },
-   "solution": "TOTAL"
+   "solution": "TOTAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TOTAL",
+    "definitions": [
+     {
+      "text": "full",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops one",
+      "for": "deletion",
+      "note": "drops says the word for solitary sheds the letters of the number"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very young child",
+      "gives": "TOT",
+      "note": "a tot is a toddler"
+     },
+     {
+      "clueFragment": "alone",
+      "gives": "ALONE",
+      "note": "taken as written before the cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOT",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A toddler, left by itself, lets go of the one that is full.",
+     "definitionFit": "Total means complete or entire, so full in the sense of utter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1531,60 @@
     "text": "Block of gold I obtained around noon",
     "enumeration": "5"
    },
-   "solution": "INGOT"
+   "solution": "INGOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INGOT",
+    "definitions": [
+     {
+      "text": "Block of gold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the first part encloses the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     },
+     {
+      "clueFragment": "obtained",
+      "gives": "GOT",
+      "note": "got means obtained"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "GOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A miner boasts of acquiring a gold bar at midday.",
+     "walkthrough": "The pronoun and the verb together surround the abbreviation, which lands just after the I.",
+     "definitionFit": "An ingot is a bar of cast metal, especially gold or silver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "noon"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1598,71 @@
     "text": "Swing component must be put back ahead of rest, we're told",
     "enumeration": "7"
    },
-   "solution": "TRAPEZE"
+   "solution": "TRAPEZE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "homophone"
+    ],
+    "answer": "TRAPEZE",
+    "definitions": [
+     {
+      "text": "Swing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "put back says the word for component is written from its end"
+     },
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "we're told means as heard, so the second piece is matched by sound not spelling"
+     }
+    ],
+    "linkWords": [
+     "must be",
+     "ahead of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "component",
+      "gives": "PART",
+      "note": "a part is a component"
+     },
+     {
+      "clueFragment": "rest",
+      "gives": "EZE",
+      "soundsLike": "EASE",
+      "note": "ease means rest; spelt to match the sound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAP",
+      "EZE"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of a garden swing has to be refitted before you can rest.",
+     "definitionFit": "A trapeze is a horizontal bar hung on ropes, a swing used by acrobats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Swing"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1676,44 @@
     "text": "A synopsis to think over",
     "enumeration": "6"
    },
-   "solution": "DIGEST"
+   "solution": "DIGEST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIGEST",
+    "definitions": [
+     {
+      "text": "synopsis",
+      "at": 2
+     },
+     {
+      "text": "think over",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "A",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "synopsis",
+      "note": "first meaning: a summary of information"
+     },
+     {
+      "clueFragment": "think over",
+      "note": "second meaning: to absorb and reflect on information"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As a noun it means a condensed summary; as a verb, to mull over and take in ideas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1727,56 @@
     "text": "Following behind leader in race",
     "enumeration": "5"
    },
-   "solution": "LATER"
+   "solution": "LATER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LATER",
+    "definitions": [
+     {
+      "text": "Following",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "behind",
+      "gives": "LATE",
+      "note": "late means behind time"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Trailing the front-runner in a race.",
+     "walkthrough": "'Leader in race' paints the front-runner, but it only selects one letter.",
+     "definitionFit": "Later means coming after in time, so following, as in the following or later chapters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1790,61 @@
     "text": "Fairy godmother finally admitted to malice!",
     "enumeration": "6"
    },
-   "solution": "SPRITE"
+   "solution": "SPRITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPRITE",
+    "definitions": [
+     {
+      "text": "Fairy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally keeps only the closing letter of the word before it"
+     },
+     {
+      "text": "admitted to",
+      "for": "container",
+      "note": "admitted to means let inside the word for spite"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "malice",
+      "gives": "SPITE",
+      "note": "spite is malice"
+     },
+     {
+      "clueFragment": "godmother",
+      "gives": "R",
+      "select": "last",
+      "note": "the closing letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "R",
+      "ITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fairy godmother at last confesses to bearing ill will.",
+     "definitionFit": "A sprite is an elf or fairy, a small supernatural being."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "godmother"
+    }
+   }
   }
  ]
 }
