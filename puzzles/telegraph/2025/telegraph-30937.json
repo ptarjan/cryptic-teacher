@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,50 @@
     "text": "Fashionable point of view, for example",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSTANCE",
+    "definitions": [
+     {
+      "text": "example",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashionable",
+      "gives": "IN",
+      "note": "in means in fashion"
+     },
+     {
+      "clueFragment": "point of view",
+      "gives": "STANCE",
+      "note": "a stance is a position or attitude"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy opinion offered as an illustration.",
+     "walkthrough": "'For example' looks like a single phrase, but 'for' only links the wordplay to the definition.",
+     "definitionFit": "An instance is a single case cited as an illustration, a close synonym of example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +92,58 @@
     "text": "Pain 50 per cent ignored by nurse? That's mean",
     "enumeration": "6"
    },
-   "solution": "INTEND"
+   "solution": "INTEND",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INTEND",
+    "definitions": [
+     {
+      "text": "mean",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "50 per cent ignored",
+      "for": "deletion",
+      "note": "ignoring half of a word means discarding half its letters"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pain",
+      "gives": "PAIN",
+      "note": "taken as written; only its second half is kept"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "TEND",
+      "note": "to nurse a patient is to tend them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TEND"
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel nurse ignores half of a patient's pain.",
+     "walkthrough": "'Mean' looks like an adjective for unkind, but it is the verb meaning to have in mind.",
+     "definitionFit": "To intend something is to mean to do it, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +157,46 @@
     "text": "Collided with second vehicle",
     "enumeration": "6"
    },
-   "solution": "STRUCK"
+   "solution": "STRUCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRUCK",
+    "definitions": [
+     {
+      "text": "Collided with",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "TRUCK",
+      "note": "a truck is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRUCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A report of a crash involving another car.",
+     "definitionFit": "To strike something is to hit it, so struck is a past-tense synonym of collided with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +210,50 @@
     "text": "American girl's wrong",
     "enumeration": "5"
    },
-   "solution": "AMISS"
+   "solution": "AMISS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMISS",
+    "definitions": [
+     {
+      "text": "wrong",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "MISS",
+      "note": "a miss is a girl or young woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MISS"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman from the States is mistaken.",
+     "walkthrough": "The 's stands for 'is', linking wordplay to definition.",
+     "definitionFit": "Amiss means faulty or not as it should be, which is an adjective sense of wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "girl's"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +267,74 @@
     "text": "Arrests everyone turning up in corslets with bottom half removed",
     "enumeration": "7"
    },
-   "solution": "COLLARS"
+   "solution": "COLLARS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container"
+    ],
+    "answer": "COLLARS",
+    "definitions": [
+     {
+      "text": "Arrests",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue turning up means the word is read from bottom to top"
+     },
+     {
+      "text": "with bottom half removed",
+      "for": "deletion",
+      "note": "removing the bottom half of a word in a down clue cuts away its last half"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corslets",
+      "gives": "CORSLETS",
+      "note": "taken as written; only its first half is kept"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "LLA",
+      "RS"
+     ],
+     "reversals": [
+      {
+       "from": "ALL",
+       "to": "LLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone shows up in corsets cut off at the waist.",
+     "walkthrough": "A corslet is a one-piece corset and bra; halved it leaves the outer letters that wrap round the reversed word.",
+     "definitionFit": "To collar someone is the informal way to say seize or arrest them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +348,64 @@
     "text": "Friend returned principal's computer",
     "enumeration": "6"
    },
-   "solution": "LAPTOP"
+   "solution": "LAPTOP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LAPTOP",
+    "definitions": [
+     {
+      "text": "computer",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "principal",
+      "gives": "TOP",
+      "note": "top means chief or principal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAP",
+      "TOP"
+     ],
+     "reversals": [
+      {
+       "from": "PAL",
+       "to": "LAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend gives back the headteacher's computer.",
+     "walkthrough": "'Principal's' reads as a possessive, but the 's stands for 'is', linking the wordplay to the definition.",
+     "definitionFit": "A laptop is a portable computer small enough to rest on the knees."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "principal's"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +419,52 @@
     "text": "Mat parent spread flat",
     "enumeration": "9"
    },
-   "solution": "APARTMENT"
+   "solution": "APARTMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APARTMENT",
+    "definitions": [
+     {
+      "text": "flat",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spread",
+      "for": "anagram",
+      "note": "spread letters are scattered about and laid out anew"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mat parent",
+      "gives": "MATPARENT",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MATPARENT",
+       "gives": "APARTMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent lies spread out flat on a mat.",
+     "walkthrough": "'Flat' looks like an adjective describing the spread parent, but it is the noun for a home.",
+     "definitionFit": "Flat is the British word and apartment the American word for a self-contained home on one floor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +478,51 @@
     "text": "Revealing story about Swiss archer?",
     "enumeration": "8"
    },
-   "solution": "TELLTALE"
+   "solution": "TELLTALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TELLTALE",
+    "definitions": [
+     {
+      "text": "Revealing",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swiss archer",
+      "gives": "TELL",
+      "note": "William Tell, legendary Swiss archer who shot an apple off his son's head"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TELL",
+      "TALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A story about William Tell that gives something away.",
+     "walkthrough": "A tale about Tell is a Tell tale, so 'about' only links the two parts; the question mark flags the playful reading.",
+     "definitionFit": "A telltale sign is one that reveals or betrays something, so the adjective means revealing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Revealing"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +536,46 @@
     "text": "Difficult for a piece of poetry",
     "enumeration": "8"
    },
-   "solution": "PERVERSE"
+   "solution": "PERVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERVERSE",
+    "definitions": [
+     {
+      "text": "Difficult",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for a",
+      "gives": "PER",
+      "note": "per means for each, as in 'a pound per item'"
+     },
+     {
+      "clueFragment": "piece of poetry",
+      "gives": "VERSE",
+      "note": "a verse is a stanza or piece of poetry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "VERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tricky line of a poem.",
+     "definitionFit": "A perverse person is contrary and awkward, which matches difficult in the sense of hard to deal with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +589,66 @@
     "text": "Awful blunder wearing belt I twisted",
     "enumeration": "8"
    },
-   "solution": "TERRIBLE"
+   "solution": "TERRIBLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TERRIBLE",
+    "definitions": [
+     {
+      "text": "Awful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twisted",
+      "for": "anagram",
+      "note": "twisted letters are bent out of their order, so they must be rearranged"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "the thing worn surrounds the wearer, so the blunder sits inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "belt I",
+      "gives": "BELTI",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "blunder",
+      "gives": "ERR",
+      "note": "to err is to make a mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ERR",
+      "IBLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BELTI",
+       "gives": "TIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful fashion mistake: wearing a belt that has got twisted.",
+     "definitionFit": "Terrible and awful are everyday synonyms for something very bad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +662,56 @@
     "text": "Follow old king's style",
     "enumeration": "6"
    },
-   "solution": "TAILOR"
+   "solution": "TAILOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAILOR",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Follow",
+      "gives": "TAIL",
+      "note": "to tail someone is to follow them"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R stands for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAIL",
+      "O",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Copy the way a former monarch dressed.",
+     "walkthrough": "The 's stands for 'is', joining the wordplay to the definition.",
+     "definitionFit": "To tailor is to shape or adapt something to fit, which is a verb sense of style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Follow"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +725,43 @@
     "text": "The man heard song of praise",
     "enumeration": "4"
    },
-   "solution": "HYMN"
+   "solution": "HYMN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HYMN",
+    "definitions": [
+     {
+      "text": "song of praise",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard means we take the word by its spoken sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The man",
+      "gives": "HYMN",
+      "soundsLike": "HIM",
+      "note": "him refers to the man"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone heard a man singing a hymn of worship.",
+     "definitionFit": "A hymn is a religious song, typically one praising God."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heard"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +775,54 @@
     "text": "New screen, say, is essential",
     "enumeration": "9"
    },
-   "solution": "NECESSARY"
+   "solution": "NECESSARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NECESSARY",
+    "definitions": [
+     {
+      "text": "essential",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "a new version of letters is a fresh arrangement of them"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "screen, say",
+      "gives": "SCREENSAY",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SCREENSAY",
+       "gives": "NECESSARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists that a replacement monitor is a must.",
+     "walkthrough": "'New' seems to describe the screen, but it signals the rearrangement of 'screen, say'.",
+     "definitionFit": "Necessary and essential both describe something that cannot be done without."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +836,61 @@
     "text": "Name something decorator might use covering third of bathroom",
     "enumeration": "5"
    },
-   "solution": "TITLE"
+   "solution": "TITLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TITLE",
+    "definitions": [
+     {
+      "text": "Name",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "third of",
+      "for": "letter_selection",
+      "note": "the third of a word is its third letter only"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "something covering another goes around it, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something decorator might use",
+      "gives": "TILE",
+      "note": "a decorator might put tiles on a wall"
+     },
+     {
+      "clueFragment": "bathroom",
+      "gives": "T",
+      "select": 3,
+      "note": "the third letter of bathroom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "T",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A decorator picks something to cover part of the bathroom wall.",
+     "definitionFit": "A title is the name of a book, film or other work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "third"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +904,50 @@
     "text": "Obstinate horses may stop, initially – these show resistance",
     "enumeration": "4"
    },
-   "solution": "OHMS"
+   "solution": "OHMS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OHMS",
+    "definitions": [
+     {
+      "text": "these show resistance",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each preceding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obstinate horses may stop",
+      "gives": "OHMS",
+      "select": "first",
+      "note": "the first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OHMS"
+     ]
+    },
+    "explanation": {
+     "surface": "Stubborn horses may balk at the start; they resist.",
+     "walkthrough": "The surface says the horses resist being driven; the definition means electrical resistance.",
+     "definitionFit": "The ohm is the unit of electrical resistance, so measurements in ohms express resistance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +961,60 @@
     "text": "Buddy, perhaps with feeling of distress, abandoning small plant",
     "enumeration": "9"
    },
-   "solution": "HOLLYHOCK"
+   "solution": "HOLLYHOCK",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "HOLLYHOCK",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoning",
+      "for": "deletion",
+      "note": "abandoning something leaves it behind, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Buddy, perhaps",
+      "gives": "HOLLY",
+      "note": "Buddy Holly, the American rock and roll singer"
+     },
+     {
+      "clueFragment": "feeling of distress",
+      "gives": "SHOCK",
+      "note": "shock is a sudden feeling of distress"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOLLY",
+      "HOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A distressed friend walks away from a little seedling.",
+     "walkthrough": "'Buddy' reads as a friend, but it is the first name of the singer Buddy Holly, with 'perhaps' signalling an example.",
+     "definitionFit": "The hollyhock is a tall flowering garden plant of the mallow family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Buddy"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +1028,48 @@
     "text": "Bugs almost uncalled for",
     "enumeration": "7"
    },
-   "solution": "NEEDLES"
+   "solution": "NEEDLES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NEEDLES",
+    "definitions": [
+     {
+      "text": "Bugs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uncalled for",
+      "gives": "NEEDLESS",
+      "note": "needless means unnecessary or uncalled for"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEEDLES"
+     ]
+    },
+    "explanation": {
+     "surface": "Insects that hardly needed to be there.",
+     "walkthrough": "'Bugs' looks like insects, but it is a verb meaning annoys.",
+     "definitionFit": "To needle someone is to irritate them, so needles is an informal synonym of bugs as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bugs"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1083,59 @@
     "text": "Leaves eating son's sweets",
     "enumeration": "8"
    },
-   "solution": "DESSERTS"
+   "solution": "DESSERTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DESSERTS",
+    "definitions": [
+     {
+      "text": "sweets",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "what is eaten goes inside the eater, so one piece encloses the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leaves",
+      "gives": "DESERTS",
+      "note": "to desert is to leave"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DES",
+      "S",
+      "ERTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Leaves eaten by a son make an odd pudding.",
+     "walkthrough": "'Son's' looks possessive, but the 's stands for 'is'. Sweets here is the British word for puddings.",
+     "definitionFit": "In Britain the sweet is the dessert course, so sweets and desserts are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1149,51 @@
     "text": "Panic and tee off – game for one",
     "enumeration": "8"
    },
-   "solution": "PATIENCE"
+   "solution": "PATIENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PATIENCE",
+    "definitions": [
+     {
+      "text": "game for one",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "letters that are off are out of order and must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Panic and tee",
+      "gives": "PANICTEE",
+      "note": "taken as written, 'and' excepted, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PANICTEE",
+       "gives": "PATIENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous golfer panics and tees off in a solo round.",
+     "walkthrough": "'Tee off' looks like a golfing phrase, but 'off' signals the rearrangement. The 'and' joins the two words of fodder.",
+     "definitionFit": "Patience is the British name for solitaire, a card game played by one person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tee"
+    }
+   }
   },
   {
    "number": 19,
@@ -298,7 +1207,50 @@
     "text": "Dodgy deal Ben authorised",
     "enumeration": "7"
    },
-   "solution": "ENABLED"
+   "solution": "ENABLED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENABLED",
+    "definitions": [
+     {
+      "text": "authorised",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dodgy",
+      "for": "anagram",
+      "note": "dodgy means unsound or crooked, so the letters are not in their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deal Ben",
+      "gives": "DEALBEN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEALBEN",
+       "gives": "ENABLED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady transaction that Ben signed off.",
+     "definitionFit": "To enable is to give the power or permission to do something, so enabled means authorised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dodgy"
+    }
+   }
   },
   {
    "number": 20,
@@ -312,7 +1264,60 @@
     "text": "Pats stud's bottom and stomach muscles",
     "enumeration": "4"
    },
-   "solution": "DABS"
+   "solution": "DABS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DABS",
+    "definitions": [
+     {
+      "text": "Pats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom",
+      "for": "letter_selection",
+      "note": "in a down clue the bottom of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stud's",
+      "gives": "D",
+      "select": "last",
+      "note": "the last letter of stud"
+     },
+     {
+      "clueFragment": "stomach muscles",
+      "gives": "ABS",
+      "note": "abs is short for abdominal muscles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ABS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pats a hunk's backside and six-pack.",
+     "walkthrough": "Stud and bottom suggest a well-built man, but bottom means the last letter.",
+     "definitionFit": "To dab is to touch lightly and repeatedly, the same action as patting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 21,
@@ -326,7 +1331,44 @@
     "text": "Pockets large sum of money",
     "enumeration": "4"
    },
-   "solution": "POTS"
+   "solution": "POTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POTS",
+    "definitions": [
+     {
+      "text": "Pockets",
+      "at": 0
+     },
+     {
+      "text": "large sum of money",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pockets",
+      "note": "first meaning: sinks a ball in a pocket, as in snooker or pool"
+     },
+     {
+      "clueFragment": "large sum of money",
+      "note": "second meaning: informal for a great deal of money"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone helps themselves to a fortune.",
+     "walkthrough": "'Pockets' suggests stealing, but here it is the snooker verb.",
+     "definitionFit": "In snooker a player pots a ball into a pocket, and pots of money is an informal phrase for plenty of cash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pockets"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1382,50 @@
     "text": "Pitch with new design",
     "enumeration": "7"
    },
-   "solution": "PATTERN"
+   "solution": "PATTERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PATTERN",
+    "definitions": [
+     {
+      "text": "design",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pitch",
+      "gives": "PATTER",
+      "note": "patter is a salesman's pitch"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PATTER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A sales pitch for a fresh product design.",
+     "walkthrough": "'Pitch' could suggest a sports field or tar, but here it means a sales spiel.",
+     "definitionFit": "A pattern is a decorative design, as on fabric or wallpaper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pitch"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1439,51 @@
     "text": "Quiet big cat makes you jump",
     "enumeration": "6"
    },
-   "solution": "POUNCE"
+   "solution": "POUNCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POUNCE",
+    "definitions": [
+     {
+      "text": "jump",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "makes you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical direction for quiet"
+     },
+     {
+      "clueFragment": "big cat",
+      "gives": "OUNCE",
+      "note": "the ounce is another name for the snow leopard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OUNCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A silent leopard gives you a fright.",
+     "walkthrough": "The surface 'makes you jump' means startles; the definition is the leap of a pouncing cat.",
+     "definitionFit": "To pounce is to spring suddenly onto prey, a sudden leap or jump."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jump"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1497,42 @@
     "text": "Feign influence",
     "enumeration": "6"
    },
-   "solution": "AFFECT"
+   "solution": "AFFECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AFFECT",
+    "definitions": [
+     {
+      "text": "Feign",
+      "at": 0
+     },
+     {
+      "text": "influence",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feign",
+      "note": "first meaning: to pretend"
+     },
+     {
+      "clueFragment": "influence",
+      "note": "second meaning: to have an effect on something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words look like a single instruction, but each is a separate sense of the same verb.",
+     "definitionFit": "Affect means both to pretend to have a feeling and to act upon or alter something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Feign"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1546,60 @@
     "text": "One caught in the embrace of secret agent? Naughty!",
     "enumeration": "5"
    },
-   "solution": "SPICY"
+   "solution": "SPICY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SPICY",
+    "definitions": [
+     {
+      "text": "Naughty",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the embrace of",
+      "for": "container",
+      "note": "something held in an embrace is surrounded by the arms around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret agent",
+      "gives": "SPY",
+      "note": "a spy is a secret agent"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scoring abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "IC",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is caught in a spy's arms, a racy moment.",
+     "definitionFit": "Spicy can mean mildly risqué or improper, the same sense as naughty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 25,
@@ -402,7 +1619,47 @@
      }
     ]
    },
-   "solution": "BETTEROFF"
+   "solution": "BETTEROFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETTER OFF",
+    "definitions": [
+     {
+      "text": "wealthier",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gambler",
+      "gives": "BETTER",
+      "note": "a better is one who bets"
+     },
+     {
+      "clueFragment": "turned",
+      "gives": "OFF",
+      "note": "milk that has turned has gone off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BETTER",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A punter who has become richer.",
+     "walkthrough": "'Turned' looks like a signal to reverse something, but it simply means gone sour.",
+     "definitionFit": "Better off is an idiom for being in a more prosperous position, hence wealthier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 26,
@@ -416,7 +1673,57 @@
     "text": "Go in hospital department with her head cut",
     "enumeration": "5"
    },
-   "solution": "ENTER"
+   "solution": "ENTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ENTER",
+    "definitions": [
+     {
+      "text": "Go in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head cut",
+      "for": "deletion",
+      "note": "cutting off the head of a word removes its first letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital department",
+      "gives": "ENT",
+      "note": "ENT is the ear, nose and throat department"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written; its first letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman with a head injury is admitted to a hospital ward.",
+     "definitionFit": "To enter a place is to go into it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 27,
@@ -430,7 +1737,42 @@
     "text": "Haphazard portion of liver and omelette",
     "enumeration": "6"
    },
-   "solution": "RANDOM"
+   "solution": "RANDOM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RANDOM",
+    "definitions": [
+     {
+      "text": "Haphazard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "portion of",
+      "for": "hidden_word",
+      "note": "a portion is a part, so the answer is a part of the letters that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liver and omelette",
+      "gives": "RANDOM",
+      "note": "found in liveR AND OMelette"
+     }
+    ],
+    "explanation": {
+     "surface": "An odd, unplanned plate of liver with eggs.",
+     "definitionFit": "Random and haphazard both describe something done without method or order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "portion"
+    }
+   }
   },
   {
    "number": 28,
@@ -444,7 +1786,53 @@
     "text": "Judgement conveyed in French church",
     "enumeration": "8"
    },
-   "solution": "SENTENCE"
+   "solution": "SENTENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SENTENCE",
+    "definitions": [
+     {
+      "text": "Judgement",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conveyed",
+      "gives": "SENT",
+      "note": "sent means dispatched or conveyed"
+     },
+     {
+      "clueFragment": "in French",
+      "gives": "EN",
+      "note": "en is the French word for in"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SENT",
+      "EN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A verdict delivered in a French church.",
+     "walkthrough": "'In' looks like a container signal, but 'in French' is simply the French word for in.",
+     "definitionFit": "A sentence is the punishment a court hands down, its judgement on the convicted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 29,
@@ -458,7 +1846,47 @@
     "text": "Arab leader's upset by the sound of it",
     "enumeration": "6"
    },
-   "solution": "SHEIKH"
+   "solution": "SHEIKH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SHEIKH",
+    "definitions": [
+     {
+      "text": "Arab leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "the phrase asks us to go by how a word is heard rather than written"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upset",
+      "gives": "SHEIKH",
+      "soundsLike": "SHAKE",
+      "note": "to upset is to shake someone up"
+     }
+    ],
+    "explanation": {
+     "surface": "An Arab ruler who sounds rattled.",
+     "walkthrough": "The 's stands for 'is'. Sheikh is often pronounced the same as shake.",
+     "definitionFit": "A sheikh is a chief or ruler of an Arab tribe, family or state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 30,
@@ -472,7 +1900,52 @@
     "text": "Most heated inert gas swirled around",
     "enumeration": "8"
    },
-   "solution": "ANGRIEST"
+   "solution": "ANGRIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANGRIEST",
+    "definitions": [
+     {
+      "text": "Most heated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swirled around",
+      "for": "anagram",
+      "note": "letters swirled around are churned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inert gas",
+      "gives": "INERTGAS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INERTGAS",
+       "gives": "ANGRIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The hottest gas there is, though inert, swirls about.",
+     "walkthrough": "'Heated' suggests temperature, but it means emotionally worked up.",
+     "definitionFit": "Heated describes a temper, so the most heated person is the angriest one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "heated"
+    }
+   }
   }
  ]
 }
