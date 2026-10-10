@@ -600,7 +600,15 @@ def unnumbered_reads(plain, bare, glyphs, read, numbers):
     reads a light's first I as a sure T; the glyph tells them apart."""
     models = letter_models(glyphs, read)
     return {rc: ch for rc, ch in plain.items() if rc in numbers and bare.get(rc) == ch
-            and [m for m, _ in ranked(glyphs[rc], models, unnumbered(None))[:1]] == [ch]}
+            and best_match(glyphs[rc], models, None, ch)}
+
+
+def best_match(g, models, number, ch):
+    """Whether glyph `g` (its clue `number`'s corner left out) matches no
+    letter model better than `ch`'s. A letter no plain cell was read as has
+    no model, so no glyph can speak against it: a G printed only at the
+    start of lights (GERFALCON, GATECRASH) would otherwise never be read."""
+    return ch not in models or [m for m, _ in ranked(g, models, unnumbered(number))[:1]] == [ch]
 
 
 def numbered_letters(lts, letters, numbers, allowed, printed):
@@ -747,8 +755,7 @@ def read_lattice(gray, ys, xs, grid):
             word = "".join(every[rc] for rc in cells)
             if word in full.get(key, ()) and known(word) and all(
                     letters.get(rc, ch) == ch for rc, ch in zip(cells, word)) and all(
-                    [m for m, _ in ranked(glyphs[rc], models, unnumbered(numbers[rc]))[:1]] == [ch]
-                    for rc, ch in zip(cells, word) if rc in numbers):
+                    best_match(glyphs[rc], models, numbers[rc], ch) for rc, ch in zip(cells, word) if rc in numbers):
                 accepted[key] = word
     stats = {"lights": len(lts), "fullReads": len(full), "accepted": len(accepted),
              "cellsRead": len(read), "cellsMatched": len(matched), "cells": len(glyphs),
