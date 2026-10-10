@@ -42,7 +42,9 @@ of a page) is read by read_framed instead:
      reads as a sure Y); a letter that leaves a crossing light neither a
      word nor a whole read is not taken.
   4. A light is accepted when every cell is read and its word is answer():
-     one known() word, or words of 3+ letters run together and read whole.
+     one known() word, or words of 3+ letters run together and read whole;
+     or when every cell is read surely and a recogniser read it whole as a
+     sure_word(), which takes the British cryptic lexicon and names too.
 
 read_grid_letters reads a Listener report's filled grid the same way, on
 the lattice listener_grid finds and the lights of the puzzle's own grid.
@@ -806,7 +808,7 @@ def read_lattice(gray, ys, xs, grid):
                 accepted[key] = word
         if key not in accepted and all(rc in every for rc in cells):
             word = "".join(every[rc] for rc in cells)
-            if word in full.get(key, ()) and known(word) and all(
+            if word in full.get(key, ()) and sure_word(word) and all(
                     letters.get(rc, ch) == ch for rc, ch in zip(cells, word)) and all(
                     best_match(glyphs[rc], models, numbers[rc], ch) for rc, ch in zip(cells, word) if rc in numbers):
                 accepted[key] = word
@@ -835,7 +837,7 @@ def read_answers(image, grid, tight=False):
     for key, cells in lts.items():
         if all(rc in read for rc in cells):
             word = "".join(read[rc] for rc in cells)
-            if word in full.get(key, ()) and known(word):
+            if word in full.get(key, ()) and sure_word(word):
                 accepted[key] = word
     stats = {"lights": len(lts), "fullReads": len(full), "accepted": len(accepted),
              "cellsRead": len(read), "cells": len({rc for c in lts.values() for rc in c}),
@@ -913,6 +915,27 @@ def known(word):
         if best is not None and best <= 4:
             parts[i] = best
     return len(w) in parts
+
+
+_LISTED = None
+
+
+def sure_word(word):
+    """Whether a light read surely in every cell and whole as `word` may be
+    filed: a known() word, or one of tools/data/lexicon.tsv's (UKACD, the
+    British cryptic word list: REDINGOTE, OLOROSO, WHODUNNIT are no
+    WordNet words) or cmudict's (names: HILARY, GLADYS, OSRIC). A letter
+    misread surely still leaves no word there (PIRSTREFUSAL, AGREETNG). Glyph-matched letters stay with known(): a
+    wider list gives a guessed letter more words to land on."""
+    global _LISTED
+    if known(word):
+        return True
+    if _LISTED is None:
+        with open(TOOLS / "data" / "lexicon.tsv", encoding="utf-8") as f:
+            _LISTED = {line.split("\t", 1)[0] for line in f if not line.startswith("#")}
+        with gzip.open(TOOLS / "data" / "cmudict.txt.gz", "rt", encoding="utf-8") as f:
+            _LISTED |= {line.split("\t", 1)[0].upper() for line in f if not line.startswith("#")}
+    return word.upper() in _LISTED
 
 
 # ------------------------------------------------------------ pairing
