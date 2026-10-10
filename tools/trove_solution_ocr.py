@@ -743,19 +743,39 @@ def read_framed(image, grid):
     reads = sorted((read_lattice(g, ys, xs, grid) for g, ys, xs in framings(gray, grid)),
                    key=lambda r: -r[1]["cellsSure"])
     lts = lights(grid)
-    accepted, stats, every = reads[0]
+    accepted, stats, every, _ = reads[0]
     accepted = dict(accepted)
     taken = {rc: ch for key, w in accepted.items() for rc, ch in zip(lts[key], w)}
-    for more, _, _ in reads[1:]:
+
+    def take(key, word):
+        cells = lts[key]
+        if key not in accepted and not unsettled(word, [every.get(rc) for rc in cells]) and all(
+                taken.get(rc, ch) == ch for rc, ch in zip(cells, word)):
+            accepted[key] = word
+            taken.update(zip(cells, word))
+    for more, _, _, _ in reads[1:]:
         for key, word in more.items():
-            cells = lts[key]
-            if key in accepted or unsettled(word, [every.get(rc) for rc in cells]):
-                continue
-            if all(taken.get(rc, ch) == ch for rc, ch in zip(cells, word)):
-                accepted[key] = word
-                taken.update(zip(lts[key], word))
+            take(key, word)
+    for key, word in agreed_reads(lts, reads).items():
+        take(key, word)
     accepted.update(crossed_reads(lts, accepted, every))
     return accepted, {**stats, "accepted": len(accepted), "lattices": len(reads)}
+
+
+def agreed_reads(lts, reads):
+    """{key: word} for lights two or more lattices (`reads`: read_lattice's)
+    read surely in every cell as one word, the one listed() word among
+    every lattice's whole reads of the light. A numbered cell's glyph match
+    refuses REPINED, EGGDANCE, BASSANIO; a rival whole read that is a word
+    (DOUR beside BOUR: with its number a D reads as a sure B) leaves the
+    light unread."""
+    out = {}
+    for key, cells in lts.items():
+        spelt = ["".join(every.get(rc, "?") for rc in cells) for _, _, every, _ in reads]
+        words = {w for _, _, _, printed in reads for w in printed.get(key, ()) if listed(w)}
+        if len(words) == 1 and spelt.count(next(iter(words))) >= 2:
+            out[key] = words.pop()
+    return out
 
 
 def unsettled(word, sure):
@@ -802,8 +822,8 @@ def crossed_reads(lts, accepted, every):
 
 
 def read_lattice(gray, ys, xs, grid):
-    """(accepted, stats, sure letters) for a grid image whose rules lie at
-    ys and xs: each light accepted when every cell is read (the
+    """(accepted, stats, sure letters, {key: whole reads}) for a grid image
+    whose rules lie at ys and xs: each light accepted when every cell is read (the
     recogniser's sure letter, or for a cell with a clue number or no sure
     read, matched_letters, whole_reads, and in a grid printing its numbers
     numbered_letters) and the word is known()."""
@@ -869,13 +889,14 @@ def read_lattice(gray, ys, xs, grid):
     stats = {"lights": len(lts), "fullReads": len(full), "accepted": len(accepted),
              "cellsRead": len(read), "cellsMatched": len(matched), "cells": len(glyphs),
              "cellsSure": len(every), "blocks": round(block_agreement(gray, grid, (ys, xs)), 3)}
-    return accepted, stats, every
+    return accepted, stats, every, printed
 
 
 #: The letters a heavy print's sure read gives for one another: the
-#: recogniser reads FIRSTREFUSAL's F as a sure P, KIDNAPPER's K as an R.
+#: recogniser reads FIRSTREFUSAL's F as a sure P, KIDNAPPER's K as an R,
+#: and on 1990s Times prints ESCRITOIRE's R as an A.
 CONFUSABLE = {"F": "PE", "P": "F", "E": "F", "K": "R", "R": "K", "D": "B", "B": "D",
-              "I": "T", "T": "I", "C": "G", "G": "C"}
+              "I": "T", "T": "I", "C": "G", "G": "C", "A": "R"}
 
 
 def swapped_reads(lts, every, full, accepted, letters):
