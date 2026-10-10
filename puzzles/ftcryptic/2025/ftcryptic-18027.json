@@ -24,6 +24,9 @@
   "date": "2025-04-16",
   "check": "grid rebuilt from the blog's light list (unique, linked answer split by the grid); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,64 @@
     "text": "Whisky and wine consumed inside did harm",
     "enumeration": "10"
    },
-   "solution": "MALTREATED"
+   "solution": "MALTREATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MALTREATED",
+    "definitions": [
+     {
+      "text": "did harm",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside tells us the word for consumed sits within the wine word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whisky",
+      "gives": "MALT",
+      "note": "malt is a kind of whisky"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "red is wine of that colour"
+     },
+     {
+      "clueFragment": "consumed",
+      "gives": "EAT",
+      "note": "to consume food is to eat it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALT",
+      "R",
+      "EAT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's drinking session of whisky and wine did them damage.",
+     "definitionFit": "To maltreat is to treat badly or abuse, so maltreated is a past-tense equivalent of did harm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consumed"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +111,56 @@
     "text": "Blood there is missing — litres pumped in?",
     "enumeration": "6"
    },
-   "solution": "CLARET"
+   "solution": "CLARET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLARET",
+    "definitions": [
+     {
+      "text": "Blood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pumped in",
+      "for": "container",
+      "note": "something pumped in is forced inside another thing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "there is missing",
+      "gives": "CARET",
+      "note": "caret is Latin for 'there is missing', and names the proofreader's mark showing an omission"
+     },
+     {
+      "clueFragment": "litres",
+      "gives": "L",
+      "note": "L is the abbreviation for litres"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "ARET"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical scene: blood is missing, so is it being pumped back in by the litre?",
+     "walkthrough": "The proofreader's mark ^ is called a caret because the Latin word means 'there is missing'.",
+     "definitionFit": "Claret is British slang, chiefly in boxing and football, for blood, from the dark red colour of the wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "missing"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +180,61 @@
      }
     ]
    },
-   "solution": "LYMPHATICSYSTEM"
+   "solution": "LYMPHATICSYSTEM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LYMPHATIC SYSTEM",
+    "definitions": [
+     {
+      "text": "biological network",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disrupted",
+      "for": "anagram",
+      "note": "disrupted means thrown out of order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mayhem",
+      "gives": "MAYHEM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "split",
+      "gives": "SPLIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cyst",
+      "gives": "CYST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAYHEMSPLITCYST",
+       "gives": "LYMPHATICSYSTEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical drama: a split cyst causes mayhem inside the body.",
+     "walkthrough": "'Split' looks like an anagram signal but is part of the letters to be rearranged; 'disrupted' does that job.",
+     "definitionFit": "The lymphatic system is the body's web of vessels and nodes carrying lymph, a network in biology."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +254,51 @@
      }
     ]
    },
-   "solution": "ETERNALTRIANGLE"
+   "solution": "ETERNALTRIANGLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ETERNAL TRIANGLE",
+    "definitions": [
+     {
+      "text": "Trio never in harmony",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relentless",
+      "gives": "ETERNAL",
+      "note": "something eternal never lets up"
+     },
+     {
+      "clueFragment": "simple instrument",
+      "gives": "TRIANGLE",
+      "note": "the triangle is a basic percussion instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETERNAL",
+      "TRIANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical trio who can never agree, stuck with a relentless player of a basic instrument.",
+     "walkthrough": "The musical surface hides a romantic definition: the trio is not a band but three people.",
+     "definitionFit": "An eternal triangle is a love affair involving three people, such as a married couple and a lover, which is rarely harmonious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "harmony"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +312,70 @@
     "text": "Upright character deserting Mail — City's explosive secret?",
     "enumeration": "8"
    },
-   "solution": "MYSTICAL"
+   "solution": "MYSTICAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MYSTICAL",
+    "definitions": [
+     {
+      "text": "secret",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deserting",
+      "for": "deletion",
+      "note": "deserting means leaving, so that character drops out of the following words"
+     },
+     {
+      "text": "explosive",
+      "for": "anagram",
+      "note": "something explosive is blown apart, so its letters scatter into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Upright character",
+      "gives": "I",
+      "note": "the letter I is a single upright stroke"
+     },
+     {
+      "clueFragment": "Mail",
+      "gives": "MAIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "City's",
+      "gives": "CITYS",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MYSTICAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MALCITYS",
+       "gives": "MYSTICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper story: a key figure leaves the Daily Mail, revealing an explosive City secret.",
+     "walkthrough": "One I is removed from MAIL CITYS and the remaining eight letters are rearranged.",
+     "definitionFit": "Mystical means having a hidden or esoteric meaning, so it can describe something secret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Upright"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +389,50 @@
     "text": "Trump slogan in first publication?",
     "enumeration": "4"
    },
-   "solution": "MAGA"
+   "solution": "MAGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAGA",
+    "definitions": [
+     {
+      "text": "Trump slogan",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publication",
+      "gives": "MAG",
+      "note": "mag is short for magazine"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "A",
+      "note": "A is the first letter, the first of a series as in plan A"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a Trump slogan made its debut in print.",
+     "walkthrough": "Read 'first publication' as magazine A, the first of a series, with the letter after the noun as in plan A.",
+     "definitionFit": "MAGA is the initialism of Make America Great Again, Donald Trump's campaign slogan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +457,64 @@
     "7-across",
     "8-across",
     "22-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FRAILTY THY NAME IS WOMAN",
+    "definitions": [
+     {
+      "text": "line from 19",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "disturbed means stirred up, so the preceding words lose their order"
+     }
+    ],
+    "linkWords": [
+     "offers"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Why in fairy tale most",
+      "gives": "WHYINFAIRYTALEMOST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRAILTYTHYNAMEISWO",
+      "MAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WHYINFAIRYTALEMOST",
+       "gives": "FRAILTYTHYNAMEISWO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troubled man in a fairy tale asks why, quoting Shakespeare.",
+     "walkthrough": "The 19 refers to the answer at 19 down, the play. The rearranged letters supply all but the last three, which the chap adds unchanged.",
+     "definitionFit": "Hamlet speaks this famous line in Act 1, scene 2, deploring his mother's hasty remarriage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disturbed"
+    }
+   }
   },
   {
    "number": 7,
@@ -158,7 +528,72 @@
     "text": "Soldiers turned up stopping endless film prank",
     "enumeration": "6"
    },
-   "solution": "FROLIC"
+   "solution": "FROLIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container"
+    ],
+    "answer": "FROLIC",
+    "definitions": [
+     {
+      "text": "prank",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turned up means read from bottom to top"
+     },
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means losing its final letter"
+     },
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "to stop something is to plug it, sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "OR",
+      "note": "OR stands for Other Ranks, ordinary soldiers"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "FLICK",
+      "note": "a flick is a film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RO",
+      "LIC"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops arrive to halt a film shoot that never ends, as a joke.",
+     "definitionFit": "A frolic is a playful escapade or bit of fun, close in sense to a prank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 8,
@@ -195,7 +630,51 @@
     "text": "Send overseas from harbour once?",
     "enumeration": "6"
    },
-   "solution": "EXPORT"
+   "solution": "EXPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPORT",
+    "definitions": [
+     {
+      "text": "Send overseas",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once",
+      "gives": "EX",
+      "note": "ex means former, what once was"
+     },
+     {
+      "clueFragment": "harbour",
+      "gives": "PORT",
+      "note": "a port is a harbour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Shipping goods abroad from what used to be a harbour.",
+     "walkthrough": "The question mark flags that 'from harbour once' is a playful way of saying a harbour that used to be one.",
+     "definitionFit": "To export is to ship goods to another country for sale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "number": 10,
@@ -209,7 +688,42 @@
     "text": "More from Scots in West perhaps",
     "enumeration": "3"
    },
-   "solution": "MAE"
+   "solution": "MAE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAE",
+    "definitions": [
+     {
+      "text": "More from Scots",
+      "at": 0
+     },
+     {
+      "text": "in West perhaps",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More from Scots",
+      "note": "first meaning: the Scottish word for more"
+     },
+     {
+      "clueFragment": "in West perhaps",
+      "note": "second meaning: a first name found in a famous Hollywood star's name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'West' is not a direction but the surname of the actress Mae West.",
+     "definitionFit": "Mae is Scots dialect for more, and Mae is the given name of the film star Mae West."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "West"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +737,47 @@
     "text": "Flowering spuds perhaps emerge from soil",
     "enumeration": "7"
    },
-   "solution": "OUTCROP"
+   "solution": "OUTCROP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTCROP",
+    "definitions": [
+     {
+      "text": "emerge from soil",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flowering",
+      "gives": "OUT",
+      "note": "a plant in flower is said to be out"
+     },
+     {
+      "clueFragment": "spuds perhaps",
+      "gives": "CROP",
+      "note": "potatoes are an example of a crop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "CROP"
+     ]
+    },
+    "explanation": {
+     "surface": "Potato plants in bloom pushing up out of the ground.",
+     "walkthrough": "Spuds are potatoes.",
+     "definitionFit": "As a verb, outcrop means of rock, to appear at the surface of the ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flowering"
+    }
+   }
   },
   {
    "number": 12,
@@ -250,7 +804,47 @@
     "text": "Lively celebration eschews any extreme language",
     "enumeration": "5"
    },
-   "solution": "HINDI"
+   "solution": "HINDI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HINDI",
+    "definitions": [
+     {
+      "text": "language",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eschews any extreme",
+      "for": "deletion",
+      "note": "eschewing both extremes means dropping the very first and very last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lively celebration",
+      "gives": "SHINDIG",
+      "note": "a shindig is a lively party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HINDI"
+     ]
+    },
+    "explanation": {
+     "surface": "A party that steers clear of extremes in any form.",
+     "definitionFit": "Hindi is the main official language of India."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extreme"
+    }
+   }
   },
   {
    "number": 14,
@@ -264,7 +858,80 @@
     "text": "Arnie out to cover return of mating sloth",
     "enumeration": "7"
    },
-   "solution": "INERTIA"
+   "solution": "INERTIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "INERTIA",
+    "definitions": [
+     {
+      "text": "sloth",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return of",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the word is read backwards"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means disordered, so the name's letters are reshuffled"
+     },
+     {
+      "text": "to cover",
+      "for": "container",
+      "note": "covering something means wrapping around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arnie",
+      "gives": "ARNIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mating",
+      "gives": "IT",
+      "note": "it is a slang word for sex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INER",
+      "TI",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARNIE",
+       "gives": "INERA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "IT",
+       "to": "TI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arnie goes out, perhaps to film animals mating, though sloths are slow at it.",
+     "walkthrough": "'Sloth' is not the animal but the sin of laziness.",
+     "definitionFit": "Inertia is a tendency to do nothing, a synonym for sloth in the sense of idleness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sloth"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +945,56 @@
     "text": "Cones around this vehicle news boss opens?",
     "enumeration": "5"
    },
-   "solution": "CEDAR"
+   "solution": "CEDAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CEDAR",
+    "definitions": [
+     {
+      "text": "Cones around this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opens",
+      "for": "container",
+      "note": "here the boss breaks the vehicle open by getting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "news boss",
+      "gives": "ED",
+      "note": "ED is short for editor, the head of a newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ED",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "Traffic cones placed around a car that a newspaper editor is opening.",
+     "walkthrough": "The traffic cones are really the cones of a conifer.",
+     "definitionFit": "The cedar is a conifer bearing woody cones, so cones are found around this tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cones"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +1014,63 @@
      }
     ]
    },
-   "solution": "DREAMWORLD"
+   "solution": "DREAMWORLD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DREAM-WORLD",
+    "definitions": [
+     {
+      "text": "fantasy situation",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with something rearranges it freely"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "D is the abbreviation for Duke"
+     },
+     {
+      "clueFragment": "warlord",
+      "gives": "WARLORD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DWARLORDME",
+       "gives": "DREAMWORLD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A duke and a warlord play games with the speaker in some fantasy.",
+     "definitionFit": "A dream-world is an unrealistic imagined state, a fantasy situation in which someone lives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1084,68 @@
     "text": "Ace report in story on ticket: fare from Bologna",
     "enumeration": "11"
    },
-   "solution": "TAGLIATELLE"
+   "solution": "TAGLIATELLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TAGLIATELLE",
+    "definitions": [
+     {
+      "text": "fare from Bologna",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the ace and report within the story word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ticket",
+      "gives": "TAG",
+      "note": "a tag is a label or ticket"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a story can be a lie"
+     },
+     {
+      "clueFragment": "Ace",
+      "gives": "A",
+      "note": "A is the card abbreviation for ace"
+     },
+     {
+      "clueFragment": "report",
+      "gives": "TELL",
+      "note": "to tell is to report"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAG",
+      "LI",
+      "A",
+      "TELL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Reporting an ace in a story placed on a ticket.",
+     "walkthrough": "'On' in an across clue puts the story part after the ticket part.",
+     "definitionFit": "Tagliatelle is ribbon pasta, a classic dish of Bologna served with ragù."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ticket"
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +1159,56 @@
     "text": "Become obscene entertaining right drama queen?",
     "enumeration": "8"
    },
-   "solution": "GERTRUDE"
+   "solution": "GERTRUDE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GERTRUDE",
+    "definitions": [
+     {
+      "text": "drama queen",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain a guest is to take them in, holding them inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Become obscene",
+      "gives": "GETRUDE",
+      "note": "to get rude is to become obscene"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "R",
+      "TRUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A diva turns crude while performing.",
+     "walkthrough": "'Drama queen' suggests a showy person, but it is a queen in a play: Hamlet's mother.",
+     "definitionFit": "Gertrude is the queen of Denmark in Shakespeare's Hamlet, literally a queen in a drama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drama"
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1222,72 @@
     "text": "Before noon 50 coming into the stricken village",
     "enumeration": "6"
    },
-   "solution": "HAMLET"
+   "solution": "HAMLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "HAMLET",
+    "definitions": [
+     {
+      "text": "village",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stricken",
+      "for": "anagram",
+      "note": "something stricken is battered out of shape, so its letters are reordered"
+     },
+     {
+      "text": "coming into",
+      "for": "container",
+      "note": "coming into places the first pieces inside the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Before noon",
+      "gives": "AM",
+      "note": "am stands for ante meridiem, before midday"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for 50"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AML",
+      "ET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THE",
+       "gives": "HET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fifty people arrive in a disaster-hit village one morning.",
+     "definitionFit": "A hamlet is a small village."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stricken"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1301,63 @@
     "text": "Releasing uranium, home visitor's put away",
     "enumeration": "6"
    },
-   "solution": "INGEST"
+   "solution": "INGEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "INGEST",
+    "definitions": [
+     {
+      "text": "put away",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Releasing",
+      "for": "deletion",
+      "note": "releasing means letting go, so that letter drops out"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uranium",
+      "gives": "U",
+      "note": "U is the chemical symbol for uranium"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "at home means in"
+     },
+     {
+      "clueFragment": "visitor",
+      "gives": "GUEST",
+      "note": "a guest is a visitor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "GEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A houseguest is jailed after releasing radioactive material.",
+     "walkthrough": "The 's stands for 'is', joining the wordplay to the definition.",
+     "definitionFit": "To put food away is informal for eating it, which is what ingest means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uranium"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1371,54 @@
     "text": "Tree more bare with bark initially removed",
     "enumeration": "5"
    },
-   "solution": "ALDER"
+   "solution": "ALDER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "ALDER",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially removed",
+      "for": "deletion",
+      "note": "initially removed means the starting letter of the following word is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more bare",
+      "gives": "BALDER",
+      "note": "balder means more bare"
+     },
+     {
+      "clueFragment": "bark",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of bark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tree left more bare after its bark is stripped.",
+     "definitionFit": "The alder is a tree of the birch family often growing by water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bark"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1451,68 @@
     "text": "Wartime's no time for building German city",
     "enumeration": "6"
    },
-   "solution": "WEIMAR"
+   "solution": "WEIMAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "WEIMAR",
+    "definitions": [
+     {
+      "text": "German city",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no time",
+      "for": "deletion",
+      "note": "no time says the letter for time is not wanted"
+     },
+     {
+      "text": "building",
+      "for": "anagram",
+      "note": "building suggests constructing something new out of the letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wartime's",
+      "gives": "WARTIME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEIMAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WARIME",
+       "gives": "WEIMAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "During war there is no time to construct anything.",
+     "walkthrough": "Wartime's means 'wartime has', so 'no time' acts on it.",
+     "definitionFit": "Weimar is a city in Thuringia, Germany, famous for Goethe and the post-war Weimar Republic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1536,51 @@
    "group": [
     "24-across",
     "12-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TWYLA THARP",
+    "definitions": [
+     {
+      "text": "famed US choreographer",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "influenced",
+      "for": "anagram",
+      "note": "influenced means acted upon and altered, so the letters are changed in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What partly",
+      "gives": "WHATPARTLY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHATPARTLY",
+       "gives": "TWYLATHARP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks what partly shaped a celebrated American dancemaker.",
+     "walkthrough": "'Partly' looks like a hidden-word signal, but it is part of the fodder for rearrangement.",
+     "definitionFit": "Twyla Tharp is an American dancer and choreographer known for Push Comes to Shove and Movin' Out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partly"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1594,46 @@
     "text": "Cow perhaps to look sullen",
     "enumeration": "5"
    },
-   "solution": "LOWER"
+   "solution": "LOWER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOWER",
+    "definitions": [
+     {
+      "text": "Cow perhaps",
+      "at": 0
+     },
+     {
+      "text": "look sullen",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cow perhaps",
+      "note": "first meaning: something that lows, i.e. moos"
+     },
+     {
+      "clueFragment": "look sullen",
+      "note": "second meaning: to frown or scowl, a variant spelling of lour"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read the first part as one that lows, so it rhymes with 'mower'; the second is pronounced to rhyme with 'flower'.",
+     "definitionFit": "A cow is an example of an animal that moos, and to lower is to scowl or appear gloomy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cow"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1647,48 @@
     "text": "Like 18 according to 19 in 7-day period, do we hear?",
     "enumeration": "4"
    },
-   "solution": "WEAK"
+   "solution": "WEAK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WEAK",
+    "definitions": [
+     {
+      "text": "Like 18 according to 19",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "do we hear?",
+      "for": "homophone",
+      "note": "asking what we hear points to a word that sounds like the period named"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "7-day period",
+      "gives": "WEAK",
+      "soundsLike": "WEEK",
+      "note": "a week is seven days"
+     }
+    ],
+    "explanation": {
+     "surface": "Cross-references read as a quiz on a Shakespeare quote and a week.",
+     "walkthrough": "18 is Gertrude and 19 is the play; Hamlet's line at 7 calls women frail, so Gertrude is weak in his view.",
+     "definitionFit": "Frailty means weakness, so Hamlet's 'Frailty, thy name is woman' casts his mother as weak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "7-day"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1702,55 @@
     "text": "No-one's house in Albert Square offensive",
     "enumeration": "7"
    },
-   "solution": "NOISOME"
+   "solution": "NOISOME",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NOISOME",
+    "definitions": [
+     {
+      "text": "offensive",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in Albert Square",
+      "for": "deletion",
+      "note": "Albert Square is the setting of the London soap EastEnders, whose Cockney speech drops the initial h"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No-one's",
+      "gives": "NOIS",
+      "note": "no plus I (one) plus 's"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HOME",
+      "note": "a house is a home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOIS",
+      "OME"
+     ]
+    },
+    "explanation": {
+     "surface": "An empty house on the EastEnders square is seen as unpleasant.",
+     "walkthrough": "EastEnders is a long-running BBC soap set in East London; a Cockney says 'ome for home. 'One' becomes I, the Roman numeral.",
+     "definitionFit": "Noisome means foul-smelling or highly disagreeable, so it serves as offensive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Square"
+    }
+   }
   },
   {
    "number": 28,
@@ -481,7 +1764,55 @@
     "text": "Eviscerate going around tower",
     "enumeration": "3"
    },
-   "solution": "TUG"
+   "solution": "TUG",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TUG",
+    "definitions": [
+     {
+      "text": "tower",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going around",
+      "for": "reversal",
+      "note": "going around means turning back to face the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eviscerate",
+      "gives": "GUT",
+      "note": "to gut is to remove the innards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUG"
+     ],
+     "reversals": [
+      {
+       "from": "GUT",
+       "to": "TUG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Disembowelling someone and then circling a tall building.",
+     "walkthrough": "'Tower' is not a tall building but something that tows.",
+     "definitionFit": "A tug is a boat that tows ships, literally a tower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tower"
+    }
+   }
   },
   {
    "number": 29,
@@ -495,7 +1826,49 @@
     "text": "Nonsense tango with side-to-side movement",
     "enumeration": "7"
    },
-   "solution": "TWADDLE"
+   "solution": "TWADDLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TWADDLE",
+    "definitions": [
+     {
+      "text": "Nonsense",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tango",
+      "gives": "T",
+      "note": "tango is T in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "side-to-side movement",
+      "gives": "WADDLE",
+      "note": "a waddle is a rocking side-to-side walk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WADDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Dismissing a tango that only wobbles from side to side as nonsense.",
+     "definitionFit": "Twaddle is trivial or foolish talk, a synonym for nonsense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tango"
+    }
+   }
   },
   {
    "number": 30,
@@ -509,7 +1882,65 @@
     "text": "Tract in grassland left after ploughing",
     "enumeration": "7"
    },
-   "solution": "LEAFLET"
+   "solution": "LEAFLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "LEAFLET",
+    "definitions": [
+     {
+      "text": "Tract",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after ploughing",
+      "for": "anagram",
+      "note": "ploughing turns soil over, so the letters it acts on are churned into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grassland",
+      "gives": "LEA",
+      "note": "a lea is a meadow"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "LEFT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "FLET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEFT",
+       "gives": "FLET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tract of meadow left over after the plough has passed.",
+     "walkthrough": "'Tract' looks like a stretch of land, fitting the farm picture, but it is a pamphlet.",
+     "definitionFit": "A tract is a short pamphlet on a topic, as is a leaflet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tract"
+    }
+   }
   }
  ]
 }
