@@ -1,9 +1,10 @@
 """What a planner re-reads every minute off a slow disk, kept until it moves.
 
-A dir's state is its (inode, mtime, ctime): every writer of an edition dir
+A dir's state is its (mtime, ctime): every writer of an edition dir
 adds, replaces or removes an entry (fetch_archive_org_editions.write_atomic,
 gale_inbox.stage's rename and relink), which moves them, so an unmoved key
-is unmoved files. A dir changed within SETTLED seconds is never kept: a
+is unmoved files. Not its inode: the Media mount (Docker's virtiofs)
+numbers a dir afresh once the kernel forgets it, its files unmoved. A dir changed within SETTLED seconds is never kept: a
 change within one tick of the filesystem's clock leaves the mtime unmoved.
 
 A ledger is appended to or replaced whole (a new inode); appended() parses
@@ -16,7 +17,7 @@ import time
 #: Seconds since a dir's last change before its state is kept.
 SETTLED = 10
 
-#: {dir: ((inode, mtime, ctime), sorted names, {derived value: value})}
+#: {dir: ((mtime, ctime), sorted names, {derived value: value})}
 #: of each settled dir listed (seen).
 _SEEN = {}
 
@@ -25,10 +26,10 @@ _READ = {}
 
 
 def dir_key(d):
-    """(key, settled): dir `d`'s (inode, mtime, ctime) and whether it last
+    """(key, settled): dir `d`'s (mtime, ctime) and whether it last
     changed over SETTLED seconds ago. Raises FileNotFoundError."""
     st = os.stat(d)
-    return (st.st_ino, st.st_mtime_ns, st.st_ctime_ns), time.time() - st.st_mtime > SETTLED
+    return (st.st_mtime_ns, st.st_ctime_ns), time.time() - st.st_mtime > SETTLED
 
 
 def seen(d):

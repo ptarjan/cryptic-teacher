@@ -546,8 +546,10 @@ def _fold_done(done, line):
         done.add((parts[0], parts[1]))
 
 
-#: {edition dir: (dirs read, their dir_cache.dir_key, stale(edition dir))}
-#: of each verdict whose dirs had all settled (load_done).
+#: {edition dir: (dirs read, their dir_cache.dir_key, stale(edition dir),
+#: near_items read or None)} of each verdict whose dirs had all settled
+#: (load_done). The near items, not the out root's key: every new item
+#: fetched moves the root.
 _STALE = {}
 #: Where load_done keeps _STALE between processes, on local disk: a plan in
 #: a fresh process (each slice of the full pass, each re-exec) stats the
@@ -602,7 +604,7 @@ def save_stale(out, dirs):
     empty root)."""
     same = {}
     one = lambda x: same.setdefault(x, x)
-    keep = {d: ([one(x) for x in hit[0]], [one(k) for k in hit[1]], hit[2])
+    keep = {d: ([one(x) for x in hit[0]], [one(k) for k in hit[1]], hit[2], None if hit[3] is None else tuple(map(one, hit[3])))
             for d in dirs if (hit := _STALE.get(d))}
     if not keep:
         return
@@ -638,10 +640,10 @@ def load_done(out):
     with one_pass():
         for (item, name), d in zip(rows, dirs):
             hit = _STALE.get(d)
-            if hit is None or [key(x) for x in hit[0]] != hit[1]:
-                dirs_read = stale_dirs(d)
+            if hit is None or [key(x) for x in hit[0]] != hit[1] or (hit[3] is not None and near_items(d) != hit[3]):
+                dirs_read, near = stale_dirs(d)
                 ks = [key(x) for x in dirs_read]
-                hit = (dirs_read, ks, stale(d))
+                hit = (dirs_read, ks, stale(d), near)
                 changed = True
                 if None in ks:
                     _STALE.pop(d, None)
@@ -658,10 +660,11 @@ def load_done(out):
 
 
 def stale_dirs(d):
-    """The dirs whose files stale(d) reads: the edition's, those of the
-    siblings it counts (sibling_dirs) and those listed to find them."""
-    editions, listed = sibling_dirs(d)
-    return [os.fspath(x) for x in (d, *editions, *listed)]
+    """(dirs, near): the dirs whose files stale(d) reads (the edition's,
+    those of the siblings it counts and those listed to find them) and the
+    near items it took them from (sibling_dirs)."""
+    editions, listed, near = sibling_dirs(d)
+    return [os.fspath(x) for x in (d, *editions, *listed)], near
 
 
 def append(out, fname, fields):
@@ -747,20 +750,32 @@ def sibling_pages(edition_dir):
 
 
 def sibling_dirs(edition_dir):
-    """(editions, listed): the dirs of the item's other editions, or, for an
-    item holding this edition alone, those of the NEIGHBOURS items nearest it
-    by date named like it up to the date ("per_times_the-times_1930-02-17_45439":
-    "per_times_the-times"); and the dirs listed to find them."""
+    """(editions, listed, near): the dirs of the item's other editions, or,
+    for an item holding this edition alone, those of the near items
+    (near_items); the dirs listed to find them; and the near items' names
+    (None for the item's own editions)."""
     d = Path(edition_dir)
     own = [d.parent / e for e in memo(d.parent, subdirs) if e != d.name]
+    near = None if own else near_items(d)
+    if near is None:
+        return own, [d.parent], None
+    items = [d.parent.parent / item for item in near]
+    return [i / e for i in items for e in memo(i, subdirs)], [d.parent, *items], near
+
+
+def near_items(edition_dir):
+    """The names of the NEIGHBOURS items nearest the edition's by date named
+    like it up to the date ("per_times_the-times_1930-02-17_45439":
+    "per_times_the-times"), off the out root's listing; None for an item
+    named with no date."""
+    d = Path(edition_dir)
     m = ITEM_DATED.fullmatch(d.parent.name)
     day = m and iso_day(m[2])
-    if own or not day:
-        return own, [d.parent]
+    if not day:
+        return None
     near = sorted((abs(iso_day(date) - day), item) for prefix, date, item in memo(d.parent.parent, dated_items)
                   if prefix == m[1] and item != d.parent.name)
-    items = [d.parent.parent / item for _, item in near[:NEIGHBOURS]]
-    return [i / e for i in items for e in memo(i, subdirs)], [d.parent, d.parent.parent, *items]
+    return tuple(item for _, item in near[:NEIGHBOURS])
 
 
 def subdirs(path):
