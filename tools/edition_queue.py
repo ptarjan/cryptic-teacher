@@ -22,8 +22,8 @@ editions and the re-reads annotation asked for (tools/scan_queue.py), then
 editions whose inputs moved, then the re-reads --reread BEFORE makes due.
 A read waits until the scans it needs (its own, and the SOLUTION_DAYS after
 it, where its solution prints) are made; those scans take the read's rank.
-Scans run in SCAN_WORKERS slots (this host's CPU), reads in --workers slots
-(mostly a wait on the desktop VLM).
+Scans run whole on the desktop (ocr_remote.scan, its CPU) in SCAN_WORKERS
+slots, reads in --workers slots (mostly a wait on the desktop VLM).
 
 --fetch SOURCE adds a fetcher's units (FETCHERS: archive.org, one edition
 each, fetch_archive_org_editions.fetch_unit) in a pool of their own, its
@@ -210,7 +210,9 @@ WORKERS = 20
 TROVE_WORKERS = 6
 LISTENER_WORKERS = 1
 LISTENER_SECONDS = 1800
-SCAN_WORKERS = 3
+#: Scans at once: each is one call the desktop runs whole (~100s, a few of
+#: its 28 threads), so ten use its CPU while the reads wait on its GPU.
+SCAN_WORKERS = 10
 #: A unit still running this long is killed and left for the next run.
 SCAN_SECONDS = 1200
 READ_SECONDS = 1200
