@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,72 @@
     "text": "Pain also leads to article about account given by hospital",
     "enumeration": "9"
    },
-   "solution": "TOOTHACHE"
+   "solution": "TOOTHACHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TOOTHACHE",
+    "definitions": [
+     {
+      "text": "Pain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' puts the article round the next pieces, enclosing them"
+     }
+    ],
+    "linkWords": [
+     "leads to",
+     "given by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also",
+      "gives": "TOO",
+      "note": "also means too"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "AC is the usual abbreviation for account"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOO",
+      "TH",
+      "AC",
+      "H",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital visit about a billing dispute, where the pain is financial as well.",
+     "walkthrough": "'Pain' at the start looks like a general complaint, but it is the definition; 'leads to' just joins the first piece to the rest.",
+     "definitionFit": "Toothache is a specific kind of pain, so the general word stands for it as an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +121,76 @@
      }
     ]
    },
-   "solution": "TRADEGAP"
+   "solution": "TRADEGAP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TRADE GAP",
+    "definitions": [
+     {
+      "text": "deficit",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up reads the word from bottom to top, so backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the first pieces inside the other word"
+     }
+    ],
+    "linkWords": [
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "degree",
+      "gives": "DEG",
+      "note": "DEG is the standard abbreviation for degree"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "PART",
+      "note": "taken as written, then turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "A",
+      "DEG",
+      "AP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student admits that part of their degree went badly, leaving a shortfall.",
+     "walkthrough": "The inserted letters go between the second and third letters of the turned word.",
+     "definitionFit": "A trade gap is a nation's shortfall when imports exceed exports, a kind of deficit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +204,61 @@
     "text": "Contraption of pipes emptied over grain regularly",
     "enumeration": "5"
    },
-   "solution": "ORGAN"
+   "solution": "ORGAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ORGAN",
+    "definitions": [
+     {
+      "text": "Contraption of pipes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "emptying a word removes its insides, leaving just the outside letters"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means taking letters at even intervals, here every other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "OR",
+      "select": "outer",
+      "note": "the first and last letters of over"
+     },
+     {
+      "clueFragment": "grain",
+      "gives": "GAN",
+      "select": "alternate",
+      "note": "first, third and fifth letters of grain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "GAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A plumbing contraption pours out grain at steady intervals.",
+     "definitionFit": "A pipe organ is an instrument built from ranks of pipes, so it is a contraption of pipes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Contraption"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +278,61 @@
      }
     ]
    },
-   "solution": "HANDBRAKETURNS"
+   "solution": "HANDBRAKETURNS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HANDBRAKE TURNS",
+    "definitions": [
+     {
+      "text": "they're useful for chase scenes",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "'around' means the first two pieces go on either side of the trees"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "HAND",
+      "note": "to give a hand is to support"
+     },
+     {
+      "clueFragment": "some trees",
+      "gives": "BRAKE",
+      "note": "a brake is a thicket, a clump of trees or bushes"
+     },
+     {
+      "clueFragment": "performances",
+      "gives": "TURNS",
+      "note": "a turn is a stage act or performance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "BRAKE",
+      "TURNS"
+     ]
+    },
+    "explanation": {
+     "surface": "Backing for stage acts set among woodland, with a nod to film-makers' car chases.",
+     "walkthrough": "HAND and TURNS together surround BRAKE. Brake in the sense of thicket is old-fashioned but in dictionaries.",
+     "definitionFit": "Spinning a car round with the parking brake is a stunt-driving staple, so such manoeuvres serve chase sequences."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "trees"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +346,47 @@
     "text": "British islands forbidding reservoir",
     "enumeration": "7"
    },
-   "solution": "CISTERN"
+   "solution": "CISTERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CISTERN",
+    "definitions": [
+     {
+      "text": "reservoir",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British islands",
+      "gives": "CI",
+      "note": "CI is the abbreviation for the Channel Islands"
+     },
+     {
+      "clueFragment": "forbidding",
+      "gives": "STERN",
+      "note": "forbidding in the sense of grim and severe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CI",
+      "STERN"
+     ]
+    },
+    "explanation": {
+     "surface": "British islands are banning a reservoir.",
+     "walkthrough": "'Forbidding' looks like a verb but is an adjective meaning stern. The Channel Islands lie off the French coast but are British Crown dependencies.",
+     "definitionFit": "A cistern is a tank for holding water, a small storage reservoir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "forbidding"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +406,61 @@
      }
     ]
    },
-   "solution": "EATINTO"
+   "solution": "EATINTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EAT INTO",
+    "definitions": [
+     {
+      "text": "drain",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "something filling goes inside the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "EA is the abbreviation for each"
+     },
+     {
+      "clueFragment": "Shade",
+      "gives": "TINT",
+      "note": "a tint is a shade of colour"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "TINT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Colour seeping into every old drainpipe.",
+     "walkthrough": "'Drain' reads as a noun beside the pipe-like surface, but the definition is the verb, to deplete.",
+     "definitionFit": "To eat into savings is to use them up gradually, which is to drain them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drain"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +474,53 @@
     "text": "Pondered laying off millions no longer in prime condition",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "USED",
+    "definitions": [
+     {
+      "text": "no longer in prime condition",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "laying off",
+      "for": "deletion",
+      "note": "laying off staff removes them, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pondered",
+      "gives": "MUSED",
+      "note": "to muse is to ponder"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for millions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USED"
+     ]
+    },
+    "explanation": {
+     "surface": "A business owner thought about cutting millions from a firm past its best.",
+     "walkthrough": "Take M from MUSED.",
+     "definitionFit": "Something used is second-hand and worn, no longer fresh or in mint condition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "laying"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +534,74 @@
     "text": "Consequence of baking regulation upset King visiting coastal region",
     "enumeration": "9"
    },
-   "solution": "SHORTCAKE"
+   "solution": "SHORTCAKE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "SHORTCAKE",
+    "definitions": [
+     {
+      "text": "Consequence of baking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset in a down clue means turned upside down, so read upwards"
+     },
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "a visitor goes inside, so these pieces go within the region"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regulation",
+      "gives": "ACT",
+      "note": "an act is a law or regulation"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "coastal region",
+      "gives": "SHORE",
+      "note": "the shore is the coastal strip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOR",
+      "TCA",
+      "K",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "ACT",
+       "to": "TCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch's seaside tour upsets the rules, with knock-on effects from some baking.",
+     "walkthrough": "The turned regulation and the king both go inside the coastal word, just before its final letter.",
+     "definitionFit": "Shortcake is a crumbly biscuit or cake, the product that results from baking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "regulation"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +621,55 @@
      }
     ]
    },
-   "solution": "DRYICE"
+   "solution": "DRYICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRY ICE",
+    "definitions": [
+     {
+      "text": "Source of theatrical effect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bringing in",
+      "for": "container",
+      "note": "bringing something in places it inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "risk",
+      "gives": "DICE",
+      "note": "to dice with death is to risk it"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is a standard abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RY",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A stage technician gambles on using the railway for a special effect.",
+     "walkthrough": "'Dice with death' is the idiom that makes dice mean risk.",
+     "definitionFit": "Solid carbon dioxide gives off the low-lying fog used on stage, so it produces that effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "risk"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +689,55 @@
      }
     ]
    },
-   "solution": "CHELSEATRACTOR"
+   "solution": "CHELSEATRACTOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHELSEA TRACTOR",
+    "definitions": [
+     {
+      "text": "one for the smart set?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ridiculous",
+      "for": "anagram",
+      "note": "something ridiculous is absurd and disordered, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car Tatler chose",
+      "gives": "CARTATLERCHOSE",
+      "note": "the fourteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CARTATLERCHOSE",
+       "gives": "CHELSEATRACTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The society magazine Tatler picks an absurd car for its fashionable readers.",
+     "walkthrough": "Tatler is a British society magazine. A Chelsea tractor is a mocking British name for a big 4x4 driven around posh Chelsea in London.",
+     "definitionFit": "The term pokes fun at wealthy urbanites' off-road vehicles, so it is the car of choice for fashionable people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tatler"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +751,56 @@
     "text": "Have disappeared after repeatedly extracting energy for gas",
     "enumeration": "5"
    },
-   "solution": "ARGON"
+   "solution": "ARGON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARGON",
+    "definitions": [
+     {
+      "text": "gas",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repeatedly extracting",
+      "for": "deletion",
+      "note": "extracting pulls something out, and doing it repeatedly means twice over"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have disappeared",
+      "gives": "AREGONE",
+      "note": "'are gone' is another way of saying have disappeared"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGON"
+     ]
+    },
+    "explanation": {
+     "surface": "Something has vanished after energy was drained from it again and again, to make gas.",
+     "walkthrough": "Remove both Es from ARE GONE.",
+     "definitionFit": "Argon is a noble gas, an example of the general term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repeatedly"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +820,63 @@
      }
     ]
    },
-   "solution": "SETTHEORY"
+   "solution": "SETTHEORY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SET THEORY",
+    "definitions": [
+     {
+      "text": "work on collections?",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will accept",
+      "for": "container",
+      "note": "accepting something takes it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Determined",
+      "gives": "SET",
+      "note": "set on something means determined"
+     },
+     {
+      "clueFragment": "those people",
+      "gives": "THEY",
+      "note": "they means those people"
+     },
+     {
+      "clueFragment": "alternative",
+      "gives": "OR",
+      "note": "or introduces an alternative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SET",
+      "THE",
+      "OR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Resolute workers will take on an alternative job dealing with collections.",
+     "walkthrough": "The question mark flags the playful definition: in mathematics a set is simply a collection.",
+     "definitionFit": "Set theory is the branch of mathematics studying sets, which are collections of objects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "collections"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +890,65 @@
     "text": "Improve status of the French, after reflecting what's good for France",
     "enumeration": "7"
    },
-   "solution": "ENNOBLE"
+   "solution": "ENNOBLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ENNOBLE",
+    "definitions": [
+     {
+      "text": "Improve status of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflecting",
+      "for": "reversal",
+      "note": "a reflection is a mirror image, so the word is read backwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' places the first piece behind the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what's good for France",
+      "gives": "BONNE",
+      "note": "bonne is French for good (feminine)"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENNOB",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "BONNE",
+       "to": "ENNOB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "French people looking back on what is good for their country, and raising its standing.",
+     "definitionFit": "To ennoble someone is to raise them to the nobility, lifting their rank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "France"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +962,74 @@
     "text": "Turned in first item for auction – cartouche initially from Egypt?",
     "enumeration": "7"
    },
-   "solution": "NILOTIC"
+   "solution": "NILOTIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NILOTIC",
+    "definitions": [
+     {
+      "text": "from Egypt?",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turned",
+      "for": "reversal",
+      "note": "turned means turned round, so read backwards"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means taking just the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written, then turned"
+     },
+     {
+      "clueFragment": "first item for auction",
+      "gives": "LOTI",
+      "note": "Lot 1, the first lot in an auction"
+     },
+     {
+      "clueFragment": "cartouche",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of cartouche"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "LOTI",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "IN",
+       "to": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An auctioneer's opening lot is a cartouche from Egypt.",
+     "walkthrough": "Lot 1 is written LOT I with the Roman numeral. The question mark flags a definition by example: Nilotic means of the Nile, not Egypt as such.",
+     "definitionFit": "Nilotic means relating to the Nile, the river at the heart of Egypt, hence a fair hint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Turned"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +1053,63 @@
      }
     ]
    },
-   "solution": "ALPHAANDOMEGA"
+   "solution": "ALPHAANDOMEGA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALPHA AND OMEGA",
+    "definitions": [
+     {
+      "text": "both ends",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Moving",
+      "for": "anagram",
+      "note": "moving letters around shifts their positions"
+     }
+    ],
+    "linkWords": [
+     "identifying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ahead",
+      "gives": "AHEAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "along",
+      "gives": "ALONG",
+      "note": "taken as written; 'with' adds the next word"
+     },
+     {
+      "clueFragment": "map",
+      "gives": "MAP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHEADALONGMAP",
+       "gives": "ALPHAANDOMEGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pressing on with a map that marks the start and finish.",
+     "definitionFit": "Alpha and omega are the first and last Greek letters, so together they mean the beginning and the end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "map"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +1123,82 @@
     "text": "Couple possessed of such wild happiness initially will require this conveyance",
     "enumeration": "9"
    },
-   "solution": "PUSHCHAIR"
+   "solution": "PUSHCHAIR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "PUSHCHAIR",
+    "definitions": [
+     {
+      "text": "this conveyance",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild suggests running out of control, so the letters are scrambled"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially takes the first letter only"
+     },
+     {
+      "text": "possessed of",
+      "for": "container",
+      "note": "possessing something means holding it within"
+     }
+    ],
+    "linkWords": [
+     "will require"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Couple",
+      "gives": "PAIR",
+      "note": "a couple is a pair"
+     },
+     {
+      "clueFragment": "such",
+      "gives": "SUCH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "happiness",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of happiness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "USHCH",
+      "AIR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUCHH",
+       "gives": "USHCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple overjoyed at a new baby will need a buggy.",
+     "walkthrough": "A pushchair is the British word for a stroller.",
+     "definitionFit": "A pushchair is a folding seat on wheels for a small child, a conveyance pushed along."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Couple"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1212,62 @@
     "text": "City is but a shell of London, after redevelopment",
     "enumeration": "8"
    },
-   "solution": "ISTANBUL"
+   "solution": "ISTANBUL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ISTANBUL",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shell of",
+      "for": "letter_selection",
+      "note": "a shell is the outer casing, so only the outer letters are kept"
+     },
+     {
+      "text": "after redevelopment",
+      "for": "anagram",
+      "note": "redevelopment rebuilds things in a new layout, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is but a",
+      "gives": "ISBUTA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "London",
+      "gives": "LN",
+      "select": "outer",
+      "note": "first and last letters of London"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISBUTALN",
+       "gives": "ISTANBUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city reduced to a hollow version of London after being rebuilt.",
+     "definitionFit": "Istanbul is Turkey's largest city, an example of the general word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shell"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1281,50 @@
     "text": "Reliability: function supplied by stronghold",
     "enumeration": "13"
    },
-   "solution": "STEADFASTNESS"
+   "solution": "STEADFASTNESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STEADFASTNESS",
+    "definitions": [
+     {
+      "text": "Reliability",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "supplied by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "function",
+      "gives": "STEAD",
+      "note": "stead means role or function, as in 'stand in good stead'"
+     },
+     {
+      "clueFragment": "stronghold",
+      "gives": "FASTNESS",
+      "note": "a fastness is a fortress or secure refuge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEAD",
+      "FASTNESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A fortress's job is to be dependable.",
+     "walkthrough": "Stead and fastness are both somewhat old words; each is in standard dictionaries.",
+     "definitionFit": "Steadfastness is firm loyalty and constancy, which amounts to dependability."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1338,56 @@
     "text": "Legal document about poor service that's cancelled",
     "enumeration": "7"
    },
-   "solution": "DELETED"
+   "solution": "DELETED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DELETED",
+    "definitions": [
+     {
+      "text": "that's cancelled",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' places the document around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Legal document",
+      "gives": "DEED",
+      "note": "a deed is a signed legal document"
+     },
+     {
+      "clueFragment": "poor service",
+      "gives": "LET",
+      "note": "in tennis a let is a serve clipping the net, so it must be retaken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "LET",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A contract dispute over bad customer service leads to cancellation.",
+     "walkthrough": "'Poor service' sounds like a complaint about a shop; it is a tennis serve that clips the net. DE(LET)ED.",
+     "definitionFit": "Something deleted has been struck out or removed, so it is cancelled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1401,72 @@
     "text": "I intend turning up to block a Conservative without spirit",
     "enumeration": "7"
    },
-   "solution": "ANAEMIC"
+   "solution": "ANAEMIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ANAEMIC",
+    "definitions": [
+     {
+      "text": "without spirit",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up reads the phrase from bottom to top"
+     },
+     {
+      "text": "to block",
+      "for": "container",
+      "note": "a block sits in the middle, so these letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I intend",
+      "gives": "IMEAN",
+      "note": "'I mean' is another way of saying I intend"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NAEMI",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "IMEAN",
+       "to": "NAEMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone plans to show up and obstruct a lacklustre Tory.",
+     "walkthrough": "'Without spirit' could suggest teetotal, but here it means lacking energy.",
+     "definitionFit": "Anaemic figuratively means feeble and lacking vigour, so lifeless or spiritless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "block"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1480,67 @@
     "text": "Wary about overturning support for container of dangerous liquid",
     "enumeration": "6"
    },
-   "solution": "CARBOY"
+   "solution": "CARBOY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CARBOY",
+    "definitions": [
+     {
+      "text": "container of dangerous liquid",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturning",
+      "for": "reversal",
+      "note": "overturning flips the word, so in a down clue it reads upwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means going around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wary",
+      "gives": "COY",
+      "note": "coy can mean reticent or wary"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "BRA",
+      "note": "a bra is a supporting garment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ARB",
+      "OY"
+     ],
+     "reversals": [
+      {
+       "from": "BRA",
+       "to": "ARB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cautious person refuses to knock over the stand holding a hazardous liquid.",
+     "walkthrough": "Coy usually means bashful; the sense here is reluctant to commit, hence wary.",
+     "definitionFit": "A carboy is a large bottle, often in a crate, used for storing acids and other corrosive liquids."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1554,76 @@
     "text": "A cricket club almost entirely adopting rugby as additional item",
     "enumeration": "7"
    },
-   "solution": "ACCRUAL"
+   "solution": "ACCRUAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "ACCRUAL",
+    "definitions": [
+     {
+      "text": "additional item",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means falling just short, so the last letter goes"
+     },
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "adopting takes something in, so it goes inside"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cricket club",
+      "gives": "CC",
+      "note": "CC is the abbreviation for cricket club"
+     },
+     {
+      "clueFragment": "rugby",
+      "gives": "RU",
+      "note": "RU stands for Rugby Union"
+     },
+     {
+      "clueFragment": "entirely",
+      "gives": "ALL",
+      "note": "all means entirely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CC",
+      "RU",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket club nearly fully takes up rugby as an extra sport.",
+     "walkthrough": "The rugby letters go between the club abbreviation and the shortened word, not around the whole.",
+     "definitionFit": "An accrual is something that accumulates or is added over time, such as interest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "adopting"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1643,39 @@
      }
     ]
    },
-   "solution": "ARALSEA"
+   "solution": "ARALSEA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ARAL SEA",
+    "definitions": [
+     {
+      "text": "Small body of water, and reducing in size?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small body of water",
+      "note": "surface reading: a pond or little lake"
+     },
+     {
+      "clueFragment": "and reducing in size?",
+      "note": "setter's reading: a once huge inland sea that is small because it has been shrinking"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Small' reads as a permanent size; here it means the water has become small, and is still shrinking.",
+     "definitionFit": "The Central Asian lake, once among the world's largest, has shrunk drastically since rivers feeding it were diverted for irrigation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1689,60 @@
     "text": "Seductress making for passion not love in lad",
     "enumeration": "5"
    },
-   "solution": "SIREN"
+   "solution": "SIREN",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SIREN",
+    "definitions": [
+     {
+      "text": "Seductress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making for",
+      "for": "substitution",
+      "note": "'making for ... not' says one thing is swapped in where the other was"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lad",
+      "gives": "SON",
+      "note": "a son is a lad"
+     },
+     {
+      "clueFragment": "passion",
+      "gives": "IRE",
+      "note": "ire is passionate anger"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, written O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IRE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A temptress who stirs up lust, rather than love, in a young man.",
+     "walkthrough": "Replace the O of SON with IRE.",
+     "definitionFit": "In Greek myth the Sirens lured sailors with song, so a siren is a dangerously alluring woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passion"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1756,53 @@
     "text": "Neural centre developed in tribesman",
     "enumeration": "9"
    },
-   "solution": "BRAINSTEM"
+   "solution": "BRAINSTEM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BRAINSTEM",
+    "definitions": [
+     {
+      "text": "Neural centre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "something developed has been worked into a new form"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tribesman",
+      "gives": "TRIBESMAN",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIBESMAN",
+       "gives": "BRAINSTEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nerve centre forming within a member of a tribe.",
+     "definitionFit": "The brainstem joins brain to spinal cord and controls breathing and heartbeat, a core nerve centre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tribesman"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1816,56 @@
     "text": "Beat most of the nick",
     "enumeration": "5"
    },
-   "solution": "THROB"
+   "solution": "THROB",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "THROB",
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word is all but its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written, then cut short"
+     },
+     {
+      "clueFragment": "nick",
+      "gives": "ROB",
+      "note": "nick is British slang for steal, to rob"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "ROB"
+     ]
+    },
+    "explanation": {
+     "surface": "A police beat covering most of the station, nick being British slang for a police station.",
+     "walkthrough": "'Nick' suggests a prison or police station; here it is the verb meaning steal.",
+     "definitionFit": "A throb is a pulse or rhythmic beat, as of the heart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nick"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1879,56 @@
     "text": "Former house, years old, with a couple of Kings",
     "enumeration": "4"
    },
-   "solution": "YORK"
+   "solution": "YORK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YORK",
+    "definitions": [
+     {
+      "text": "Former house",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "years",
+      "gives": "Y",
+      "note": "Y is the abbreviation for years"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "a couple of Kings",
+      "gives": "RK",
+      "note": "R for rex and K for king, two abbreviations for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "O",
+      "RK"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient royal dynasty that produced a pair of monarchs.",
+     "walkthrough": "'House' here means a royal dynasty, not a building.",
+     "definitionFit": "The House of York was an English royal dynasty in the Wars of the Roses, now defunct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1942,65 @@
     "text": "Medic losing a love, considering everything mostly as a matter of faith",
     "enumeration": "9"
    },
-   "solution": "DOCTRINAL"
+   "solution": "DOCTRINAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DOCTRINAL",
+    "definitions": [
+     {
+      "text": "as a matter of faith",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it drops out of the word"
+     },
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means all but the last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medic",
+      "gives": "DOCTOR",
+      "note": "a doctor is a medic"
+     },
+     {
+      "clueFragment": "a love",
+      "gives": "O",
+      "note": "love is zero, written O"
+     },
+     {
+      "clueFragment": "considering everything",
+      "gives": "INALL",
+      "note": "'in all' means taking everything into account"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOCTR",
+      "INAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor loses a partner and, on reflection, turns to religion.",
+     "walkthrough": "Remove O from DOCTOR, then cut the last letter from IN ALL.",
+     "definitionFit": "Doctrinal means concerning doctrine, the set of beliefs a religion teaches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   }
  ]
 }
