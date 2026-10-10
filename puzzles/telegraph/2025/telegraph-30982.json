@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +41,54 @@
      }
     ]
    },
-   "solution": "CREDITCARD"
+   "solution": "CREDITCARD",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "CREDIT CARD",
+    "definitions": [
+     {
+      "text": "Praise daughter acquiring vehicle - using this?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Praise",
+      "gives": "CREDIT",
+      "note": "to credit someone is to praise them; as a noun, credit is praise"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CREDIT",
+      "CAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders what payment method was used when a daughter bought a car after being praised.",
+     "walkthrough": "The daughter acquires the vehicle, so CAR comes before D. The whole clue doubles as the definition: buying a car with a plastic card on credit.",
+     "definitionFit": "A plastic payment card lets you borrow to buy things such as a car, which is what the question hints at."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "acquiring"
+    }
+   }
   },
   {
    "number": 1,
@@ -52,7 +102,55 @@
     "text": "Dressed shellfish finally reduced by 50 per cent",
     "enumeration": "4"
    },
-   "solution": "CLAD"
+   "solution": "CLAD",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CLAD",
+    "definitions": [
+     {
+      "text": "Dressed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally reduced by 50 per cent",
+      "for": "substitution",
+      "note": "the last letter, read as a Roman numeral, is cut to half its value and swapped for the numeral worth that much"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shellfish",
+      "gives": "CLAM",
+      "note": "a clam is a shellfish"
+     },
+     {
+      "clueFragment": "reduced by 50 per cent",
+      "gives": "D",
+      "note": "M is 1000 in Roman numerals; half of it is 500, which is D"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLA",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe note: shellfish served dressed, its quantity cut in half at the end.",
+     "walkthrough": "Swap the final M (1000) of CLAM for D (500), halving it.",
+     "definitionFit": "Clad is an old past participle of clothe, so it means wearing clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dressed"
+    }
+   }
   },
   {
    "number": 2,
@@ -66,7 +164,52 @@
     "text": "Axle he's broken makes a blow-out?",
     "enumeration": "7"
    },
-   "solution": "EXHALES"
+   "solution": "EXHALES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXHALES",
+    "definitions": [
+     {
+      "text": "makes a blow-out?",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed apart, so these letters are put back together in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Axle he's",
+      "gives": "AXLEHES",
+      "note": "the letters used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AXLEHES",
+       "gives": "EXHALES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car's broken axle seems to have caused a tyre blow-out.",
+     "walkthrough": "A blow-out sounds like a burst tyre, which suits the axle; here it is a long breath out.",
+     "definitionFit": "Someone who breathes out forcefully is literally blowing air out, hence the playful question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blow-out"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +223,70 @@
     "text": "I'm holding plastic ID valid in US, for independence",
     "enumeration": "13"
    },
-   "solution": "INDIVIDUALISM"
+   "solution": "INDIVIDUALISM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INDIVIDUALISM",
+    "definitions": [
+     {
+      "text": "independence",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plastic",
+      "for": "anagram",
+      "note": "plastic material can be moulded into any shape, so these letters can be reshaped"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "the first piece holds the second inside it, wrapping round it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written, without the apostrophe"
+     },
+     {
+      "clueFragment": "ID valid in US",
+      "gives": "IDVALIDINUS",
+      "note": "the letters used as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NDIVIDUALIS",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IDVALIDINUS",
+       "gives": "NDIVIDUALIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows a plastic identity card that works in the United States.",
+     "walkthrough": "'Plastic ID' reads as an identity card, but plastic is the signal to rearrange.",
+     "definitionFit": "Individualism is the outlook of self-reliance and personal independence rather than reliance on the group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plastic"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +300,78 @@
     "text": "Council of 100 once gathering in the Italian Vatican's west wing",
     "enumeration": "8"
    },
-   "solution": "CONCLAVE"
+   "solution": "CONCLAVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "CONCLAVE",
+    "definitions": [
+     {
+      "text": "Council",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "to gather something is to take it in, so the word placed next takes in what follows"
+     },
+     {
+      "text": "west wing",
+      "for": "letter_selection",
+      "note": "the west wing of a word written left to right is its leftmost part, the opening letter"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for 100"
+     },
+     {
+      "clueFragment": "once",
+      "gives": "ONCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the Italian",
+      "gives": "LA",
+      "note": "la is the feminine form of 'the' in Italian"
+     },
+     {
+      "clueFragment": "Vatican's",
+      "gives": "V",
+      "select": "first",
+      "note": "the opening letter of Vatican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ONC",
+      "LA",
+      "V",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A council once met inside the western wing of the Vatican palace.",
+     "walkthrough": "'The Italian' needs the feminine article here, not il. Once looks like a time word but is taken literally and wraps the middle pieces.",
+     "definitionFit": "A conclave is a private assembly, most famously the gathering of cardinals that elects a pope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +385,44 @@
     "text": "One in eight who likes an argument?",
     "enumeration": "5"
    },
-   "solution": "ROWER"
+   "solution": "ROWER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROWER",
+    "definitions": [
+     {
+      "text": "One in eight",
+      "at": 0
+     },
+     {
+      "text": "who likes an argument?",
+      "at": 13,
+      "note": "a noun phrase in disguise: one who likes a row"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One in eight",
+      "note": "first meaning: a member of a racing eight, a crew of eight oarsmen"
+     },
+     {
+      "clueFragment": "who likes an argument?",
+      "note": "second meaning, playful: a row (rhymes with cow) is a quarrel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The same spelling gives two different sounds: the boat sense rhymes with 'go', the quarrel sense with 'cow'.",
+     "definitionFit": "An oarsman in an eight pulls an oar, and a made-up noun from row meaning quarrel describes a squabbler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eight"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +436,39 @@
     "text": "This Italian city's building banks",
     "enumeration": "4"
    },
-   "solution": "PISA"
+   "solution": "PISA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PISA",
+    "definitions": [
+     {
+      "text": "This Italian city's building banks",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This Italian city's building banks",
+      "note": "surface reading: some Italian city is putting up banks"
+     },
+     {
+      "clueFragment": "building banks",
+      "note": "setter's reading: the city's famous building leans, as an aircraft banks when it tilts"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Banks is a verb here, meaning tilts, not a noun for lenders.",
+     "definitionFit": "The Tuscan city is world-famous for its leaning bell tower, a building that tilts to one side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "banks"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +482,60 @@
     "text": "Sign one's leading 200 metres, maybe losing the lead",
     "enumeration": "7"
    },
-   "solution": "IMPRINT"
+   "solution": "IMPRINT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "IMPRINT",
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "charade",
+      "note": "leading means going in front, so this piece comes first"
+     },
+     {
+      "text": "losing the lead",
+      "for": "deletion",
+      "note": "losing its lead means dropping the front letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one's",
+      "gives": "IM",
+      "note": "one is I, and 'one's' read as 'one is' becomes I'M"
+     },
+     {
+      "clueFragment": "200 metres, maybe",
+      "gives": "SPRINT",
+      "note": "the 200 metres is an example of a sprint race"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PRINT"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete one is ahead in the 200 metres but may fade at the end.",
+     "walkthrough": "SPRINT drops its first letter to become PRINT.",
+     "definitionFit": "An imprint is a mark or sign left behind, as a footprint is an impression in the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +549,61 @@
     "text": "Partly topless, boxing podcaster showing some nerve",
     "enumeration": "10"
    },
-   "solution": "ARROGANTLY"
+   "solution": "ARROGANTLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ARROGANTLY",
+    "definitions": [
+     {
+      "text": "showing some nerve",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "without its top, in a down clue, a word loses its opening letter"
+     },
+     {
+      "text": "boxing",
+      "for": "container",
+      "note": "to box something is to enclose it as in a box"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partly",
+      "gives": "PARTLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "podcaster",
+      "gives": "ROGAN",
+      "note": "Joe Rogan is a famous podcaster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "ROGAN",
+      "TLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A partly bare-chested podcaster tries boxing, which takes some nerve.",
+     "walkthrough": "PARTLY loses its P, then the remainder boxes ROGAN.",
+     "definitionFit": "Acting arrogantly means behaving with presumptuous self-importance, which is to show nerve or cheek."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxing"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +617,60 @@
     "text": "Lamps occasionally used to conceal bug",
     "enumeration": "5"
    },
-   "solution": "APHID"
+   "solution": "APHID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "APHID",
+    "definitions": [
+     {
+      "text": "bug",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "used"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lamps",
+      "gives": "AP",
+      "select": "alternate",
+      "note": "the second and fourth letters of the word"
+     },
+     {
+      "clueFragment": "to conceal",
+      "gives": "HID",
+      "note": "hid means concealed; 'to conceal' stands in for its past form here"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "HID"
+     ]
+    },
+    "explanation": {
+     "surface": "Lamps are sometimes rigged to hide a listening device.",
+     "walkthrough": "Bug looks like a hidden microphone, which suits the lamps; it is an insect.",
+     "definitionFit": "An aphid is a small sap-sucking insect, and bug is the informal name for any insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bug"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +684,38 @@
     "text": "Sapper conceivably appears in publication",
     "enumeration": "9"
    },
-   "solution": "NEWSPAPER"
+   "solution": "NEWSPAPER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NEWSPAPER",
+    "definitions": [
+     {
+      "text": "publication",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sapper conceivably appears in publication",
+      "note": "surface reading: a soldier from the engineers may get his name in print"
+     },
+     {
+      "clueFragment": "Sapper conceivably appears in",
+      "note": "setter's reading: the six letters of the word sapper, rearranged, can be found inside the answer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The answer is NEW followed by SPAPER, an anagram of sapper; conceivably signals the rearrangement.",
+     "definitionFit": "A daily newspaper is a printed periodical, so it is a publication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sapper"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +735,66 @@
      }
     ]
    },
-   "solution": "POSTAGESTAMPS"
+   "solution": "POSTAGESTAMPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POSTAGE STAMPS",
+    "definitions": [
+     {
+      "text": "Mail tags",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carried by",
+      "for": "charade",
+      "note": "in a down clue, a piece carried by another sits on top of it, so this piece comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "column",
+      "gives": "POST",
+      "note": "a post is an upright column"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "AGES",
+      "note": "ages are long times or eras"
+     },
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British slang for thanks"
+     },
+     {
+      "clueFragment": "politicians",
+      "gives": "MPS",
+      "note": "MPs are Members of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POST",
+      "AGES",
+      "TA",
+      "MPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper column tags the mail, with Times readers cheering politicians.",
+     "walkthrough": "'Mail tags' looks like a headline about the Daily Mail; it is the definition.",
+     "definitionFit": "Postage stamps are small labels stuck on letters to show postage is paid, a fair description of tags on mail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +814,44 @@
      }
     ]
    },
-   "solution": "LEVELCROSSING"
+   "solution": "LEVELCROSSING",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEVEL CROSSING",
+    "definitions": [
+     {
+      "text": "facility for holding things up",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only a portion, so the letters sit inside a longer run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "versatile Velcro's singular",
+      "gives": "LEVELCROSSING",
+      "note": "spans the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Velcro is praised as a uniquely versatile fastener for keeping things up.",
+     "walkthrough": "Holding things up suits Velcro attaching things, but it means delaying traffic.",
+     "definitionFit": "Where a road crosses a railway, barriers come down and halt the cars, so it holds up traffic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "holding"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +865,60 @@
     "text": "India's acted, censoring article poorly",
     "enumeration": "10"
    },
-   "solution": "INDISPOSED"
+   "solution": "INDISPOSED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INDISPOSED",
+    "definitions": [
+     {
+      "text": "poorly",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "censoring",
+      "for": "deletion",
+      "note": "a censor cuts material out, so a piece is removed from the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "India's",
+      "gives": "INDIAS",
+      "note": "taken as written, without the apostrophe"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "acted",
+      "gives": "POSED",
+      "note": "posed means put on an act or pretended"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDIS",
+      "POSED"
+     ]
+    },
+    "explanation": {
+     "surface": "India is accused of acting badly by censoring a newspaper article.",
+     "walkthrough": "Poorly looks like an adverb modifying acted; in Britain it is an adjective meaning ill.",
+     "definitionFit": "In British usage, feeling poorly means slightly ill, which is what indisposed means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poorly"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +932,64 @@
     "text": "Steep plunge in numbers - I have to ring editor",
     "enumeration": "8"
    },
-   "solution": "NOSEDIVE"
+   "solution": "NOSEDIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NOSEDIVE",
+    "definitions": [
+     {
+      "text": "Steep plunge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ring",
+      "for": "container",
+      "note": "to ring something is to encircle it, so the outer letters go round the inner"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "numbers",
+      "gives": "NOS",
+      "note": "NOS is the usual abbreviation for numbers"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the standard abbreviation for editor"
+     },
+     {
+      "clueFragment": "I have",
+      "gives": "IVE",
+      "note": "I've, without its apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOS",
+      "ED",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp drop in sales figures has to be relayed to the editor by phone.",
+     "walkthrough": "NOS and IVE together ring ED: NOS(ED)IVE. Ring looks like a phone call but means surround.",
+     "definitionFit": "A nosedive is a steep downward plunge, first of an aircraft and then of prices or numbers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +1003,61 @@
     "text": "Case of Everton pursuing quick fix",
     "enumeration": "6"
    },
-   "solution": "FASTEN"
+   "solution": "FASTEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FASTEN",
+    "definitions": [
+     {
+      "text": "fix",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Case of",
+      "for": "letter_selection",
+      "note": "a case is the outside covering, so only the letters at each edge are kept"
+     },
+     {
+      "text": "pursuing",
+      "for": "charade",
+      "note": "pursuing means chasing behind, so this piece comes after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quick",
+      "gives": "FAST",
+      "note": "fast means quick"
+     },
+     {
+      "clueFragment": "Everton",
+      "gives": "EN",
+      "select": "outer",
+      "note": "the first and last letters of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAST",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Everton, the Liverpool football club, look for a quick fix for their case.",
+     "walkthrough": "Everton is an English Premier League football club from Liverpool.",
+     "definitionFit": "To fasten is to fix something firmly in place, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Case"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1071,68 @@
     "text": "Listener covers EU admitting member France repeatedly seconds",
     "enumeration": "8"
    },
-   "solution": "EARMUFFS"
+   "solution": "EARMUFFS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EARMUFFS",
+    "definitions": [
+     {
+      "text": "Listener covers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit someone is to let them in, so the outer pair of letters takes in the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "EU",
+      "gives": "EU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "ARM",
+      "note": "an arm is a limb, a member of the body"
+     },
+     {
+      "clueFragment": "France repeatedly",
+      "gives": "FF",
+      "note": "F is the international code for France, given twice"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "s is the abbreviation for seconds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ARM",
+      "U",
+      "FF",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone listening reports that the EU has let France in again and again in seconds.",
+     "walkthrough": "'Listener' looks like a person hearing the news; with covers, it is the ear wanting warmth.",
+     "definitionFit": "Earmuffs are padded coverings worn over the ears, the listening organs, to keep them warm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Listener"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1146,61 @@
     "text": "Is pub outside Circle line on map?",
     "enumeration": "6"
    },
-   "solution": "ISOBAR"
+   "solution": "ISOBAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISOBAR",
+    "definitions": [
+     {
+      "text": "line on map",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "charade",
+      "note": "outside here means beyond, standing past the next piece in the reading order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Circle",
+      "gives": "O",
+      "note": "the letter O is round like a circle"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "O",
+      "BAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist asks whether the pub is outside the Circle line on the Tube map.",
+     "walkthrough": "The Circle line is a London Underground route, which makes 'line on map' look like a Tube line.",
+     "definitionFit": "An isobar is a line on a weather chart joining places of equal atmospheric pressure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Circle"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1214,68 @@
     "text": "Past inquiry oddly ignored twisted attack",
     "enumeration": "7"
    },
-   "solution": "OVERRUN"
+   "solution": "OVERRUN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "OVERRUN",
+    "definitions": [
+     {
+      "text": "attack",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly ignored",
+      "for": "letter_selection",
+      "note": "ignoring the odd-numbered positions keeps only the second, fourth and sixth letters"
+     },
+     {
+      "text": "twisted",
+      "for": "reversal",
+      "note": "twisted round, the kept letters are turned the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Past",
+      "gives": "OVER",
+      "note": "over means finished, in the past"
+     },
+     {
+      "clueFragment": "inquiry",
+      "gives": "NUR",
+      "select": "alternate",
+      "note": "the even-placed letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "RUN"
+     ],
+     "reversals": [
+      {
+       "from": "NUR",
+       "to": "RUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A previous investigation strangely brushed aside a vicious assault.",
+     "walkthrough": "Oddly ignored means the odd-numbered letters are dropped, not kept.",
+     "definitionFit": "To overrun a position is to invade and swamp it, a form of military attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 19,
@@ -316,7 +1289,70 @@
     "text": "Sport with graduate facing another in middle of pitch",
     "enumeration": "8"
    },
-   "solution": "BASEBALL"
+   "solution": "BASEBALL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BASEBALL",
+    "definitions": [
+     {
+      "text": "Sport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "facing",
+      "for": "charade",
+      "note": "facing means standing opposite and in front, so this piece leads"
+     },
+     {
+      "text": "in middle of",
+      "for": "container",
+      "note": "a piece set in the middle of a word splits it, the word going round it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "graduate",
+      "gives": "BA",
+      "note": "a BA is a Bachelor of Arts graduate"
+     },
+     {
+      "clueFragment": "pitch",
+      "gives": "SELL",
+      "note": "to pitch a product is to try to sell it"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "BA",
+      "note": "another graduate, a second BA"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "SE",
+      "BA",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sport is played with one graduate facing another in the middle of the pitch.",
+     "walkthrough": "Pitch looks like a sports field but means a sales pitch, the patter used to make a sale.",
+     "definitionFit": "Baseball is the American bat-and-ball game, so it is a sport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1372,67 @@
      }
     ]
    },
-   "solution": "ALLTIME"
+   "solution": "ALLTIME",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ALL-TIME",
+    "definitions": [
+     {
+      "text": "Best to date",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uplifted",
+      "for": "reversal",
+      "note": "in a down clue, lifted up means read from bottom to top, the other way round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "TI",
+      "ME"
+     ],
+     "reversals": [
+      {
+       "from": "IT",
+       "to": "TI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says everyone agreed it was their best moment yet, and it lifted their spirits.",
+     "walkthrough": "Uplifted only reverses the word right before it; everyone and me stay as they are.",
+     "definitionFit": "An all-time record is the best ever achieved up to now, unbeaten to date."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uplifted"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1452,62 @@
      }
     ]
    },
-   "solution": "PRECIOUSMETAL"
+   "solution": "PRECIOUSMETAL",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "PRECIOUS METAL",
+    "definitions": [
+     {
+      "text": "gold?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Eccentric",
+      "for": "anagram",
+      "note": "eccentric means odd and off-centre, so these letters are scrambled"
+     },
+     {
+      "text": "hoarding",
+      "for": "container",
+      "note": "a hoarder keeps a stash inside, so the next piece goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speculator, I'm",
+      "gives": "SPECULATORIM",
+      "note": "the letters used as written"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the standard abbreviation for eastern"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPECULATORIEM",
+       "gives": "PRECIOUSMETAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd investor admits to hoarding gold from the East.",
+     "walkthrough": "The E sits among the other letters before they are all rearranged. The question mark marks gold as one example.",
+     "definitionFit": "Gold is a rare and valuable metal, a classic example of the category alongside silver and platinum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "speculator"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1521,54 @@
     "text": "Become mature, supporting American tradition",
     "enumeration": "5"
    },
-   "solution": "USAGE"
+   "solution": "USAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USAGE",
+    "definitions": [
+     {
+      "text": "tradition",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, a supporting piece sits underneath, so it comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US abbreviates United States, so American"
+     },
+     {
+      "clueFragment": "Become mature",
+      "gives": "AGE",
+      "note": "to age is to grow older or mature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An American tradition lets someone mature in their own time.",
+     "walkthrough": "AGE is written under US in the grid.",
+     "definitionFit": "Usage means established custom or practice, the habitual way things are done, much as a tradition is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1582,59 @@
     "text": "Get softer, experienced female replaced by male",
     "enumeration": "4"
    },
-   "solution": "MELT"
+   "solution": "MELT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MELT",
+    "definitions": [
+     {
+      "text": "Get softer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaced by",
+      "for": "substitution",
+      "note": "one letter is taken out and another put in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "experienced",
+      "gives": "FELT",
+      "note": "to have felt something is to have experienced it"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ELT"
+     ]
+    },
+    "explanation": {
+     "surface": "An experienced woman is replaced by a man, perhaps one more soft-hearted.",
+     "walkthrough": "In FELT, the F for female is swapped for M.",
+     "definitionFit": "To melt is to soften, whether a solid turning liquid with heat or a heart softening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "female"
+    }
+   }
   },
   {
    "number": 24,
@@ -404,7 +1654,65 @@
      }
     ]
    },
-   "solution": "SCRUMHALF"
+   "solution": "SCRUMHALF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCRUM HALF",
+    "definitions": [
+     {
+      "text": "Player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "focus in",
+      "for": "letter_selection",
+      "note": "the focus of something is its centre, so only the middle letters are kept"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moscow",
+      "gives": "SC",
+      "select": "middle",
+      "note": "the two central letters of the six-letter name"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "RUM",
+      "note": "rum is a spirit drink"
+     },
+     {
+      "clueFragment": "some beer",
+      "gives": "HALF",
+      "note": "a half is a half-pint of beer in a British pub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "RUM",
+      "HALF"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer in Moscow is focused on drinking some beer.",
+     "walkthrough": "'Player's' reads as a possessive but is 'player is'. A half is a half-pint glass of beer in British pubs.",
+     "definitionFit": "A scrum-half is a rugby player who feeds the ball into the scrum, so a player in a team."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "focus"
+    }
+   }
   },
   {
    "number": 25,
@@ -418,7 +1726,58 @@
     "text": "State of India embodied by lion's 'crown'",
     "enumeration": "5"
    },
-   "solution": "MAINE"
+   "solution": "MAINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAINE",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embodied by",
+      "for": "container",
+      "note": "to be embodied by something is to be contained within its body"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "lion's 'crown'",
+      "gives": "MANE",
+      "note": "the mane is the crowning hair round a lion's head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "I",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "India is personified as a lion wearing a crown.",
+     "walkthrough": "State looks like a nation such as India, but India just gives a letter.",
+     "definitionFit": "Maine is one of the fifty United States, in the far north-east of New England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "India"
+    }
+   }
   },
   {
    "number": 26,
@@ -432,7 +1791,53 @@
     "text": "Hollow tooth doctor extracting first",
     "enumeration": "4"
    },
-   "solution": "DENT"
+   "solution": "DENT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DENT",
+    "definitions": [
+     {
+      "text": "Hollow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracting",
+      "for": "deletion",
+      "note": "to extract is to pull out, as a tooth is pulled, so letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tooth doctor",
+      "gives": "DENTIST",
+      "note": "a dentist is a doctor for teeth"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "first is written 1st, and 1 looks like I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist pulls a hollow tooth at the first opportunity.",
+     "walkthrough": "First looks like an order to take the first letter, but it supplies IST from 1ST.",
+     "definitionFit": "A dent is a small hollow pressed into a surface, so the noun fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 27,
@@ -446,7 +1851,49 @@
     "text": "Constant factor in drift nets is reptiles rolling around",
     "enumeration": "10"
    },
-   "solution": "PERSISTENT"
+   "solution": "PERSISTENT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "PERSISTENT",
+    "definitions": [
+     {
+      "text": "Constant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "factor in",
+      "for": "hidden_word",
+      "note": "a factor is a component inside a larger whole, so the letters lie within the words"
+     },
+     {
+      "text": "rolling around",
+      "for": "reversal",
+      "note": "something rolled round is turned over, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drift nets is reptiles",
+      "gives": "TNETSISREP",
+      "note": "the run from the end of the first word to the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Reptiles caught tumbling in drift nets are a constant problem for fishermen.",
+     "walkthrough": "Drift nets are long fishing nets left to drift, which often trap turtles.",
+     "definitionFit": "Persistent means continuing without letting up, so constant in the sense of unceasing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "factor"
+    }
+   }
   }
  ]
 }
