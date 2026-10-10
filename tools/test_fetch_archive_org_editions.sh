@@ -403,5 +403,64 @@ fa.ITEM_SECONDS = 0
 with contextlib.redirect_stdout(io.StringIO()):
     check("archive.org down is an outage, logged to failures.tsv",
           fa.fetch_unit(out, units[3], min_free_gb=0) == "outage" and "refused" in open(os.path.join(out, "failures.tsv")).read())
+# load_done keeps each edition's stale verdict until a dir it read moves
+# (dir_cache.dir_key), and parses only the lines appended to done.tsv.
+lr = tempfile.mkdtemp()
+IT = "NewsUK1998UKEnglish"
+def ed(name, hits, leaves=52):
+    d = os.path.join(lr, IT, fa.slug_of(IT, name))
+    fa.write_atomic(os.path.join(d, "pages.json"), json.dumps({"leaves": leaves, "crossword_pages": hits}).encode())
+    return d
+def settle(*ds):
+    for d in ds:
+        os.utime(d, (time.time() - 600, time.time() - 600))
+def resettle(d, *, old):
+    os.utime(d, ns=(old, old))
+sibs = [f"Nov {10 + i} 1998, The Times, #{i}, UK (en)" for i in range(5)]
+for n in sibs:
+    ed(n, [{"leaf": 25, "headings": daily}])
+lack = ed("Nov 26 1998, The Times, #9, UK (en)", [{"leaf": 51, "prior": True}])
+have = ed("Nov 25 1998, The Times, #9, UK (en)", [{"leaf": 25, "prior": True}, {"leaf": 51, "prior": True}])
+names_of = {d: n for d, n in ((lack, "Nov 26 1998, The Times, #9, UK (en)"), (have, "Nov 25 1998, The Times, #9, UK (en)"))}
+with open(os.path.join(lr, "done.tsv"), "w") as f:
+    f.writelines(f"{IT}\t{n}\t{fa.DETECTOR_VERSION}\n" for n in [*sibs, *names_of.values()])
+settle(*(os.path.join(lr, IT, e) for e in os.listdir(os.path.join(lr, IT))), os.path.join(lr, IT), lr)
+want = {(IT, n) for n in sibs} | {(IT, names_of[have])}
+check("load_done: a done edition lacking its siblings' leaf is stale, the rest done", fa.load_done(lr) == want)
+stats.clear()
+os.stat = lambda p, *a, **k: (stats.update([os.fspath(p)]), real_stat(p, *a, **k))[1]
+try:
+    again = fa.load_done(lr)
+finally:
+    os.stat = real_stat
+check("settled dirs unmoved: the same verdicts, no pages.json stat'd",
+      again == want and not [p for p in stats if p.endswith("pages.json")] and stats)
+old = os.stat(have).st_mtime_ns
+ed(names_of[have], [{"leaf": 51, "prior": True}])
+resettle(have, old=old)
+check("its own pages.json replaced under an unmoved mtime: stale (the ctime moved)",
+      fa.load_done(lr) == {(IT, n) for n in sibs})
+for n in sibs:
+    d = os.path.join(lr, IT, fa.slug_of(IT, n))
+    old = os.stat(d).st_mtime_ns
+    ed(n, [{"leaf": 51, "headings": daily}])
+    resettle(d, old=old)
+check("mirror: its siblings' pages.json replaced, its verdict moves with them",
+      fa.load_done(lr) == {(IT, n) for n in sibs} | {(IT, n) for n in names_of.values()})
+new_ed = "Nov 27 1998, The Times, #9, UK (en)"
+ed(new_ed, [{"leaf": 51, "prior": True}])
+with open(os.path.join(lr, "done.tsv"), "a") as f:
+    f.write(f"{IT}\t{new_ed}\t{fa.DETECTOR_VERSION}\n{IT}\tpartial")
+check("an appended row is read, a half-written line not yet", (IT, new_ed) in fa.load_done(lr)
+      and (IT, "partial") not in fa.load_done(lr))
+fresh = os.path.join(lr, IT, fa.slug_of(IT, new_ed))
+check("a dir changed within SETTLED keeps no verdict", fresh not in fa._STALE)
+settle(fresh, os.path.join(lr, IT))
+fa.load_done(lr)
+check("mirror: once settled it is kept", fresh in fa._STALE and lack in fa._STALE)
+with open(os.path.join(lr, "done.tsv.tmp"), "w") as f:
+    f.write(f"{IT}\t{sibs[0]}\t{fa.DETECTOR_VERSION}\n")
+os.replace(os.path.join(lr, "done.tsv.tmp"), os.path.join(lr, "done.tsv"))
+check("a done.tsv replaced whole is read whole", fa.load_done(lr) == {(IT, sibs[0])})
 sys.exit(1 if fails else 0)
 PY

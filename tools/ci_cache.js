@@ -64,7 +64,7 @@ const SMOKE_DEPS = [
     "tools/check_shapes.js", "tools/ci_cache.js", "tools/clue_index.py", "tools/clue_types.py", "tools/clues_only.py",
     "tools/clueability.py", "tools/code_reach.py", "tools/corroborate.py", "tools/ctc_transcripts.py",
     "tools/daily_update.sh", "tools/data/", "tools/definitions.py", "tools/deleted_paths.py", "tools/desktop_busy.py", "tools/difficulty.py",
-    "tools/difficulty_check.py", "tools/difficulty_page.html", "tools/downloads.py", "tools/edition_commit.py", "tools/enumeration.py",
+    "tools/difficulty_check.py", "tools/difficulty_page.html", "tools/dir_cache.py", "tools/downloads.py", "tools/edition_commit.py", "tools/enumeration.py",
     "tools/errata.py", "tools/fake_dom.js", "tools/fetch_lexicon.sh",
     "tools/fetch_archive_org_editions.py", "tools/fetch_ia_book.py", "tools/fetch_privateeye.py", "tools/fetch_puzzle.py", "tools/fetch_times_listing.py",
     "tools/file_archive_org_puzzles.py", "tools/file_penguin_puzzle.py",
