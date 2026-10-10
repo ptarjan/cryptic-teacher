@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,45 @@
     "text": "African people talked about ZSL facilities?",
     "enumeration": "4"
    },
-   "solution": "ZULU"
+   "solution": "ZULU",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ZULU",
+    "definitions": [
+     {
+      "text": "African people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "talked about",
+      "for": "homophone",
+      "note": "something talked about is spoken, so we want a word that matches the sound of the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ZSL facilities",
+      "gives": "ZULU",
+      "soundsLike": "ZOO LOO",
+      "note": "ZSL is the Zoological Society of London, which runs London Zoo; its facilities are zoo loos (toilets)"
+     }
+    ],
+    "explanation": {
+     "surface": "A query about whether some African people discussed the amenities at London Zoo.",
+     "walkthrough": "ZSL stands for the Zoological Society of London; 'facilities' is a polite word for toilets, a loo in Britain.",
+     "definitionFit": "The Zulus are a Bantu-speaking nation of southern Africa, chiefly KwaZulu-Natal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "facilities"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +94,68 @@
      }
     ]
    },
-   "solution": "WETCANTEEN"
+   "solution": "WETCANTEEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WET CANTEEN",
+    "definitions": [
+     {
+      "text": "mess with booze",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "at the outset points to the very start of the next word, so only its opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "WE",
+      "note": "mankind as a whole, ourselves: we"
+     },
+     {
+      "clueFragment": "thinks",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of thinks"
+     },
+     {
+      "clueFragment": "might",
+      "gives": "CAN",
+      "note": "might, in the sense of being able or allowed to, is can"
+     },
+     {
+      "clueFragment": "youth",
+      "gives": "TEEN",
+      "note": "a youth is a teen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "T",
+      "CAN",
+      "TEEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether young people ought to be fooling about with alcohol.",
+     "walkthrough": "'Mess' is not a verb here but the military dining room; a wet canteen is a forces bar where alcohol is sold.",
+     "definitionFit": "A wet canteen is a service canteen or mess licensed to sell alcoholic drink, as opposed to a dry one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "mess"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +169,40 @@
     "text": "Wroxham and Malthouse? We may lead you there!",
     "enumeration": "6"
    },
-   "solution": "BROADS"
+   "solution": "BROADS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BROADS",
+    "definitions": [
+     {
+      "text": "Wroxham and Malthouse",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wroxham and Malthouse?",
+      "note": "surface reading: two English places or perhaps people, Wroxham village and a Malthouse"
+     },
+     {
+      "clueFragment": "We may lead you there!",
+      "note": "setter's reading: Wroxham and Malthouse are Norfolk lakes, and these lakes, speaking for themselves, lead you into the whole waterway region of the same name"
+     }
+    ],
+    "explanation": {
+     "surface": "Two Norfolk names apparently boast that they can guide a visitor to some destination.",
+     "walkthrough": "Wroxham Broad and Malthouse Broad are lakes in the Norfolk Broads, a waterway network in eastern England popular for boating holidays.",
+     "definitionFit": "Each is a broad, a shallow lake formed from old peat diggings, and together such lakes form the region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Malthouse"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +216,63 @@
     "text": "Following set-up, pinch and take home skittle",
     "enumeration": "6"
    },
-   "solution": "TENPIN"
+   "solution": "TENPIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TENPIN",
+    "definitions": [
+     {
+      "text": "skittle",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Following set-up",
+      "for": "reversal",
+      "note": "in a down clue being set up means lifted from bottom to top, so the letters run upward, the other way round"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pinch",
+      "gives": "NIP",
+      "note": "to pinch is to nip"
+     },
+     {
+      "clueFragment": "take home",
+      "gives": "NET",
+      "note": "to take home pay is to net it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "PIN"
+     ],
+     "reversals": [
+      {
+       "from": "NIPNET",
+       "to": "TENPIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for a bowling-style game: after the pins are arranged, nick one and carry it home.",
+     "definitionFit": "A tenpin is one of the ten pins knocked down in tenpin bowling, a kind of skittle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set-up"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +292,78 @@
      }
     ]
    },
-   "solution": "LUXMUNDI"
+   "solution": "LUXMUNDI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "LUX MUNDI",
+    "definitions": [
+     {
+      "text": "earthly light",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Badly",
+      "for": "anagram",
+      "note": "something done badly is botched, so the remaining letters come out in a jumbled order"
+     },
+     {
+      "text": "overlooked",
+      "for": "deletion",
+      "note": "what is overlooked gets ignored, so those letters are left out of the longer word"
+     },
+     {
+      "text": "penetrating",
+      "for": "container",
+      "note": "penetrating means going right inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unillumined",
+      "gives": "UNILLUMINED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "LINE",
+      "note": "taken as written, to be removed"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "X",
+      "note": "by as in multiplication, the times sign x"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LU",
+      "X",
+      "MUNDI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UILUMND",
+       "gives": "LUMUNDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poorly lit line of text is overlooked, while some worldly light breaks through.",
+     "walkthrough": "By is the multiplication sign, as in three by four; overlooked asks for a word to be left out of a longer one.",
+     "definitionFit": "Lux mundi is Latin for 'light of the world', a title of Christ, so a light belonging to the earth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +377,63 @@
     "text": "One heartlessly has children in the firing line?",
     "enumeration": "4"
    },
-   "solution": "OCHE"
+   "solution": "OCHE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OCHE",
+    "definitions": [
+     {
+      "text": "the firing line",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartlessly",
+      "for": "letter_selection",
+      "note": "without its heart, the word loses its central letter and keeps only its ends"
+     },
+     {
+      "text": "has",
+      "for": "container",
+      "note": "to have something is to hold it, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "OE",
+      "select": "outer",
+      "note": "the first and last letters of one"
+     },
+     {
+      "clueFragment": "children",
+      "gives": "CH",
+      "note": "ch is the standard abbreviation for children or child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel person puts children in danger, standing in the line of fire.",
+     "walkthrough": "The question mark flags the playful definition: darts players throw from behind the oche.",
+     "definitionFit": "The oche is the line behind which a darts player stands to throw, so the line darts are fired from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "firing"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +447,57 @@
     "text": "Resort northern? To be sure, a southern resort",
     "enumeration": "10"
    },
-   "solution": "EASTBOURNE"
+   "solution": "EASTBOURNE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EASTBOURNE",
+    "definitions": [
+     {
+      "text": "southern resort",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Resort",
+      "for": "anagram",
+      "note": "to re-sort is to sort again, putting the letters into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the standard abbreviation for northern"
+     },
+     {
+      "clueFragment": "To be sure, a",
+      "gives": "TOBESUREA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NTOBESUREA",
+       "gives": "EASTBOURNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a holiday resort is in the north and is told no, it is a southern one.",
+     "walkthrough": "The opening 'Resort' looks like the definition but is the instruction to re-sort letters; the definition is at the other end.",
+     "definitionFit": "Eastbourne is a seaside town on the Sussex coast of southern England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Resort"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +511,55 @@
     "text": "Ill-deserved smacker possibly rejected by native",
     "enumeration": "8"
    },
-   "solution": "UNEARNED"
+   "solution": "UNEARNED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UNEARNED",
+    "definitions": [
+     {
+      "text": "Ill-deserved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected by",
+      "for": "deletion",
+      "note": "something rejected is cast out, so this letter is thrown out of the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "native",
+      "gives": "UNLEARNED",
+      "note": "native in the sense of innate, inborn, not acquired by study"
+     },
+     {
+      "clueFragment": "smacker possibly",
+      "gives": "L",
+      "note": "a smacker is slang for a pound, and L is the pound sign's letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "EARNED"
+     ]
+    },
+    "explanation": {
+     "surface": "A local person turns away an undeserved kiss.",
+     "walkthrough": "Smacker suggests a kiss, but here it is slang for a pound, abbreviated L (from libra).",
+     "definitionFit": "Something unearned has not been worked for, so it is not deserved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "smacker"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +573,60 @@
     "text": "Props loading one crateful after another",
     "enumeration": "6"
    },
-   "solution": "FULCRA"
+   "solution": "FULCRA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FULCRA",
+    "definitions": [
+     {
+      "text": "Props",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sets the order, the second copy following straight on from the first"
+     },
+     {
+      "text": "loading",
+      "for": "deletion",
+      "note": "only the part of the load visible at the join is kept, the rest of each case being dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one crateful",
+      "gives": "CRATEFUL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "CRATEFUL",
+      "note": "a second crateful following the first"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FUL",
+      "CRA"
+     ]
+    },
+    "explanation": {
+     "surface": "Stagehands carry props, one crateful following the next.",
+     "walkthrough": "Write crateful twice in a row: the letters straddle the join, the end of one crateful and the start of the next.",
+     "definitionFit": "Fulcra, plural of fulcrum, are the supports on which levers pivot, so props in the sense of supports."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Props"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +640,54 @@
     "text": "Part of organ at the end of Viz strip",
     "enumeration": "6"
    },
-   "solution": "SCREED"
+   "solution": "SCREED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCREED",
+    "definitions": [
+     {
+      "text": "strip",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the end of",
+      "for": "charade",
+      "note": "placing one thing at the end of another fixes their order, the first piece following the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Viz",
+      "gives": "SC",
+      "note": "viz and sc (scilicet) are both abbreviations meaning namely"
+     },
+     {
+      "clueFragment": "Part of organ",
+      "gives": "REED",
+      "note": "a reed is a type of pipe in an organ"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "REED"
+     ]
+    },
+    "explanation": {
+     "surface": "A bit of a church organ appears in the last panel of a comic strip from Viz.",
+     "walkthrough": "Viz is a British adult comic, which makes 'strip' look like a cartoon; here viz is the abbreviation for namely.",
+     "definitionFit": "A screed is a strip of plaster or wood laid as a guide to level a floor or wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Viz"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +701,59 @@
     "text": "Loose snake accounting for pawnbroker's right hand",
     "enumeration": "7"
    },
-   "solution": "UNCLASP"
+   "solution": "UNCLASP",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "UNCLASP",
+    "definitions": [
+     {
+      "text": "Loose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accounting for",
+      "for": "substitution",
+      "note": "accounting for here means disposing of, so one piece takes over the place of a letter"
+     },
+     {
+      "text": "right hand",
+      "for": "substitution",
+      "note": "the right hand of a word as written is its final letter, the one to be swapped out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pawnbroker",
+      "gives": "UNCLE",
+      "note": "uncle is old British slang for a pawnbroker"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "ASP",
+      "note": "an asp is a venomous snake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNCL",
+      "ASP"
+     ]
+    },
+    "explanation": {
+     "surface": "An escaped snake is the reason a pawnbroker's right hand has been bitten.",
+     "walkthrough": "The 'right hand' of the word for a pawnbroker is its last letter, E, which the snake replaces.",
+     "definitionFit": "To loose something is to unfasten or release it, the same as to unclasp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +767,46 @@
     "text": "How French, this remark",
     "enumeration": "7"
    },
-   "solution": "COMMENT"
+   "solution": "COMMENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COMMENT",
+    "definitions": [
+     {
+      "text": "How French",
+      "at": 0
+     },
+     {
+      "text": "remark",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How French",
+      "note": "first meaning: the French word for how"
+     },
+     {
+      "clueFragment": "remark",
+      "note": "second meaning: an observation in English"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone exclaims at how very French a particular comment sounds.",
+     "definitionFit": "The same spelling is the French interrogative 'how' and the English noun for an observation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "How"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +826,71 @@
      }
     ]
    },
-   "solution": "LONGSINCE"
+   "solution": "LONGSINCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LONG SINCE",
+    "definitions": [
+     {
+      "text": "Way back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters before it are made into a new arrangement"
+     },
+     {
+      "text": "dipping into",
+      "for": "container",
+      "note": "to dip into something is to go inside it, so one piece is set within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "just after",
+      "gives": "ON",
+      "note": "on as in on arrival, immediately after"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "SINGLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chapter",
+      "gives": "C",
+      "note": "C is the standard abbreviation for chapter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ON",
+      "GSINCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SINGLEC",
+       "gives": "LGSINCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls having dipped into a one-chapter novel a while ago.",
+     "definitionFit": "Long since means a long time ago, the same as way back in casual speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +904,55 @@
     "text": "Pilot dons seductive glossy material",
     "enumeration": "10"
    },
-   "solution": "LUTESTRING"
+   "solution": "LUTESTRING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LUTESTRING",
+    "definitions": [
+     {
+      "text": "glossy material",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dons",
+      "for": "container",
+      "note": "to don is to put on, as clothing, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seductive",
+      "gives": "LURING",
+      "note": "luring means enticing, seductive"
+     },
+     {
+      "clueFragment": "Pilot",
+      "gives": "TEST",
+      "note": "a pilot study is a test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LU",
+      "TEST",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "An airline pilot puts on some alluring shiny fabric.",
+     "walkthrough": "Pilot looks like a person, but it is the adjective-turned-noun for a trial run.",
+     "definitionFit": "Lutestring is a lustrous silk fabric, once used for dresses and ribbons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pilot"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +966,62 @@
     "text": "Returning zero fish caught in sea trip, one could deal blow",
     "enumeration": "5"
    },
-   "solution": "NARCO"
+   "solution": "NARCO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NARCO",
+    "definitions": [
+     {
+      "text": "one could deal blow",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Returning",
+      "for": "reversal",
+      "note": "returning means coming back, so the letters are read from the other end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "zero looks like the letter O"
+     },
+     {
+      "clueFragment": "fish caught in sea trip",
+      "gives": "CRAN",
+      "note": "a cran is a measure of herrings landed, a quantity of fish brought in from a fishing trip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NARC",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OCRAN",
+       "to": "NARCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fishing boat comes back with no catch, and someone is ready to lash out.",
+     "walkthrough": "Blow is slang for cocaine, so the definition is a drug dealer, not a boxer.",
+     "definitionFit": "A narco is a drug trafficker, someone who might deal cocaine, called blow in slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blow"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1035,56 @@
     "text": "Doctor and Master characters brought together complex storylines?",
     "enumeration": "10"
    },
-   "solution": "RIGMAROLES"
+   "solution": "RIGMAROLES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIGMAROLES",
+    "definitions": [
+     {
+      "text": "complex storylines?",
+      "at": 46
+     }
+    ],
+    "linkWords": [
+     "brought together"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "RIG",
+      "note": "to doctor results is to rig them"
+     },
+     {
+      "clueFragment": "Master",
+      "gives": "MA",
+      "note": "MA is a Master of Arts"
+     },
+     {
+      "clueFragment": "characters",
+      "gives": "ROLES",
+      "note": "characters in a play are roles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIG",
+      "MA",
+      "ROLES"
+     ]
+    },
+    "explanation": {
+     "surface": "Doctor Who and his foe the Master are brought together in a convoluted plot.",
+     "walkthrough": "The surface evokes Doctor Who, whose villain is called the Master; the question mark marks the loose definition of long-winded tales.",
+     "definitionFit": "A rigmarole is a long, rambling and confused account, so a tangled story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1108,66 @@
      }
     ]
    },
-   "solution": "THEMASKEDSINGER"
+   "solution": "THEMASKEDSINGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "THE MASKED SINGER",
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fluid",
+      "for": "anagram",
+      "note": "something fluid flows and changes shape, so the letters take a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "these people",
+      "gives": "THEM",
+      "note": "these people are them"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "ASK",
+      "note": "to question is to ask"
+     },
+     {
+      "clueFragment": "is gender",
+      "gives": "EDSINGER",
+      "note": "the letters of is gender, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEM",
+      "ASK",
+      "EDSINGER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISGENDER",
+       "gives": "EDSINGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A demonstration that some people are asking whether gender is fluid.",
+     "definitionFit": "The Masked Singer is a TV talent show in which celebrities sing in costume, hiding their identity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fluid"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1181,67 @@
     "text": "Needs an operative to cover current bases",
     "enumeration": "8"
    },
-   "solution": "ADENINES"
+   "solution": "ADENINES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ADENINES",
+    "definitions": [
+     {
+      "text": "bases",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "operative",
+      "for": "anagram",
+      "note": "an operative letter set is one that is worked on, so it gets rearranged"
+     },
+     {
+      "text": "to cover",
+      "for": "container",
+      "note": "to cover something is to surround it, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Needs an",
+      "gives": "NEEDSAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADEN",
+      "I",
+      "NES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEEDSAN",
+       "gives": "ADENNES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spy is required to keep watch over military bases currently in use.",
+     "walkthrough": "Operative looks like a secret agent; it is the anagram signal, and bases are chemical, not military.",
+     "definitionFit": "Adenine is one of the four nucleobases in DNA and RNA, so adenines are bases."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "operative"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1255,65 @@
     "text": "Picked up fragments after rolling one kilo butt in",
     "enumeration": "6"
    },
-   "solution": "KIBITZ"
+   "solution": "KIBITZ",
+   "annotation": {
+    "type": [
+     "reversal",
+     "homophone",
+     "charade"
+    ],
+    "answer": "KIBITZ",
+    "definitions": [
+     {
+      "text": "butt in",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolling",
+      "for": "reversal",
+      "note": "rolling turns something over, so the letters come back the other way"
+     },
+     {
+      "text": "Picked up",
+      "for": "homophone",
+      "note": "picked up as in heard, so the word is identified by its sound"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sets the order, so the sounded piece follows the rolled one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "kilo",
+      "gives": "K",
+      "note": "K is the abbreviation for kilo"
+     },
+     {
+      "clueFragment": "fragments",
+      "gives": "BITZ",
+      "soundsLike": "BITS",
+      "note": "fragments are bits, spelt here as it sounds"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone gathers broken pieces after a one-kilogram thing tumbles into a cigarette end.",
+     "definitionFit": "To kibitz is to offer unwanted advice or interfere, from Yiddish, so to butt in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "butt"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1327,44 @@
     "text": "Toast success in Geneva's banks",
     "enumeration": "5"
    },
-   "solution": "SINGE"
+   "solution": "SINGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SINGE",
+    "definitions": [
+     {
+      "text": "Toast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banks",
+      "for": "hidden_word",
+      "note": "banks contain a river, so the letters are held within the words before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "success in Geneva's",
+      "gives": "SINGE",
+      "note": "run on from the end of success through in to the start of Geneva's"
+     }
+    ],
+    "explanation": {
+     "surface": "A toast is raised to success in the banking world of Geneva.",
+     "walkthrough": "Toast looks like a celebratory drink, but it is the verb for browning; Geneva is famous for Swiss banking.",
+     "definitionFit": "To toast bread is to brown it with heat, as to singe is to scorch lightly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Toast"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1384,75 @@
      }
     ]
    },
-   "solution": "BRANDNAME"
+   "solution": "BRANDNAME",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "BRAND NAME",
+    "definitions": [
+     {
+      "text": "Make",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first off",
+      "for": "deletion",
+      "note": "first off means the first letter is taken away"
+     },
+     {
+      "text": "retrospective",
+      "for": "reversal",
+      "note": "retrospective means looking back, so the word is read from end to start"
+     },
+     {
+      "text": "to go ahead",
+      "for": "charade",
+      "note": "to go ahead puts the second piece in front of the first in the finished word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refuse",
+      "gives": "BRAN",
+      "note": "bran is husks, waste or refuse from grain"
+     },
+     {
+      "clueFragment": "claim",
+      "gives": "DEMAND",
+      "note": "a claim is a demand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAN",
+      "DNAME"
+     ],
+     "reversals": [
+      {
+       "from": "EMAND",
+       "to": "DNAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone first makes a claim backdated and then declines to proceed.",
+     "walkthrough": "Make is a noun here, as in the make of a car; refuse is a noun too, not the verb it seems.",
+     "definitionFit": "A make of product is its brand name, the trade name under which it is sold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "refuse"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1466,61 @@
     "text": "A misleadingly named fillet",
     "enumeration": "6"
    },
-   "solution": "ANADEM"
+   "solution": "ANADEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ANADEM",
+    "definitions": [
+     {
+      "text": "fillet",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misleadingly",
+      "for": "anagram",
+      "note": "something presented misleadingly is distorted, so the letters are put out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "named",
+      "gives": "NADEM",
+      "note": "the letters of named, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NADEM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAMED",
+       "gives": "NADEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cut of meat sold under a deceptive label.",
+     "walkthrough": "Fillet looks like a cut of beef or fish; here it is a band worn round the head.",
+     "definitionFit": "An anadem is a garland or headband, and a fillet is a narrow band worn around the hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fillet"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1534,76 @@
     "text": "Bumper celebration for one daughter about to get married",
     "enumeration": "6"
    },
-   "solution": "DODGEM"
+   "solution": "DODGEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DODGEM",
+    "definitions": [
+     {
+      "text": "Bumper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the preceding letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebration",
+      "gives": "DO",
+      "note": "a do is a party or celebration"
+     },
+     {
+      "clueFragment": "for one",
+      "gives": "EG",
+      "note": "eg, for example, means for one"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the standard abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "DGE",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "EGD",
+       "to": "DGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge party is held for a daughter who is about to be married.",
+     "walkthrough": "Bumper looks like an adjective meaning huge, tying it to the celebration; it is the noun for a fairground car.",
+     "definitionFit": "A dodgem is a small electric car at a fairground, built to bump into others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bumper"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1617,50 @@
     "text": "Poet on radio mocking suspension",
     "enumeration": "7"
    },
-   "solution": "RHYMIST"
+   "solution": "RHYMIST",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "RHYMIST",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on radio",
+      "for": "homophone",
+      "note": "something on radio is only heard, so the word is judged by sound alone"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mocking",
+      "gives": "RHY",
+      "soundsLike": "WRY",
+      "note": "mocking or ironic is wry"
+     },
+     {
+      "clueFragment": "suspension",
+      "gives": "MIST",
+      "note": "mist is fine water droplets suspended in the air"
+     }
+    ],
+    "explanation": {
+     "surface": "A poet on the radio pokes fun at someone being suspended.",
+     "walkthrough": "Suspension is the scientific sense, droplets held in air, not a ban or a car part.",
+     "definitionFit": "A rhymist is a writer of rhymes, a versifier, so a poet, though usually a humble one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspension"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1674,69 @@
     "text": "Tubers heading for Stanmore might, on northbound route",
     "enumeration": "4"
    },
-   "solution": "YAMS"
+   "solution": "YAMS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "YAMS",
+    "definitions": [
+     {
+      "text": "Tubers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its top, so only its first letter is taken"
+     },
+     {
+      "text": "on northbound route",
+      "for": "reversal",
+      "note": "in a down clue travelling northbound means going up the column, so the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stanmore",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Stanmore"
+     },
+     {
+      "clueFragment": "might",
+      "gives": "MAY",
+      "note": "might and may both express possibility"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YAM",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SMAY",
+       "to": "YAMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Underground trains might head north towards Stanmore, terminus of London's Jubilee line.",
+     "walkthrough": "Tubers puns on the Tube, London's Underground; Stanmore is the northern end of the Jubilee line.",
+     "definitionFit": "Yams are the starchy edible tubers of a tropical climbing plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tubers"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1760,59 @@
      }
     ]
    },
-   "solution": "ANDSOON"
+   "solution": "ANDSOON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AND SO ON",
+    "definitions": [
+     {
+      "text": "I could mention more",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having",
+      "for": "container",
+      "note": "having means holding, so one piece is carried inside the other"
+     }
+    ],
+    "linkWords": [
+     "to bear"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at another time",
+      "gives": "ANON",
+      "note": "anon means soon or at some other time"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "DSO",
+      "note": "the Distinguished Service Order is a military decoration in the form of a cross"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "DSO",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hints that there is more to say later, given a burden they carry.",
+     "walkthrough": "The cross to bear sounds like a burden; it is a medal, the DSO, a British gallantry decoration.",
+     "definitionFit": "And so on is said in place of listing further items, as a speaker could go on but does not."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1826,43 @@
     "text": "Signatory brings Western powers together",
     "enumeration": "4"
    },
-   "solution": "NATO"
+   "solution": "NATO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NATO",
+    "definitions": [
+     {
+      "text": "Western powers together",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brings",
+      "for": "hidden_word",
+      "note": "the first word brings the letters with it, carrying them inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Signatory",
+      "gives": "NATO",
+      "note": "the middle letters of signatory"
+     }
+    ],
+    "explanation": {
+     "surface": "A treaty signatory unites the powers of the West.",
+     "walkthrough": "The surface reads as a statement about treaties, which suits the alliance itself.",
+     "definitionFit": "NATO is the North Atlantic Treaty Organization, a military alliance of Western countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "brings"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1876,44 @@
     "text": "Recognised group of people more affected by shock?",
     "enumeration": "6"
    },
-   "solution": "NUMBER"
+   "solution": "NUMBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUMBER",
+    "definitions": [
+     {
+      "text": "Recognised group of people",
+      "at": 0
+     },
+     {
+      "text": "more affected by shock?",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recognised group of people",
+      "note": "first meaning: a company"
+     },
+     {
+      "clueFragment": "more affected by shock?",
+      "note": "second meaning: comparative of numb, read as more numb"
+     }
+    ],
+    "explanation": {
+     "surface": "A query whether a known set of people was more traumatised than others.",
+     "walkthrough": "The second sense needs the word read with a silent b as numb plus er, rather than the usual count word.",
+     "definitionFit": "A number can be a group, as in one of our number, and numb with er means more deadened by shock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shock"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1927,54 @@
     "text": "Showing respect at all times during split",
     "enumeration": "8"
    },
-   "solution": "REVERENT"
+   "solution": "REVERENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REVERENT",
+    "definitions": [
+     {
+      "text": "Showing respect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the span of, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split",
+      "gives": "RENT",
+      "note": "a rent is a tear or split"
+     },
+     {
+      "clueFragment": "at all times",
+      "gives": "EVER",
+      "note": "ever means always"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EVER",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stays respectful throughout a break-up.",
+     "definitionFit": "Reverent means feeling or showing deep respect, as in a reverent hush."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
+    }
+   }
   }
  ]
 }
