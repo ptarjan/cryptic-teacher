@@ -2563,10 +2563,13 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       }
     }
     shape("a cryptic definition whose answer the ladder must not leak", cds.length);
-    // The fixed prose is the family blurbs and every literal stretch of the
-    // rungs' html templates in app.js: "picture something else at first" is
-    // not a leak of FIRST.
+    // The fixed prose is the family and type blurbs and labels and every
+    // literal stretch of the rungs' html templates in app.js: "picture
+    // something else at first" is not a leak of FIRST, nor "Mechanism:
+    // cryptic definition" of CRYPT (app.js masks a label only where it is the
+    // answer as a word).
     const LADDER_PROSE = [...CLUE_TYPES.families.flatMap(f => [f.blurb, f.label]),
+      ...CLUE_TYPES.types.flatMap(t => [t.blurb, t.label]),
       ...rungTemplateProse(appSrc).map(t => t.replace(/<[^>]*>|&[#\w]+;/g, " "))]
       .map(t => (t || "").replace(/[^A-Za-z]/g, "").toUpperCase()).filter(Boolean);
     for (const cd of cds) {
