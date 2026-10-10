@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,54 @@
     "text": "Perhaps Crufts dog commercial cut",
     "enumeration": "4"
    },
-   "solution": "SHOW"
+   "solution": "SHOW",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SHOW",
+    "definitions": [
+     {
+      "text": "Perhaps Crufts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut has a part sliced away, so one piece is removed from the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "SHADOW",
+      "note": "to dog someone is to follow them closely, as a shadow does"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "a commercial is an advert, AD for short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog-show advert at Crufts has been dropped.",
+     "walkthrough": "Removing AD from SHADOW leaves SHOW. 'Dog' is a verb here, not the animal the Crufts surface suggests.",
+     "definitionFit": "Crufts is a famous annual dog show held in Britain, so it is an example of the general word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +96,43 @@
     "text": "Maybe 10 o'clock breaking news up (per Tim Ewart)",
     "enumeration": "10"
    },
-   "solution": "SUPPERTIME"
+   "solution": "SUPPERTIME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SUPPERTIME",
+    "definitions": [
+     {
+      "text": "Maybe 10 o'clock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "hidden_word",
+      "note": "a breaking word is split open, so the target is buried across the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "news up (per Tim Ewart",
+      "gives": "SUPPERTIME",
+      "note": "found running from the end of the first word into the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A late-night news bulletin presented by the ITV reporter Tim Ewart.",
+     "walkthrough": "'Breaking news' is a fixed phrase on the surface, so the split between its two words is easy to miss.",
+     "definitionFit": "Ten in the evening could be when someone has their late meal, an example of the time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +156,50 @@
      }
     ]
    },
-   "solution": "ONTHEBLINK"
+   "solution": "ONTHEBLINK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON THE BLINK",
+    "definitions": [
+     {
+      "text": "not running properly",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means out of order, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ninth bloke",
+      "gives": "NINTHBLOKE",
+      "note": "the letters of these words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NINTHBLOKE",
+       "gives": "ONTHEBLINK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The ninth man in a race has dropped out and stopped running.",
+     "definitionFit": "A machine on the blink is faulty or working erratically, an informal idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 3,
@@ -90,7 +219,50 @@
      }
     ]
    },
-   "solution": "SEALEDBEAM"
+   "solution": "SEALEDBEAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEALED-BEAM",
+    "definitions": [
+     {
+      "text": "Type of lamp",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guaranteed",
+      "gives": "SEALED",
+      "note": "a deal that is guaranteed is sealed"
+     },
+     {
+      "clueFragment": "a broad smile",
+      "gives": "BEAM",
+      "note": "to beam is to smile broadly; a beam is a broad smile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEALED",
+      "BEAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a lamp that could be relied on to make someone grin.",
+     "definitionFit": "A sealed-beam lamp is a headlamp unit in which the reflector, lens and filament form one sealed whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "guaranteed"
+    }
+   }
   },
   {
    "number": 4,
@@ -104,7 +276,64 @@
     "text": "Date finally settled with English woman",
     "enumeration": "6"
    },
-   "solution": "ELAINE"
+   "solution": "ELAINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ELAINE",
+    "definitions": [
+     {
+      "text": "woman",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word, so only its closing letter counts"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Date",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of date"
+     },
+     {
+      "clueFragment": "settled",
+      "gives": "LAIN",
+      "note": "dust that has settled has lain down"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LAIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A wedding date has at last been agreed with an English bride.",
+     "definitionFit": "Elaine is a woman's given name, so any woman could be named this way in crossword terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "settled"
+    }
+   }
   },
   {
    "number": 5,
@@ -118,7 +347,51 @@
     "text": "DPhil, say … fancy title",
     "enumeration": "8"
    },
-   "solution": "LADYSHIP"
+   "solution": "LADYSHIP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LADYSHIP",
+    "definitions": [
+     {
+      "text": "title",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy means elaborate or fanciful, so the letters are worked into a new pattern"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "DPhil, say",
+      "gives": "DPHILSAY",
+      "note": "the letters of these words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DPHILSAY",
+       "gives": "LADYSHIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctorate, for instance, counts as a grand title.",
+     "walkthrough": "'Say' reads as 'for example', but its letters are part of the mix.",
+     "definitionFit": "Ladyship is a form of address for a woman of noble rank, as in 'Her Ladyship'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 6,
@@ -146,7 +419,40 @@
      }
     ]
    },
-   "solution": "DAFTASABRUSH"
+   "solution": "DAFTASABRUSH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DAFT AS A BRUSH",
+    "definitions": [
+     {
+      "text": "very silly",
+      "at": 35
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One bristled at being described",
+      "note": "surface reading: someone who took offence at a description"
+     },
+     {
+      "clueFragment": "One bristled",
+      "note": "setter's reading: a thing with bristles, used in a simile for foolishness"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone took offence at being called extremely foolish.",
+     "walkthrough": "'Bristled' means took offence on the surface, but literally means having bristles, pointing at a household cleaning tool.",
+     "definitionFit": "The British idiom compares a foolish person to a broom, meaning thoroughly silly or scatterbrained."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bristled"
+    }
+   }
   },
   {
    "number": 7,
@@ -160,7 +466,49 @@
     "text": "An elite college, West Point has regular expulsions",
     "enumeration": "4"
    },
-   "solution": "ETON"
+   "solution": "ETON",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ETON",
+    "definitions": [
+     {
+      "text": "An elite college",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has regular expulsions",
+      "for": "letter_selection",
+      "note": "throwing out at a steady interval means every other letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "West Point",
+      "gives": "ETON",
+      "select": "alternate",
+      "note": "the even letters of these words, the odd ones expelled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETON"
+     ]
+    },
+    "explanation": {
+     "surface": "The American military academy keeps throwing out cadets.",
+     "walkthrough": "Eton is the famous English public school near Windsor.",
+     "definitionFit": "Eton College is one of England's most exclusive fee-paying schools, educating many prime ministers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Point"
+    }
+   }
   },
   {
    "number": 8,
@@ -174,7 +522,55 @@
     "text": "The compiler sets vacuous shambles",
     "enumeration": "4"
    },
-   "solution": "MESS"
+   "solution": "MESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MESS",
+    "definitions": [
+     {
+      "text": "shambles",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacuous",
+      "for": "letter_selection",
+      "note": "vacuous means empty, so the inside of the word is cleared out and only its ends survive"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The compiler",
+      "gives": "ME",
+      "note": "the setter referring to themselves"
+     },
+     {
+      "clueFragment": "sets",
+      "gives": "SS",
+      "select": "outer",
+      "note": "first and last letters of sets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A setter admits to producing an empty-headed muddle.",
+     "definitionFit": "A mess and a shambles both mean a disorderly, chaotic state of affairs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sets"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +584,59 @@
     "text": "Compassion – mine and yours primarily",
     "enumeration": "4"
    },
-   "solution": "PITY"
+   "solution": "PITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PITY",
+    "definitions": [
+     {
+      "text": "Compassion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means in the first place, so only the opening letter of the word is used"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mine",
+      "gives": "PIT",
+      "note": "a pit is a coal mine"
+     },
+     {
+      "clueFragment": "yours",
+      "gives": "Y",
+      "select": "first",
+      "note": "first letter of yours"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone offering sympathy that belongs to both of us.",
+     "walkthrough": "'Mine' looks like a possessive pairing with 'yours', but it is the noun: a coal mine.",
+     "definitionFit": "Pity is sorrow felt for another's suffering, a close synonym of compassion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +650,55 @@
     "text": "Sugary confection – clean teeth after Charlie (with his brother?)",
     "enumeration": "10"
    },
-   "solution": "CANDYFLOSS"
+   "solution": "CANDYFLOSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANDY FLOSS",
+    "definitions": [
+     {
+      "text": "Sugary confection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the teeth-cleaning word follows the nickname rather than leading"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie (with his brother?)",
+      "gives": "CANDY",
+      "note": "Charlie is slang for cocaine, and nose candy is another nickname for it, a sibling term"
+     },
+     {
+      "clueFragment": "clean teeth",
+      "gives": "FLOSS",
+      "note": "to floss is to clean between the teeth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANDY",
+      "FLOSS"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to brush your teeth after eating sweets with a boy named Charlie and his brother.",
+     "walkthrough": "The bracketed question hints that CANDY is a relative of Charlie: both are slang names for cocaine.",
+     "definitionFit": "Candy floss is spun sugar wound on a stick, sold at fairs; Americans call it cotton candy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +718,65 @@
      }
     ]
    },
-   "solution": "CHERRYTOMATO"
+   "solution": "CHERRYTOMATO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "CHERRY TOMATO",
+    "definitions": [
+     {
+      "text": "it's delicious in a salad",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "ingredients mixed are stirred together, so their letters are jumbled"
+     },
+     {
+      "text": "first drop of",
+      "for": "letter_selection",
+      "note": "the first drop is the opening bit, so only the initial letter is taken"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carrot and thyme",
+      "gives": "CARROTTHYME",
+      "note": "the letters of carrot and thyme"
+     },
+     {
+      "clueFragment": "oil",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of oil"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CARROTTHYMEO",
+       "gives": "CHERRYTOMATO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe: carrot and thyme with a dash of oil make a tasty salad.",
+     "definitionFit": "Cherry tomatoes are small, sweet tomatoes commonly eaten whole in salads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 12,
@@ -242,7 +796,79 @@
      }
     ]
    },
-   "solution": "ELEPHANTSEAL"
+   "solution": "ELEPHANTSEAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "anagram"
+    ],
+    "answer": "ELEPHANT SEAL",
+    "definitions": [
+     {
+      "text": "A big beast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "a drink knocked back is downed, but here the name is sent backwards"
+     },
+     {
+      "text": "freely",
+      "for": "anagram",
+      "note": "letters arranged freely are not held in their printed order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brazilian legend",
+      "gives": "PELE",
+      "note": "Pelé, the Brazilian football great"
+     },
+     {
+      "clueFragment": "Hampshire",
+      "gives": "HANTS",
+      "note": "HANTS is the standard abbreviation for the county of Hampshire"
+     },
+     {
+      "clueFragment": "ale",
+      "gives": "EAL",
+      "note": "the word ale, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELEP",
+      "HANTS",
+      "EAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALE",
+       "gives": "EAL"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "PELE",
+       "to": "ELEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football legend downing lots of beer in Hampshire, a county in southern England.",
+     "walkthrough": "'Knocked back' suggests drinking the ale, but it acts on the footballer's name.",
+     "definitionFit": "Elephant seals are the largest seals, the males weighing several tonnes, so they are fairly called big beasts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 13,
@@ -262,7 +888,47 @@
      }
     ]
    },
-   "solution": "PINACOLADA"
+   "solution": "PINACOLADA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PINA COLADA",
+    "definitions": [
+     {
+      "text": "a rum drink",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion of what follows, so the letters are taken from within those words"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ketchup in a cola, dad",
+      "gives": "PINACOLADA",
+      "note": "running from the last letter of ketchup to the start of dad"
+     }
+    ],
+    "explanation": {
+     "surface": "A child asks their father if he has put ketchup in his cola, calling it a strange drink.",
+     "walkthrough": "'Rum' means odd on the surface, but it is the spirit.",
+     "definitionFit": "A piña colada is a cocktail of rum, coconut cream and pineapple juice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rum"
+    }
+   }
   },
   {
    "number": 14,
@@ -282,7 +948,61 @@
      }
     ]
    },
-   "solution": "AULDREEKIE"
+   "solution": "AULDREEKIE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AULD REEKIE",
+    "definitions": [
+     {
+      "text": "capital north of the border",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fresh",
+      "for": "anagram",
+      "note": "something fresh is new, so the letters are made into a new word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "UK leader",
+      "gives": "UKLEADER",
+      "note": "the letters of these words, to be rearranged"
+     },
+     {
+      "clueFragment": "That is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AULDREEK",
+      "IE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UKLEADER",
+       "gives": "AULDREEK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Speculation about a new British prime minister, with a reply naming a Scottish city.",
+     "walkthrough": "North of the border means Scotland. Auld Reekie, Scots for 'Old Smoky', is a nickname for Edinburgh.",
+     "definitionFit": "Edinburgh is Scotland's capital and has long been nicknamed for its smoky chimneys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fresh"
+    }
+   }
   },
   {
    "number": 15,
@@ -296,7 +1016,55 @@
     "text": "Rows involving 50 roofers",
     "enumeration": "6"
    },
-   "solution": "TILERS"
+   "solution": "TILERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TILERS",
+    "definitions": [
+     {
+      "text": "roofers",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "something involving another takes it in, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rows",
+      "gives": "TIERS",
+      "note": "tiers are rows, as of seats"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "L",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Fifty builders on a site squabbling with each other.",
+     "walkthrough": "'Rows' reads as quarrels, but it means lines of seats.",
+     "definitionFit": "Tilers lay tiles, including roof tiles, so roofers are people doing that trade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rows"
+    }
+   }
   },
   {
    "number": 16,
@@ -310,7 +1078,76 @@
     "text": "Pud from America – I spoil it on the way back",
     "enumeration": "8"
    },
-   "solution": "TIRAMISU"
+   "solution": "TIRAMISU",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TIRAMISU",
+    "definitions": [
+     {
+      "text": "Pud",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the way back",
+      "for": "reversal",
+      "note": "going on the way back means travelling in the opposite direction, so the string is read right to left"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "the United States"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spoil",
+      "gives": "MAR",
+      "note": "to mar is to spoil"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "RAM",
+      "I",
+      "SU"
+     ],
+     "reversals": [
+      {
+       "from": "USIMARIT",
+       "to": "TIRAMISU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American worried they will ruin a dessert while travelling home.",
+     "walkthrough": "Pud is British slang for pudding, meaning dessert.",
+     "definitionFit": "Tiramisu is an Italian dessert of coffee-soaked sponge and mascarpone, a sweet course."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spoil"
+    }
+   }
   },
   {
    "number": 17,
@@ -324,7 +1161,59 @@
     "text": "Writer half the month sat on table",
     "enumeration": "8"
    },
-   "solution": "NOVELIST"
+   "solution": "NOVELIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NOVELIST",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "letter_selection",
+      "note": "half of a word is its first four of eight letters here"
+     }
+    ],
+    "linkWords": [
+     "sat on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the month",
+      "gives": "NOVE",
+      "select": "first",
+      "note": "the first half of November"
+     },
+     {
+      "clueFragment": "table",
+      "gives": "LIST",
+      "note": "a table is a list of figures"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOVE",
+      "LIST"
+     ]
+    },
+    "explanation": {
+     "surface": "An author spent half the month sitting on furniture.",
+     "walkthrough": "In a down answer the first piece sits on top of the second, hence 'sat on'.",
+     "definitionFit": "A novelist writes novels, a specific kind of writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "table"
+    }
+   }
   },
   {
    "number": 18,
@@ -344,7 +1233,60 @@
      }
     ]
    },
-   "solution": "MONEYBOX"
+   "solution": "MONEYBOX",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "MONEY BOX",
+    "definitions": [
+     {
+      "text": "rhino kept here",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "According to Spooner",
+      "for": "spoonerism",
+      "note": "Reverend Spooner was famous for swapping the opening sounds of words"
+     }
+    ],
+    "linkWords": [
+     "out of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rabbit",
+      "gives": "MONEY",
+      "soundsLike": "BUNNY",
+      "note": "a bunny is a rabbit; it takes the opening sound of the other word"
+     },
+     {
+      "clueFragment": "takes the mickey",
+      "gives": "BOX",
+      "soundsLike": "MOCKS",
+      "note": "to take the mickey is British for teasing, to mock; it takes the opening sound of the first word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MONEY",
+      "BOX"
+     ]
+    },
+    "explanation": {
+     "surface": "A rabbit poking fun at a rhinoceros in a zoo enclosure.",
+     "walkthrough": "Rhino is old British slang for money, so the animal is a red herring.",
+     "definitionFit": "A money box is a container where cash is saved, so it is where rhino, slang for money, is held."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "rhino"
+    }
+   }
   },
   {
    "number": 19,
@@ -358,7 +1300,43 @@
     "text": "Manager ran department charged with a commission",
     "enumeration": "6"
    },
-   "solution": "ERRAND"
+   "solution": "ERRAND",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERRAND",
+    "definitions": [
+     {
+      "text": "a commission",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "charged with",
+      "for": "hidden_word",
+      "note": "something charged with a load carries it inside, so the letters sit within these words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manager ran department",
+      "gives": "ERRAND",
+      "note": "found across the ends and start of these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A manager who ran a department was accused of taking a kickback.",
+     "walkthrough": "'Charged with' suggests a criminal charge and 'commission' a bribe; both are misleading.",
+     "definitionFit": "An errand is a task one is sent to do for someone else, which is a sense of commission."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commission"
+    }
+   }
   },
   {
    "number": 20,
@@ -378,7 +1356,67 @@
      }
     ]
    },
-   "solution": "ATONCE"
+   "solution": "ATONCE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "AT ONCE",
+    "definitions": [
+     {
+      "text": "immediately",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the word runs backwards"
+     },
+     {
+      "text": "to punch",
+      "for": "container",
+      "note": "a punch drives into something, so one piece is driven inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "card",
+      "gives": "ACE",
+      "note": "an ace is a playing card"
+     },
+     {
+      "clueFragment": "Not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TON",
+      "CE"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to strike an awkward character straight away.",
+     "walkthrough": "'Not about' looks like a single phrase meaning absent, but 'about' acts on 'Not' alone.",
+     "definitionFit": "At once means without delay, an idiom equivalent to immediately."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "punch"
+    }
+   }
   },
   {
    "number": 21,
@@ -398,7 +1436,48 @@
      }
     ]
    },
-   "solution": "ROSETTASTONE"
+   "solution": "ROSETTASTONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROSETTA STONE",
+    "definitions": [
+     {
+      "text": "Rock famously carved",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sister Tharpe's",
+      "gives": "ROSETTAS",
+      "note": "Sister Rosetta Tharpe, the American gospel and rock-and-roll pioneer, with the possessive"
+     },
+     {
+      "clueFragment": "sound",
+      "gives": "TONE",
+      "note": "a tone is a sound, especially a musical quality"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSETTAS",
+      "TONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a singer whose sound shaped rock music.",
+     "walkthrough": "'Rock' looks like the music Sister Rosetta Tharpe helped create, but it is a stone slab.",
+     "definitionFit": "The Rosetta Stone is an inscribed granodiorite slab whose carved texts unlocked Egyptian hieroglyphs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 22,
@@ -412,7 +1491,56 @@
     "text": "Pine tree trunk felled around noon",
     "enumeration": "4"
    },
-   "solution": "LONG"
+   "solution": "LONG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LONG",
+    "definitions": [
+     {
+      "text": "Pine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree trunk felled",
+      "gives": "LOG",
+      "note": "a felled tree trunk is a log"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "N",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A pine tree was cut down at about midday.",
+     "walkthrough": "'Pine' looks like the tree, matching the surface, but it is the verb meaning to yearn.",
+     "definitionFit": "To pine for something and to long for it both mean to yearn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pine"
+    }
+   }
   },
   {
    "number": 23,
@@ -426,7 +1554,55 @@
     "text": "Ambush magistrate without hesitation",
     "enumeration": "4"
    },
-   "solution": "JUMP"
+   "solution": "JUMP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "JUMP",
+    "definitions": [
+     {
+      "text": "Ambush",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "magistrate",
+      "gives": "JP",
+      "note": "JP, Justice of the Peace, is a magistrate"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "UM",
+      "note": "um is a sound of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "UM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A justice of the peace is attacked without a moment's pause.",
+     "walkthrough": "'Without hesitation' reads as 'promptly', but 'without' means outside.",
+     "definitionFit": "To jump someone is to attack them suddenly, which is to ambush them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 24,
@@ -440,7 +1616,61 @@
     "text": "Generous hands holding uniform large releases of eggs",
     "enumeration": "10"
    },
-   "solution": "OVULATIONS"
+   "solution": "OVULATIONS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OVULATIONS",
+    "definitions": [
+     {
+      "text": "releases of eggs",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "hands holding something grip it inside, so other letters go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Generous hands",
+      "gives": "OVATIONS",
+      "note": "a generous round of applause, a big hand, is an ovation"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is uniform in the NATO alphabet"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OV",
+      "U",
+      "L",
+      "ATIONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Kind helpers clutching a large school uniform.",
+     "walkthrough": "To give someone a big hand is to applaud, so hands here are rounds of applause.",
+     "definitionFit": "Ovulation is the release of an egg from the ovary, so the plural fits this phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 25,
@@ -454,7 +1684,53 @@
     "text": "Fire old Russian cavalryman after leaving function",
     "enumeration": "4"
    },
-   "solution": "SACK"
+   "solution": "SACK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SACK",
+    "definitions": [
+     {
+      "text": "Fire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after leaving",
+      "for": "deletion",
+      "note": "what is left after something leaves is the remainder once that part is gone"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old Russian cavalryman",
+      "gives": "COSSACK",
+      "note": "the Cossacks were famed horsemen of the Russian steppes"
+     },
+     {
+      "clueFragment": "function",
+      "gives": "COS",
+      "note": "cos is short for cosine, a trigonometric function"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SACK"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to dismiss an old horseman when he leaves a party.",
+     "walkthrough": "'Function' reads as a social event; it is the maths function cosine.",
+     "definitionFit": "To sack someone and to fire them both mean dismissing them from a job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 26,
@@ -474,7 +1750,55 @@
      }
     ]
    },
-   "solution": "GAPTOOTHED"
+   "solution": "GAPTOOTHED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GAP-TOOTHED",
+    "definitions": [
+     {
+      "text": "describes Terry-Thomas",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast",
+      "for": "anagram",
+      "note": "metal that is cast is poured into a new shape, so these letters are remoulded"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A ghetto pod",
+      "gives": "AGHETTOPOD",
+      "note": "the letters of these words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGHETTOPOD",
+       "gives": "GAPTOOTHED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A podcast from a deprived neighbourhood about a vintage comic actor.",
+     "walkthrough": "Terry-Thomas was a British comedy actor famous for the wide gap between his front teeth.",
+     "definitionFit": "Terry-Thomas's trademark was a prominent space between his front teeth, so the adjective portrays him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 27,
@@ -488,7 +1812,63 @@
     "text": "Grand prix perhaps featuring electronic vehicle reversing",
     "enumeration": "4"
    },
-   "solution": "RACE"
+   "solution": "RACE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RACE",
+    "definitions": [
+     {
+      "text": "Grand prix perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "a vehicle reversing travels backwards, so the letters run right to left"
+     }
+    ],
+    "linkWords": [
+     "featuring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the usual abbreviation for electronic, as in e-mail"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAC",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "ECAR",
+       "to": "RACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A motor-racing event in which an electric car backs up.",
+     "definitionFit": "A grand prix is a top-level motor-racing event, an example of the general word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "featuring"
+    }
+   }
   }
  ]
 }
