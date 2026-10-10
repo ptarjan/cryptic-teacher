@@ -630,7 +630,7 @@ def definition_unrelated(puz):
     """Share of the clues whose definition WordNet does not tie to the answer.
     The definition is the blog's underlined one, else our annotation's; a clue
     whose answer WordNet lacks is not judged. None below UNRELATED_FLOOR."""
-    bd = blog_definitions().get(puz["id"], {})
+    bd = puzzle_blog_definitions(puz["id"])
     judged = []
     for e in puz["entries"]:
         d = bd.get(entry_id(e)) or definition_key(definitions.texts(e.get("annotation")))
@@ -657,6 +657,21 @@ def blog_definitions():
     return out
 
 
+def puzzle_blog_definitions(pid):
+    """{entry id: definition} for one puzzle, reading only its series' file
+    of tools/data/blog_facts/ (each file holds its own series' puzzles, as
+    fetch_puzzle.blog_facts_for reads them): a pass that misses a few cached
+    rows parses one or two files, not all of them."""
+    series, _ = series_meta.parse_id(pid)
+    return _series_blog_definitions(series).get(pid, {})
+
+
+@functools.cache
+def _series_blog_definitions(series):
+    f = BLOG_FACTS / f"{series}.json"
+    return blog_file_definitions(f) if series and f.exists() else {}
+
+
 def blog_file_definitions(f):
     """blog_definitions() for one tools/data/blog_facts/<series>.json."""
     out = {}
@@ -676,7 +691,7 @@ def history_row(path):
     day = series_meta.puzzle_day(puz)
     if not day:
         return None
-    bd = blog_definitions().get(puz["id"], {})
+    bd = puzzle_blog_definitions(puz["id"])
     sols, pairs = set(), set()
     for e in puz["entries"]:
         sol = letters(e.get("solution"))
@@ -716,7 +731,7 @@ def history():
     (earlier defined puzzles, for the pairing) are behind it."""
     import row_cache  # noqa: PLC0415
     rows = [r for r in row_cache.cached_map("difficulty", history_row, puzzle_files(),
-                                            deps=history_row_deps, prepare=blog_definitions) if r]
+                                            deps=history_row_deps) if r]
     rows.sort(key=lambda r: r[0])
     seen, paired = {}, {}
     n_all = n_defined = 0
@@ -918,7 +933,6 @@ def _load_clue_inputs():
     global _RANK
     _RANK = ranks()
     wordnet()
-    blog_definitions()
 
 
 def clue_row(path):

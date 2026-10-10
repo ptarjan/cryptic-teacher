@@ -22,6 +22,8 @@ crawlable pages at puzzles/<id>/index.html, so no public URL depends on this.
 
   python3 tools/puzzle_paths.py ID...   # print each held puzzle's path
 """
+import functools
+import os
 import sys
 from pathlib import Path
 
@@ -108,14 +110,38 @@ def resolve_puzzle(arg):
                      + ", ".join(p.stem for p in hits))
 
 
+@functools.cache
+def _real_dir(folder):
+    return os.path.realpath(folder)
+
+
+def real(path):
+    """str(Path(path).resolve()), with each folder resolved once per process.
+
+    A whole-corpus pass names 45k files in a few hundred folders, and
+    resolve() walks every component of every one: most of a reindex's CPU
+    when the rows themselves come off tools/row_cache.py. The file's own
+    name is resolved only when it is itself a link."""
+    s = os.fspath(path)
+    folder, name = os.path.split(s)
+    if not os.path.isabs(s) or name in ("", ".", "..") or os.path.islink(s):
+        return os.path.realpath(s)
+    return os.path.join(_real_dir(folder), name)
+
+
+def relative(path, root):
+    """Path(path).resolve().relative_to(root).as_posix(), or None where the
+    file is not under `root` (taken as given, as relative_to takes it)."""
+    r, prefix = real(path), os.path.join(os.fspath(root), "")
+    if r + os.sep == prefix:
+        return "."
+    return r[len(prefix):] if r.startswith(prefix) else None
+
+
 def in_corpus(path):
     """Is `path` a puzzle file under PUZZLE_DIR (so placed by file_for), rather
     than a fixture or an out-dir copy written wherever its caller says?"""
-    try:
-        Path(path).resolve().relative_to(PUZZLE_DIR.resolve())
-    except ValueError:
-        return False
-    return True
+    return relative(path, _real_dir(os.fspath(PUZZLE_DIR))) is not None
 
 
 def shim_path(path):

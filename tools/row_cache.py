@@ -68,11 +68,7 @@ def _blobs(paths):
     listed = puzzle_integrity.listing()
     out = {}
     for p in paths:
-        try:
-            name = p.resolve().relative_to(root).as_posix()
-        except ValueError:
-            name = None
-        out[p] = listed.get(name) or _blob_sha(p)
+        out[p] = listed.get(puzzle_paths.relative(p, root)) or _blob_sha(p)
     return out
 
 
@@ -82,10 +78,7 @@ def _blob_sha(path):
 
 
 def _key(code, path, blob):
-    try:
-        name = path.resolve().relative_to(puzzle_paths.ROOT).as_posix()
-    except ValueError:
-        name = str(path.resolve())
+    name = puzzle_paths.relative(path, puzzle_paths.ROOT) or puzzle_paths.real(path)
     return hashlib.sha1(f"{code}\0{name}\0{blob}".encode()).hexdigest()
 
 
