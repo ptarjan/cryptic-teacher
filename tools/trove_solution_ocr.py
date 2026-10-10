@@ -603,6 +603,40 @@ def unnumbered_reads(plain, bare, glyphs, read, numbers):
             and [m for m, _ in ranked(glyphs[rc], models, unnumbered(None))[:1]] == [ch]}
 
 
+def numbered_letters(lts, letters, numbers, allowed, printed):
+    """{cell: letter} for the numbered cells of a grid that prints its clue
+    numbers, where the number spoils the glyph match: a light whose one
+    unread cell is numbered takes the one letter `allowed` there that makes
+    a known() word, when that word is one word, not a run-together (an H
+    read as N makes NARD + COURT), a recogniser read the light whole as it
+    (`printed`) and each crossing light through the cell, read in full, is
+    an answer() with it. Each settled letter counts in its crossing lights,
+    until none settles."""
+    letters, out = dict(letters), {}
+    through = {}
+    for key, cells in lts.items():
+        for rc in cells:
+            through.setdefault(rc, []).append(key)
+    settled = True
+    while settled:
+        settled = False
+        for key, cells in lts.items():
+            open_ = [rc for rc in cells if rc not in letters]
+            if len(open_) != 1 or open_[0] not in numbers:
+                continue
+            rc = open_[0]
+            words = {ch: "".join(letters.get(x) or ch for x in cells) for ch in sorted(allowed.get(rc, ()))}
+            fit = [ch for ch, w in words.items() if known(w)]
+            if len(fit) != 1 or words[fit[0]] not in printed.get(key, ()) or words[fit[0]].lower() not in _WORDS:
+                continue
+            ch = fit[0]
+            if all(answer("".join(letters.get(x) or ch for x in lts[k]), printed.get(k, ()))
+                   for k in through[rc] if k != key and all(x in letters or x == rc for x in lts[k])):
+                letters[rc] = out[rc] = ch
+                settled = True
+    return out
+
+
 def framed_rules(gray, grid):
     """(gray, ys, xs): the grid image and its rules that read its blocks
     as the grid's best, of: its largest patch of ink straightened() and
@@ -636,7 +670,8 @@ def read_framed(image, grid):
     """read_answers for an image that is the grid: read on its own rules
     (framed_rules), each light accepted when every cell is read (the
     recogniser's sure letter, or for a cell with a clue number or no sure
-    read, matched_letters) and the word is known()."""
+    read, matched_letters, then in a grid printing its numbers
+    numbered_letters) and the word is known()."""
     gray, ys, xs = framed_rules(np.asarray(Image.open(image).convert("L")), grid)
     lts = lights(grid)
     numbers = {cells[0]: n for (n, _), cells in lts.items()}
@@ -675,6 +710,8 @@ def read_framed(image, grid):
     printed = {k: full.get(k, set()) | blanked_full.get(k, set()) for k in lts}
     matched = matched_letters(read, glyphs, numbers, lts, allowed, printed, models)
     letters = {**read, **matched}
+    if marked:
+        letters.update(numbered_letters(lts, letters, numbers, allowed, printed))
     # A light read_answers' plain reading accepts (every cell sure, the whole
     # word read) stands too where each numbered cell's sure letter is its
     # glyph's best match and no letter above says otherwise.

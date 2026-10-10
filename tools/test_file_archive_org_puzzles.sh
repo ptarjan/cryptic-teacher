@@ -1343,6 +1343,24 @@ check("run-together words of 3+ letters are an answer only when read whole: not 
       (False, False, True, True, False),
       (tso.answer("AALLEY", set()), tso.answer("AALLEY", {"AALLEY"}), tso.answer("TUCKSHOP", {"TUCKSHOP"}),
        tso.answer("ALLEY", set()), tso.answer("ADOISON", {"ADOISON"})))
+# numbered_letters(): in a grid printing its numbers a light's one unread
+# numbered cell takes the one allowed letter making a word the light was
+# read whole as (?UEUE: QUEUE, 15893); not a run-together (H read as N:
+# NARD + COURT), not two words (BRIER/DRIER), not a word never read whole,
+# and not against a crossing read in full.
+def numbered_case(word, allowed, printed, cross=None):
+    lts = {(1, "across"): [(0, c) for c in range(len(word))]}
+    letters = {(0, c): ch for c, ch in enumerate(word) if c}
+    if cross:
+        lts[(1, "down")] = [(r, 0) for r in range(len(cross))]
+        letters.update({(r, 0): ch for r, ch in enumerate(cross) if r})
+    return tso.numbered_letters(lts, letters, {(0, 0): 1}, {(0, 0): set(allowed)},
+                                {(1, "across"): set(printed)})
+check("a numbered first cell takes the one allowed letter making a word read whole, and only that",
+      ({(0, 0): "Q"}, {}, {}, {}, {}, {(0, 0): "D"}),
+      (numbered_case("?UEUE", "BDQ", {"BUEUE", "QUEUE"}), numbered_case("?ARDCOURT", "N", {"NARDCOURT"}),
+       numbered_case("?RIER", "BD", {"BRIER", "DRIER"}), numbered_case("?UEUE", "Q", {"BUEUE"}),
+       numbered_case("?YNE", "D", {"DYNE"}, cross="?XQZ"), numbered_case("?YNE", "D", {"DYNE"}, cross="?ARE")))
 
 # read_solution(): the solution grid under its heading, answers keyed as
 # trove_solution_ocr.fill() looks them up, nothing from a grid of other blocks.
