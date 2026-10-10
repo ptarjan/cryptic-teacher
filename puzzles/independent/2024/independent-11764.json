@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "How much is taken from slipshod sea dog?",
     "enumeration": "6"
    },
-   "solution": "DOSAGE"
+   "solution": "DOSAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOSAGE",
+    "definitions": [
+     {
+      "text": "How much is taken",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "slipshod",
+      "for": "anagram",
+      "note": "slipshod means careless and untidy, so the letters that follow are put back in a sloppy new order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea dog",
+      "gives": "SEADOG",
+      "note": "the six letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEADOG",
+       "gives": "DOSAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A careless old sailor wondering how much rum he has had.",
+     "definitionFit": "A dosage is the measured quantity of a medicine a patient takes at one time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slipshod"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +96,49 @@
     "text": "Boring wrestling manoeuvre results in stalemate",
     "enumeration": "8"
    },
-   "solution": "DEADLOCK"
+   "solution": "DEADLOCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEADLOCK",
+    "definitions": [
+     {
+      "text": "stalemate",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "results in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boring",
+      "gives": "DEAD",
+      "note": "dead means dull or lifeless, as in a dead party"
+     },
+     {
+      "clueFragment": "wrestling manoeuvre",
+      "gives": "LOCK",
+      "note": "a lock is a hold that pins an opponent's limb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEAD",
+      "LOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull wrestling hold leaves neither fighter able to win the bout.",
+     "definitionFit": "A deadlock is a standstill where neither side can make progress, the same idea as a stalemate in chess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Boring"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +152,77 @@
     "text": "Swimmer sculls up and down fluidly, ignoring slight hiccup at first",
     "enumeration": "9"
    },
-   "solution": "SWORDFISH"
+   "solution": "SWORDFISH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SWORDFISH",
+    "definitions": [
+     {
+      "text": "Swimmer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the word is read from bottom to top"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first asks for only the opening letter of each of the four words before it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sculls",
+      "gives": "ROWS",
+      "note": "to scull is to row a boat"
+     },
+     {
+      "clueFragment": "down",
+      "gives": "D",
+      "note": "D is the standard abbreviation for down"
+     },
+     {
+      "clueFragment": "fluidly, ignoring slight hiccup",
+      "gives": "FISH",
+      "select": "first",
+      "note": "the initials of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWOR",
+      "D",
+      "FISH"
+     ],
+     "reversals": [
+      {
+       "from": "ROWS",
+       "to": "SWOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rower moves smoothly along the river, untroubled by a small hitch at the start.",
+     "walkthrough": "'up and down' reads like a description of rowing, but it splits: 'up' turns the rowing word over, and 'down' is just D.",
+     "definitionFit": "A swordfish is a large ocean fish with a long flat bill, and any fish is a swimmer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +236,60 @@
     "text": "Good old Nell only half dead",
     "enumeration": "4"
    },
-   "solution": "GONE"
+   "solution": "GONE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GONE",
+    "definitions": [
+     {
+      "text": "dead",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only half",
+      "for": "deletion",
+      "note": "keeping only half of the name means dropping its second two letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Nell",
+      "gives": "NELL",
+      "note": "the name taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "O",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sad report that dear old Nell is barely alive.",
+     "definitionFit": "Gone is a gentle euphemism for having died."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Good"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +303,39 @@
     "text": "Winner gets 9 points and loser 5 in this game?",
     "enumeration": "8"
    },
-   "solution": "SCRABBLE"
+   "solution": "SCRABBLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SCRABBLE",
+    "definitions": [
+     {
+      "text": "Winner gets 9 points and loser 5 in this game?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Winner gets 9 points and loser 5",
+      "note": "surface reading: a match report where one player beats another by nine points to five"
+     },
+     {
+      "clueFragment": "in this game?",
+      "note": "setter's reading: the words themselves are scored, since in this board game each letter tile carries a value, and the letters of the two words add up to those totals"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In the board game each tile scores: W is 4 and every other letter of the two words is worth 1, so the six-letter word totals 9 and the five-letter word 5.",
+     "definitionFit": "Scrabble is the word game where players score by the printed points on their letter tiles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Winner"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +359,72 @@
    "group": [
     "5-down",
     "11-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CLOSING TIME",
+    "definitions": [
+     {
+      "text": "when the pubs kick out",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mismanaging",
+      "for": "anagram",
+      "note": "mismanaging something handles it badly, so the letters get jumbled out of their order"
+     },
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "last asks for only the final letter of the drinker's word"
+     },
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "to leave means that letter departs from the collection before it is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slight income",
+      "gives": "SLIGHTINCOME",
+      "note": "the twelve letters taken as written"
+     },
+     {
+      "clueFragment": "lush's",
+      "gives": "H",
+      "select": "last",
+      "note": "a lush is a heavy drinker; its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLOSINGTIME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SLIGTINCOME",
+       "gives": "CLOSINGTIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk who has squandered a small wage has to leave when the pub shuts.",
+     "walkthrough": "Remove the H from the twelve letters, then rearrange the remaining eleven. In Britain pubs traditionally called last orders and closed at a fixed hour.",
+     "definitionFit": "Closing time is the hour at which a pub stops serving and customers must leave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Mismanaging"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +438,65 @@
     "text": "She's caught in a deceit",
     "enumeration": "5"
    },
-   "solution": "ALICE"
+   "solution": "ALICE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ALICE",
+    "definitions": [
+     {
+      "text": "She",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the cricket letter inside the falsehood"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "deceit",
+      "gives": "LIE",
+      "note": "a lie is a deceit"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LI",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman has been exposed in a deception.",
+     "walkthrough": "'She's' reads as 'she is', but the 's is just a link: 'She' is the definition.",
+     "definitionFit": "Alice is a woman's name, so it stands for 'she' as an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +510,62 @@
     "text": "Give a lift to old love in one hour from Greenwich?",
     "enumeration": "5"
    },
-   "solution": "BOOST"
+   "solution": "BOOST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BOOST",
+    "definitions": [
+     {
+      "text": "Give a lift to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the two round letters inside the time-zone abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     },
+     {
+      "clueFragment": "one hour from Greenwich",
+      "gives": "BST",
+      "note": "British Summer Time runs one hour ahead of Greenwich Mean Time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "O",
+      "O",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Helping an ageing sweetheart with a journey across a single time zone.",
+     "walkthrough": "BST, British Summer Time, is the UK's clock in summer, an hour ahead of GMT.",
+     "definitionFit": "To boost is to raise or encourage, as in giving someone's spirits a lift."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +579,59 @@
     "text": "Oddly easy to articulate 25 pieces of prose",
     "enumeration": "6"
    },
-   "solution": "ESSAYS"
+   "solution": "ESSAYS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ESSAYS",
+    "definitions": [
+     {
+      "text": "25 pieces of prose",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "letter_selection",
+      "note": "oddly asks for the letters in the first, third and other odd positions"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "easy",
+      "gives": "ES",
+      "select": "alternate",
+      "note": "first and third letters"
+     },
+     {
+      "clueFragment": "articulate",
+      "gives": "SAYS",
+      "note": "to say something is to articulate it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "SAYS"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction that some answers are simple to put into words.",
+     "walkthrough": "25 refers to the answer at 25-down, SMALL, so the definition reads 'small pieces of prose'.",
+     "definitionFit": "Essays are short written compositions on a single subject, the typical small piece of prose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "articulate"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +645,69 @@
     "text": "Volume of band on radio unacceptable - about eleven in the end",
     "enumeration": "6"
    },
-   "solution": "AMOUNT"
+   "solution": "AMOUNT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "AMOUNT",
+    "definitions": [
+     {
+      "text": "Volume",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "in the end asks for only the final letter of the number word"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means the word for unacceptable goes around that final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "band on radio",
+      "gives": "AM",
+      "note": "AM is a radio waveband, amplitude modulation"
+     },
+     {
+      "clueFragment": "unacceptable",
+      "gives": "OUT",
+      "note": "out means not allowed, as in that's out"
+     },
+     {
+      "clueFragment": "eleven",
+      "gives": "N",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "OU",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Complaints that a radio station's music is too loud, around eleven at night.",
+     "walkthrough": "'Volume' wants to mean loudness in this radio picture, but it means quantity.",
+     "definitionFit": "Volume in the sense of quantity, as in a large volume of mail, is an amount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Volume"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +727,57 @@
      }
     ]
    },
-   "solution": "COPILOTS"
+   "solution": "COPILOTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CO-PILOTS",
+    "definitions": [
+     {
+      "text": "frequent flyers",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "15 20 conference",
+      "gives": "COP",
+      "note": "the UN climate change summits are called COP, Conference of the Parties"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "LOTS",
+      "note": "lots means many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COP",
+      "I",
+      "LOTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Delegates jet in to a climate summit, many of them notorious air travellers.",
+     "walkthrough": "15 20 points to the answer at 15 and 20 across, CLIMATE CHANGE. 'Frequent flyers' looks like air-mile collectors; it is the definition of people who fly planes for a living.",
+     "definitionFit": "Co-pilots are the second pilots in a cockpit, so they fly very often as their job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "frequent"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +804,46 @@
     "text": "Cover over pool",
     "enumeration": "4"
    },
-   "solution": "LIDO"
+   "solution": "LIDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIDO",
+    "definitions": [
+     {
+      "text": "pool",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cover",
+      "gives": "LID",
+      "note": "a lid covers a container"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LID",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A tarpaulin stretched across a swimming pool.",
+     "definitionFit": "A lido is a public open-air swimming pool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +857,58 @@
     "text": "Drill bit used regularly, calmly and with attention to detail",
     "enumeration": "10"
    },
-   "solution": "DILIGENTLY"
+   "solution": "DILIGENTLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DILIGENTLY",
+    "definitions": [
+     {
+      "text": "with attention to detail",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used regularly",
+      "for": "letter_selection",
+      "note": "used regularly means only letters at even intervals are taken, every other one"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drill bit",
+      "gives": "DILI",
+      "select": "alternate",
+      "note": "first, third, fifth and seventh letters"
+     },
+     {
+      "clueFragment": "calmly",
+      "gives": "GENTLY",
+      "note": "gently means calmly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DILI",
+      "GENTLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A craftsman uses a drill steadily and carefully on fine work.",
+     "definitionFit": "Working diligently means working with care and steady effort, giving close attention to detail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drill"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +922,53 @@
     "text": "Shower curtain not cut",
     "enumeration": "4"
    },
-   "solution": "RAIN"
+   "solution": "RAIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RAIN",
+    "definitions": [
+     {
+      "text": "Shower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means the three letters named next are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curtain",
+      "gives": "CURTAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "CUT",
+      "note": "the letters to remove, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A bathroom shower curtain left at full length.",
+     "walkthrough": "'Shower curtain' reads as one bathroom object; it splits into the definition and the word to be trimmed.",
+     "definitionFit": "A shower is a brief fall of rain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shower"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +992,52 @@
    "group": [
     "15-across",
     "20-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLIMATE CHANGE",
+    "definitions": [
+     {
+      "text": "existential crisis",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "to get letters around is to move them about into another arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Can Michael get",
+      "gives": "CANMICHAELGET",
+      "note": "the thirteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANMICHAELGET",
+       "gives": "CLIMATECHANGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a man named Michael can overcome a crisis about the meaning of life.",
+     "walkthrough": "'Existential crisis' usually means a personal crisis about meaning; here it is a crisis that threatens existence.",
+     "definitionFit": "Climate change is often described as an existential threat, one that endangers human existence itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "existential"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +1051,68 @@
     "text": "Turn unknown informant in empty garage",
     "enumeration": "6"
    },
-   "solution": "GYRATE"
+   "solution": "GYRATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "GYRATE",
+    "definitions": [
+     {
+      "text": "Turn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty building has no contents, so only its outer letters remain"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the unknown and the informant inside the shell of the building"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garage",
+      "gives": "GE",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is an unknown quantity in algebra"
+     },
+     {
+      "clueFragment": "informant",
+      "gives": "RAT",
+      "note": "a rat is someone who informs on others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "Y",
+      "RAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Handing over an anonymous grass in an abandoned garage, like a crime drama scene.",
+     "definitionFit": "To gyrate is to turn round and round, revolve or spin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1126,43 @@
     "text": "Folk dance recital unaffected",
     "enumeration": "4"
    },
-   "solution": "REAL"
+   "solution": "REAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REAL",
+    "definitions": [
+     {
+      "text": "unaffected",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recital",
+      "for": "homophone",
+      "note": "a recital is a spoken performance, so it is the sound of the word that counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Folk dance",
+      "gives": "REAL",
+      "soundsLike": "REEL",
+      "note": "a reel is a lively Scottish or Irish folk dance"
+     }
+    ],
+    "explanation": {
+     "surface": "A natural, unpretentious performance of folk dancing.",
+     "definitionFit": "Someone real is genuine and natural, without pretence, which is what unaffected means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recital"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1176,66 @@
     "text": "Starts to tearfully recite Buddhist mantra over remains - they're in the pit",
     "enumeration": "9"
    },
-   "solution": "TROMBONES"
+   "solution": "TROMBONES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TROMBONES",
+    "definitions": [
+     {
+      "text": "they're in the pit",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starts to",
+      "for": "letter_selection",
+      "note": "starts are beginnings, so only the opening letter of each of the next two words"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tearfully recite",
+      "gives": "TR",
+      "select": "first",
+      "note": "the opening letters"
+     },
+     {
+      "clueFragment": "Buddhist mantra",
+      "gives": "OM",
+      "note": "om is the sacred syllable chanted in Buddhist and Hindu meditation"
+     },
+     {
+      "clueFragment": "remains",
+      "gives": "BONES",
+      "note": "bones are a person's mortal remains"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "OM",
+      "BONES"
+     ]
+    },
+    "explanation": {
+     "surface": "A mourner chants a mantra over a body buried in a grave.",
+     "walkthrough": "The pit suggests a grave in this funeral scene; it is the orchestra pit below a theatre stage.",
+     "definitionFit": "Trombones are brass instruments played by musicians seated in a theatre's orchestra pit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pit"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1249,63 @@
     "text": "Lied about head's inaction",
     "enumeration": "8"
    },
-   "solution": "IDLENESS"
+   "solution": "IDLENESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IDLENESS",
+    "definitions": [
+     {
+      "text": "inaction",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests moving the letters around into a different order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lied",
+      "gives": "IDLE",
+      "note": "rearranged"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland or promontory, as in Orford Ness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDLE",
+      "NESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIED",
+       "gives": "IDLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lied about their boss doing nothing.",
+     "definitionFit": "Idleness is the state of doing nothing, a lack of activity or work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1332,54 @@
     "text": "Cleaned, tidied and covered in doilies?",
     "enumeration": "7"
    },
-   "solution": "ENLACED"
+   "solution": "ENLACED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENLACED",
+    "definitions": [
+     {
+      "text": "covered in doilies?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tidied",
+      "for": "anagram",
+      "note": "tidied means rearranged into order, so the letters are shifted about"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cleaned",
+      "gives": "CLEANED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLEANED",
+       "gives": "ENLACED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A house-proud host prepares the table with lacy mats.",
+     "walkthrough": "The question mark flags a definition by example: doilies are made of lace.",
+     "definitionFit": "Enlaced means wrapped or decorated with lace, and doilies are small ornamental lace mats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cleaned"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1393,73 @@
     "text": "Jewel cleaner put back on side of dresser",
     "enumeration": "7"
    },
-   "solution": "DIAMOND"
+   "solution": "DIAMOND",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DIAMOND",
+    "definitions": [
+     {
+      "text": "Jewel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "put back means the word is written from its end to its start"
+     },
+     {
+      "text": "side of",
+      "for": "letter_selection",
+      "note": "a side is an edge, so only the first letter of the furniture word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cleaner",
+      "gives": "MAID",
+      "note": "a maid is a household cleaner"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dresser",
+      "gives": "D",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIAM",
+      "ON",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "MAID",
+       "to": "DIAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner returns a precious stone to the edge of a dressing table.",
+     "definitionFit": "A diamond is the most prized of precious stones, a jewel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cleaner"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1473,57 @@
     "text": "Party guys on vacation - they go where they like!",
     "enumeration": "4"
    },
-   "solution": "DOGS"
+   "solution": "DOGS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DOGS",
+    "definitions": [
+     {
+      "text": "they go where they like!",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "on vacation means emptied out, so only the outer letters stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "guys",
+      "gives": "GS",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "GS"
+     ]
+    },
+    "explanation": {
+     "surface": "Holidaying partygoers who roam wherever they please.",
+     "walkthrough": "The definition is playful: dogs famously relieve themselves wherever they choose, and 'go' is a euphemism.",
+     "definitionFit": "Dogs are notorious for fouling anywhere they please, a joke on the euphemism of going to the toilet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1537,43 @@
     "text": "Material in half a brick",
     "enumeration": "6"
    },
-   "solution": "FABRIC"
+   "solution": "FABRIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FABRIC",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half a brick",
+      "gives": "FABRIC",
+      "note": "running across the gap between the words"
+     }
+    ],
+    "explanation": {
+     "surface": "Building material found within half a brick.",
+     "walkthrough": "'Half' tempts a solver to halve a word; it simply supplies letters for the hidden run.",
+     "definitionFit": "Fabric is cloth or textile, the material clothes are made of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1587,50 @@
     "text": "Message lab about a number of things",
     "enumeration": "10"
    },
-   "solution": "ASSEMBLAGE"
+   "solution": "ASSEMBLAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASSEMBLAGE",
+    "definitions": [
+     {
+      "text": "a number of things",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests the letters are moved around into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Message lab",
+      "gives": "MESSAGELAB",
+      "note": "the ten letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MESSAGELAB",
+       "gives": "ASSEMBLAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note from the laboratory about several items.",
+     "definitionFit": "An assemblage is a collection or gathering of several things together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lab"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1644,70 @@
     "text": "Poky numismatist's centre with everything under sun",
     "enumeration": "5"
    },
-   "solution": "SMALL"
+   "solution": "SMALL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SMALL",
+    "definitions": [
+     {
+      "text": "Poky",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "centre asks for only the middle letter of the coin collector's word"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, under places the following pieces below the abbreviation for sun"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sun",
+      "gives": "S",
+      "note": "S is the abbreviation for sun"
+     },
+     {
+      "clueFragment": "numismatist's",
+      "gives": "M",
+      "select": "middle",
+      "note": "the sixth of eleven letters"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "M",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A coin collector's cramped room crammed with everything under the sun.",
+     "walkthrough": "A numismatist is a coin collector. 'Everything under the sun' is a stock phrase, but here 'under' places pieces beneath S.",
+     "definitionFit": "A poky room is cramped and tiny, so poky is a synonym for small."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "under"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1721,49 @@
     "text": "Ultimately storm surge bent 'indestructible' weather gauge",
     "enumeration": "5"
    },
-   "solution": "METER"
+   "solution": "METER",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "METER",
+    "definitions": [
+     {
+      "text": "gauge",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so the final letter of each word is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "storm surge bent 'indestructible' weather",
+      "gives": "METER",
+      "select": "last",
+      "note": "the final letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "METER"
+     ]
+    },
+    "explanation": {
+     "surface": "A storm surge buckles a supposedly unbreakable weather instrument.",
+     "walkthrough": "'Weather gauge' reads as one instrument, but 'weather' gives a letter and 'gauge' alone is the definition.",
+     "definitionFit": "A meter, in the American spelling, is a measuring instrument or gauge, like a gas meter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weather"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1777,51 @@
     "text": "Gifted rare type of claret by the French",
     "enumeration": "4"
    },
-   "solution": "ABLE"
+   "solution": "ABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABLE",
+    "definitions": [
+     {
+      "text": "Gifted",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rare type of claret",
+      "gives": "AB",
+      "note": "claret is slang for blood, and AB is the rarest blood group"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A talented connoisseur picks out an unusual French red wine.",
+     "walkthrough": "Claret is a Bordeaux red wine, and in British slang for blood, which is the sense here.",
+     "definitionFit": "Someone gifted is talented and capable, which is what able means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "claret"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1835,61 @@
     "text": "Wicked Bard has sent up Liberal",
     "enumeration": "4"
    },
-   "solution": "EVIL"
+   "solution": "EVIL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EVIL",
+    "definitions": [
+     {
+      "text": "Wicked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent up",
+      "for": "reversal",
+      "note": "in a down clue, sent up means the words are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bard has",
+      "gives": "IVE",
+      "note": "Bard is the setter's pseudonym, so 'Bard has' is I've, as the setter would say it"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVI",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "IVE",
+       "to": "EVI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel playwright has mocked a Liberal politician.",
+     "walkthrough": "The Bard usually means Shakespeare, but here it is the setter talking about themselves, a common crossword device.",
+     "definitionFit": "Wicked and evil are synonyms for morally bad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bard"
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +1903,47 @@
     "text": "Great tache! Trim sides and stick back on",
     "enumeration": "8"
    },
-   "solution": "REATTACH"
+   "solution": "REATTACH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REATTACH",
+    "definitions": [
+     {
+      "text": "stick back on",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Trim sides",
+      "for": "hidden_word",
+      "note": "trimming the sides cuts off the letter at each end, leaving the inner run"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great tache",
+      "gives": "REATTACH",
+      "note": "the letters inside, running across the gap between the words"
+     }
+    ],
+    "explanation": {
+     "surface": "Admiring a fine moustache, then trimming it and gluing it back on like a fake.",
+     "walkthrough": "A tache is British slang for a moustache.",
+     "definitionFit": "To reattach something is to fix or stick it back on again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Trim"
+    }
+   }
   },
   {
    "number": 30,
@@ -491,7 +1957,53 @@
     "text": "Hail recent broadcast for traditional approach to country houses",
     "enumeration": "6"
    },
-   "solution": "AVENUE"
+   "solution": "AVENUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "AVENUE",
+    "definitions": [
+     {
+      "text": "traditional approach to country houses",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "broadcast means transmitted to listeners, so the sound of the word is used"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hail",
+      "gives": "AVE",
+      "note": "ave is Latin for hail, a greeting"
+     },
+     {
+      "clueFragment": "recent",
+      "gives": "NUE",
+      "soundsLike": "NEW",
+      "note": "recent means new"
+     }
+    ],
+    "explanation": {
+     "surface": "Cheering a new radio programme about stately homes.",
+     "walkthrough": "An avenue originally meant a tree-lined drive leading up to a country house, before it came to mean a town street.",
+     "definitionFit": "The traditional sense of an avenue is a tree-lined approach road to a large country house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 31,
@@ -505,7 +2017,56 @@
     "text": "State maybe red according to its residents - all despite Obama's leadership",
     "enumeration": "8"
    },
-   "solution": "COLORADO"
+   "solution": "COLORADO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COLORADO",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leadership",
+      "for": "letter_selection",
+      "note": "leadership asks for the leading, first letter of each word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maybe red according to its residents",
+      "gives": "COLOR",
+      "note": "red is an example of a colour, spelt the American way as its residents would"
+     },
+     {
+      "clueFragment": "all despite Obama's",
+      "gives": "ADO",
+      "select": "first",
+      "note": "the opening letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COLOR",
+      "ADO"
+     ]
+    },
+    "explanation": {
+     "surface": "A US state may vote Republican red even though it backed Obama.",
+     "walkthrough": "Red is the colour of Republican states in US politics, which gives the surface its sense.",
+     "definitionFit": "Colorado is one of the fifty states of the USA."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 32,
@@ -519,7 +2080,64 @@
     "text": "Containers of flavourful Assams and kombuchas?",
     "enumeration": "6"
    },
-   "solution": "FLASKS"
+   "solution": "FLASKS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "FLASKS",
+    "definitions": [
+     {
+      "text": "Containers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "letter_selection",
+      "note": "taken with 'Containers', this asks for the letters that hold each word in, its first and last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flavourful",
+      "gives": "FL",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "Assams",
+      "gives": "AS",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "kombuchas",
+      "gives": "KS",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "AS",
+      "KS"
+     ]
+    },
+    "explanation": {
+     "surface": "Bottles to carry tasty tea and fermented tea drinks.",
+     "walkthrough": "'Containers' does double work: it is the definition and also signals the outer letters, which contain each word. Assam is an Indian black tea; kombucha is a fermented tea drink.",
+     "definitionFit": "Flasks are bottles or vacuum vessels used to hold and carry drinks such as tea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Containers"
+    }
+   }
   }
  ]
 }
