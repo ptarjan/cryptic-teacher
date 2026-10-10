@@ -1034,7 +1034,9 @@ def main(argv=None):
         return 0
     return dispatch(papers, args.cache, args.out, reread, args.seconds, args.workers, args.scan_workers, newer,
                     [shlex.split(b) for b in args.beside], fetch=args.fetch, trove_workers=args.trove_workers,
-                    handoff=args.handoff, resume=args.resume, upkeep=lambda: ledger_upkeep(papers, args.cache))
+                    handoff=args.handoff, resume=args.resume,
+                    # A re-exec onto new code keeps its slice's ledgers: their upkeep ran at the slice's start.
+                    upkeep=None if args.resume else lambda: ledger_upkeep(papers, args.cache))
 
 
 if __name__ == "__main__":
