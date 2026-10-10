@@ -37,6 +37,9 @@
   "date": "2022-01-30",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,55 @@
     "text": "Firm consulting corrupt influence lacking heart",
     "enumeration": "8"
    },
-   "solution": "CONSTANT"
+   "solution": "CONSTANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CONSTANT",
+    "definitions": [
+     {
+      "text": "Firm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking heart",
+      "for": "deletion",
+      "note": "a thing lacking its heart has lost its central letter, so the middle of the word goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "consulting",
+      "gives": "CONS",
+      "note": "to con is to study or pore over a text, so one consulting it cons it"
+     },
+     {
+      "clueFragment": "corrupt influence",
+      "gives": "TAINT",
+      "note": "a taint is a corrupting influence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONS",
+      "TANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A company is accused of hiring consultants who exert a corrupt influence.",
+     "walkthrough": "Lacking heart removes just the single middle letter of a five-letter word.",
+     "definitionFit": "Constant and firm are synonyms when describing someone steadfast and unwavering in loyalty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 1,
@@ -64,7 +115,46 @@
     "text": "Term, we hear, for the epiploon",
     "enumeration": "4"
    },
-   "solution": "CAUL"
+   "solution": "CAUL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CAUL",
+    "definitions": [
+     {
+      "text": "the epiploon",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear marks the word as judged by its sound when spoken"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Term",
+      "gives": "CAUL",
+      "soundsLike": "CALL",
+      "note": "to term something is to call it"
+     }
+    ],
+    "explanation": {
+     "surface": "A medical-sounding note about what to call a fold of the abdomen.",
+     "definitionFit": "The epiploon is the great omentum, the fatty membrane once known as the caul."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Term"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +168,62 @@
     "text": "I'm nuts for some food: a champion so knocking out hot cooking",
     "enumeration": "10"
    },
-   "solution": "OPSOMANIAC"
+   "solution": "OPSOMANIAC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "OPSOMANIAC",
+    "definitions": [
+     {
+      "text": "I'm nuts for some food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocking out",
+      "for": "deletion",
+      "note": "knocking something out removes it from the group"
+     },
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking mixes ingredients, so the letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a champion so",
+      "gives": "ACHAMPIONSO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the tap abbreviation for hot"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACAMPIONSO",
+       "gives": "OPSOMANIAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A food lover confesses to being crazy about a dish served hot by a champion cook.",
+     "walkthrough": "Remove H from the letters of A CHAMPION SO before rearranging. The definition is spoken by the answer itself.",
+     "definitionFit": "An opsomaniac has an obsessive craving for one particular food, so could say of themselves that they are nuts for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "champion"
+    }
+   }
   },
   {
    "number": 3,
@@ -92,7 +237,70 @@
     "text": "Early slang for shame spinning round piece for Africans",
     "enumeration": "6"
    },
-   "solution": "NGUNIS"
+   "solution": "NGUNIS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NGUNIS",
+    "definitions": [
+     {
+      "text": "Africans",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spinning",
+      "for": "reversal",
+      "note": "something spinning turns around, so the word is read backwards"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the next word goes inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Early slang for shame",
+      "gives": "SIN",
+      "note": "sin was old slang for a shame or pity"
+     },
+     {
+      "clueFragment": "piece",
+      "gives": "GUN",
+      "note": "piece is slang for a gun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "GUN",
+      "IS"
+     ],
+     "reversals": [
+      {
+       "from": "SIN",
+       "to": "NIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old slang word for disgrace gets twisted around a piece of Africana.",
+     "walkthrough": "'Piece' is old slang for a firearm, and 'Early slang' marks the old sense of the shame word.",
+     "definitionFit": "The Nguni are a group of Bantu-speaking southern African peoples, including the Zulu and Xhosa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +314,49 @@
     "text": "Credit it by supporter",
     "enumeration": "5"
    },
-   "solution": "TALLY"
+   "solution": "TALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TALLY",
+    "definitions": [
+     {
+      "text": "Credit",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it",
+      "gives": "T",
+      "note": "'t is a contracted form of it, as in 'twas"
+     },
+     {
+      "clueFragment": "supporter",
+      "gives": "ALLY",
+      "note": "an ally supports you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants a supporter to receive acknowledgement.",
+     "definitionFit": "Tally once meant a score of goods bought on account, so to deal on tally was to buy on credit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Credit"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +370,62 @@
     "text": "New notepad containing one exact opposite rarely used now",
     "enumeration": "8"
    },
-   "solution": "ANTIPODE"
+   "solution": "ANTIPODE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ANTIPODE",
+    "definitions": [
+     {
+      "text": "exact opposite rarely used now",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "a new version of the word has its letters arranged differently"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notepad",
+      "gives": "NOTEPAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTEPADI",
+       "gives": "ANTIPODE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh notepad holds one item that is the polar opposite of something rarely used.",
+     "walkthrough": "The singular antipode is the rarer form; the plural antipodes is the common one.",
+     "definitionFit": "An antipode is a direct opposite, literally the point on the far side of the globe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notepad"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +439,50 @@
     "text": "Scruff's Northern parody",
     "enumeration": "4"
    },
-   "solution": "NAPE"
+   "solution": "NAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAPE",
+    "definitions": [
+     {
+      "text": "Scruff",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     },
+     {
+      "clueFragment": "parody",
+      "gives": "APE",
+      "note": "to ape is to mimic or parody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A scruffy person mocks someone from the North.",
+     "walkthrough": "'Scruff' looks like an untidy person, but here it is the back of the neck.",
+     "definitionFit": "The scruff is the back of the neck, the same part of the body as the nape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Scruff"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +496,50 @@
     "text": "Youth and the old grief in illegitimate enterprise",
     "enumeration": "4"
    },
-   "solution": "TEEN"
+   "solution": "TEEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TEEN",
+    "definitions": [
+     {
+      "text": "Youth",
+      "at": 0
+     },
+     {
+      "text": "the old grief",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit inside the run of words that follows, spanning two of them"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "illegitimate enterprise",
+      "gives": "TEEN",
+      "note": "found across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A young person suffers sorrow through a crooked business venture.",
+     "walkthrough": "Two definitions share one hidden answer: a teen is a youth, and teen is also an archaic word for grief or injury.",
+     "definitionFit": "A teenager is a youth, and Chambers keeps teen as an obsolete noun meaning sorrow or affliction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grief"
+    }
+   }
   },
   {
    "number": 7,
@@ -168,7 +559,53 @@
      }
     ]
    },
-   "solution": "TILTYARD"
+   "solution": "TILTYARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TILT YARD",
+    "definitions": [
+     {
+      "text": "where tournaments took place",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parked south of",
+      "for": "charade",
+      "note": "in a down answer, a word parked south of another is placed below it, so it comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hut",
+      "gives": "TILT",
+      "note": "a tilt is an awning or tent, a makeshift shelter"
+     },
+     {
+      "clueFragment": "Quad",
+      "gives": "YARD",
+      "note": "a quad or quadrangle is a courtyard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TILT",
+      "YARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A quad bike is left outside a shed at a medieval jousting ground.",
+     "definitionFit": "A tiltyard was the enclosed arena where knights jousted, or tilted, at tournaments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Quad"
+    }
+   }
   },
   {
    "number": 8,
@@ -182,7 +619,43 @@
     "text": "Skipjack that you'd like to think would puff you up?",
     "enumeration": "6"
    },
-   "solution": "ELATER"
+   "solution": "ELATER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ELATER",
+    "definitions": [
+     {
+      "text": "Skipjack",
+      "at": 0
+     },
+     {
+      "text": "that you'd like to think would puff you up?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skipjack",
+      "note": "first meaning: the click beetle, which jumps when on its back"
+     },
+     {
+      "clueFragment": "that you'd like to think would puff you up?",
+      "note": "second meaning: one who elates or makes proud, read as a cryptic description"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The beetle name happens to look like a noun for someone who raises your spirits, which the question mark admits is fanciful.",
+     "definitionFit": "The elater beetle is called a skipjack, while the same word read literally means one who elates or inflates pride."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Skipjack"
+    }
+   }
   },
   {
    "number": 9,
@@ -196,7 +669,50 @@
     "text": "One with identical designation means Kea must be changed",
     "enumeration": "8"
    },
-   "solution": "NAMESAKE"
+   "solution": "NAMESAKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NAMESAKE",
+    "definitions": [
+     {
+      "text": "One with identical designation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must be changed",
+      "for": "anagram",
+      "note": "the words must be changed, so their letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "means Kea",
+      "gives": "MEANSKEA",
+      "note": "taken as written; a kea is a New Zealand parrot"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEANSKEA",
+       "gives": "NAMESAKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parrot sharing someone's name must be renamed.",
+     "definitionFit": "A namesake is a person or thing bearing the same name as another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kea"
+    }
+   }
   },
   {
    "number": 10,
@@ -210,7 +726,50 @@
     "text": "Firing up a grill and a fruit",
     "enumeration": "10"
    },
-   "solution": "GRANADILLA"
+   "solution": "GRANADILLA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRANADILLA",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Firing up",
+      "for": "anagram",
+      "note": "firing up stirs things into action, so the letters are set moving into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a grill and a",
+      "gives": "AGRILLANDA",
+      "note": "the letters to be rearranged, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGRILLANDA",
+       "gives": "GRANADILLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lights a barbecue and puts some fruit on it.",
+     "definitionFit": "The granadilla is the edible fruit of a passion-flower species, so it is one kind of fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Firing"
+    }
+   }
   },
   {
    "number": 11,
@@ -224,7 +783,65 @@
     "text": "Somehow this common pot could possibly be patulous",
     "enumeration": "5"
    },
-   "solution": "USUAL"
+   "solution": "USUAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "USUAL",
+    "definitions": [
+     {
+      "text": "common",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somehow",
+      "for": "anagram",
+      "note": "somehow says the letters arrive by an unspecified rearrangement"
+     },
+     {
+      "text": "could possibly be",
+      "for": "deletion",
+      "note": "the answer plus the other given word could possibly make up the long word, so that word's letters are taken away from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pot",
+      "gives": "POT",
+      "note": "taken as written; these letters are removed from the long word"
+     },
+     {
+      "clueFragment": "patulous",
+      "gives": "PATULOUS",
+      "note": "taken as written; the whole word is the pool of letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USUAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PATULOUS",
+       "gives": "USUALPOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ordinary cooking pot might turn out to be wide-mouthed.",
+     "walkthrough": "A composite anagram: this (the answer) together with POT rearranges to PATULOUS, meaning spreading, so take POT out of PATULOUS and the remaining letters spell USUAL.",
+     "definitionFit": "Usual and common are synonyms for what is ordinary and found everywhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +855,71 @@
     "text": "Mould previously seen as being in plural form's term",
     "enumeration": "5"
    },
-   "solution": "PLASM"
+   "solution": "PLASM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLASM",
+    "definitions": [
+     {
+      "text": "Mould previously",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being in",
+      "for": "container",
+      "note": "a word being in others is placed within them, so it goes inside"
+     },
+     {
+      "text": "term",
+      "for": "letter_selection",
+      "note": "term means end or termination, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "seen"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plural",
+      "gives": "PL",
+      "note": "PL is the standard abbreviation for plural"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "form's",
+      "gives": "M",
+      "select": "last",
+      "note": "the last letter of form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "AS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar note: a word is seen in the plural form of some term.",
+     "walkthrough": "'Previously' flags that this sense of the answer is archaic, and 'term' is a hint that the setter wants an ending, not a word.",
+     "definitionFit": "Plasm once meant a mould or matrix in which something is cast, a sense Chambers marks obsolete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 13,
@@ -258,7 +939,50 @@
      }
     ]
    },
-   "solution": "SPRINGROLL"
+   "solution": "SPRINGROLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPRING ROLL",
+    "definitions": [
+     {
+      "text": "savoury",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "and then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Season",
+      "gives": "SPRING",
+      "note": "spring is a season"
+     },
+     {
+      "clueFragment": "start",
+      "gives": "ROLL",
+      "note": "to roll is to start, as when cameras roll"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPRING",
+      "ROLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook adds seasoning and then begins on a savoury dish.",
+     "walkthrough": "'Season' looks like a cooking instruction, but it is a time of year.",
+     "definitionFit": "A spring roll is a savoury snack of filled, fried pancake in Chinese cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Season"
+    }
+   }
   },
   {
    "number": 14,
@@ -272,7 +996,69 @@
     "text": "Most remote loch on a certain grotty islet",
     "enumeration": "9"
    },
-   "solution": "LONELIEST"
+   "solution": "LONELIEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "LONELIEST",
+    "definitions": [
+     {
+      "text": "Most remote",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grotty",
+      "for": "anagram",
+      "note": "grotty means shabby and run-down, so the word is in a mess and its letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loch",
+      "gives": "L",
+      "note": "L is the map abbreviation for loch or lake"
+     },
+     {
+      "clueFragment": "a certain",
+      "gives": "ONE",
+      "note": "'a certain' person is 'one', as in 'one Mr Smith'"
+     },
+     {
+      "clueFragment": "islet",
+      "gives": "LIEST",
+      "note": "the letters of islet rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ONE",
+      "LIEST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISLET",
+       "gives": "LIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shabby little island in a Scottish lake is the most isolated place of all.",
+     "definitionFit": "Loneliest describes the most isolated or remote spot, far from company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "certain"
+    }
+   }
   },
   {
    "number": 15,
@@ -286,7 +1072,62 @@
     "text": "Droll female in dreadful discharge",
     "enumeration": "8"
    },
-   "solution": "DRUMFIRE"
+   "solution": "DRUMFIRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DRUMFIRE",
+    "definitions": [
+     {
+      "text": "discharge",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places these words inside the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Droll",
+      "gives": "RUM",
+      "note": "rum means odd or droll"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "dreadful",
+      "gives": "DIRE",
+      "note": "dire means dreadful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RUM",
+      "F",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A funny woman suffers an awful bout of illness.",
+     "walkthrough": "'Discharge' suggests a medical symptom, but it is gunfire.",
+     "definitionFit": "Drumfire is continuous heavy artillery fire, a discharge of guns sounding like a drumroll."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discharge"
+    }
+   }
   },
   {
    "number": 16,
@@ -306,7 +1147,58 @@
      }
     ]
    },
-   "solution": "SEAWINGS"
+   "solution": "SEAWINGS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEA WINGS",
+    "definitions": [
+     {
+      "text": "Sails",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "taking something in means holding it inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goes about",
+      "gives": "SWINGS",
+      "note": "swings means turns or goes about"
+     },
+     {
+      "clueFragment": "local river",
+      "gives": "EA",
+      "note": "ea is a dialect word for a river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EA",
+      "WINGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A yacht's sails as it tacks into a river.",
+     "walkthrough": "Ea is a dialect word, hence 'local'.",
+     "definitionFit": "Sea wings is a poetic name for a ship's sails, the wings that carry it over the sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Sails"
+    }
+   }
   },
   {
    "number": 17,
@@ -320,7 +1212,62 @@
     "text": "Look into a special time for family worship",
     "enumeration": "7"
    },
-   "solution": "PRAYERS"
+   "solution": "PRAYERS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PRAYERS",
+    "definitions": [
+     {
+      "text": "time for family worship",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one word going into another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "a as in 'ten pounds a head', meaning per"
+     },
+     {
+      "clueFragment": "Look",
+      "gives": "RAY",
+      "note": "a ray can be a glance or look from the eye"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is an abbreviation for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RAY",
+      "ER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to examine a special moment for a family's religious devotion.",
+     "walkthrough": "'Look' seems an instruction to the solver but supplies letters, and 'a' means per, as in a price each.",
+     "definitionFit": "Chambers lists prayers, plural, as a daily household or school worship session."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Look"
+    }
+   }
   },
   {
    "number": 18,
@@ -340,7 +1287,50 @@
      }
     ]
    },
-   "solution": "ROCKROSE"
+   "solution": "ROCKROSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROCK ROSE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heavy metal, say",
+      "gives": "ROCK",
+      "note": "heavy metal is one kind of rock music"
+     },
+     {
+      "clueFragment": "had source",
+      "gives": "ROSE",
+      "note": "a river rose where it had its source"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROCK",
+      "ROSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy metal band traced its origins to a factory.",
+     "walkthrough": "'Heavy metal' and 'plant' suggest industry, but one is music and the other a flower.",
+     "definitionFit": "The rock rose is a shrub of the genus Cistus or Helianthemum with rose-like flowers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 19,
@@ -354,7 +1344,55 @@
     "text": "When filling cherry cut ornamentally",
     "enumeration": "5"
    },
-   "solution": "RASED"
+   "solution": "RASED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RASED",
+    "definitions": [
+     {
+      "text": "cut ornamentally",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "a filling sits inside something, so this word goes in the middle of the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When",
+      "gives": "AS",
+      "note": "when and as are interchangeable conjunctions of time"
+     },
+     {
+      "clueFragment": "cherry",
+      "gives": "RED",
+      "note": "cherry is a shade of red"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cherry being cut decoratively, as for a cake topping.",
+     "walkthrough": "'Cherry' looks like the fruit being cut, but it is just a colour.",
+     "definitionFit": "Rase is an old variant of raze, here in its sense of to engrave or incise, so rased means carved decoratively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cherry"
+    }
+   }
   },
   {
    "number": 20,
@@ -368,7 +1406,45 @@
     "text": "Devotional books and things attached to bishop's staff",
     "enumeration": "6"
    },
-   "solution": "ORARIA"
+   "solution": "ORARIA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ORARIA",
+    "definitions": [
+     {
+      "text": "Devotional books",
+      "at": 0
+     },
+     {
+      "text": "things attached to bishop's staff",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Devotional books",
+      "note": "first meaning: books of prayers"
+     },
+     {
+      "clueFragment": "things attached to bishop's staff",
+      "note": "second meaning: the scarves hung from a crozier"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both senses are plurals of a Latin church word, orarium, which Chambers gives as both a prayer book and a cloth hung from a bishop's crozier.",
+     "definitionFit": "The Latin plural names both prayer books and the napkin-like scarves tied to a crozier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 21,
@@ -382,7 +1458,48 @@
     "text": "Blue Beret's organisation's help withdrawn?",
     "enumeration": "6"
    },
-   "solution": "UNSAID"
+   "solution": "UNSAID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNSAID",
+    "definitions": [
+     {
+      "text": "withdrawn?",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blue Beret's organisation's",
+      "gives": "UNS",
+      "note": "UN peacekeepers wear blue berets, so their organisation is the UN, with the possessive S"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid is help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNS",
+      "AID"
+     ]
+    },
+    "explanation": {
+     "surface": "Peacekeepers' assistance has been pulled out of a conflict zone.",
+     "walkthrough": "'Withdrawn' reads as aid being pulled out, but it means a remark taken back.",
+     "definitionFit": "A statement that has been retracted is unsaid, a cryptic hint flagged by the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "withdrawn"
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1513,62 @@
     "text": "Once deem unworthy small lunch before being brought in",
     "enumeration": "6"
    },
-   "solution": "SDAINE"
+   "solution": "SDAINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SDAINE",
+    "definitions": [
+     {
+      "text": "Once deem unworthy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being brought in",
+      "for": "container",
+      "note": "a letter being brought in is placed inside the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "lunch",
+      "gives": "DINE",
+      "note": "to lunch is to eat a meal, to dine"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "A",
+      "note": "A is short for ante, Latin for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "D",
+      "A",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone snubs a small snack offered before the main meal.",
+     "walkthrough": "A goes inside DINE, after S. 'Once' marks a Spenserian word.",
+     "definitionFit": "Sdaine is Spenser's form of disdain, to scorn or think unworthy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lunch"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1582,49 @@
     "text": "Pastor leading gross old fold",
     "enumeration": "5"
    },
-   "solution": "PRANK"
+   "solution": "PRANK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRANK",
+    "definitions": [
+     {
+      "text": "old fold",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "leading"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pastor",
+      "gives": "P",
+      "note": "P is an abbreviation for pastor"
+     },
+     {
+      "clueFragment": "gross",
+      "gives": "RANK",
+      "note": "rank means grossly offensive or flagrant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RANK"
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman heads a disgusting old sheepfold.",
+     "definitionFit": "Prank is an archaic verb meaning to pleat or fold, related to the modern prink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fold"
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1644,55 @@
      }
     ]
    },
-   "solution": "ATEMPO"
+   "solution": "ATEMPO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "A TEMPO",
+    "definitions": [
+     {
+      "text": "in time",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sub",
+      "gives": "TEMP",
+      "note": "a temp is a stand-in worker, a substitute"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TEMP",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A substitute player arrives for a round at just the right moment.",
+     "definitionFit": "A tempo is a musical direction to return to the original speed, that is, back in time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sub"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1706,62 @@
     "text": "Modest housing identification with central point?",
     "enumeration": "7"
    },
-   "solution": "MIDWEEK"
+   "solution": "MIDWEEK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MIDWEEK",
+    "definitions": [
+     {
+      "text": "central point?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "container",
+      "note": "a word housing others holds them inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Modest",
+      "gives": "MEEK",
+      "note": "meek means modest or humble"
+     },
+     {
+      "clueFragment": "identification",
+      "gives": "ID",
+      "note": "ID is the standard abbreviation"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is an abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ID",
+      "W",
+      "EEK"
+     ]
+    },
+    "explanation": {
+     "surface": "A humble home displays its ID next to a focal point.",
+     "walkthrough": "W for 'with' is a standard abbreviation, as in w/.",
+     "definitionFit": "Wednesday-ish, the middle of the week, is its central point; the question mark flags the playful definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1775,58 @@
     "text": "Thursday in son's simple shiel",
     "enumeration": "5"
    },
-   "solution": "BOTHY"
+   "solution": "BOTHY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BOTHY",
+    "definitions": [
+     {
+      "text": "simple shiel",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thursday",
+      "gives": "TH",
+      "note": "TH is the abbreviation for Thursday"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "BOY",
+      "note": "a son is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "TH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A son spends Thursdays in his rough mountain hut.",
+     "walkthrough": "A shiel or shieling is a Scottish shepherd's hut.",
+     "definitionFit": "A bothy is a basic Scottish hut or cottage, much like a shiel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "son"
+    }
+   }
   },
   {
    "number": 27,
@@ -472,7 +1840,62 @@
     "text": "Who won't look out? Modish gadabout taking part in bike races",
     "enumeration": "9"
    },
-   "solution": "INTROVERT"
+   "solution": "INTROVERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INTROVERT",
+    "definitions": [
+     {
+      "text": "Who won't look out?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking part in",
+      "for": "container",
+      "note": "someone taking part in races is in among them, so the word goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Modish",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "gadabout",
+      "gives": "ROVER",
+      "note": "a rover wanders about"
+     },
+     {
+      "clueFragment": "bike races",
+      "gives": "TT",
+      "note": "the TT races are the Isle of Man motorcycle races"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "T",
+      "ROVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy wanderer joins some motorbike races and wonders who isn't watching.",
+     "walkthrough": "The TT (Tourist Trophy) races are run on the Isle of Man each year.",
+     "definitionFit": "An introvert turns attention inward, so is someone who does not look outward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "look"
+    }
+   }
   },
   {
    "number": 28,
@@ -486,7 +1909,50 @@
     "text": "Rocky hill is scorching — last two characters must be pulled out",
     "enumeration": "4"
    },
-   "solution": "TORR"
+   "solution": "TORR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TORR",
+    "definitions": [
+     {
+      "text": "Rocky hill",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last two characters must be pulled out",
+      "for": "deletion",
+      "note": "the instruction is spelled out: the final pair of letters are removed"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scorching",
+      "gives": "TORRID",
+      "note": "torrid means scorching hot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORR"
+     ]
+    },
+    "explanation": {
+     "surface": "A rocky hill is baking in the heat, and two letters must go.",
+     "definitionFit": "Torr is a variant of tor, a rocky outcrop or hilltop, especially on Dartmoor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 29,
@@ -500,7 +1966,48 @@
     "text": "Primarily this really expresses \"forbidden\"",
     "enumeration": "4"
    },
-   "solution": "TREF"
+   "solution": "TREF",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TREF",
+    "definitions": [
+     {
+      "text": "forbidden",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "primarily points to what comes first, so each word gives its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this really expresses \"forbidden\"",
+      "gives": "TREF",
+      "select": "first",
+      "note": "the first letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREF"
+     ]
+    },
+    "explanation": {
+     "surface": "A statement that this word truly means 'forbidden'.",
+     "walkthrough": "The definition is also the last word of the fodder.",
+     "definitionFit": "Tref is the Yiddish word for food that is not kosher, and so forbidden under Jewish dietary law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -514,7 +2021,51 @@
     "text": "Chilling being in charge west of meadow in Alnwick, eg",
     "enumeration": "5"
    },
-   "solution": "ICING"
+   "solution": "ICING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICING",
+    "definitions": [
+     {
+      "text": "Chilling",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "being",
+     "west of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     },
+     {
+      "clueFragment": "meadow in Alnwick, eg",
+      "gives": "ING",
+      "note": "ing is a northern English dialect word for a meadow; Alnwick is a town in Northumberland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IC",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A manager of a Northumbrian field finds the weather cold.",
+     "walkthrough": "In an across answer, west of means to the left of.",
+     "definitionFit": "Icing is the act of chilling or freezing something with ice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chilling"
+    }
+   }
   },
   {
    "number": 31,
@@ -528,7 +2079,49 @@
     "text": "Guts or Biden's turgidity",
     "enumeration": "5"
    },
-   "solution": "TUMOR"
+   "solution": "TUMOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUMOR",
+    "definitions": [
+     {
+      "text": "Biden's turgidity",
+      "at": 8,
+      "note": "Biden's flags the US spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guts",
+      "gives": "TUM",
+      "note": "tum is informal for the stomach"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUM",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe at a politician's belly or his pompous speech.",
+     "walkthrough": "Joe Biden is American, signalling the spelling without the U.",
+     "definitionFit": "A tumor is a swelling, and turgidity is the state of being swollen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turgidity"
+    }
+   }
   },
   {
    "number": 32,
@@ -542,7 +2135,50 @@
     "text": "In a novel way rephrasing forester's office",
     "enumeration": "10"
    },
-   "solution": "RANGERSHIP"
+   "solution": "RANGERSHIP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RANGERSHIP",
+    "definitions": [
+     {
+      "text": "forester's office",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In a novel way",
+      "for": "anagram",
+      "note": "doing something in a novel way means doing it differently, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rephrasing",
+      "gives": "REPHRASING",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REPHRASING",
+       "gives": "RANGERSHIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rewords the title of a forestry job in an original manner.",
+     "definitionFit": "A ranger is a forest keeper, and the suffix -ship makes the word for his post or office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 33,
@@ -556,7 +2192,67 @@
     "text": "Think about including unknown money for meals and similar",
     "enumeration": "4"
    },
-   "solution": "EXES"
+   "solution": "EXES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EXES",
+    "definitions": [
+     {
+      "text": "money for meals and similar",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the word is read backwards"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "a word including another holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Think",
+      "gives": "SEE",
+      "note": "to see can mean to think or consider"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "X",
+      "note": "X is the classic unknown in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SEXE",
+       "to": "EXES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Consider allowing for something mysterious in the budget.",
+     "walkthrough": "SEE turned round is EES, and X goes in the middle.",
+     "definitionFit": "Exes is informal British slang for expenses, the cash claimed for meals and travel at work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 34,
@@ -576,7 +2272,74 @@
      }
     ]
    },
-   "solution": "GREYWOLF"
+   "solution": "GREYWOLF",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "GREY WOLF",
+    "definitions": [
+     {
+      "text": "hunter from US?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going in the opposite direction, so these letters are read right to left"
+     },
+     {
+      "text": "via",
+      "for": "container",
+      "note": "via means passing through, so the reversed letters travel through the middle of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yankee's letter",
+      "gives": "WYE",
+      "note": "Yankee is Y in the NATO alphabet, and the letter Y is spelled wye"
+     },
+     {
+      "clueFragment": "Take",
+      "gives": "R",
+      "note": "R stands for recipe, Latin for take"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "GOLF",
+      "note": "golf is a game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "R",
+      "EYW",
+      "OLF"
+     ],
+     "reversals": [
+      {
+       "from": "WYER",
+       "to": "REYW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to send a letter back by way of an American hunter.",
+     "walkthrough": "Take is R from the Latin recipe on prescriptions; the question mark admits the wolf is not only American.",
+     "definitionFit": "The grey wolf, or timber wolf, is a predator native to North America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Take"
+    }
+   }
   }
  ]
 }
