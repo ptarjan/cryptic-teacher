@@ -243,7 +243,14 @@ function boot(opts) {
     activeElement: null,
     head: new FakeEl("head"),
     querySelector(sel) {
-      return sel === 'link[rel="canonical"]' ? canonicalLink : null;
+      if (sel === 'link[rel="canonical"]') return canonicalLink;
+      if (sel === 'meta[name="robots"]') {
+        const head = document.head;
+        const el = head.children.find((c) => c.tagName === "META" && c.name === "robots");
+        if (el) el.remove = () => { head.children = head.children.filter((c) => c !== el); };
+        return el || null;
+      }
+      return null;
     },
     createElement(tag) {
       const el = new FakeEl(tag);

@@ -615,6 +615,12 @@ assert(openTitle.includes(escName),
   const want = (meta && meta.hasSolutions) ? `${home}puzzles/${meta.id}/` : home;
   assert(canonicalLink.href === want,
     `canonical should be ${want}, got ${canonicalLink.href}`);
+  // Google overrides that canonical and indexes ?p= in the write-up's place, so
+  // a ?p= URL with a write-up (or for an unlisted puzzle) is noindex too.
+  const robots = document.querySelector('meta[name="robots"]');
+  const noindex = !!(meta && (meta.unlisted || meta.hasSolutions));
+  assert(!!(robots && robots.content === "noindex") === noindex,
+    `?p=${asked} should ${noindex ? "" : "not "}be noindex, got ${robots && robots.content}`);
 }
 
 // The badge marks the exception, not the norm: an annotated puzzle's title
