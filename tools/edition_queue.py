@@ -22,7 +22,8 @@ editions and the re-reads annotation asked for (tools/scan_queue.py), then
 the re-reads that can change what was filed (inputs moved, a fix for a
 refusal cause), then the whole-corpus ones (a scan-code change, --reread
 BEFORE), which start only once nothing more urgent waits in any pool; each
-rank the newest edition first.
+rank the reads predicted to file the most puzzles whole first (fa.likely:
+a fix since their last read mends what held them), then the newest edition.
 A read waits until the scans it needs (its own, and the SOLUTION_DAYS after
 it, where its solution prints) are made; those scans take the read's rank.
 A read never starts before its own planned scan has ended done: a read
@@ -330,12 +331,14 @@ def plan(papers, cache=fa.CACHE, reread=None, newer=None, out=None):
     if not _LOADED:
         dir_cache.load(DIR_CACHE)
         fa.load_held(HELD_CACHE)
+        fa.load_likely(LIKELY_CACHE)
         _LOADED.append(True)
     try:
         return _plan(papers, cache, reread, newer, out)
     finally:
         dir_cache.save(DIR_CACHE)
         fa.save_held(HELD_CACHE)
+        fa.save_likely(LIKELY_CACHE)
 
 
 #: Where plan() keeps the edition and article dirs' listings between
@@ -345,6 +348,9 @@ DIR_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/dir_cache.pickle"))
 #: Where plan() keeps held_files' parse of each filed puzzle between
 #: processes (fa.save_held), so a re-exec does not parse the corpus again.
 HELD_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/held_files.pickle"))
+#: Where plan() keeps what fa.likely read between processes: the solution
+#: headings in each edition's archive.org text, each filed puzzle's state.
+LIKELY_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/likely.pickle"))
 #: Non-empty once this process has loaded DIR_CACHE and HELD_CACHE: later
 #: plans hold everything those had, so they are read once a process.
 _LOADED = []
@@ -395,11 +401,12 @@ def _plan(papers, cache, reread, newer, out):
 
 def by_urgency(units):
     """The units of (rank, paper's place, plan's place, unit) by rank, then
-    the newest edition first ("date") across papers, rank 0 (saved by hand)
-    in its plans' order, then the paper's place and plan's order."""
+    the most puzzles predicted to file whole (fa.likely_gain), then the
+    newest edition first ("date") across papers, rank 0 (saved by hand) in
+    its plans' order, then the paper's place and plan's order."""
     units = sorted(units, key=lambda t: t[1:3])
     units.sort(key=lambda t: "" if t[0] == 0 else t[3].get("date", ""), reverse=True)
-    units.sort(key=lambda t: t[0])
+    units.sort(key=lambda t: (t[0], -fa.likely_gain(t[3])))
     return [u for *_, u in units]
 
 
@@ -1166,6 +1173,14 @@ def main(argv=None):
             print(f"{len(units)} {kind} due")
             for (rank, paper, reason), n in sorted(counts.items()):
                 print(f"  rank {rank}  {paper:9s} {reason:22s} {n:6d}")
+        likely = {}
+        for u in reads:
+            for fix, n in (u.get("likely") or {}).items():
+                k = likely.setdefault((u["rank"], u["paper"], fix), [0, 0])
+                k[0], k[1] = k[0] + 1, k[1] + n
+        print(f"{sum(bool(u.get('likely')) for u in reads)} reads first in their rank: predicted to file puzzles whole")
+        for (rank, paper, fix), (n, whole) in sorted(likely.items()):
+            print(f"  rank {rank}  {paper:9s} {fix:38s} {n:6d} reads {whole:6d} puzzles")
         fetches = plan_fetches(args.fetch)
         if args.fetch:
             print(f"{len(fetches)} fetches due")

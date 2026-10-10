@@ -395,12 +395,20 @@ def vote_mended_requests():
         if f != "archive":
             continue
         v = next((v for v in row.get("verdicts") or () if v.get("id") == i), {})
-        whys = list((v.get("blank") or {}).values())
-        since = [(at, mends) for at, mends in VOTE_MENDED if read_before(row, when(at))]
-        due = [max((at for at, mends in since if any(m in why for m in mends)), default=None) for why in whys]
-        if whys and all(due) and not v.get("wrote"):
-            out.append({"id": i, "filer": f, "source": key, "why": ["voteMended"], "requestedAt": max(due)})
+        at = mended_at(row, v)
+        if at and not v.get("wrote"):
+            out.append({"id": i, "filer": f, "source": key, "why": ["voteMended"], "requestedAt": at})
     return out
+
+
+def mended_at(row, verdict):
+    """When the last VOTE_MENDED change that mends a blank clue of
+    `verdict` (of ledger `row`) landed, if one landed since its read for
+    every blank clue it has; else None (none blank, or one no change mends)."""
+    whys = list((verdict.get("blank") or {}).values())
+    since = [(at, mends) for at, mends in VOTE_MENDED if read_before(row, when(at))]
+    due = [max((at for at, mends in since if any(m in why for m in mends)), default=None) for why in whys]
+    return max(due) if whys and all(due) else None
 
 
 def all_open_requests():
