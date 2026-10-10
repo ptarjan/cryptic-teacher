@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Block Somerset's foremost spinner",
     "enumeration": "4"
    },
-   "solution": "STOP"
+   "solution": "STOP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STOP",
+    "definitions": [
+     {
+      "text": "Block",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foremost",
+      "for": "letter_selection",
+      "note": "foremost means the very front, so only the opening letter of the county's name is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somerset's",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the county name"
+     },
+     {
+      "clueFragment": "spinner",
+      "gives": "TOP",
+      "note": "a top is a toy that spins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket report: a batsman blocks the leading spin bowler of Somerset, the English county side.",
+     "walkthrough": "'Block' and 'spinner' both sound like cricket, but the spinner is a child's toy, not a bowler.",
+     "definitionFit": "To block something is to halt or obstruct it, a straightforward verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spinner"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,59 @@
     "text": "Article on extremely memorable subject",
     "enumeration": "5"
    },
-   "solution": "THEME"
+   "solution": "THEME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THEME",
+    "definitions": [
+     {
+      "text": "subject",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely is read as 'at the extremes', so just the outermost letters of the next word count"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "memorable",
+      "gives": "ME",
+      "select": "outer",
+      "note": "the first and last letters of memorable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone writes a piece about a subject that is especially worth remembering.",
+     "walkthrough": "In a down clue 'on' puts the article above the other piece.",
+     "definitionFit": "A theme is the topic or subject matter of a talk or piece of writing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +166,53 @@
     "text": "Clown, I report, is funny",
     "enumeration": "7"
    },
-   "solution": "PIERROT"
+   "solution": "PIERROT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PIERROT",
+    "definitions": [
+     {
+      "text": "Clown",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny can mean odd or peculiar, so the letters are put into an odd new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I report",
+      "gives": "IREPORT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IREPORT",
+       "gives": "PIERROT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist gives a verdict on a clown's act: it is funny.",
+     "definitionFit": "Pierrot is the sad-faced white-costumed clown of French pantomime, a specific example of a clown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +232,40 @@
      }
     ]
    },
-   "solution": "CATFLAP"
+   "solution": "CATFLAP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CAT FLAP",
+    "definitions": [
+     {
+      "text": "Way in which ginger's used?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way in which ginger's used?",
+      "note": "surface reading: how the spice ginger is used in cooking"
+     },
+     {
+      "clueFragment": "ginger's",
+      "note": "setter's reading: a ginger is an orange-coloured cat, and the way in is a small door it uses"
+     }
+    ],
+    "explanation": {
+     "surface": "A cookery question about how the spice ginger is used.",
+     "walkthrough": "'Way in which' reads as 'manner in which', but it is literally an entrance, and 'ginger' is a cat named for its fur.",
+     "definitionFit": "A cat flap is a small hinged door that lets a pet cat go in and out of a house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ginger's"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +279,48 @@
     "text": "Army officer is in the central part, we hear",
     "enumeration": "7"
    },
-   "solution": "COLONEL"
+   "solution": "COLONEL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COLONEL",
+    "definitions": [
+     {
+      "text": "Army officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear says the word is judged by how it sounds when spoken, not how it is spelt"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the central part",
+      "gives": "COLONEL",
+      "soundsLike": "KERNEL",
+      "note": "a kernel is the central part of a nut or seed"
+     }
+    ],
+    "explanation": {
+     "surface": "A soldier of rank stands at the heart of things, apparently.",
+     "walkthrough": "The rank is said 'kernel', so it sounds the same as the inner part of a nut.",
+     "definitionFit": "A colonel is a senior commissioned rank in the army, above lieutenant colonel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "central"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +340,48 @@
      }
     ]
    },
-   "solution": "TOUCHWOOD"
+   "solution": "TOUCHWOOD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOUCH WOOD",
+    "definitions": [
+     {
+      "text": "hopefully",
+      "at": 18,
+      "note": "the answer is an interjection said in hope, standing in for an adverb"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Better",
+      "gives": "TOUCH",
+      "note": "to touch someone is to rival or better them, as in 'no one can touch him'"
+     },
+     {
+      "clueFragment": "golf club",
+      "gives": "WOOD",
+      "note": "a wood is a type of golf club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOUCH",
+      "WOOD"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer hopes a new club will improve their game.",
+     "walkthrough": "'Better' looks like an adjective but is the verb 'match or beat'.",
+     "definitionFit": "People say touch wood when hoping their luck holds, so it expresses the same wish as hopefully."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Better"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +401,50 @@
      }
     ]
    },
-   "solution": "LABOUREXCHANGE"
+   "solution": "LABOUREXCHANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LABOUR EXCHANGE",
+    "definitions": [
+     {
+      "text": "job centre",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work",
+      "gives": "LABOUR",
+      "note": "labour is work"
+     },
+     {
+      "clueFragment": "switch",
+      "gives": "EXCHANGE",
+      "note": "to exchange is to switch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LABOUR",
+      "EXCHANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at the job centre is changing jobs.",
+     "walkthrough": "A labour exchange is the old British name for a state employment office.",
+     "definitionFit": "Labour exchange was the earlier official name for the government office now called a Jobcentre in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "switch"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +458,48 @@
     "text": "Coppers shut in church",
     "enumeration": "5"
    },
-   "solution": "PENCE"
+   "solution": "PENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENCE",
+    "definitions": [
+     {
+      "text": "Coppers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shut in",
+      "gives": "PEN",
+      "note": "to pen is to shut in or enclose"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Police officers trapped inside a church.",
+     "walkthrough": "'Coppers' are copper coins, not police; 'shut in' looks like a containment signal but is the verb pen.",
+     "definitionFit": "Small British coins were made of copper, so coppers are pennies, and pence is their plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Coppers"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +523,47 @@
      }
     ]
    },
-   "solution": "STICKATNOTHING"
+   "solution": "STICKATNOTHING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STICK AT NOTHING",
+    "definitions": [
+     {
+      "text": "Go from job to job",
+      "at": 0
+     },
+     {
+      "text": "ruthlessly pursue one's aim",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go from job to job",
+      "note": "first meaning, read literally: never persevere with any one thing"
+     },
+     {
+      "clueFragment": "ruthlessly pursue one's aim",
+      "note": "second meaning: the idiom for being prepared to do anything to succeed"
+     }
+    ],
+    "explanation": {
+     "surface": "A restless worker's career: hopping between jobs to get ahead.",
+     "walkthrough": "The first sense is a playful literal reading; the idiom's real meaning is the second.",
+     "definitionFit": "The idiom means to be willing to do anything at all, however unscrupulous, to achieve a goal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "job"
+    }
+   }
   },
   {
    "number": 9,
@@ -187,7 +577,67 @@
     "text": "Heavenly girl seen round about, heading for arcade",
     "enumeration": "8"
    },
-   "solution": "ETHEREAL"
+   "solution": "ETHEREAL",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ETHEREAL",
+    "definitions": [
+     {
+      "text": "Heavenly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen round",
+      "for": "container",
+      "note": "the girl is seen encircling what follows, so she wraps around the other pieces"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its opening letter, so only that is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "ETHEL",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "arcade",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of arcade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETHE",
+      "RE",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A lovely girl is spotted near an arcade.",
+     "definitionFit": "Ethereal describes something delicate and otherworldly, as if from the heavens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heavenly"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +651,43 @@
     "text": "Some favour banking in town",
     "enumeration": "5"
    },
-   "solution": "URBAN"
+   "solution": "URBAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "URBAN",
+    "definitions": [
+     {
+      "text": "in town",
+      "at": 20,
+      "note": "a phrase standing for the adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only a portion, so the letters are a run taken from within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favour banking",
+      "gives": "URBAN",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Town-dwellers tend to prefer banking.",
+     "definitionFit": "Urban describes things belonging to or found in a town or city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "banking"
+    }
+   }
   },
   {
    "number": 11,
@@ -221,7 +707,46 @@
      }
     ]
    },
-   "solution": "CLEARINGHOUSE"
+   "solution": "CLEARINGHOUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLEARING HOUSE",
+    "definitions": [
+     {
+      "text": "Financial agency",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vacating",
+      "gives": "CLEARING",
+      "note": "clearing out of a place is vacating it"
+     },
+     {
+      "clueFragment": "property",
+      "gives": "HOUSE",
+      "note": "a house is a property"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLEARING",
+      "HOUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A finance company moves out of its premises.",
+     "definitionFit": "A clearing house is an institution that settles transactions between banks or traders, a kind of financial agency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacating"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +760,55 @@
     "text": "Phone engineer around noon",
     "enumeration": "4"
    },
-   "solution": "RING"
+   "solution": "RING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RING",
+    "definitions": [
+     {
+      "text": "Phone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the first word's letters surround the second piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "engineer",
+      "gives": "RIG",
+      "note": "to rig is to engineer or arrange dishonestly"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "N",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone calls a technician at around midday.",
+     "walkthrough": "'Engineer' reads as a person but is a verb.",
+     "definitionFit": "To ring someone is to telephone them, a common British usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engineer"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +832,66 @@
      }
     ]
    },
-   "solution": "INASPOT"
+   "solution": "INASPOT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IN A SPOT",
+    "definitions": [
+     {
+      "text": "Up against it",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or inaccurate, so these letters are not in their right order"
+     },
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within says the adult goes inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "points",
+      "gives": "POINTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film classification for adult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "A",
+      "SPOT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POINTS",
+       "gives": "INSPOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone under pressure has a grown-up pointing things out.",
+     "definitionFit": "Being in a spot means being in a difficult situation, the same idiom as being up against it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +905,50 @@
     "text": "Has to step off as quickly as possible",
     "enumeration": "9"
    },
-   "solution": "POSTHASTE"
+   "solution": "POSTHASTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POSTHASTE",
+    "definitions": [
+     {
+      "text": "as quickly as possible",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off can mean wrong or not right, so the letters are out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Has to step",
+      "gives": "HASTOSTEP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HASTOSTEP",
+       "gives": "POSTHASTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to get moving at full speed.",
+     "definitionFit": "Posthaste is an old adverb meaning with great speed, from the haste of postal riders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "step"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +962,64 @@
     "text": "Beast making awful noises on lake",
     "enumeration": "7"
    },
-   "solution": "LIONESS"
+   "solution": "LIONESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LIONESS",
+    "definitions": [
+     {
+      "text": "Beast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "awful means very bad, so these letters are in a bad, jumbled state"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     },
+     {
+      "clueFragment": "noises",
+      "gives": "NOISES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IONESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOISES",
+       "gives": "IONESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal roars horribly beside a lake.",
+     "walkthrough": "'On' just attaches the lake to the other piece; here it comes first.",
+     "definitionFit": "A lioness is a female lion, an example of a wild beast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awful"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1033,58 @@
     "text": "The Italian entering well of storage chamber",
     "enumeration": "4"
    },
-   "solution": "SILO"
+   "solution": "SILO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SILO",
+    "definitions": [
+     {
+      "text": "storage chamber",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going into, so the Italian article goes inside the other word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "well",
+      "gives": "SO",
+      "note": "so and well are both interjections used to start a remark"
+     },
+     {
+      "clueFragment": "The Italian",
+      "gives": "IL",
+      "note": "il is Italian for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian man goes down a well to reach a storeroom.",
+     "walkthrough": "'Well' looks like a hole in the ground but is the word used to open a sentence.",
+     "definitionFit": "A silo is a tower or pit used for storing grain or fodder, a storage chamber."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1098,55 @@
     "text": "Excited seeing small band",
     "enumeration": "7"
    },
-   "solution": "GENESIS"
+   "solution": "GENESIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GENESIS",
+    "definitions": [
+     {
+      "text": "band",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Excited",
+      "for": "anagram",
+      "note": "excited means stirred up, so the letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seeing",
+      "gives": "SEEING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEINGS",
+       "gives": "GENESIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan is thrilled to see a little-known group play.",
+     "definitionFit": "Genesis is the English rock band of Peter Gabriel and Phil Collins, an example of a band."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1160,50 @@
     "text": "Incomplete drawing by unknown character",
     "enumeration": "7"
    },
-   "solution": "SKETCHY"
+   "solution": "SKETCHY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKETCHY",
+    "definitions": [
+     {
+      "text": "Incomplete",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drawing",
+      "gives": "SKETCH",
+      "note": "a sketch is a rough drawing"
+     },
+     {
+      "clueFragment": "unknown character",
+      "gives": "Y",
+      "note": "algebra uses x, y and z for unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKETCH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An unfinished picture by an anonymous artist.",
+     "walkthrough": "'Unknown character' reads as a mystery person but is a letter for an unknown quantity.",
+     "definitionFit": "Sketchy describes something lacking detail or not thorough, so incomplete."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1217,55 @@
     "text": "Fundamentalist spoke about Conservative",
     "enumeration": "7"
    },
-   "solution": "RADICAL"
+   "solution": "RADICAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RADICAL",
+    "definitions": [
+     {
+      "text": "Fundamentalist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first word's letters go around the party abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spoke",
+      "gives": "RADIAL",
+      "note": "a radial is a spoke-like part radiating from a centre"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C abbreviates Conservative, the British political party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RADI",
+      "C",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A hardliner gave a speech about the Conservative Party.",
+     "walkthrough": "'Spoke' looks like the past tense of speak; it is the noun for a wheel's rod.",
+     "definitionFit": "A radical wants change at the roots of things, close in sense to a fundamentalist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spoke"
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1279,50 @@
     "text": "Greek wine - what could be nastier?",
     "enumeration": "7"
    },
-   "solution": "RETSINA"
+   "solution": "RETSINA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RETSINA",
+    "definitions": [
+     {
+      "text": "Greek wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "what could be",
+      "for": "anagram",
+      "note": "what could be invites a different possible form of the next word, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nastier",
+      "gives": "NASTIER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NASTIER",
+       "gives": "RETSINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe at a resin-flavoured Greek wine: nothing tastes worse.",
+     "definitionFit": "Retsina is a white Greek wine flavoured with pine resin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 20,
@@ -377,7 +1342,76 @@
      }
     ]
    },
-   "solution": "CATCHMENTAREA"
+   "solution": "CATCHMENTAREA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CATCHMENT AREA",
+    "definitions": [
+     {
+      "text": "drainage basin",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck inside",
+      "for": "container",
+      "note": "stuck inside means placed within, so the soldiers and the army go into the other pieces"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hear",
+      "gives": "CATCH",
+      "note": "to catch what someone says is to hear it"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "soldiers are men in the ranks"
+     },
+     {
+      "clueFragment": "TA",
+      "gives": "TA",
+      "note": "the Territorial Army, Britain's volunteer reserve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CATCH",
+      "MEN",
+      "TA",
+      "RE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Reservists and regular troops are trapped in a river basin.",
+     "walkthrough": "The soldiers and the TA go between the first piece and the last two.",
+     "definitionFit": "A catchment area is the land from which rainfall drains into a river or reservoir, a drainage basin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hear"
+    }
+   }
   },
   {
    "number": 20,
@@ -391,7 +1425,62 @@
     "text": "Talk about front of relief map",
     "enumeration": "5"
    },
-   "solution": "CHART"
+   "solution": "CHART",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "CHART",
+    "definitions": [
+     {
+      "text": "map",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for talk goes around the letter"
+     },
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Talk",
+      "gives": "CHAT",
+      "note": "chat is talk"
+     },
+     {
+      "clueFragment": "relief",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of relief"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Discussion of the front of a relief map.",
+     "walkthrough": "'Relief map' reads as one phrase, but 'relief' gives a letter and 'map' alone is the definition.",
+     "definitionFit": "A chart is a map, especially one used for navigation at sea or in the air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relief"
+    }
+   }
   },
   {
    "number": 21,
@@ -405,7 +1494,65 @@
     "text": "Machine that's programmed to drill almost overturned",
     "enumeration": "5"
    },
-   "solution": "ROBOT"
+   "solution": "ROBOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "ROBOT",
+    "definitions": [
+     {
+      "text": "Machine that's programmed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite, so the last letter is dropped"
+     },
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "overturned means turned upside down, which in a down clue reads the letters from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "drill",
+      "gives": "BORE",
+      "note": "to bore is to drill a hole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROBOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOBOR",
+       "to": "ROBOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A machine programmed to drill has nearly toppled over.",
+     "definitionFit": "A robot is an automated machine that follows a programmed set of instructions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drill"
+    }
+   }
   },
   {
    "number": 22,
@@ -419,7 +1566,54 @@
     "text": "First sign of tooth decay - canine needs to be extracted",
     "enumeration": "5"
    },
-   "solution": "ARIES"
+   "solution": "ARIES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARIES",
+    "definitions": [
+     {
+      "text": "First sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs to be extracted",
+      "for": "deletion",
+      "note": "extracted means pulled out, as a dentist pulls a tooth, so this letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tooth decay",
+      "gives": "CARIES",
+      "note": "caries is the medical term for tooth decay"
+     },
+     {
+      "clueFragment": "canine",
+      "gives": "C",
+      "note": "C stands for a canine tooth in dental notation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A dental warning: the first symptom of decay means a canine must come out.",
+     "walkthrough": "'First sign' looks like an early symptom; it is the first sign of the zodiac.",
+     "definitionFit": "Aries, the Ram, is traditionally listed first among the twelve signs of the zodiac."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 23,
@@ -433,7 +1627,56 @@
     "text": "Cheat to secure point in card game",
     "enumeration": "8"
    },
-   "solution": "CRIBBAGE"
+   "solution": "CRIBBAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRIBBAGE",
+    "definitions": [
+     {
+      "text": "card game",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheat",
+      "gives": "CRIB",
+      "note": "to crib is to copy dishonestly"
+     },
+     {
+      "clueFragment": "to secure",
+      "gives": "BAG",
+      "note": "to bag something is to secure it"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "E",
+      "note": "E, east, is a point of the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRIB",
+      "BAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player cheats to win a point.",
+     "walkthrough": "Cribbage is a card game scored by pegging points on a board.",
+     "definitionFit": "Cribbage is a card game for two to four players, scored with pegs on a board."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 24,
@@ -447,7 +1690,49 @@
     "text": "Clothes got grey, unfortunately",
     "enumeration": "7"
    },
-   "solution": "TOGGERY"
+   "solution": "TOGGERY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOGGERY",
+    "definitions": [
+     {
+      "text": "Clothes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests something has gone wrong, so the letters are in a wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "got grey",
+      "gives": "GOTGREY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOTGREY",
+       "gives": "TOGGERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's clothes have faded to grey in the wash.",
+     "definitionFit": "Toggery is an informal word for clothes or garments, from togs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -461,7 +1746,43 @@
     "text": "Singer in musical, Tormé",
     "enumeration": "4"
    },
-   "solution": "ALTO"
+   "solution": "ALTO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALTO",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical, Tormé",
+      "gives": "ALTO",
+      "note": "the letters bridging the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Mel Tormé, the American crooner, appears in a musical.",
+     "walkthrough": "Mel Tormé was an American jazz singer, which makes 'Singer' look like a description of him.",
+     "definitionFit": "An alto is a singer with a voice in the range below soprano."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tormé"
+    }
+   }
   }
  ]
 }
