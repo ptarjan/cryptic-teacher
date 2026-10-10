@@ -586,6 +586,7 @@ LAYOUT = [
     ("fetching", "tools/test_load_watch.sh", "does load_watch.py rank CPU by job, charge exited children to their parent, and wake only on two high runs in a row, once an hour unless the top consumer changes?"),
     ("fetching", "tools/dir_cache.py", "what a planner re-reads every minute off a slow disk, kept until it moves"),
     ("fetching", "tools/test_trove_articles_index.sh", "does tools/trove_solution_ocr.py's _articles keep what it read in a file, reread only an article whose files changed, and return the same list warm?"),
+    ("fetching", "tools/await_preamble.py", "hold back a puzzle that cannot be explained without the preamble we lack"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

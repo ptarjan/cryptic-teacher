@@ -11,7 +11,9 @@
 # sends them back to be solved again: nothing is lost for good and nobody has
 # anything to mend, so no alert. When there is nothing to reopen, or the
 # reopen fails, the puzzle is parked until a person changes its inputs, and
-# that alert goes out with the validator's errors.
+# that alert goes out with the validator's errors. When the run's only failure
+# is answers left to a preamble the puzzle lacks (tools/await_preamble.py
+# --which), the puzzle is marked to await it and committed: no alert, no park.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 fails=0
@@ -25,7 +27,8 @@ trap 'rm -rf "$scratch"' EXIT
 cd "$REPO" || exit 1
 . tools/puzzle_worker.sh
 ALERTS="$scratch/alerts"; RECORDS="$scratch/records"; FIXES="$scratch/fixes"
-WHICH=""; REOPEN_OK=1; VALID=1; CHANGED=1
+WHICH=""; REOPEN_OK=1; VALID=1; CHANGED=1; WANTS=""; AWAIT_OK=1
+export WORKER_JOB="the test"  # read by the sourced puzzle_worker.sh
 alert() { echo "$*" >>"$ALERTS"; }
 discard_puzzle() { :; }
 worker_reopen() { [ "$REOPEN_OK" = 1 ]; }
@@ -37,6 +40,9 @@ python3() {
   case "$1" in
     tools/validate_annotations.py) [ "$VALID" = 1 ] && return 0; echo "  ERROR: 5D: no annotation."; return 1 ;;
     tools/reopen_answers.py) [ -n "$WHICH" ] && echo "$WHICH"; return 0 ;;
+    tools/await_preamble.py)
+      [ "${3:-}" = --which ] && { [ -n "$WANTS" ] && echo "$WANTS"; return 0; }
+      [ "$AWAIT_OK" = 1 ] && echo "marked $2" >>"$RECORDS"; [ "$AWAIT_OK" = 1 ] ;;
     tools/failed_inputs.py) echo "$*" >>"$RECORDS"; return 0 ;;
     tools/puzzle_paths.py) echo "puzzles/times/2020/$2.json" ;;
     tools/annotate_check.py) return 1 ;;
@@ -44,8 +50,9 @@ python3() {
     *) echo "unexpected python3 $*" >&2; return 2 ;;
   esac
 }
-run() {  # run <which> <reopen ok> [valid] [changed]
-  WHICH="$1"; REOPEN_OK="$2"; VALID="${3:-0}"; CHANGED="${4:-1}"; rm -f "$ALERTS" "$RECORDS" "$FIXES"
+run() {  # run <which> <reopen ok> [valid] [changed] [wants] [await ok]
+  WHICH="$1"; REOPEN_OK="$2"; VALID="${3:-0}"; CHANGED="${4:-1}"; WANTS="${5:-}"; AWAIT_OK="${6:-1}"
+  rm -f "$ALERTS" "$RECORDS" "$FIXES"
   worker_finish times-19116 Annotate "$scratch/sid" "$scratch/log" >/dev/null 2>&1
 }
 count() { [ -f "$1" ] || { echo 0; return; }; grep -c "$2" "$1"; }
@@ -74,5 +81,17 @@ check "valid: no fix run" "0" "$(count "$FIXES" .)"
 run "" 1 1 0
 check "a clean run that wrote nothing: not committed" "0" "$(count "$RECORDS" 'commit ')"
 check "a clean run that wrote nothing: recorded against the puzzle" "1" "$(count "$RECORDS" 'record annotate times-19116')"
+
+run "" 1 0 1 "1D 4D"
+check "left to a missing preamble: worker_finish fails" "1" "$?"
+check "left to a missing preamble: marked to await it" "1" "$(count "$RECORDS" 'marked times-19116')"
+check "left to a missing preamble: committed" "1" "$(count "$RECORDS" 'commit Await the preamble for times-19116')"
+check "left to a missing preamble: not parked on its inputs" "0" "$(count "$RECORDS" 'record annotate')"
+check "left to a missing preamble: no alert" "0" "$(count "$ALERTS" .)"
+
+run "" 1 0 1 "1D 4D" 0
+check "could not mark it: parked on its inputs" "1" "$(count "$RECORDS" 'record annotate times-19116 --judged')"
+check "could not mark it: one alert" "1" "$(count "$ALERTS" 'could not mark times-19116')"
+check "could not mark it: not committed" "0" "$(count "$RECORDS" 'commit ')"
 
 if [ "$fails" = 0 ]; then echo "all passed"; else echo "$fails failed"; exit 1; fi

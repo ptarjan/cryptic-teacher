@@ -162,6 +162,51 @@ same "'See preamble' with a preamble does not" "$(field WITH "$out_pre")" "False
 same "the write path accepts it" "$(field WRITE "$out_pre")" "allowed"
 same "'(see the preamble)' awaits too" "$(field INDEXED "$out_pre")" "True"
 
+echo "a run that left answers to a missing preamble marks the puzzle to await one"
+out_await=$(PYTHONPATH="$REPO/tools" SCRATCH="$scratch/await" python3 - 2>&1 <<'PY'
+import copy, json, os
+from datetime import date
+from pathlib import Path
+import await_preamble
+import fetch_puzzle
+import puzzle_integrity as pi
+import puzzle_paths
+
+path = puzzle_paths.find("cryptic-24319")
+real = pi.read_puzzle_file(path)
+bare = copy.deepcopy(real)
+del bare["preamble"]
+print("WHICH", "-".join(await_preamble.which(path, bare)) or "none")
+print("HELD", "-".join(await_preamble.which(path, real)) or "none")
+other = copy.deepcopy(bare)
+next(e for e in other["entries"] if e.get("annotation")
+     and not e["annotation"].get("definedByPreamble"))["annotation"].pop("answer")
+print("OTHER", "-".join(await_preamble.which(path, other)) or "none")
+flagged = dict(bare, awaitsPreamble=True)
+print("FLAGGED", pi.awaits_preamble(flagged))
+print("ARRIVED", pi.awaits_preamble(dict(flagged, preamble="Unclued answers are birds.")))
+flags = []
+pi.check_puzzle(dict(flagged, preamble="Unclued answers are birds."), date(2026, 10, 10), flags)
+print("BESIDE", any("awaitsPreamble beside" in f[2] for f in flags))
+out = Path(os.environ["SCRATCH"]) / f"{real['id']}.json"
+out.parent.mkdir(parents=True)
+fetch_puzzle.write_puzzle_file(out, copy.deepcopy(flagged))
+fetch_puzzle.write_puzzle_file(out, copy.deepcopy(bare))
+print("KEPT", json.loads(out.read_text()).get("awaitsPreamble"))
+fetch_puzzle.write_puzzle_file(out, dict(copy.deepcopy(flagged), preamble="Unclued answers are birds."))
+print("DROPPED", "awaitsPreamble" not in json.loads(out.read_text()))
+PY
+)
+died "$out_await" "the await-preamble fixture"
+same "the run's sole failure is the missing preamble: its entries are listed" "$(field WHICH "$out_await" | grep -c '[0-9][AD]')" "1"
+same "a puzzle holding its preamble awaits none" "$(field HELD "$out_await")" "none"
+same "a run that failed on anything else too is parked instead" "$(field OTHER "$out_await")" "none"
+same "awaitsPreamble keeps it from the annotators" "$(field FLAGGED "$out_await")" "True"
+same "until a preamble is filed" "$(field ARRIVED "$out_await")" "False"
+same "the flag beside a preamble is flagged" "$(field BESIDE "$out_await")" "True"
+same "a rewrite with no preamble keeps the flag" "$(field KEPT "$out_await")" "True"
+same "filing a preamble drops it" "$(field DROPPED "$out_await")" "True"
+
 echo "the CLI on a scratch corpus: clean exits 0; DUPLICATE, NEARDUP and DATE across files exit 1"
 out2=$(PYTHONPATH="$REPO/tools" SCRATCH="$scratch/cli" python3 - 2>&1 <<'PY'
 import contextlib, copy, io, json, os, re

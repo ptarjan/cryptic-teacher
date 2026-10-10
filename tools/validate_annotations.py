@@ -3307,6 +3307,21 @@ def backlog_errors(stem, warnings, allowed=None):
     return errors
 
 
+def check_against_committed(puzzle, path, errors):
+    """The checks a run's own puzzle gets against the file as committed."""
+    check_clue_unchanged(puzzle, path, errors)
+    check_clue_rows_held(puzzle, errors)
+    check_selectors_are_indicators(puzzle, path, errors)
+
+
+def run_errors(path, puzzle):
+    """Every error `validate_annotations.py <id>` reports for `puzzle`, the
+    run's copy of the file at `path`."""
+    _, errors, warnings = validate_puzzle(puzzle)
+    check_against_committed(puzzle, path, errors)
+    return errors + backlog_errors(path.stem, warnings, load_backlog())
+
+
 def main(argv):
     global FORCE_AUTHORED_CHECKS
     if "-h" in argv or "--help" in argv:
@@ -3339,9 +3354,7 @@ def main(argv):
         puzzle = read_puzzle_file(path)
         annotated, errors, warnings = validate_puzzle(puzzle, corpus=full_run)
         if not full_run:        # a run's own puzzles; the corpus is HEAD already
-            check_clue_unchanged(puzzle, path, errors)
-            check_clue_rows_held(puzzle, errors)
-            check_selectors_are_indicators(puzzle, path, errors)
+            check_against_committed(puzzle, path, errors)
         total = len(puzzle["entries"])
         if annotated == 0 and not argv:
             # Nothing to check about annotations that do not exist yet — but

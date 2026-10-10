@@ -2019,5 +2019,7 @@ tools/test_trove_articles_index.sh            does tools/trove_solution_ocr.py's
                                               what it read in a file, reread only an article
                                               whose files changed, and return the same list
                                               warm?
+tools/await_preamble.py                       hold back a puzzle that cannot be explained
+                                              without the preamble we lack
 ```
 <!-- LAYOUT-END -->
