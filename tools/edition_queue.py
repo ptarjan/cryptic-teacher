@@ -323,17 +323,27 @@ def plan(papers, cache=fa.CACHE, reread=None, newer=None, out=None):
     A paper whose ledger a batch run holds throughout is left out (its units
     could not add their rows). `newer` (a time.time()) keeps only the reads
     of editions laid out since then and the scans they need."""
-    dir_cache.load(DIR_CACHE)
+    if not _LOADED:
+        dir_cache.load(DIR_CACHE)
+        fa.load_held(HELD_CACHE)
+        _LOADED.append(True)
     try:
         return _plan(papers, cache, reread, newer, out)
     finally:
         dir_cache.save(DIR_CACHE)
+        fa.save_held(HELD_CACHE)
 
 
 #: Where plan() keeps the edition and article dirs' listings between
 #: processes (dir_cache.save): a slice or a re-exec starts warm, not with a
 #: stat of every file on the media mount.
 DIR_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/dir_cache.pickle"))
+#: Where plan() keeps held_files' parse of each filed puzzle between
+#: processes (fa.save_held), so a re-exec does not parse the corpus again.
+HELD_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/held_files.pickle"))
+#: Non-empty once this process has loaded DIR_CACHE and HELD_CACHE: later
+#: plans hold everything those had, so they are read once a process.
+_LOADED = []
 
 
 def _plan(papers, cache, reread, newer, out):
