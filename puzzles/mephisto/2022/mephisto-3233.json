@@ -38,6 +38,9 @@
   "date": "2022-08-21",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,64 @@
     "text": "Courier car is carrying a lot of cheese",
     "enumeration": "9"
    },
-   "solution": "ESTAFETTE"
+   "solution": "ESTAFETTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ESTAFETTE",
+    "definitions": [
+     {
+      "text": "Courier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a vehicle carrying a load holds it inside, so the car word wraps round the cheese"
+     },
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of something is most but not all of it, so the cheese word loses its tail"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "ESTATE",
+      "note": "an estate is an estate car, a station wagon"
+     },
+     {
+      "clueFragment": "cheese",
+      "gives": "FET",
+      "note": "feta, the Greek cheese, without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESTA",
+      "FET",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A delivery van is loaded with most of a consignment of cheese.",
+     "walkthrough": "Car alone suggests no particular model; an estate car is the British name for a station wagon.",
+     "definitionFit": "An estafette is a military messenger on horseback who carries dispatches, i.e. a courier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "car"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +125,58 @@
     "text": "Panic surrounding cat in minor fight",
     "enumeration": "8"
    },
-   "solution": "SCARMOGE"
+   "solution": "SCARMOGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCARMOGE",
+    "definitions": [
+     {
+      "text": "minor fight",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "surrounding means one word encircles the other, holding the cat word inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Panic",
+      "gives": "SCARE",
+      "note": "a scare is a sudden panic"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "MOG",
+      "note": "mog is British slang for a cat (short for moggy)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAR",
+      "MOG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone panics as a cat gets into a scrap.",
+     "walkthrough": "SCARMOGE is Spenser's word for a skirmish.",
+     "definitionFit": "A scarmoge is an archaic Spenserian variant of skirmish, a small-scale clash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Panic"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +190,43 @@
     "text": "English composer, one behind bars",
     "enumeration": "8"
    },
-   "solution": "TAVERNER"
+   "solution": "TAVERNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAVERNER",
+    "definitions": [
+     {
+      "text": "English composer",
+      "at": 0
+     },
+     {
+      "text": "one behind bars",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English composer",
+      "note": "first meaning: John ..., Tudor composer of church music"
+     },
+     {
+      "clueFragment": "one behind bars",
+      "note": "second meaning: a tavern-keeper, who serves from behind a bar"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'One behind bars' suggests a prisoner, but the bars are the counters of a pub.",
+     "definitionFit": "Taverner is both the surname of the Tudor musician John Taverner and an old word for an innkeeper or publican."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bars"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +240,55 @@
     "text": "Advertisement space connected with one Middle-Easterner",
     "enumeration": "5"
    },
-   "solution": "ADENI"
+   "solution": "ADENI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADENI",
+    "definitions": [
+     {
+      "text": "Middle-Easterner",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "connected with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advertisement",
+      "gives": "AD",
+      "note": "ad is short for advertisement"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "EN",
+      "note": "an en is a printer's space, half an em"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "EN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "An advert's blank space is linked to a man from the Middle East.",
+     "definitionFit": "An Adeni is a native of Aden, the port city in Yemen, so a person from the Middle East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +308,61 @@
      }
     ]
    },
-   "solution": "FLATOUT"
+   "solution": "FLATOUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FLAT OUT",
+    "definitions": [
+     {
+      "text": "at high speed",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's stalled",
+      "for": "container",
+      "note": "something stalled is put into a stall, so these letters are enclosed by the mocking word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mock",
+      "gives": "FLOUT",
+      "note": "to flout is to mock or scorn"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Tesla",
+      "gives": "T",
+      "note": "T is the symbol for the tesla, the SI unit of magnetic flux density"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "AT",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Jeering at an electric car that has broken down while going fast.",
+     "walkthrough": "Tesla looks like the car maker, but here it is the physics unit.",
+     "definitionFit": "Flat out is an idiom for going as fast as possible, with full effort or speed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tesla"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +376,61 @@
     "text": "Tube journey not half taking long",
     "enumeration": "7"
    },
-   "solution": "TRACHEA"
+   "solution": "TRACHEA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TRACHEA",
+    "definitions": [
+     {
+      "text": "Tube",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not half",
+      "for": "deletion",
+      "note": "not half means one half of the word is dropped and the other kept"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking means taking in, so the shortened journey word holds the other inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "journey",
+      "gives": "TRA",
+      "note": "the first half of travel, a journey"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "ACHE",
+      "note": "to ache for something is to long for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "ACHE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An Underground trip that is only half as long as expected.",
+     "walkthrough": "'Tube journey' reads as one trip on the London Underground, but Tube alone is the definition.",
+     "definitionFit": "The trachea is the windpipe, the air tube running from the larynx to the lungs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Tube"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +444,61 @@
     "text": "Only one large comprehensive in say, a London borough",
     "enumeration": "6"
    },
-   "solution": "EALING"
+   "solution": "EALING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EALING",
+    "definitions": [
+     {
+      "text": "a London borough",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Only one large",
+      "for": "deletion",
+      "note": "keeping only one of a doubled large means the word sheds one of its two L's"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the shortened word inside the abbreviation for say"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g., for example, i.e. say"
+     },
+     {
+      "clueFragment": "comprehensive",
+      "gives": "ALIN",
+      "note": "all-in means comprehensive; one of its two large-letter L's goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ALIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A borough with a single big comprehensive school, for example.",
+     "walkthrough": "A comprehensive is a British state secondary school, but here the word means all-inclusive; L is the clothing-size abbreviation for large.",
+     "definitionFit": "Ealing is a borough of west London, famous for its film studios."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "comprehensive"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +512,54 @@
     "text": "Trim Spaniards turned up",
     "enumeration": "4"
    },
-   "solution": "SNOD"
+   "solution": "SNOD",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SNOD",
+    "definitions": [
+     {
+      "text": "Trim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turned up means the word is read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spaniards",
+      "gives": "DONS",
+      "note": "dons are Spanish gentlemen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNOD"
+     ],
+     "reversals": [
+      {
+       "from": "DONS",
+       "to": "SNOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Neatly dressed Spaniards arrived.",
+     "walkthrough": "SNOD is a Scots adjective meaning neat or trim.",
+     "definitionFit": "Snod is a Scots dialect word for neat or tidy, so trim as an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Trim"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +573,52 @@
     "text": "Counsel out of focus in college",
     "enumeration": "4"
    },
-   "solution": "TECH"
+   "solution": "TECH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TECH",
+    "definitions": [
+     {
+      "text": "college",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of focus",
+      "for": "deletion",
+      "note": "the focus of a word is its centre, so the central letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Counsel",
+      "gives": "TEACH",
+      "note": "to teach is to counsel or instruct"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A blurry lawyer at university.",
+     "walkthrough": "The middle of the five-letter TEACH is A, so losing its focus leaves the answer. Counsel looks like a barrister.",
+     "definitionFit": "Tech is short for technical college, a further-education institution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "focus"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +632,53 @@
     "text": "Hairy task ordered for Hindu warrior",
     "enumeration": "9"
    },
-   "solution": "KSHATRIYA"
+   "solution": "KSHATRIYA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KSHATRIYA",
+    "definitions": [
+     {
+      "text": "Hindu warrior",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "things ordered are put into a new arrangement, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hairy task",
+      "gives": "HAIRYTASK",
+      "note": "the fodder taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HAIRYTASK",
+       "gives": "KSHATRIYA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A difficult job was demanded of a Hindu fighter.",
+     "definitionFit": "The Kshatriya are the second of the four Hindu varnas, the caste of rulers and warriors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hairy"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +692,45 @@
     "text": "A large amount of horse mackerel",
     "enumeration": "4"
    },
-   "solution": "SCAD"
+   "solution": "SCAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCAD",
+    "definitions": [
+     {
+      "text": "A large amount",
+      "at": 0
+     },
+     {
+      "text": "horse mackerel",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A large amount",
+      "note": "first meaning: a ..., a great quantity (often plural)"
+     },
+     {
+      "clueFragment": "horse mackerel",
+      "note": "second meaning: a fish of the jack family"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a big catch of one fish, but the two halves are separate meanings.",
+     "definitionFit": "Scad is informal for a large quantity and also the name of the horse mackerel, a carangid fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "amount"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +744,59 @@
     "text": "Dullards working in laundries not independent",
     "enumeration": "8"
    },
-   "solution": "LURDANES"
+   "solution": "LURDANES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LURDANES",
+    "definitions": [
+     {
+      "text": "Dullards",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not independent",
+      "for": "deletion",
+      "note": "the abbreviation for independent must be dropped from the word before it is rearranged"
+     },
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working suggests letters being worked over into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "laundries",
+      "gives": "LAUNDRES",
+      "note": "laundries with I, for independent, removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAUNDRES",
+       "gives": "LURDANES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dim-witted staff are employed in launderettes that belong to a chain.",
+     "definitionFit": "Lurdane is an archaic word for a lazy, stupid person, so lurdanes are dullards or idlers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "independent"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +810,49 @@
     "text": "Crazy pass missing out both wings",
     "enumeration": "4"
    },
-   "solution": "RAVE"
+   "solution": "RAVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RAVE",
+    "definitions": [
+     {
+      "text": "Crazy",
+      "at": 0,
+      "note": "An adjective defining a noun: fair in Mephisto because Chambers allows crazy as a noun for a craze, which is exactly what a rave is."
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing out both wings",
+      "for": "deletion",
+      "note": "the wings of a word are its two outer letters, and both are left off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pass",
+      "gives": "TRAVEL",
+      "note": "to pass along is to travel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild pass in football that misses both wingers.",
+     "walkthrough": "Wings suggests wide players on a pitch; here they are the first and last letters.",
+     "definitionFit": "A rave is a craze or passing enthusiasm, the sense of crazy as a noun for the latest fad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wings"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +866,56 @@
     "text": "Absent girl seen by lake in Asian wood",
     "enumeration": "8"
    },
-   "solution": "AGALLOCH"
+   "solution": "AGALLOCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGALLOCH",
+    "definitions": [
+     {
+      "text": "Asian wood",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "seen by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Absent",
+      "gives": "A",
+      "note": "A is the register abbreviation for absent"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "GAL",
+      "note": "gal is an informal word for girl"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "LOCH",
+      "note": "a loch is a Scottish lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAL",
+      "LOCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A missing young woman is spotted near a lake in an Asian forest.",
+     "definitionFit": "Agalloch is eaglewood or aloeswood, the fragrant resinous wood of an Asian tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Absent"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +929,46 @@
     "text": "River of Italian city",
     "enumeration": "6"
    },
-   "solution": "TRENTO"
+   "solution": "TRENTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRENTO",
+    "definitions": [
+     {
+      "text": "Italian city",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "TRENT",
+      "note": "the Trent is a major English river"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "O",
+      "note": "o' is a short form of of"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRENT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Naming the river that flows through an Italian town.",
+     "definitionFit": "Trento is the capital city of Trentino in northern Italy, site of the Council of Trent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "River"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +982,54 @@
     "text": "Food stocking said to be for old Virginians",
     "enumeration": "9"
    },
-   "solution": "TUCKAHOES"
+   "solution": "TUCKAHOES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TUCKAHOES",
+    "definitions": [
+     {
+      "text": "old Virginians",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means we go by how the words are pronounced, not how they are written"
+     }
+    ],
+    "linkWords": [
+     "to be for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food",
+      "gives": "TUCKA",
+      "soundsLike": "TUCKER",
+      "note": "tucker is Australian slang for food; non-rhotic speech drops the R"
+     },
+     {
+      "clueFragment": "stocking",
+      "gives": "HOES",
+      "soundsLike": "HOSE",
+      "note": "hose are stockings"
+     }
+    ],
+    "explanation": {
+     "surface": "Provisions and hosiery are claimed to be meant for Virginians of the past.",
+     "walkthrough": "Spoken in a British accent, tucker hose runs together into the answer.",
+     "definitionFit": "Tuckahoes was a nickname for the inhabitants of eastern, lowland Virginia, after a root eaten there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stocking"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1043,53 @@
     "text": "A dish put out for paragon",
     "enumeration": "5"
    },
-   "solution": "SIDHA"
+   "solution": "SIDHA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIDHA",
+    "definitions": [
+     {
+      "text": "paragon",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put out",
+      "for": "anagram",
+      "note": "put out can mean disturbed or knocked out of place, so the letters are scattered and rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A dish",
+      "gives": "ADISH",
+      "note": "the fodder taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADISH",
+       "gives": "SIDHA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dish is served up for someone perfect.",
+     "definitionFit": "A sidha (siddha) is, in Hinduism, a perfected one who has attained spiritual powers, hence a paragon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dish"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1103,61 @@
     "text": "Second World War commando back in large town not unknown",
     "enumeration": "7"
    },
-   "solution": "CHINDIT"
+   "solution": "CHINDIT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CHINDIT",
+    "definitions": [
+     {
+      "text": "Second World War commando",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not unknown",
+      "for": "deletion",
+      "note": "an unknown in algebra is a letter like x or y, and this one is to be dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the back word inside the shortened town word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back",
+      "gives": "HIND",
+      "note": "hind means back or rear"
+     },
+     {
+      "clueFragment": "large town",
+      "gives": "CIT",
+      "note": "city without the Y"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HIND",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A wartime commando returns to a big town where he is recognised.",
+     "walkthrough": "'Back in' looks like a reversal instruction, but back is a word for rear.",
+     "definitionFit": "The Chindits were British special forces who fought behind Japanese lines in Burma in 1943-44."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1171,56 @@
     "text": "Bishop blessed in old case long forgotten",
     "enumeration": "8"
    },
-   "solution": "DIOCESAN"
+   "solution": "DIOCESAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DIOCESAN",
+    "definitions": [
+     {
+      "text": "Bishop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "long forgotten",
+      "for": "deletion",
+      "note": "forgotten means left out, so the abbreviation for long is dropped from the fodder"
+     },
+     {
+      "text": "blessed",
+      "for": "anagram",
+      "note": "blessed is a mild curse like blasted, implying the letters are messed up and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in old case",
+      "gives": "INODCASE",
+      "note": "the words without L, for long"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INODCASE",
+       "gives": "DIOCESAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop is consecrated inside an ancient chest that has long been forgotten.",
+     "definitionFit": "A diocesan is the bishop in charge of a diocese, as opposed to a suffragan or assistant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blessed"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1234,55 @@
     "text": "One society owning estates is isolated",
     "enumeration": "8"
    },
-   "solution": "ISLANDED"
+   "solution": "ISLANDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISLANDED",
+    "definitions": [
+     {
+      "text": "isolated",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is an abbreviation for society"
+     },
+     {
+      "clueFragment": "owning estates",
+      "gives": "LANDED",
+      "note": "landed gentry own estates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "S",
+      "LANDED"
+     ]
+    },
+    "explanation": {
+     "surface": "A club for the landed gentry is cut off from the world.",
+     "definitionFit": "To island something is to set it apart like an island, so islanded means cut off or isolated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "society"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1296,49 @@
     "text": "Help to bring about trick on leader",
     "enumeration": "7"
    },
-   "solution": "CONDUCE"
+   "solution": "CONDUCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONDUCE",
+    "definitions": [
+     {
+      "text": "Help to bring about",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trick",
+      "gives": "CON",
+      "note": "a con is a trick or swindle"
+     },
+     {
+      "clueFragment": "leader",
+      "gives": "DUCE",
+      "note": "Il Duce, the leader, was Mussolini's title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "DUCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Assisting a scheme to fool the boss.",
+     "definitionFit": "To conduce is to contribute or tend towards a result, i.e. to help bring it about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1352,67 @@
     "text": "Car picked up close to a fiddle",
     "enumeration": "7"
    },
-   "solution": "CREMONA"
+   "solution": "CREMONA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "CREMONA",
+    "definitions": [
+     {
+      "text": "fiddle",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down entry, picked up means lifted, so the word reads from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Car",
+      "gives": "MERC",
+      "note": "a Merc is a Mercedes car"
+     },
+     {
+      "clueFragment": "close to",
+      "gives": "ON",
+      "note": "on can mean next to or close to"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CREM",
+      "ON",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "MERC",
+       "to": "CREM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car was collected in an almost fraudulent deal.",
+     "walkthrough": "'Close to a' looks like an instruction to take the last letter of a, but close to means beside.",
+     "definitionFit": "A Cremona is a violin made at Cremona by the Amati, Guarneri or Stradivari, and fiddle is another word for violin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fiddle"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1426,50 @@
     "text": "Moderate peacekeepers overlooking former Liberal party leader",
     "enumeration": "7"
    },
-   "solution": "UNSTEEL"
+   "solution": "UNSTEEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNSTEEL",
+    "definitions": [
+     {
+      "text": "Moderate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "overlooking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peacekeepers",
+      "gives": "UN",
+      "note": "the UN sends peacekeepers"
+     },
+     {
+      "clueFragment": "former Liberal party leader",
+      "gives": "STEEL",
+      "note": "David Steel led the British Liberal Party from 1976 to 1988"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "STEEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Moderate peacekeepers are watching an ex-Liberal leader.",
+     "walkthrough": "In a down clue, overlooking puts the first piece above the second. 'Moderate' reads as an adjective, but it is a verb.",
+     "definitionFit": "To unsteel is to remove the hardness from, soften or relent, so to moderate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Moderate"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1483,76 @@
     "text": "Old dilapidated church, shortly before end of mass organ stops",
     "enumeration": "6"
    },
-   "solution": "DOLCES"
+   "solution": "DOLCES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DOLCES",
+    "definitions": [
+     {
+      "text": "organ stops",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dilapidated",
+      "for": "anagram",
+      "note": "something dilapidated has fallen apart, so the letters are rearranged"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of means only the last letter of the following word is kept"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "DOL",
+      "note": "the three letters of old rearranged"
+     },
+     {
+      "clueFragment": "church, shortly",
+      "gives": "CE",
+      "note": "CE abbreviates the Church of England"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of mass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOL",
+      "CE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLD",
+       "gives": "DOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ruined old church's organ falls silent shortly before the end of the service.",
+     "definitionFit": "Dolce is the name of a soft-toned organ stop, so dolces are organ stops."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stops"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1566,56 @@
     "text": "I rejected original fancy Hindu decorations",
     "enumeration": "7"
    },
-   "solution": "RANGOLI"
+   "solution": "RANGOLI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RANGOLI",
+    "definitions": [
+     {
+      "text": "Hindu decorations",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I rejected",
+      "for": "deletion",
+      "note": "rejected means thrown out, so one I is removed from the fodder"
+     },
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy suggests something elaborate and reworked, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "original",
+      "gives": "ORGINAL",
+      "note": "original with one I removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORGINAL",
+       "gives": "RANGOLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turning down unusual, elaborate Hindu ornaments.",
+     "definitionFit": "Rangoli are colourful floor patterns of powder or rice made at Hindu festivals such as Diwali."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "original"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1629,65 @@
     "text": "Foam on back of aircraft upfront",
     "enumeration": "7"
    },
-   "solution": "AEROGEL"
+   "solution": "AEROGEL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "AEROGEL",
+    "definitions": [
+     {
+      "text": "Foam",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "upfront"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aircraft",
+      "gives": "AERO",
+      "note": "aero- relates to aircraft"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket, the on side is the leg side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AERO",
+      "GEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEG",
+       "to": "GEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Foam has been sprayed on the rear of the aeroplane, and on the front too.",
+     "walkthrough": "Upfront places the aircraft piece first. The on side and leg side are the same half of a cricket field.",
+     "definitionFit": "An aerogel is an ultralight solid in which the liquid of a gel is replaced by gas, a rigid foam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1701,68 @@
     "text": "Male learner in confines of Calcutta?",
     "enumeration": "5"
    },
-   "solution": "CHELA"
+   "solution": "CHELA",
+   "annotation": {
+    "type": [
+     "container",
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "CHELA",
+    "definitions": [
+     {
+      "text": "Male learner in confines of Calcutta?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first pieces inside the boundary letters"
+     },
+     {
+      "text": "confines of",
+      "for": "container",
+      "note": "the confines of a word are its edges, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "HE",
+      "note": "he is a male pronoun"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L for learner, as on L-plates"
+     },
+     {
+      "clueFragment": "Calcutta",
+      "gives": "CA",
+      "select": "outer",
+      "note": "the first and last letters of Calcutta"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HEL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy studying within Calcutta's limits.",
+     "walkthrough": "The whole clue is also the definition: a chela is a disciple in India, and Calcutta (Kolkata) is an Indian city.",
+     "definitionFit": "A chela is a pupil or disciple of a guru in Hinduism, a learner on the Indian subcontinent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "confines"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1776,56 @@
     "text": "Shout in depression after losing wife",
     "enumeration": "5"
    },
-   "solution": "HOLLO"
+   "solution": "HOLLO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HOLLO",
+    "definitions": [
+     {
+      "text": "Shout",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after losing",
+      "for": "deletion",
+      "note": "losing means a letter is lost, so the abbreviation for wife is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "depression",
+      "gives": "HOLLOW",
+      "note": "a hollow is a depression in the ground"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife, the letter lost"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOLLO"
+     ]
+    },
+    "explanation": {
+     "surface": "Crying out in despair after a wife's death.",
+     "walkthrough": "Depression reads as low spirits, but it is a dip in the land.",
+     "definitionFit": "Hollo is a variant of holler or halloo, a call or shout to attract attention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 28,
@@ -449,7 +1839,59 @@
     "text": "A certain rolling river in part of France",
     "enumeration": "4"
    },
-   "solution": "ORNE"
+   "solution": "ORNE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORNE",
+    "definitions": [
+     {
+      "text": "part of France",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolling",
+      "for": "anagram",
+      "note": "rolling suggests tumbling over, so the letters are tossed into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A certain",
+      "gives": "ONE",
+      "note": "one can mean a certain, as in one Mr Smith"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R abbreviates river"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONER",
+       "gives": "ORNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river rolls along through a region of France.",
+     "walkthrough": "The Orne is itself a river, but here the definition is the department named after it.",
+     "definitionFit": "Orne is a department of Normandy in north-west France, an administrative region of the country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "river"
+    }
+   }
   },
   {
    "number": 29,
@@ -463,7 +1905,42 @@
     "text": "Lewd desire of male chauvinist",
     "enumeration": "4"
    },
-   "solution": "LECH"
+   "solution": "LECH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LECH",
+    "definitions": [
+     {
+      "text": "Lewd desire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of means taken out of, so the answer is a run of letters inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male chauvinist",
+      "gives": "LECH",
+      "note": "the run of letters spanning the end of male and start of chauvinist"
+     }
+    ],
+    "explanation": {
+     "surface": "The lustful urges of a sexist man.",
+     "definitionFit": "A lech, as a noun, is a lustful craving or lecherous desire, as well as the person who has it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 30,
@@ -477,7 +1954,64 @@
     "text": "Three articles written about introduction of Nigella, a goddess",
     "enumeration": "6"
    },
-   "solution": "ATHENA"
+   "solution": "ATHENA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ATHENA",
+    "definitions": [
+     {
+      "text": "a goddess",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written about",
+      "for": "container",
+      "note": "written about means set down around, so the articles enclose the introduction"
+     },
+     {
+      "text": "introduction of",
+      "for": "container",
+      "note": "the introduction of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Three articles",
+      "gives": "ATHEA",
+      "note": "the articles a, the and a"
+     },
+     {
+      "clueFragment": "Nigella",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of Nigella"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATHE",
+      "N",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Three pieces have been written on Nigella Lawson, a TV cookery goddess.",
+     "walkthrough": "Nigella Lawson, the British TV cook, is often called a domestic goddess; only her initial is used.",
+     "definitionFit": "Athena is the Greek goddess of wisdom and war, patron of Athens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nigella"
+    }
+   }
   },
   {
    "number": 31,
@@ -491,7 +2025,64 @@
     "text": "Triumph over weedy stuff by Native American ending in waffle",
     "enumeration": "8"
    },
-   "solution": "ORECROWE"
+   "solution": "ORECROWE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ORECROWE",
+    "definitions": [
+     {
+      "text": "Triumph over",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "ending in means only the final letter of the next word is kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weedy stuff",
+      "gives": "ORE",
+      "note": "ore, or oreweed, is seaweed"
+     },
+     {
+      "clueFragment": "Native American",
+      "gives": "CROW",
+      "note": "the Crow are a Native American people of Montana"
+     },
+     {
+      "clueFragment": "waffle",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of waffle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORE",
+      "CROW",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Victory over some weeds is followed by a Native American ending a long ramble.",
+     "definitionFit": "Orecrowe is Spenser's spelling of overcrow, to crow over or triumph over someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "weedy"
+    }
+   }
   },
   {
    "number": 32,
@@ -505,7 +2096,42 @@
     "text": "Charles Darwin's forensic test",
     "enumeration": "4"
    },
-   "solution": "ESDA"
+   "solution": "ESDA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ESDA",
+    "definitions": [
+     {
+      "text": "forensic test",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s",
+      "for": "hidden_word",
+      "note": "the possessive marks the test as belonging to the name, held within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charles Darwin",
+      "gives": "ESDA",
+      "note": "the letters spanning the end of Charles and start of Darwin"
+     }
+    ],
+    "explanation": {
+     "surface": "A forensic examination devised by the great naturalist.",
+     "definitionFit": "ESDA, electrostatic detection apparatus, is a forensic test revealing indented writing on paper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Darwin"
+    }
+   }
   },
   {
    "number": 33,
@@ -519,7 +2145,43 @@
     "text": "Expecting enclosure that's fortified",
     "enumeration": "8"
    },
-   "solution": "ENCEINTE"
+   "solution": "ENCEINTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ENCEINTE",
+    "definitions": [
+     {
+      "text": "Expecting",
+      "at": 0
+     },
+     {
+      "text": "enclosure that's fortified",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expecting",
+      "note": "first meaning: pregnant, from French"
+     },
+     {
+      "clueFragment": "enclosure that's fortified",
+      "note": "second meaning: the ring of walls round a fortress or town"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Expecting reads as anticipating a fortified enclosure; it is a separate meaning, pregnant.",
+     "definitionFit": "Enceinte is both an adjective meaning pregnant and a noun for the defensive wall enclosing a fortified place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Expecting"
+    }
+   }
   },
   {
    "number": 34,
@@ -533,7 +2195,53 @@
     "text": "African encampment, authentic for retreat",
     "enumeration": "4"
    },
-   "solution": "LAER"
+   "solution": "LAER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LAER",
+    "definitions": [
+     {
+      "text": "African encampment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for retreat",
+      "for": "reversal",
+      "note": "to retreat is to go backwards, so the word is read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "authentic",
+      "gives": "REAL",
+      "note": "real means authentic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAER"
+     ],
+     "reversals": [
+      {
+       "from": "REAL",
+       "to": "LAER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A genuine African camp to withdraw to.",
+     "definitionFit": "Laer is a variant of laager, the South African word for a camp defended by a circle of wagons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 35,
@@ -547,7 +2255,61 @@
     "text": "Marks right away covering gentle US terrain",
     "enumeration": "9"
    },
-   "solution": "SCABLANDS"
+   "solution": "SCABLANDS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SCABLANDS",
+    "definitions": [
+     {
+      "text": "US terrain",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "right away",
+      "for": "deletion",
+      "note": "away means sent off, so the abbreviation for right is removed"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping round, so the shortened word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marks",
+      "gives": "SCAS",
+      "note": "scars, marks, losing R for right"
+     },
+     {
+      "clueFragment": "gentle",
+      "gives": "BLAND",
+      "note": "bland means mild or gentle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCA",
+      "BLAND",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Scars disappear, giving way to soft American landscape.",
+     "walkthrough": "Gentle looks like a description of the terrain, but it is the inner piece.",
+     "definitionFit": "Scablands are bare eroded basalt plains, notably the Channeled Scablands of Washington State in the US."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gentle"
+    }
+   }
   }
  ]
 }
