@@ -23,6 +23,9 @@
   "date": "2023-08-17",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,44 @@
     "text": "Language that's often assumed to be French",
     "enumeration": "6"
    },
-   "solution": "POLISH"
+   "solution": "POLISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POLISH",
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     },
+     {
+      "text": "that's often assumed to be French",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Language",
+      "note": "first meaning: the tongue spoken in Poland"
+     },
+     {
+      "clueFragment": "that's often assumed to be French",
+      "note": "second meaning: a furniture finish"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark about a tongue people tend to mistake for French.",
+     "walkthrough": "Change the capital and the language becomes a finish: French polish is a traditional shellac finish for wood, so 'polish' is often followed by 'French'.",
+     "definitionFit": "One spelling serves as the nationality adjective of Poland and as the glossy coating that commonly carries the qualifier French."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +90,54 @@
     "text": "Embezzle money once received by means of collection in church",
     "enumeration": "8"
    },
-   "solution": "PECULATE"
+   "solution": "PECULATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PECULATE",
+    "definitions": [
+     {
+      "text": "Embezzle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "received by means of",
+      "for": "container",
+      "note": "something received is taken in, so the first piece sits inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money once",
+      "gives": "ECU",
+      "note": "the ecu was the European currency unit before the euro"
+     },
+     {
+      "clueFragment": "collection in church",
+      "gives": "PLATE",
+      "note": "the collection plate is passed round at a church service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ECU",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchwarden pocketing cash from the Sunday offering.",
+     "definitionFit": "To peculate is to steal public or entrusted funds, a formal word for embezzlement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "collection"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +151,64 @@
     "text": "What's extended for catching sun when stripped?",
     "enumeration": "7"
    },
-   "solution": "LOUNGER"
+   "solution": "LOUNGER",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LOUNGER",
+    "definitions": [
+     {
+      "text": "What's extended for catching sun when stripped?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped",
+      "for": "letter_selection",
+      "note": "stripping a word removes its outer layers, leaving only the middle letter"
+     },
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "catching means holding, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extended",
+      "gives": "LONGER",
+      "note": "extended means made longer"
+     },
+     {
+      "clueFragment": "sun",
+      "gives": "U",
+      "select": "middle",
+      "note": "the middle letter of sun once its outer letters are stripped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "U",
+      "NGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sunbed laid out flat for someone sunbathing in little or nothing.",
+     "walkthrough": "The whole clue defines a sunbed, while extended, catching and sun-stripped build it.",
+     "definitionFit": "A sun lounger is a reclining chair that lies flat by a pool or beach so people can sunbathe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stripped"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +222,60 @@
     "text": "Subversive issue, not new in South America",
     "enumeration": "9"
    },
-   "solution": "SEDITIOUS"
+   "solution": "SEDITIOUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SEDITIOUS",
+    "definitions": [
+     {
+      "text": "Subversive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not new",
+      "for": "deletion",
+      "note": "not new tells you to drop the letter that stands for new"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the letters that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "issue",
+      "gives": "EDITION",
+      "note": "an edition is an issue of a publication"
+     },
+     {
+      "clueFragment": "South America",
+      "gives": "SUS",
+      "note": "S for South and US for America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EDITIO",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "An insurgent newsletter circulating in South America.",
+     "definitionFit": "Seditious speech or action incites rebellion against the state, which is what subversive means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +289,50 @@
     "text": "Coastal path once rich in diversity",
     "enumeration": "8"
    },
-   "solution": "CORNICHE"
+   "solution": "CORNICHE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CORNICHE",
+    "definitions": [
+     {
+      "text": "Coastal path",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in diversity",
+      "for": "anagram",
+      "note": "diversity means variety, so the letters are set out in a varied, different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once rich",
+      "gives": "ONCERICH",
+      "note": "the two words supply the letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCERICH",
+       "gives": "CORNICHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaside walk that was once wealthy in its variety.",
+     "definitionFit": "A corniche is a road or way cut along a coast or cliff face, as on the Riviera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "diversity"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +360,56 @@
      }
     ]
    },
-   "solution": "ONTHEOTHERHAND"
+   "solution": "ONTHEOTHERHAND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ON THE OTHER HAND",
+    "definitions": [
+     {
+      "text": "as an alternative",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "accepting means taking in, so the outer phrase opens to hold another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Available",
+      "gives": "ONHAND",
+      "note": "on hand means available"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "THEOTHER",
+      "note": "'it' and 'the other' are both coy British euphemisms for sex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "THEOTHER",
+      "HAND"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ready to take on a task as a substitute.",
+     "walkthrough": "'A bit of the other' is British slang for sex, as is 'it'.",
+     "definitionFit": "The phrase introduces a contrasting option, offering another way of looking at things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +423,69 @@
     "text": "Lowest point of delta overwhelmed by pouring rain",
     "enumeration": "5"
    },
-   "solution": "NADIR"
+   "solution": "NADIR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NADIR",
+    "definitions": [
+     {
+      "text": "Lowest point",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pouring",
+      "for": "anagram",
+      "note": "pouring suggests a stream tumbling and splashing about, so the letters flow into a new order"
+     },
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "being overwhelmed means being engulfed, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delta",
+      "gives": "D",
+      "note": "D is delta in the NATO alphabet"
+     },
+     {
+      "clueFragment": "rain",
+      "gives": "NAIR",
+      "note": "the letters of rain rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "D",
+      "IR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAIN",
+       "gives": "NAIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river delta at its lowest ebb, flooded by heavy rain.",
+     "definitionFit": "The nadir is the point directly below an observer, figuratively the worst or lowest moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "delta"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +499,46 @@
     "text": "Deal with business matter",
     "enumeration": "7"
    },
-   "solution": "CONCERN"
+   "solution": "CONCERN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONCERN",
+    "definitions": [
+     {
+      "text": "Deal with",
+      "at": 0
+     },
+     {
+      "text": "business",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "matter"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deal with",
+      "note": "first meaning: to be about or relate to"
+     },
+     {
+      "clueFragment": "business",
+      "note": "second meaning: a firm"
+     }
+    ],
+    "explanation": {
+     "surface": "Handling a commercial affair.",
+     "walkthrough": "'Matter' gives a third sense: a concern is also a matter of interest or worry.",
+     "definitionFit": "The verb means to have as its subject, and the noun is a company or commercial enterprise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deal"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +552,81 @@
     "text": "Judge in case of extreme perverted act gets matter thrown out",
     "enumeration": "6"
    },
-   "solution": "EJECTA"
+   "solution": "EJECTA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EJECTA",
+    "definitions": [
+     {
+      "text": "matter thrown out",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "the case of a word is its outside, so only its first and last letters are used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     },
+     {
+      "text": "perverted",
+      "for": "anagram",
+      "note": "perverted means twisted out of its proper form, so the letters are distorted"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extreme",
+      "gives": "EE",
+      "select": "outer",
+      "note": "the outer letters of extreme"
+     },
+     {
+      "clueFragment": "Judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     },
+     {
+      "clueFragment": "act",
+      "gives": "CTA",
+      "note": "the letters of act rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EJE",
+      "CTA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACT",
+       "gives": "CTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge hearing an extreme case of perversion orders material expelled.",
+     "definitionFit": "Ejecta is the material thrown out by a volcano or impact, a plural noun for expelled matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 9,
@@ -190,7 +654,67 @@
      }
     ]
    },
-   "solution": "ATONEFELLSWOOP"
+   "solution": "ATONEFELLSWOOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AT ONE FELL SWOOP",
+    "definitions": [
+     {
+      "text": "suddenly",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with return of last three",
+      "for": "reversal",
+      "note": "a return sends something back, so the final three letters of that word run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make good",
+      "gives": "ATONE",
+      "note": "to atone is to make amends, or make good"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "FELLOWS",
+      "note": "fellows are men"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a musical work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATONE",
+      "FELL",
+      "SWO",
+      "OP"
+     ],
+     "reversals": [
+      {
+       "from": "OWS",
+       "to": "SWO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to reform men and set them to work at once.",
+     "definitionFit": "The idiom, from Macbeth, means all at once in a single sudden action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 10,
@@ -210,7 +734,78 @@
      }
     ]
    },
-   "solution": "COUPDETAT"
+   "solution": "COUPDETAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COUP DETAT",
+    "definitions": [
+     {
+      "text": "Hostile takeover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "marred",
+      "for": "anagram",
+      "note": "something marred is damaged, so the following word is spoilt into a new order"
+     },
+     {
+      "text": "conclusion of",
+      "for": "letter_selection",
+      "note": "the conclusion of a word is its final letter, which alone is kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "standard abbreviation for company"
+     },
+     {
+      "clueFragment": "update",
+      "gives": "UPDETA",
+      "note": "the letters of update rearranged"
+     },
+     {
+      "clueFragment": "contract",
+      "gives": "T",
+      "select": "last",
+      "note": "final letter of contract"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "UPDETA",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UPDATE",
+       "gives": "UPDETA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A corporate story: a hostile bid spoilt by a software update and a contract's end.",
+     "walkthrough": "'Hostile takeover' reads as business jargon, but the definition is political: a seizure of government.",
+     "definitionFit": "A coup d'état is a sudden, usually violent seizure of state power, a hostile takeover of a government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "takeover"
+    }
+   }
   },
   {
    "number": 11,
@@ -224,7 +819,42 @@
     "text": "Person slow to appreciate some profound uncertainties",
     "enumeration": "5"
    },
-   "solution": "DUNCE"
+   "solution": "DUNCE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DUNCE",
+    "definitions": [
+     {
+      "text": "Person slow to appreciate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words is used, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "profound uncertainties",
+      "gives": "DUNCE",
+      "note": "found spanning the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who cannot grasp deep doubts.",
+     "definitionFit": "A dunce is a slow learner, someone who struggles to understand things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "appreciate"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +868,59 @@
     "text": "Remove load from boat docked at noon",
     "enumeration": "7"
    },
-   "solution": "LIGHTEN"
+   "solution": "LIGHTEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LIGHTEN",
+    "definitions": [
+     {
+      "text": "Remove load from",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "docked",
+      "for": "deletion",
+      "note": "a docked tail is cut short, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boat",
+      "gives": "LIGHTER",
+      "note": "a lighter is a flat-bottomed barge for unloading ships"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGHTE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Unloading a vessel moored in the harbour at midday.",
+     "walkthrough": "'Docked' suggests a boat in harbour, but it means cut short: the barge loses its final R.",
+     "definitionFit": "To lighten a ship or person is to reduce the weight carried, to take off part of the burden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "docked"
+    }
+   }
   },
   {
    "number": 13,
@@ -252,7 +934,62 @@
     "text": "Serious point about France regularly ignored",
     "enumeration": "7"
    },
-   "solution": "EARNEST"
+   "solution": "EARNEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EARNEST",
+    "definitions": [
+     {
+      "text": "Serious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes around the other"
+     },
+     {
+      "text": "regularly ignored",
+      "for": "letter_selection",
+      "note": "ignoring at regular intervals means every other letter is dropped and the rest kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "point",
+      "gives": "EAST",
+      "note": "a compass point"
+     },
+     {
+      "clueFragment": "France",
+      "gives": "RNE",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters of France"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "RNE",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A sober point made about France being routinely overlooked.",
+     "walkthrough": "The compass point is split open to take the kept letters inside it, rather than standing first.",
+     "definitionFit": "Earnest means sincere and grave in intent, the opposite of joking, so it fits serious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +1003,46 @@
     "text": "Body temperature (approximately)",
     "enumeration": "5"
    },
-   "solution": "TORSO"
+   "solution": "TORSO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORSO",
+    "definitions": [
+     {
+      "text": "Body",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "standard abbreviation for temperature"
+     },
+     {
+      "clueFragment": "(approximately)",
+      "gives": "ORSO",
+      "note": "'or so' means approximately"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ORSO"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical note: the body's temperature, roughly.",
+     "definitionFit": "The torso is the trunk of the human body, without head or limbs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "approximately"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +1056,49 @@
     "text": "Making folio inscription attractive",
     "enumeration": "8"
    },
-   "solution": "FETCHING"
+   "solution": "FETCHING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FETCHING",
+    "definitions": [
+     {
+      "text": "attractive",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "Making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "folio",
+      "gives": "F",
+      "note": "F is the abbreviation for folio"
+     },
+     {
+      "clueFragment": "inscription",
+      "gives": "ETCHING",
+      "note": "an etching is a design or text cut into a surface"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ETCHING"
+     ]
+    },
+    "explanation": {
+     "surface": "An engraved inscription on a folio page makes it look lovely.",
+     "definitionFit": "Fetching is an informal adjective for charming or good-looking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Making"
+    }
+   }
   },
   {
    "number": 16,
@@ -304,7 +1122,56 @@
      }
     ]
    },
-   "solution": "HITANDRUN"
+   "solution": "HITANDRUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HIT-AND-RUN",
+    "definitions": [
+     {
+      "text": "Unreported impact",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "success",
+      "gives": "HIT",
+      "note": "a hit is a success"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "with means together with, and"
+     },
+     {
+      "clueFragment": "career",
+      "gives": "RUN",
+      "note": "to career is to rush along, run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIT",
+      "AND",
+      "RUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A high-flying career whose successes went unreported.",
+     "walkthrough": "'Career' looks like a noun for a working life but is the verb to rush headlong.",
+     "definitionFit": "A hit-and-run is a collision where the driver flees without stopping or reporting it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "career"
+    }
+   }
   },
   {
    "number": 17,
@@ -318,7 +1185,61 @@
     "text": "New programmes supporting school spirit",
     "enumeration": "8"
    },
-   "solution": "SCHNAPPS"
+   "solution": "SCHNAPPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCHNAPPS",
+    "definitions": [
+     {
+      "text": "spirit",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue supporting means placed underneath, so those parts come after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "standard abbreviation for school"
+     },
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "programmes",
+      "gives": "APPS",
+      "note": "apps are software programmes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCH",
+      "N",
+      "APPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Fresh courses backing a school's ethos.",
+     "walkthrough": "'School spirit' reads as morale; spirit alone is the definition, a strong drink.",
+     "definitionFit": "Schnapps is a strong distilled alcoholic drink, a spirit, often flavoured with fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1253,49 @@
     "text": "Terminate police officers found with crack",
     "enumeration": "8"
    },
-   "solution": "DISSOLVE"
+   "solution": "DISSOLVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISSOLVE",
+    "definitions": [
+     {
+      "text": "Terminate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police officers",
+      "gives": "DIS",
+      "note": "DIs are Detective Inspectors"
+     },
+     {
+      "clueFragment": "crack",
+      "gives": "SOLVE",
+      "note": "to crack a case is to solve it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "SOLVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives call time on a case once they have cracked it.",
+     "definitionFit": "To dissolve a parliament, partnership or marriage is to bring it formally to an end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1309,53 @@
     "text": "Humour is eluding cast",
     "enumeration": "7"
    },
-   "solution": "INDULGE"
+   "solution": "INDULGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDULGE",
+    "definitions": [
+     {
+      "text": "Humour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast",
+      "for": "anagram",
+      "note": "cast means thrown, so the letters are tossed into a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eluding",
+      "gives": "ELUDING",
+      "note": "the word supplies the letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELUDING",
+       "gives": "INDULGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Comedy that escapes the actors in a play.",
+     "definitionFit": "To humour someone is to go along with their wishes, which is to indulge them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Humour"
+    }
+   }
   },
   {
    "number": 20,
@@ -360,7 +1369,47 @@
     "text": "Mixer increasing the vibrancy of first note",
     "enumeration": "5"
    },
-   "solution": "TONIC"
+   "solution": "TONIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TONIC",
+    "definitions": [
+     {
+      "text": "Mixer",
+      "at": 0
+     },
+     {
+      "text": "first note",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "increasing the vibrancy of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mixer",
+      "note": "first meaning: ... water, added to spirits such as gin"
+     },
+     {
+      "clueFragment": "first note",
+      "note": "second meaning: the keynote, first degree of a musical scale"
+     }
+    ],
+    "explanation": {
+     "surface": "A drink mixer that livens up a scale's opening note.",
+     "walkthrough": "The middle phrase hints at a third sense: a tonic is anything that invigorates.",
+     "definitionFit": "Tonic is both the carbonated quinine drink used in G&Ts and the musical name for the home note of a key."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mixer"
+    }
+   }
   },
   {
    "number": 21,
@@ -374,7 +1423,68 @@
     "text": "The New Yorker magazine's pages originally condemned Lolita?",
     "enumeration": "7"
    },
-   "solution": "NYMPHET"
+   "solution": "NYMPHET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "NYMPHET",
+    "definitions": [
+     {
+      "text": "Lolita?",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the opening letter of each word"
+     },
+     {
+      "text": "condemned",
+      "for": "anagram",
+      "note": "something condemned is ruined, so the letters are wrecked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New Yorker magazine's pages",
+      "gives": "NYMP",
+      "select": "first",
+      "note": "the opening letters of the four words"
+     },
+     {
+      "clueFragment": "The",
+      "gives": "HET",
+      "note": "the letters of the word rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NYMP",
+      "HET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THE",
+       "gives": "HET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A literary magazine condemning Nabokov's notorious novel.",
+     "walkthrough": "The question mark flags Lolita as an example: the novel's heroine is the archetype.",
+     "definitionFit": "Nabokov's Humbert coins the word for a sexually precocious young girl, and Lolita is the type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "condemned"
+    }
+   }
   },
   {
    "number": 22,
@@ -388,7 +1498,59 @@
     "text": "Cast wanting week with good crowd",
     "enumeration": "6"
    },
-   "solution": "THRONG"
+   "solution": "THRONG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "THRONG",
+    "definitions": [
+     {
+      "text": "crowd",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so the letter that stands for week is missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cast",
+      "gives": "THROWN",
+      "note": "cast means thrown"
+     },
+     {
+      "clueFragment": "week",
+      "gives": "W",
+      "note": "W is the abbreviation for week"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THRON",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre cast lacking a week with a good audience.",
+     "definitionFit": "A throng is a large densely packed mass of people, a crowd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cast"
+    }
+   }
   },
   {
    "number": 23,
@@ -402,7 +1564,55 @@
     "text": "Time wasted in retreat's really not fair",
     "enumeration": "7"
    },
-   "solution": "HIDEOUS"
+   "solution": "HIDEOUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HIDEOUS",
+    "definitions": [
+     {
+      "text": "really not fair",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wasted in",
+      "for": "deletion",
+      "note": "something wasted is lost, so that letter disappears from inside the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "retreat's",
+      "gives": "HIDEOUTS",
+      "note": "a hideout is a hiding place or retreat, with the possessive s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIDEOU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Wasting time in a retreat is grossly unjust.",
+     "walkthrough": "'Not fair' looks like a complaint about justice, but fair here means beautiful.",
+     "definitionFit": "Fair can mean beautiful, so something very much not fair is extremely ugly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 24,
@@ -416,7 +1626,66 @@
     "text": "Group of players turned against boxing and suchlike",
     "enumeration": "5"
    },
-   "solution": "OCTET"
+   "solution": "OCTET",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "OCTET",
+    "definitions": [
+     {
+      "text": "Group of players",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxing",
+      "for": "container",
+      "note": "boxing means enclosing, so one piece surrounds the other"
+     },
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned means facing the other way, so the combined letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "TO",
+      "note": "against, as in leaning one's back to the wall"
+     },
+     {
+      "clueFragment": "and suchlike",
+      "gives": "ETC",
+      "note": "etc, et cetera, means and suchlike"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CTE",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TETCO",
+       "to": "OCTET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports team that turned against boxing and similar sports.",
+     "definitionFit": "An octet is a group of eight musicians, a set of players."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxing"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1699,39 @@
     "text": "Game in which bad play results in suspension?",
     "enumeration": "7"
    },
-   "solution": "HANGMAN"
+   "solution": "HANGMAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HANGMAN",
+    "definitions": [
+     {
+      "text": "Game in which bad play results in suspension?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad play results in suspension",
+      "note": "surface reading: foul play gets a sportsman banned"
+     },
+     {
+      "clueFragment": "Game in which bad play results in suspension?",
+      "note": "setter's reading: a pencil game where wrong guesses gradually draw a figure on a gallows"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Suspension sounds like a ban from sport; in this word-guessing game it is a drawn figure hanging from a gibbet.",
+     "definitionFit": "In the paper-and-pencil guessing game, each wrong letter adds a stroke to a drawing of an executed figure on a gibbet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suspension"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1745,63 @@
     "text": "New member of parliament initially offers women service of no use",
     "enumeration": "5"
    },
-   "solution": "OWLET"
+   "solution": "OWLET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OWLET",
+    "definitions": [
+     {
+      "text": "New member of parliament",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the next word only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "offers",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of offers"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     },
+     {
+      "clueFragment": "service of no use",
+      "gives": "LET",
+      "note": "in tennis a let is a serve that does not count and is replayed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "W",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly elected MP provides women with a useless service.",
+     "walkthrough": "A group of owls is called a parliament, so its new member is a young owl, not a fresh politician.",
+     "definitionFit": "Parliament is the collective noun for owls, and the young bird of that group is an owlet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "parliament"
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +1815,47 @@
     "text": "People who allow joint possession",
     "enumeration": "9"
    },
-   "solution": "OWNERSHIP"
+   "solution": "OWNERSHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OWNERSHIP",
+    "definitions": [
+     {
+      "text": "possession",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People who allow",
+      "gives": "OWNERS",
+      "note": "to own is to admit or allow, so owners are people who allow"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "HIP",
+      "note": "the hip is a joint of the body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OWNERS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "People who permit shared property rights.",
+     "walkthrough": "'Joint possession' reads as one legal phrase; joint belongs to the wordplay and possession alone is the definition.",
+     "definitionFit": "Ownership is the state of having legal title to something, i.e. possession of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 28,
@@ -478,7 +1875,47 @@
      }
     ]
    },
-   "solution": "GREATAPE"
+   "solution": "GREATAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREAT APE",
+    "definitions": [
+     {
+      "text": "that is mainly found in Africa",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large",
+      "gives": "GREAT",
+      "note": "great means large"
+     },
+     {
+      "clueFragment": "parrot",
+      "gives": "APE",
+      "note": "to parrot is to imitate, or ape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREAT",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A big parrot species found mostly in Africa.",
+     "walkthrough": "'Parrot' looks like the bird, but it is the verb meaning to mimic.",
+     "definitionFit": "Gorillas, chimpanzees and bonobos are African; only orangutans live in Asia, so this primate group is chiefly African."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "parrot"
+    }
+   }
   },
   {
    "number": 29,
@@ -492,7 +1929,46 @@
     "text": "Makes one university publication for teachers",
     "enumeration": "6"
    },
-   "solution": "UNITES"
+   "solution": "UNITES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNITES",
+    "definitions": [
+     {
+      "text": "Makes one",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "university",
+      "gives": "UNI",
+      "note": "short form of university"
+     },
+     {
+      "clueFragment": "publication for teachers",
+      "gives": "TES",
+      "note": "the TES, formerly the Times Educational Supplement, is a British weekly for teachers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNI",
+      "TES"
+     ]
+    },
+    "explanation": {
+     "surface": "A university newspaper aimed at teaching staff.",
+     "definitionFit": "To unite things is to join them together into a single whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Makes"
+    }
+   }
   }
  ]
 }
