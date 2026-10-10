@@ -204,6 +204,7 @@ Usage:
 import bisect
 import functools
 import gzip
+import hashlib
 import json
 import math
 import random
@@ -216,7 +217,7 @@ from types import SimpleNamespace
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
-    puzzle_files, puzzle_is_annotated, read_puzzle_file)
+    blog_fact_hashes, puzzle_files, puzzle_is_annotated, read_puzzle_file)
 import definitions
 import parallel
 import series as series_meta
@@ -713,8 +714,9 @@ def history():
 
     Higher is less familiar. Each is None until HISTORY_FLOOR earlier puzzles
     (earlier defined puzzles, for the pairing) are behind it."""
-    blog_definitions()      # loaded once, before the workers fork
-    rows = [r for r in parallel.pmap(history_row, puzzle_files()) if r]
+    import row_cache  # noqa: PLC0415
+    rows = [r for r in row_cache.cached_map("difficulty", history_row, puzzle_files(),
+                                            deps=history_row_deps, prepare=blog_definitions) if r]
     rows.sort(key=lambda r: r[0])
     seen, paired = {}, {}
     n_all = n_defined = 0
@@ -827,16 +829,30 @@ def clue_count(puz):
     return n or None
 
 
-def raw(puz, ctx):
-    """The measurements, in their natural units, before any scaling."""
-    fam = ctx.history.get(puz["id"]) or {}
-    return {"checking": checking(puz), "rarity": rarity(puz, ctx.rank),
+#: score()'s components, in the order raw() gives them.
+RAW_KEYS = ("checking", "rarity", "device", "machinery", "answer_novelty", "pairing_novelty",
+            "question_marks", "definition_unrelated", "clue_count")
+
+
+def clue_parts(puz, rank):
+    """The components read off the puzzle alone: all of raw() but the
+    familiarity history, which needs every other puzzle."""
+    return {"checking": checking(puz), "rarity": rarity(puz, rank),
             "device": device(puz), "machinery": machinery(puz),
-            "answer_novelty": fam.get("answer_novelty"),
-            "pairing_novelty": fam.get("pairing_novelty"),
             "question_marks": question_marks(puz),
             "definition_unrelated": definition_unrelated(puz),
             "clue_count": clue_count(puz)}
+
+
+def with_history(parts, fam):
+    """clue_parts() and the puzzle's history() row, as raw() gives them."""
+    fam = fam or {}
+    return {k: parts[k] if k in parts else fam.get(k) for k in RAW_KEYS}
+
+
+def raw(puz, ctx):
+    """The measurements, in their natural units, before any scaling."""
+    return with_history(clue_parts(puz, ctx.rank), ctx.history.get(puz["id"]))
 
 
 def reference(component, puz):
@@ -857,11 +873,15 @@ def score(puz, ctx):
     because a z-score is already centred: a puzzle is scored on the components
     it has, on the same scale as everything else.
     """
-    base = ctx.base
-    parts = {k: v for k, v in raw(puz, ctx).items() if v is not None}
+    return rate(raw(puz, ctx), bool(puz.get("bars")), ctx.base)
+
+
+def rate(measured, bars, base):
+    """score() from raw()'s measurements and whether the grid is barred."""
+    parts = {k: v for k, v in measured.items() if v is not None}
     zs = {}
     for k, v in parts.items():
-        ref = base.get(reference(k, puz))
+        ref = base.get(reference(k, {"bars": bars}))
         if not ref or not ref.get("sd"):
             continue
         zs[k] = (v - ref["mean"]) / ref["sd"]
@@ -888,26 +908,42 @@ def score(puz, ctx):
             "basis": sorted(zs)}
 
 
-#: (context, comments, comment_blend) for scored_row(), set by all_scores()
-#: before its workers fork.
-_SCORING = None
+#: ranks() for clue_row(), set by _load_clue_inputs() before the workers fork.
+_RANK = None
 
 
-def scored_row(path):
-    """(id, rating) for one puzzle file as all_scores() reports it, before the
-    percentile, or None for a puzzle score() cannot rate."""
-    ctx, comments, cm = _SCORING
+def _load_clue_inputs():
+    """What clue_row() reads besides its file, loaded once before the workers
+    fork, and only when some row is not stored."""
+    global _RANK
+    _RANK = ranks()
+    wordnet()
+    blog_definitions()
+
+
+def clue_row(path):
+    """(id, whether the grid is barred, clue_parts()) for one puzzle file:
+    what all_scores() needs of it besides the corpus-wide history."""
     puz = read_puzzle_file(path)
-    s = score(puz, ctx)
-    if not s:
-        return None
-    b = blend(puz["id"], s["index"], comments, cm)
-    if b is not None:
-        s["clue_index"] = s["index"]
-        s["index"] = round(b, 3)
-        s["band"] = band_of(b, ctx.base)
-        s["basis"] = s["basis"] + ["blog comments"]
-    return puz["id"], s
+    return puz["id"], bool(puz.get("bars")), clue_parts(puz, _RANK)
+
+
+def clue_row_deps(path, row):
+    """What clue_row() read besides its file and the lexicon and wordnet
+    (tools/row_cache.py): the puzzle's blog facts."""
+    return blog_fact_hashes(BLOG_FACTS).get(row[0])
+
+
+def history_row_deps(path, row):
+    """What history_row() read besides its file: the puzzle's blog facts."""
+    return row and blog_fact_hashes(BLOG_FACTS).get(row[1])
+
+
+def _files_hash(*paths):
+    h = hashlib.sha1()
+    for p in paths:
+        h.update(p.read_bytes() if p.exists() else b"absent\0")
+    return h.hexdigest()[:16]
 
 
 def all_scores(base=None):
@@ -915,14 +951,30 @@ def all_scores(base=None):
     where a Times for the Times post has enough comments stating solve times,
     that index blended with them (blend()). score() itself stays clue-only,
     because the harnesses that choose components measure it against the
-    SNITCH, and the comments are solver times too."""
-    global _SCORING
-    ctx = context(base)
-    wordnet()               # loaded once, before the workers fork
-    _SCORING = ctx, load_comments(), ctx.base.get("comment_blend") or {}
+    SNITCH, and the comments are solver times too.
+
+    Each file's clue_row() comes off tools/row_cache.py, made again only for
+    a file, blog facts, lexicon or wordnet that changed."""
+    import row_cache  # noqa: PLC0415
+    base = load_baseline() if base is None else base
+    fam, comments, cm = history(), load_comments(), base.get("comment_blend") or {}
+    rows = row_cache.cached_map("difficulty", clue_row, puzzle_files(), roots={"_load_clue_inputs"},
+                                salt=_files_hash(LEXICON, WORDNET), deps=clue_row_deps,
+                                prepare=_load_clue_inputs)
     # Keyed by ID, not number: two papers can reach the same number and the
     # caller would then get whichever was scored last.
-    out = dict(r for r in parallel.pmap(scored_row, puzzle_files()) if r)
+    out = {}
+    for pid, bars, parts in rows:
+        s = rate(with_history(parts, fam.get(pid)), bars, base)
+        if not s:
+            continue
+        b = blend(pid, s["index"], comments, cm)
+        if b is not None:
+            s["clue_index"] = s["index"]
+            s["index"] = round(b, 3)
+            s["band"] = band_of(b, base)
+            s["basis"] = s["basis"] + ["blog comments"]
+        out[pid] = s
     # The percentile is a live comparison and says so — it is the answer to
     # "how does this rank against what's on the site", which genuinely does
     # change as puzzles arrive. The band above it stays put; only this moves.

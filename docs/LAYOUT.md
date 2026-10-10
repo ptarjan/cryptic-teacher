@@ -1737,6 +1737,11 @@ tools/derive_assembly.py                      an annotation's `assembly`, worked
                                               blocks
 tools/test_derive_assembly.sh                 is `assembly` worked out from the blocks, and
                                               only with the clue's own operations?
+tools/row_cache.py                            a per-file pass over the corpus that parses only
+                                              the files it has not seen: rows stored by code
+                                              key, path and git blob under the git common dir
+                                              (reindex's index rows, difficulty's history and
+                                              clue rows)
 tools/clue_index.py                           which puzzle files share clues: normalised clue
                                               text -> puzzle ids
 tools/test_placeholder_clues.sh               a puzzle whose clues are pointers at clues
@@ -1967,6 +1972,10 @@ tools/deleted_paths.py                        the commit that last deleted a pat
 tools/test_deleted_paths.sh                   does deleted_paths.last_deletion() give what `git
                                               log -1 --diff-filter=D -- <path>` gives, as HEAD
                                               moves forward, back, sideways and is rewritten?
+tools/test_row_cache.sh                       does row_cache re-parse exactly the files whose
+                                              row could change (an edited file, a changed
+                                              dependency, new code), and is every data file a
+                                              cached row reads in its key?
 tools/test_clue_index.sh                      does StoredClueIndex answer exactly what
                                               ClueIndex.build() answers, as files are added,
                                               edited and deleted, and when its store is corrupt?

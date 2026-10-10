@@ -697,6 +697,27 @@ def _blog_facts(series):
     return _FactsFile(path) if path.exists() else {}
 
 
+@functools.lru_cache(maxsize=None)
+def blog_fact_hashes(directory=BLOG_FACTS):
+    """{puzzle id: a hash of every line the blog facts in `directory` hold for
+    it, in every file}: what a row read off a puzzle's blog facts depends on
+    (tools/row_cache.py), found without parsing them. A line opening with a
+    quoted id starts that id's facts; the lines after it, up to the next id,
+    are its too."""
+    found, h = {}, None
+    for f in sorted(directory.glob("*.json")):
+        with f.open("rb") as fh:
+            for line in fh:
+                if line.startswith(b'"'):
+                    pid = line[1:line.index(b'"', 1)].decode()
+                    h = found.setdefault(pid, hashlib.sha1())
+                    h.update(f.name.encode() + b"\0")
+                if h is not None:
+                    h.update(line)
+        h = None
+    return {pid: v.hexdigest()[:16] for pid, v in found.items()}
+
+
 def blog_facts_for(puzzle):
     """This puzzle's row of tools/data/blog_facts/, or None: the blog, its
     name, the post's url, and per entry id what the write-up marks."""
@@ -2723,6 +2744,16 @@ def index_row(path):
     }
 
 
+def index_row_deps(path, row):
+    """What index_row() read or wrote besides the puzzle file
+    (tools/row_cache.py): the puzzle's blog facts, whether a blog found a
+    nina in it, and the shim on disk, so a deleted or overwritten shim is
+    written again."""
+    shim = shim_path(path)
+    return (blog_fact_hashes().get(row["id"]), row["id"] in puzzle_tags.blogged_ninas(),
+            hashlib.md5(shim.read_bytes()).hexdigest()[:8] if shim.exists() else None)
+
+
 def reprint_name(series, number):
     """"Globe and Mail cryptic crossword No 3,146": the name the reprinting
     paper printed over the puzzle, in the shape its own feed's names take."""
@@ -2772,8 +2803,9 @@ def reindex():
         print(f"difficulty scoring skipped: {err}")
         ratings, snitch = {}, {}
 
-    import parallel
-    puzzles = parallel.pmap(index_row, puzzle_files())
+    import row_cache
+    puzzles = row_cache.cached_map("fetch_puzzle", index_row, puzzle_files(),
+                                   roots={"index_row_deps"}, deps=index_row_deps)
     big = puzzle_tags.big_grids([(row["id"], row["series"], row.pop("area")) for row in puzzles])
     reprints = reprint_rows(puzzles)
     for row in puzzles:
