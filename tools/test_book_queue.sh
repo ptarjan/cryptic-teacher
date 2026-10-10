@@ -150,6 +150,25 @@ check "and records a no_puzzles row with its reason, found 0" "True 0" \
   "$(q2 "bool(q.no_puzzles('$real')), q.reads()['$real']['found']")"
 check "and is not due again" "False" "$(q2 "q.due('$real')")"
 
+# A light whose number the OCR lost (light_spec's None) is kept as a reading
+# without a number: a formatted "None" would be a word the clue vote reads as
+# its lost opening.
+check "a reprint light with no number is written without one" \
+  "ACROSS|Lost number clue (5)|7 Kept clue (4)|DOWN|" \
+  "$(cd "$tree/tools" && python3 -c '
+import book_queue as q
+p = q.save_reprint("times-1", "leaf", 1, [[None, 5, "x", {"clue": "Lost number clue", "enumeration": "5"}],
+                                          [7, 4, "x", {"clue": "Kept clue", "enumeration": "4"}]], [], root=".")
+print("|".join(p.read_text().splitlines()) + "|")')"
+# Nor does any stored reading carry one (every line save_reprint wrote opens on
+# its number, so a line opening on "None" is a formatted lost number).
+check "no stored reprint reading opens a line on a formatted None" "" \
+  "$(cd "$REPO/tools" && env -u CT_DOWNLOADS python3 -c '
+import book_queue as q, pathlib
+d = pathlib.Path(q.REPRINT_DIR)
+print(" ".join(str(p) for p in sorted(d.glob("*/*.txt")) if d.is_dir()
+               and any(l.startswith("None ") for l in p.read_text(encoding="utf-8", errors="replace").splitlines())))')"
+
 # The real registries must still parse and agree with each other, since the
 # fixtures above cannot catch a row that lost its identifier.
 (cd "$REPO" && python3 tools/book_queue.py >/dev/null 2>&1)
