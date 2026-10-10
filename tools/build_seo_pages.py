@@ -961,7 +961,7 @@ def hub_page(idx):
     who = papers(idx)                 # "Guardian, Independent and Observer"
     n_all = sum(1 for p in idx["puzzles"] if p.get("hasSolutions"))
     title = "Cryptic crossword answers and explanations, by paper and year"
-    desc = (f"Answers to {n_all:,} cryptic crosswords from the {who}, sorted by paper "
+    desc = (f"Answers to cryptic crosswords from the {who}, sorted by paper "
             "and year. Many are explained clue by clue: the definition, the wordplay and "
             "how they fit together.")
     canonical = f"{BASE}/puzzles/"
@@ -1024,13 +1024,14 @@ def listing_page(series, year, ps, prev_year, next_year):
     blogged = sum(1 for p in ps if p.get("blog"))
     # How many are explained is counted, not claimed: a year of answers-only
     # puzzles must not promise wordplay in its search snippet.
+    # No counts either way: a search snippet never quotes the archive's size.
     ours = ("Every one is explained clue by clue." if explained == len(ps) else
-            f"{explained:,} of them are explained clue by clue." if explained else "")
+            "Some are explained clue by clue." if explained else "")
     theirs = ("" if not blogged else
               "Every one has hints marked up from a solving blog's write-up."
               if blogged == len(ps) else
-              f"{blogged:,} have hints marked up from a solving blog's write-up.")
-    desc = (f"All {len(ps):,} {name} crosswords"
+              "Some have hints marked up from a solving blog's write-up.")
+    desc = (f"{name} crosswords"
             + (f" from {year}" if year != UNDATED else " with no publication date")
             + " on this site, with the answer to every clue. "
             + (" ".join(filter(None, (ours, theirs))) or "Explanations are not written yet."))
@@ -1863,17 +1864,51 @@ def sitemaps(idx, pages=()):
 
 # ------------------------------------------------------- homepage crawl links
 
-def homepage_nav(idx):
-    """The links that give a crawler somewhere to go from the homepage.
+def homepage_latest(idx, today):
+    """Each paper's newest puzzle, for the homepage, and the papers with none.
 
-    Without these the static pages exist but nothing points at them except the
-    sitemap, and a sitemap-only URL is treated as a much weaker signal than one
-    that is actually linked. The archive link reaches every puzzle through the
-    series listings; no puzzle is linked by name, since a handful picked out of
-    the archive reads as random. A new puzzle is found through the recent
-    sitemap.
+    A paper still printing (newest puzzle within RECENT_DAYS) gets a line: its
+    name links its series page, its number opens the solver, and a small
+    "answers" link reaches the answer page, as an archive row does. The rest
+    (books, finished archives) are one line of series links. Every series page
+    and every newest answer page is then a link from the front door, which is
+    how a crawler finds them; the sitemap alone is a weak signal.
+    """
+    lines, others = [], []
+    cut = today - timedelta(days=RECENT_DAYS)
+    for s, years in listings(idx).items():
+        hub = f'<a href="{site_url(series_path(s))}">{esc(series_name(s))}</a>'
+        p = next(iter(years.values()))[0]
+        day = None if series_meta.is_book(s) else series_meta.puzzle_day(p)
+        if not day or day < cut:
+            others.append(hub)
+            continue
+        setter = p.get("setter") or ""
+        by = f" by {esc(setter)}" if setter and setter != kind(p) else ""
+        title, when = ((row_date(p), "") if number_day(p)
+                       else (display_number(p), row_date(p)))
+        parts = [hub, f'<a href="{solve_url(p["id"])}">{esc(title)}</a>{by}']
+        if when:
+            parts.append(esc(when))
+        parts.append(f'<a class="p-answers" href="{BASE}/puzzles/{p["id"]}/">answers</a>')
+        lines.append(f"<li>{build_abbreviations.LIST_SEP.join(parts)}</li>")
+    return lines, others
+
+
+def homepage_nav(idx, today=None):
+    """The links that give a crawler somewhere to go from the homepage: the
+    learn pages, the archive, every series page and each paper's newest puzzle
+    (homepage_latest). No older puzzle is linked by name, since a handful
+    picked out of the archive reads as random; those are reached through the
+    series pages and the sitemaps.
     """
     solved = [p for p in idx["puzzles"] if p.get("hasSolutions")]
+    lines, others = homepage_latest(idx, today or london_today())
+    latest = ("" if not lines else
+              '\n  <h2>Latest puzzles</h2>\n  <ul class="seo-latest">\n    '
+              + "\n    ".join(lines) + "\n  </ul>")
+    more = ("" if not others else
+            f'\n  <p>More papers: {build_abbreviations.LIST_SEP.join(others)}.</p>')
     return f"""{NAV_START}
 <section class="seo-nav">
   <h2>Answers and explanations</h2>
@@ -1885,7 +1920,7 @@ def homepage_nav(idx):
      <a href="{BASE}/indicators/">indicators</a>, read
      <a href="{BASE}/difficulty/">how difficulty is rated</a>, see
      <a href="{BASE}/showcase/">puzzles with something unusual about them</a>, or browse
-     <a href="{BASE}/puzzles/">all {len(solved):,} puzzles</a>.</p>
+     <a href="{BASE}/puzzles/">all {len(solved):,} puzzles</a>.</p>{latest}{more}
 </section>
 {NAV_END}"""
 
