@@ -580,6 +580,7 @@ LAYOUT = [
     ("fetching", "tools/test_session_ids.sh", "does every `claude -p` in tools/ name its conversation, so a run stopped from outside is resumed rather than bought again?"),
     ("fetching", "tools/load_watch.py", "wake the room when the machine is overloaded, with who is using the CPU"),
     ("fetching", "tools/test_load_watch.sh", "does load_watch.py rank CPU by job, charge exited children to their parent, and wake only on two high runs in a row, once an hour unless the top consumer changes?"),
+    ("fetching", "tools/dir_cache.py", "what a planner re-reads every minute off a slow disk, kept until it moves"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

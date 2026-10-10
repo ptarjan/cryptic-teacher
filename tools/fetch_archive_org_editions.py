@@ -141,6 +141,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+import dir_cache
 import downloads
 
 UA = "cryptic-teacher-fetcher/1.0 (cryptic-teacher@paulisageek.com)"
@@ -554,17 +555,56 @@ def detect(text):
     return score, enums, headings[:12]
 
 
+def _fold_done(done, line):
+    parts = line.decode().rstrip("\n").split("\t")
+    if len(parts) == 3 and parts[2] == str(DETECTOR_VERSION):
+        done.add((parts[0], parts[1]))
+
+
+#: {edition dir: (dirs read, their dir_cache.dir_key, stale(edition dir))}
+#: of each verdict whose dirs had all settled (load_done).
+_STALE = {}
+
+
 def load_done(out):
-    done = set()
-    path = os.path.join(out, "done.tsv")
-    if os.path.exists(path):
-        with one_pass(), open(path) as f:
-            for line in f:
-                parts = line.rstrip("\n").split("\t")
-                if len(parts) == 3 and parts[2] == str(DETECTOR_VERSION) \
-                        and not stale(os.path.join(out, parts[0], slug_of(parts[0], parts[1]))):
-                    done.add((parts[0], parts[1]))
+    """{(item, edition)} of done.tsv's rows at DETECTOR_VERSION that are not
+    stale. done.tsv is parsed only as far as it grew (dir_cache.appended);
+    an edition's stale verdict is kept until a dir it read (stale_dirs)
+    moves its dir_cache.dir_key."""
+    rows = dir_cache.appended(os.path.join(out, "done.tsv"), set, _fold_done)
+    done, keys = set(), {}
+
+    def key(d):
+        if d not in keys:
+            try:
+                k, settled = dir_cache.dir_key(d)
+            except (FileNotFoundError, NotADirectoryError):
+                k, settled = None, False
+            keys[d] = k if settled else None
+        return keys[d]
+
+    with one_pass():
+        for item, name in rows:
+            d = os.path.join(out, item, slug_of(item, name))
+            hit = _STALE.get(d)
+            if hit is None or [key(x) for x in hit[0]] != hit[1]:
+                dirs = stale_dirs(d)
+                ks = [key(x) for x in dirs]
+                hit = (dirs, ks, stale(d))
+                if None in ks:
+                    _STALE.pop(d, None)
+                else:
+                    _STALE[d] = hit
+            if not hit[2]:
+                done.add((item, name))
     return done
+
+
+def stale_dirs(d):
+    """The dirs whose files stale(d) reads: the edition's, those of the
+    siblings it counts (sibling_dirs) and those listed to find them."""
+    editions, listed = sibling_dirs(d)
+    return [os.fspath(x) for x in (d, *editions, *listed)]
 
 
 def append(out, fname, fields):
@@ -645,20 +685,25 @@ def iso_day(text):
 
 
 def sibling_pages(edition_dir):
-    """The pages.json paths prior_leaves counts: those of the item's other
-    editions, or, for an item holding this edition alone, those of the
-    NEIGHBOURS items nearest it by date named like it up to the date
-    ("per_times_the-times_1930-02-17_45439": "per_times_the-times")."""
+    """The pages.json paths prior_leaves counts: those of sibling_dirs."""
+    return [e / "pages.json" for e in sibling_dirs(edition_dir)[0]]
+
+
+def sibling_dirs(edition_dir):
+    """(editions, listed): the dirs of the item's other editions, or, for an
+    item holding this edition alone, those of the NEIGHBOURS items nearest it
+    by date named like it up to the date ("per_times_the-times_1930-02-17_45439":
+    "per_times_the-times"); and the dirs listed to find them."""
     d = Path(edition_dir)
-    own = [d.parent / e / "pages.json" for e in memo(d.parent, subdirs) if e != d.name]
+    own = [d.parent / e for e in memo(d.parent, subdirs) if e != d.name]
     m = ITEM_DATED.fullmatch(d.parent.name)
     day = m and iso_day(m[2])
     if own or not day:
-        return own
+        return own, [d.parent]
     near = sorted((abs(iso_day(date) - day), item) for prefix, date, item in memo(d.parent.parent, dated_items)
                   if prefix == m[1] and item != d.parent.name)
-    return [d.parent.parent / item / e / "pages.json" for _, item in near[:NEIGHBOURS]
-            for e in memo(d.parent.parent / item, subdirs)]
+    items = [d.parent.parent / item for _, item in near[:NEIGHBOURS]]
+    return [i / e for i in items for e in memo(i, subdirs)], [d.parent, d.parent.parent, *items]
 
 
 def subdirs(path):

@@ -166,6 +166,7 @@ import trove_solution_ocr
 import vlm_reader as vlm
 from file_penguin_puzzle import separators
 from groups import entry_id
+import dir_cache
 import downloads
 import edition_commit
 from edition_commit import filer_path, held_paths, strayed  # noqa: F401 -- ocr_remote's and the tests'
@@ -1598,8 +1599,8 @@ def edition_dirs(cache=CACHE, paper=None):
     decade the fetch has."""
     if not cache.exists():
         return []
-    years = [sorted(d for d in (item / n for n in listed(item)) if "pages.json" in listed(d))
-             for item in (cache / n for n in listed(cache))
+    years = [sorted(d for d in (item / n for n in dir_cache.listed(item)) if "pages.json" in dir_cache.listed(d))
+             for item in (cache / n for n in dir_cache.listed(cache))
              if any(p.item.match(item.name) for p in (paper or TIMES, *(paper or TIMES).also))]
     out = []
     for k in range(max(map(len, years), default=0)):
@@ -3045,44 +3046,9 @@ SCAN_ROOTS = {"scan"}
 _SCAN_KEY = []
 
 
-#: {dir: ((inode, mtime, ctime), sorted names, {derived value: value})}
-#: of each settled dir listed (_seen).
-_SEEN = {}
-#: Seconds since a dir's last change before its listing is kept: a change
-#: within one tick of the filesystem's clock leaves the mtime unmoved.
-SETTLED = 10
-
-
-def _seen(d):
-    """Dir `d`'s _SEEN entry, listed afresh only when its (inode, mtime,
-    ctime) moved. Every writer of an edition dir adds, replaces or removes
-    an entry (fetch_archive_org_editions.write_atomic, gale_inbox.stage's
-    rename and relink), which moves them, so an unmoved key is unmoved
-    files."""
-    st = os.stat(d)
-    key = (st.st_ino, st.st_mtime_ns, st.st_ctime_ns)
-    hit = _SEEN.get(d)
-    if hit and hit[0] == key:
-        return hit
-    hit = (key, sorted(os.listdir(d)), {})
-    if time.time() - st.st_mtime > SETTLED:
-        _SEEN[d] = hit
-    else:
-        _SEEN.pop(d, None)
-    return hit
-
-
-def listed(d):
-    """The sorted names in dir `d` ([] when it is no dir)."""
-    try:
-        return _seen(d)[1]
-    except (FileNotFoundError, NotADirectoryError):
-        return []
-
-
 def input_hash(d):
     """The edition's files by name and size."""
-    _, names, memo = _seen(d)
+    _, names, memo = dir_cache.seen(d)
     if "inputs" not in memo:
         h = hashlib.sha256()
         for n in names:
@@ -3207,38 +3173,15 @@ def load_known(ledger):
     return {k: _known_row(row) for k, row in scan_queue.ledger_rows(ledger, "edition").items()}
 
 
-#: {ledger: (inode, bytes read, their last 64 bytes, {edition: row})} as
-#: plan() last read it (_planned_known).
-_KNOWN = {}
+def _fold_known(known, line):
+    row = json.loads(line)
+    known[row["edition"]] = _known_row(row)
 
 
 def _planned_known(ledger):
     """load_known(ledger) for plan(), which reads its rows and changes none:
-    only the whole lines appended since the last call are parsed. A ledger
-    is appended to (scan_queue.append) or replaced whole (compact, a
-    rescan's rewrite: a new inode); a ledger cut or rewritten in place is
-    read whole again, as is one whose bytes before the mark moved."""
-    try:
-        fh = open(ledger, "rb")
-    except FileNotFoundError:
-        _KNOWN.pop(ledger, None)
-        return {}
-    with fh:
-        st = os.fstat(fh.fileno())
-        ino, done, tail, known = _KNOWN.get(ledger, (None, 0, b"", None))
-        if (known is None or ino != st.st_ino or st.st_size < done
-                or os.pread(fh.fileno(), len(tail), done - len(tail)) != tail):
-            done, tail, known = 0, b"", {}
-        fh.seek(done)
-        data = fh.read()
-    end = data.rfind(b"\n") + 1
-    for line in data[:end].split(b"\n"):
-        if line.strip():
-            row = json.loads(line)
-            known[row["edition"]] = _known_row(row)
-    done += end
-    _KNOWN[ledger] = (st.st_ino, done, (tail + data[:end])[-64:], known)
-    return known
+    only the lines appended since the last call are parsed (dir_cache.appended)."""
+    return dir_cache.appended(ledger, dict, _fold_known)
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,

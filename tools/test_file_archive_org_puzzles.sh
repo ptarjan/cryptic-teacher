@@ -914,7 +914,7 @@ check("a Gale page is the Gale run's, never the Times run's, and files as the Ti
       (["1974-05-01_1", "1990-01-02_3", "1974-05-02_2"], ["1987-03-02"], "gale", "times", "filed-gale.jsonl"),
       ([d.name for d in f.edition_dirs(cache)], [d.name for d in f.edition_dirs(cache, f.GALE)],
        f.paper_of(cache / "GaleTimes1987UKEnglish" / "x").key, f.GALE.series, f.LEDGER_NAMES["gale"]))
-# plan() lists a settled dir once (_seen): a replaced file, a new edition or
+# plan() lists a settled dir once (dir_cache.seen): a replaced file, a new edition or
 # a moved ledger row each make an edition due again; a fresh dir is not kept.
 import scan_queue, time
 f.vlm.reachable = lambda *a, **k: False
@@ -937,7 +937,7 @@ scan_queue.append(pl, [settled_row(e1)])
 settle(pc)
 due = lambda: [(u["kind"], u["rel"].split("/")[1], u["reason"]) for u in sum(f.plan(f.TIMES, pc), [])]
 check("a settled edition whose row is current is due for nothing, and its listing is kept", ([], True),
-      (due(), e1 in f._SEEN))
+      (due(), e1 in f.dir_cache._SEEN))
 old = os.stat(e1).st_mtime_ns
 (e1 / "leaf_0001.tmp").write_bytes(b"xy")
 os.replace(e1 / "leaf_0001.tmp", e1 / "leaf_0001.jpg")
@@ -956,7 +956,7 @@ scan_queue.compact(pl, "edition")
 check("a ledger replaced whole (compact) plans the same", [("read", "1981-02-03_1", "inputs changed")], due())
 (e2 / "pages.json").write_text("{\"x\": 1}")
 check("a dir changed within SETTLED is listed afresh, an in-place write seen", (False, "scan stale"),
-      (e2 in f._SEEN, dict((r, why) for _, r, why in due()).get("1981-05-06_2")))
+      (e2 in f.dir_cache._SEEN, dict((r, why) for _, r, why in due()).get("1981-05-06_2")))
 check("filer_of: each edition to the run that reads it (the 1930 Times the Times run's)",
       ["gale", "times", "times", "ft", None],
       [getattr(f.filer_of(r), "key", None) for r in ("GaleTimes1987UKEnglish/1987-03-02", "NewsUK1990UKEnglish/x",

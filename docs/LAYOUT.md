@@ -1991,5 +1991,7 @@ tools/test_load_watch.sh                      does load_watch.py rank CPU by job
                                               children to their parent, and wake only on two
                                               high runs in a row, once an hour unless the top
                                               consumer changes?
+tools/dir_cache.py                            what a planner re-reads every minute off a slow
+                                              disk, kept until it moves
 ```
 <!-- LAYOUT-END -->
