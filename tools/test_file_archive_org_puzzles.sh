@@ -975,6 +975,28 @@ check("a ledger replaced whole (compact) plans the same", [("read", "1981-02-03_
 (e2 / "pages.json").write_text("{\"x\": 1}")
 check("a dir changed within SETTLED is listed afresh, an in-place write seen", (False, "scan stale"),
       (e2 in f.dir_cache._SEEN, dict((r, why) for _, r, why in due()).get("1981-05-06_2")))
+# A Times puzzle's solution prints in the next issue, which may be a Gale page
+# alone (archive.org lacks that issue), and the reverse: each run sees the
+# other ledger's last headings, so a heading read there makes it due.
+e3 = pc / "NewsUK1981UKEnglish" / "1981-06-19_3"
+e3.mkdir()
+(e3 / "pages.json").write_text("{}")
+found3 = {"puzzles": [{"number": 15556, "leaf": 20}], "solutions": []}
+fh3 = f.input_hash(e3)
+scan_queue.append(pl, [settled_row(e2), settled_row(e1),
+                       {**settled_row(e3), "scan": found3, "inputs": f.inputs_of(fh3, found3, f.TIMES.series),
+                        "verdicts": [{"number": 15556}]}])
+settle(e3, e3.parent, pc)
+check("an archive.org puzzle with no solution heading anywhere is due for nothing", [], due())
+g3 = "GaleTimes1981UKEnglish/1981-06-20"
+scan_queue.append(pc / f.LEDGER_NAMES["gale"], [{"edition": g3, "scan": {"puzzles": [{"number": 15557, "leaf": 0}],
+                                                                       "solutions": [{"number": 15556, "leaf": 0}]}}])
+check("its solution heading read in the Gale page of the next issue makes it due, the solution's dir that page",
+      ([("read", "1981-06-19_3", "inputs changed")], pc / g3, {}),
+      (due(), f.sister_solutions(pc, f.TIMES)[15556]["dir"], f.sister_solutions(pc, f.FT)))
+scan_queue.append(pl, [{**settled_row(e2), "scan": {"puzzles": [], "solutions": [{"number": 15557, "leaf": 1}]}}])
+check("and a Gale run sees the archive.org scans' headings", {15557: pc / "NewsUK1981UKEnglish" / "1981-05-06_2"},
+      {n: s["dir"] for n, s in f.sister_solutions(pc, f.GALE).items()})
 check("filer_of: each edition to the run that reads it (the 1930 Times the Times run's)",
       ["gale", "times", "times", "ft", None],
       [getattr(f.filer_of(r), "key", None) for r in ("GaleTimes1987UKEnglish/1987-03-02", "NewsUK1990UKEnglish/x",

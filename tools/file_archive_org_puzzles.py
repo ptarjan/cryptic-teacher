@@ -3209,6 +3209,22 @@ def _planned_known(ledger):
     return dir_cache.appended(ledger, dict, _fold_known)
 
 
+def sister_solutions(cache, paper):
+    """{number: solution heading, its "dir" set} from the last scans in the
+    ledgers of `paper`'s series' other FILERS, scanning nothing: the solution
+    to a Times puzzle archive.org holds prints in the next issue, which may be
+    a Gale page alone, and the reverse. A run's own headings come first."""
+    out = {}
+    for p in FILERS.values():
+        path = ledger_of(cache, p)
+        if p is paper or p.series != paper.series or not path.exists():
+            continue
+        for rel, row in _planned_known(path).items():
+            for s in (row.get("scan") or {}).get("solutions", ()):
+                out.setdefault(s["number"], {**s, "dir": Path(cache) / rel})
+    return out
+
+
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
         source=SOURCE, paper=None, seconds=None, workers=1, wait=False, reread=None, editions=None, scan_new=True,
         newer=None):
@@ -3357,7 +3373,7 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
     stale = [d for d in dirs if not scan_current(known.get(rels[d]), input_hash(d))]
     stale_set = set(stale)
     scans = {rels[d]: (known.get(rels[d]) or {}).get("scan") or {"puzzles": [], "solutions": []} for d in every}
-    solutions = {s["number"] for d in every for s in scans[rels[d]]["solutions"]}
+    solutions = {s["number"] for d in every for s in scans[rels[d]]["solutions"]} | set(sister_solutions(cache, paper))
     asked = set(asked)
     reads = {}
     for d in dirs:
@@ -3546,6 +3562,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     for d in dirs:
         for s in scans[rels[d]]["solutions"]:
             solutions.setdefault(s["number"], {**s, "dir": d})
+    solutions = {**sister_solutions(cache, paper or TIMES), **solutions}
     due = {}
     for d in dirs:
         rel = rels[d]
