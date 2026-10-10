@@ -528,7 +528,7 @@ MATCH_MARGIN = 0.05
 MATCH_SPREAD, MATCH_TRIES, MATCH_CELLS = 0.15, 4, 3
 
 
-def matched_letters(read, glyphs, numbers, lts, allowed=None, printed=None):
+def matched_letters(read, glyphs, numbers, lts, allowed=None, printed=None, models=None):
     """{cell: letter} for the cells `read` ({cell: letter}, the recogniser's
     sure letters of the cells with no clue number) leaves unread, by glyph:
     each is matched to the mean glyph of each letter read (letter_models),
@@ -542,7 +542,7 @@ def matched_letters(read, glyphs, numbers, lts, allowed=None, printed=None):
     until none settles. A crossing it fills must be known() too, or a word
     a recogniser read that light as whole (`printed`: {light key: reads};
     a name such as OTRANTO is no known() word)."""
-    models = letter_models(glyphs, read)
+    models = models or letter_models(glyphs, read)
     tries = {}
     for rc in glyphs:
         if rc not in read:
@@ -589,6 +589,17 @@ def matched_letters(read, glyphs, numbers, lts, allowed=None, printed=None):
                 out.update(words[0][1])
                 settled = True
     return out
+
+
+def unnumbered_reads(plain, bare, glyphs, read, numbers):
+    """{cell: letter} for the numbered cells of a grid that prints no clue
+    numbers, read like any other cell: where the plain and corner-blanked
+    reads (`plain`, `bare`: sure_letters) give one letter and it is the
+    whole glyph's best match to the letters `read` elsewhere. The recogniser
+    reads a light's first I as a sure T; the glyph tells them apart."""
+    models = letter_models(glyphs, read)
+    return {rc: ch for rc, ch in plain.items() if rc in numbers and bare.get(rc) == ch
+            and [m for m, _ in ranked(glyphs[rc], models, unnumbered(None))[:1]] == [ch]}
 
 
 def framed_rules(gray, grid):
@@ -645,6 +656,12 @@ def read_framed(image, grid):
     # grid prints no numbers (numbers_printed) the blanked read only adds
     # letters: blanking a bare corner makes a D a sure J, an A a sure K.
     blanked, blanked_full = read_lights(lts, unmarked)
+    glyphs = {rc: glyph(gray, ys, xs, *rc) for cells in lts.values() for rc in cells}
+    # Letter models come from the plain cells alone: a numbered cell's
+    # glyph, laid first, shifts every model of its letter.
+    models = letter_models(glyphs, read)
+    if not marked:
+        read.update(unnumbered_reads(sure_letters(sure), sure_letters(blanked), glyphs, read, numbers))
     allowed = {}
     for words in (full, blanked_full):
         for key, ws in words.items():
@@ -654,21 +671,20 @@ def read_framed(image, grid):
     for reads in (read, sure_letters(blanked) if marked else {}):
         for rc, ch in reads.items():
             allowed[rc] = allowed.get(rc, set()) & {ch}
-    glyphs = {rc: glyph(gray, ys, xs, *rc) for cells in lts.values() for rc in cells}
     printed = {k: full.get(k, set()) | blanked_full.get(k, set()) for k in lts}
-    matched = matched_letters(read, glyphs, numbers, lts, allowed, printed)
+    matched = matched_letters(read, glyphs, numbers, lts, allowed, printed, models)
     letters = {**read, **matched}
     # A light read_answers' plain reading accepts (every cell sure, the whole
     # word read) stands too where each numbered cell's sure letter is its
     # glyph's best match and no letter above says otherwise.
-    every, models = sure_letters(sure), letter_models(glyphs, read)
+    every = sure_letters(sure)
     accepted = {}
     for key, cells in lts.items():
         if all(rc in letters for rc in cells):
             word = "".join(letters[rc] for rc in cells)
             if answer(word, printed[key]):
                 accepted[key] = word
-        elif all(rc in every for rc in cells):
+        if key not in accepted and all(rc in every for rc in cells):
             word = "".join(every[rc] for rc in cells)
             if word in full.get(key, ()) and known(word) and all(
                     letters.get(rc, ch) == ch for rc, ch in zip(cells, word)) and all(

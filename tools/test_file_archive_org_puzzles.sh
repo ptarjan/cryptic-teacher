@@ -130,6 +130,14 @@ check("a refusal read before its cause's fix is due; after it, or another cause,
       [f.due_reason(refused("not-a-grid", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(refused("not-a-grid", "2099-01-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(refused("crashed", "2026-10-01T00:00:00+00:00"), "h", [], "v")])
+part = lambda acc, refusal, at: {**refused(None, at), "verdicts": [
+    {"number": 1, "solution": {"accepted": acc, "lights": 30, **({"refused": refusal} if refusal else {})}}]}
+check("a solution grid read in part before the partial fix is due; read whole, refused, or after it is not",
+      ["solution read in part before its fix", None, None, None],
+      [f.due_reason(part(20, None, "2026-10-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(part(30, None, "2026-10-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(part(0, "its blocks are not the puzzle's", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(part(20, None, "2099-01-01T00:00:00+00:00"), "h", [], "v")])
 # Real titles the pass found no title on (no-crossword-found):
 # "Times" garbled past one word, a mark after Crossword, "No" run on or
 # dropped, a space in the number, its 1 read as i.
@@ -1158,6 +1166,24 @@ inner = list(map(float, edges))
 check("a grid printing its clue numbers is read as one; the same letters without them are not",
       (True, False), tuple(bool(tso.numbers_printed(solution_ink(n), inner, inner, numbered, cells))
                            for n in (True, False)))
+# unnumbered_reads(): in a grid printing no numbers a numbered cell takes the
+# letter its plain and blanked reads agree on surely, unless its whole glyph
+# best matches another letter (a light's first I read as a sure T lost
+# INSTEP, filed TRILOGY's I as T).
+gside = tso.GLYPH + 2 * tso.GLYPH_SHIFT
+def drawn_letter(ch):
+    g = np.zeros((gside, gside), np.float32)
+    g[6:32, 17:22] = 1
+    if ch == "T":
+        g[6:11, 8:31] = 1
+    return g
+glyphs = {(0, 1): drawn_letter("I"), (0, 2): drawn_letter("T"), (1, 0): drawn_letter("I"),
+          (2, 0): drawn_letter("T"), (3, 0): drawn_letter("T")}
+read = {(0, 1): "I", (0, 2): "T"}
+numbered = {(1, 0): 1, (2, 0): 2, (3, 0): 3}
+check("a numbered cell read surely both ways stands only as its glyph's best match; one way is not enough",
+      {(2, 0): "T"}, tso.unnumbered_reads({(1, 0): "T", (2, 0): "T", (3, 0): "T"}, {(1, 0): "T", (2, 0): "T"},
+                                          glyphs, read, numbered))
 check("run-together words of 3+ letters are an answer only when read whole: not A + ALLEY, A + DO + IS + ON",
       (False, False, True, True, False),
       (tso.answer("AALLEY", set()), tso.answer("AALLEY", {"AALLEY"}), tso.answer("TUCKSHOP", {"TUCKSHOP"}),
