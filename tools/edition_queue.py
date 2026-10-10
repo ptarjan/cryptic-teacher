@@ -69,6 +69,7 @@ import shlex
 import signal
 import subprocess
 import sys
+import threading
 import time
 from pathlib import Path
 
@@ -509,7 +510,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     outcomes = {}
     beside = [Beside(argv) for argv in beside or ()]
     scans = reads = fetches = []
-    planned = None
+    planned = None  # when the plan in force was begun
+    plan_done = None  # when it was made
+    planner = None  # (thread, its result box) making the next plan
     left = 0
     pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
              **{f"fetch {src}": FETCHERS[src]["workers"] for src in fetch}}
@@ -618,22 +621,43 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         overdue()
         for b in beside:
             b.poll(may_start(), None if seconds is None else seconds - (time.monotonic() - begun))
-        if may_start() and (planned is None or time.monotonic() - planned >= replan):
+        # A plan stats every edition and article (minutes on the media
+        # mount), so after the first it is made on a thread while this loop
+        # goes on reaping and starting from the plan before it.
+        if may_start() and planner is None and (plan_done is None or time.monotonic() - plan_done >= replan):
             if not any(b.busy() for b in beside) and any(digest(f) != h for f, h in code.items()):
                 reexec()
-            notes = []
-            scans, reads, fetches = replan_all(notes)
-            planned = time.monotonic()
-            for n in notes:
+            box = {"begun": time.monotonic(), "notes": []}
+
+            def make(box=box):
+                try:
+                    box["plan"] = replan_all(box["notes"])
+                except BaseException as e:  # noqa: BLE001 -- raised again on the dispatch loop
+                    box["error"] = e
+            planner = (threading.Thread(target=make, daemon=True), box)
+            if planned is None:
+                make()
+            else:
+                planner[0].start()
+        if planner is not None and not planner[0].is_alive():
+            box, planner = planner[1], None
+            if "error" in box:
+                raise box["error"]
+            scans, reads, fetches = box["plan"]
+            planned, plan_done = box["begun"], time.monotonic()
+            for n in box["notes"]:
                 log(n)
             log(f"planned: {len(scans)} scans, {len(reads)} reads" + (f", {len(fetches)} fetches" if fetch else "")
-                + f" due; running {len(running)}")
+                + f" due in {plan_done - planned:.0f}s; running {len(running) + len(adopted)}")
         fetches = [u for u in fetches if u["paper"] not in stopped]
         busy = {key_of(u) for _, (u, _) in units_running()}
         # A read of an edition read before, waiting only on a new scan, starts
         # after the plan that follows its scans: the scan may leave it not due.
         rescanned = {(p, r) for (k, p, r), t in finished.items() if k == "scan" and t > (planned or 0)}
-        pending = {(u["paper"], u["rel"]) for u in scans if key_of(u) not in tried or key_of(u) in busy}
+        # A read waits on the scans it needs only while they run: one still
+        # queued behind a full scan pool is made by the read unit itself
+        # (its own edition), or stands as last scanned (the days after it).
+        scanning = {(p, r) for k, p, r in busy if k == "scan"}
         free = dict(pools)
         for _, (u, _) in units_running():
             free[slot_of(u)] = free.get(slot_of(u), 0) - 1
@@ -653,7 +677,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         for u in scans + reads + fetches:
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
-            if u["kind"] == "read" and any((u["paper"], r) in pending for r in u["needs"]):
+            if u["kind"] == "read" and any((u["paper"], r) in scanning for r in u["needs"]):
                 continue
             if u["kind"] == "read" and u["reason"] == "scan stale" and any((u["paper"], r) in rescanned for r in u["needs"]):
                 continue
@@ -668,6 +692,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             start(u)
             begun_now += 1
             free[slot_of(u)] -= 1
+            if u["kind"] == "scan":
+                scanning.add((u["paper"], u["rel"]))
         if held_back and not memory_bound:
             memory_bound = True
             log(f"memory-bound: under {(mem_gate.FLOOR + mem_gate.UNIT) >> 20} MB available; no unit starts "
@@ -685,7 +711,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             running.clear()
             adopted.clear()
             break
-        if not running and not adopted and not any(b.busy() for b in beside):
+        if not running and not adopted and planner is None and not any(b.busy() for b in beside):
             untried = sum(key_of(u) not in tried for u in scans + reads + fetches)
             if not may_start():
                 left = untried + sum(b.again and not b.done for b in beside)

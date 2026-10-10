@@ -246,6 +246,31 @@ check("a read starts only after the scan it needs ends", True, ev.index(["end", 
 check("a unit past its limit is killed, the others not held up", (False, True, True),
       (["end", "read", "slow"] in ev, ["end", "read", "r2"] in ev, time.monotonic() - t0 < 15))
 log.unlink()
+fake(sleep={"s0": 1.5})
+eq.plan = units(["s0", "s1"], [("r1", ["s1"])])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=2, scan_workers=1, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("a read whose scan waits behind a full scan pool starts at once (the unit scans its own)", True,
+      ev.index(["start", "read", "r1", "v1"]) < ev.index(["end", "scan", "s0"]))
+log.unlink()
+fake()
+calls = []
+def slow_replan(papers, cache=None, reread=None, newer=None, out=None):
+    calls.append(time.monotonic())
+    if len(calls) == 2:
+        time.sleep(3)
+    return [], [{"kind": "read", "paper": "times", "rel": f"q{k}", "rank": 1, "reason": "never read", "needs": []}
+                for k in range(3)]
+eq.plan = slow_replan
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    t0 = time.monotonic()
+    eq.dispatch(["times"], cache, workers=1, replan=0.1)
+starts = [float(line.split()[0]) for line in log.read_text().splitlines() if line.split()[1] == "start"]
+check("a slow replan does not hold up starts from the plan before it", (3, True),
+      (len(starts), max(starts) - starts[0] < 2.5))
+log.unlink()
+fake(sleep={"slow": 30})
 eq.plan = units([], [(f"r{k}", []) for k in range(6)])
 out = io.StringIO()
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(out):
