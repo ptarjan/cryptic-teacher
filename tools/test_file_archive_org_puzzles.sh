@@ -141,6 +141,19 @@ check("a heading read where no title was links only as a number the title or nei
        # 1981-03-05: "13485" mends to a title printed in the edition itself
        link(edition("1981-03-05", [15465, 15466], [13485])),
        link(edition("1997-09-09", [], [20379]), {}, f.FT)])
+# hosted(): a solution prints in the next issue, a Saturday prize's also in
+# the next Saturday's (the 1970s Monday's); "19233" on a Tuesday (19,238's
+# heading) and a heading a week after a puzzle whose next issue is missing
+# link nothing.
+check("a heading links only to a puzzle its edition hosts, never a week-later stranger",
+      [[], [19237], [13996], [], [13687], [], [16364]],
+      [link(edition("1993-05-25", [19239], [19233])),
+       link(edition("1993-05-29", [19243], [19237])),
+       link(edition("1975-05-19", [13997], [13996])),
+       link(edition("1974-05-22", [], [13687]), {13687: D("1974-05-15")}),
+       link(edition("1974-05-16", [], [13687]), {13687: D("1974-05-15")}),
+       link(edition("1994-02-24", [19474], [19468]), {}, f.GALE),
+       link(edition("1984-03-03", [16370], [16364]), {16364: D("1984-02-25")}, f.GALE)])
 check("a 0 read as two marks costs one misread; marks that are not a 0's sides do not",
       [20443, 20287, None, 21443],
       [f.solution_number("211443", {20443, 20438}), f.solution_number("2IL287", {20287, 20282}),
@@ -1015,7 +1028,7 @@ scan_queue.append(pl, [settled_row(e2), settled_row(e1),
 settle(e3, e3.parent, pc)
 check("an archive.org puzzle with no solution heading anywhere is due for nothing", [], due())
 g3 = "GaleTimes1981UKEnglish/1981-06-20"
-scan_queue.append(pc / f.LEDGER_NAMES["gale"], [{"edition": g3, "scan": {"puzzles": [{"number": 15557, "leaf": 0}],
+scan_queue.append(pc / f.LEDGER_NAMES["gale"], [{"edition": g3, "scan": {"date": "1981-06-20", "puzzles": [{"number": 15557, "leaf": 0}],
                                                                        "solutions": [{"number": 15556, "leaf": 0}]}}])
 check("its solution heading read in the Gale page of the next issue makes it due, the solution's dir that page",
       ([("read", "1981-06-19_3", "inputs changed")], pc / g3, {}),
