@@ -24,6 +24,9 @@
   "date": "2024-06-27",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,65 @@
     "text": "Answer given by politician originally intended as defence",
     "enumeration": "5"
    },
-   "solution": "ALIBI"
+   "solution": "ALIBI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALIBI",
+    "definitions": [
+     {
+      "text": "defence",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "something done originally comes at the start, so only the opening letter of the next word counts"
+     }
+    ],
+    "linkWords": [
+     "given by",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Answer",
+      "gives": "A",
+      "note": "A is the standard abbreviation for answer"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "LIB",
+      "note": "a Lib is a Liberal politician"
+     },
+     {
+      "clueFragment": "intended",
+      "gives": "I",
+      "select": "first",
+      "note": "the opening letter of intended"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIB",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician gives a reply that was meant from the start to defend them.",
+     "definitionFit": "An alibi is the plea that the accused was elsewhere, used as a defence in court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Answer"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +112,53 @@
     "text": "Further article on London Symphony Orchestra",
     "enumeration": "4"
    },
-   "solution": "ALSO"
+   "solution": "ALSO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALSO",
+    "definitions": [
+     {
+      "text": "Further",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on places one thing next to another, here the first piece before the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "London Symphony Orchestra",
+      "gives": "LSO",
+      "note": "its standard initials"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LSO"
+     ]
+    },
+    "explanation": {
+     "surface": "Another newspaper piece about the London Symphony Orchestra.",
+     "definitionFit": "Also and further are both adverbs meaning in addition or besides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +172,54 @@
     "text": "Artist visiting home country",
     "enumeration": "4"
    },
-   "solution": "IRAN"
+   "solution": "IRAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IRAN",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "someone visiting is inside another place, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "Artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter goes back to visit their native land.",
+     "definitionFit": "Iran is a country in western Asia, formerly Persia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +243,43 @@
      }
     ]
    },
-   "solution": "INTHESOUP"
+   "solution": "INTHESOUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN THE SOUP",
+    "definitions": [
+     {
+      "text": "Where you might find turtle",
+      "at": 0
+     },
+     {
+      "text": "up a gum tree",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where you might find turtle",
+      "note": "first meaning: turtle soup is a classic dish, so the turtle sits literally in a bowl of broth"
+     },
+     {
+      "clueFragment": "up a gum tree",
+      "note": "second meaning: a British idiom for being stuck in serious trouble"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface pictures an animal in a tree, but 'up a gum tree' is an idiom for being in a fix.",
+     "definitionFit": "Being in the soup is informal for being in trouble, and turtle meat famously ends up as soup."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turtle"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +293,49 @@
     "text": "Crazy children's game needs new beginning",
     "enumeration": "7"
    },
-   "solution": "BONKERS"
+   "solution": "BONKERS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "BONKERS",
+    "definitions": [
+     {
+      "text": "Crazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs new beginning",
+      "for": "substitution",
+      "note": "a new beginning means the first letter of the game's name is swapped for a different one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "children's game",
+      "gives": "CONKERS",
+      "note": "conkers is a British playground game of smashing horse chestnuts on strings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ONKERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired playground game is in need of a fresh start.",
+     "walkthrough": "The setter leaves the new first letter for the definition to settle: swap the C of CONKERS for B to get BONKERS.",
+     "definitionFit": "Bonkers is British slang for mad or crazy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beginning"
+    }
+   }
   },
   {
    "number": 4,
@@ -117,7 +349,42 @@
     "text": "Banned a poet, reportedly",
     "enumeration": "6"
    },
-   "solution": "BARRED"
+   "solution": "BARRED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BARRED",
+    "definitions": [
+     {
+      "text": "Banned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is said or told, so we want a word that is spoken alike"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a poet",
+      "gives": "BARRED",
+      "soundsLike": "BARD",
+      "note": "a bard is a poet; in non-rhotic speech the two words are said the same"
+     }
+    ],
+    "explanation": {
+     "surface": "A writer of verse has been prohibited, so the rumour goes.",
+     "definitionFit": "To be barred is to be excluded or prohibited, the same as banned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -131,7 +398,55 @@
     "text": "A number turning up in trap",
     "enumeration": "3"
    },
-   "solution": "NET"
+   "solution": "NET",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NET",
+    "definitions": [
+     {
+      "text": "trap",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NET"
+     ],
+     "reversals": [
+      {
+       "from": "TEN",
+       "to": "NET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A figure keeps appearing caught in a snare.",
+     "definitionFit": "A net is a mesh used to catch fish or animals, a kind of trap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +460,52 @@
     "text": "Into vice, strangely, leads to expulsion",
     "enumeration": "8"
    },
-   "solution": "EVICTION"
+   "solution": "EVICTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EVICTION",
+    "definitions": [
+     {
+      "text": "expulsion",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means in an odd way, so the letters come out in an odd order"
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Into vice",
+      "gives": "INTOVICE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTOVICE",
+       "gives": "EVICTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Falling oddly into wicked ways gets someone thrown out.",
+     "definitionFit": "Eviction is the forced removal of a tenant from a property, an expulsion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -159,7 +519,63 @@
     "text": "Guide restraining a girl becoming calmer",
     "enumeration": "8"
    },
-   "solution": "STEADIER"
+   "solution": "STEADIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STEADIER",
+    "definitions": [
+     {
+      "text": "calmer",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restraining",
+      "for": "container",
+      "note": "restraining means holding something back within limits, so one piece is held inside the other"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guide",
+      "gives": "STEER",
+      "note": "to steer is to guide"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "DI",
+      "note": "Di is a girl's name, short for Diana"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STE",
+      "A",
+      "DI",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A mentor holding back an excitable young woman helps her settle down.",
+     "definitionFit": "Steadier is the comparative of steady, meaning more composed or less agitated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Guide"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +589,50 @@
     "text": "Destroy revival of the arts",
     "enumeration": "7"
    },
-   "solution": "SHATTER"
+   "solution": "SHATTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHATTER",
+    "definitions": [
+     {
+      "text": "Destroy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revival of",
+      "for": "anagram",
+      "note": "a revival brings something back in a new form, so the letters are rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the arts",
+      "gives": "THEARTS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEARTS",
+       "gives": "SHATTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A campaign to wreck the newly revived arts scene.",
+     "definitionFit": "To shatter something is to smash it to pieces, which is to destroy it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revival"
+    }
+   }
   },
   {
    "number": 9,
@@ -187,7 +646,51 @@
     "text": "Hallucinate when taking ecstasy? That's nonsense",
     "enumeration": "5"
    },
-   "solution": "TRIPE"
+   "solution": "TRIPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRIPE",
+    "definitions": [
+     {
+      "text": "nonsense",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "when taking",
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hallucinate",
+      "gives": "TRIP",
+      "note": "to trip is to hallucinate on drugs"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dismisses the idea of seeing visions on ecstasy as rubbish.",
+     "walkthrough": "'when taking' looks like a container signal but here just joins the two pieces in order.",
+     "definitionFit": "Tripe, literally cow's stomach lining, is informal for worthless talk or rubbish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +704,52 @@
     "text": "Rebel cadet somehow becoming famous",
     "enumeration": "10"
    },
-   "solution": "CELEBRATED"
+   "solution": "CELEBRATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CELEBRATED",
+    "definitions": [
+     {
+      "text": "famous",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow says the result is reached by some unexplained route, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rebel cadet",
+      "gives": "REBELCADET",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REBELCADET",
+       "gives": "CELEBRATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebellious military trainee somehow becomes a household name.",
+     "definitionFit": "Celebrated means widely renowned, a synonym of famous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +763,39 @@
     "text": "Sad, unlike Edith Piaf?",
     "enumeration": "9"
    },
-   "solution": "REGRETFUL"
+   "solution": "REGRETFUL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "REGRETFUL",
+    "definitions": [
+     {
+      "text": "Sad",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sad",
+      "note": "surface reading: feeling sorrowful"
+     },
+     {
+      "clueFragment": "unlike Edith Piaf",
+      "note": "setter's reading: the French singer's famous song says she regrets nothing, so her opposite is full of regret"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone gloomy is being contrasted with the famous French chanteuse.",
+     "walkthrough": "Piaf's signature song is 'Non, je ne regrette rien' (No, I regret nothing).",
+     "definitionFit": "To be regretful is to feel sorrow or remorse about something, so sad fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +809,61 @@
     "text": "Conservative girl in charge of son's great works",
     "enumeration": "8"
    },
-   "solution": "CLASSICS"
+   "solution": "CLASSICS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLASSICS",
+    "definitions": [
+     {
+      "text": "great works",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC stands for in charge"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LASS",
+      "IC",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory girl put in charge of her son's masterpieces.",
+     "walkthrough": "The 's of son's is a link joining the wordplay to the definition.",
+     "definitionFit": "Classics are acknowledged masterpieces of literature, art or music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +877,55 @@
     "text": "Traitor angered English terribly",
     "enumeration": "8"
    },
-   "solution": "RENEGADE"
+   "solution": "RENEGADE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RENEGADE",
+    "definitions": [
+     {
+      "text": "Traitor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "terribly means badly, so the letters are scrambled into a poor order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angered",
+      "gives": "ANGERED",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANGEREDE",
+       "gives": "RENEGADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A turncoat has made the English furious.",
+     "definitionFit": "A renegade is someone who deserts a cause or side, a traitor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terribly"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +945,52 @@
      }
     ]
    },
-   "solution": "LIELOW"
+   "solution": "LIELOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIE LOW",
+    "definitions": [
+     {
+      "text": "Go to ground",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind the other, so the deception word comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deception",
+      "gives": "LIE",
+      "note": "a lie is a deception"
+     },
+     {
+      "clueFragment": "unhappy",
+      "gives": "LOW",
+      "note": "feeling low is feeling unhappy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIE",
+      "LOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A disgraced liar, miserable after being found out, goes into hiding.",
+     "definitionFit": "To lie low is to hide away, the idiom matching an animal that goes to ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1004,54 @@
     "text": "Snub Italian gentleman lacking introduction",
     "enumeration": "6"
    },
-   "solution": "IGNORE"
+   "solution": "IGNORE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "IGNORE",
+    "definitions": [
+     {
+      "text": "Snub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking introduction",
+      "for": "deletion",
+      "note": "without its introduction a word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian",
+      "gives": "I",
+      "note": "I is the abbreviation for Italian"
+     },
+     {
+      "clueFragment": "gentleman",
+      "gives": "SIGNORE",
+      "note": "signore is Italian for a gentleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "GNORE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cold-shoulders an Italian gentleman who has not been introduced.",
+     "definitionFit": "To snub someone is to ignore them pointedly, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1065,63 @@
     "text": "Society girl meeting retired teacher? Rubbish!",
     "enumeration": "6"
    },
-   "solution": "DEBRIS"
+   "solution": "DEBRIS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DEBRIS",
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retired means withdrawn or gone back, so in this down entry the word reads upwards"
+     }
+    ],
+    "linkWords": [
+     "meeting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Society girl",
+      "gives": "DEB",
+      "note": "a deb, or debutante, is a young woman entering high society"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "SIR",
+      "note": "pupils address a male teacher as sir"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEB",
+      "RIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIR",
+       "to": "RIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A debutante bumps into her old schoolmaster, now pensioned off, to which the cry is nonsense!",
+     "definitionFit": "Debris is scattered waste or fragments, so it is rubbish in the literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1141,43 @@
      }
     ]
    },
-   "solution": "SHEEPSEYES"
+   "solution": "SHEEPSEYES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SHEEPS EYES",
+    "definitions": [
+     {
+      "text": "Amorous glances",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amorous glances",
+      "note": "surface reading: loving looks cast at someone"
+     },
+     {
+      "clueFragment": "Dolly perhaps",
+      "note": "setter's reading: Dolly was the famous cloned sheep, so her glances come from that animal's eyes"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone called Dolly making eyes at an admirer.",
+     "walkthrough": "Dolly reads as a woman's name, but it points to Dolly the sheep cloned in Scotland in 1996.",
+     "definitionFit": "Making sheep's eyes is an idiom for gazing at someone with foolish, lovesick longing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dolly"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1191,48 @@
     "text": "King and fool join together",
     "enumeration": "4"
    },
-   "solution": "KNIT"
+   "solution": "KNIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KNIT",
+    "definitions": [
+     {
+      "text": "join together",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "NIT",
+      "note": "a nit is a fool, short for nitwit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch and his court jester team up.",
+     "definitionFit": "To knit is to unite or bond, as a broken bone knits or a team knits together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1246,42 @@
     "text": "Lazy celebrity one might say",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "IDLE",
+    "definitions": [
+     {
+      "text": "Lazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one might say",
+      "for": "homophone",
+      "note": "one might say points to how a word is spoken rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrity",
+      "gives": "IDLE",
+      "soundsLike": "IDOL",
+      "note": "an idol is an adored celebrity"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone remarks that a famous person is a layabout.",
+     "definitionFit": "Idle means avoiding work or activity, which is being lazy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1295,42 @@
     "text": "Man from Pisa accepted to an extent",
     "enumeration": "5"
    },
-   "solution": "ISAAC"
+   "solution": "ISAAC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ISAAC",
+    "definitions": [
+     {
+      "text": "Man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to an extent",
+      "for": "hidden_word",
+      "note": "to an extent means only partly, so the answer is a run of letters inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pisa accepted",
+      "gives": "ISAAC",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A visitor from Pisa was made welcome, up to a point.",
+     "definitionFit": "Isaac is a man's first name, as in the biblical patriarch or Isaac Newton."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accepted"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1344,47 @@
     "text": "Mostly elegant character from Greece",
     "enumeration": "3"
    },
-   "solution": "CHI"
+   "solution": "CHI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHI",
+    "definitions": [
+     {
+      "text": "character from Greece",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elegant",
+      "gives": "CHIC",
+      "note": "chic means stylish or elegant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHI"
+     ]
+    },
+    "explanation": {
+     "surface": "A largely stylish figure from Greece.",
+     "definitionFit": "Chi is the twenty-second letter of the Greek alphabet, a character in the written sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1398,53 @@
     "text": "Sophisticated socialist receiving financial penalty",
     "enumeration": "7"
    },
-   "solution": "REFINED"
+   "solution": "REFINED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REFINED",
+    "definitions": [
+     {
+      "text": "Sophisticated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking something in, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "socialist",
+      "gives": "RED",
+      "note": "a red is a socialist or communist"
+     },
+     {
+      "clueFragment": "financial penalty",
+      "gives": "FINE",
+      "note": "a fine is a monetary penalty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "FINE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A cultured left-winger is landed with a fine.",
+     "definitionFit": "Refined means cultured and elegant in manner, a synonym of sophisticated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1458,55 @@
     "text": "Enemy agents sheltering city group",
     "enumeration": "7"
    },
-   "solution": "SPECIES"
+   "solution": "SPECIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPECIES",
+    "definitions": [
+     {
+      "text": "group",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sheltering",
+      "for": "container",
+      "note": "sheltering means keeping something safely inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enemy agents",
+      "gives": "SPIES",
+      "note": "spies are agents working for the enemy"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "EC",
+      "note": "EC is the postcode for the City of London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "EC",
+      "IES"
+     ]
+    },
+    "explanation": {
+     "surface": "Hostile operatives hide a cell of city conspirators.",
+     "walkthrough": "EC is the postal district for the City, London's financial centre.",
+     "definitionFit": "A species is a biological group of related organisms that can interbreed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1520,56 @@
     "text": "At last minute grabbing time for coffee",
     "enumeration": "5"
    },
-   "solution": "LATTE"
+   "solution": "LATTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LATTE",
+    "definitions": [
+     {
+      "text": "coffee",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "grabbing means seizing hold of something, so a letter is taken inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At last minute",
+      "gives": "LATE",
+      "note": "arriving at the last minute is late"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "T",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushes in at the last moment to snatch a moment for a coffee.",
+     "definitionFit": "A latte is an Italian-style coffee made with lots of steamed milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
