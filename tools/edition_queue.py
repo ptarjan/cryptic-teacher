@@ -513,6 +513,16 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     planned = None  # when the plan in force was begun
     plan_done = None  # when it was made
     planner = None  # (thread, its result box) making the next plan
+    # The last plan is kept beside the hand-over, so a re-exec or the next
+    # slice starts units from it at once while its own plan is made.
+    plan_file = Path(f"{handoff or resume or f'/tmp/edition-queue-{os.getpid()}.json'}.plan")
+    plan_key = [list(papers), str(cache), reread and reread.isoformat(), newer, sorted(fetch)]
+    if handoff or resume:
+        kept = last_plan(plan_file, plan_key)
+        if kept:
+            scans, reads, fetches = kept
+            planned = time.monotonic()
+            log(f"started from the last plan: {len(scans)} scans, {len(reads)} reads, {len(fetches)} fetches")
     left = 0
     pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
              **{f"fetch {src}": FETCHERS[src]["workers"] for src in fetch}}
@@ -645,6 +655,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 raise box["error"]
             scans, reads, fetches = box["plan"]
             planned, plan_done = box["begun"], time.monotonic()
+            keep_plan(plan_file, plan_key, box["plan"])
             for n in box["notes"]:
                 log(n)
             log(f"planned: {len(scans)} scans, {len(reads)} reads" + (f", {len(fetches)} fetches" if fetch else "")
@@ -776,6 +787,30 @@ def child(pid):
         return int(Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[1]) == os.getpid()
     except (OSError, IndexError, ValueError):
         return False
+
+
+#: How old a kept plan (keep_plan) a run may start from.
+PLAN_KEPT = 7200
+
+
+def keep_plan(path, key, made):
+    """Save plan `made` (scans, reads, fetches) for a run with `key`'s arguments."""
+    tmp = Path(f"{path}.tmp")
+    tmp.write_text(json.dumps({"key": key, "at": time.time(), "plan": made}))
+    tmp.replace(path)
+
+
+def last_plan(path, key):
+    """The plan keep_plan saved at `path` for these arguments, if under
+    PLAN_KEPT seconds old: its units may be done by now, and each says so
+    as it starts (\"current\")."""
+    try:
+        kept = json.loads(Path(path).read_text())
+    except (FileNotFoundError, ValueError):
+        return None
+    if kept.get("key") != json.loads(json.dumps(key)) or time.time() - kept.get("at", 0) > PLAN_KEPT:
+        return None
+    return tuple(kept["plan"])
 
 
 def hand_over(path, units):
