@@ -751,7 +751,41 @@ def read_framed(image, grid):
             if key not in accepted and all(letters.get(rc, ch) == ch for rc, ch in zip(lts[key], word)):
                 accepted[key] = word
                 letters.update(zip(lts[key], word))
+    accepted.update(crossed_reads(lts, accepted, every))
     return accepted, {**stats, "accepted": len(accepted), "lattices": len(reads)}
+
+
+def crossed_reads(lts, accepted, every):
+    """{key: word} for lights not `accepted` whose every cell is read: the
+    letter of an accepted light crossing it, else a sure letter (`every`)
+    in a cell no light starts in, the two agreeing where both are read,
+    and the word one listed() word. A numbered cell's own sure read is no
+    letter (with its number a D reads as a sure B: DUCKINGSTOOL's D gave
+    BUCKINGSTOOL), but an accepted crossing settles it (?MADEUS, ?LEANOR,
+    TOI?E). Each light taken counts for its crossings, until none is
+    taken."""
+    numbered = {cells[0] for cells in lts.values()}
+    have, out = dict(accepted), {}
+    settled = True
+    while settled:
+        settled = False
+        crossing = {rc: ch for key, w in have.items() for rc, ch in zip(lts[key], w)}
+        for key, cells in lts.items():
+            if key in have:
+                continue
+            word = ""
+            for rc in cells:
+                sure = every.get(rc) if rc not in numbered else None
+                ch = crossing.get(rc, sure)
+                if ch is None or (sure and sure != ch):
+                    break
+                word += ch
+            else:
+                if listed(word):
+                    have[key] = out[key] = word
+                    settled = True
+                    break
+    return out
 
 
 def read_lattice(gray, ys, xs, grid):
