@@ -144,9 +144,19 @@ try:
     print("INDEXED", pi.awaits_preamble(p))
 except pi.RefusedWrite as e:
     print("WRITE", f"refused: {e}")
+for name, slug in (("SPECIAL", "playfair"), ("PLAIN", "plain-christmas"), ("COMP", "plain-competition-puzzle"),
+                   ("BARENUM", "")):
+    p = copy.deepcopy(real)
+    p["series"] = "azed"
+    p["source"]["url"] = f"https://fifteensquared.net/2021/08/22/azed-no-2566{'-' + slug if slug else ''}/"
+    print(name, pi.awaits_preamble(p))
 PY
 )
 died "$out_pre" "the see-preamble fixture"
+same "an Azed special from its blog awaits its preamble" "$(field SPECIAL "$out_pre")" "True"
+same "a plain Christmas Azed does not" "$(field PLAIN "$out_pre")" "False"
+same "a plain competition Azed does not" "$(field COMP "$out_pre")" "False"
+same "an Azed post named by number alone does not" "$(field BARENUM "$out_pre")" "False"
 same "'See preamble' with no preamble awaits its preamble" "$(field BARE "$out_pre")" "True"
 same "'See preamble' with a preamble does not" "$(field WITH "$out_pre")" "False"
 same "the write path accepts it" "$(field WRITE "$out_pre")" "allowed"
