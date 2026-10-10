@@ -90,15 +90,15 @@ tl = cache / "filed.jsonl"
 q.append(tl, [row(t1, "2026-01-01T00:00:00+00:00"), row(t2, "2026-09-01T00:00:00+00:00", scanKey="old")])
 before = q.when("2026-06-01T00:00:00+00:00")
 scans, reads = f.plan(f.TIMES, cache, reread=before)
-check("times: a stale scan and a never-scanned edition are scan units", ["1980-01-02_2", "1980-03-01_3"],
+check("times: a stale scan and a never-scanned edition are scan units, by rank", ["1980-03-01_3", "1980-01-02_2"],
       [u["rel"].split("/")[1] for u in scans])
-check("times: each read and why", [("1980-03-01_3", "never read", 1), ("1980-01-01_1", "--reread", 3),
-                                   ("1980-01-02_2", "scan stale", 2)],
+check("times: each read and why; a scan-code change is a whole-corpus re-read, newest first",
+      [("1980-03-01_3", "never read", 1), ("1980-01-02_2", "scan stale", 3), ("1980-01-01_1", "--reread", 3)],
       [(u["rel"].split("/")[1], u["reason"], u["rank"]) for u in reads])
 check("a read needs its own stale scan and those SOLUTION_DAYS after it, no other",
       {"1980-01-01_1": ["1980-01-02_2"], "1980-01-02_2": ["1980-01-02_2"], "1980-03-01_3": ["1980-03-01_3"]},
       {u["rel"].split("/")[1]: [r.split("/")[1] for r in u["needs"]] for u in reads})
-check("a scan takes the rank of the most urgent read needing it", [2, 1], [u["rank"] for u in scans])
+check("a scan takes the rank of the most urgent read needing it", [1, 3], [u["rank"] for u in scans])
 _, reads = f.plan(f.TIMES, cache, asked={"NewsUK1980UKEnglish/1980-01-01_1"})
 check("annotation's ask makes a read due, forced", [("1980-01-01_1", "annotation asked", True)],
       [(u["rel"].split("/")[1], u["reason"], u["force"]) for u in reads if u["rel"].endswith("_1")])
@@ -106,6 +106,36 @@ gs, gr = f.plan(f.GALE, cache)
 check("Gale pages saved by hand: rank 0, the latest laid out first", [("1987-03-03", 0), ("1987-03-02", 0)],
       [(u["rel"].split("/")[1], u["rank"]) for u in gr])
 check("the Gale plan keeps to its own ledger", False, (cache / "filed-gale.jsonl").exists())
+
+# ---- Paul's order: new first, then re-reads that can change a result, then the whole corpus; newest first
+oc = T / "order"
+def ed(item, name):
+    d = oc / item / name
+    d.mkdir(parents=True)
+    (d / "pages.json").write_text("{}")
+    return d
+eds = {n: ed(item, n) for item, n in [("NewsUK1990UKEnglish", "1990-05-01_1"), ("NewsUK1990UKEnglish", "1990-06-01_1"),
+                                      ("NewsUK1970UKEnglish", "1970-01-01_1"), ("NewsUK1985UKEnglish", "1985-01-01_1"),
+                                      ("NewsUK1995UKEnglish", "1995-01-01_1"), ("NewsUK1999UKEnglish", "1999-01-01_1"),
+                                      ("TeleUK1992UKEnglish", "1992-01-01_1")]}
+listing, f.edition_dirs = f.edition_dirs, lambda cache=None, paper=None: (
+    [d for n, d in eds.items() if n != "1992-01-01_1"] if (paper or f.TIMES).key == "times" else [eds["1992-01-01_1"]])
+hashes, f.input_hash = f.input_hash, lambda d: "moved" if d.name == "1985-01-01_1" else "h"
+old = "2026-01-01T00:00:00+00:00"
+q.append(oc / "filed.jsonl", [
+    row(eds["1970-01-01_1"], old, verdicts=[{"number": 1, "cause": "not-a-grid"}]),  # its refusal's fix landed since
+    row(eds["1985-01-01_1"], old),  # its files moved
+    row(eds["1995-01-01_1"], old, scanKey="old"),  # only the scan code moved
+    row(eds["1999-01-01_1"], old)])  # nothing moved: the --reread alone
+_, reads = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
+check("never read newest first across papers, then fixes and moved inputs newest first, then the whole corpus",
+      [("1992-01-01_1", 1), ("1990-06-01_1", 1), ("1990-05-01_1", 1), ("1985-01-01_1", 2), ("1970-01-01_1", 2),
+       ("1999-01-01_1", 3), ("1995-01-01_1", 3)],
+      [(u["rel"].split("/")[1], u["rank"]) for u in reads])
+check("a fix's re-read ranks 2 even under --reread; moved files are inputs changed",
+      {"1970-01-01_1": "refused not-a-grid before its fix", "1985-01-01_1": "inputs changed"},
+      {u["rel"].split("/")[1]: u["reason"] for u in reads if u["rank"] == 2})
+f.edition_dirs, f.input_hash = listing, hashes
 
 # ---- the queue's order across papers, and --newer-than
 os.utime(g2 / "pages.json", (time.time(), time.time()))
@@ -269,6 +299,16 @@ check("the dispatcher ends 0, every unit started once", (0, ["r1", "r2", "s1", "
 check("a read starts only after the scan it needs ends", True, ev.index(["end", "scan", "s1"]) < ev.index(["start", "read", "r1", "v1"]))
 check("a unit past its limit is killed, the others not held up", (False, True, True),
       (["end", "read", "slow"] in ev, ["end", "read", "r2"] in ev, time.monotonic() - t0 < 15))
+log.unlink()
+fake(sleep={"n1": 1.0})
+eq.plan = lambda papers, cache=None, reread=None, newer=None, out=None: (
+    [{"kind": "scan", "paper": "times", "rel": "b1", "rank": 3, "reason": "scan stale"}],
+    [{"kind": "read", "paper": "times", "rel": r, "rank": 1, "reason": "never read", "needs": []} for r in ("n1", "n2")])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("a whole-corpus unit waits, in its own idle pool, until no new one is left to start", True,
+      ev.index(["start", "read", "n2", "v1"]) < ev.index(["start", "scan", "b1", "v1"]))
 log.unlink()
 fake(sleep={"s0": 1.5})
 eq.plan = units(["s0", "s1"], [("r1", ["s1"])])
@@ -492,6 +532,15 @@ q.append(tled, [{"article": "102", "inputs": "h", "readAt": "2026-01-01T00:00:00
 units_ = ftp.plan(tc, reread=q.when("2026-06-01T00:00:00+00:00"))
 check("trove plan: never read first, then --reread", [("101", "never read", 1), ("102", "--reread", 3)],
       [(u["rel"], u["reason"], u["rank"]) for u in units_])
+for a, title in (("103", "02 Jan 1972 - X"), ("104", "05 Mar 1980 - Y")):
+    (tc / a).mkdir()
+    (tc / a / "meta.json").write_text(json.dumps({"title": title}))
+check("trove plan: a rank's articles newest first", ["104", "103", "101"],
+      [u["rel"] for u in ftp.plan(tc) if u["rank"] == 1])
+for a in ("103", "104"):
+    for p_ in (tc / a).iterdir():
+        p_.unlink()
+    (tc / a).rmdir()
 check("annotation's ask is rank 1, forced", [("102", 1, True)],
       [(u["rel"], u["rank"], u["force"]) for u in ftp.plan(tc, asked={"102"}) if u["rel"] == "102"])
 with contextlib.redirect_stderr(io.StringIO()):
@@ -521,6 +570,11 @@ for name in ("1930-04-02.pdf", "1930-04-09.pdf"):
 (store / gl.LEGACY).write_text(json.dumps({gl.file_hash(inbox / "1930-04-09.pdf"): {"file": "1930-04-09.pdf", "version": gl.VERSION}}))
 check("listener plan: the pages not read at VERSION, rank 0", [("1930-04-02.pdf", 0)],
       [(u["rel"], u["rank"]) for u in gl.plan(inbox, store)])
+vers, gl.VERSION = gl.VERSION, "next"
+check("listener plan: a VERSION bump is a whole-corpus re-read, after the new pages",
+      [("1930-04-02.pdf", 0, "saved by hand"), ("1930-04-09.pdf", 3, "version changed")],
+      [(u["rel"], u["rank"], u["reason"]) for u in gl.plan(inbox, store)])
+gl.VERSION = vers
 gl.index = lambda *a, **k: [{"number": 1, "date": None, "title": "t"}]
 gl.match = lambda p, idx, read_title=True: {"file": p.name, "number": None, "why": "no number", "pages": [], "reports": []}
 with contextlib.redirect_stdout(io.StringIO()):

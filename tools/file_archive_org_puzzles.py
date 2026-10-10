@@ -3402,8 +3402,6 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
         return "titles changed"
     if vlm_up and not row.get("vlm"):
         return "read without the VLM"
-    if reread and scan_queue.read_before(row, reread):
-        return "--reread"
     for v in row.get("verdicts", ()):
         t = REREAD_REFUSED.get(v.get("cause"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
@@ -3413,6 +3411,8 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
         if (isinstance(s, dict) and not s.get("refused") and s.get("accepted", 0) < s.get("lights", 0)
                 and scan_queue.read_before(row, scan_queue.when(REREAD_PARTIAL))):
             return "solution read in part before its fix"
+    if reread and scan_queue.read_before(row, reread):
+        return "--reread"
     return None
 
 
@@ -3459,6 +3459,13 @@ def scan_near(dirs, rels, editions):
     return out
 
 
+def day_of(d):
+    """Edition dir `d`'s date as ISO text, "" when its name has none: the
+    key tools/edition_queue.py takes a rank's units by, newest first."""
+    day = edition_date(d)
+    return day.isoformat() if day else ""
+
+
 def staged_at(d):
     """When edition dir `d` was laid out: its pages.json's mtime (written last)."""
     return (d / "pages.json").stat().st_mtime
@@ -3467,17 +3474,22 @@ def staged_at(d):
 # ------------------------------------------------------------ the per-edition queue
 
 #: How urgent each reason to read an edition is (tools/edition_queue.py
-#: takes the lowest first): pages Paul saved by hand, then any never-read
-#: edition and the re-reads annotation asked for, then an edition whose
-#: inputs moved, then the re-reads REREAD_BEFORE makes due. A reason not
-#: named here (a fix's re-read: "refused <cause> before its fix", "solution
-#: read in part before its fix") ranks with --reread (rank_of_reason).
+#: takes the lowest first): 0 pages Paul saved by hand; 1 any other
+#: never-read edition and annotation's asks; 2 a re-read that can change
+#: what it filed: its inputs or titles moved, it was read without the VLM,
+#: or a fix landed for what it refused or read in part; 3 the whole-corpus
+#: re-reads: a scan by older scan code (scan_key) and --reread BEFORE, which
+#: edition_queue.dispatch starts only once nothing ranked below 3 waits.
+#: Every reason due_reason or plan gives is named here.
 RANKS = {"saved by hand": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
-         "solution moved": 2, "read without the VLM": 2, "scan stale": 2, "--reread": 3}
+         "solution moved": 2, "read without the VLM": 2, "solution read in part before its fix": 2,
+         **{f"refused {c} before its fix": 2 for c in REFUSALS}, "scan stale": 3, "--reread": 3}
+#: The rank of the re-reads that sweep the whole corpus.
+BLANKET = 3
 
 
 def rank_of_reason(reason):
-    return RANKS.get(reason, RANKS["--reread"])
+    return RANKS[reason]
 
 
 def scan_current(row, fh):
@@ -3492,8 +3504,9 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
     those dated SOLUTION_DAYS after it: its solution prints there), a scan
     unit's rank the most urgent read needing it. `asked` are the editions
     annotation asked to have read again (read whatever their row says);
-    `dirs` limits the plan to those editions. Each list is in the order a
-    run reads them (scan_queue.order; NEWEST_FIRST papers by staged_at)."""
+    `dirs` limits the plan to those editions. Each list is by rank, then
+    newest first: by edition date ("date", day_of), NEWEST_FIRST papers by
+    staged_at (the page Paul saved last first)."""
     import bisect
     ledger = ledger_of(cache, paper, ledger)
     known = _planned_known(ledger)
@@ -3502,7 +3515,8 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
     dirs = every if dirs is None else [d for d in every if d in set(dirs)]
     rels = {d: f"{d.parent.name}/{d.name}" for d in every}
     seen_by = vlm.version() if vlm.reachable() else None
-    stale = [d for d in dirs if not scan_current(known.get(rels[d]), input_hash(d))]
+    fhs = {d: input_hash(d) for d in dirs}
+    stale = [d for d in dirs if not scan_current(known.get(rels[d]), fhs[d])]
     stale_set = set(stale)
     scans = {rels[d]: (known.get(rels[d]) or {}).get("scan") or {"puzzles": [], "solutions": []} for d in every}
     held = held_dates(paper.series)
@@ -3512,7 +3526,10 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
     for d in dirs:
         rel, row = rels[d], known.get(rels[d]) or {}
         if d in stale_set:
-            why = "scan stale" if "inputs" in row else "never read"
+            # Its files moved, or only the scan code: the latter is every
+            # edition at once, a whole-corpus re-read.
+            why = ("never read" if "inputs" not in row else
+                   "inputs changed" if row.get("filesHash") != fhs[d] else "scan stale")
         else:
             sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
             why = due_reason(row, inputs_of(row["filesHash"], scans[rel], paper.series), sol_seen, seen_by, reread,
@@ -3535,17 +3552,18 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
         lo = bisect.bisect_left(days, day)
         hi = bisect.bisect_right(days, day + datetime.timedelta(days=SOLUTION_DAYS))
         return [rel for _, rel in dated[lo:hi]] + undated
-    keys = sorted(reads, key=staged_at, reverse=True) if paper.key in NEWEST_FIRST else list(reads)
-    queue = scan_queue.order(keys, {d: known.get(rels[d]) or {} for d in reads}, lambda row: "inputs" not in row)
+    newest = staged_at if paper.key in NEWEST_FIRST else (lambda d: edition_date(d) or datetime.date.min)
+    queue = sorted(sorted(reads, key=newest, reverse=True), key=lambda d: rank_of_reason(reads[d]))
     read_units = [{"kind": "read", "paper": paper.key, "rel": rels[d], "reason": reads[d], "rank": rank_of_reason(reads[d]),
-                   "needs": needs(d), "force": reads[d] == "annotation asked"} for d in queue]
+                   "date": day_of(d), "needs": needs(d), "force": reads[d] == "annotation asked"} for d in queue]
     rank_of = {}
     for u in read_units:
         for rel in u["needs"]:
             rank_of[rel] = min(rank_of.get(rel, 9), u["rank"])
     scan_units = [{"kind": "scan", "paper": paper.key, "rel": rels[d], "rank": rank_of.get(rels[d], RANKS["scan stale"]),
-                   "reason": "scan stale" if "scan" in (known.get(rels[d]) or {}) else "never scanned"}
-                  for d in (sorted(stale, key=staged_at, reverse=True) if paper.key in NEWEST_FIRST else stale)]
+                   "date": day_of(d), "reason": "scan stale" if "scan" in (known.get(rels[d]) or {}) else "never scanned"}
+                  for d in sorted(sorted(stale, key=newest, reverse=True),
+                                  key=lambda d: rank_of.get(rels[d], RANKS["scan stale"]))]
     return scan_units, read_units
 
 

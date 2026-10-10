@@ -1314,16 +1314,31 @@ def settle(d, got, taken, files, write, puzzles, seen_by):
 
 
 #: How urgent each reason to read an article is (tools/edition_queue.py's
-#: ranks, shared with the archive.org editions').
-RANKS = {"never read": 1, "annotation asked": 1, "--reread": 3}
+#: ranks, file_archive_org_puzzles.RANKS): never read and annotation's asks,
+#: then a re-read that can change what it filed, then --reread's whole-corpus
+#: one. Every reason due_reason gives is named here.
+RANKS = {"never read": 1, "annotation asked": 1, "inputs changed": 2, "read without the VLM": 2,
+         **{f"{c} cured since": 2 for c in REREAD_CAUSES}, "--reread": 3}
+_DATES = {}
+
+
+def article_date(d):
+    """Article dir `d`'s print day as ISO text from its meta.json title
+    ("01 Jan 1972 - ..."), "" when it has none; read once a process."""
+    if d.name not in _DATES:
+        try:
+            title = json.loads((d / "meta.json").read_text()).get("title", "")
+            day = datetime.datetime.strptime(title.split(" - ", 1)[0].strip(), "%d %b %Y").date().isoformat()  # noqa: DTZ007 -- a print day
+        except (OSError, ValueError, AttributeError):
+            day = ""
+        _DATES[d.name] = day
+    return _DATES[d.name]
 
 
 def plan(cache=CACHE, reread=None, asked=(), ledger=None, puzzles=None):
     """The article reads due, one unit each ({"rel": article id, "rank",
-    "reason", "force"}), the most urgent first: never read and annotation's
-    asks (`asked`, read whatever their row says), then those whose inputs
-    moved or whose cause a change cured, then the --reread ones, each rank
-    by scan_queue.order (the longest since read first)."""
+    "reason", "force", "date"}), the most urgent first (RANKS), each rank
+    the newest article first (article_date)."""
     ledger = Path(ledger or cache / "filed.jsonl")
     known = scan_queue.ledger_rows(ledger, "article")
     files = held_files(puzzles)
@@ -1334,12 +1349,10 @@ def plan(cache=CACHE, reread=None, asked=(), ledger=None, puzzles=None):
         why = "annotation asked" if d.name in asked else due_reason(known.get(d.name), inputs_of(d, files.get(d.name)),
                                                                      seen_by, reread)
         if why:
-            due[d.name] = why
-    queue = scan_queue.order(list(due), {a: known[a] for a in due if a in known},
-                             lambda row: row is None or "inputs" not in row)
-    units = [{"rel": a, "reason": due[a], "rank": RANKS.get(due[a], 2), "force": due[a] == "annotation asked",
-              "needs": []} for a in queue]
-    return sorted(units, key=lambda u: u["rank"])
+            due[d] = why
+    queue = sorted(sorted(due, key=article_date, reverse=True), key=lambda d: RANKS[due[d]])
+    return [{"rel": d.name, "reason": due[d], "rank": RANKS[due[d]], "force": due[d] == "annotation asked",
+             "date": article_date(d), "needs": []} for d in queue]
 
 
 def read_unit(aid, cache=CACHE, puzzles=None, reread=None, force=False, ledger=None):

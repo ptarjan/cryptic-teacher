@@ -117,8 +117,11 @@ check("a solution read off a page that no longer links it is due; one off any pa
       [f.due_reason(moved, "h", [18579], "v", None, {18579: {"1991-04-20 leaf 0"}}),
        f.due_reason(moved, "h", [18579], "v", None, {18579: {"1991-04-20 leaf 0", "1991-04-03 leaf 0"}}),
        f.due_reason({**moved, "verdicts": [{"number": 18579}]}, "h", [18579], "v", None, {18579: {"1991-04-20 leaf 0"}})])
-check("a fix's re-read ranks with --reread, not as an unknown reason", [3, 2],
-      [f.rank_of_reason("refused not-a-grid before its fix"), f.rank_of_reason("solution moved")])
+check("a fix's re-read ranks before the whole-corpus ones (scan code, --reread)", [2, 2, 3, 3],
+      [f.rank_of_reason("refused not-a-grid before its fix"), f.rank_of_reason("solution moved"),
+       f.rank_of_reason("scan stale"), f.rank_of_reason("--reread")])
+check("every refusal cause's fix has its rank", True,
+      all(f"refused {c} before its fix" in f.RANKS for c in f.REFUSALS))
 refused = lambda cause, at: {"inputs": "h", "solutionsSeen": [], "vlm": "v", "readAt": at,
                              "scan": {"puzzles": [{"number": 1}]}, "verdicts": [{"number": 1, "cause": cause}]}
 check("a title filed as another number than it read is not due again", None,
@@ -1029,7 +1032,7 @@ old = os.stat(e1).st_mtime_ns
 os.replace(e1 / "leaf_0001.tmp", e1 / "leaf_0001.jpg")
 os.utime(e1, ns=(old, old))
 check("a file replaced under an unmoved mtime makes it due again (the ctime moved)",
-      [("scan", "1981-02-03_1", "scan stale"), ("read", "1981-02-03_1", "scan stale")], due())
+      [("scan", "1981-02-03_1", "scan stale"), ("read", "1981-02-03_1", "inputs changed")], due())
 scan_queue.append(pl, [settled_row(e1)])
 e2 = pc / "NewsUK1981UKEnglish" / "1981-05-06_2"
 e2.mkdir()
@@ -1041,7 +1044,7 @@ check("a moved ledger row makes its edition due again", [("read", "1981-02-03_1"
 scan_queue.compact(pl, "edition")
 check("a ledger replaced whole (compact) plans the same", [("read", "1981-02-03_1", "inputs changed")], due())
 (e2 / "pages.json").write_text("{\"x\": 1}")
-check("a dir changed within SETTLED is listed afresh, an in-place write seen", (False, "scan stale"),
+check("a dir changed within SETTLED is listed afresh, an in-place write seen", (False, "inputs changed"),
       (e2 in f.dir_cache._SEEN, dict((r, why) for _, r, why in due()).get("1981-05-06_2")))
 # A Times puzzle's solution prints in the next issue, which may be a Gale page
 # alone (archive.org lacks that issue), and the reverse: each run sees the

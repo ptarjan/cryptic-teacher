@@ -1395,12 +1395,15 @@ def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
 
 def plan(inbox=MIRROR, store=STORE):
     """The saved pages not read at this VERSION, one read unit each
-    (tools/edition_queue.py), the earliest saved first: rank 0, saved by
-    hand like the Gale Times pages."""
+    (tools/edition_queue.py), the earliest saved first: one never read is
+    rank 0, saved by hand like the Gale Times pages; one read at an older
+    VERSION is a whole-corpus re-read, rank 3 (file_archive_org_puzzles.BLANKET)."""
     ledger = load_ledger(store)
-    todo = [p for p in page_files(inbox) if ledger.get(hash_of(p), {}).get("version") != VERSION]
-    return [{"rel": p.name, "rank": 0, "reason": "saved by hand", "needs": []}
-            for p in sorted(todo, key=lambda p: p.stat().st_mtime)]
+    todo = {p: ledger.get(hash_of(p)) for p in page_files(inbox)}
+    todo = {p: row for p, row in todo.items() if (row or {}).get("version") != VERSION}
+    return [{"rel": p.name, "rank": 3 if row else 0, "reason": "version changed" if row else "saved by hand",
+             "needs": []}
+            for p, row in sorted(todo.items(), key=lambda kv: (bool(kv[1]), kv[0].stat().st_mtime))]
 
 
 def read_unit(name, inbox=MIRROR, store=STORE, reader=read_file, out=sys.stdout, file_it=True):
