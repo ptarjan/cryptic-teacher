@@ -7108,13 +7108,20 @@
     // deserves that credit is the write-up at /puzzles/30054/, which says the same
     // things without needing JavaScript. Point at it, but only when it exists:
     // an unannotated puzzle has no static page, and the homepage is then honest.
+    //
+    // The canonical alone is a hint Google overrides: it indexes ?p= as a
+    // duplicate of the write-up and can pick it over the write-up. So an app
+    // URL for a puzzle with a write-up is noindex, as is any unlisted puzzle.
+    // robots.txt cannot do this: a URL blocked from crawling is never fetched,
+    // so Google never sees the noindex and keeps it indexed.
+    const noindex = !!(p && (p.unlisted || hasPage(p)));
     let robots = document.querySelector('meta[name="robots"]');
-    if (p && p.unlisted && !robots) {
+    if (noindex && !robots) {
       robots = document.createElement("meta");
       robots.name = "robots";
       robots.content = "noindex";
       document.head.appendChild(robots);
-    } else if (robots && !(p && p.unlisted)) {
+    } else if (robots && !noindex) {
       robots.remove();
     }
     const link = document.querySelector('link[rel="canonical"]');
