@@ -1413,6 +1413,13 @@ numbered = {(1, 0): 1, (2, 0): 2, (3, 0): 3}
 check("a numbered cell read surely both ways stands only as its glyph's best match; one way is not enough",
       {(2, 0): "T"}, tso.unnumbered_reads({(1, 0): "T", (2, 0): "T", (3, 0): "T"}, {(1, 0): "T", (2, 0): "T"},
                                           glyphs, read, numbered))
+# best_match(): a letter no plain cell was read as has no model, so the glyph
+# cannot veto it (GERFALCON, GATECRASH and PEGASUS lost their numbered G in
+# times-19998); a letter with a model still yields to a better match.
+check("a numbered cell's letter with no model stands; one a likelier model beats does not",
+      (True, False, True),
+      tuple(tso.best_match(drawn_letter(drawn), tso.letter_models(glyphs, read), 1, ch)
+            for drawn, ch in (("I", "G"), ("I", "T"), ("T", "T"))))
 check("run-together words of 3+ letters are an answer only when read whole: not A + ALLEY, A + DO + IS + ON",
       (False, False, True, True, False),
       (tso.answer("AALLEY", set()), tso.answer("AALLEY", {"AALLEY"}), tso.answer("TUCKSHOP", {"TUCKSHOP"}),
