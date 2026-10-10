@@ -244,7 +244,10 @@ def ensure():
         pass
     try:
         STARTED.touch()
-        flags = 0x00000008 | 0x00000200  # DETACHED_PROCESS, CREATE_NEW_PROCESS_GROUP
+        # DETACHED_PROCESS, CREATE_NEW_PROCESS_GROUP, BELOW_NORMAL_PRIORITY_CLASS:
+        # a child of an idle-priority session is idle too, and starves behind
+        # the below-normal scans before it gets to its own full_speed().
+        flags = 0x00000008 | 0x00000200 | 0x00004000
         cmd = [sys.executable, str(Path(__file__).resolve()), "serve"]
         try:
             subprocess.Popen(cmd, creationflags=flags | 0x01000000, stdin=subprocess.DEVNULL,  # BREAKAWAY_FROM_JOB
