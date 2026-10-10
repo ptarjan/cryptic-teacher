@@ -114,14 +114,19 @@ def titled():
 
 def unit_status(unit, run):
     """In the unit's own process: name it after `unit`, run() it and return
-    its exit status (EXITS; 1 for an error, logged)."""
+    its exit status (EXITS; 1 for an error, logged; "deferred" when its
+    desktop reads met a busy desktop and it defers, ocr_remote.DEFER)."""
     import edition_commit
+    import ocr_remote
     import scan_queue
     if titled():
         import setproctitle
         setproctitle.setproctitle(unit_title(unit))
     try:
         return edition_commit.EXITS.get(run(), 1)
+    except ocr_remote.DesktopBusy as e:
+        print(f"{unit['kind']} {unit['rel']}: deferred, the desktop is busy ({e})", file=sys.stderr, flush=True)
+        return edition_commit.EXITS["deferred"]
     except Exception as e:  # noqa: BLE001 -- the unit's end is its exit status, logged
         scan_queue.failure((unit["rel"],), e)
         return 1
@@ -161,8 +166,11 @@ if _snapshot is not None and _spec.get("brief"):
         setproctitle.setproctitle(f"edition_queue.py unit read {_spec['unit']['paper']} {_spec['unit']['rel']} (desktop)")
     except ImportError:
         pass
+    import ocr_remote
     try:
         sys.exit(edition_commit.main(_spec))
+    except ocr_remote.DesktopBusy:
+        sys.exit(edition_commit.EXITS["deferred"])
     except Exception as e:  # noqa: BLE001 -- the unit's end is its exit status, logged
         import scan_queue
         scan_queue.failure((_spec["unit"]["rel"],), e)
@@ -175,6 +183,7 @@ import file_archive_org_puzzles as fa  # noqa: E402
 import file_trove_puzzles as ftp  # noqa: E402
 import gale_listener  # noqa: E402
 import mem_gate  # noqa: E402
+import ocr_remote  # noqa: E402
 import scan_queue  # noqa: E402
 
 if _snapshot is not None:
@@ -556,6 +565,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         argv = unit_argv(unit)
         made = prepare(unit, cache, puzzles, reread)
         env = {**os.environ, "CT_EDITION_UNIT": json.dumps({**spec, "unit": unit, **({"brief": made} if made else {})})}
+        if unit["kind"] != "fetch":
+            # Its OCR is not moved onto this host while the desktop yields: it ends deferred, run again once idle.
+            env[ocr_remote.DEFER] = "1"
         pid = os.posix_spawn(argv[0], argv, env, setpgroup=0, setsigmask=())
         running[pid] = (unit, time.monotonic())
         tried.add(key_of(unit))
@@ -573,11 +585,15 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if pid not in running and pid not in adopted:
                 continue
             unit, t0 = running.pop(pid) if pid in running else adopted.pop(pid)
-            finished[key_of(unit)] = time.monotonic()
             rc = os.waitstatus_to_exitcode(status)
+            if rc == EXITS["deferred"]:
+                tried.discard(key_of(unit))  # started again once the desktop is idle
+            else:
+                finished[key_of(unit)] = time.monotonic()
             what = {0: "done", 3: "busy (another unit has it)", 4: "held (a run holds the ledger)",
                     5: "failed, the source looks down", 6: "done, but throttled (429)",
-                    7: "not started: the disk is full"}.get(rc, f"failed (rc={rc})")
+                    7: "not started: the disk is full",
+                    EXITS["deferred"]: "deferred (the desktop is busy)"}.get(rc, f"failed (rc={rc})")
             if unit["kind"] == "fetch":
                 src = unit["paper"]
                 outages[src] = outages[src] + 1 if rc == 5 else 0

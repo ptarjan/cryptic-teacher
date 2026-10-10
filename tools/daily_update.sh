@@ -385,7 +385,8 @@ unit_blog_facts() {
   python3 tools/blog_facts.py --if-changed 2>&1 | tee "$facts_out"
   step_rc=${PIPESTATUS[0]}
   echo "blog_facts: rc=$step_rc in $((SECONDS - step_start))s"
-  [ $step_rc -eq 0 ] ||
+  # 75: put off while the desktop is busy (blog_facts.DEFERRED_RC), retried.
+  [ $step_rc -eq 0 ] || [ $step_rc -eq 75 ] ||
     alert "tools/blog_facts.py failed (rc=$step_rc), so new puzzles get no blog hints:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$facts_out" | cut -c1-200)"$'\n'"\`\`\`"
   rm -f "$facts_out"
   return $step_rc

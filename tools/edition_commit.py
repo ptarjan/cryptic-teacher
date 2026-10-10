@@ -24,9 +24,10 @@ from pathlib import Path
 
 #: The filer whose files these are: a held file it wrote names it (source.acquiredBy).
 TOOL = "tools/file_archive_org_puzzles.py"
-#: A unit's exit status: what read_unit/scan_unit/a fetcher's unit returned.
+#: A unit's exit status: what read_unit/scan_unit/a fetcher's unit returned;
+#: "deferred", its desktop reads met a busy desktop (ocr_remote.DesktopBusy).
 EXITS = {"read": 0, "scanned": 0, "current": 0, "fetched": 0, "busy": 3, "held": 4, "outage": 5,
-         "throttled": 6, "disk": 7}
+         "throttled": 6, "disk": 7, "deferred": 8}
 #: The tools modules main() runs, loaded as the unit starts (under the
 #: queue's code lock, edition_queue.snapshot): none of them is loaded later
 #: from a tree that moved meanwhile (test_edition_commit.sh checks a commit

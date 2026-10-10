@@ -32,7 +32,9 @@ seconds: a desktop that is off slows a run down and never stops or hangs it.
 While Paul games on it (tools/desktop_busy.py) no session is opened, an open
 one is closed before its next read and one waiting on a read is abandoned
 (the probe ends the desktop's side): this process reads locally until the
-desktop is idle again.
+desktop is idle again, unless it defers (OCR_REMOTE_DEFER set, as the edition
+queue sets it for its scan and read units): then the read raises DesktopBusy,
+and the unit ends deferred, to be run again once the desktop is idle.
 
 Whatever is read here while OCR_REMOTE is set holds one of LOCAL_SLOTS
 host-wide slots (local_slot()): the full pass runs 20 workers for the
@@ -562,6 +564,29 @@ class Unavailable(Exception):
     pass
 
 
+#: Set (to anything) in a process whose desktop reads are not made here
+#: while the desktop is busy: it raises DesktopBusy instead.
+DEFER = "OCR_REMOTE_DEFER"
+
+
+class DesktopBusy(BaseException):
+    """The desktop is busy (why) and this process defers (DEFER). Not an
+    Exception, so no `except Exception` on its way out records it as the
+    read's failure."""
+
+
+def defer_when_busy():
+    """Raise DesktopBusy, in this process and those it starts, rather than
+    read here while the desktop is busy."""
+    os.environ[DEFER] = "1"
+
+
+def _busy_here(why):
+    """Raise DesktopBusy(why) when the desktop is busy and this process defers."""
+    if why and os.environ.get(DEFER):
+        raise DesktopBusy(why)
+
+
 class Session:
     """One ssh session to a desktop's server, owned by one process."""
 
@@ -800,15 +825,17 @@ def hosts():
 
 def session():
     """This process's ready session, or None when OCR_REMOTE is not set, the
-    desktop is busy (closing the session) or no host answers (then not tried
-    again for RETRY seconds)."""
+    desktop is busy (closing the session; DesktopBusy when this process
+    defers) or no host answers (then not tried again for RETRY seconds)."""
     if not hosts():
         return None
     st = _state()
-    if desktop_busy.busy(hosts()):
+    why = desktop_busy.busy(hosts())
+    if why:
         if st["session"] is not None:
             st["session"].close()
             st["session"] = None
+        _busy_here(why)
         return None
     if st["session"] is None:
         if time.monotonic() < st["retry"]:
@@ -823,13 +850,17 @@ def session():
 
 def lost(e):
     """Close a session that stopped answering: tried again after RETRY
-    seconds, or once the desktop is idle when it was ended for a game."""
+    seconds, or once the desktop is idle when it was ended for a game
+    (DesktopBusy when this process defers)."""
     st = _state()
-    wait = 0 if desktop_busy.busy(hosts()) else RETRY
-    log(f"lost {st['session'].host} ({e}), reading here; trying again "
+    why = desktop_busy.busy(hosts())
+    wait = 0 if why else RETRY
+    deferred = bool(why and os.environ.get(DEFER))
+    log(f"lost {st['session'].host} ({e}), {'deferring' if deferred else 'reading here'}; trying again "
         + (f"in {RETRY}s" if wait else "when the desktop is idle"))
     st["session"].close()
     st.update(session=None, retry=time.monotonic() + wait)
+    _busy_here(why)
 
 
 def edition_request(d, found, solutions):

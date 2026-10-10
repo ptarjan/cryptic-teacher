@@ -376,4 +376,20 @@ import blog_facts as bf
 print(json.dumps(bf.fact_json({"definition": ["King"], "inferred": ["definition"], "type": ["charade"]},
                               "King, nearly everybody scoffed about King"), sort_keys=True))')"
 
+# While the desktop is busy a full run waits for it, up to DEFER_HOURS, then runs here.
+check "a busy desktop puts the run off until DEFER_HOURS have passed; an idle one never does" \
+  '["playing Wow", "playing Wow", null, false, null]' \
+  "$(REPO="$REPO" TMP="$(mktemp -d)" python3 -c '
+import json, os, sys
+from pathlib import Path
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import blog_facts as bf, desktop_busy
+bf.DEFERRED = Path(os.environ["TMP"]) / "deferred"
+desktop_busy.busy = lambda hosts: "playing Wow"
+h = bf.DEFER_HOURS * 3600
+got = [bf.desktop_wait(now=1000.0), bf.desktop_wait(now=1000.0 + h - 1), bf.desktop_wait(now=1000.0 + h), bf.DEFERRED.exists()]
+desktop_busy.busy = lambda hosts: None
+got.append(bf.desktop_wait(now=1000.0))
+print(json.dumps(got))' 2>/dev/null)"
+
 [ "$fails" -eq 0 ] && echo "all blog_facts checks passed" || { echo "$fails failed"; exit 1; }
