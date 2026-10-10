@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Relative partly installs fruit machine that talks?",
     "enumeration": "9"
    },
-   "solution": "AUTOMATON"
+   "solution": "AUTOMATON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "AUTOMATON",
+    "definitions": [
+     {
+      "text": "machine that talks?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "deletion",
+      "note": "only part of the relative is used, so the word loses its final letter"
+     },
+     {
+      "text": "installs",
+      "for": "container",
+      "note": "to install something is to put it inside, so the shortened relative goes around the fruit"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relative",
+      "gives": "AUNT",
+      "note": "an aunt is a relative"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "TOMATO",
+      "note": "botanically a tomato is a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "TOMATO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A relative fits a fruit machine with a gadget that speaks, a seaside arcade novelty.",
+     "walkthrough": "'Fruit machine' looks like one unit, a British slot machine, but the two words split between wordplay and definition.",
+     "definitionFit": "An automaton is a mechanical figure built to imitate a person, and the question mark admits that not every such robot actually speaks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,49 @@
     "text": "Section of mounted slide bore a nasty bug?",
     "enumeration": "8"
    },
-   "solution": "ANAEROBE"
+   "solution": "ANAEROBE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ANAEROBE",
+    "definitions": [
+     {
+      "text": "bug",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Section of",
+      "for": "hidden_word",
+      "note": "a section is a run of letters lifted straight out of the following words"
+     },
+     {
+      "text": "mounted",
+      "for": "reversal",
+      "note": "in a down entry, mounted means going upward, so the run is read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slide bore a nasty",
+      "gives": "ANAEROBE",
+      "note": "the letters of these words, read backwards, contain the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A nasty germ seen on a microscope slide mounted for viewing.",
+     "walkthrough": "Read 'sliDE BORE ANAsty' backwards: Y-T-S-A-N-A-E-R-O-B-E-D-I-L-S holds ANAEROBE. 'Mounted slide' sounds like lab equipment, but 'mounted' is the reversal signal.",
+     "definitionFit": "An anaerobe is a microorganism that lives without oxygen, and bug is the informal word for such a germ."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mounted"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +161,61 @@
     "text": "Claw oddly scratched floor coated with bronze",
     "enumeration": "5"
    },
-   "solution": "TALON"
+   "solution": "TALON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TALON",
+    "definitions": [
+     {
+      "text": "Claw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly scratched",
+      "for": "letter_selection",
+      "note": "scratching out the odd-numbered letters leaves only the even ones"
+     },
+     {
+      "text": "coated with",
+      "for": "container",
+      "note": "a coating wraps all round, so the colour word goes outside the kept letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bronze",
+      "gives": "TAN",
+      "note": "tan is a bronze, sunburnt colour"
+     },
+     {
+      "clueFragment": "floor",
+      "gives": "LO",
+      "select": "alternate",
+      "note": "the second and fourth letters of floor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "LO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A bronze floor scratched by some creature's claw.",
+     "definitionFit": "A talon is the hooked claw of a bird of prey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scratched"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +229,62 @@
     "text": "Female crosses further down: bear doesn't follow",
     "enumeration": "14"
    },
-   "solution": "MISUNDERSTANDS"
+   "solution": "MISUNDERSTANDS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MISUNDERSTANDS",
+    "definitions": [
+     {
+      "text": "doesn't follow",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crosses",
+      "for": "container",
+      "note": "a woman who crosses something here spans it from one side to the other, holding it within her"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "MISS",
+      "note": "Miss is the title for an unmarried woman"
+     },
+     {
+      "clueFragment": "further down",
+      "gives": "UNDER",
+      "note": "under means lower down"
+     },
+     {
+      "clueFragment": "bear",
+      "gives": "STAND",
+      "note": "to stand something is to bear or tolerate it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIS",
+      "UNDER",
+      "STAND",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman crossing further down the slope while a bear is not trailing behind.",
+     "walkthrough": "The colon suggests the bear explains the woman's route; in fact the definition sits after it.",
+     "definitionFit": "If you misunderstand someone you fail to grasp their meaning, just as you cannot follow an argument you do not get."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +298,74 @@
     "text": "Drum in time with game old doctors travelling north",
     "enumeration": "7"
    },
-   "solution": "TAMBOUR"
+   "solution": "TAMBOUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TAMBOUR",
+    "definitions": [
+     {
+      "text": "Drum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling north",
+      "for": "reversal",
+      "note": "in a down entry, moving north means reading upward, so the group is turned round"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is Rugby Union"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "doctors",
+      "gives": "BMA",
+      "note": "the BMA, British Medical Association, is the doctors' professional body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AMBOUR"
+     ],
+     "reversals": [
+      {
+       "from": "RUOBMA",
+       "to": "AMBOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drumbeat keeping time with a game played by old doctors on the move.",
+     "walkthrough": "T, then RU + O + BMA turned upward. The BMA is the trade body for British doctors.",
+     "definitionFit": "A tambour is a small drum, the old word behind tambourine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +379,68 @@
     "text": "Saw clumsily into 50% of trees",
     "enumeration": "7"
    },
-   "solution": "NOTICED"
+   "solution": "NOTICED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NOTICED",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clumsily",
+      "for": "anagram",
+      "note": "something done clumsily is botched and jumbled, so the letters are rearranged"
+     },
+     {
+      "text": "50% of",
+      "for": "deletion",
+      "note": "fifty per cent means half, so the back half of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "into",
+      "gives": "INTO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "trees",
+      "gives": "CEDARS",
+      "note": "cedars are trees"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTI",
+      "CED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTO",
+       "gives": "NOTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sawed clumsily into half the trees in a wood.",
+     "walkthrough": "'Trees' stands for CEDARS, half of which is CED. 'Saw' looks like the cutting tool in this woodland scene, but it is the past tense of see.",
+     "definitionFit": "To have noticed something is to have seen or spotted it, so the past tense of see fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +454,57 @@
     "text": "Heroic tale of half perhaps fleeing outbreak",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "Heroic tale",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fleeing",
+      "for": "deletion",
+      "note": "what flees runs away, so that part leaves the longer word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outbreak",
+      "gives": "EPIDEMIC",
+      "note": "an epidemic is an outbreak of disease"
+     },
+     {
+      "clueFragment": "half perhaps",
+      "gives": "DEMI",
+      "note": "demi- is a prefix meaning half"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A heroic tale of half the population fleeing an outbreak of plague.",
+     "walkthrough": "EPIDEMIC without DEMI leaves EPI + C.",
+     "definitionFit": "An epic is a long narrative poem celebrating the deeds of heroes, like the Iliad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +518,69 @@
     "text": "Horrid wearing stuffed shirt close to fire, right?",
     "enumeration": "9"
    },
-   "solution": "PRIVILEGE"
+   "solution": "PRIVILEGE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRIVILEGE",
+    "definitions": [
+     {
+      "text": "right",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "a word wearing another has it on like clothing, so the shirt goes around the nasty word"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its last letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stuffed shirt",
+      "gives": "PRIG",
+      "note": "a stuffed shirt is a pompous, self-righteous person"
+     },
+     {
+      "clueFragment": "Horrid",
+      "gives": "VILE",
+      "note": "vile means horrid"
+     },
+     {
+      "clueFragment": "fire",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of fire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRI",
+      "VILE",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A horrid pompous figure warming himself close to the fire, as is his due.",
+     "walkthrough": "'Right?' reads like a tag question, but it is the definition, a noun.",
+     "definitionFit": "A privilege is a special right or advantage granted to some and not others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +594,60 @@
     "text": "Fruit drink primarily avoided after cold",
     "enumeration": "6"
    },
-   "solution": "CHERRY"
+   "solution": "CHERRY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CHERRY",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily avoided",
+      "for": "deletion",
+      "note": "the primary letter is the first, and it is avoided, so it drops off"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the shortened drink behind the cold letter in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SHERRY",
+      "note": "sherry is a fortified wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HERRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit drink skipped in favour of something cold.",
+     "walkthrough": "C, then SHERRY without its S.",
+     "definitionFit": "A cherry is a small round stone fruit, typically red."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +667,64 @@
      }
     ]
    },
-   "solution": "GOOSEBERRYBUSH"
+   "solution": "GOOSEBERRYBUSH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOOSEBERRY BUSH",
+    "definitions": [
+     {
+      "text": "Shrub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered with",
+      "for": "charade",
+      "note": "in a down entry, being covered means having something placed on top, so that word comes first"
+     }
+    ],
+    "linkWords": [
+     "maybe"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "layer",
+      "gives": "GOOSE",
+      "note": "a goose lays eggs, so it is a layer"
+     },
+     {
+      "clueFragment": "Mary",
+      "gives": "BERRY",
+      "note": "Mary Berry is a famous British cookery writer and TV baking judge"
+     },
+     {
+      "clueFragment": "George",
+      "gives": "BUSH",
+      "note": "George Bush, the US President"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOOSE",
+      "BERRY",
+      "BUSH"
+     ]
+    },
+    "explanation": {
+     "surface": "Mary and George's child, perhaps, covered in a blanket; babies are said to come from under a gooseberry bush.",
+     "walkthrough": "'Maybe' warns that Mary and George are named examples: BERRY and BUSH. 'Layer' is not a stratum but something that lays, here GOOSE.",
+     "definitionFit": "A gooseberry bush is the thorny shrub that bears gooseberries, and also where children are jokingly told babies are found."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "layer"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +738,67 @@
     "text": "Jack turned on one supporter at top of column",
     "enumeration": "5"
    },
-   "solution": "ATLAS"
+   "solution": "ATLAS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ATLAS",
+    "definitions": [
+     {
+      "text": "supporter at top of column",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "a word turned round is read back to front"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry, sitting on something means coming after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "Jack",
+      "gives": "SALT",
+      "note": "jack and salt are both slang for a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TLAS"
+     ],
+     "reversals": [
+      {
+       "from": "SALT",
+       "to": "TLAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jack turns to someone who props up the top of a column, like a building worker.",
+     "walkthrough": "The definition hides an anatomy fact: the spinal column's top vertebra, which holds up the skull, is called the atlas.",
+     "definitionFit": "The atlas is the first neck vertebra, supporting the head at the top of the spine, named after the Titan who held up the heavens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "column"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +812,67 @@
     "text": "Rock destroyed remote locations lacking cover",
     "enumeration": "9"
    },
-   "solution": "METEORITE"
+   "solution": "METEORITE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "METEORITE",
+    "definitions": [
+     {
+      "text": "Rock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken apart, so its letters are rebuilt in another order"
+     },
+     {
+      "text": "lacking cover",
+      "for": "deletion",
+      "note": "without its cover a word loses its outermost letters at both ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remote",
+      "gives": "REMOTE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "locations",
+      "gives": "SITES",
+      "note": "sites are locations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "METEOR",
+      "ITE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REMOTE",
+       "gives": "METEOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rock bands destroying gigs in remote spots with no shelter.",
+     "walkthrough": "REMOTE rearranged, then SITES stripped of its outer S's.",
+     "definitionFit": "A meteorite is a rock from space that has survived falling to Earth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "destroyed"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +892,61 @@
      }
     ]
    },
-   "solution": "RUNINTO"
+   "solution": "RUNINTO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RUN INTO",
+    "definitions": [
+     {
+      "text": "Come across",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating takes food inside itself, so the little pig surrounds the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smallest pig",
+      "gives": "RUNT",
+      "note": "the runt is the smallest of a litter"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "O is shaped like a ring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUN",
+      "IN",
+      "T",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Coming across the smallest pig of the litter feeding in a ring.",
+     "definitionFit": "To run into someone is to meet them by chance, an idiom for encountering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +960,43 @@
     "text": "Person handling notes more like a country singer?",
     "enumeration": "7"
    },
-   "solution": "CASHIER"
+   "solution": "CASHIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CASHIER",
+    "definitions": [
+     {
+      "text": "Person handling notes",
+      "at": 0
+     },
+     {
+      "text": "more like a country singer?",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person handling notes",
+      "note": "first meaning: someone who deals with money at a bank or shop counter"
+     },
+     {
+      "clueFragment": "more like a country singer?",
+      "note": "second meaning, playful: a comparative adjective, as if 'cashy' meant like Johnny Cash"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Notes' suggests music, which the country singer reinforces; they are banknotes. Johnny Cash was the American country singer, and the question mark licenses the invented comparative.",
+     "definitionFit": "A cashier takes and pays out money, handling banknotes as a job, while the comparative reading is the setter's invented sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +1010,67 @@
     "text": "Adage Rod composed in book fit for composting",
     "enumeration": "13"
    },
-   "solution": "BIODEGRADABLE"
+   "solution": "BIODEGRADABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BIODEGRADABLE",
+    "definitions": [
+     {
+      "text": "fit for composting",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "composed",
+      "for": "anagram",
+      "note": "to compose is to arrange, so the letters are set out in a fresh order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the rearranged letters go inside the book"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "BIBLE",
+      "note": "the Bible is the book"
+     },
+     {
+      "clueFragment": "Adage Rod",
+      "gives": "ADAGEROD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "ODEGRADA",
+      "BLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ADAGEROD",
+       "gives": "ODEGRADA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An adage that someone called Rod wrote in a book about compost.",
+     "walkthrough": "'Composed' fits the writing picture and also hints at compost, but it is the signal to rearrange.",
+     "definitionFit": "Something biodegradable can be broken down by bacteria, which is exactly what makes material suitable for the compost heap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composed"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1084,56 @@
     "text": "Toby unwrapped hearing thing",
     "enumeration": "9"
    },
-   "solution": "OBSESSION"
+   "solution": "OBSESSION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OBSESSION",
+    "definitions": [
+     {
+      "text": "thing",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unwrapped",
+      "for": "letter_selection",
+      "note": "removing the wrapping takes off the outside letters, leaving just the middle ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toby",
+      "gives": "OB",
+      "select": "middle",
+      "note": "the inner letters of Toby"
+     },
+     {
+      "clueFragment": "hearing",
+      "gives": "SESSION",
+      "note": "a court hearing or sitting is a session"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "SESSION"
+     ]
+    },
+    "explanation": {
+     "surface": "A Toby jug unwrapped, a much-heard-of thing.",
+     "walkthrough": "'Hearing' suggests the ear; here it is a sitting of a court.",
+     "definitionFit": "Having a thing about something is informal for being fixated on it, which is what an obsession is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1147,84 @@
     "text": "Learners cycling naked in streets facing each another",
     "enumeration": "8"
    },
-   "solution": "STUDENTS"
+   "solution": "STUDENTS",
+   "annotation": {
+    "type": [
+     "cycling",
+     "reversal",
+     "container"
+    ],
+    "answer": "STUDENTS",
+    "definitions": [
+     {
+      "text": "Learners",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "letters going round a cycle move from the front to the back of the word"
+     },
+     {
+      "text": "facing each another",
+      "for": "reversal",
+      "note": "two things facing each other point opposite ways, so the second copy is turned round"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the shifted word sits between the two copies of the street abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "streets",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "naked",
+      "gives": "NUDE",
+      "note": "nude means naked"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "ST",
+      "note": "a second street abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "UDEN",
+      "TS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NUDE",
+       "gives": "UDEN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ST",
+       "to": "TS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Students cycling naked through the streets, a rag-week stunt.",
+     "walkthrough": "'Cycling' paints bicycles but is the rotation signal: the first letter moves to the end.",
+     "definitionFit": "Students are people who are learning, at school or university."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1250,62 @@
      }
     ]
    },
-   "solution": "SUSPENDERBELT"
+   "solution": "SUSPENDERBELT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SUSPENDER BELT",
+    "definitions": [
+     {
+      "text": "Lingerie",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so the poet's name wraps the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet Stephen",
+      "gives": "SPENDER",
+      "note": "Stephen Spender was an English poet"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US for American"
+     },
+     {
+      "clueFragment": "hit",
+      "gives": "BELT",
+      "note": "to belt is to hit hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "PENDER",
+      "BELT"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet welcoming an American hit called Lingerie, a hit song or show.",
+     "walkthrough": "SPENDER takes in US: S(US)PENDER, then BELT.",
+     "definitionFit": "A suspender belt is women's underwear, a band with straps that hold up stockings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1319,66 @@
     "text": "People sort of supporting Glen actively",
     "enumeration": "7"
    },
-   "solution": "ENGLISH"
+   "solution": "ENGLISH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENGLISH",
+    "definitions": [
+     {
+      "text": "People",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "actively",
+      "for": "anagram",
+      "note": "letters that are active move about, so they are rearranged"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down entry, a supporter sits underneath, so that piece comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Glen",
+      "gives": "GLEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sort of",
+      "gives": "ISH",
+      "note": "the suffix -ish means sort of, as in 'greenish'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENGL",
+      "ISH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GLEN",
+       "gives": "ENGL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People who keenly support someone called Glen.",
+     "walkthrough": "'Supporting' looks like cheering a person but is a placement instruction: in a down entry the supporter goes underneath.",
+     "definitionFit": "The English are a people, the nation of England, and the word serves as a plural noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1392,54 @@
     "text": "Widow bet on event? On the contrary",
     "enumeration": "7"
    },
-   "solution": "DOWAGER"
+   "solution": "DOWAGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWAGER",
+    "definitions": [
+     {
+      "text": "Widow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On the contrary",
+      "for": "charade",
+      "note": "this reverses the order the clue implies, so the event comes on top of the bet instead"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "event",
+      "gives": "DO",
+      "note": "a do is a party or social event"
+     },
+     {
+      "clueFragment": "bet",
+      "gives": "WAGER",
+      "note": "a wager is a bet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "WAGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A widow placing a bet on a sporting event.",
+     "walkthrough": "In a down clue, 'bet on event' would put the bet above the event; 'On the contrary' flips that order.",
+     "definitionFit": "A dowager is a widow holding a title or property from her late husband, as in dowager duchess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "event"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1453,55 @@
     "text": "Mischief-makers infiltrated by the Spanish forces",
     "enumeration": "6"
    },
-   "solution": "IMPELS"
+   "solution": "IMPELS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IMPELS",
+    "definitions": [
+     {
+      "text": "forces",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "infiltrated by",
+      "for": "container",
+      "note": "whatever infiltrates a group gets inside it, so the article goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mischief-makers",
+      "gives": "IMPS",
+      "note": "imps are mischievous little sprites"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "EL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Troublemakers infiltrated by Spanish armed forces.",
+     "walkthrough": "'Forces' looks like a military noun, but it is a verb.",
+     "definitionFit": "To impel someone is to drive or compel them, so impels works as a verb meaning forces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "forces"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1515,62 @@
     "text": "Equine character of Aesop flies around",
     "enumeration": "7"
    },
-   "solution": "MUSTANG"
+   "solution": "MUSTANG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MUSTANG",
+    "definitions": [
+     {
+      "text": "Equine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around, the insects' word is read from the back"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "character of Aesop",
+      "gives": "MU",
+      "note": "Aesop was Greek, and mu is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "flies",
+      "gives": "GNATS",
+      "note": "gnats are small flies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MU",
+      "STANG"
+     ],
+     "reversals": [
+      {
+       "from": "GNATS",
+       "to": "STANG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse character from Aesop's fables with flies buzzing round it.",
+     "walkthrough": "'Character' suggests a figure in a fable; it is a letter of Aesop's Greek alphabet.",
+     "definitionFit": "A mustang is a wild horse of the American West, and equine as a noun means a member of the horse family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1584,63 @@
     "text": "Ambushed far west of city with papers",
     "enumeration": "7"
    },
-   "solution": "WAYLAID"
+   "solution": "WAYLAID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WAYLAID",
+    "definitions": [
+     {
+      "text": "Ambushed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "west of",
+      "for": "charade",
+      "note": "in an across entry, west is the left, so that piece comes first"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "far",
+      "gives": "WAY",
+      "note": "way means far, as in 'way off'"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "ID is identity papers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAY",
+      "LA",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ambushed far to the west of a city while carrying documents.",
+     "walkthrough": "'Papers' looks like newspapers; it means identity documents.",
+     "definitionFit": "To waylay someone is to lie in wait and stop or attack them on their way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1654,65 @@
     "text": "One replaced by bishop in a 1760-yard walk",
     "enumeration": "5"
    },
-   "solution": "AMBLE"
+   "solution": "AMBLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "AMBLE",
+    "definitions": [
+     {
+      "text": "walk",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaced by",
+      "for": "substitution",
+      "note": "one thing replaced by another is swapped out for it, letter for letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "1760-yard",
+      "gives": "MILE",
+      "note": "a mile is 1760 yards"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop taking a mile-long stroll in place of someone else.",
+     "walkthrough": "A MILE has its I swapped for B.",
+     "definitionFit": "An amble is a leisurely, easy-paced stroll."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1732,70 @@
      }
     ]
    },
-   "solution": "EVILDOING"
+   "solution": "EVILDOING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EVIL-DOING",
+    "definitions": [
+     {
+      "text": "Wickedness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "something stopping a gap plugs it from inside, so the number sits within"
+     },
+     {
+      "text": "naughtily",
+      "for": "anagram",
+      "note": "naughty letters misbehave and get out of order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in lodge",
+      "gives": "INLODGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "VI is six in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VI",
+      "LDOING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INLODGE",
+       "gives": "ELDOING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wickedness of six people misbehaving in a lodge, such as a Masonic one.",
+     "walkthrough": "'In' looks like a link word but belongs to the letters being rearranged.",
+     "definitionFit": "Evildoing is wicked behaviour, the deeds of an evildoer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1809,61 @@
     "text": "You're texted by Nick about living in town?",
     "enumeration": "5"
    },
-   "solution": "URBAN"
+   "solution": "URBAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "URBAN",
+    "definitions": [
+     {
+      "text": "living in town?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about, the verb for nick is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You're texted",
+      "gives": "UR",
+      "note": "text-speak for you're"
+     },
+     {
+      "clueFragment": "Nick",
+      "gives": "NAB",
+      "note": "to nick is to arrest or nab"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UR",
+      "BAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAB",
+       "to": "BAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A text from Nick asking whether you are living in town.",
+     "walkthrough": "'Nick' looks like a name but is a verb meaning catch.",
+     "definitionFit": "Urban describes city life; the question mark admits that a phrase like living in town only stands in for the adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1877,44 @@
     "text": "Quickly downed five in Le Café, we hear",
     "enumeration": "4"
    },
-   "solution": "SANK"
+   "solution": "SANK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SANK",
+    "definitions": [
+     {
+      "text": "Quickly downed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken sound, so the French word is matched by its pronunciation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "five in Le Café",
+      "gives": "SANK",
+      "soundsLike": "CINQ",
+      "note": "cinq is French for five, pronounced like the English word"
+     }
+    ],
+    "explanation": {
+     "surface": "Five drinks downed fast at a French café.",
+     "walkthrough": "'Le Café' signals French.",
+     "definitionFit": "To sink a pint is to drink it quickly, and the past tense means downed fast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "downed"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1928,65 @@
     "text": "Severity of exploit overwhelming first couple of sherpas",
     "enumeration": "9"
    },
-   "solution": "HARSHNESS"
+   "solution": "HARSHNESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HARSHNESS",
+    "definitions": [
+     {
+      "text": "Severity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelming",
+      "for": "container",
+      "note": "to overwhelm is to engulf completely, so the verb wraps around the kept letters"
+     },
+     {
+      "text": "first couple of",
+      "for": "letter_selection",
+      "note": "only the opening two letters of the following word are used"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exploit",
+      "gives": "HARNESS",
+      "note": "to harness something is to exploit it"
+     },
+     {
+      "clueFragment": "sherpas",
+      "gives": "SH",
+      "select": "first",
+      "note": "the first two letters of sherpas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAR",
+      "SH",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "The harshness of exploiting the Himalayan sherpas who carry loads for climbers.",
+     "walkthrough": "Sherpas are Himalayan mountain guides and porters, which is why exploiting them is a harsh picture.",
+     "definitionFit": "Harshness is the quality of being severe, cruel or rough."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exploit"
+    }
+   }
   }
  ]
 }
