@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,86 @@
     "text": "Cameron, gathering backbench support, has a brief moment of calm",
     "enumeration": "10"
    },
-   "solution": "PHLEGMATIC"
+   "solution": "PHLEGMATIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container",
+     "deletion"
+    ],
+    "answer": "PHLEGMATIC",
+    "definitions": [
+     {
+      "text": "calm",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "to gather something is to take it in, so one piece is placed inside the other"
+     },
+     {
+      "text": "brief",
+      "for": "deletion",
+      "note": "something brief is cut short, so the phrase loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cameron",
+      "gives": "PM",
+      "note": "David Cameron was Prime Minister, abbreviated PM"
+     },
+     {
+      "clueFragment": "backbench",
+      "gives": "H",
+      "select": "last",
+      "note": "the back of bench is its last letter"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "LEG",
+      "note": "a leg supports a table or chair"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "moment",
+      "gives": "TICK",
+      "note": "a tick is a moment, as in 'just a tick'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "H",
+      "LEG",
+      "M",
+      "A",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "David Cameron, propped up by his backbenchers, enjoys a short spell of peace.",
+     "walkthrough": "'Backbench' suggests MPs on the rear benches, but it means the back of the word bench. 'Moment of calm' looks like one phrase; 'of' is only the link.",
+     "definitionFit": "A phlegmatic person is unexcitable and composed, a synonym for calm in temperament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backbench"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +129,77 @@
     "text": "Prepared canapé wrapping gutted trout in bacon",
     "enumeration": "8"
    },
-   "solution": "PANCETTA"
+   "solution": "PANCETTA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PANCETTA",
+    "definitions": [
+     {
+      "text": "bacon",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Prepared",
+      "for": "anagram",
+      "note": "food that is prepared has been made up, so these letters are made into a new order"
+     },
+     {
+      "text": "gutted",
+      "for": "letter_selection",
+      "note": "a gutted fish has had its insides removed, leaving only the outer letters of the word"
+     },
+     {
+      "text": "wrapping",
+      "for": "container",
+      "note": "wrapping something means going around it, so one piece is placed inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "canapé",
+      "gives": "PANCEA",
+      "note": "the letters of canapé rearranged"
+     },
+     {
+      "clueFragment": "trout",
+      "gives": "TT",
+      "select": "outer",
+      "note": "the first and last letters of trout"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PANCE",
+      "TT",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANAPE",
+       "gives": "PANCEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe: a canapé made by wrapping cleaned trout in bacon.",
+     "walkthrough": "'Bacon' looks like part of the recipe, but it is the definition, with 'in' joining it to the wordplay.",
+     "definitionFit": "Pancetta is Italian cured pork belly, a type of bacon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +213,45 @@
     "text": "Remained decorous in speech",
     "enumeration": "6"
    },
-   "solution": "STAYED"
+   "solution": "STAYED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STAYED",
+    "definitions": [
+     {
+      "text": "Remained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in speech",
+      "for": "homophone",
+      "note": "in speech means as the word is spoken, so we want a word that sounds like this one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decorous",
+      "gives": "STAYED",
+      "soundsLike": "STAID",
+      "note": "decorous means staid, sober and proper"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone kept polite in the way they talked.",
+     "walkthrough": "Staid and the answer are pronounced the same.",
+     "definitionFit": "To have stayed is to have remained in place, a simple past-tense synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Remained"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +265,68 @@
     "text": "In fact no student's put up a tent",
     "enumeration": "4"
    },
-   "solution": "YURT"
+   "solution": "YURT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "YURT",
+    "definitions": [
+     {
+      "text": "tent",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "'no' means without, so the following item is taken away"
+     },
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down clue, putting something up means reading it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In fact",
+      "gives": "TRULY",
+      "note": "truly means in fact"
+     },
+     {
+      "clueFragment": "student's",
+      "gives": "L",
+      "note": "L is a learner driver, a student"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YURT"
+     ],
+     "reversals": [
+      {
+       "from": "TRUY",
+       "to": "YURT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It turns out no student pitched a tent.",
+     "walkthrough": "TRULY without L gives TRUY, which is then written upwards.",
+     "definitionFit": "A yurt is a round felt tent used by nomads in Central Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "student's"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +340,69 @@
     "text": "Twisted rambling vine round new helter-skelter tower",
     "enumeration": "10"
    },
-   "solution": "INTERWOVEN"
+   "solution": "INTERWOVEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTERWOVEN",
+    "definitions": [
+     {
+      "text": "Twisted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rambling",
+      "for": "anagram",
+      "note": "something rambling wanders without order, so the letters are rearranged"
+     },
+     {
+      "text": "helter-skelter",
+      "for": "anagram",
+      "note": "helter-skelter means in disordered haste, another signal to rearrange letters"
+     }
+    ],
+    "linkWords": [
+     "round"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vine",
+      "gives": "VINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "tower",
+      "gives": "TOWER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VINENTOWER",
+       "gives": "INTERWOVEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A twisting vine climbs around a new fairground helter-skelter tower.",
+     "walkthrough": "'Helter-skelter' looks like a fairground slide but works as a second anagram signal; all the letters are mixed together.",
+     "definitionFit": "Interwoven strands are twisted together, so the adjective matches twisted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "helter-skelter"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +416,82 @@
     "text": "Lobby for Conservative politician to capture a potential gain",
     "enumeration": "8"
    },
-   "solution": "CAMPAIGN"
+   "solution": "CAMPAIGN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "anagram"
+    ],
+    "answer": "CAMPAIGN",
+    "definitions": [
+     {
+      "text": "Lobby",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to capture",
+      "for": "container",
+      "note": "capturing means taking something inside, so one piece goes within the other"
+     },
+     {
+      "text": "potential",
+      "for": "anagram",
+      "note": "potential describes what something could become, so these letters may form something else"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gain",
+      "gives": "AIGN",
+      "note": "the letters of gain rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "MP",
+      "AIGN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAIN",
+       "gives": "AIGN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory MP lobbies hoping to win a possible gain.",
+     "walkthrough": "C and MP surround A, then a rearranged GAIN follows.",
+     "definitionFit": "To campaign is to lobby, working actively to press for a cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "potential"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +505,51 @@
     "text": "Bewilder with live rock band?",
     "enumeration": "6"
    },
-   "solution": "BEMUSE"
+   "solution": "BEMUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEMUSE",
+    "definitions": [
+     {
+      "text": "Bewilder",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to be is to live or exist"
+     },
+     {
+      "clueFragment": "rock band",
+      "gives": "MUSE",
+      "note": "Muse is an English rock band"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "MUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Being puzzled by a live rock band's performance.",
+     "walkthrough": "The question mark admits that 'live rock band' reads as one concert but splits into two pieces.",
+     "definitionFit": "To bemuse someone is to confuse or puzzle them, a synonym of bewilder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +563,65 @@
     "text": "Joint for Ken and Barbie finally cooked",
     "enumeration": "4"
    },
-   "solution": "KNEE"
+   "solution": "KNEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "KNEE",
+    "definitions": [
+     {
+      "text": "Joint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter only of the word before it"
+     },
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked means altered or doctored, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ken",
+      "gives": "KEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Barbie",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of Barbie"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KENE",
+       "gives": "KNEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Making a joint for Ken and Barbie dolls, which got cooked in the end.",
+     "definitionFit": "The knee is the hinge joint between thigh and lower leg."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +635,71 @@
     "text": "Listen! Consumption before vigorous run gives indigestion",
     "enumeration": "9"
    },
-   "solution": "HEARTBURN"
+   "solution": "HEARTBURN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HEARTBURN",
+    "definitions": [
+     {
+      "text": "indigestion",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vigorous",
+      "for": "anagram",
+      "note": "vigorous suggests lively shaking about, so the letters get mixed"
+     }
+    ],
+    "linkWords": [
+     "before",
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Listen",
+      "gives": "HEAR",
+      "note": "to hear is to listen"
+     },
+     {
+      "clueFragment": "Consumption",
+      "gives": "TB",
+      "note": "consumption is an old name for tuberculosis, TB"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "URN",
+      "note": "the letters of run rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAR",
+      "TB",
+      "URN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUN",
+       "gives": "URN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning: eating right before a hard run brings on indigestion.",
+     "walkthrough": "'Consumption' looks like eating, but it is the old name for tuberculosis.",
+     "definitionFit": "Heartburn is a burning chest pain caused by acid indigestion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Consumption"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +719,61 @@
      }
     ]
    },
-   "solution": "ATEIN"
+   "solution": "ATEIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ATE IN",
+    "definitions": [
+     {
+      "text": "dined at home",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included",
+      "for": "container",
+      "note": "something included is placed within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TE",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A count of diners, me included, who ate at home.",
+     "definitionFit": "To eat in is the idiom for having a meal at home rather than out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +787,71 @@
     "text": "Scramble record containing name and call time",
     "enumeration": "7"
    },
-   "solution": "ENCRYPT"
+   "solution": "ENCRYPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ENCRYPT",
+    "definitions": [
+     {
+      "text": "Scramble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the next pieces go within the first"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "CRY",
+      "note": "a cry is a call"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "CRY",
+      "P",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for messing up a recording, adding a name and the time of a call.",
+     "walkthrough": "'Scramble' looks like an anagram signal, but it is the definition. An EP is an extended-play record, a short release.",
+     "definitionFit": "To scramble a message is to encode it so outsiders cannot read it, which is to encrypt it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scramble"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +865,64 @@
     "text": "Support earth on steep banks leading to great river",
     "enumeration": "7"
    },
-   "solution": "ESPOUSE"
+   "solution": "ESPOUSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ESPOUSE",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banks",
+      "for": "letter_selection",
+      "note": "the banks of a river are its two edges, so only the outside letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earth",
+      "gives": "E",
+      "note": "E is the abbreviation for earth in electrical wiring"
+     },
+     {
+      "clueFragment": "steep",
+      "gives": "SP",
+      "select": "outer",
+      "note": "the first and last letters of steep"
+     },
+     {
+      "clueFragment": "great river",
+      "gives": "OUSE",
+      "note": "the Great Ouse is a river in eastern England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "SP",
+      "OUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Shoring up soil on the steep banks that lead down to a big river.",
+     "definitionFit": "To espouse a cause is to support or adopt it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "banks"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +936,65 @@
     "text": "Toned down letter to Telegraph's head editor",
     "enumeration": "5"
    },
-   "solution": "MUTED"
+   "solution": "MUTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MUTED",
+    "definitions": [
+     {
+      "text": "Toned down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter",
+      "gives": "MU",
+      "note": "mu is a Greek letter"
+     },
+     {
+      "clueFragment": "Telegraph's",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Telegraph"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the usual abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MU",
+      "T",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A letter to a newspaper's chief editor was softened before printing.",
+     "walkthrough": "The Telegraph is a British daily paper, so 'head editor' reads naturally, but 'head' belongs to Telegraph's.",
+     "definitionFit": "Muted colours or voices are subdued, a synonym of toned down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +1008,89 @@
     "text": "Sailor returns to ship after day involved in alcohol and ribaldry",
     "enumeration": "9"
    },
-   "solution": "BAWDINESS"
+   "solution": "BAWDINESS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "BAWDINESS",
+    "definitions": [
+     {
+      "text": "ribaldry",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the word is read backwards"
+     },
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "involved in means caught up inside, so one piece sits within another"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the ship at the end, following the day-and-alcohol piece"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB is an able seaman, a sailor"
+     },
+     {
+      "clueFragment": "alcohol",
+      "gives": "WINE",
+      "note": "wine is alcohol"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is the prefix for a steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "W",
+      "D",
+      "INE",
+      "SS"
+     ],
+     "reversals": [
+      {
+       "from": "AB",
+       "to": "BA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunken sailor returns to his ship after a day of drink and bawdy fun.",
+     "walkthrough": "An able seaman is abbreviated AB, a standard crossword sailor; the steamship prefix supplies the ship.",
+     "definitionFit": "Bawdiness is coarse, sexual humour, the same thing as ribaldry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +1110,43 @@
      }
     ]
    },
-   "solution": "BIGBROTHER"
+   "solution": "BIGBROTHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BIG BROTHER",
+    "definitions": [
+     {
+      "text": "Older sibling",
+      "at": 0
+     },
+     {
+      "text": "keeping an eye on us?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Older sibling",
+      "note": "first meaning: a male sibling born earlier"
+     },
+     {
+      "clueFragment": "keeping an eye on us?",
+      "note": "second meaning: the all-seeing ruler of Orwell's Nineteen Eighty-Four, a byword for state surveillance"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the second, playful meaning: the watching leader on Orwell's posters.",
+     "definitionFit": "The phrase means both a brother older than you and the surveillance state figure from Orwell's novel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eye"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1160,64 @@
     "text": "Broadcaster Larry King has lines cut when messing around",
     "enumeration": "10"
    },
-   "solution": "SKYLARKING"
+   "solution": "SKYLARKING",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SKYLARKING",
+    "definitions": [
+     {
+      "text": "messing around",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has lines cut",
+      "for": "deletion",
+      "note": "cut means removed, so these letters are taken out of the name"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Broadcaster",
+      "gives": "SKY",
+      "note": "Sky is a British broadcaster"
+     },
+     {
+      "clueFragment": "Larry King",
+      "gives": "LARRYKING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway, lines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKY",
+      "LAR",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "The American chat-show host Larry King, his script trimmed, is fooling about.",
+     "walkthrough": "Lines means railway lines, abbreviated RY; Sky is a British satellite TV company.",
+     "definitionFit": "Skylarking is playing pranks or fooling about, the same as messing around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1237,69 @@
      }
     ]
    },
-   "solution": "THANKSGIVINGDAY"
+   "solution": "THANKSGIVINGDAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THANKSGIVING DAY",
+    "definitions": [
+     {
+      "text": "celebration",
+      "at": 59
+     }
+    ],
+    "linkWords": [
+     "to",
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shows gratitude",
+      "gives": "THANKS",
+      "note": "to thank is to show gratitude"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     },
+     {
+      "clueFragment": "French wine",
+      "gives": "VIN",
+      "note": "vin is French for wine"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "DAY",
+      "note": "a day is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THANKS",
+      "GI",
+      "VIN",
+      "G",
+      "DAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Thanking a soldier with wine and a good time at a party.",
+     "definitionFit": "Thanksgiving Day is the American and Canadian autumn holiday, an annual celebration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shows"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1313,81 @@
     "text": "Family has thousands, including rare florins King chucked out",
     "enumeration": "8"
    },
-   "solution": "KINSFOLK"
+   "solution": "KINSFOLK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "KINSFOLK",
+    "definitions": [
+     {
+      "text": "Family",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chucked out",
+      "for": "deletion",
+      "note": "chucking something out removes it, so that letter is dropped"
+     },
+     {
+      "text": "rare",
+      "for": "anagram",
+      "note": "rare can mean undercooked or unusual, signalling a changed state of the letters"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means holding inside, so the rearranged letters go within"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thousands",
+      "gives": "KK",
+      "note": "K is a thousand, and the plural gives two of them"
+     },
+     {
+      "clueFragment": "florins",
+      "gives": "FLORINS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is the abbreviation for king, from the Latin rex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "INSFOL",
+      "K"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FLOINS",
+       "gives": "INSFOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family owns thousands, including scarce old florins, though the King has been ousted.",
+     "walkthrough": "FLORINS loses R, the rest is rearranged and sits between two Ks. A florin was an old British two-shilling coin.",
+     "definitionFit": "Kinsfolk are one's relatives, the members of a family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rare"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1401,59 @@
     "text": "Pronounce contract with mine's falling apart",
     "enumeration": "8"
    },
-   "solution": "DECREPIT"
+   "solution": "DECREPIT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DECREPIT",
+    "definitions": [
+     {
+      "text": "falling apart",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contract",
+      "for": "deletion",
+      "note": "to contract is to shrink, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pronounce",
+      "gives": "DECREE",
+      "note": "to decree is to pronounce officially"
+     },
+     {
+      "clueFragment": "mine",
+      "gives": "PIT",
+      "note": "a pit is a coal mine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECRE",
+      "PIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A mining contract is declared to be crumbling.",
+     "walkthrough": "'Pronounce' looks like a sound signal and 'contract' like a legal document; in fact one is a verb of decreeing and the other a shortening.",
+     "definitionFit": "Something decrepit is worn out and dilapidated, in a state of falling apart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1477,65 @@
      }
     ]
    },
-   "solution": "CUTANDRUN"
+   "solution": "CUTANDRUN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CUT AND RUN",
+    "definitions": [
+     {
+      "text": "Make a break for it",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter of the word is dropped"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "beat's",
+      "gives": "TAN",
+      "note": "to tan someone's hide is to beat them"
+     },
+     {
+      "clueFragment": "tipsy",
+      "gives": "DRUNK",
+      "note": "drunk means tipsy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "TAN",
+      "DRUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A suspect seizes their chance while a policeman on patrol is a little drunk.",
+     "walkthrough": "'Copper' looks like a policeman and 'beat' like his patrol route; DRUNK loses its last letter.",
+     "definitionFit": "To cut and run is the idiom for leaving hurriedly, making a quick escape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1549,43 @@
     "text": "Makes fun of Great Aunt Sally's stuffing",
     "enumeration": "6"
    },
-   "solution": "TAUNTS"
+   "solution": "TAUNTS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TAUNTS",
+    "definitions": [
+     {
+      "text": "Makes fun of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffing",
+      "for": "hidden_word",
+      "note": "stuffing is what lies inside, so the answer sits within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great Aunt Sally's",
+      "gives": "TAUNTS",
+      "note": "found running through these words"
+     }
+    ],
+    "explanation": {
+     "surface": "Mocking a great aunt's cooking of the stuffing.",
+     "walkthrough": "Aunt Sally is also a British pub game of throwing sticks at a dummy, hence a target of ridicule.",
+     "definitionFit": "To taunt someone is to jeer at them, which is to make fun of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stuffing"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1599,60 @@
     "text": "Nightcap by Chanel's second hand",
     "enumeration": "5"
    },
-   "solution": "COCOA"
+   "solution": "COCOA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COCOA",
+    "definitions": [
+     {
+      "text": "Nightcap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second",
+      "for": "letter_selection",
+      "note": "second points to the letter in position two of the next word"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chanel",
+      "gives": "COCO",
+      "note": "Coco Chanel was the French fashion designer"
+     },
+     {
+      "clueFragment": "hand",
+      "gives": "A",
+      "select": 2,
+      "note": "the second letter of hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCO",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A bedtime drink from a second-hand Chanel shop.",
+     "walkthrough": "'Second hand' reads as used goods, but 'second' picks one letter from hand.",
+     "definitionFit": "A nightcap is a drink taken before bed, and cocoa is a classic example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1666,64 @@
     "text": "Incentive for vehicle to get up hill",
     "enumeration": "6"
    },
-   "solution": "CARROT"
+   "solution": "CARROT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CARROT",
+    "definitions": [
+     {
+      "text": "Incentive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "get up",
+      "for": "reversal",
+      "note": "in a down clue, getting up means rising, so the word is written bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "hill",
+      "gives": "TOR",
+      "note": "a tor is a rocky hill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "ROT"
+     ],
+     "reversals": [
+      {
+       "from": "TOR",
+       "to": "ROT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something that motivates a car to climb a hill.",
+     "definitionFit": "A carrot is a reward dangled as an incentive, from the image of luring a donkey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vehicle"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1743,75 @@
      }
     ]
    },
-   "solution": "SNUFFIT"
+   "solution": "SNUFFIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SNUFF IT",
+    "definitions": [
+     {
+      "text": "Die",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backfired",
+      "for": "reversal",
+      "note": "something that backfires comes back the other way, so the word is read backwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sends the seizure to the end, following the son's joke"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son's",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "joke",
+      "gives": "FUN",
+      "note": "fun is a joke, as in 'in fun'"
+     },
+     {
+      "clueFragment": "seizure",
+      "gives": "FIT",
+      "note": "a fit is a seizure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NUF",
+      "FIT"
+     ],
+     "reversals": [
+      {
+       "from": "FUN",
+       "to": "NUF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A father dies of a seizure when his son's prank goes wrong.",
+     "walkthrough": "The seizure goes 'after' the other pieces, so it comes last.",
+     "definitionFit": "To snuff it is informal British slang for to die."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backfired"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1825,50 @@
     "text": "Add a small amount of money to pool",
     "enumeration": "4"
    },
-   "solution": "SUMP"
+   "solution": "SUMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUMP",
+    "definitions": [
+     {
+      "text": "pool",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Add",
+      "gives": "SUM",
+      "note": "to sum is to add up"
+     },
+     {
+      "clueFragment": "a small amount of money",
+      "gives": "P",
+      "note": "P is a penny, a small coin in British money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Contribute a few coins to a shared kitty.",
+     "walkthrough": "'Pool' looks like a shared fund of money, but it is the definition for a reservoir of liquid.",
+     "definitionFit": "A sump is a pit or reservoir where liquid such as oil or water collects, a pool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pool"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1882,67 @@
     "text": "Mad queen imprisoned in Berks improperly",
     "enumeration": "7"
    },
-   "solution": "BERSERK"
+   "solution": "BERSERK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BERSERK",
+    "definitions": [
+     {
+      "text": "Mad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisoned in",
+      "for": "container",
+      "note": "imprisoned means locked inside, so one piece goes within the other"
+     },
+     {
+      "text": "improperly",
+      "for": "anagram",
+      "note": "improperly means in the wrong order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Berks",
+      "gives": "BERSK",
+      "note": "the letters of Berks rearranged"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BERS",
+      "ER",
+      "K"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BERKS",
+       "gives": "BERSK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A furious queen locked up in Berkshire without proper cause.",
+     "walkthrough": "Berks is the abbreviation for Berkshire, an English county.",
+     "definitionFit": "Berserk means wild with rage, a synonym of mad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Berks"
+    }
+   }
   },
   {
    "number": 23,
@@ -431,7 +1956,58 @@
     "text": "Take first boyfriend to works' dances",
     "enumeration": "4"
    },
-   "solution": "BOPS"
+   "solution": "BOPS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BOPS",
+    "definitions": [
+     {
+      "text": "dances",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Take first",
+      "for": "letter_selection",
+      "note": "taking the first means keeping only the opening letter of the word"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boyfriend",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of boyfriend"
+     },
+     {
+      "clueFragment": "works'",
+      "gives": "OPS",
+      "note": "ops is short for operations, works"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Bringing your first boyfriend to the office party dances.",
+     "definitionFit": "Bops are informal dances or dance parties, used here as a plural noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "works'"
+    }
+   }
   },
   {
    "number": 24,
@@ -445,7 +2021,58 @@
     "text": "Student pursues bit of stuff to roadside lodging",
     "enumeration": "5"
    },
-   "solution": "MOTEL"
+   "solution": "MOTEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOTEL",
+    "definitions": [
+     {
+      "text": "roadside lodging",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pursues",
+      "for": "charade",
+      "note": "to pursue is to follow behind, so the student comes second"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bit of stuff",
+      "gives": "MOTE",
+      "note": "a mote is a speck, a tiny bit of material"
+     },
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L is a learner, a student"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOTE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A student follows a girlfriend to a cheap roadside place to stay.",
+     "walkthrough": "'Bit of stuff' is slang for an attractive woman, which is the surface trap; 'pursues' puts the student second.",
+     "definitionFit": "A motel is a hotel for motorists, built beside a road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 25,
@@ -459,7 +2086,70 @@
     "text": "Sudden increase in time in which oxlips flourish",
     "enumeration": "9"
    },
-   "solution": "EXPLOSION"
+   "solution": "EXPLOSION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EXPLOSION",
+    "definitions": [
+     {
+      "text": "Sudden increase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flourish",
+      "for": "anagram",
+      "note": "plants that flourish spread wildly, so the letters are scattered into a new order"
+     },
+     {
+      "text": "in which",
+      "for": "container",
+      "note": "in which says one thing lies inside another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "EON",
+      "note": "an eon is a vast period of time"
+     },
+     {
+      "clueFragment": "oxlips",
+      "gives": "XPLOSI",
+      "note": "the letters of oxlips rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "XPLOSI",
+      "ON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OXLIPS",
+       "gives": "XPLOSI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spring scene: over time, wild oxlips bloom and spread.",
+     "walkthrough": "An oxlip is a wild flower related to the primrose.",
+     "definitionFit": "A population explosion is a rapid, sudden increase in numbers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flourish"
+    }
+   }
   }
  ]
 }
