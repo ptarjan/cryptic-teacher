@@ -6,7 +6,11 @@
 
 Paul's rule: the box has os.cpu_count() cores and the desktop has more, so a 5-minute
 load average above the core count on two runs in a row is work that belongs on the
-desktop CPU. The wake carries a ranked breakdown so the room can go and move it.
+desktop CPU, provided tasks are actually waiting for it: a load average counts D-state
+tasks and the whole VM, so it stays above the core count while CPU pressure (the share
+of the last minute some task spent runnable but not running) is a few percent and
+nothing could be moved. Below STALL_MIN the check logs "not-waiting" and wakes no one.
+The wake carries a ranked breakdown so the room can go and move it.
 
 The sample reads /proc only (no ps text). Per process it takes utime+stime, plus
 cutime+cstime of the parent, because a reindex pool's workers are born and reaped
@@ -35,6 +39,7 @@ SAMPLE_SECONDS = 30
 REPEAT_SECONDS = 3600
 CONSECUTIVE = 2
 LOG_KEEP = 1000
+STALL_MIN = 20.0  # % of the last minute some task waited for a CPU
 MIN_CORES = 0.05  # a consumer below this is noise in the ranking
 SHOW = 6
 # Keys that only launch something else; a parent label climbs past them.
@@ -220,12 +225,14 @@ def main(proc="/proc", state_dir=STATE_DIR, ncores=None, now=time.time, sleep=ti
     over = state.get("over", 0) + 1 if load5 > ncores else 0
     state["over"] = over
     rec = {"t": int(now()), "load5": load5, "cores": ncores, "over": over}
+    pressure = read_pressure(proc) if over >= CONSECUTIVE else None
     if over < CONSECUTIVE:
         rec["action"] = "ok" if over == 0 else "first-over"
+    elif pressure and pressure["avg60"] < STALL_MIN:
+        rec.update(action="not-waiting", pressure=pressure)
     else:
         s = sample(proc, seconds, hz, sleep)
         top = s["ranked"][0][1] if s["ranked"] else None
-        pressure = read_pressure(proc)
         text = message(load5, ncores, s, pressure)
         rec.update(top=top, R=s["R"], D=s["D"], total=s["total"], pressure=pressure,
                    busy=s["busy"], runnable=s["runnable"],
