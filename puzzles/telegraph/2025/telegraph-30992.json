@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,51 @@
     "text": "Possibly help great paper marking its 10 Down 11 Down today",
     "enumeration": "9"
    },
-   "solution": "TELEGRAPH"
+   "solution": "TELEGRAPH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TELEGRAPH",
+    "definitions": [
+     {
+      "text": "paper marking its 10 Down 11 Down today",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Possibly",
+      "for": "anagram",
+      "note": "'possibly' says the letters before it are only one possible order of the word, so they must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "help great",
+      "gives": "HELPGREAT",
+      "note": "the two words taken letter for letter as the material to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HELPGREAT",
+       "gives": "TELEGRAPH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper congratulates itself on a big anniversary of its puzzle, perhaps a great help to readers.",
+     "walkthrough": "A self-referential clue: this puzzle was the Telegraph's celebration of its crossword's hundredth birthday.",
+     "definitionFit": "The Daily Telegraph is the British newspaper whose crossword reached its centenary on the day this puzzle ran."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Possibly"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +93,50 @@
     "text": "Puzzle cracked in game",
     "enumeration": "6"
    },
-   "solution": "ENIGMA"
+   "solution": "ENIGMA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENIGMA",
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracked",
+      "for": "anagram",
+      "note": "something cracked is broken open, so the letters that follow are broken up and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in game",
+      "gives": "INGAME",
+      "note": "taken letter for letter as the material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INGAME",
+       "gives": "ENIGMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle solved during play, like a code broken mid-game.",
+     "definitionFit": "An enigma is a mystery or riddle, so the word is a synonym for a puzzle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cracked"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +150,66 @@
     "text": "Name taken by setter in a novel delights",
     "enumeration": "10"
    },
-   "solution": "ENTERTAINS"
+   "solution": "ENTERTAINS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ENTERTAINS",
+    "definitions": [
+     {
+      "text": "delights",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken by",
+      "for": "charade",
+      "note": "one thing taken by another goes along with it, so these pieces are joined side by side"
+     },
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "'novel' means new, so the gathered letters are made into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Name",
+      "gives": "N",
+      "note": "N is the standard abbreviation for name"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "SETTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in a",
+      "gives": "INA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NSETTERINA",
+       "gives": "ENTERTAINS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter who appears by name in a novel is delighted.",
+     "definitionFit": "To entertain someone is to amuse or please them, so entertains is a synonym of the verb delights."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +223,68 @@
     "text": "Make a mistake holding answer back? That's unusual",
     "enumeration": "4"
    },
-   "solution": "RARE"
+   "solution": "RARE",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "RARE",
+    "definitions": [
+     {
+      "text": "unusual",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "something holding another wraps around it, so one piece sits inside the other"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "'back' tells the solver to read the combined letters from the end to the start"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make a mistake",
+      "gives": "ERR",
+      "note": "to err is to make a mistake"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the usual abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RARE"
+     ],
+     "reversals": [
+      {
+       "from": "ERAR",
+       "to": "RARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holding back an answer for fear of being wrong does something unusual.",
+     "walkthrough": "The A goes inside ERR to make ERAR, which is then read backwards.",
+     "definitionFit": "Something rare is seldom found or seen, which is what unusual means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +298,73 @@
     "text": "Tap up niece playing game",
     "enumeration": "8"
    },
-   "solution": "PATIENCE"
+   "solution": "PATIENCE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "PATIENCE",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue 'up' means the word is read from the bottom to the top, so backwards"
+     },
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "letters that are playing are moving about freely, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tap",
+      "gives": "TAP",
+      "note": "taken as written, then turned round"
+     },
+     {
+      "clueFragment": "niece",
+      "gives": "NIECE",
+      "note": "taken as written as the material to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "IENCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NIECE",
+       "gives": "IENCE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "TAP",
+       "to": "PAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An uncle gives his niece a pat while she plays a game.",
+     "walkthrough": "'Tap up' reads like a phrasal verb meaning to approach someone, but it is a word plus a reversal signal.",
+     "definitionFit": "Patience is the British name for solitaire, a card game played by one person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +378,57 @@
     "text": "Editor is working for creator who made light of his work?",
     "enumeration": "6"
    },
-   "solution": "EDISON"
+   "solution": "EDISON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EDISON",
+    "definitions": [
+     {
+      "text": "creator who made light of his work?",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Editor",
+      "gives": "ED",
+      "note": "ED is the standard abbreviation for editor"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is switched on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "IS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper editor is busy on behalf of someone who joked about their own job.",
+     "walkthrough": "'Made light of' usually means treated as trivial; here it literally means produced light, as with the light bulb.",
+     "definitionFit": "Thomas Edison was the American inventor famous for developing a practical electric light bulb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +442,60 @@
     "text": "Root used to be a bit short",
     "enumeration": "6"
    },
-   "solution": "WASABI"
+   "solution": "WASABI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WASABI",
+    "definitions": [
+     {
+      "text": "Root",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short is cut down, so the last letter of the preceding word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used to be",
+      "gives": "WAS",
+      "note": "'was' is the past tense of be"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bit",
+      "gives": "BIT",
+      "note": "taken as written, then trimmed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAS",
+      "A",
+      "BI"
+     ]
+    },
+    "explanation": {
+     "surface": "A plant root that once was a little too small.",
+     "definitionFit": "Wasabi is a Japanese plant whose pungent green root is grated as a condiment, so the answer is a root."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +509,42 @@
     "text": "1 Across 10 Down solver maybe read dictionary (but not all of it)",
     "enumeration": "6"
    },
-   "solution": "ADDICT"
+   "solution": "ADDICT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ADDICT",
+    "definitions": [
+     {
+      "text": "1 Across 10 Down solver maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not all of it",
+      "for": "hidden_word",
+      "note": "taking only part of the words means the needed letters sit inside them, run across the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "read dictionary",
+      "gives": "ADDICT",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzle fan might browse a dictionary without reading the whole thing.",
+     "definitionFit": "Someone hooked on doing the Telegraph puzzle every day is, playfully, an addict of it, so the definition is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "read"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +558,45 @@
     "text": "Tackling the 1 Across 10 Down could be one element of spirituality",
     "enumeration": "6"
    },
-   "solution": "RITUAL"
+   "solution": "RITUAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RITUAL",
+    "definitions": [
+     {
+      "text": "Tackling the 1 Across 10 Down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one element of",
+      "for": "hidden_word",
+      "note": "an element is a part of a whole, so the letters wanted are a run lying inside the next word"
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spirituality",
+      "gives": "RITUAL",
+      "note": "a run of six letters from inside the word"
+     }
+    ],
+    "explanation": {
+     "surface": "Doing the daily puzzle might count as part of one's spiritual life.",
+     "definitionFit": "A ritual is a habitual act repeated in the same way, as a daily crossword is for many solvers; an example of the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "element"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +610,39 @@
     "text": "Challenge laid out in black and white?",
     "enumeration": "9"
    },
-   "solution": "CROSSWORD"
+   "solution": "CROSSWORD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CROSSWORD",
+    "definitions": [
+     {
+      "text": "Challenge laid out in black and white?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Challenge laid out in black and white?",
+      "note": "surface reading: a challenge written down clearly, set out in plain print"
+     },
+     {
+      "clueFragment": "laid out in black and white",
+      "note": "setter's reading: a puzzle laid out on a grid of black and white squares"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'In black and white' usually means in writing; here it describes the grid of the puzzle itself.",
+     "definitionFit": "A cryptic puzzle is a challenge printed on a grid of dark and light squares, so this describes the thing itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +656,53 @@
     "text": "Any centre free for today's milestone",
     "enumeration": "9"
    },
-   "solution": "CENTENARY"
+   "solution": "CENTENARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CENTENARY",
+    "definitions": [
+     {
+      "text": "today's milestone",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "free",
+      "for": "anagram",
+      "note": "letters set free are loose to move, so they are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Any centre",
+      "gives": "ANYCENTRE",
+      "note": "taken letter for letter as the material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANYCENTRE",
+       "gives": "CENTENARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Any venue offered free of charge for a celebration today.",
+     "definitionFit": "A centenary is a hundredth anniversary, the milestone the Telegraph crossword reached on this day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 12,
@@ -186,7 +716,47 @@
     "text": "Mount attack again",
     "enumeration": "8"
    },
-   "solution": "RUSHMORE"
+   "solution": "RUSHMORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUSHMORE",
+    "definitions": [
+     {
+      "text": "Mount",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attack",
+      "gives": "RUSH",
+      "note": "to rush is to charge at"
+     },
+     {
+      "clueFragment": "again",
+      "gives": "MORE",
+      "note": "once more, again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUSH",
+      "MORE"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to climb up and charge a second time.",
+     "walkthrough": "'Mount' reads as a verb, as in mount an attack, but it is the title of a mountain.",
+     "definitionFit": "Mount Rushmore in South Dakota is the mountain carved with four presidents' faces, so the answer names a mount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mount"
+    }
+   }
   },
   {
    "number": 13,
@@ -200,7 +770,64 @@
     "text": "Resolve to get answer for one in twenties?",
     "enumeration": "6"
    },
-   "solution": "DECADE"
+   "solution": "DECADE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "DECADE",
+    "definitions": [
+     {
+      "text": "twenties?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "putting one thing for another means swapping it in where the other was"
+     }
+    ],
+    "linkWords": [
+     "to get",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resolve",
+      "gives": "DECIDE",
+      "note": "to resolve to do something is to decide"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the usual abbreviation for answer"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "A",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in their twenties determined to find the answer.",
+     "walkthrough": "The I in DECIDE is replaced by A.",
+     "definitionFit": "The twenties are a span of ten years, so a period such as the 1920s is an example of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "twenties"
+    }
+   }
   },
   {
    "number": 14,
@@ -214,7 +841,61 @@
     "text": "Reserve writer beginning to rattle you, say",
     "enumeration": "10"
    },
-   "solution": "SUBSCRIBER"
+   "solution": "SUBSCRIBER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SUBSCRIBER",
+    "definitions": [
+     {
+      "text": "you, say",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reserve",
+      "gives": "SUB",
+      "note": "a sub, or substitute, is a reserve player"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "SCRIBE",
+      "note": "a scribe is one who writes"
+     },
+     {
+      "clueFragment": "rattle",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "SCRIBE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A backup author starts to unsettle the reader.",
+     "definitionFit": "A Telegraph reader who pays regularly for the paper is a subscriber, so 'you' is an example of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Reserve"
+    }
+   }
   },
   {
    "number": 15,
@@ -228,7 +909,45 @@
     "text": "In France, the fourth Down clue reportedly bored",
     "enumeration": "4"
    },
-   "solution": "SANK"
+   "solution": "SANK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SANK",
+    "definitions": [
+     {
+      "text": "bored",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "'reportedly' means as heard said, so the word is one that is pronounced like the clue's idea"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In France, the fourth Down clue",
+      "gives": "SANK",
+      "soundsLike": "CINQ",
+      "note": "the fourth down clue is 5 Down, and five in French is cinq"
+     }
+    ],
+    "explanation": {
+     "surface": "A French solver is bored by the fourth down clue.",
+     "walkthrough": "Count the down clues in order: 2, 3, 4, 5 — the fourth is numbered 5, and the French for five sounds like the answer.",
+     "definitionFit": "To sink a well or shaft is to bore it, so the past tense of sink matches bored."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bored"
+    }
+   }
   },
   {
    "number": 16,
@@ -242,7 +961,72 @@
     "text": "Staff pictures laid out without English text",
     "enumeration": "10"
    },
-   "solution": "MANUSCRIPT"
+   "solution": "MANUSCRIPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MANUSCRIPT",
+    "definitions": [
+     {
+      "text": "text",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "laid out",
+      "for": "anagram",
+      "note": "things laid out are spread and arranged afresh, so the letters are put in a new order"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "'without' means lacking, so the named letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staff",
+      "gives": "MAN",
+      "note": "to man a post is to staff it"
+     },
+     {
+      "clueFragment": "pictures",
+      "gives": "PICTURES",
+      "note": "taken as written as the material"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "USCRIPT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PICTURS",
+       "gives": "USCRIPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Office workers' photos are arranged with no English caption.",
+     "walkthrough": "Remove E from PICTURES, then rearrange what is left.",
+     "definitionFit": "A manuscript is a written or typed text, especially an author's original before printing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 17,
@@ -256,7 +1040,54 @@
     "text": "Row after boss's big and bold words?",
     "enumeration": "8"
    },
-   "solution": "HEADLINE"
+   "solution": "HEADLINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEADLINE",
+    "definitions": [
+     {
+      "text": "big and bold words?",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece placed after another comes second, so the order of joining is reversed from the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boss's",
+      "gives": "HEAD",
+      "note": "the head is the boss; the 's links to the next word"
+     },
+     {
+      "clueFragment": "Row",
+      "gives": "LINE",
+      "note": "a row of things is a line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAD",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A quarrel follows the boss's loud, aggressive language.",
+     "walkthrough": "'Row' looks like a quarrel and 'big and bold words' like boasting, but the row is a line and the words are in large print.",
+     "definitionFit": "A headline is the title printed in large heavy type above a newspaper story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 18,
@@ -270,7 +1101,59 @@
     "text": "Fierce eagles traversing small desert",
     "enumeration": "10"
    },
-   "solution": "WILDERNESS"
+   "solution": "WILDERNESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WILDERNESS",
+    "definitions": [
+     {
+      "text": "desert",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "traversing",
+      "for": "charade",
+      "note": "something traversing moves across to the far side, so the next piece lines up straight after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fierce",
+      "gives": "WILD",
+      "note": "wild animals are fierce"
+     },
+     {
+      "clueFragment": "eagles",
+      "gives": "ERNES",
+      "note": "an erne is a sea eagle, a crossword favourite"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WILD",
+      "ERNES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Ferocious eagles flying over a small patch of desert.",
+     "definitionFit": "A wilderness is wild, uninhabited land, and a desert in the old sense is just such a deserted place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "traversing"
+    }
+   }
   },
   {
    "number": 19,
@@ -284,7 +1167,49 @@
     "text": "Not as busy in class",
     "enumeration": "6"
    },
-   "solution": "LESSON"
+   "solution": "LESSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LESSON",
+    "definitions": [
+     {
+      "text": "class",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not as",
+      "gives": "LESS",
+      "note": "'not as much' is less"
+     },
+     {
+      "clueFragment": "busy",
+      "gives": "ON",
+      "note": "someone who is on is engaged or occupied"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LESS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil less occupied than usual during class.",
+     "definitionFit": "A lesson is a period of teaching, which is what a class is in a school timetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "busy"
+    }
+   }
   },
   {
    "number": 20,
@@ -298,7 +1223,47 @@
     "text": "Clear over what's used to fill in a 1 Across 10 Down?",
     "enumeration": "4"
    },
-   "solution": "OPEN"
+   "solution": "OPEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPEN",
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorecard abbreviation for over"
+     },
+     {
+      "clueFragment": "what's used to fill in a 1 Across 10 Down?",
+      "gives": "PEN",
+      "note": "the tool many solvers write their answers with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A solver wonders what to use to finish the grid once it is clear.",
+     "walkthrough": "In cricket an over is a set of six balls, and scorecards shorten it to O.",
+     "definitionFit": "Open ground is clear of obstacles, so the two adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 21,
@@ -312,7 +1277,58 @@
     "text": "Square meal featured in article? Quite the opposite",
     "enumeration": "6"
    },
-   "solution": "PIAZZA"
+   "solution": "PIAZZA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIAZZA",
+    "definitions": [
+     {
+      "text": "Square",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featured in",
+      "for": "container",
+      "note": "a thing featured in another appears inside it; 'quite the opposite' then flips which piece goes inside which"
+     }
+    ],
+    "linkWords": [
+     "Quite the opposite"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meal",
+      "gives": "PIZZA",
+      "note": "an Italian dish eaten as a meal"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "A is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "A",
+      "ZZA"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article about a hearty, traditional meal.",
+     "walkthrough": "'Quite the opposite' reverses the instruction: the article goes inside the meal, not the meal inside the article.",
+     "definitionFit": "A piazza is a public square or open marketplace, especially in an Italian town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Square"
+    }
+   }
   },
   {
    "number": 22,
@@ -326,7 +1342,64 @@
     "text": "Stress of a compiler initially with little money",
     "enumeration": "6"
    },
-   "solution": "ACCENT"
+   "solution": "ACCENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ACCENT",
+    "definitions": [
+     {
+      "text": "Stress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'initially' means at the start, so only the word's opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "compiler",
+      "gives": "C",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "little money",
+      "gives": "CENT",
+      "note": "a cent is a coin of small value"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "CENT"
+     ]
+    },
+    "explanation": {
+     "surface": "The worry of a poorly paid crossword compiler.",
+     "definitionFit": "An accent is emphasis laid on a syllable, which is the sense of stress in speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stress"
+    }
+   }
   },
   {
    "number": 23,
@@ -340,7 +1413,46 @@
     "text": "Live on part of a square, perhaps",
     "enumeration": "6"
    },
-   "solution": "RESIDE"
+   "solution": "RESIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESIDE",
+    "definitions": [
+     {
+      "text": "Live",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "part of a square, perhaps",
+      "gives": "SIDE",
+      "note": "a square has four sides; 'perhaps' since many shapes do"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Living in one corner of a town square.",
+     "definitionFit": "To reside somewhere is to have one's home there, so it is a synonym of the verb live."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 24,
@@ -354,7 +1466,66 @@
     "text": "Shock after a jolly century – comfortable place to solve?",
     "enumeration": "8"
    },
-   "solution": "ARMCHAIR"
+   "solution": "ARMCHAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARMCHAIR",
+    "definitions": [
+     {
+      "text": "comfortable place to solve?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece placed after another comes second, so the first-named piece goes on the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jolly",
+      "gives": "RM",
+      "note": "a jolly is old slang for a Royal Marine, abbreviated RM"
+     },
+     {
+      "clueFragment": "century",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "Shock",
+      "gives": "HAIR",
+      "note": "a shock of hair is a thick mass of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RM",
+      "C",
+      "HAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Surprise at a festive hundredth anniversary, celebrated from a cosy spot.",
+     "walkthrough": "'Jolly' looks like an adjective for the century, but it is slang for a Royal Marine.",
+     "definitionFit": "An armchair is a padded seat with arm rests, a cosy spot where many solvers sit with the paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "jolly"
+    }
+   }
   },
   {
    "number": 25,
@@ -368,7 +1539,46 @@
     "text": "Destiny, by the sound of it, for 28 Across",
     "enumeration": "4"
    },
-   "solution": "FETE"
+   "solution": "FETE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FETE",
+    "definitions": [
+     {
+      "text": "28 Across",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "a word known by its sound is one heard rather than spelt, so a same-sounding word is wanted"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Destiny",
+      "gives": "FETE",
+      "soundsLike": "FATE",
+      "note": "one's fate is one's destiny"
+     }
+    ],
+    "explanation": {
+     "surface": "A prediction of what lies ahead for a cross-referenced answer.",
+     "definitionFit": "To fete someone is to honour or celebrate them publicly, so the verb is a synonym of the answer at 28 Across."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Destiny"
+    }
+   }
   },
   {
    "number": 26,
@@ -382,7 +1592,42 @@
     "text": "Cell somewhere in Alabama",
     "enumeration": "6"
    },
-   "solution": "MOBILE"
+   "solution": "MOBILE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MOBILE",
+    "definitions": [
+     {
+      "text": "Cell",
+      "at": 0
+     },
+     {
+      "text": "somewhere in Alabama",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cell",
+      "note": "first meaning: a cell phone, a portable telephone"
+     },
+     {
+      "clueFragment": "somewhere in Alabama",
+      "note": "second meaning: a port city on the Gulf coast of that state"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Cell' suggests a prison cell in Alabama, but it is short for a cellphone.",
+     "definitionFit": "A cellphone is called a mobile in Britain, and Mobile is a city on Alabama's coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cell"
+    }
+   }
   },
   {
    "number": 27,
@@ -396,7 +1641,46 @@
     "text": "Cheeses said to give you what the 1 Across 10 Down shouldn't be?",
     "enumeration": "6"
    },
-   "solution": "BREEZE"
+   "solution": "BREEZE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BREEZE",
+    "definitions": [
+     {
+      "text": "what the 1 Across 10 Down shouldn't be?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "'said' means spoken, so the word wanted is one heard the same as the fodder"
+     }
+    ],
+    "linkWords": [
+     "to give you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheeses",
+      "gives": "BREEZE",
+      "soundsLike": "BRIES",
+      "note": "Brie is a soft French cheese"
+     }
+    ],
+    "explanation": {
+     "surface": "Cheese talk somehow tells us how hard the daily puzzle ought to be.",
+     "definitionFit": "A breeze is something very easy, and a good daily cryptic should offer some resistance rather than be a pushover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cheeses"
+    }
+   }
   },
   {
    "number": 28,
@@ -410,7 +1694,58 @@
     "text": "Observe the price of fame?",
     "enumeration": "9"
    },
-   "solution": "CELEBRATE"
+   "solution": "CELEBRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CELEBRATE",
+    "definitions": [
+     {
+      "text": "Observe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "charade",
+      "note": "'of' here simply links the two pieces, read in the order the phrase is turned round"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fame",
+      "gives": "CELEB",
+      "note": "a celeb, a celebrity, is someone with fame"
+     },
+     {
+      "clueFragment": "price",
+      "gives": "RATE",
+      "note": "a rate is a price charged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELEB",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Pondering the cost of being famous.",
+     "walkthrough": "Read 'the price of fame' as a famous person's fee, and the pieces fall into place.",
+     "definitionFit": "To observe a festival or anniversary is to celebrate it, as one marks this centenary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Observe"
+    }
+   }
   }
  ]
 }
