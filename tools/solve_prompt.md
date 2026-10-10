@@ -15,6 +15,9 @@ each entry, which of its letters are shared with which letter of which other
 entry. Use it. It is the only thing that can tell you an answer is wrong.
 An entry marked `printed answer` is the paper's own: your fill must agree with it.
 
+A grid search runs only as `python3 tools/reconstruct_grid.py --lights … [--words …]`
+(it runs on the desktop); never write your own search script or use multiprocessing.
+
 ## Output
 
 Create a JSON file with the Write tool (not a heredoc), at the path your task gives you, mapping every entry id to

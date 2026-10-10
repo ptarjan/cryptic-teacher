@@ -69,6 +69,9 @@ cd "$REPO" || exit 1
 # authenticate: OAuth session expired and could not be refreshed". See the longer
 # note in daily_update.sh.
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
+# The runs' grid searches (tools/reconstruct_grid.py) go to the desktop, not this
+# host's cores (tools/ocr_remote.py; OCR_REMOTE= keeps them here).
+export OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}"
 
 # claude-auth.sh is deliberately not sourced: the CLI finds its own stored
 # login under CLAUDE_CONFIG_DIR, and that file's env token would override the

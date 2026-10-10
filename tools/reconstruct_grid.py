@@ -974,11 +974,30 @@ def grid_of(puzzle):
     return tuple("".join("." if c else "#" for c in row) for row in white)
 
 
+def specs_in(data):
+    """The searches a --lights file asks for: one spec, or a list of specs.
+    ocr_remote.reconstruct ships triples, so the dict shape becomes triples."""
+    if isinstance(data, list) and data and (
+            isinstance(data[0], dict)
+            or (isinstance(data[0], list) and data[0] and isinstance(data[0][0], list))):
+        return [one for d in data for one in specs_in(d)]
+    if isinstance(data, dict):
+        nums = {d: data.get(d + "Numbers") or [None] * len(data.get(d, [])) for d in ("across", "down")}
+        return [[(n, d, length) for d in ("across", "down")
+                 for n, length in zip(nums[d], data.get(d, []))]]
+    return [data]
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("puzzle", nargs="?", help="puzzle id to strip and re-derive")
-    ap.add_argument("--lights", help='JSON file: {"across": [...], "down": [...]}'
-                                     ' or [[number, direction, length], ...]')
+    ap.add_argument("--lights", action="append",
+                    help='JSON file: {"across": [...], "down": [...]}'
+                         ' or [[number, direction, length], ...], or a list of those;'
+                         ' given again, each is one more search, run together on the desktop')
+    ap.add_argument("--words", action="append",
+                    help="JSON file: a list parallel to the lights, the word where known,"
+                         " null where not (once for all, or once per --lights)")
     ap.add_argument("--numberless", action="store_true",
                     help="throw the clue numbers away before reconstructing")
     ap.add_argument("--blank", type=float, default=0.0,
@@ -1008,23 +1027,40 @@ def main(argv=None):
                 ap.error("--blank already has nothing to erase under --numberless")
             spec = blank_numbers(spec, args.blank, random.Random(args.seed))
         published = grid_of(puzzle)
+        specs = [spec]
         cols, rows = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
     else:
-        spec = json.loads(Path(args.lights).read_text(encoding="utf-8"))
+        specs = [s for f in args.lights for s in specs_in(json.loads(Path(f).read_text(encoding="utf-8")))]
         cols, rows = args.cols, args.rows
 
-    found, info = reconstruct(spec, cols=cols, rows=rows, limit=args.limit,
-                              symmetry=not args.no_symmetry,
-                              fallback=args.fallback, max_nodes=args.max_nodes)
+    from concurrent.futures import ThreadPoolExecutor
 
-    print(f"{cols}x{rows}: {len(found)} grid(s), {info['nodes']} nodes"
-          + ("" if info.get("symmetric") else ", symmetry not assumed")
-          + (", search truncated" if info.get("truncated") else ""))
-    for i, grid in enumerate(found, 1):
-        mark = "  <- published" if published is not None and grid == published else ""
-        print(f"\n  grid {i}{mark}")
-        for row in grid:
-            print("    " + " ".join(row))
+    import ocr_remote  # the search runs on the desktop when OCR_REMOTE is set
+
+    words = [json.loads(Path(w).read_text(encoding="utf-8")) for w in args.words or []]
+    if len(words) > 1 and len(words) != len(specs):
+        ap.error("--words once, or once per --lights")
+    runs = [dict(cols=cols, rows=rows, limit=args.limit,
+                 symmetry=not args.no_symmetry, fallback=args.fallback,
+                 max_nodes=args.max_nodes,
+                 **({"words": words[i % len(words)]} if words else {}))
+            for i in range(len(specs))]
+    with ThreadPoolExecutor(max(1, min(len(specs), ocr_remote.SEARCH_SLOTS))) as pool:
+        results = list(pool.map(lambda sr: ocr_remote.reconstruct(sr[0], **sr[1]),
+                                zip(specs, runs)))
+
+    for n, (found, info) in enumerate(results, 1):
+        if len(specs) > 1:
+            print(f"{'' if n == 1 else chr(10)}== lights {n} of {len(specs)} ==")
+        print(f"{cols}x{rows}: {len(found)} grid(s), {info['nodes']} nodes"
+              + ("" if info.get("symmetric") else ", symmetry not assumed")
+              + (", search truncated" if info.get("truncated") else ""))
+        for i, grid in enumerate(found, 1):
+            mark = "  <- published" if published is not None and grid == published else ""
+            print(f"\n  grid {i}{mark}")
+            for row in grid:
+                print("    " + " ".join(row))
+    found = results[0][0]
     if published is None:
         return 0
     print()

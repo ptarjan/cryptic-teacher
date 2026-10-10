@@ -2025,5 +2025,9 @@ tools/test_trove_articles_index.sh            does tools/trove_solution_ocr.py's
                                               warm?
 tools/await_preamble.py                       hold back a puzzle that cannot be explained
                                               without the preamble we lack
+tools/test_reconstruct_grid_cli.sh            tools/reconstruct_grid.py's command line: several
+                                              --lights run as separate searches (on the desktop
+                                              under OCR_REMOTE; here, with it unset,
+                                              in-process), and --words reaches the search
 ```
 <!-- LAYOUT-END -->
