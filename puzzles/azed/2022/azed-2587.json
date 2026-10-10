@@ -38,6 +38,9 @@
   "date": "2022-01-16",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,55 @@
     "text": "Soup recipe ingested by artist",
     "enumeration": "6"
    },
-   "solution": "BORSCH"
+   "solution": "BORSCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BORSCH",
+    "definitions": [
+     {
+      "text": "Soup",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ingested by",
+      "for": "container",
+      "note": "something ingested is swallowed, so it ends up inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "BOSCH",
+      "note": "Hieronymus Bosch, the Dutch painter"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the standard abbreviation for recipe (Latin 'take') on prescriptions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "R",
+      "SCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter swallowing the instructions for making soup.",
+     "walkthrough": "'recipe' looks like it belongs with the soup, but it is the prescription abbreviation from Latin 'take'.",
+     "definitionFit": "Borsch (borscht) is the beetroot soup of Russia and Ukraine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "artist"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +116,74 @@
     "text": "Chancy investment wild eclat tucked up – owlish maybe?",
     "enumeration": "12"
    },
-   "solution": "BESPECTACLED"
+   "solution": "BESPECTACLED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "BESPECTACLED",
+    "definitions": [
+     {
+      "text": "owlish maybe",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means out of control, so these letters run riot into a new order"
+     },
+     {
+      "text": "tucked up",
+      "for": "container",
+      "note": "tucked up means snug in a bed, so the other pieces lie inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tucked up",
+      "gives": "BED",
+      "note": "someone tucked up is in bed"
+     },
+     {
+      "clueFragment": "Chancy investment",
+      "gives": "SPEC",
+      "note": "spec is short for speculation, a risky venture"
+     },
+     {
+      "clueFragment": "eclat",
+      "gives": "TACLE",
+      "note": "the letters of the word, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "SPEC",
+      "TACLE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ECLAT",
+       "gives": "TACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild speculative bet tucked away by someone who looks wise as an owl.",
+     "walkthrough": "'tucked up' does double duty: it gives the bed and says the rest goes inside it.",
+     "definitionFit": "Owls are pictured with round eyes like spectacles, so an owlish look is one example of being bespectacled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "owlish"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +197,61 @@
     "text": "A pistol cocked? Rule of order",
     "enumeration": "6"
    },
-   "solution": "REGULA"
+   "solution": "REGULA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "REGULA",
+    "definitions": [
+     {
+      "text": "Rule of order",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cocked",
+      "for": "reversal",
+      "note": "cocked means tilted upwards, and in a down clue that flips the letters to read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pistol",
+      "gives": "LUGER",
+      "note": "the Luger is a German automatic pistol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGUL",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ALUGER",
+       "to": "REGULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gun is cocked, and someone calls a point of order.",
+     "definitionFit": "A regula is the written rule of a religious order, such as the Rule of St Benedict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +265,62 @@
     "text": "Runner? Plenty turned up in advance",
     "enumeration": "6"
    },
-   "solution": "STOLON"
+   "solution": "STOLON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "STOLON",
+    "definitions": [
+     {
+      "text": "Runner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "turned up in a down clue means flipped to read from the bottom to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plenty",
+      "gives": "LOTS",
+      "note": "lots means plenty"
+     },
+     {
+      "clueFragment": "in advance",
+      "gives": "ON",
+      "note": "on means ahead or forward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOL",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "LOTS",
+       "to": "STOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete arriving in large numbers ahead of time.",
+     "walkthrough": "'Runner' suggests an athlete; it is the botanical sense.",
+     "definitionFit": "A stolon is a runner in botany: a creeping stem that roots to form a new plant, as in strawberries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Runner"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +334,56 @@
     "text": "Cheesy stuff given a whirl within? It's revolting",
     "enumeration": "4"
    },
-   "solution": "CRUD"
+   "solution": "CRUD",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "CRUD",
+    "definitions": [
+     {
+      "text": "It's revolting",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given a whirl within",
+      "for": "reversal",
+      "note": "a whirl turns things round, and 'within' limits it to the middle of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheesy stuff",
+      "gives": "CURD",
+      "note": "curd is the solid part of soured milk, used for cheese"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RU",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "UR",
+       "to": "RU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheese someone tried turned out disgusting.",
+     "walkthrough": "Only the two middle letters swap round; the outer C and D stay put.",
+     "definitionFit": "Crud is slang for anything filthy or disgusting, so it is something revolting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whirl"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +397,49 @@
     "text": "Old time tart, head dropping somewhat",
     "enumeration": "5"
    },
-   "solution": "HOWRE"
+   "solution": "HOWRE",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "HOWRE",
+    "definitions": [
+     {
+      "text": "Old time",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head dropping somewhat",
+      "for": "cycling",
+      "note": "the leading letter slips down a little way, moving the start of the word round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tart",
+      "gives": "WHORE",
+      "note": "tart is slang for a prostitute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOW",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "An old-time tart, her head drooping a little.",
+     "walkthrough": "The W at the head moves down two places, behind H and O.",
+     "definitionFit": "Howre is an old spelling of hour, used by Spenser; 'Old' flags the archaic form of a unit of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +453,58 @@
     "text": "Everything within that kiss stirred divine femininity",
     "enumeration": "6"
    },
-   "solution": "SHAKTI"
+   "solution": "SHAKTI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SHAKTI",
+    "definitions": [
+     {
+      "text": "divine femininity",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Everything within",
+      "for": "letter_selection",
+      "note": "all the letters lying inside, so every letter except the two ends is kept"
+     },
+     {
+      "text": "stirred",
+      "for": "anagram",
+      "note": "something stirred is mixed about, so the kept letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that kiss",
+      "gives": "HATKIS",
+      "select": "middle",
+      "note": "the phrase without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HATKIS",
+       "gives": "SHAKTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A passionate kiss that awakened a goddess-like feminine spirit.",
+     "walkthrough": "'Everything within' means the whole of the phrase bar its outer letters, here T and S.",
+     "definitionFit": "In Hinduism Shakti is the female creative energy of the cosmos, personified as the consort of a god."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Everything"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +518,60 @@
     "text": "My husband coos when dancing cheek to cheek?",
     "enumeration": "7"
    },
-   "solution": "SMOOCHY"
+   "solution": "SMOOCHY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SMOOCHY",
+    "definitions": [
+     {
+      "text": "cheek to cheek",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when dancing",
+      "for": "anagram",
+      "note": "dancing moves the letters around the floor into new positions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "My",
+      "gives": "MY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "h is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "coos",
+      "gives": "COOS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MYHCOOS",
+       "gives": "SMOOCHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's husband murmurs sweet nothings while they dance close.",
+     "definitionFit": "Smoochy describes romantic slow music or dancing done in a close embrace, faces touching."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "coos"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +585,64 @@
     "text": "Toxic latex, not for a tip of rubber",
     "enumeration": "6"
    },
-   "solution": "ANTIAR"
+   "solution": "ANTIAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ANTIAR",
+    "definitions": [
+     {
+      "text": "Toxic latex",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tip of",
+      "for": "letter_selection",
+      "note": "the tip is the very first point, so just the opening letter is used"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not for",
+      "gives": "ANTI",
+      "note": "anti means against, not in favour of"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rubber",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTI",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A poisonous latex is no use for the end of a rubber.",
+     "definitionFit": "The antiar is the upas tree of Java, and its poisonous latex was used on arrow tips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rubber"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +656,59 @@
     "text": "Arak drunk with 'io', a foreign toast",
     "enumeration": "6"
    },
-   "solution": "KIAORA"
+   "solution": "KIAORA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KIAORA",
+    "definitions": [
+     {
+      "text": "a foreign toast",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so these letters lurch out of order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arak",
+      "gives": "ARAK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "'io'",
+      "gives": "IO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARAKIO",
+       "gives": "KIAORA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arak is drunk to a cry of 'io' as someone abroad raises a glass.",
+     "walkthrough": "Arak is a spirit, and io a classical shout of triumph, which fits the drinking scene.",
+     "definitionFit": "Kia ora is a Maori greeting wishing good health, used as a toast in New Zealand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +722,59 @@
     "text": "Shipworm mostly found under matting in shreds",
     "enumeration": "8"
    },
-   "solution": "TATTERED"
+   "solution": "TATTERED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TATTERED",
+    "definitions": [
+     {
+      "text": "in shreds",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "found under",
+      "for": "charade",
+      "note": "in a down clue being under means coming after in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "matting",
+      "gives": "TAT",
+      "note": "tat is a coarse Indian matting or canvas"
+     },
+     {
+      "clueFragment": "Shipworm",
+      "gives": "TEREDO",
+      "note": "the teredo is a boring mollusc that eats ship timbers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAT",
+      "TERED"
+     ]
+    },
+    "explanation": {
+     "surface": "A shipworm has chewed some matting to ribbons.",
+     "definitionFit": "Tattered means torn into rags and shreds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "matting"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +787,70 @@
    "clue": {
     "text": "Members of front line showing hunches about dire suffering (12, two words)"
    },
-   "solution": "INSIDERIGHTS"
+   "solution": "INSIDERIGHTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INSIDE RIGHTS",
+    "definitions": [
+     {
+      "text": "Members of front line",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word wraps round the other"
+     },
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "suffering things are in a bad way, so these letters are knocked out of shape"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hunches",
+      "gives": "INSIGHTS",
+      "note": "an insight is an intuitive hunch"
+     },
+     {
+      "clueFragment": "dire",
+      "gives": "DERI",
+      "note": "the letters of the word, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSI",
+      "DERI",
+      "GHTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIRE",
+       "gives": "DERI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers in the front line have dark feelings about terrible hardship.",
+     "walkthrough": "'front line' suggests war, but it is the forward line of a football team.",
+     "definitionFit": "In old football formations the inside rights were forwards, playing between centre forward and right wing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +864,55 @@
     "text": "Was introduced to gypsy, one showing passion for versifying",
     "enumeration": "10"
    },
-   "solution": "METROMANIA"
+   "solution": "METROMANIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "METROMANIA",
+    "definitions": [
+     {
+      "text": "passion for versifying",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was introduced to",
+      "gives": "MET",
+      "note": "to have met someone is to have been introduced"
+     },
+     {
+      "clueFragment": "gypsy",
+      "gives": "ROMANI",
+      "note": "the Romani people, once commonly called gypsies"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "ROMANI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone meets a Romani poet who displays a passion for writing verse.",
+     "definitionFit": "Metromania is a mania for writing poetry, from metre plus mania."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +926,53 @@
     "text": "Bright Californian plant I placed alongside square",
     "enumeration": "4"
    },
-   "solution": "SEGO"
+   "solution": "SEGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEGO",
+    "definitions": [
+     {
+      "text": "Bright Californian plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "placed alongside",
+      "for": "charade",
+      "note": "set next to means the two parts simply sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "square",
+      "gives": "S",
+      "note": "S is short for square, as in measurements"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "EGO",
+      "note": "the ego is the self, the 'I'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener describes setting a vivid Californian plant beside a town square.",
+     "definitionFit": "The sego lily is a brightly flowered bulb of the western United States, the state flower of Utah."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +986,47 @@
     "text": "Society puts finger on key figures",
     "enumeration": "5"
    },
-   "solution": "STATS"
+   "solution": "STATS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STATS",
+    "definitions": [
+     {
+      "text": "key figures",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     },
+     {
+      "clueFragment": "puts finger on",
+      "gives": "TATS",
+      "note": "Chambers gives tat as a verb meaning to touch or tap lightly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TATS"
+     ]
+    },
+    "explanation": {
+     "surface": "A society identifying the important numbers.",
+     "walkthrough": "TAT here is a rare verb found in Chambers, the Azed dictionary.",
+     "definitionFit": "Stats is the informal clipping of statistics, the important numbers in a report."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +1040,51 @@
     "text": "Spread lard upon detachable plate",
     "enumeration": "8"
    },
-   "solution": "PAULDRON"
+   "solution": "PAULDRON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PAULDRON",
+    "definitions": [
+     {
+      "text": "detachable plate",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spread",
+      "for": "anagram",
+      "note": "spreading something moves its parts about, so these letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lard upon",
+      "gives": "LARDUPON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LARDUPON",
+       "gives": "PAULDRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to smear fat on a removable dish.",
+     "walkthrough": "'plate' suggests crockery, which suits the lard, but it is a piece of armour.",
+     "definitionFit": "A pauldron is the separate piece of plate armour covering a knight's shoulder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plate"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +1098,55 @@
     "text": "Coach circumventing what may be Indian gazelle",
     "enumeration": "8"
    },
-   "solution": "CHINKARA"
+   "solution": "CHINKARA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHINKARA",
+    "definitions": [
+     {
+      "text": "gazelle",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circumventing",
+      "for": "container",
+      "note": "to circumvent is literally to go round, so one word surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coach",
+      "gives": "CHARA",
+      "note": "chara is short for charabanc, an old motor coach"
+     },
+     {
+      "clueFragment": "what may be Indian",
+      "gives": "INK",
+      "note": "Indian ink is a dense black ink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "INK",
+      "ARA"
+     ]
+    },
+    "explanation": {
+     "surface": "A coach takes the long way round what might be an Indian antelope.",
+     "walkthrough": "'Indian' seems to go with gazelle, but belongs to the ink.",
+     "definitionFit": "The chinkara is a small gazelle of India and Pakistan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Indian"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1160,52 @@
     "text": "Announced month left once given judgement",
     "enumeration": "8"
    },
-   "solution": "DECLARED"
+   "solution": "DECLARED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DECLARED",
+    "definitions": [
+     {
+      "text": "Announced",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "month",
+      "gives": "DEC",
+      "note": "Dec is the abbreviation for December"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "once given judgement",
+      "gives": "ARED",
+      "note": "ared is an obsolete past form of aread, to judge or interpret; 'once' marks it archaic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "L",
+      "ARED"
+     ]
+    },
+    "explanation": {
+     "surface": "A verdict was announced a month after someone left.",
+     "definitionFit": "To declare something is to announce it formally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "judgement"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1219,49 @@
     "text": "Shell in pieces for bangles, 100 on loop",
     "enumeration": "5"
    },
-   "solution": "CHANK"
+   "solution": "CHANK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHANK",
+    "definitions": [
+     {
+      "text": "Shell in pieces for bangles",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for 100"
+     },
+     {
+      "clueFragment": "loop",
+      "gives": "HANK",
+      "note": "a hank is a coil or loop of yarn or rope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HANK"
+     ]
+    },
+    "explanation": {
+     "surface": "A jeweller cuts a shell into pieces and strings a hundred bangles on a loop.",
+     "definitionFit": "The chank is a large Indian sea shell cut into rings to make bangles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loop"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1275,51 @@
     "text": "Figure congaed unrestrainedly",
     "enumeration": "7"
    },
-   "solution": "DECAGON"
+   "solution": "DECAGON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECAGON",
+    "definitions": [
+     {
+      "text": "Figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unrestrainedly",
+      "for": "anagram",
+      "note": "without restraint the letters move freely and land in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "congaed",
+      "gives": "CONGAED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CONGAED",
+       "gives": "DECAGON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A figure danced the conga wildly.",
+     "walkthrough": "'Figure' reads as a person or a dance move; it is a geometric shape.",
+     "definitionFit": "A decagon is a plane shape with ten sides, a geometric figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1333,57 @@
     "text": "Ambassador maybe providing enclosure for sandarach in African capital",
     "enumeration": "6"
    },
-   "solution": "HARARE"
+   "solution": "HARARE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HARARE",
+    "definitions": [
+     {
+      "text": "African capital",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "providing enclosure for",
+      "for": "container",
+      "note": "to enclose something is to surround it, so one word wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ambassador maybe",
+      "gives": "HE",
+      "note": "HE, His Excellency, is how an ambassador is styled"
+     },
+     {
+      "clueFragment": "sandarach",
+      "gives": "ARAR",
+      "note": "the arar is the sandarach tree of north Africa"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ARAR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An envoy keeps a stock of resin in an African capital.",
+     "definitionFit": "Harare is the capital city of Zimbabwe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sandarach"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1397,81 @@
     "text": "Cocktail of Pepsi and Lilt? This is primarily 'lite' possibly",
     "enumeration": "6"
    },
-   "solution": "TIPPLE"
+   "solution": "TIPPLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "deletion"
+    ],
+    "answer": "TIPPLE",
+    "definitions": [
+     {
+      "text": "Cocktail",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of the next word counts"
+     },
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly marks one possible arrangement: the letters of the drinks could be reordered as this plus the others"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pepsi",
+      "gives": "PEPSI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Lilt",
+      "gives": "LILT",
+      "note": "taken as written; Lilt is a British fruit soft drink"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written, to be taken away"
+     },
+     {
+      "clueFragment": "lite",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter, also to be taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIPPLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEPSILILT",
+       "gives": "TIPPLEISL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mixing Pepsi with Lilt, a fruit soda, would hardly make a strong drink.",
+     "walkthrough": "A compound anagram: 'This' stands for the answer, and THIS + IS + L is an anagram of PEPSI LILT, so take IS and L out of those letters to leave the answer.",
+     "definitionFit": "A tipple is an alcoholic drink, so a cocktail is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "This"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1485,49 @@
     "text": "Haggle, requiring penny change",
     "enumeration": "6"
    },
-   "solution": "PALTER"
+   "solution": "PALTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALTER",
+    "definitions": [
+     {
+      "text": "Haggle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "penny",
+      "gives": "P",
+      "note": "p is the abbreviation for penny"
+     },
+     {
+      "clueFragment": "change",
+      "gives": "ALTER",
+      "note": "to alter is to change"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ALTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Bargaining down to the last penny of change.",
+     "definitionFit": "Palter, in an older sense, means to haggle or bargain over terms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1541,43 @@
     "text": "Wearing armour, ready to serve?",
     "enumeration": "6"
    },
-   "solution": "PLATED"
+   "solution": "PLATED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLATED",
+    "definitions": [
+     {
+      "text": "Wearing armour",
+      "at": 0
+     },
+     {
+      "text": "ready to serve",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wearing armour",
+      "note": "first meaning: covered in metal plates"
+     },
+     {
+      "clueFragment": "ready to serve",
+      "note": "second meaning: food put on the plate"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Serving suggests a knight in armour serving a king; the second sense is a meal ready to go out.",
+     "definitionFit": "A knight in plate armour is plated, and food set out on plates in a kitchen is plated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "serve"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1591,52 @@
     "text": "Child dropped subject more ready to learn",
     "enumeration": "5"
    },
-   "solution": "APTER"
+   "solution": "APTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "APTER",
+    "definitions": [
+     {
+      "text": "more ready to learn",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropped",
+      "for": "deletion",
+      "note": "something dropped is let go, so those letters fall out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Child",
+      "gives": "CH",
+      "note": "ch is the abbreviation for child"
+     },
+     {
+      "clueFragment": "subject",
+      "gives": "CHAPTER",
+      "note": "a chapter is a division of a book dealing with one subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A child gave up a school subject, being quicker to pick things up.",
+     "definitionFit": "Apt can mean quick to learn, so apter is the comparative: readier to grasp things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Child"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1650,44 @@
     "text": "Pair of friends showing what's need to deal with sensation?",
     "enumeration": "6"
    },
-   "solution": "PALPAL"
+   "solution": "PALPAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALPAL",
+    "definitions": [
+     {
+      "text": "what's need to deal with sensation",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pair of friends",
+      "gives": "PALPAL",
+      "note": "pal means friend, so two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PALPAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Two friends who have what it takes to handle a sensation.",
+     "walkthrough": "The printed 'need' stands for 'needed'. A palp is the feeler an insect uses to sense things.",
+     "definitionFit": "Palpal means relating to palps, the sense organs an insect uses for touch and taste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sensation"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1701,64 @@
     "text": "University shows this ivy's disfigured … Trinity?",
     "enumeration": "6"
    },
-   "solution": "TRIUNE"
+   "solution": "TRIUNE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "TRIUNE",
+    "definitions": [
+     {
+      "text": "Trinity",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disfigured",
+      "for": "anagram",
+      "note": "something disfigured has its shape spoilt, so the letters are mixed into another shape"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University",
+      "gives": "UNIVERSITY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ivy's",
+      "gives": "IVYS",
+      "note": "taken as written, to be taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIUNE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNIVERSITY",
+       "gives": "TRIUNEIVYS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university, its ivy defaced, is Trinity College perhaps.",
+     "walkthrough": "A compound anagram: 'this' stands for the answer, and THIS + IVYS jumbled makes UNIVERSITY, so take IVYS out of those letters.",
+     "definitionFit": "Triune means three in one, the defining nature of the Holy Trinity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trinity"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1772,55 @@
     "text": "Literary bits and pieces smart chap penned in column?",
     "enumeration": "8"
    },
-   "solution": "ANALECTA"
+   "solution": "ANALECTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANALECTA",
+    "definitions": [
+     {
+      "text": "Literary bits and pieces",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penned in",
+      "for": "container",
+      "note": "penned in means shut inside an enclosure, so one word sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "column",
+      "gives": "ANTA",
+      "note": "an anta is a pilaster or square column at the end of a wall"
+     },
+     {
+      "clueFragment": "smart chap",
+      "gives": "ALEC",
+      "note": "a smart alec is a know-all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "ALEC",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper column containing snippets of writing by a clever fellow.",
+     "walkthrough": "'column' looks like a newspaper column; it is an architectural one.",
+     "definitionFit": "Analecta are collected literary extracts or gleanings, a set of fragments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "column"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1834,52 @@
     "text": "Silly, appearing regularly in tow, de trop",
     "enumeration": "5"
    },
-   "solution": "TWERP"
+   "solution": "TWERP",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TWERP",
+    "definitions": [
+     {
+      "text": "Silly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in tow, de trop",
+      "gives": "TWERP",
+      "select": "alternate",
+      "note": "every second letter, starting from the third"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWERP"
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish hanger-on who is unwanted.",
+     "walkthrough": "'Silly' is a noun here, as in 'you silly'. De trop is French for unwelcome or in the way.",
+     "definitionFit": "A twerp is a silly or contemptible person, so the noun silly is a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Silly"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1893,55 @@
     "text": "Corvid with dead fish, in no hurry?",
     "enumeration": "8"
    },
-   "solution": "DAWDLING"
+   "solution": "DAWDLING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DAWDLING",
+    "definitions": [
+     {
+      "text": "in no hurry",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corvid",
+      "gives": "DAW",
+      "note": "the daw or jackdaw is a member of the crow family"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "d is the abbreviation for dead"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "LING",
+      "note": "the ling is a long fish of the cod family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAW",
+      "D",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A jackdaw lingers over a dead fish, unhurried.",
+     "definitionFit": "Dawdling means moving slowly and idly, taking your time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 29,
@@ -470,7 +1955,55 @@
     "text": "Work at good English for magistrate",
     "enumeration": "4"
    },
-   "solution": "DOGE"
+   "solution": "DOGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOGE",
+    "definitions": [
+     {
+      "text": "magistrate",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work at",
+      "gives": "DO",
+      "note": "to do something is to work at it"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "g is the abbreviation for good"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Working at good English to become a magistrate.",
+     "definitionFit": "The doge was the chief magistrate of the old republics of Venice and Genoa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 30,
@@ -484,7 +2017,47 @@
     "text": "Coffee dish, edges spilt",
     "enumeration": "5"
    },
-   "solution": "LATTE"
+   "solution": "LATTE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LATTE",
+    "definitions": [
+     {
+      "text": "Coffee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges spilt",
+      "for": "deletion",
+      "note": "with the edges spilt, the outer letters are lost and only the inside stays"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dish",
+      "gives": "PLATTER",
+      "note": "a platter is a large serving dish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Coffee slops over the rim of a dish.",
+     "definitionFit": "A latte is espresso coffee made with plenty of steamed milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spilt"
+    }
+   }
   },
   {
    "number": 31,
@@ -498,7 +2071,60 @@
     "text": "Advance turned up – not a word",
     "enumeration": "4"
    },
-   "solution": "PUSH"
+   "solution": "PUSH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PUSH",
+    "definitions": [
+     {
+      "text": "Advance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned means facing the other way, so the word that follows reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not a word",
+      "gives": "SH",
+      "note": "sh is a call for silence, not another word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "SH"
+     ],
+     "reversals": [
+      {
+       "from": "UP",
+       "to": "PU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moved forward, silently.",
+     "definitionFit": "To push is to press forward or advance, as an army does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "word"
+    }
+   }
   },
   {
    "number": 32,
@@ -511,7 +2137,61 @@
    "clue": {
     "text": "Take one's grade playing keyboard instruments (10, two words)"
    },
-   "solution": "REEDORGANS"
+   "solution": "REEDORGANS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "REED ORGANS",
+    "definitions": [
+     {
+      "text": "keyboard instruments",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "the letters are played around with and so come out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take",
+      "gives": "R",
+      "note": "R, from Latin recipe, means take, as on prescriptions"
+     },
+     {
+      "clueFragment": "one's grade",
+      "gives": "ONESGRADE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EEDORGANS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONESGRADE",
+       "gives": "EEDORGANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A music student sits an exam on the keyboard.",
+     "walkthrough": "'Take one's grade' reads like sitting a music exam, but 'Take' is the prescription abbreviation.",
+     "definitionFit": "Reed organs, such as the harmonium, are keyboard instruments sounded by vibrating reeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 33,
@@ -525,7 +2205,71 @@
     "text": "Leaders of stricken town abandoned tattered standard, Trojan",
     "enumeration": "6"
    },
-   "solution": "DARDAN"
+   "solution": "DARDAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DARDAN",
+    "definitions": [
+     {
+      "text": "Trojan",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders of",
+      "for": "letter_selection",
+      "note": "leaders go in front, so only the opening letters of the next words count"
+     },
+     {
+      "text": "abandoned",
+      "for": "deletion",
+      "note": "abandoned means left behind, so those letters are taken away"
+     },
+     {
+      "text": "tattered",
+      "for": "anagram",
+      "note": "something tattered is torn to pieces, so the remaining letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stricken town",
+      "gives": "ST",
+      "select": "first",
+      "note": "first letters of the two words"
+     },
+     {
+      "clueFragment": "standard",
+      "gives": "STANDARD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DARDAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANDARD",
+       "gives": "DARDAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a ravaged city a Trojan leaves behind a torn flag.",
+     "definitionFit": "Dardan, after Dardanus, founder of Troy, is a poetic word for Trojan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "standard"
+    }
+   }
   },
   {
    "number": 34,
@@ -539,7 +2283,70 @@
     "text": "Hero's father – matter involves dodgy 'eel'!",
     "enumeration": "6"
    },
-   "solution": "PELEUS"
+   "solution": "PELEUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PELEUS",
+    "definitions": [
+     {
+      "text": "Hero's father",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involves",
+      "for": "container",
+      "note": "to involve is to wrap up inside, so one word goes round the other"
+     },
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "dodgy means unreliable or out of order, so these letters get rearranged"
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "matter",
+      "gives": "PUS",
+      "note": "pus is the matter that oozes from an infection"
+     },
+     {
+      "clueFragment": "eel",
+      "gives": "ELE",
+      "note": "the letters of the word, jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ELE",
+      "US"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EEL",
+       "gives": "ELE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dubious eel turns up in a story about a hero's dad.",
+     "walkthrough": "The hero is Achilles, son of Peleus and the sea nymph Thetis.",
+     "definitionFit": "In Greek myth Peleus was king of the Myrmidons and father of Achilles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "matter"
+    }
+   }
   }
  ]
 }
