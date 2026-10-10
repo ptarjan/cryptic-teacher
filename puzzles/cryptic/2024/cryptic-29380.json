@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -52,7 +55,48 @@
     "text": "Swans around in glamorous Bochum",
     "enumeration": "4"
    },
-   "solution": "COBS"
+   "solution": "COBS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "COBS",
+    "definitions": [
+     {
+      "text": "Swans",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turning around means the letters are taken in the opposite direction, upwards here"
+     },
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of words that follows, spanning the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "glamorous Bochum",
+      "gives": "SBOC",
+      "note": "the end of glamorous and the start of Bochum"
+     }
+    ],
+    "explanation": {
+     "surface": "Elegant swans gliding about in the German city of Bochum.",
+     "definitionFit": "A cob is the male of the swan, so cobs are swans of one sex."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Swans"
+    }
+   }
   },
   {
    "number": 2,
@@ -66,7 +110,45 @@
     "text": "Speaker's platform for Hague or Cameron, say",
     "enumeration": "4"
    },
-   "solution": "PEER"
+   "solution": "PEER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PEER",
+    "definitions": [
+     {
+      "text": "Hague or Cameron, say",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Speaker's",
+      "for": "homophone",
+      "note": "what a speaker says is heard rather than seen, so the word wanted only matches by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "platform",
+      "gives": "PEER",
+      "soundsLike": "PIER",
+      "note": "a pier is a landing platform jutting into the sea"
+     }
+    ],
+    "explanation": {
+     "surface": "A podium for one of two Conservative politicians to address the Commons from.",
+     "walkthrough": "William Hague and David Cameron, former Tory leaders, both now sit in the House of Lords; 'Speaker' also hints at the Commons Speaker.",
+     "definitionFit": "Both men were made members of the House of Lords, so each is an example of a member of the peerage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Speaker's"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +162,72 @@
     "text": "Excessive sandwiches left, as well as filling of pate in roll",
     "enumeration": "8"
    },
-   "solution": "UNDULATE"
+   "solution": "UNDULATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UNDULATE",
+    "definitions": [
+     {
+      "text": "roll",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling of",
+      "for": "letter_selection",
+      "note": "the filling of something is its centre, so only the middle letters of the next word are used"
+     },
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "to sandwich something is to hold it between two outer layers, so this word goes round what follows"
+     }
+    ],
+    "linkWords": [
+     "as well as",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excessive",
+      "gives": "UNDUE",
+      "note": "undue means more than is warranted"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "pate",
+      "gives": "AT",
+      "select": "middle",
+      "note": "the two central letters of pate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDU",
+      "L",
+      "AT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about an overstuffed bread roll, with pâté and more crammed inside.",
+     "walkthrough": "'roll' looks like the bread from the surface, but it is the verb: to move in waves. 'as well as' simply adds the second insertion.",
+     "definitionFit": "To undulate is to move with a wave-like rising and falling motion, as the sea rolls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "roll"
+    }
+   }
   },
   {
    "number": 4,
@@ -118,7 +265,40 @@
     "5-across",
     "1-across",
     "15-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CARBON CAPTURE AND STORAGE",
+    "definitions": [
+     {
+      "text": "Environmental process",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "which makes additive addictive?",
+      "note": "surface reading: something that turns a food additive into a habit-forming one"
+     },
+     {
+      "clueFragment": "additive addictive",
+      "note": "setter's reading: put the letter C, the chemical symbol of the element, inside 'additive' and keep it there, and you get 'addictive'"
+     }
+    ],
+    "explanation": {
+     "surface": "A wry question about what turns a harmless food additive into something addictive.",
+     "walkthrough": "C is the symbol for carbon; seizing a C and holding it inside 'additive' spells 'addictive', which is literally what the green technology's name describes.",
+     "definitionFit": "The phrase names the technology that traps emissions from power stations and locks them away underground to fight climate change."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "additive"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +312,67 @@
     "text": "One needing oxygen stood up, admitted to A&E",
     "enumeration": "6"
    },
-   "solution": "AEROBE"
+   "solution": "AEROBE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "AEROBE",
+    "definitions": [
+     {
+      "text": "One needing oxygen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the word from bottom to top"
+     },
+     {
+      "text": "admitted to",
+      "for": "container",
+      "note": "a patient admitted to a hospital goes inside it, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A&E",
+      "gives": "AE",
+      "note": "the letters of the hospital department name"
+     },
+     {
+      "clueFragment": "stood",
+      "gives": "BORE",
+      "note": "bore as in tolerated, past tense of bear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "EROB",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "BORE",
+       "to": "EROB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A breathless patient who has been stood up and admitted to casualty.",
+     "walkthrough": "A&E, accident and emergency, is the British hospital casualty department. 'stood' means endured, not got to one's feet.",
+     "definitionFit": "An aerobe is an organism that requires air to live, the opposite of an anaerobe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stood"
+    }
+   }
   },
   {
    "number": 7,
@@ -156,7 +396,39 @@
      }
     ]
    },
-   "solution": "BADHAIRDAY"
+   "solution": "BADHAIRDAY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BAD HAIR DAY",
+    "definitions": [
+     {
+      "text": "When one has a mop, with tidying up required?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When one has a mop, with tidying up required?",
+      "note": "surface reading: a cleaning day, mop and bucket in hand"
+     },
+     {
+      "clueFragment": "mop",
+      "note": "setter's reading: a mop is a shock of unruly hair, and the tidying needed is to that tangle on one's head"
+     }
+    ],
+    "explanation": {
+     "surface": "Sounds like a housework day, out with the mop to clean up.",
+     "definitionFit": "The phrase names a day when one's hair will not behave, and by extension any day when everything goes wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mop"
+    }
+   }
   },
   {
    "number": 8,
@@ -176,7 +448,72 @@
      }
     ]
    },
-   "solution": "NORTHKOREA"
+   "solution": "NORTHKOREA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "NORTH KOREA",
+    "definitions": [
+     {
+      "text": "Where to see Kim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "silhouette",
+      "for": "letter_selection",
+      "note": "a silhouette is only an outline, so just the outside letters of the name are kept"
+     },
+     {
+      "text": "wildly",
+      "for": "anagram",
+      "note": "acting wildly is acting without order, so the letters are thrown into a new sequence"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kardashian's",
+      "gives": "KN",
+      "select": "outer",
+      "note": "first and last letters, ignoring the possessive"
+     },
+     {
+      "clueFragment": "rear",
+      "gives": "REAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Hoot",
+      "gives": "HOOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KNREARHOOT",
+       "gives": "NORTHKOREA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky question about where to view Kim Kardashian's famous curves and backside.",
+     "walkthrough": "The Kim is not the reality star but Kim Jong Un, the dictator.",
+     "definitionFit": "The country is ruled by Kim Jong Un, so it is the place where that Kim is to be found."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Kim"
+    }
+   }
   },
   {
    "number": 9,
@@ -190,7 +527,59 @@
     "text": "Measurements of pants, say, worn by Democrat",
     "enumeration": "8"
    },
-   "solution": "BREADTHS"
+   "solution": "BREADTHS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BREADTHS",
+    "definitions": [
+     {
+      "text": "Measurements",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worn by",
+      "for": "container",
+      "note": "clothing worn by someone goes around them, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pants, say",
+      "gives": "BREATHS",
+      "note": "pants as a verb, gasps; 'say' flags it as an example"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREA",
+      "D",
+      "THS"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking the size of the trousers a Democrat politician is wearing.",
+     "walkthrough": "Pants here are not trousers but gasps for air.",
+     "definitionFit": "Breadths are widths, measurements taken from side to side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +593,61 @@
     "text": "Capitalist concerned with career regressing",
     "enumeration": "6"
    },
-   "solution": "TRADER"
+   "solution": "TRADER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TRADER",
+    "definitions": [
+     {
+      "text": "Capitalist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regressing",
+      "for": "reversal",
+      "note": "to regress is to go backwards, so the combined letters are read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerned with",
+      "gives": "RE",
+      "note": "re means about or regarding"
+     },
+     {
+      "clueFragment": "career",
+      "gives": "DART",
+      "note": "to career is to rush headlong, to dart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAD",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REDART",
+       "to": "TRADER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A capitalist whose job prospects are going backwards.",
+     "walkthrough": "'career' looks like a noun for one's job but is the verb meaning to hurtle.",
+     "definitionFit": "A dealer who buys and sells for profit is a capitalist in the everyday sense of a businessperson."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "career"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +661,75 @@
     "text": "Chatter about drug smuggled into American customs",
     "enumeration": "6"
    },
-   "solution": "USAGES"
+   "solution": "USAGES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "USAGES",
+    "definitions": [
+     {
+      "text": "customs",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the word is written backwards"
+     },
+     {
+      "text": "smuggled into",
+      "for": "container",
+      "note": "contraband smuggled into a place ends up inside it, so these letters go within the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chatter",
+      "gives": "GAS",
+      "note": "to gas is to talk idly"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E for ecstasy"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "SAG",
+      "E",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "GAS",
+       "to": "SAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about narcotics slipped past US customs officers.",
+     "walkthrough": "'customs' reads as the border service, but it means habits.",
+     "definitionFit": "Usages are established practices or conventions, just as customs are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "customs"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +749,76 @@
      }
     ]
    },
-   "solution": "BLACKSABBATH"
+   "solution": "BLACKSABBATH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BLACK SABBATH",
+    "definitions": [
+     {
+      "text": "Metal band",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "a thing containing something holds it inside, so one letter goes within the first piece"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supports",
+      "gives": "BACKS",
+      "note": "to back is to support"
+     },
+     {
+      "clueFragment": "litres",
+      "gives": "L",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "barrel",
+      "gives": "B",
+      "note": "B is a dictionary abbreviation for barrel"
+     },
+     {
+      "clueFragment": "tub",
+      "gives": "BATH",
+      "note": "a bathtub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLACKS",
+      "A",
+      "B",
+      "BATH"
+     ]
+    },
+    "explanation": {
+     "surface": "A metal hoop holding together a barrel and a tub of liquid.",
+     "walkthrough": "A metal band sounds like a hoop on a cask, but it is a heavy metal group, the Birmingham band fronted by Ozzy Osbourne.",
+     "definitionFit": "The group are pioneers of heavy metal music, so they are a band in that genre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Metal"
+    }
+   }
   },
   {
    "number": 13,
@@ -258,7 +838,60 @@
      }
     ]
    },
-   "solution": "FARSIGHTED"
+   "solution": "FARSIGHTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FAR-SIGHTED",
+    "definitions": [
+     {
+      "text": "Like a prophet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stifle",
+      "for": "container",
+      "note": "to stifle something is to smother it, enclosing it completely"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doomed",
+      "gives": "FATED",
+      "note": "fated means destined, doomed"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "expression of despair",
+      "gives": "SIGH",
+      "note": "a sigh expresses dejection"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "R",
+      "SIGH",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "A doomed prophet, like Cassandra, smothering cries of despair.",
+     "definitionFit": "A prophet foresees the future, and being far-sighted means having vision about what lies ahead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doomed"
+    }
+   }
   },
   {
    "number": 14,
@@ -278,7 +911,67 @@
      }
     ]
    },
-   "solution": "EDDYMERCKX"
+   "solution": "EDDYMERCKX",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EDDY MERCKX",
+    "definitions": [
+     {
+      "text": "racer",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "inspiring literally means breathing in, so the outer pieces take another inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spin around",
+      "gives": "EDDY",
+      "note": "to eddy is to swirl round"
+     },
+     {
+      "clueFragment": "a thousand",
+      "gives": "K",
+      "note": "K for kilo, a thousand"
+     },
+     {
+      "clueFragment": "times",
+      "gives": "X",
+      "note": "the multiplication sign"
+     },
+     {
+      "clueFragment": "German car",
+      "gives": "MERC",
+      "note": "short for Mercedes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDDY",
+      "MERC",
+      "K",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "Spinning round a race track a thousand times in a German car.",
+     "walkthrough": "The car is a red herring for the racer: the answer is the Belgian cyclist, and the Merc is breathed in between the swirl and the thousand times.",
+     "definitionFit": "Eddy Merckx, five-time Tour de France winner, is widely seen as the greatest cycle racer ever."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "car"
+    }
+   }
   },
   {
    "number": 15,
@@ -311,7 +1004,46 @@
     "text": "Marry a second time, and that's no joke",
     "enumeration": "6"
    },
-   "solution": "REALLY"
+   "solution": "REALLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REALLY",
+    "definitions": [
+     {
+      "text": "Marry a second time",
+      "at": 0
+     },
+     {
+      "text": "that's no joke",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marry a second time",
+      "note": "first meaning"
+     },
+     {
+      "clueFragment": "that's no joke",
+      "note": "second meaning: an exclamation meaning honestly, seriously"
+     }
+    ],
+    "explanation": {
+     "surface": "Getting married again is no laughing matter.",
+     "definitionFit": "To ally is to join in union, so re-ally is to wed again; the adverb also insists something is said in earnest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Marry"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1057,54 @@
     "text": "Bits of information on King Ferdinand who was England's defender",
     "enumeration": "3"
    },
-   "solution": "RIO"
+   "solution": "RIO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIO",
+    "definitions": [
+     {
+      "text": "Ferdinand who was England's defender",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer, one piece placed on another comes after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R for rex, king"
+     },
+     {
+      "clueFragment": "Bits of information",
+      "gives": "IO",
+      "note": "computer bits are ones and noughts, which look like the letters I and O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IO"
+     ]
+    },
+    "explanation": {
+     "surface": "Snippets of data about King Ferdinand, cast as a historical defender of England.",
+     "walkthrough": "King Ferdinand suggests a Spanish monarch, but Ferdinand is a footballer's surname.",
+     "definitionFit": "Rio Ferdinand was a centre-back for Manchester United and the England national football team."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1124,56 @@
      }
     ]
    },
-   "solution": "DOGEARED"
+   "solution": "DOGEARED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOG-EARED",
+    "definitions": [
+     {
+      "text": "looking rather shabby",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take",
+      "gives": "DO",
+      "note": "to do drugs is to take them"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "GEAR",
+      "note": "gear is slang for drugs"
+     },
+     {
+      "clueFragment": "my boss",
+      "gives": "ED",
+      "note": "the setter's boss is the crossword editor, ED"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "GEAR",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A confession of a drug binge with the boss, leaving both looking worse for wear.",
+     "walkthrough": "'my boss' is the setter speaking: a compiler answers to an editor.",
+     "definitionFit": "A dog-eared book has corners folded down from wear, so it looks worn and shabby."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1187,62 @@
     "text": "Modest Mussorgsky's finale preceded by silence",
     "enumeration": "3"
    },
-   "solution": "SHY"
+   "solution": "SHY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SHY",
+    "definitions": [
+     {
+      "text": "Modest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "preceded by",
+      "for": "charade",
+      "note": "being preceded by something means coming after it, which fixes the order of the two pieces"
+     },
+     {
+      "text": "finale",
+      "for": "letter_selection",
+      "note": "a finale is the closing part, so only the end letter of the name is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silence",
+      "gives": "SH",
+      "note": "the call for quiet"
+     },
+     {
+      "clueFragment": "Mussorgsky's",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of the composer's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "The end of a piece by the Russian composer Modest Mussorgsky, followed by a hush.",
+     "walkthrough": "Modest is the composer's first name in the surface, and the adjective in the cryptic reading.",
+     "definitionFit": "A shy person is reserved and self-effacing, which is what modest means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Modest"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1256,75 @@
     "text": "Fiery compiler running into Volkswagen Beetle's back",
     "enumeration": "10"
    },
-   "solution": "PASSIONATE"
+   "solution": "PASSIONATE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PASSIONATE",
+    "definitions": [
+     {
+      "text": "Fiery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running into",
+      "for": "container",
+      "note": "something running into a vehicle ends up within it here, so these pieces go inside the car"
+     },
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Volkswagen",
+      "gives": "PASSAT",
+      "note": "the Passat is a VW model"
+     },
+     {
+      "clueFragment": "compiler",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "running",
+      "gives": "ON",
+      "note": "a machine that is running is on"
+     },
+     {
+      "clueFragment": "Beetle's",
+      "gives": "E",
+      "select": "last",
+      "note": "end letter of Beetle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASS",
+      "I",
+      "ON",
+      "AT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A hot-tempered crossword setter crashing into the rear of a VW Beetle.",
+     "walkthrough": "The Beetle is another VW, but only supplies its final letter.",
+     "definitionFit": "A passionate person has strong, intense feelings, as a fiery temperament does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1338,56 @@
     "text": "Only half decent police siren may do so",
     "enumeration": "6"
    },
-   "solution": "ENTICE"
+   "solution": "ENTICE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENTICE",
+    "definitions": [
+     {
+      "text": "siren may do so",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Only half",
+      "for": "deletion",
+      "note": "keeping only half a word means losing its other half, here the front three letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decent",
+      "gives": "DECENT",
+      "note": "taken as written before cutting"
+     },
+     {
+      "clueFragment": "police",
+      "gives": "ICE",
+      "note": "ICE is the US Immigration and Customs Enforcement agency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Only some officers are decent; a police siren may signal as much.",
+     "walkthrough": "The siren is not on a police car but the mythical singer who lured sailors.",
+     "definitionFit": "The Sirens of Greek myth lured sailors with song, which is to tempt or lure, as the verb means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "siren"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1401,54 @@
     "text": "Welcomed by people in party, record cover song",
     "enumeration": "12"
    },
-   "solution": "GREENSLEEVES"
+   "solution": "GREENSLEEVES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GREENSLEEVES",
+    "definitions": [
+     {
+      "text": "song",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Welcomed by",
+      "for": "container",
+      "note": "a guest welcomed by hosts is taken in among them, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "people in party",
+      "gives": "GREENS",
+      "note": "members of the Green Party"
+     },
+     {
+      "clueFragment": "record cover",
+      "gives": "SLEEVE",
+      "note": "the card sleeve an LP comes in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREEN",
+      "SLEEVE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Partygoers welcome someone, and an album cover's song is played.",
+     "definitionFit": "Greensleeves is a traditional English folk tune, popularly but doubtfully credited to Henry VIII."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1462,65 @@
     "text": "The King has energy to replace current and present workforce",
     "enumeration": "5"
    },
-   "solution": "ELVES"
+   "solution": "ELVES",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ELVES",
+    "definitions": [
+     {
+      "text": "present workforce",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to replace",
+      "for": "substitution",
+      "note": "one thing coming in to replace another means swapping a single letter out for a new one"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The King",
+      "gives": "ELVIS",
+      "note": "Elvis Presley, the King of rock and roll"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "standard abbreviation in physics"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELV",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Elvis wielding fresh energy to take over the current workforce.",
+     "walkthrough": "'present' is not 'current' but a gift: Santa's workshop staff.",
+     "definitionFit": "In Christmas lore Santa's helpers are the little folk who make the toys, the gift-making labour force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1544,75 @@
    "group": [
     "24-down",
     "4-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "WORK ETHIC",
+    "definitions": [
+     {
+      "text": "Attitude to Labour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changeable",
+      "for": "anagram",
+      "note": "something changeable can be altered, so the following letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is a common abbreviation for with"
+     },
+     {
+      "clueFragment": "Keir",
+      "gives": "KEIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "HOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ORKETHIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KEIRHOTC",
+       "gives": "ORKETHIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dig at Labour leader Keir Starmer blowing hot and cold on his party's stance.",
+     "walkthrough": "Labour with a capital L suggests the political party led by Keir Starmer, but it means toil.",
+     "definitionFit": "A work ethic is a person's belief in the value of diligent effort, their stance towards toil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1626,46 @@
     "text": "Scheduled arrival times for letters from overseas",
     "enumeration": "4"
    },
-   "solution": "ETAS"
+   "solution": "ETAS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ETAS",
+    "definitions": [
+     {
+      "text": "Scheduled arrival times",
+      "at": 0
+     },
+     {
+      "text": "letters from overseas",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scheduled arrival times",
+      "note": "first meaning: estimated times of arrival, as abbreviated"
+     },
+     {
+      "clueFragment": "letters from overseas",
+      "note": "second meaning: plural of the seventh Greek letter"
+     }
+    ],
+    "explanation": {
+     "surface": "The expected landing times of mail flown in from abroad.",
+     "definitionFit": "ETA stands for estimated time of arrival; eta is also a character of the Greek alphabet, foreign script."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +1679,46 @@
     "text": "Poisonous substance picked up, creating alarm",
     "enumeration": "6"
    },
-   "solution": "TOCSIN"
+   "solution": "TOCSIN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TOCSIN",
+    "definitions": [
+     {
+      "text": "alarm",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "something picked up by the ear is heard, so the answer only matches by its sound"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poisonous substance",
+      "gives": "TOCSIN",
+      "soundsLike": "TOXIN",
+      "note": "a toxin is a poison"
+     }
+    ],
+    "explanation": {
+     "surface": "A poison detected by monitors, setting off an alarm.",
+     "definitionFit": "A tocsin is an alarm bell or warning signal, an old word for a sounding of danger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 27,
@@ -487,7 +1738,60 @@
      }
     ]
    },
-   "solution": "OVERDOIT"
+   "solution": "OVERDOIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OVERDO IT",
+    "definitions": [
+     {
+      "text": "Get utterly wasted, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "something held in another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "public",
+      "gives": "OVERT",
+      "note": "overt means open, done in public"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "DO",
+      "I",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Admitting to getting completely drunk at a party held in public view.",
+     "definitionFit": "To overdo it is to go too far, and drinking oneself senseless is one example of such excess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "public"
+    }
+   }
   },
   {
    "number": 28,
@@ -501,7 +1805,59 @@
     "text": "Prevent drinking that's wrong, but far from sinister?",
     "enumeration": "6"
    },
-   "solution": "DEXTER"
+   "solution": "DEXTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEXTER",
+    "definitions": [
+     {
+      "text": "far from sinister?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "something drinking takes a thing inside itself"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prevent",
+      "gives": "DETER",
+      "note": "to deter is to prevent or discourage"
+     },
+     {
+      "clueFragment": "that's wrong",
+      "gives": "X",
+      "note": "a cross marks an error"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "X",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "Stopping wrongful drinking, by someone who is anything but menacing.",
+     "walkthrough": "Sinister is the Latin and heraldic word for left, so far from sinister points to the opposite side.",
+     "definitionFit": "In heraldry dexter means the right-hand side, the counterpart to sinister, the left."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sinister"
+    }
+   }
   },
   {
    "number": 29,
@@ -515,7 +1871,63 @@
     "text": "Kudos when cracking the Guardian's puzzles",
     "enumeration": "7"
    },
-   "solution": "SUDOKUS"
+   "solution": "SUDOKUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SUDOKUS",
+    "definitions": [
+     {
+      "text": "puzzles",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracking",
+      "for": "anagram",
+      "note": "cracking something breaks it open, so the letters are broken up and reformed"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kudos",
+      "gives": "KUDOS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the Guardian's",
+      "gives": "US",
+      "note": "the newspaper speaking of itself as we, so ours is US"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUDOK",
+      "US"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KUDOS",
+       "gives": "SUDOK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for solvers who crack the newspaper's puzzles.",
+     "definitionFit": "Sudokus are Japanese number-placement grids, a kind of logic puzzle printed in the paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cracking"
+    }
+   }
   }
  ]
 }
