@@ -1931,8 +1931,8 @@ tools/ci_cache.js                             the per-puzzle result cache that l
 tools/desktop_busy.py                         whether Paul is playing a game on his desktop, so
                                               the work we send there yields
 tools/desktop_probe.ps1                       the desktop's game processes, 3D load (the VLM's
-                                              own left out) and OCR sessions, as JSON, for
-                                              tools/desktop_busy.py
+                                              own left out), OCR sessions and free memory, as
+                                              JSON, for tools/desktop_busy.py
 tools/test_desktop_busy.sh                    does desktop OCR and VLM work yield while Paul
                                               games, and resume after?
 tools/vlm_health.py                           wake the room when the desktop VLM has been down

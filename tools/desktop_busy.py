@@ -9,7 +9,7 @@ busy while
 - its 3D engines are more than GPU_3D percent busy, summed over every
   process but VLM_SERVERS (llama-server's CUDA work shows there as 3D).
 
-desktop_probe.ps1 reads both over ssh at low priority, at most once every
+desktop_probe.ps1 reads both, and the desktop's free memory (free_mb), over ssh at low priority, at most once every
 PROBE_EVERY seconds: the reading is shared by every process on this host
 through a state file, and the process that probes logs one line when the
 verdict changes. While the desktop is busy each probe also ends its OCR
@@ -51,7 +51,7 @@ def _list(v):
 
 
 def probe(host):
-    """The desktop's reading {"games", "gpu3d", "serving"} over ssh to
+    """The desktop's reading {"games", "gpu3d", "serving", "freeMB"} over ssh to
     `host`, or None when it does not answer one."""
     script = ("$Names = " + ", ".join(f"'{g}'" for g in GAMES) + "\n"
               + "$Vlm = " + ", ".join(f"'{v}'" for v in VLM_SERVERS) + "\n" + PROBE.read_text())
@@ -65,7 +65,8 @@ def probe(host):
     if not isinstance(got, dict):
         return None
     return {"games": [str(g) for g in _list(got.get("games"))], "gpu3d": float(got.get("gpu3d") or 0),
-            "serving": [int(p) for p in _list(got.get("serving"))]}
+            "serving": [int(p) for p in _list(got.get("serving"))],
+            "freeMB": None if got.get("freeMB") is None else int(got["freeMB"])}
 
 
 def verdict(reading):
@@ -135,3 +136,16 @@ def busy(hosts):
         elif was and not why:
             log("resuming: " + (f"idle (3D {reading['gpu3d']:.0f}%, no game)" if reading else "not answering"))
     return why
+
+
+def free_mb(hosts):
+    """(when it was read, the desktop's free physical memory in MB) at its
+    last probe, made again here when older than PROBE_EVERY (busy); None
+    when it did not answer or `hosts` holds no desktop."""
+    if not [h for h in hosts if h.rpartition("@")[2] in DESKTOPS]:
+        return None
+    busy(hosts)
+    got = _read(STATE / "desktop_busy.json")
+    if not got or not got.get("reading") or got["reading"].get("freeMB") is None:
+        return None
+    return got["t"], got["reading"]["freeMB"]

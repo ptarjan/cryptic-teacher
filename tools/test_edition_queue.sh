@@ -26,6 +26,7 @@ import file_archive_org_puzzles as f
 import edition_queue as eq
 eq.cpu_gate_reader = lambda: 0.0  # this host's load must not gate the tests' starts
 eq.desktop_gate_reader = lambda: None  # nor whether Paul's desktop is busy
+eq.desktop_mem_reader = lambda: None  # nor its free memory
 os.environ["CT_BURN_STATE"] = os.path.join(os.environ["TMP"], "no-burn")  # nor this host's burn
 
 fails = 0
@@ -650,7 +651,7 @@ check("a code change re-execs the queue while its plan is still being made",
 # faster than a plan takes still get plans made on new code.
 log.unlink()
 busy = T / "busy_driver.py"
-busy.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"').replace("eq.plan = lambda papers", """import time
+busy_src = (driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"').replace("eq.plan = lambda papers", """import time
 def plan(*a, **k):
     if VERSION == "p2":
         src = open(__file__).read()
@@ -660,12 +661,24 @@ def plan(*a, **k):
     return quick(*a, **k)
 eq.plan = plan
 quick = lambda papers""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=20"))
+busy.write_text(busy_src)
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
 fake(rewrite_on="long", rewrite=str(busy), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
 busied = subprocess.run([sys.executable, str(busy)], capture_output=True, text=True, timeout=60)
 said = [l.split()[1] if l.startswith("parent ") else l for l in busied.stderr.splitlines()
         if l.startswith("parent ") or l == "plan made by p2"]
 check("an image re-execs on a change only after making its own first plan",
+      ["p1", "p2", "plan made by p2", "p3"], said)
+# Mirror: every unit ended while that first plan was made (a loaded host),
+# so the run's last plan is next; it is made on the new code, not the old.
+log.unlink()
+busy.write_text(busy_src.replace("time.sleep(1.5)", "time.sleep(5)"))
+eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
+fake(rewrite_on="long", rewrite=str(busy), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 1})
+busied = subprocess.run([sys.executable, str(busy)], capture_output=True, text=True, timeout=60)
+said = [l.split()[1] if l.startswith("parent ") else l for l in busied.stderr.splitlines()
+        if l.startswith("parent ") or l == "plan made by p2"]
+check("mirror: with its units all ended during its first plan, an image still re-execs before its last plan",
       ["p1", "p2", "plan made by p2", "p3"], said)
 
 # ---- --handoff: a slice's end hands its running units to the next run,
@@ -876,6 +889,34 @@ fake(outcome={}, default=0.1)
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=2.2, replan=0.5)
 check("mirror: once the desktop is idle it starts again", 1, log.read_text().count("start"))
+# The desktop's free memory gates the units that open an OCR session there:
+# each started since its last reading is charged DESKTOP_SESSION_MB, and none
+# starts that would take it under DESKTOP_FLOOR_MB.
+os.environ["OCR_REMOTE"] = "micro@100.68.145.15"
+real_prepare, eq.prepare = eq.prepare, lambda *a: None
+read_at = time.time()
+eq.desktop_mem_reader = lambda: (read_at, eq.DESKTOP_FLOOR_MB + 2 * eq.DESKTOP_SESSION_MB)
+fake(outcome={}, default=1.5)
+kept_plan, eq.plan = eq.plan, units([], [(f"m{k}", []) for k in range(4)])
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=4, scan_workers=1, seconds=1.0, replan=0.3)
+check("the desktop's free memory less a session per start since its reading caps the starts, said once",
+      (2, 1), (log.read_text().count("start"), err.getvalue().count("desktop-memory-bound")))
+eq.desktop_mem_reader = lambda: (time.time() + 60, eq.DESKTOP_FLOOR_MB + 2 * eq.DESKTOP_SESSION_MB)
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=4, scan_workers=1, seconds=1.0, replan=0.3)
+check("mirror: a reading newer than the starts counts them in its free memory, none charged again", 4,
+      log.read_text().count("start"))
+eq.desktop_mem_reader = lambda: None
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=4, scan_workers=1, seconds=1.0, replan=0.3)
+check("mirror: no reading (the desktop not answering) holds nothing back", 4, log.read_text().count("start"))
+eq.prepare, eq.plan = real_prepare, kept_plan
+os.environ.pop("OCR_REMOTE")
 # A unit the desktop keeps losing (its read ends the server there) is started
 # again with the desktop until it has ended lost LOST_TRIES times, then with none: read here.
 eq.LOST_TRIES = 1
