@@ -442,6 +442,19 @@ mem_gate_reader = None
 cpu_gate_reader = None
 #: What the burn-first gate reads (tests swap it); None is mem_gate.burn_state.
 burn_gate_reader = None
+#: Why the desktop is busy, or None (tests swap it); None is desktop_busy.busy over ocr_remote.hosts().
+desktop_gate_reader = None
+
+
+def desktop_yielding():
+    """Why the desktop OCR hosts are yielding to Paul, or None (also None
+    when no desktop is set: then every read is made here anyway)."""
+    if desktop_gate_reader is not None:
+        return desktop_gate_reader()
+    import desktop_busy
+    import ocr_remote
+    hosts = ocr_remote.hosts()
+    return desktop_busy.busy(hosts) if hosts else None
 
 
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
@@ -475,7 +488,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
              **{f"fetch {src}": FETCHERS[src]["workers"] for src in fetch}}
     outages = dict.fromkeys(fetch, 0)
-    memory_bound = cpu_bound = False  # logged once per slice
+    memory_bound = cpu_bound = desktop_bound = False  # logged once per slice
     burn_bound = False  # logged once each time the burn starts starving
     stopped = set()  # fetch sources started no more this run
     adopted = {**(take_over(handoff) if handoff else {}), **(take_over(resume) if resume else {})}  # pid: (unit, started)
@@ -604,6 +617,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         if starved and not burn_bound:
             log(f"{mem_gate.burn_line(starved)} ({len(running) + len(adopted)} running are left alone)")
         burn_bound = bool(starved)
+        # While the desktop yields, its OCR would fall back to this host's
+        # CPU: only fetches start until it is idle again.
+        yielding = desktop_yielding()
+        if yielding and not desktop_bound:
+            log(f"desktop-bound: desktop yielding ({yielding}); only fetches start until it is idle "
+                f"({len(running) + len(adopted)} running are left alone)")
+        desktop_bound = bool(yielding)
         for u in scans + reads + fetches:
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
@@ -611,7 +631,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if u["kind"] == "read" and u["reason"] == "scan stale" and any((u["paper"], r) in rescanned for r in u["needs"]):
                 continue
-            if starved:
+            if starved or (yielding and u["kind"] != "fetch"):
                 continue
             if not mem_gate.room(begun_now, mem_gate_reader):
                 held_back = True
