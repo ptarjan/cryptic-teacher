@@ -43,14 +43,16 @@
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
-# A tick runs in the tree acquire_books and reads only the ledgers, so it
-# rebuilds no generated file; a unit in one of book_units.py's trees,
+# A tick runs in the tree acquire_books and reads only the ledgers; a unit
+# borrows, reads and files puzzle files and the clue index, never
+# puzzles/index.* or abbreviations.js, so neither rebuilds a generated file.
+# A unit runs in one of book_units.py's trees,
 # acquire_book-1 .. -SLOTS, leased to it by tools/unit_queue.py (CT_JOB). What a
 # dropped read filed is pushed by the next unit to take its tree
 # (CT_SALVAGE_PATHS), and while a read runs it is committed every few minutes
 # (tools/durable.sh).
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
-[ $# -eq 0 ] && CT_GENERATED=none
+CT_GENERATED=none
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_SALVAGE_PATHS="puzzles clues_only"
 . "$(dirname "$0")/nightly_worktree.sh"
