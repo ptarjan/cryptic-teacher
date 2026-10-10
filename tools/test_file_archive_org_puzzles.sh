@@ -215,6 +215,24 @@ _, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,646"), line("
 check("a heading whose number is not the one expected, or whose words are not one, is no heading", [], sols)
 check("with no title on the leaf, only an exact heading", [[18179], []],
       [[n for n, _ in f.TIMES.headings([line(t)])[1]] for t in ("Solution to Puzzle No 18,179", "Solution of Push No 18,179")])
+check("two headings run into one line, each read", [[19243, 19248], [14503, 14508]],
+      [sorted(n for n, _ in f.TIMES.headings([line(f"The Times Crossword Puzzle No {t}"), line(h)])[1])
+       for t, h in (("19,249", "Solution to Puzzle No 19,243 Solution to Punk No 19.248"),
+                    ("14,509", "Solution of Puzzle No 14,503 Solution of Puzzle No 14J50&"))])
+check("(mirror) a second heading on the line numbered neither lag is no heading", [19243],
+      [n for n, _ in f.TIMES.headings([line("The Times Crossword Puzzle No 19,249"),
+                                       line("Solution to Puzzle No 19,243 Solution to Puzzle No 19,312")])[1]])
+check("a number read in short pieces", [[19037], [15244]],
+      [[n for n, _ in f.TIMES.headings([line(f"The Times Crossword Puzzle No {t}"), line(h)])[1]]
+       for t, h in (("19,038", "Solution to Puzzle No 1 9.037"), ("15,245", "Solution of Puzzle No . 15, 244"))])
+check("(mirror) pieces costing alike to both lags are no heading", [],
+      f.TIMES.headings([line("The Times Crossword Puzzle No 14,060"), line("Solution of Puzzle No 14, OSS")])[1])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 16,577", y=50), line("The Solution", 400, 900),
+                            line("Prize Puzzle", 405, 925), line("No 16,576", 420, 950)])
+check("'The Solution' over 'Prize Puzzle' over its number", [16576], [n for n, _ in sols])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 16,577", y=50), line("The Solution", 400, 900),
+                            line("Puzzle closes", 405, 925), line("No 16,576", 420, 950)])
+check("(mirror) any other line between them is not skipped", [], sols)
 
 # The columns: left then right, a number read apart joined to its row, a
 # second copy of words dropped, cut at the solution heading.
