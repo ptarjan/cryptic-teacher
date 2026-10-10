@@ -23,6 +23,9 @@
   "date": "2023-05-20",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,47 @@
     "text": "Beetle that is Egyptian?",
     "enumeration": "6"
    },
-   "solution": "SCARAB"
+   "solution": "SCARAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCARAB",
+    "definitions": [
+     {
+      "text": "Beetle",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "SC",
+      "note": "sc. abbreviates scilicet, Latin for 'that is' or 'namely'"
+     },
+     {
+      "clueFragment": "Egyptian",
+      "gives": "ARAB",
+      "note": "an Egyptian is an Arab"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "ARAB"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a particular beetle is native to Egypt.",
+     "walkthrough": "The surface fits, since the sacred beetle of ancient Egypt is exactly this one; 'that is' looks like filler but is the Latin abbreviation sc.",
+     "definitionFit": "The scarab is a dung beetle, revered as a sacred symbol in ancient Egypt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "that"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +93,62 @@
     "text": "Where our case left to go around?",
     "enumeration": "8"
    },
-   "solution": "CAROUSEL"
+   "solution": "CAROUSEL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "CAROUSEL",
+    "definitions": [
+     {
+      "text": "Where our case left to go around?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go around",
+      "for": "anagram",
+      "note": "letters that go around are spun into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "CASE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OURCASEL",
+       "gives": "CAROUSEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Travellers at the airport wonder where they left their suitcase circling.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: the baggage belt is exactly where your case is left to go round.",
+     "definitionFit": "An airport carousel is the revolving belt from which passengers collect checked luggage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +162,48 @@
     "text": "In sea shanty, a word or two to tempt thirsty sailors down?",
     "enumeration": "8"
    },
-   "solution": "RUMBELOW"
+   "solution": "RUMBELOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUMBELOW",
+    "definitions": [
+     {
+      "text": "In sea shanty, a word",
+      "at": 0
+     },
+     {
+      "text": "two to tempt thirsty sailors down?",
+      "at": 25,
+      "note": "a cryptic definition of the answer split into two words"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In sea shanty, a word",
+      "note": "first meaning: a nonsense refrain word sung in old sailors' songs"
+     },
+     {
+      "clueFragment": "two to tempt thirsty sailors down?",
+      "note": "second meaning: two words announcing that the spirit sailors love is waiting below deck"
+     }
+    ],
+    "explanation": {
+     "surface": "A refrain from a sea song that might lure thirsty sailors below decks.",
+     "walkthrough": "Rumbelow is a meaningless refrain in old shanties; read as two words it says RUM BELOW, an invitation to sailors to go down for a drink.",
+     "definitionFit": "Rumbelow is recorded as a nonsense burden or chorus word in traditional sailors' rowing songs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "two"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +217,78 @@
     "text": "Wood casks placed end to end around here, not outside",
     "enumeration": "9"
    },
-   "solution": "BUTTERNUT"
+   "solution": "BUTTERNUT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container"
+    ],
+    "answer": "BUTTERNUT",
+    "definitions": [
+     {
+      "text": "Wood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "placed end to end",
+      "for": "reversal",
+      "note": "putting one cask end to end turns it round so its last letter comes first"
+     },
+     {
+      "text": "not outside",
+      "for": "deletion",
+      "note": "dropping the outside of a word strips off its first and last letters"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the two casks sit around a further piece, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "casks",
+      "gives": "BUTT",
+      "note": "a butt is a large cask for wine or ale"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "ER",
+      "note": "the inside of the word, with its outer letters gone"
+     },
+     {
+      "clueFragment": "casks",
+      "gives": "NUT",
+      "note": "a tun is another large cask, here turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUTT",
+      "ER",
+      "NUT"
+     ],
+     "reversals": [
+      {
+       "from": "TUN",
+       "to": "NUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wooden barrels lined up end to end around a spot.",
+     "walkthrough": "'Casks' supplies two barrels, a butt and a tun; the tun is laid end to end so it reads backwards, and the middle of 'here' goes between them.",
+     "definitionFit": "Butternut is the white walnut tree, whose pale timber is used in furniture and carving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "placed"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +308,50 @@
      }
     ]
    },
-   "solution": "JUMPEDUP"
+   "solution": "JUMPEDUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JUMPED-UP",
+    "definitions": [
+     {
+      "text": "arrogant",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Started",
+      "gives": "JUMPED",
+      "note": "to start is to jump with surprise"
+     },
+     {
+      "clueFragment": "ended",
+      "gives": "UP",
+      "note": "when time is up, it has ended"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUMPED",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of things someone did, ending with how they behaved.",
+     "walkthrough": "The comma makes 'Started, and ended' look like a timeline; it is two pieces, a jump and the word for over.",
+     "definitionFit": "Jumped-up describes someone who has risen in status and become conceited or self-important."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Started"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +379,72 @@
      }
     ]
    },
-   "solution": "JACKOFALLTRADES"
+   "solution": "JACKOFALLTRADES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "JACK OF ALL TRADES",
+    "definitions": [
+     {
+      "text": "who's versatile",
+      "at": 36,
+      "note": "a clause describing a person, standing for the noun phrase"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Complicated",
+      "for": "anagram",
+      "note": "something complicated is tangled up, so the letters following are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "task",
+      "gives": "TASK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "called",
+      "gives": "CALLED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TASKCALLEDFORAJ",
+       "gives": "JACKOFALLTRADES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tricky job needed a judge with a range of skills.",
+     "walkthrough": "'For' reads as a link but is part of the fodder.",
+     "definitionFit": "A jack of all trades is a person who can turn their hand to many kinds of work, the essence of versatility."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +458,62 @@
     "text": "Game I observe well covered in black cloth?",
     "enumeration": "7"
    },
-   "solution": "PINBALL"
+   "solution": "PINBALL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PINBALL",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "well covered in",
+      "for": "container",
+      "note": "something well covered in a cloth is wrapped completely inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "observe",
+      "gives": "NB",
+      "note": "nota bene, 'note well', an instruction to observe"
+     },
+     {
+      "clueFragment": "black cloth",
+      "gives": "PALL",
+      "note": "a pall is the black cloth spread over a coffin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "NB",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices a game covered over with a black cloth.",
+     "walkthrough": "A pall is the black cloth over a coffin; the first two pieces sit inside it.",
+     "definitionFit": "Pinball is an arcade game in which a ball is flipped around a sloping table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +527,70 @@
     "text": "Mounting rings way above pillar, and more hanging down?",
     "enumeration": "8"
    },
-   "solution": "DROOPIER"
+   "solution": "DROOPIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DROOPIER",
+    "definitions": [
+     {
+      "text": "more hanging down",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mounting",
+      "for": "reversal",
+      "note": "in a down entry, mounting means climbing, so the letters run bottom to top"
+     }
+    ],
+    "linkWords": [
+     "above",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rings",
+      "gives": "OO",
+      "note": "two rings, each shaped like the letter O"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "RD",
+      "note": "Rd is the abbreviation for road, a way"
+     },
+     {
+      "clueFragment": "pillar",
+      "gives": "PIER",
+      "note": "a pier is a pillar supporting an arch or bridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROO",
+      "PIER"
+     ],
+     "reversals": [
+      {
+       "from": "OORD",
+       "to": "DROO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rings climbing a pillar, with something sagging even further.",
+     "walkthrough": "In a down answer 'above' simply places the first part before the second.",
+     "definitionFit": "Droopier is the comparative of droopy, so it means sagging or hanging down further."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mounting"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +604,50 @@
     "text": "Restrict old PM's contribution to debate?",
     "enumeration": "8"
    },
-   "solution": "PENNORTH"
+   "solution": "PENNORTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENNORTH",
+    "definitions": [
+     {
+      "text": "contribution to debate?",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Restrict",
+      "gives": "PEN",
+      "note": "to pen is to confine or restrict"
+     },
+     {
+      "clueFragment": "old PM",
+      "gives": "NORTH",
+      "note": "Lord North was British Prime Minister in the 1770s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "NORTH"
+     ]
+    },
+    "explanation": {
+     "surface": "Limiting what a former prime minister may say in a debate.",
+     "walkthrough": "Lord North was Prime Minister during the American War of Independence. Pennorth (pennyworth) is used in 'my two pennorth', one's opinion.",
+     "definitionFit": "One's two pennorth is an informal phrase for an opinion offered in a discussion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "PM"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +661,60 @@
     "text": "A sentimentalist leaving behind note with a bouquet",
     "enumeration": "8"
    },
-   "solution": "AROMATIC"
+   "solution": "AROMATIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AROMATIC",
+    "definitions": [
+     {
+      "text": "with a bouquet",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving behind",
+      "for": "deletion",
+      "note": "someone leaving behind a thing departs without it, so it is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sentimentalist",
+      "gives": "ROMANTIC",
+      "note": "a romantic is a sentimental person"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N is the abbreviation for note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ROMATIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A soppy admirer walks off, leaving a note with some flowers.",
+     "walkthrough": "'Bouquet' suggests flowers, but here it is the scent of wine.",
+     "definitionFit": "A bouquet is a pleasant smell, as of wine, so something with one is fragrant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bouquet"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +728,67 @@
     "text": "Tips for future nun to become a member of order",
     "enumeration": "6"
    },
-   "solution": "ENJOIN"
+   "solution": "ENJOIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENJOIN",
+    "definitions": [
+     {
+      "text": "order",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tips",
+      "for": "letter_selection",
+      "note": "tips are the extreme points, so only the ends of the next words are kept"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "future",
+      "gives": "E",
+      "select": "last",
+      "note": "the end of the word"
+     },
+     {
+      "clueFragment": "nun",
+      "gives": "N",
+      "select": "last",
+      "note": "the end of the word"
+     },
+     {
+      "clueFragment": "to become a member",
+      "gives": "JOIN",
+      "note": "to join is to become a member"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "JOIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice for a novice nun on entering a religious order.",
+     "walkthrough": "'Order' looks like a religious order, matching the nun, but it is the verb meaning command.",
+     "definitionFit": "To enjoin is to instruct or command someone formally to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +802,40 @@
     "text": "Freudian concept — suggestion from Greedy Nan in briefest form?",
     "enumeration": "8"
    },
-   "solution": "SUPEREGO"
+   "solution": "SUPEREGO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SUPEREGO",
+    "definitions": [
+     {
+      "text": "Freudian concept",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suggestion from Greedy Nan in briefest form?",
+      "note": "surface reading: an abbreviated proposal from a grandmother who wants her food"
+     },
+     {
+      "clueFragment": "suggestion from Greedy Nan in briefest form?",
+      "note": "setter's reading: the clipped words 'drink before departing', as a greedy nan might urge"
+     }
+    ],
+    "explanation": {
+     "surface": "A psychoanalytic idea illustrated by what a hungry grandmother might propose.",
+     "walkthrough": "Split it as SUP ERE GO: have a drink (sup) before (ere) you go, a terse suggestion from a nan who wants a last drink.",
+     "definitionFit": "In Freud's model of the mind, the superego is the part that acts as conscience, internalising moral standards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Greedy"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +849,70 @@
     "text": "Poetess of note appearing outside a quiet pub",
     "enumeration": "6"
    },
-   "solution": "SAPPHO"
+   "solution": "SAPPHO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAPPHO",
+    "definitions": [
+     {
+      "text": "Poetess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing outside",
+      "for": "container",
+      "note": "one thing appearing outside another surrounds it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "SO",
+      "note": "so (soh) is the fifth note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical direction for quiet"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "PH",
+      "note": "PH is the map abbreviation for public house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "P",
+      "PH",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known poetess seen outside a peaceful pub.",
+     "walkthrough": "The note wraps around the other three pieces.",
+     "definitionFit": "Sappho was the ancient Greek lyric poet of Lesbos, the most famous woman poet of antiquity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +932,61 @@
      }
     ]
    },
-   "solution": "OWNLABEL"
+   "solution": "OWNLABEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OWN-LABEL",
+    "definitions": [
+     {
+      "text": "as store's goods may be?",
+      "at": 26,
+      "note": "describes the goods, so stands for the adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "an unexpected arrangement is not the order you started with, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All",
+      "gives": "ALL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "web",
+      "gives": "WEB",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALLONWEB",
+       "gives": "OWNLABEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shop's whole range turning up online by surprise.",
+     "definitionFit": "Own-label goods are sold under a retailer's own brand rather than a manufacturer's."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "web"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +1000,70 @@
     "text": "Flag hoisted, soldiers had to disappear",
     "enumeration": "9"
    },
-   "solution": "EVAPORATE"
+   "solution": "EVAPORATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EVAPORATE",
+    "definitions": [
+     {
+      "text": "disappear",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hoisted",
+      "for": "reversal",
+      "note": "in a down entry, something hoisted is lifted up, so it reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flag",
+      "gives": "PAVE",
+      "note": "to flag a path is to pave it with flagstones"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "OR",
+      "note": "OR, other ranks, are ordinary soldiers"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "ATE",
+      "note": "to have a meal is to eat, so had can be ate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVAP",
+      "OR",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "PAVE",
+       "to": "EVAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flag is raised and the troops are forced to vanish.",
+     "walkthrough": "'Flag' looks like a banner being hoisted, but it is the verb meaning to pave with flagstones.",
+     "definitionFit": "To evaporate is to turn to vapour, and figuratively to vanish or fade away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flag"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +1077,49 @@
     "text": "Weakness in following a set of rules",
     "enumeration": "4"
    },
-   "solution": "FLAW"
+   "solution": "FLAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAW",
+    "definitions": [
+     {
+      "text": "Weakness",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f. is the abbreviation for following"
+     },
+     {
+      "clueFragment": "a set of rules",
+      "gives": "LAW",
+      "note": "a law is a set of rules"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAW"
+     ]
+    },
+    "explanation": {
+     "surface": "A weak point in obeying regulations.",
+     "definitionFit": "A flaw is a defect or fault that weakens something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 15,
@@ -286,7 +1133,73 @@
     "text": "Infectiously egged on by fellow with no vowels in Scrabble",
     "enumeration": "8"
    },
-   "solution": "FLYBLOWN"
+   "solution": "FLYBLOWN",
+   "annotation": {
+    "type": [
+     "substitution",
+     "anagram"
+    ],
+    "answer": "FLYBLOWN",
+    "definitions": [
+     {
+      "text": "Infectiously egged on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vowels",
+      "for": "substitution",
+      "note": "with no vowels says the word's vowels are swapped for what accompanies them"
+     },
+     {
+      "text": "in Scrabble",
+      "for": "anagram",
+      "note": "in Scrabble tiles are shuffled around the rack to make words, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "FELLOW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written, replacing the vowels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLY",
+      "BLOW",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BYFLLWNO",
+       "gives": "FLYBLOWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend who can play nothing but consonants in a word game gets egged on.",
+     "walkthrough": "The vowels E and O of 'fellow' give way to N and O, then everything is rearranged. 'Egged on' is literal: flies have laid eggs on it.",
+     "definitionFit": "Flyblown meat is contaminated by blowfly eggs, hence tainted and unwholesome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "egged"
+    }
+   }
   },
   {
    "number": 16,
@@ -306,7 +1219,73 @@
      }
     ]
    },
-   "solution": "ALTOCLEF"
+   "solution": "ALTOCLEF",
+   "annotation": {
+    "type": [
+     "substitution",
+     "charade"
+    ],
+    "answer": "ALTO CLEF",
+    "definitions": [
+     {
+      "text": "indicator of pitch",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing for another means it takes the other's place"
+     },
+     {
+      "text": "always",
+      "for": "substitution",
+      "note": "always means on every occasion, so each instance in the word is swapped, not only one"
+     }
+    ],
+    "linkWords": [
+     "There's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "autocue",
+      "gives": "AUTOCUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "U sounds like you, as in text-speak"
+     },
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "f, forte, is the musical direction for loud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALTOCLE",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "A presenter's autocue always has a line for you to read loudly.",
+     "walkthrough": "'Always' means every U in the word is swapped, not just one.",
+     "definitionFit": "The alto clef is a C clef on the middle line of the stave, used to show pitch for viola music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "autocue"
+    }
+   }
   },
   {
    "number": 17,
@@ -320,7 +1299,48 @@
     "text": "Having a certain Wisdom: it might be Norman?",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARCH",
+    "definitions": [
+     {
+      "text": "Having a certain Wisdom",
+      "at": 0
+     },
+     {
+      "text": "it might be Norman?",
+      "at": 25,
+      "note": "a noun, describing a thing that might be Norman"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having a certain Wisdom",
+      "note": "first meaning: knowing and roguish, with a sly awareness"
+     },
+     {
+      "clueFragment": "it might be Norman?",
+      "note": "second meaning: a curved structure over an opening, built in Norman style among others"
+     }
+    ],
+    "explanation": {
+     "surface": "A joke on Norman Wisdom, the British comic actor.",
+     "walkthrough": "Norman Wisdom was a slapstick British film comedian; the capital W hides the ordinary word wisdom. Norman arches are the round arches of Romanesque buildings.",
+     "definitionFit": "Arch as an adjective means slyly knowing; as a noun it is a curved span, of which the Norman is one style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wisdom"
+    }
+   }
   },
   {
    "number": 17,
@@ -344,7 +1364,64 @@
      }
     ]
    },
-   "solution": "ASKFORIT"
+   "solution": "ASKFORIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASK FOR IT",
+    "definitions": [
+     {
+      "text": "invite trouble",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "something involved in another is caught up inside it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pro",
+      "gives": "FOR",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "satire",
+      "gives": "SKIT",
+      "note": "a skit is a short satirical sketch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SK",
+      "FOR",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A professional taking part in a satire is courting trouble.",
+     "walkthrough": "'Pro' looks like a professional, but it is the preposition meaning in favour of.",
+     "definitionFit": "To ask for it is an idiom for behaving in a way that deserves or provokes trouble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pro"
+    }
+   }
   },
   {
    "number": 18,
@@ -358,7 +1435,47 @@
     "text": "Study dark period for German province",
     "enumeration": "8"
    },
-   "solution": "CONNACHT"
+   "solution": "CONNACHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONNACHT",
+    "definitions": [
+     {
+      "text": "province",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "CON",
+      "note": "to con is to study or learn by heart"
+     },
+     {
+      "clueFragment": "dark period for German",
+      "gives": "NACHT",
+      "note": "Nacht is the German word for night"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "NACHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Studying the darker era of a German region.",
+     "walkthrough": "'German province' reads as one phrase, but 'German' belongs with the night; the province is Irish.",
+     "definitionFit": "Connacht is one of the four historic provinces of Ireland, in the west."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 19,
@@ -378,7 +1495,58 @@
      }
     ]
    },
-   "solution": "STALBANS"
+   "solution": "STALBANS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ST ALBANS",
+    "definitions": [
+     {
+      "text": "the city",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Brief",
+      "for": "deletion",
+      "note": "made brief, a word is cut short by losing its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delay",
+      "gives": "STALL",
+      "note": "to stall is to delay"
+     },
+     {
+      "clueFragment": "outlaw's",
+      "gives": "BANS",
+      "note": "outlaw's is read as outlaws, the verb: forbids"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAL",
+      "BANS"
+     ]
+    },
+    "explanation": {
+     "surface": "A short hold-up because a bandit is in town.",
+     "walkthrough": "The apostrophe makes 'outlaw's' look like a criminal, but it is the verb 'outlaws', which bans. St Albans is a cathedral city in Hertfordshire, north of London.",
+     "definitionFit": "St Albans has city status, so it can be defined as a city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outlaw's"
+    }
+   }
   },
   {
    "number": 19,
@@ -392,7 +1560,73 @@
     "text": "Error mostly keeping with a greeting in a foreign language",
     "enumeration": "7"
    },
-   "solution": "SWAHILI"
+   "solution": "SWAHILI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SWAHILI",
+    "definitions": [
+     {
+      "text": "foreign language",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all, so the last letter is dropped"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "a thing keeping others holds them inside it"
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Error",
+      "gives": "SLIP",
+      "note": "a slip is an error"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "greeting",
+      "gives": "HI",
+      "note": "hi is a greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WAHI",
+      "LI"
+     ]
+    },
+    "explanation": {
+     "surface": "A slip made while saying hello in another tongue.",
+     "definitionFit": "Swahili is a Bantu language widely spoken in East Africa, foreign to English speakers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "keeping"
+    }
+   }
   },
   {
    "number": 20,
@@ -406,7 +1640,64 @@
     "text": "Last item on agenda maybe introduced to cut down small tree",
     "enumeration": "6"
    },
-   "solution": "BAOBAB"
+   "solution": "BAOBAB",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BAOBAB",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut down",
+      "for": "deletion",
+      "note": "cut down means shortened, so the word loses its last letter"
+     },
+     {
+      "text": "introduced to",
+      "for": "container",
+      "note": "something introduced to another is put inside it"
+     }
+    ],
+    "linkWords": [
+     "maybe"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "BABY",
+      "note": "baby means small, as in a baby carrot"
+     },
+     {
+      "clueFragment": "Last item on agenda",
+      "gives": "AOB",
+      "note": "AOB, any other business, is the final item on a meeting's agenda"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AOB",
+      "AB"
+     ]
+    },
+    "explanation": {
+     "surface": "An agenda item about felling a little tree.",
+     "walkthrough": "'Small tree' looks like one phrase, but the baobab is huge: 'small' is wordplay only.",
+     "definitionFit": "The baobab is an African tree with a vast swollen trunk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 21,
@@ -420,7 +1711,68 @@
     "text": "Fail to go straight out of town, ultimately: defer",
     "enumeration": "8"
    },
-   "solution": "REOFFEND"
+   "solution": "REOFFEND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "REOFFEND",
+    "definitions": [
+     {
+      "text": "Fail to go straight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the final letter is kept"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out means disordered or wrong, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "town",
+      "gives": "N",
+      "select": "last",
+      "note": "the end of the word"
+     },
+     {
+      "clueFragment": "defer",
+      "gives": "DEFER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OFNDEFER",
+       "gives": "REOFFEND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller who cannot drive straight out of town and puts it off.",
+     "walkthrough": "'Out of town' looks like a phrase; 'out' is the anagram signal and 'of' is fodder. To go straight is to stop committing crimes.",
+     "definitionFit": "To reoffend is to commit another crime, failing to stay on the right side of the law."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "straight"
+    }
+   }
   },
   {
    "number": 22,
@@ -440,7 +1792,70 @@
      }
     ]
    },
-   "solution": "OILRIG"
+   "solution": "OILRIG",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OIL RIG",
+    "definitions": [
+     {
+      "text": "What's over well",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "something that returns goes back the way it came, so it reads backwards"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round shape is the letter O"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "lass",
+      "gives": "GIRL",
+      "note": "a lass is a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OI",
+      "LRIG"
+     ],
+     "reversals": [
+      {
+       "from": "GIRL",
+       "to": "LRIG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is over before a girl comes back for another round.",
+     "walkthrough": "'What's over well' reads like finishing well, but it is a platform standing over an oil well.",
+     "definitionFit": "An oil rig is the structure built over an oil well to drill and extract oil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 23,
@@ -460,7 +1875,55 @@
      }
     ]
    },
-   "solution": "DRAGRACE"
+   "solution": "DRAGRACE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRAG RACE",
+    "definitions": [
+     {
+      "text": "sporting event",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "a thing placed outside another wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way to address legendary cricketer",
+      "gives": "DRGRACE",
+      "note": "W. G. Grace, the great Victorian cricketer, was a doctor and known as Dr Grace"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "A",
+      "GRACE"
+     ]
+    },
+    "explanation": {
+     "surface": "How to speak to a cricketing legend at a sports meeting.",
+     "walkthrough": "W. G. Grace was England's most famous Victorian cricketer and a qualified doctor; the A sits between his title and his name.",
+     "definitionFit": "A drag race is a sprint between cars over a short straight track."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "address"
+    }
+   }
   },
   {
    "number": 24,
@@ -480,7 +1943,55 @@
      }
     ]
    },
-   "solution": "NOFRILLS"
+   "solution": "NOFRILLS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NO-FRILLS",
+    "definitions": [
+     {
+      "text": "plain",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Point",
+      "gives": "N",
+      "note": "N, north, is a point of the compass"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "stream's",
+      "gives": "RILLS",
+      "note": "a rill is a small stream; stream's is read as streams"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OF",
+      "RILLS"
+     ]
+    },
+    "explanation": {
+     "surface": "The point of a stream turns flat and simple.",
+     "definitionFit": "No-frills means basic and unadorned, without extras."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Point"
+    }
+   }
   },
   {
    "number": 25,
@@ -494,7 +2005,42 @@
     "text": "Being essential to cognoscenti, typically",
     "enumeration": "6"
    },
-   "solution": "ENTITY"
+   "solution": "ENTITY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTITY",
+    "definitions": [
+     {
+      "text": "Being",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essential to",
+      "for": "hidden_word",
+      "note": "what is essential to something lies at its core, so the letters sit inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cognoscenti, typically",
+      "gives": "ENTITY",
+      "note": "letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Something that experts typically consider vital.",
+     "definitionFit": "A being is anything that exists, the same as an entity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Being"
+    }
+   }
   }
  ]
 }
