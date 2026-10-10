@@ -659,6 +659,12 @@ def check_shape(puzzle, today, flags):
         missing = e["clue"].get("missing", False)
         if not missing and not has_words(clue):
             flags.append(("SHAPE", pid, f"{eid}: clue is blank"))
+        # Text that is only a count ("(8)") is an empty clue that looks filled
+        # in: it passes a truthiness test and fails has_words. Store it the way
+        # a printed-blank clue is stored, as missing with no text.
+        if clue.strip() and not has_words(clue):
+            flags.append(("SHAPE", pid, f"{eid}: clue text {clue!r} is only an "
+                          f"enumeration; store it as clue.missing with no text"))
         # The enumeration has its own key; a writer that left it on the words
         # did not build its clue with enumeration.clue().
         group_total = sum(by_id[g]["length"] for g in e.get("group") or () if g in by_id)

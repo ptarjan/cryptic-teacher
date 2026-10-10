@@ -301,7 +301,14 @@ def has_words(clue):
     clue built out of zero-width spaces is the empty string here, and still reads
     as blank rather than as punctuation the setter chose.
     """
-    return bool((clue or "").strip())
+    return bool(ENUMERATION_ONLY.sub("", clue or "").strip())
+
+
+# A bare count in parentheses, "(8)" or "(3,4)": what the OCR keeps when it loses
+# the words of a clue and reads only the enumeration printed after them. The
+# enumeration has its own key, so text of nothing but one is an empty clue.
+# tools/test_solve_queue_clues.sh restates this pattern on purpose.
+ENUMERATION_ONLY = re.compile(r"\([\d,\-. ]*\)")
 
 
 # A clue line made only of a pointer at clues printed somewhere else: "See
