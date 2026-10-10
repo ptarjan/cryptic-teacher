@@ -123,6 +123,28 @@ check("solution headings take the number the filed neighbours give",
        f.solution_title(D("1977-05-02"), [14539], {14587: D("1977-04-28"), 14591: D("1977-05-03")})[0],
        f.solution_title(D("1994-02-05"), [19440], {19456: D("1994-02-03"), 19459: D("1994-02-07")})[0],
        f.solution_title(D("1994-02-05"), [19452], {})[0]])
+# linked_solutions(): 1997-09-09's leaf read no title from the text, so
+# "20379" (20,579's heading) came through SOLUTION exact; the OCR title, or
+# the filed neighbours' count, mends it, and the mirror drops one nothing fits.
+edition = lambda date, titles, sols: {"date": date, "puzzles": [{"number": n, "leaf": 23} for n in titles],
+                                      "solutions": [{"number": n, "leaf": 23} for n in sols]}
+link = lambda found, held={}, paper=f.TIMES: [s["number"] for s in f.linked_solutions(paper, found, held)]
+check("a heading read where no title was links only as a number the title or neighbours fit",
+      [[20579], [20579], [], [], [16364], [16567], [], [20379]],
+      [link(edition("1997-09-09", [20580], [20379])),
+       link(edition("1997-09-09", [], [20379]), {20579: D("1997-09-08"), 20581: D("1997-09-10")}),
+       link(edition("1997-09-09", [], [20379])),
+       link(edition("1997-09-09", [], [20379]), {20400: D("1997-09-08")}),
+       # 1984-03-03: a strike broke the run, so the prize is 16,364 at lag 5
+       link(edition("1984-03-03", [], [16364]), {16364: D("1984-02-25"), 16368: D("1984-03-02"), 16370: D("1984-03-05")}),
+       link(edition("1984-10-25", [16568], [10567])),
+       # 1981-03-05: "13485" mends to a title printed in the edition itself
+       link(edition("1981-03-05", [15465, 15466], [13485])),
+       link(edition("1997-09-09", [], [20379]), {}, f.FT)])
+check("a 0 read as two marks costs one misread; marks that are not a 0's sides do not",
+      [20443, 20287, None, 21443],
+      [f.solution_number("211443", {20443, 20438}), f.solution_number("2IL287", {20287, 20282}),
+       f.solution_number("277443", {20443, 20438}), f.solution_number("211443", {21443, 21438})])
 check("Crossword split by the OCR reads", 15795, f.TITLE.search("The Times Or ossword Puzzle No 15,795") and
       int(f.TITLE.search("The Times Or ossword Puzzle No 15,795")[1].replace(",", "")))
 check("a refusal read before its cause's fix is due; after it, or another cause, is not",
@@ -994,7 +1016,8 @@ scan_queue.append(pc / f.LEDGER_NAMES["gale"], [{"edition": g3, "scan": {"puzzle
 check("its solution heading read in the Gale page of the next issue makes it due, the solution's dir that page",
       ([("read", "1981-06-19_3", "inputs changed")], pc / g3, {}),
       (due(), f.sister_solutions(pc, f.TIMES)[15556]["dir"], f.sister_solutions(pc, f.FT)))
-scan_queue.append(pl, [{**settled_row(e2), "scan": {"puzzles": [], "solutions": [{"number": 15557, "leaf": 1}]}}])
+scan_queue.append(pl, [{**settled_row(e2), "scan": {"date": "1981-06-22", "puzzles": [],
+                                                      "solutions": [{"number": 15557, "leaf": 1}]}}])
 check("and a Gale run sees the archive.org scans' headings", {15557: pc / "NewsUK1981UKEnglish" / "1981-05-06_2"},
       {n: s["dir"] for n, s in f.sister_solutions(pc, f.GALE).items()})
 check("filer_of: each edition to the run that reads it (the 1930 Times the Times run's)",

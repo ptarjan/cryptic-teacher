@@ -253,6 +253,9 @@ NUMBER_UNDER = re.compile(r"^\W*" + LOOSE_NUMBER, re.IGNORECASE)
 DIGIT_READS = {"0": ("ODQUoucC()", "689"), "1": ("IilLTtJj|!/]", "7"), "2": ("Zz", "7"), "3": ("B", "85"),
                "4": ("Aa", "1"), "5": ("Ss$", "63"), "6": ("Gb", "580"), "7": ("?", "12"),
                "8": ("BS&", "3605"), "9": ("gq", "0")}
+#: What each side of a 0 the OCR reads as two marks ("211443" for 20,443,
+#: "2IL287" for 20,287) reads as: a 0 read so costs a digit-for-digit misread.
+ZERO_HALVES = "1IilL|!()[]"
 #: The most a misread number may cost (solution_number: a wrong digit 2, a
 #: digit-for-digit misread 1, one dropped or extra 2).
 REPAIR_COST = 2
@@ -268,7 +271,9 @@ def read_cost(read, want):
     if len(read) == len(want) - 1:
         return 2 + min(read_cost(read, want[:k] + want[k + 1:]) for k in range(len(want)))
     if len(read) == len(want) + 1:
-        return 2 + min(read_cost(read[:k] + read[k + 1:], want) for k in range(len(read)))
+        split = [1 + read_cost(read[:k] + w + read[k + 2:], want) for k, w in enumerate(want)
+                 if w == "0" and read[k] in ZERO_HALVES and read[k + 1] in ZERO_HALVES]
+        return min([2 + min(read_cost(read[:k] + read[k + 1:], want) for k in range(len(read)))] + split)
     return REPAIR_COST + 1
 
 
@@ -2539,6 +2544,33 @@ def solution_title(day, sols, held):
                   f"{sorted(counts) or 'none filed'}")
 
 
+def linked_solutions(paper, found, held):
+    """An edition's Times solution headings `found["solutions"]` as they
+    link to puzzles. One read where no title was ("20379" for 20,579, only
+    SOLUTION's exact heading applying) would link a stranger, so each
+    stands as the number solution_number reads it as: a puzzle `held`
+    ({number: date}) dates up to SOLUTION_DAYS + 1 before the edition, or
+    one SOLUTION_LAGS before a number its titles, or a count of issues
+    from its filed neighbours, give, and no title of the edition is (a
+    puzzle's solution never prints with it); else it is dropped."""
+    if paper is not TIMES or not found["solutions"]:
+        return found["solutions"]
+    day = datetime.date.fromisoformat(found["date"])
+    before, after = neighbours(day, held)
+    titles = {p["number"] for p in found["puzzles"] if "fromSolutions" not in p} | \
+        {m + issues_between(b, day) for b, m in [before] * bool(before)} | \
+        {m - issues_between(day, a) for a, m in [after] * bool(after)}
+    expected = {t - lag for t in titles for lag in SOLUTION_LAGS} | \
+        {m for m, d in held.items() if 1 <= (day - d).days <= SOLUTION_DAYS + 1}
+    printed = {p["number"] for p in found["puzzles"]}
+    out = []
+    for s in found["solutions"]:
+        n = solution_number(str(s["number"]), expected)
+        if n is not None and n not in printed:
+            out.append({**s, "number": n})
+    return out
+
+
 def placed(n, day, held):
     """(number, None) that an edition of `day` read as No `n` files as, or
     (None, why) it cannot file. The edition's date is trusted over a number
@@ -3213,14 +3245,15 @@ def sister_solutions(cache, paper):
     """{number: solution heading, its "dir" set} from the last scans in the
     ledgers of `paper`'s series' other FILERS, scanning nothing: the solution
     to a Times puzzle archive.org holds prints in the next issue, which may be
-    a Gale page alone, and the reverse. A run's own headings come first."""
-    out = {}
+    a Gale page alone, and the reverse. A run's own headings come first;
+    each links as linked_solutions() reads it."""
+    out, held = {}, held_dates(paper.series)
     for p in FILERS.values():
         path = ledger_of(cache, p)
         if p is paper or p.series != paper.series or not path.exists():
             continue
         for rel, row in _planned_known(path).items():
-            for s in (row.get("scan") or {}).get("solutions", ()):
+            for s in linked_solutions(p, row.get("scan") or {"puzzles": [], "solutions": []}, held):
                 out.setdefault(s["number"], {**s, "dir": Path(cache) / rel})
     return out
 
@@ -3373,7 +3406,9 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
     stale = [d for d in dirs if not scan_current(known.get(rels[d]), input_hash(d))]
     stale_set = set(stale)
     scans = {rels[d]: (known.get(rels[d]) or {}).get("scan") or {"puzzles": [], "solutions": []} for d in every}
-    solutions = {s["number"] for d in every for s in scans[rels[d]]["solutions"]} | set(sister_solutions(cache, paper))
+    held = held_dates(paper.series)
+    solutions = {s["number"] for d in every for s in linked_solutions(paper_of(d), scans[rels[d]], held)} | \
+        set(sister_solutions(cache, paper))
     asked = set(asked)
     reads = {}
     for d in dirs:
@@ -3558,9 +3593,9 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             saved = time.monotonic()
     if unscanned:
         flush()
-    solutions = {}
+    solutions, dated = {}, held_dates(paper.series)
     for d in dirs:
-        for s in scans[rels[d]]["solutions"]:
+        for s in linked_solutions(paper_of(d), scans[rels[d]], dated):
             solutions.setdefault(s["number"], {**s, "dir": d})
     solutions = {**sister_solutions(cache, paper or TIMES), **solutions}
     due = {}
