@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,74 @@
     "text": "As artist reflected, picturesque hint of colour gets erased",
     "enumeration": "7"
    },
-   "solution": "ARSENIC"
+   "solution": "ARSENIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ARSENIC",
+    "definitions": [
+     {
+      "text": "As",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a reflection in a mirror shows things the wrong way round, so the word is read backwards"
+     },
+     {
+      "text": "gets erased",
+      "for": "deletion",
+      "note": "something erased is rubbed out, so that letter is removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician, is the standard crossword artist"
+     },
+     {
+      "clueFragment": "picturesque",
+      "gives": "SCENIC",
+      "note": "a picturesque view is a scenic one"
+     },
+     {
+      "clueFragment": "hint of colour",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "SENIC"
+     ],
+     "reversals": [
+      {
+       "from": "RA",
+       "to": "AR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter's scene loses its touch of colour, as the artist looks back on it.",
+     "walkthrough": "'As' looks like a mere joining word at the start, but it is the definition: As is the chemical symbol for ARSENIC. Remove C from SCENIC and put AR in front.",
+     "definitionFit": "As is the symbol in the periodic table for the element arsenic, a crossword-only abbreviation sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "As"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +117,57 @@
     "text": "Process nearly all of tropical fruit",
     "enumeration": "7"
    },
-   "solution": "APRICOT"
+   "solution": "APRICOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "APRICOT",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly all of",
+      "for": "deletion",
+      "note": "nearly all means everything except the final letter of the word that follows"
+     },
+     {
+      "text": "Process",
+      "for": "anagram",
+      "note": "to process material is to work it over into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tropical",
+      "gives": "TROPICA",
+      "note": "the word tropical with its last letter dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TROPICA",
+       "gives": "APRICOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to put most of a tropical fruit through a machine.",
+     "walkthrough": "'Tropical fruit' reads as a single phrase, but tropical is the anagram fodder and fruit alone is the definition.",
+     "definitionFit": "An apricot is a stone fruit, an example of the general category named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tropical"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +181,49 @@
     "text": "Old golfer has inflamed cut",
     "enumeration": "7"
    },
-   "solution": "SEVERED"
+   "solution": "SEVERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEVERED",
+    "definitions": [
+     {
+      "text": "cut",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old golfer",
+      "gives": "SEVE",
+      "note": "Seve Ballesteros, the late Spanish golfing champion"
+     },
+     {
+      "clueFragment": "inflamed",
+      "gives": "RED",
+      "note": "inflamed skin is red"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVE",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran golfer is nursing a sore wound.",
+     "definitionFit": "Severed means cut through or sliced off, a straightforward synonym for the past participle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +237,54 @@
     "text": "Keep fish for matron",
     "enumeration": "5"
    },
-   "solution": "NURSE"
+   "solution": "NURSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NURSE",
+    "definitions": [
+     {
+      "text": "Keep",
+      "at": 0
+     },
+     {
+      "text": "fish",
+      "at": 5
+     },
+     {
+      "text": "matron",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep",
+      "note": "first meaning: to keep and cherish, as with a grudge or a drink"
+     },
+     {
+      "clueFragment": "fish",
+      "note": "second meaning: a kind of shark found in warm shallow waters"
+     },
+     {
+      "clueFragment": "matron",
+      "note": "third meaning: the senior woman in charge of a hospital ward"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to set aside some fish for the hospital matron.",
+     "walkthrough": "This is a triple definition: three separate senses of one word, with 'for' merely joining them.",
+     "definitionFit": "To nurse a grudge is to keep it; the nurse shark is a fish; a matron is a senior hospital sister."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Keep"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +298,57 @@
     "text": "Acting with caution over thief?",
     "enumeration": "9"
    },
-   "solution": "CARETAKER"
+   "solution": "CARETAKER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARETAKER",
+    "definitions": [
+     {
+      "text": "Acting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, over means the first piece sits on top of the second"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caution",
+      "gives": "CARE",
+      "note": "taking care is being cautious"
+     },
+     {
+      "clueFragment": "thief?",
+      "gives": "TAKER",
+      "note": "a thief is one who takes; the question mark flags the loose sense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARE",
+      "TAKER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone performing warily in front of a burglar.",
+     "walkthrough": "'Acting' suggests the stage, but here it is the adjective for someone filling in temporarily, as in a caretaker manager.",
+     "definitionFit": "A caretaker government or manager holds office temporarily, which is what an acting head does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Acting"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +362,60 @@
     "text": "In York the minister drops off publicity for dean?",
     "enumeration": "7"
    },
-   "solution": "TEACHER"
+   "solution": "TEACHER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TEACHER",
+    "definitions": [
+     {
+      "text": "dean?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops off",
+      "for": "deletion",
+      "note": "dropping something off means leaving it behind, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In York the",
+      "gives": "T",
+      "note": "in Yorkshire dialect 'the' is shortened to t'"
+     },
+     {
+      "clueFragment": "minister",
+      "gives": "PREACHER",
+      "note": "a minister of religion preaches"
+     },
+     {
+      "clueFragment": "publicity",
+      "gives": "PR",
+      "note": "PR stands for public relations, publicity work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EACHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cathedral clergyman at York shuns publicity, as a dean might.",
+     "walkthrough": "The surface points at York Minster and a cathedral dean, but the dean is a university one, and 'the' in Yorkshire speech is t'.",
+     "definitionFit": "A dean is a senior academic in a college faculty, so is an example of a teacher, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "York"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +429,54 @@
     "text": "Governess could be one changing the heart of Henry VIII?",
     "enumeration": "5"
    },
-   "solution": "TUTOR"
+   "solution": "TUTOR",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TUTOR",
+    "definitions": [
+     {
+      "text": "Governess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one changing the heart of",
+      "for": "substitution",
+      "note": "changing the heart means swapping the central letter of the name for another"
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Henry VIII",
+      "gives": "TUDOR",
+      "note": "Henry VIII belonged to the Tudor royal house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "T",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A governess who might have changed the king's heart, Henry VIII being famously fickle.",
+     "walkthrough": "Swap the middle D of TUDOR for a T. The clue reads as wordplay plus the hint that the answer is 'one changing' it.",
+     "definitionFit": "A governess is a private teacher in a household, just as a private tutor is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +490,64 @@
     "text": "Young prince defends time with court designer",
     "enumeration": "9"
    },
-   "solution": "ARCHITECT"
+   "solution": "ARCHITECT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ARCHITECT",
+    "definitions": [
+     {
+      "text": "designer",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defends",
+      "for": "container",
+      "note": "to defend something is to stand guard around it, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Young prince",
+      "gives": "ARCHIE",
+      "note": "Prince Archie is the young son of Prince Harry"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCHI",
+      "T",
+      "E",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal youngster stands up for himself in court, joined by a designer.",
+     "definitionFit": "An architect is the person who designs buildings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "defends"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +567,39 @@
      }
     ]
    },
-   "solution": "HOTDATE"
+   "solution": "HOTDATE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HOT DATE",
+    "definitions": [
+     {
+      "text": "Object of a burning passion?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Object of a burning passion?",
+      "note": "surface reading: the person someone is wildly in love with"
+     },
+     {
+      "clueFragment": "burning",
+      "note": "setter's reading: an engagement with someone who is attractive, a romantic evening that is sizzling"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The burning passion is the heat of a romantic evening out; the object of it is a date who is literally called hot.",
+     "definitionFit": "A hot date is an exciting romantic appointment with an attractive partner, the focus of ardent feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Object"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +613,50 @@
     "text": "Ethiopian royal lady's showing items which may be smoked",
     "enumeration": "7"
    },
-   "solution": "RASHERS"
+   "solution": "RASHERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RASHERS",
+    "definitions": [
+     {
+      "text": "items which may be smoked",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ethiopian royal",
+      "gives": "RAS",
+      "note": "Ras is an Ethiopian title for a prince or ruler"
+     },
+     {
+      "clueFragment": "lady's",
+      "gives": "HERS",
+      "note": "belonging to a lady is hers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAS",
+      "HERS"
+     ]
+    },
+    "explanation": {
+     "surface": "An Ethiopian princess displays things that might be smoked, perhaps pipes or cigars.",
+     "walkthrough": "'Smoked' suggests tobacco, but it is bacon being cured by smoke.",
+     "definitionFit": "Rashers are slices of bacon, which is often sold smoked or unsmoked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "smoked"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +670,62 @@
     "text": "Kings and queen entertaining first lady worshipper",
     "enumeration": "7"
    },
-   "solution": "REVERER"
+   "solution": "REVERER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "REVERER",
+    "definitions": [
+     {
+      "text": "worshipper",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain guests is to have them inside your home, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kings",
+      "gives": "RR",
+      "note": "R is the abbreviation for king (Rex), doubled for the plural"
+     },
+     {
+      "clueFragment": "first lady",
+      "gives": "EVE",
+      "note": "Eve was the first woman in Genesis"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is a standard crossword queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EVE",
+      "R",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Royalty play host to the First Lady, who is a devoted admirer.",
+     "walkthrough": "'First lady' suggests a President's wife, but it is Eve; she sits between the two Rs, before ER.",
+     "definitionFit": "A reverer is one who reveres, that is, holds someone in deep religious respect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +739,65 @@
     "text": "Old historian has book about origins of Anglican Church",
     "enumeration": "7"
    },
-   "solution": "TACITUS"
+   "solution": "TACITUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TACITUS",
+    "definitions": [
+     {
+      "text": "Old historian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means going around, so one piece encloses the other"
+     },
+     {
+      "text": "origins of",
+      "for": "letter_selection",
+      "note": "the origins of words are where they start, so only their initial letters are used"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "TITUS",
+      "note": "Titus is a book of the New Testament"
+     },
+     {
+      "clueFragment": "Anglican Church",
+      "gives": "AC",
+      "select": "first",
+      "note": "the opening letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AC",
+      "ITUS"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient historian owns a book on the beginnings of the Church of England.",
+     "walkthrough": "'Book' could be B or VOL, but here it is a named book of the Bible, which the abbreviation sits inside.",
+     "definitionFit": "Tacitus was a Roman writer of the first century whose Annals and Histories chronicle the early empire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +811,52 @@
     "text": "Maybe Karen has quibble with record",
     "enumeration": "9"
    },
-   "solution": "CARPENTER"
+   "solution": "CARPENTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARPENTER",
+    "definitions": [
+     {
+      "text": "Maybe Karen",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quibble",
+      "gives": "CARP",
+      "note": "to carp is to quibble or nitpick"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "ENTER",
+      "note": "to enter data is to record it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARP",
+      "ENTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Karen objects to something on a record, a nod to the familiar complaining Karen.",
+     "walkthrough": "Karen Carpenter was the singer and drummer of the 1970s duo the Carpenters; 'record' sounds musical but is a verb.",
+     "definitionFit": "Karen is an example of a Carpenter, the famous American pop singer, hence 'Maybe'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +870,43 @@
     "text": "Maxim a gentleman holds still?",
     "enumeration": "5"
    },
-   "solution": "IMAGE"
+   "solution": "IMAGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IMAGE",
+    "definitions": [
+     {
+      "text": "still",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "hidden_word",
+      "note": "the phrase holds the answer within it, spanning its word boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maxim a gentleman",
+      "gives": "IMAGE",
+      "note": "the letters run across the end of the first word, the a, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A proverb says a gentleman keeps calm and holds still.",
+     "walkthrough": "'Still' looks like an adverb ending the sentence, but it is a noun: a single photograph from a film.",
+     "definitionFit": "A still is a photograph, a single frame taken from a movie, so a type of picture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +920,47 @@
     "text": "Note pulse going up and down, maybe",
     "enumeration": "5"
    },
-   "solution": "TIDAL"
+   "solution": "TIDAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIDAL",
+    "definitions": [
+     {
+      "text": "going up and down, maybe",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "TI",
+      "note": "ti is the seventh note of the tonic sol-fa scale"
+     },
+     {
+      "clueFragment": "pulse",
+      "gives": "DAL",
+      "note": "dal is lentils or split peas, an edible pulse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "DAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical note records a pulse that keeps rising and falling.",
+     "walkthrough": "'Pulse' suggests a heartbeat, but it is the vegetable sense: dal, the lentil dish.",
+     "definitionFit": "Tidal water rises and falls with the tides, so going up and down is one example of the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pulse"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +974,56 @@
     "text": "Star sign finally shared with heretic bookkeeper",
     "enumeration": "9"
    },
-   "solution": "LIBRARIAN"
+   "solution": "LIBRARIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LIBRARIAN",
+    "definitions": [
+     {
+      "text": "bookkeeper",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally shared with",
+      "for": "deletion",
+      "note": "the closing letter is shared, so it is written once where the two words overlap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Star sign",
+      "gives": "LIBRA",
+      "note": "Libra, the scales, is a sign of the zodiac"
+     },
+     {
+      "clueFragment": "heretic",
+      "gives": "ARIAN",
+      "note": "an Arian follows Arius, whose views on the Trinity were declared heresy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIBRA",
+      "RIAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's star sign turns out to be shared with a heretic who keeps the accounts.",
+     "walkthrough": "The A ending the star sign also starts the heretic, so the two words overlap on that letter. 'Bookkeeper' suggests an accountant but is read literally.",
+     "definitionFit": "A librarian looks after the books in a library, so is literally a keeper of books."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bookkeeper"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1037,64 @@
     "text": "Greek seeds cut and diced in rice dishes",
     "enumeration": "9"
    },
-   "solution": "KEDGEREES"
+   "solution": "KEDGEREES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "KEDGEREES",
+    "definitions": [
+     {
+      "text": "rice dishes",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "a word that is cut is trimmed short, losing its last letter"
+     },
+     {
+      "text": "diced",
+      "for": "anagram",
+      "note": "dicing chops food into pieces, so the letters are chopped and mixed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek",
+      "gives": "GREEK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seeds",
+      "gives": "SEED",
+      "note": "seeds with its last letter removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREEKSEED",
+       "gives": "KEDGEREES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe in which Greek seeds are chopped and diced into rice dishes.",
+     "definitionFit": "Kedgeree is a dish of rice, flaked smoked fish and egg, a British breakfast of Anglo-Indian origin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "diced"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1108,52 @@
     "text": "Daughter always rests in mornings",
     "enumeration": "9"
    },
-   "solution": "DAYBREAKS"
+   "solution": "DAYBREAKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DAYBREAKS",
+    "definitions": [
+     {
+      "text": "mornings",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "AY",
+      "note": "ay (or aye) is an old word for always, ever"
+     },
+     {
+      "clueFragment": "rests",
+      "gives": "BREAKS",
+      "note": "a break is a rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AY",
+      "BREAKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter who always lies in during the mornings.",
+     "definitionFit": "Daybreak is dawn, the start of the morning; the plural matches mornings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rests"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1167,67 @@
     "text": "Weep over unusually barren fruit shrub",
     "enumeration": "9"
    },
-   "solution": "CRANBERRY"
+   "solution": "CRANBERRY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CRANBERRY",
+    "definitions": [
+     {
+      "text": "fruit shrub",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "something done unusually departs from its normal order, so the letters are rearranged"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over here means draped across and around, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weep",
+      "gives": "CRY",
+      "note": "to weep is to cry"
+     },
+     {
+      "clueFragment": "barren",
+      "gives": "BARREN",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "ANBERR",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BARREN",
+       "gives": "ANBERR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener sobs over a fruit bush that has failed to crop.",
+     "walkthrough": "The rearranged letters sit between the R and Y of CRY.",
+     "definitionFit": "The cranberry is a low evergreen shrub of bogs bearing tart red berries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "barren"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1241,64 @@
     "text": "Church Times ordered for scientist",
     "enumeration": "7"
    },
-   "solution": "CHEMIST"
+   "solution": "CHEMIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CHEMIST",
+    "definitions": [
+     {
+      "text": "scientist",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "the letters are put in order, that is, sorted into a fresh arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "TIMES",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "EMIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIMES",
+       "gives": "EMIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has ordered a copy of the Church Times, an Anglican weekly newspaper, for a scientist.",
+     "walkthrough": "The Church Times is a real British newspaper, which makes 'ordered' look like a newsagent's order.",
+     "definitionFit": "A chemist is a scientist who studies chemistry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1318,39 @@
      }
     ]
    },
-   "solution": "ALIBABA"
+   "solution": "ALIBABA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ALI BABA",
+    "definitions": [
+     {
+      "text": "One who has opening words in pantomime?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opening words",
+      "note": "surface reading: the first lines spoken at the start of a show"
+     },
+     {
+      "clueFragment": "One who has opening words in pantomime?",
+      "note": "setter's reading: the panto hero whose magic words, open sesame, open the robbers' cave"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A pantomime is a British Christmas family stage show based on a fairy tale; this hero's tale is a favourite, and his password opens a door rather than the play.",
+     "definitionFit": "In the Arabian Nights tale he says 'open sesame' to make the cave of the forty thieves open."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1364,60 @@
     "text": "Run over energy deal",
     "enumeration": "5"
    },
-   "solution": "TRADE"
+   "solution": "TRADE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRADE",
+    "definitions": [
+     {
+      "text": "deal",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means flipped, so the word is read back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "DART",
+      "note": "to dart is to run quickly"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAD",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "DART",
+       "to": "TRAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sprint carried out on energy, perhaps a rundown of a power deal.",
+     "definitionFit": "To trade is to deal in goods, buying and selling them as business."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1431,60 @@
     "text": "Sharon Stone possibly about to cut a bit of hair",
     "enumeration": "7"
    },
-   "solution": "ACTRESS"
+   "solution": "ACTRESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACTRESS",
+    "definitions": [
+     {
+      "text": "Sharon Stone possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cut",
+      "for": "container",
+      "note": "a piece that cuts into another sits within it, splitting it in two"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C is short for circa, Latin for about"
+     },
+     {
+      "clueFragment": "bit of hair",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "The Hollywood star Sharon Stone is about to get a trim.",
+     "walkthrough": "'About to' reads as 'on the point of', but about is C and 'to cut' tells it to go inside A TRESS.",
+     "definitionFit": "Sharon Stone is a Hollywood film star, an example of the profession, hence 'possibly'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1498,53 @@
     "text": "Sweet Penny lost an item of jewellery",
     "enumeration": "7"
    },
-   "solution": "EARDROP"
+   "solution": "EARDROP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EARDROP",
+    "definitions": [
+     {
+      "text": "an item of jewellery",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "something lost has gone missing, so that letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweet",
+      "gives": "PEARDROP",
+      "note": "a pear drop is a boiled sweet flavoured like pear"
+     },
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "P is the abbreviation for a penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARDROP"
+     ]
+    },
+    "explanation": {
+     "surface": "Sweet Penny has mislaid one of her earrings.",
+     "walkthrough": "'Sweet Penny' reads as an affectionate name, but sweet is a noun: a pear drop, a British boiled sweet, from which P goes.",
+     "definitionFit": "An eardrop is a pendant earring, an ornament that hangs from the ear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1558,49 @@
     "text": "At first English rose is called after another plant",
     "enumeration": "5"
    },
-   "solution": "ERICA"
+   "solution": "ERICA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ERICA",
+    "definitions": [
+     {
+      "text": "another plant",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of each following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English rose is called after",
+      "gives": "ERICA",
+      "select": "first",
+      "note": "the initial letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERICA"
+     ]
+    },
+    "explanation": {
+     "surface": "An English rose variety is named in honour of a different plant.",
+     "walkthrough": "'Another' is fair because a rose has just been mentioned: the answer is a different plant.",
+     "definitionFit": "Erica is the genus of heaths and heathers, low flowering shrubs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "called"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1614,67 @@
     "text": "One briefed to stop run by nun starting late",
     "enumeration": "9"
    },
-   "solution": "BARRISTER"
+   "solution": "BARRISTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BARRISTER",
+    "definitions": [
+     {
+      "text": "One briefed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starting late",
+      "for": "deletion",
+      "note": "starting late means missing the beginning, so the opening letter is dropped"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the pieces sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to stop",
+      "gives": "BAR",
+      "note": "to bar is to stop or prevent"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for a run"
+     },
+     {
+      "clueFragment": "nun",
+      "gives": "SISTER",
+      "note": "a nun is a sister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "R",
+      "ISTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to block a nun who set off late on her run.",
+     "walkthrough": "In Britain a barrister is the courtroom lawyer who receives a brief, the case papers, from a solicitor.",
+     "definitionFit": "A barrister is instructed by being given a brief, so is someone briefed in the legal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "briefed"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1688,43 @@
     "text": "Person acquiring farm building on the phone",
     "enumeration": "5"
    },
-   "solution": "BUYER"
+   "solution": "BUYER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BUYER",
+    "definitions": [
+     {
+      "text": "Person acquiring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the phone",
+      "for": "homophone",
+      "note": "a voice on the phone is heard, not seen, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farm building",
+      "gives": "BUYER",
+      "soundsLike": "BYRE",
+      "note": "a byre is a cowshed"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone calling about purchasing a farm building.",
+     "definitionFit": "A buyer is a purchaser, someone who obtains goods by paying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "phone"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1738,54 @@
     "text": "Livid form of light above mischievous goddess",
     "enumeration": "5"
    },
-   "solution": "IRATE"
+   "solution": "IRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRATE",
+    "definitions": [
+     {
+      "text": "Livid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "above",
+      "for": "charade",
+      "note": "in a down clue, above means the first piece sits on top of the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "form of light",
+      "gives": "IR",
+      "note": "IR is infrared, a form of light beyond the visible"
+     },
+     {
+      "clueFragment": "mischievous goddess",
+      "gives": "ATE",
+      "note": "Ate is the Greek goddess of mischief and folly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IR",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A goddess bent on mischief, shown in a lurid light.",
+     "walkthrough": "'Livid' also means bluish-grey or pale, matching the light imagery, but here it means furious.",
+     "definitionFit": "Livid in the informal sense is very angry, as is someone irate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Livid"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1799,74 @@
     "text": "Worthless quality of unknown metal auntie oddly rejected",
     "enumeration": "7"
    },
-   "solution": "INANITY"
+   "solution": "INANITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "INANITY",
+    "definitions": [
+     {
+      "text": "Worthless quality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly picks out the letters in odd positions, first, third and fifth"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the whole string is turned round"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is a mathematical unknown"
+     },
+     {
+      "clueFragment": "metal",
+      "gives": "TIN",
+      "note": "tin is a metal"
+     },
+     {
+      "clueFragment": "auntie",
+      "gives": "ANI",
+      "select": "alternate",
+      "note": "letters one, three and five of auntie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INANITY"
+     ],
+     "reversals": [
+      {
+       "from": "YTINANI",
+       "to": "INANITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Auntie turns down some metal of uncertain value as worthless.",
+     "definitionFit": "Inanity is emptiness or silliness, the quality of being pointless or lacking any value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1880,62 @@
     "text": "A mother houses United enthusiast",
     "enumeration": "7"
    },
-   "solution": "AMATEUR"
+   "solution": "AMATEUR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AMATEUR",
+    "definitions": [
+     {
+      "text": "enthusiast",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "houses",
+      "for": "container",
+      "note": "to house something is to give it room inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MATER",
+      "note": "mater is Latin for mother, used in old public-school slang"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation for United in football team names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MATE",
+      "U",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother takes in a fan of Manchester United, or some other United.",
+     "walkthrough": "U goes between the E and R of MATER.",
+     "definitionFit": "An amateur is someone who pursues an activity for love rather than money, hence an enthusiast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1949,52 @@
     "text": "Head-scratching riddle – either way the answer is 5",
     "enumeration": "7"
    },
-   "solution": "TRAINER"
+   "solution": "TRAINER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRAINER",
+    "definitions": [
+     {
+      "text": "5",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head-scratching",
+      "for": "deletion",
+      "note": "scratching out the head means striking off the first letter"
+     }
+    ],
+    "linkWords": [
+     "either way the answer is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "riddle",
+      "gives": "STRAINER",
+      "note": "a riddle is a coarse sieve, as for soil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAINER"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling riddle that leaves you scratching your head, whose answer is the same either way.",
+     "walkthrough": "'Head-scratching riddle' suggests a puzzle, but riddle is the gardener's sieve losing its S. The 5 refers to 5 Across, TEACHER.",
+     "definitionFit": "A trainer instructs people in a skill, which is what a teacher does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "riddle"
+    }
+   }
   },
   {
    "number": 28,
@@ -485,7 +2014,45 @@
      }
     ]
    },
-   "solution": "STEPSUP"
+   "solution": "STEPSUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEPS UP",
+    "definitions": [
+     {
+      "text": "Accepts responsibility",
+      "at": 0
+     },
+     {
+      "text": "increases",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accepts responsibility",
+      "note": "first meaning: comes forward to take on a duty"
+     },
+     {
+      "clueFragment": "increases",
+      "note": "second meaning: raises in stages, as with production"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both senses come from the image of climbing a stair.",
+     "definitionFit": "To come forward and volunteer for a task, or to raise something gradually, are both senses of the phrasal verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "increases"
+    }
+   }
   }
  ]
 }
