@@ -777,6 +777,27 @@ desk = [line.split(" ", 2)[2] for line in log.read_text().splitlines() if line.s
 check("a lost unit is started again with the desktop, then after LOST_TRIES with none",
       (["'micro@192.168.1.198'", "''"], True, False),
       (desk[:2], "deferred (the desktop was lost)" in err.getvalue(), "failed" in err.getvalue()))
+# A read whose own scan went stale after its plan (a kept plan across a scan
+# code change) is not started whole: a scan unit runs first, then the read
+# is prepared for the desktop.
+eq.prepare = lambda unit, *a: (eq.SCAN_FIRST if unit["kind"] == "read" and not (
+    log.exists() and f"end scan {unit['rel']}" in log.read_text()) else None)
+fake(default=0.05)
+log.unlink(missing_ok=True)
+eq.plan = units([], [("g1", [])])
+eq.mem_gate_reader = lambda: 1 << 40  # this host's memory must not gate it
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=4, replan=0.5)
+check("a read whose own scan is stale starts after a scan unit of its own, once",
+      [["start", "scan", "g1"], ["end", "scan", "g1"], ["start", "read", "g1"], ["end", "read", "g1"]],
+      [line.split()[1:4] for line in log.read_text().splitlines()])
+# mirror: a read whose scan stands starts at once, no scan before it
+eq.prepare = lambda *a: None
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=4, replan=0.5)
+check("mirror: a read whose scan stands starts with no scan of its own",
+      [["start", "read", "g1"], ["end", "read", "g1"]], [line.split()[1:4] for line in log.read_text().splitlines()])
 os.environ.pop("OCR_REMOTE")
 eq.prepare = real_prepare
 eq.desktop_gate_reader = lambda: None
