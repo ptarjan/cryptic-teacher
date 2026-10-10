@@ -465,20 +465,24 @@ BRIEFS = Path(os.environ.get("TMPDIR") or "/tmp") / "edition-briefs"
 def prepare(unit, cache, puzzles, reread):
     """The file of an archive.org or Gale read unit's read made here
     (file_archive_org_puzzles.brief), for its unit to send to the desktop
-    and commit (tools/edition_commit.py), or None: the unit runs whole (no
-    desktop set, it is busy, the read cannot be made here, or making it
-    failed, logged)."""
+    and commit (tools/edition_commit.py), or None: the unit runs whole,
+    each cause logged as a "whole read <rel>: <why>" line (no desktop set,
+    it is busy, its own scan is stale or missing, not due, or making it
+    failed)."""
     import desktop_busy
     import ocr_remote
-    if unit["kind"] != "read" or unit["paper"] not in fa.FILERS or not ocr_remote.hosts():
+    if unit["kind"] != "read" or unit["paper"] not in fa.FILERS:
         return None
-    if desktop_busy.busy(ocr_remote.hosts()):
-        return None
+    if not ocr_remote.hosts():
+        return whole(unit, "no desktop (OCR_REMOTE unset)")
+    why = desktop_busy.busy(ocr_remote.hosts())
+    if why:
+        return whole(unit, f"desktop busy ({why})")
     try:
-        made = fa.brief(fa.FILERS[unit["paper"]], unit["rel"], cache, puzzles=puzzles, reread=reread,
-                        force=unit.get("force"))
+        paper = fa.FILERS[unit["paper"]]
+        made = fa.brief(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"))
         if made is None:
-            return None
+            return whole(unit, "not due" if fa.scan_stands(paper, unit["rel"], cache) else "own scan stale or missing")
         import tempfile
         BRIEFS.mkdir(parents=True, exist_ok=True)
         fd, path = tempfile.mkstemp(dir=BRIEFS, suffix=".brief")
@@ -486,8 +490,12 @@ def prepare(unit, cache, puzzles, reread):
         edition_commit.save_brief(path, *made)
         return path
     except Exception as e:  # noqa: BLE001 -- the unit runs whole and says nothing of it; the cause is logged here
-        scan_queue.failure((unit["rel"],), e)
-        return None
+        return whole(unit, f"brief failed: {scan_queue.failure((unit['rel'],), e)}")
+
+
+def whole(unit, why):
+    """Log why the read unit runs whole here, not prepared for the desktop (prepare returns this None)."""
+    log(f"whole {unit['kind']} {unit['rel']}: {why}")
 
 
 #: Each --beside run's --seconds when the queue has no --seconds of its own,
