@@ -17,8 +17,10 @@
 #
 # A rejected push (origin moved) or a lost race on the shared
 # refs/remotes/origin/master (a sibling worktree fetching) is retried against a
-# fresh fetch. Anything else, a conflict included, exits non-zero with git's
-# own words on stderr.
+# fresh fetch. Only the first push runs the pre-push check: a retry pushes the
+# same change onto a newer origin, and the check's seconds are the window
+# another pusher wins in. Anything else, a conflict included, exits non-zero
+# with git's own words on stderr.
 set -uo pipefail
 
 commit=$(git rev-parse --verify -q "${1:-HEAD}^{commit}") || {
@@ -26,7 +28,8 @@ commit=$(git rev-parse --verify -q "${1:-HEAD}^{commit}") || {
 parent=$(git rev-parse --verify -q "$commit^") || {
   echo "push_puzzle_commit: $commit has no parent to diff against" >&2; exit 2; }
 
-for attempt in 1 2 3 4 5 6; do
+verify=()
+for attempt in 1 2 3 4 5 6 7 8 9 10; do
   if ! out=$(git fetch -q origin master 2>&1); then
     printf '%s\n' "$out" >&2
     printf '%s' "$out" | grep "cannot lock ref" >/dev/null || exit 1
@@ -47,10 +50,11 @@ for attempt in 1 2 3 4 5 6; do
     GIT_AUTHOR_EMAIL=$(git log -1 --format=%ae "$commit") \
     GIT_AUTHOR_DATE=$(git log -1 --format=%aD "$commit") \
     git commit-tree "$tree" -p "$base") || exit 1
-  out=$(git push -q origin "$sha:refs/heads/master" 2>&1) && exit 0
+  out=$(git push -q "${verify[@]}" origin "$sha:refs/heads/master" 2>&1) && exit 0
   printf '%s\n' "$out" >&2
   printf '%s' "$out" | grep -E "rejected|fetch first|non-fast-forward|cannot lock ref" >/dev/null || exit 1
   echo "push_puzzle_commit: origin/master moved under us (attempt $attempt), rebuilding" >&2
-  sleep "$attempt"
+  verify=(--no-verify)
+  sleep "$((RANDOM % 3 + 1))"
 done
 exit 1
