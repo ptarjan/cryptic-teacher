@@ -2840,6 +2840,9 @@ def suspect(text, vouched=(), printed=()):
                 break
             if flat.lower() in vouched:
                 continue
+            if (re.match(r"[\"\u201c(]*['\u2018\u2019]" + re.escape(p), raw)
+                    and not known(flat) and known("h" + flat.lower())):
+                continue  # the setter's dropped aitch: "'ow 'iggins", "'igher"
             if known(flat) or formed(plain(p).lower()) or any(
                     known(f) for f in {flat.translate(LIGATURES), flat.translate(LIGATURE_E)} - {flat}):
                 continue  # a ligature is its word's ("mediæval")

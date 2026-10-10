@@ -387,6 +387,10 @@ check("a speck between two words the corpus pairs is parted though no reading do
 check("a speck inside a misread word is no break (mirror)",
       "Snar.es", oc.parted("Snar.es", [mark("2 Snar.es (5). 3")]))
 check("initials' possessive is printed, no stray mark", [], oc.suspect("The P.M.'s house"))
+check("a dropped aitch is the setter's (times-21281 28A)", [],
+      oc.suspect("'aving moved 'e 'astened 'ome 'ere? 'ow 'iggins at 'igher"))
+check("an apostrophe before a word no aitch makes is still no word", [("'austic", "not a word")],
+      oc.suspect("like 'austic soda"))
 check("a stop then a hyphen after a word is a stray mark (times-13703 8D)",
       [("gear-housing.-", "a stray mark inside a word")], oc.suspect("Worn rubber gear-housing.- for a motorist"))
 # times-13958 4D, times-13821 18D: a clue cut at a line wrap.
