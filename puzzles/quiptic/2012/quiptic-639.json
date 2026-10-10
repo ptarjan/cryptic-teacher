@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Mate in Sydney holding large hammer",
     "enumeration": "7"
    },
-   "solution": "CLOBBER"
+   "solution": "CLOBBER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLOBBER",
+    "definitions": [
+     {
+      "text": "hammer",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "one word holding another wraps around it, keeping it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mate in Sydney",
+      "gives": "COBBER",
+      "note": "cobber is Australian slang for a friend or mate"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the standard abbreviation for large, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "OBBER"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian friend is carrying a big hammer around.",
+     "walkthrough": "'Hammer' looks like the object being held, but it is the definition, used as a verb.",
+     "definitionFit": "To clobber someone is to beat them heavily, a colloquial synonym for hammering them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hammer"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,65 @@
     "text": "Rover, for example, gets sort of meal that's sweet",
     "enumeration": "7"
    },
-   "solution": "CARAMEL"
+   "solution": "CARAMEL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CARAMEL",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sort of",
+      "for": "anagram",
+      "note": "a sort of something is a variant of it, so these letters appear in a different form"
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rover, for example",
+      "gives": "CAR",
+      "note": "Rover was a British make of car"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "MEAL",
+      "note": "taken as written before rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "AMEL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEAL",
+       "gives": "AMEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog called Rover is given some kind of sugary dinner.",
+     "walkthrough": "Rover sounds like a dog's name, but it is a former British car brand.",
+     "definitionFit": "A caramel is a chewy toffee-like confection, and confections are sweets in British usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rover"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +176,46 @@
      }
     ]
    },
-   "solution": "OWNGOAL"
+   "solution": "OWNGOAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OWN GOAL",
+    "definitions": [
+     {
+      "text": "Personal ambition",
+      "at": 0
+     },
+     {
+      "text": "setback for the team",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "that's a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Personal ambition",
+      "note": "first meaning, read cryptically: a target of one's own"
+     },
+     {
+      "clueFragment": "setback for the team",
+      "note": "second meaning: a score accidentally put into one's own net"
+     }
+    ],
+    "explanation": {
+     "surface": "A player's selfish aims end up hurting their side.",
+     "definitionFit": "Read literally the phrase is an aim of one's own; in football it means scoring against your own side by mistake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ambition"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +229,62 @@
     "text": "Cook one way or another, bringing in Ramsay initially",
     "enumeration": "5"
    },
-   "solution": "BROIL"
+   "solution": "BROIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BROIL",
+    "definitions": [
+     {
+      "text": "Cook one way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word before it"
+     },
+     {
+      "text": "bringing in",
+      "for": "container",
+      "note": "bringing something in puts it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another",
+      "gives": "BOIL",
+      "note": "boiling is another way to cook"
+     },
+     {
+      "clueFragment": "Ramsay",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of Ramsay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "OIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Chef Gordon Ramsay cooks something by whatever method works.",
+     "walkthrough": "'One way or another' reads as an idiom, but it splits: one way of cooking is the definition, another way of cooking is the word to fill.",
+     "definitionFit": "To broil is to cook by direct radiant heat, grilling in American usage, so it is one cooking method."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +298,49 @@
     "text": "Turncoats messed a general up? Not completely",
     "enumeration": "9"
    },
-   "solution": "RENEGADES"
+   "solution": "RENEGADES",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RENEGADES",
+    "definitions": [
+     {
+      "text": "Turncoats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not completely",
+      "for": "hidden_word",
+      "note": "not completely means only part of the run of words is used, so the letters sit inside them"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the letters are read from the bottom of the column to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "messed a general",
+      "gives": "SEDAGENER",
+      "note": "the run of letters starting inside the first word and ending inside the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Traitors made a mess of a general's plans, though not entirely.",
+     "walkthrough": "'Messed up' looks like the anagram signal, but 'up' reverses a string concealed across the three words.",
+     "definitionFit": "Renegades desert their side for the enemy, just as turncoats do, so the two words are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "messed"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +354,56 @@
     "text": "Horrible bra came undone",
     "enumeration": "7"
    },
-   "solution": "MACABRE"
+   "solution": "MACABRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MACABRE",
+    "definitions": [
+     {
+      "text": "Horrible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undone",
+      "for": "anagram",
+      "note": "something undone has come apart, so its letters can be put back together differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bra",
+      "gives": "BRA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "came",
+      "gives": "CAME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRACAME",
+       "gives": "MACABRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wardrobe malfunction: an underwear fastening came loose, to awful effect.",
+     "definitionFit": "Macabre describes something gruesome and grim, so it is a close synonym for horrible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "undone"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +417,44 @@
     "text": "Power of child picked up by the ears",
     "enumeration": "5"
    },
-   "solution": "MIGHT"
+   "solution": "MIGHT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MIGHT",
+    "definitions": [
+     {
+      "text": "Power",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up by the ears",
+      "for": "homophone",
+      "note": "what the ears pick up is a sound, so the word is chosen for how it is said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "MIGHT",
+      "soundsLike": "MITE",
+      "note": "a mite is a small child"
+     }
+    ],
+    "explanation": {
+     "surface": "A little one is lifted up by its ears, which shows strength.",
+     "definitionFit": "Might means strength or force, a close synonym of power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "child"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +468,47 @@
     "text": "Illness caused by beef?",
     "enumeration": "9"
    },
-   "solution": "COMPLAINT"
+   "solution": "COMPLAINT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COMPLAINT",
+    "definitions": [
+     {
+      "text": "Illness",
+      "at": 0
+     },
+     {
+      "text": "beef",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Illness",
+      "note": "first meaning: an ailment or disorder"
+     },
+     {
+      "clueFragment": "beef",
+      "note": "second meaning, slang: a grievance or grumble"
+     }
+    ],
+    "explanation": {
+     "surface": "A sickness brought on by eating meat.",
+     "walkthrough": "'Beef' looks like food poisoning's cause; it is slang for a grievance.",
+     "definitionFit": "The word means both a medical ailment and a grievance someone voices, which slang calls a beef."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beef"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +522,47 @@
     "text": "Rest that's essential for tightrope walker",
     "enumeration": "7"
    },
-   "solution": "BALANCE"
+   "solution": "BALANCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BALANCE",
+    "definitions": [
+     {
+      "text": "Rest",
+      "at": 0
+     },
+     {
+      "text": "essential for tightrope walker",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rest",
+      "note": "first meaning: the remainder, what is left over"
+     },
+     {
+      "clueFragment": "essential for tightrope walker",
+      "note": "second meaning: steady poise that keeps a performer upright"
+     }
+    ],
+    "explanation": {
+     "surface": "A tightrope walker needs a break to perform well.",
+     "walkthrough": "'Rest' suggests a pause; it means the remaining amount, as in the balance of a bill.",
+     "definitionFit": "The word means both the remainder still owed and the equilibrium a performer on a high wire must keep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rest"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +576,43 @@
     "text": "Fast train, say",
     "enumeration": "7"
    },
-   "solution": "EXPRESS"
+   "solution": "EXPRESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXPRESS",
+    "definitions": [
+     {
+      "text": "Fast train",
+      "at": 0
+     },
+     {
+      "text": "say",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fast train",
+      "note": "first meaning: a train making few stops"
+     },
+     {
+      "clueFragment": "say",
+      "note": "second meaning: to put into words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Say' looks like 'for example' after the train; it is a verb meaning to put into words.",
+     "definitionFit": "The word is both a noun for a quick rail service with few stops and a verb for stating or conveying something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +632,45 @@
      }
     ]
    },
-   "solution": "RUNDOWN"
+   "solution": "RUNDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUN DOWN",
+    "definitions": [
+     {
+      "text": "Hit by a vehicle",
+      "at": 0
+     },
+     {
+      "text": "not cared for",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit by a vehicle",
+      "note": "first meaning: knocked over in the road"
+     },
+     {
+      "clueFragment": "not cared for",
+      "note": "second meaning: neglected and shabby, as a building can be"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone struck by a car and then neglected afterwards.",
+     "definitionFit": "The phrase is both the past participle of the verb for knocking someone over in traffic and an adjective for dilapidated, neglected places."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +684,71 @@
     "text": "Girl's first with simply tailored tunic",
     "enumeration": "7"
    },
-   "solution": "GYMSLIP"
+   "solution": "GYMSLIP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "GYMSLIP",
+    "definitions": [
+     {
+      "text": "tunic",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word means only its opening letter is wanted"
+     },
+     {
+      "text": "tailored",
+      "for": "anagram",
+      "note": "tailored cloth is cut and refashioned, so the letters are rearranged into a new shape"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl's",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of girl"
+     },
+     {
+      "clueFragment": "simply",
+      "gives": "SIMPLY",
+      "note": "taken as written before rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "YMSLIP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SIMPLY",
+       "gives": "YMSLIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's first school uniform, a plain and neatly made tunic.",
+     "walkthrough": "A gymslip is a sleeveless pinafore tunic once worn by British schoolgirls.",
+     "definitionFit": "A gymslip is a type of sleeveless tunic, so the definition names the garment's general kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tailored"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +762,57 @@
     "text": "Hint: gloom transformed by this?",
     "enumeration": "9"
    },
-   "solution": "MOONLIGHT"
+   "solution": "MOONLIGHT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "MOONLIGHT",
+    "definitions": [
+     {
+      "text": "Hint: gloom transformed by this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transformed",
+      "for": "anagram",
+      "note": "something transformed has changed its form, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hint",
+      "gives": "HINT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gloom",
+      "gives": "GLOOM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HINTGLOOM",
+       "gives": "MOONLIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle-setter's hint: what turns darkness into something lovelier?",
+     "walkthrough": "The whole clue is both wordplay and definition: night-time gloom is literally transformed by moonlight, and the letters of the two words rearrange into it.",
+     "definitionFit": "Moonlight brightens the darkness of night, so it is what transforms gloom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Hint"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +826,53 @@
     "text": "Move during sword fight, taking nothing from room",
     "enumeration": "5"
    },
-   "solution": "LUNGE"
+   "solution": "LUNGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LUNGE",
+    "definitions": [
+     {
+      "text": "Move during sword fight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking nothing from",
+      "for": "deletion",
+      "note": "taking something from a word removes it, and nothing here is the round letter for zero"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "the letter O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "room",
+      "gives": "LOUNGE",
+      "note": "a lounge is a sitting room"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "UNGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fencing lesson: a swordsman lunges across the room.",
+     "definitionFit": "A lunge is the sudden forward thrust a fencer makes, a standard attacking move in swordplay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +886,47 @@
     "text": "Tree providing shade",
     "enumeration": "5"
    },
-   "solution": "LILAC"
+   "solution": "LILAC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LILAC",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     },
+     {
+      "text": "shade",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tree",
+      "note": "first meaning: a flowering shrub or small tree"
+     },
+     {
+      "clueFragment": "shade",
+      "note": "second meaning: a pale purple colour"
+     }
+    ],
+    "explanation": {
+     "surface": "A tree whose branches offer shelter from the sun.",
+     "walkthrough": "'Shade' suggests shelter under branches; it is a colour.",
+     "definitionFit": "The word names both a flowering plant with scented purple blooms and the pale violet colour of those blossoms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +940,59 @@
     "text": "Conservative leader, safe but unattractive",
     "enumeration": "9"
    },
-   "solution": "CHARMLESS"
+   "solution": "CHARMLESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHARMLESS",
+    "definitions": [
+     {
+      "text": "unattractive",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes at the front, so only the first letter is taken"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of Conservative"
+     },
+     {
+      "clueFragment": "safe",
+      "gives": "HARMLESS",
+      "note": "something harmless is safe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HARMLESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory party leader is a reliable pair of hands but lacks appeal.",
+     "walkthrough": "'Conservative leader' suggests a party chief; it simply means the first letter.",
+     "definitionFit": "Something charmless lacks charm or appeal, which is what unattractive means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1006,46 @@
     "text": "Capital people name ships",
     "enumeration": "9"
    },
-   "solution": "DUBLINERS"
+   "solution": "DUBLINERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUBLINERS",
+    "definitions": [
+     {
+      "text": "Capital people",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "DUB",
+      "note": "to dub is to give a name to"
+     },
+     {
+      "clueFragment": "ships",
+      "gives": "LINERS",
+      "note": "liners are large passenger ships"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUB",
+      "LINERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Residents of a capital city choose names for vessels.",
+     "definitionFit": "Dubliners are the inhabitants of Dublin, the capital city of Ireland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "name"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1059,63 @@
     "text": "Originally bison and bear feature in park",
     "enumeration": "9"
    },
-   "solution": "BANDSTAND"
+   "solution": "BANDSTAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BANDSTAND",
+    "definitions": [
+     {
+      "text": "feature in park",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Originally",
+      "for": "letter_selection",
+      "note": "originally refers to what comes at the very start, so the first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bison",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of bison"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bear",
+      "gives": "STAND",
+      "note": "to bear something is to stand it, to tolerate it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AND",
+      "STAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A bison and a bear are the attractions in a wildlife park.",
+     "walkthrough": "'Bear' looks like the animal beside the bison; it is the verb meaning tolerate.",
+     "definitionFit": "A bandstand is a covered outdoor platform for musicians, a familiar structure in British public parks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1135,57 @@
      }
     ]
    },
-   "solution": "MORTALSIN"
+   "solution": "MORTALSIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "MORTAL SIN",
+    "definitions": [
+     {
+      "text": "Going wrong isn't moral!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Going wrong",
+      "for": "anagram",
+      "note": "letters going wrong go astray from their order, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "isn't",
+      "gives": "ISNT",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "moral",
+      "gives": "MORAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISNTMORAL",
+       "gives": "MORTALSIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stern moral verdict: straying from the right path is wicked.",
+     "walkthrough": "The whole clue is the definition as well as the wordplay: a grave wrong is literally not moral, and the letters of the last two words rearrange into the answer.",
+     "definitionFit": "In Catholic teaching a mortal sin is the gravest kind of wrongdoing, the most immoral deed of all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Going"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1199,54 @@
     "text": "People not satisfied with Ransome novel",
     "enumeration": "7"
    },
-   "solution": "MOANERS"
+   "solution": "MOANERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MOANERS",
+    "definitions": [
+     {
+      "text": "People not satisfied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new and different, so the letters take a fresh order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ransome",
+      "gives": "RANSOME",
+      "note": "taken as written, the surname of the author"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RANSOME",
+       "gives": "MOANERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Readers disappointed by a book by Arthur Ransome, author of Swallows and Amazons.",
+     "walkthrough": "'Novel' looks like the book; it is the signal to rearrange.",
+     "definitionFit": "Moaners are people who grumble and complain, which is what dissatisfied people do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1260,43 @@
     "text": "Book a possible substitute",
     "enumeration": "7"
    },
-   "solution": "RESERVE"
+   "solution": "RESERVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESERVE",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     },
+     {
+      "text": "a possible substitute",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "note": "first meaning: to arrange in advance, as a table or seat"
+     },
+     {
+      "clueFragment": "a possible substitute",
+      "note": "second meaning: a player on standby"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Book' looks like a noun; it is the verb for making a booking.",
+     "definitionFit": "As a verb the word means to book in advance; as a noun it is a player kept back who might come on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1310,51 @@
     "text": "Container, as required by music producers",
     "enumeration": "5"
    },
-   "solution": "TUBAS"
+   "solution": "TUBAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUBAS",
+    "definitions": [
+     {
+      "text": "music producers",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "required by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Container",
+      "gives": "TUB",
+      "note": "a tub is a container"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUB",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "A record label needs a storage box for its producers' gear.",
+     "walkthrough": "'Music producers' suggests people in a studio; here they are instruments that produce music.",
+     "definitionFit": "Tubas are large brass instruments, and any instrument is something that produces music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "producers"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1368,58 @@
     "text": "Puzzled when Australian birds appear in part of garden",
     "enumeration": "7"
    },
-   "solution": "BEMUSED"
+   "solution": "BEMUSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEMUSED",
+    "definitions": [
+     {
+      "text": "Puzzled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appear in",
+      "for": "container",
+      "note": "things that appear in a place are within it, so one word is placed inside another"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of garden",
+      "gives": "BED",
+      "note": "a flower bed is part of a garden"
+     },
+     {
+      "clueFragment": "Australian birds",
+      "gives": "EMUS",
+      "note": "emus are large flightless Australian birds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EMUS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is baffled to find emus wandering about among the flowers.",
+     "definitionFit": "Bemused means bewildered or confused, so it is a synonym for puzzled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1433,65 @@
     "text": "American turning up with dirty bear",
     "enumeration": "7"
    },
-   "solution": "SUSTAIN"
+   "solution": "SUSTAIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SUSTAIN",
+    "definitions": [
+     {
+      "text": "bear",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up flips the word so it is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American"
+     },
+     {
+      "clueFragment": "dirty",
+      "gives": "STAIN",
+      "note": "to stain is to dirty, used as a verb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "STAIN"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American arrives clutching a grubby teddy.",
+     "walkthrough": "'Dirty bear' reads as a grubby toy; 'bear' is the definition, a verb, and 'dirty' a verb too.",
+     "definitionFit": "To sustain something is to bear its weight or endure it, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1505,64 @@
     "text": "Tea brought back from service area",
     "enumeration": "5"
    },
-   "solution": "ASSAM"
+   "solution": "ASSAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ASSAM",
+    "definitions": [
+     {
+      "text": "Tea",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "something brought back returns the way it came, so the letters are read from the end"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "service",
+      "gives": "MASS",
+      "note": "Mass is a church service"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SSAM"
+     ],
+     "reversals": [
+      {
+       "from": "MASSA",
+       "to": "ASSAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tea fetched from a motorway service station.",
+     "walkthrough": "'Service area' reads as a motorway stop, but the two words are clued separately.",
+     "definitionFit": "Assam is a strong black tea from the Indian state of the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1582,66 @@
      }
     ]
    },
-   "solution": "LASPALMAS"
+   "solution": "LASPALMAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LAS PALMAS",
+    "definitions": [
+     {
+      "text": "holiday location",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rings",
+      "for": "container",
+      "note": "a ring encircles what it rings, so one word surrounds the others"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "mum",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "Girl",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAS",
+      "PAL",
+      "MA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl phones a friend and her mother while away on holiday.",
+     "walkthrough": "'Rings' suggests telephoning; it means surrounding.",
+     "definitionFit": "Las Palmas, on Gran Canaria in the Canary Islands, is a popular holiday resort city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1655,47 @@
     "text": "What was heard in Rome and a quarter of Paris",
     "enumeration": "5"
    },
-   "solution": "LATIN"
+   "solution": "LATIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LATIN",
+    "definitions": [
+     {
+      "text": "What was heard in Rome",
+      "at": 0
+     },
+     {
+      "text": "a quarter of Paris",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What was heard in Rome",
+      "note": "first meaning: the tongue spoken in ancient Rome"
+     },
+     {
+      "clueFragment": "a quarter of Paris",
+      "note": "second meaning: the Left Bank student district, named in full with Quarter"
+     }
+    ],
+    "explanation": {
+     "surface": "Something overheard on a trip to two European capitals.",
+     "walkthrough": "'A quarter of Paris' looks like a fraction of the word Paris; it is the district called the Latin Quarter.",
+     "definitionFit": "The word names the language of the ancient Romans and, in the Latin Quarter, a famous district of Paris."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1709,43 @@
     "text": "Musical heroine joining Laurie in a song",
     "enumeration": "5"
    },
-   "solution": "ANNIE"
+   "solution": "ANNIE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANNIE",
+    "definitions": [
+     {
+      "text": "Musical heroine",
+      "at": 0
+     },
+     {
+      "text": "joining Laurie in a song",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musical heroine",
+      "note": "first meaning: the orphan girl who is the lead of a Broadway show"
+     },
+     {
+      "clueFragment": "joining Laurie in a song",
+      "note": "second meaning: the name that comes before Laurie in a Scottish ballad title"
+     }
+    ],
+    "explanation": {
+     "surface": "A stage heroine teams up with someone called Laurie for a duet.",
+     "walkthrough": "'Annie Laurie' is a traditional Scottish love song; 'Annie' is also the title character of the musical about Little Orphan Annie.",
+     "definitionFit": "The name belongs both to the orphan who leads the musical and to the woman in the old Scottish song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "joining"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1759,46 @@
     "text": "Serious listener with cosy home",
     "enumeration": "7"
    },
-   "solution": "EARNEST"
+   "solution": "EARNEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARNEST",
+    "definitions": [
+     {
+      "text": "Serious",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "listener",
+      "gives": "EAR",
+      "note": "the ear is the organ that listens"
+     },
+     {
+      "clueFragment": "cosy home",
+      "gives": "NEST",
+      "note": "a nest is a snug, cosy home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "NEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A grave listener who enjoys a snug house.",
+     "definitionFit": "Earnest means sincere and solemn in intention, a near synonym for serious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "listener"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1812,60 @@
     "text": "Inability to remember a name is peculiar",
     "enumeration": "7"
    },
-   "solution": "AMNESIA"
+   "solution": "AMNESIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMNESIA",
+    "definitions": [
+     {
+      "text": "Inability to remember",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "peculiar",
+      "for": "anagram",
+      "note": "peculiar means odd or strange, so these letters are arranged strangely"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "NAME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANAMEIS",
+       "gives": "AMNESIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remarks that forgetting a person's name is odd.",
+     "definitionFit": "Amnesia is a medical loss of memory, the condition of being unable to recall things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peculiar"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +1879,54 @@
     "text": "Stephenson dismisses female family member",
     "enumeration": "7"
    },
-   "solution": "STEPSON"
+   "solution": "STEPSON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STEPSON",
+    "definitions": [
+     {
+      "text": "family member",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismisses",
+      "for": "deletion",
+      "note": "to dismiss someone is to send them away, so those letters leave the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stephenson",
+      "gives": "STEPHENSON",
+      "note": "taken as written, the surname"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "HEN",
+      "note": "a hen is a female bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEP",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Stephenson sacks a woman relative.",
+     "walkthrough": "'Female family member' looks like one phrase, but 'female' belongs to the wordplay.",
+     "definitionFit": "A stepson is the son of one's spouse from an earlier relationship, a relative by marriage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "female"
+    }
+   }
   },
   {
    "number": 28,
@@ -491,7 +1940,64 @@
     "text": "Doctor needs fluid for German city",
     "enumeration": "7"
    },
-   "solution": "DRESDEN"
+   "solution": "DRESDEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DRESDEN",
+    "definitions": [
+     {
+      "text": "German city",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fluid",
+      "for": "anagram",
+      "note": "something fluid flows and changes shape, so the letters are free to shift"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "needs",
+      "gives": "NEEDS",
+      "note": "taken as written before rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "ESDEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEEDS",
+       "gives": "ESDEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medic needs liquid supplies sent to a German city.",
+     "walkthrough": "'Fluid' looks like the thing the doctor needs; it is the signal to rearrange.",
+     "definitionFit": "Dresden is the capital of Saxony in eastern Germany."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fluid"
+    }
+   }
   }
  ]
 }
