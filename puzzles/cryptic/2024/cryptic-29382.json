@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,59 @@
      }
     ]
    },
-   "solution": "TALLSHIP"
+   "solution": "TALLSHIP",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TALL SHIP",
+    "definitions": [
+     {
+      "text": "Craft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making",
+      "for": "substitution",
+      "note": "making one word into another means one part of the phrase is swapped out for the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lie",
+      "gives": "TALLSTORY",
+      "note": "a tall story is an exaggerated, unbelievable tale"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "TORY",
+      "note": "the word itself, the part of the phrase to be swapped out"
+     },
+     {
+      "clueFragment": "cool",
+      "gives": "HIP",
+      "note": "hip means fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TALLS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician fibbing that the Conservatives have become fashionable.",
+     "walkthrough": "TALL STORY has its TORY replaced by HIP, leaving TALL SHIP.",
+     "definitionFit": "A tall ship is a large traditionally rigged sailing vessel, and a vessel is a craft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Craft"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +108,47 @@
     "text": "Nice parent's bit of bedtime reading",
     "enumeration": "4"
    },
-   "solution": "MERE"
+   "solution": "MERE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MERE",
+    "definitions": [
+     {
+      "text": "Nice parent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "hidden_word",
+      "note": "a bit of a phrase is a run of letters lying inside it, here across the word boundary"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bedtime reading",
+      "gives": "MERE",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A mother in Nice reads her child a story at bedtime.",
+     "walkthrough": "Nice is the city on the French Riviera, so a parent there speaks French: the capital N disguises that.",
+     "definitionFit": "Mère is the French word for mother, the parent a child in Nice would address."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +162,58 @@
     "text": "Refusal of nurse to wear ring",
     "enumeration": "6"
    },
-   "solution": "DENIAL"
+   "solution": "DENIAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DENIAL",
+    "definitions": [
+     {
+      "text": "Refusal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to wear",
+      "for": "container",
+      "note": "a nurse wearing a ring has it around her, so the ring encloses the nurse"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ring",
+      "gives": "DIAL",
+      "note": "to ring is to dial a phone number"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "EN",
+      "note": "EN is an Enrolled Nurse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EN",
+      "IAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse turns down the chance to wear a ring, perhaps an engagement ring.",
+     "walkthrough": "Ring is a verb here, telephone, not jewellery.",
+     "definitionFit": "A denial is a refusal to grant or accept something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +227,58 @@
     "text": "I'm upset with racist getting weapon",
     "enumeration": "8"
    },
-   "solution": "SCIMITAR"
+   "solution": "SCIMITAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCIMITAR",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "racist",
+      "gives": "RACIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMRACIST",
+       "gives": "SCIMITAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone distressed at a bigot arming himself.",
+     "definitionFit": "A scimitar is a curved sword, a weapon of the Middle East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +298,50 @@
      }
     ]
    },
-   "solution": "MEDIUMWAVE"
+   "solution": "MEDIUMWAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEDIUM-WAVE",
+    "definitions": [
+     {
+      "text": "Type of radio",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "produced by",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "psychic",
+      "gives": "MEDIUM",
+      "note": "a medium claims to contact spirits"
+     },
+     {
+      "clueFragment": "sway",
+      "gives": "WAVE",
+      "note": "to wave is to sway to and fro"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEDIUM",
+      "WAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A clairvoyant swaying while tuning in a radio broadcast.",
+     "definitionFit": "Medium wave is the AM broadcasting band, so it names a kind of radio transmission."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "psychic"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +355,61 @@
     "text": "Calling about register – ignoring main point",
     "enumeration": "6"
    },
-   "solution": "CAREER"
+   "solution": "CAREER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CAREER",
+    "definitions": [
+     {
+      "text": "Calling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring something means leaving it out, so a chunk of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "CA is circa, Latin for about"
+     },
+     {
+      "clueFragment": "register",
+      "gives": "REGISTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "main point",
+      "gives": "GIST",
+      "note": "the gist is the main point; these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "RE",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone phoning about a register and missing the essential point.",
+     "walkthrough": "Calling is a noun, a vocation, not a phone call; REGISTER minus GIST leaves RE ER.",
+     "definitionFit": "A calling is a person's vocation or profession, the same as their career."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Calling"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +429,49 @@
      }
     ]
    },
-   "solution": "SAFESEAT"
+   "solution": "SAFESEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAFE SEAT",
+    "definitions": [
+     {
+      "text": "those who have one are certain to stay in the house",
+      "at": 21,
+      "note": "a descriptive definition: what holding one guarantees"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boring",
+      "gives": "SAFE",
+      "note": "safe means unadventurous"
+     },
+     {
+      "clueFragment": "type of car",
+      "gives": "SEAT",
+      "note": "SEAT is a Spanish car maker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAFE",
+      "SEAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull motor, then a remark about people who never leave home.",
+     "walkthrough": "The house is the House of Commons: an MP with a safe seat is sure of re-election.",
+     "definitionFit": "A safe seat is a constituency where one party's majority is so large its MP is virtually guaranteed to keep their place in Parliament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +491,62 @@
      }
     ]
    },
-   "solution": "TOOKON"
+   "solution": "TOOKON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOOK ON",
+    "definitions": [
+     {
+      "text": "Employed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, under means placed below, so one piece follows the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also",
+      "gives": "TOO",
+      "note": "too means also"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is king in chess notation"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOO",
+      "K",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hired and also labouring for a monarch.",
+     "definitionFit": "To take on staff is to hire them, so took on means employed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +560,88 @@
     "text": "Emperor penguins are rarely especially active taking just seconds at sea",
     "enumeration": "6"
    },
-   "solution": "CAESAR"
+   "solution": "CAESAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CAESAR",
+    "definitions": [
+     {
+      "text": "Emperor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "just seconds",
+      "for": "letter_selection",
+      "note": "only the second letter of each word is kept and the rest thrown away"
+     },
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused, so the kept letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "penguins",
+      "gives": "E",
+      "select": 2,
+      "note": "second letter"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "R",
+      "select": 2,
+      "note": "second letter"
+     },
+     {
+      "clueFragment": "rarely",
+      "gives": "A",
+      "select": 2,
+      "note": "second letter"
+     },
+     {
+      "clueFragment": "especially",
+      "gives": "S",
+      "select": 2,
+      "note": "second letter"
+     },
+     {
+      "clueFragment": "active",
+      "gives": "C",
+      "select": 2,
+      "note": "second letter"
+     },
+     {
+      "clueFragment": "taking",
+      "gives": "A",
+      "select": 2,
+      "note": "second letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ERASCA",
+       "gives": "CAESAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nature-documentary line: emperor penguins are seldom lively in the sea.",
+     "walkthrough": "'Emperor penguins' reads as one species, but Emperor alone is the definition; 'taking' looks like a link but supplies a letter too.",
+     "definitionFit": "Caesar became the title of Roman rulers, so a Caesar is an emperor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Emperor"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +655,48 @@
     "text": "Adult whistled in audition",
     "enumeration": "4"
    },
-   "solution": "BLUE"
+   "solution": "BLUE",
+   "annotation": {
+    "type": [
+     "double_definition",
+     "homophone"
+    ],
+    "answer": "BLUE",
+    "definitions": [
+     {
+      "text": "Adult",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in audition",
+      "for": "homophone",
+      "note": "an audition is a hearing, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adult",
+      "note": "first meaning: ... as in X-rated, risqué"
+     },
+     {
+      "clueFragment": "whistled",
+      "gives": "BLUE",
+      "soundsLike": "BLEW",
+      "note": "blew is the past tense of blow, as with a whistle"
+     }
+    ],
+    "explanation": {
+     "surface": "A grown-up auditioning for a part by whistling.",
+     "definitionFit": "Blue describes smutty, adult content, as in a blue film or blue jokes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "audition"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +722,71 @@
      }
     ]
    },
-   "solution": "IRONMAIDEN"
+   "solution": "IRONMAIDEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IRON MAIDEN",
+    "definitions": [
+     {
+      "text": "Rock band",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cover of",
+      "for": "letter_selection",
+      "note": "a cover wraps the outside, so only the outermost letters of the name are kept"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smooth",
+      "gives": "IRON",
+      "note": "to iron is to smooth out creases"
+     },
+     {
+      "clueFragment": "Madonna",
+      "gives": "MA",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "Sanctuary",
+      "gives": "DEN",
+      "note": "a den is a private retreat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRON",
+      "MA",
+      "I",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A band recording a cover version of a Madonna single called Sanctuary.",
+     "walkthrough": "'cover' and 'single' read as music-business terms; here they pick outer letters and the numeral one.",
+     "definitionFit": "Iron Maiden is the British heavy-metal group, and heavy metal is a genre of rock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +800,60 @@
     "text": "Place of worship is replacing a power tool",
     "enumeration": "6"
    },
-   "solution": "CHISEL"
+   "solution": "CHISEL",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CHISEL",
+    "definitions": [
+     {
+      "text": "tool",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacing",
+      "for": "substitution",
+      "note": "replacing means one thing is taken out and another put in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place of worship",
+      "gives": "CHAPEL",
+      "note": "a chapel is a small church"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written; this goes in"
+     },
+     {
+      "clueFragment": "a power",
+      "gives": "AP",
+      "note": "A as written plus P for power; these come out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "IS",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A church being swapped out for a power tool.",
+     "walkthrough": "'power tool' looks like one phrase, but power is P for the wordplay and only 'tool' defines.",
+     "definitionFit": "A chisel is a bladed hand tool for cutting wood or stone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +873,63 @@
      }
     ]
    },
-   "solution": "SIAMESECAT"
+   "solution": "SIAMESECAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIAMESE CAT",
+    "definitions": [
+     {
+      "text": "Feline",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naughty",
+      "for": "anagram",
+      "note": "something naughty misbehaves and will not stay in order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "eats",
+      "gives": "EATS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mice",
+      "gives": "MICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASEATSMICE",
+       "gives": "SIAMESECAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat is being bad: it eats mice.",
+     "definitionFit": "A Siamese cat is a breed of domestic cat, so it is a feline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "naughty"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +943,47 @@
     "text": "Best ways to leave market",
     "enumeration": "8"
    },
-   "solution": "OUTSMART"
+   "solution": "OUTSMART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTSMART",
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ways to leave",
+      "gives": "OUTS",
+      "note": "outs are exits or means of escape"
+     },
+     {
+      "clueFragment": "market",
+      "gives": "MART",
+      "note": "a mart is a market"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUTS",
+      "MART"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on the best exits from a market.",
+     "walkthrough": "'Best' is a verb, to beat someone, not the superlative adjective.",
+     "definitionFit": "To best someone is to get the better of them, which is to outwit them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Best"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +997,64 @@
     "text": "Case of proper ladies men regularly getting compliment",
     "enumeration": "6"
    },
-   "solution": "PRAISE"
+   "solution": "PRAISE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRAISE",
+    "definitions": [
+     {
+      "text": "compliment",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Case of",
+      "for": "letter_selection",
+      "note": "a case is the outside, so only the outer letters of the word are kept"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "proper",
+      "gives": "PR",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "ladies men",
+      "gives": "AISE",
+      "select": "alternate",
+      "note": "every second letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "AISE"
+     ]
+    },
+    "explanation": {
+     "surface": "Properly behaved ladies' men getting flattered.",
+     "definitionFit": "To praise someone is to pay them a compliment, both verbs of admiring speech."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Case"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1068,85 @@
     "text": "Marks and Spencer's opening times assuming it's glossy magazine's accurate for starters – ace",
     "enumeration": "8"
    },
-   "solution": "STIGMATA"
+   "solution": "STIGMATA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "STIGMATA",
+    "definitions": [
+     {
+      "text": "Marks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a name is its first letter"
+     },
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters are first courses, so only the first letter of each word counts"
+     },
+     {
+      "text": "assuming",
+      "for": "container",
+      "note": "to assume is to take on, so the outer letters take the others inside them"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spencer's",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "times",
+      "gives": "TT",
+      "note": "T for time, twice over for the plural"
+     },
+     {
+      "clueFragment": "it's glossy magazine's accurate",
+      "gives": "IGMA",
+      "select": "first",
+      "note": "first letters"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is ace in cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "IGMA",
+      "T",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopping piece: a glossy magazine notes Marks and Spencer's opening hours, and calls them ace.",
+     "walkthrough": "'Marks and Spencer' is the British department store; here Marks alone is the definition and 'and' is a link. TT holds IGMA.",
+     "definitionFit": "Stigmata are marks on the body resembling Christ's wounds; the word is the plural of stigma, a mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Marks"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1160,57 @@
     "text": "Means to honour dead from the war somehow",
     "enumeration": "6"
    },
-   "solution": "WREATH"
+   "solution": "WREATH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WREATH",
+    "definitions": [
+     {
+      "text": "Means to honour dead",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means in some unspecified way, so the letters are arranged afresh"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "war",
+      "gives": "WAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEWAR",
+       "gives": "WREATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How the war dead are to be remembered.",
+     "definitionFit": "A wreath of flowers or poppies is laid at memorials and funerals as a tribute to those who have died."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1230,67 @@
      }
     ]
    },
-   "solution": "HALFMOON"
+   "solution": "HALFMOON",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HALF-MOON",
+    "definitions": [
+     {
+      "text": "like Dumbledore's glasses?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, on means placed above, so the pieces run in order"
+     },
+     {
+      "text": "tip of",
+      "for": "letter_selection",
+      "note": "the tip is the very end, here the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fraction",
+      "gives": "HALF",
+      "note": "a half is a fraction"
+     },
+     {
+      "clueFragment": "low",
+      "gives": "MOO",
+      "note": "to low is to moo, as cattle do"
+     },
+     {
+      "clueFragment": "nose",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HALF",
+      "MOO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Dumbledore's spectacles perched low on the tip of his nose.",
+     "walkthrough": "'low' is a verb, the sound of cattle. The question mark flags a definition by example.",
+     "definitionFit": "Dumbledore in Harry Potter wears half-moon spectacles, reading glasses with lenses shaped like a half disc."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1304,65 @@
     "text": "Game and ultimately Margaret Thatcher maybe losing lead",
     "enumeration": "6"
    },
-   "solution": "TENNIS"
+   "solution": "TENNIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "TENNIS",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the last letter is taken"
+     },
+     {
+      "text": "losing lead",
+      "for": "deletion",
+      "note": "losing its lead means its front letter drops away"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Margaret",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter"
+     },
+     {
+      "clueFragment": "Thatcher maybe",
+      "gives": "DENNIS",
+      "note": "the setter takes Margaret Thatcher's husband, whose name is usually spelt Denis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ENNIS"
+     ]
+    },
+    "explanation": {
+     "surface": "Margaret Thatcher perhaps no longer leading the game.",
+     "walkthrough": "'Margaret Thatcher' reads as one name, but it splits: Margaret gives a letter and Thatcher maybe is any Thatcher, her husband. He spelt his name Denis, with one N, so the wordplay leans on the commoner spelling.",
+     "definitionFit": "Tennis is a racket sport, a game played on a court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Margaret"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1376,53 @@
     "text": "Express understands seedy nightspot's sudden decline",
     "enumeration": "8"
    },
-   "solution": "NOSEDIVE"
+   "solution": "NOSEDIVE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "NOSEDIVE",
+    "definitions": [
+     {
+      "text": "sudden decline",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Express",
+      "for": "homophone",
+      "note": "to express a word is to say it, so it counts by its sound"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "understands",
+      "gives": "NOSE",
+      "soundsLike": "KNOWS",
+      "note": "knows means understands"
+     },
+     {
+      "clueFragment": "seedy nightspot",
+      "gives": "DIVE",
+      "note": "a dive is a disreputable bar or club"
+     }
+    ],
+    "explanation": {
+     "surface": "A newspaper report that a sleazy club's fortunes have collapsed.",
+     "walkthrough": "'Express' looks like the newspaper title; it signals speaking aloud.",
+     "definitionFit": "A nosedive is a steep plunge, used figuratively for a sharp fall in fortune."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Express"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1436,80 @@
     "text": "Retiring at 18 occasionally fears breaking mob rule?",
     "enumeration": "6"
    },
-   "solution": "OMERTA"
+   "solution": "OMERTA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OMERTA",
+    "definitions": [
+     {
+      "text": "mob rule?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retiring",
+      "for": "reversal",
+      "note": "retiring means drawing back, so these letters run backwards"
+     },
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "now and then, so every other letter is kept"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "18",
+      "gives": "MO",
+      "note": "18 is HALF-MOON; half of moon is its first two letters"
+     },
+     {
+      "clueFragment": "fears",
+      "gives": "ER",
+      "select": "alternate",
+      "note": "every second letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OM",
+      "ER",
+      "TA"
+     ],
+     "reversals": [
+      {
+       "from": "ATMO",
+       "to": "OMTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cryptic hint at an underworld code of silence, gangsters' fears breaking out.",
+     "walkthrough": "The cross-reference is to the answer at 18 down, HALF-MOON, read literally as half of moon.",
+     "definitionFit": "Omertà is the Mafia's code of silence, a rule the mob imposes on its members."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Retiring"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1523,61 @@
     "text": "Lives happily in the middle of Pudsey",
     "enumeration": "6"
    },
-   "solution": "DWELLS"
+   "solution": "DWELLS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DWELLS",
+    "definitions": [
+     {
+      "text": "Lives",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letters, here the two at its heart"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so it is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pudsey",
+      "gives": "DS",
+      "select": "middle",
+      "note": "the central two letters"
+     },
+     {
+      "clueFragment": "happily",
+      "gives": "WELL",
+      "note": "well means in a good or happy way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WELL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who lives contentedly in Pudsey, a town near Leeds.",
+     "definitionFit": "To dwell somewhere is to reside there, so dwells means lives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lives"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1591,65 @@
     "text": "Mock German article English papers mis-ordered",
     "enumeration": "6"
    },
-   "solution": "DERIDE"
+   "solution": "DERIDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DERIDE",
+    "definitions": [
+     {
+      "text": "Mock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mis-ordered",
+      "for": "anagram",
+      "note": "put in the wrong order, so these letters are shuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German article",
+      "gives": "DER",
+      "note": "der is the German for the"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E abbreviates English"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "ID papers are identification documents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DER",
+      "IDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EID",
+       "gives": "IDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ridiculing a German newspaper article whose English pages were bound in the wrong order.",
+     "definitionFit": "To deride someone is to mock or ridicule them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1663,65 @@
     "text": "Discourage explosive reaction initially following clincher",
     "enumeration": "10"
    },
-   "solution": "DETERMINER"
+   "solution": "DETERMINER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DETERMINER",
+    "definitions": [
+     {
+      "text": "clincher",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so just the first letter is used"
+     }
+    ],
+    "linkWords": [
+     "following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Discourage",
+      "gives": "DETER",
+      "note": "to deter is to discourage"
+     },
+     {
+      "clueFragment": "explosive",
+      "gives": "MINE",
+      "note": "a mine is an explosive device"
+     },
+     {
+      "clueFragment": "reaction",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETER",
+      "MINE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Warning that a settling blow could provoke an explosive response.",
+     "walkthrough": "'following' joins wordplay to the definition at the end, which is 'clincher'.",
+     "definitionFit": "A determiner is something that decides an outcome, just as a clincher is the fact that settles an argument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "explosive"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1735,70 @@
     "text": "Young animal's mother back inside pound",
     "enumeration": "4"
    },
-   "solution": "LAMB"
+   "solution": "LAMB",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LAMB",
+    "definitions": [
+     {
+      "text": "Young animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means running the other way, right to left"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means enclosed within the other piece"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pound",
+      "gives": "LB",
+      "note": "lb is the abbreviation for a pound in weight"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AM",
+      "B"
+     ],
+     "reversals": [
+      {
+       "from": "MA",
+       "to": "AM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ewe returning to her offspring kept in a pound, an enclosure for animals.",
+     "walkthrough": "'pound' suggests an animal enclosure, which suits the farmyard scene, but it is the weight abbreviation.",
+     "definitionFit": "A lamb is a young sheep, so it is a young animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1812,53 @@
     "text": "Departed and the others returned",
     "enumeration": "4"
    },
-   "solution": "LATE"
+   "solution": "LATE",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LATE",
+    "definitions": [
+     {
+      "text": "Departed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back the way it came, so the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and the others",
+      "gives": "ETAL",
+      "note": "et al. is Latin for and others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATE"
+     ],
+     "reversals": [
+      {
+       "from": "ETAL",
+       "to": "LATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone left, and the rest came back.",
+     "definitionFit": "The late So-and-so is someone who has died; departed is a euphemism for dead, as late is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Departed"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1872,58 @@
     "text": "Street artist's with it and sound",
     "enumeration": "6"
    },
-   "solution": "STRAIT"
+   "solution": "STRAIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRAIT",
+    "definitions": [
+     {
+      "text": "sound",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Street",
+      "gives": "ST",
+      "note": "St is the abbreviation for Street"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RA",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A street artist who is fashionable, with it, and sane.",
+     "walkthrough": "'sound' is a noun here, a stretch of water such as Long Island Sound, not an adjective meaning healthy.",
+     "definitionFit": "A sound is a narrow channel of sea between two landmasses, which is what a strait is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1937,50 @@
     "text": "Small issue causing insubordination",
     "enumeration": "8"
    },
-   "solution": "SEDITION"
+   "solution": "SEDITION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEDITION",
+    "definitions": [
+     {
+      "text": "insubordination",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is small, as on clothing labels"
+     },
+     {
+      "clueFragment": "issue",
+      "gives": "EDITION",
+      "note": "an issue of a magazine is an edition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EDITION"
+     ]
+    },
+    "explanation": {
+     "surface": "A minor problem leading to disobedience.",
+     "walkthrough": "'issue' reads as a problem, but it is a print run of a publication.",
+     "definitionFit": "Sedition is conduct inciting rebellion against authority, a form of insubordination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   }
  ]
 }
