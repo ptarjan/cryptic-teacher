@@ -803,11 +803,10 @@ def prunable(dirs, cmdlines, keep, now, days=PRUNE_DAYS):
 
 
 def _powershell(host, script, timeout=900):
-    """`script`'s stdout run by powershell on `host` (-EncodedCommand: no quoting)."""
-    import base64
-    enc = base64.b64encode(script.encode("utf-16-le")).decode()
-    res = subprocess.run([*SSH, host, f"powershell -NoProfile -NonInteractive -EncodedCommand {enc}"],
-                         capture_output=True, timeout=timeout, check=False)
+    """`script`'s stdout run by powershell on `host`, the script sent on stdin
+    (no quoting, and a command line is limited to 8191 characters)."""
+    res = subprocess.run([*SSH, host, "powershell -NoProfile -NonInteractive -Command -"],
+                         input=script.encode(), capture_output=True, timeout=timeout, check=False)
     if res.returncode:
         raise Unavailable(f"powershell failed ({res.returncode}): {res.stderr.decode(errors='replace')[-300:]}")
     return res.stdout.decode(errors="replace")
