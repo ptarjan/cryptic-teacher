@@ -67,6 +67,10 @@
    "minLength": 1,
    "description": "The paper's note above the clues: a themed puzzle's instructions, or an erratum."
   },
+  "awaitsPreamble": {
+   "description": "The puzzle cannot be explained without the preamble the paper printed, which we do not hold: an annotation run left answers to it (definedByPreamble) and failed on nothing else (tools/await_preamble.py). No annotator is sent it (puzzle_integrity.awaits_preamble). Never beside `preamble`: write_puzzle_file drops it once one is filed.",
+   "const": true
+  },
   "messages": {
    "description": "The phrase a hidden-letter device spells, one item per phrase the preamble describes (two when the across and down clues each spell one). Each item's letters are the `hiddenLetter`s of the annotated entries it reads, in its `order`; spaces, hyphens and punctuation in `text` are not letters (tools/hidden_messages.py). Absent when the puzzle has no such device.",
    "type": "array",

@@ -996,6 +996,12 @@ def write_puzzle_file(path, puzzle, generator=None):
     # its clue, whoever wrote the file: tools/boilerplate.py, tools/errata.py.
     boilerplate.apply(puzzle)
     errata.apply(puzzle)
+    # A puzzle awaiting its preamble awaits it until one is filed, whatever
+    # writer rewrites it; then it is annotated again.
+    if puzzle.get("preamble"):
+        puzzle.pop("awaitsPreamble", None)
+    elif old is not None and old.get("awaitsPreamble") is True:
+        puzzle["awaitsPreamble"] = True
     if path.resolve().is_relative_to((ROOT / "puzzles").resolve()):
         puzzle = corroborate.corroborate(puzzle)
     # Whatever changed a clue's text (the writer's re-read, an erratum, the
@@ -2716,9 +2722,8 @@ def index_row(path):
         # only". Per puzzle, because nothing ties a series to one blog.
         **({"blog": blog} if blog else {}),
         "hasSolutions": all(e.get("solution") for e in p["entries"]),
-        # Written only where a clue says "see preamble" and the puzzle has no
-        # preamble (puzzle_integrity.awaits_preamble): the annotation pickers
-        # leave it out.
+        # Written only where the puzzle needs a preamble it does not hold
+        # (puzzle_integrity.awaits_preamble): the annotation pickers leave it out.
         **({"awaitsPreamble": True} if puzzle_integrity.awaits_preamble(p) else {}),
         # Clue coverage, written ONLY where some clue is unreadable: absent
         # means every entry carries a clue, which is nearly every puzzle. The

@@ -1139,12 +1139,15 @@ def special_without_preamble(puzzle):
 
 def awaits_preamble(puzzle):
     """Whether the puzzle needs a preamble it does not hold: a clue says
-    "see preamble", or it is a special filed without one. Such a puzzle stays
+    "see preamble", it is a special filed without one, or an annotation run
+    found answers only the preamble defines (`awaitsPreamble`, written by
+    tools/await_preamble.py). Such a puzzle stays
     in the corpus (its clues are all it must have) but no annotator is sent
     it: its clues cannot be explained without the preamble. The index row
     carries it as `awaitsPreamble`, which both annotation pickers
     (tools/daily_update.sh, tools/prereset_plan.backlog) read."""
-    return not puzzle.get("preamble") and (special_without_preamble(puzzle) or any(
+    return not puzzle.get("preamble") and (
+        puzzle.get("awaitsPreamble") is True or special_without_preamble(puzzle) or any(
         SEE_PREAMBLE.search((e.get("clue") or {}).get("text") or "")
         for e in puzzle.get("entries") or []))
 
@@ -1152,7 +1155,11 @@ def awaits_preamble(puzzle):
 def check_preamble(puzzle, flags):
     """A preamble holds no erratum and no publishing boilerplate:
     errata.apply and boilerplate.apply take them out on every write, so one
-    still there was written past that."""
+    still there was written past that. `awaitsPreamble` never sits beside
+    one: write_puzzle_file drops it when a preamble is filed."""
+    if puzzle.get("preamble") and "awaitsPreamble" in puzzle:
+        flags.append(("SHAPE", puzzle.get("id"), "awaitsPreamble beside a preamble: the "
+                      "preamble it awaited is here (write_puzzle_file drops the flag)"))
     for found in errata.find(puzzle.get("preamble")):
         flags.append(("SHAPE", puzzle.get("id"), f"preamble holds an erratum, not "
                       f"instructions: {found[:120]!r} (tools/errata.py applies it)"))

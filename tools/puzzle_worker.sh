@@ -347,6 +347,30 @@ worker_reopen() {   # id run-file-copy entry...
   echo "  [$id] $out; to be solved again"
 }
 
+# Mark $1, discarded, as awaiting the preamble its entries $2 need
+# (tools/await_preamble.py), and commit and push that, so neither picker sends
+# it again until a preamble is filed. When any step fails it is parked on its
+# inputs instead (tools/failed_inputs.py).
+worker_await_preamble() {   # id entries
+  local id="$1" out
+  local -a specs
+  if out=$(python3 tools/await_preamble.py "$id" 2>&1); then
+    puzzle_specs "$id" specs
+    index_lock
+    if out=$(git add -A -- "${specs[@]}" 2>&1); then
+      worker_commit "Await the preamble for $id"$'\n\n'"Its annotation left $2 to a preamble the puzzle does not hold, and failed on nothing else." \
+        "${specs[@]}" && { echo "  [$id] awaits its preamble ($2)"; return 0; }
+    else
+      git reset -q -- "${specs[@]}"
+      index_unlock
+    fi
+    discard_puzzle "$id"
+  fi
+  alert "$WORKER_JOB could not mark $id as awaiting its preamble ($2), so it is parked on its inputs instead: $(printf '%s' "$out" | tail -3)"
+  python3 tools/failed_inputs.py record annotate "$id" --judged \
+    --reason "definedByPreamble ($2), but the puzzle has no preamble" || true
+}
+
 # A run that failed or was stopped. One cut off by a lockout usually leaves
 # real work behind: some clues annotated, the rest untouched, and that file
 # still validates. Throwing it away means paying for those clues again, so it
@@ -394,7 +418,7 @@ worker_finish() {   # id what sidfile log
   return $rc
 }
 _worker_finish() {
-  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss
+  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants
   vlog="$(mktemp "${TMPDIR:-/tmp}/cryptic-validate.XXXXXX")"
   if ! python3 tools/validate_annotations.py "$id" >"$vlog" 2>&1; then
     file=$(python3 tools/puzzle_paths.py "$id")
@@ -424,6 +448,16 @@ _worker_finish() {
       # shellcheck disable=SC2086 # $reopen is a list of entry ids
       worker_reopen "$id" "$ran" $reopen && { rm -f "$vlog" "$ran"; return 2; }
       rm -f "$ran"
+    fi
+    # Answers left to a preamble the puzzle lacks, and nothing else wrong:
+    # another run would fail the same way, and no change to its clues mends
+    # it, so the puzzle is marked to await its preamble instead of parked.
+    wants=$(python3 tools/await_preamble.py "$id" --which) || wants=""
+    if [ -n "$wants" ]; then
+      discard_puzzle "$id"
+      rm -f "$vlog"
+      worker_await_preamble "$id" "$wants"
+      return 1
     fi
     # Parked: the work is thrown away and the puzzle stays unannotated until
     # its inputs change, which only a person mending the clue or answer does,
