@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,74 @@
     "text": "Sailor handles returning nets back in marina",
     "enumeration": "6"
    },
-   "solution": "SEAMAN"
+   "solution": "SEAMAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SEAMAN",
+    "definitions": [
+     {
+      "text": "Sailor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "something returning goes back the way it came, so the word is read from right to left"
+     },
+     {
+      "text": "back in",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only the final letter of the following word is kept"
+     },
+     {
+      "text": "nets",
+      "for": "container",
+      "note": "to net something is to catch it inside a mesh, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "handles",
+      "gives": "NAMES",
+      "note": "a handle is slang for a name"
+     },
+     {
+      "clueFragment": "marina",
+      "gives": "A",
+      "select": "last",
+      "note": "the last letter of marina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "A",
+      "MAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAMES",
+       "to": "SEMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor in a marina is tidying up the ropes and nets at the back of the boat.",
+     "walkthrough": "NAMES turned round gives SEMAN, which then holds the A in its middle: SE-A-MAN.",
+     "definitionFit": "A seaman is a member of a ship's crew, a plain synonym for sailor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "handles"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +116,43 @@
     "text": "Trim timber",
     "enumeration": "6"
    },
-   "solution": "SPRUCE"
+   "solution": "SPRUCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPRUCE",
+    "definitions": [
+     {
+      "text": "Trim",
+      "at": 0
+     },
+     {
+      "text": "timber",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trim",
+      "note": "first meaning: neat and smart in appearance"
+     },
+     {
+      "clueFragment": "timber",
+      "note": "second meaning: the wood of a kind of conifer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words read like an instruction to cut wood, but each is a separate sense of one word.",
+     "definitionFit": "The adjective means neat and well groomed, and the noun names an evergreen tree whose wood is widely used."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Trim"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +166,69 @@
     "text": "Colleague from Italy residing in windy seacoast",
     "enumeration": "9"
    },
-   "solution": "ASSOCIATE"
+   "solution": "ASSOCIATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ASSOCIATE",
+    "definitions": [
+     {
+      "text": "Colleague",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "windy",
+      "for": "anagram",
+      "note": "a windy place has everything blown about, so the letters are scattered into a new order"
+     },
+     {
+      "text": "residing in",
+      "for": "container",
+      "note": "someone residing in a place lives inside it, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     },
+     {
+      "clueFragment": "seacoast",
+      "gives": "SEACOAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSOC",
+      "I",
+      "ATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEACOAST",
+       "gives": "ASSOCATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A workmate from Italy now lives on a blustery stretch of coast.",
+     "definitionFit": "An associate is a partner or fellow worker, a direct synonym for colleague."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "windy"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +242,55 @@
     "text": "Advanced and passed through cathedral city keenly",
     "enumeration": "7"
    },
-   "solution": "ACUTELY"
+   "solution": "ACUTELY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACUTELY",
+    "definitions": [
+     {
+      "text": "keenly",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advanced",
+      "gives": "A",
+      "note": "A is a standard abbreviation for advanced"
+     },
+     {
+      "clueFragment": "passed through",
+      "gives": "CUT",
+      "note": "to cut through a place is to pass across it"
+     },
+     {
+      "clueFragment": "cathedral city",
+      "gives": "ELY",
+      "note": "Ely is a small cathedral city in Cambridgeshire, England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CUT",
+      "ELY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moved on and crossed an English cathedral city with great eagerness.",
+     "definitionFit": "Acutely means sharply or intensely, so it can stand in for keenly, as in feeling something keenly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Advanced"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +304,56 @@
     "text": "Plant seen in inverted photo of Worcester",
     "enumeration": "8"
    },
-   "solution": "CROWFOOT"
+   "solution": "CROWFOOT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "CROWFOOT",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "what is seen in a phrase is sitting inside it, running across the word breaks"
+     },
+     {
+      "text": "inverted",
+      "for": "reversal",
+      "note": "something inverted is turned upside down, so the letters run the opposite way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "photo of Worcester",
+      "gives": "TOOFWORC",
+      "note": "the letters spanning the end of photo, all of of, and the start of Worcester"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "TOOFWORC",
+       "to": "CROWFOOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant appears in an upside-down photograph of Worcester, an English city.",
+     "definitionFit": "Crowfoot is the common name for several buttercup-family plants with leaves shaped like a bird's foot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inverted"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +367,54 @@
     "text": "Grass requested to abandon mission",
     "enumeration": "4"
    },
-   "solution": "REED"
+   "solution": "REED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REED",
+    "definitions": [
+     {
+      "text": "Grass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to abandon",
+      "for": "deletion",
+      "note": "to abandon something is to leave it behind, so those letters drop out of the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "requested",
+      "gives": "REQUESTED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mission",
+      "gives": "QUEST",
+      "note": "a quest is a mission or search"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was asked to give up their assignment and quit.",
+     "walkthrough": "Strip QUEST out of the middle of REQUESTED and the two ends close up.",
+     "definitionFit": "A reed is a tall grass-like plant growing in wet ground; grass is used loosely for such plants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grass"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +428,56 @@
     "text": "Reject participating in don's on-line tutorial",
     "enumeration": "7"
    },
-   "solution": "WEBINAR"
+   "solution": "WEBINAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WEBINAR",
+    "definitions": [
+     {
+      "text": "on-line tutorial",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "participating in",
+      "for": "container",
+      "note": "someone participating in an event is inside it, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reject",
+      "gives": "BIN",
+      "note": "to bin something is to throw it out"
+     },
+     {
+      "clueFragment": "don's",
+      "gives": "WEAR",
+      "note": "read as don has; to don clothes is to wear them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "BIN",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A university lecturer turns down a part in their own internet teaching session.",
+     "walkthrough": "Don looks like the university lecturer, which suits the tutorial; here it is the verb meaning put on clothes.",
+     "definitionFit": "A webinar is a seminar or class held over the internet, which is an online tutorial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "don's"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +491,61 @@
     "text": "Lecture heartless ogre protecting traitor",
     "enumeration": "5"
    },
-   "solution": "ORATE"
+   "solution": "ORATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ORATE",
+    "definitions": [
+     {
+      "text": "Lecture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart means the middle letter is taken out"
+     },
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "something protecting another wraps around it, so one piece goes outside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ogre",
+      "gives": "OGRE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "traitor",
+      "gives": "RAT",
+      "note": "a rat is slang for a traitor or informer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel monster is told off for shielding a turncoat.",
+     "walkthrough": "OGRE loses its middle two letters to leave OE, which then surrounds RAT.",
+     "definitionFit": "To orate is to give a formal speech, so it matches lecture used as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lecture"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +565,69 @@
      }
     ]
    },
-   "solution": "TAKEHEED"
+   "solution": "TAKEHEED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TAKE HEED",
+    "definitions": [
+     {
+      "text": "Be careful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means tipped over, so the letters of the word run upwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remove",
+      "gives": "TAKE",
+      "note": "to take is to remove, as in take away"
+     },
+     {
+      "clueFragment": "what",
+      "gives": "EH",
+      "note": "eh is an exclamation asking what was said"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the standard abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKE",
+      "HE",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "EH",
+       "to": "HE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning to watch out and get rid of whatever annoyed the newspaper's editor.",
+     "definitionFit": "To take heed means to pay attention and be cautious, an idiom for being careful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "what"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +641,65 @@
     "text": "Save about third of cost with sports equipment",
     "enumeration": "6"
    },
-   "solution": "RESCUE"
+   "solution": "RESCUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RESCUE",
+    "definitions": [
+     {
+      "text": "Save",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "third of",
+      "for": "letter_selection",
+      "note": "a third of a word here means its third letter, the one in that position"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "cost",
+      "gives": "S",
+      "select": 3,
+      "note": "the third letter of cost"
+     },
+     {
+      "clueFragment": "sports equipment",
+      "gives": "CUE",
+      "note": "a cue is the stick used in snooker and billiards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "S",
+      "CUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Economise on roughly a third of the price of a sports kit.",
+     "walkthrough": "Third of looks like the fraction a third, but it picks the third letter.",
+     "definitionFit": "To rescue someone is to save them from danger, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "third"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +719,62 @@
      }
     ]
    },
-   "solution": "JETBLACK"
+   "solution": "JETBLACK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "JET-BLACK",
+    "definitions": [
+     {
+      "text": "Very dark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over is taken as covering, so the next piece is wrapped round the following one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aircraft",
+      "gives": "JET",
+      "note": "a jet is an aircraft"
+     },
+     {
+      "clueFragment": "returned",
+      "gives": "BACK",
+      "note": "having returned is being back"
+     },
+     {
+      "clueFragment": "Lima",
+      "gives": "L",
+      "note": "Lima is the NATO phonetic alphabet word for L"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JET",
+      "B",
+      "L",
+      "ACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A dark plane flew back to land over the Peruvian capital.",
+     "walkthrough": "Lima looks like the city in Peru but stands for the letter in the radio alphabet.",
+     "definitionFit": "Jet-black describes the deep glossy black of the mineral jet, so it means very dark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lima"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +788,61 @@
     "text": "Sea creature briefly circles before bird",
     "enumeration": "8"
    },
-   "solution": "COCKEREL"
+   "solution": "COCKEREL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "COCKEREL",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "something said briefly is cut short, so the last letter is dropped"
+     },
+     {
+      "text": "circles",
+      "for": "container",
+      "note": "to circle something is to go round it, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sea creature",
+      "gives": "COCKLE",
+      "note": "a cockle is an edible shellfish"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCK",
+      "ERE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A shellfish swims in loops ahead of a seabird.",
+     "walkthrough": "Briefly trims the sea creature's final letter before it goes round the old word for before.",
+     "definitionFit": "A cockerel is a young male domestic fowl, which is a kind of bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "before"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +856,73 @@
     "text": "Horse beginning to eat fruit, ignoring cherries initially",
     "enumeration": "6"
    },
-   "solution": "EQUINE"
+   "solution": "EQUINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "EQUINE",
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, which is the one kept"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points at the opening letter of the word just before it"
+     },
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "to ignore something is to leave it out, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eat",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of eat"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "QUINCE",
+      "note": "a quince is a hard pear-shaped fruit"
+     },
+     {
+      "clueFragment": "cherries",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of cherries, as initially says"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "QUINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A horse starts eating fruit but leaves the cherries alone at first.",
+     "walkthrough": "Initially works on cherries, picking the single letter the fruit has to lose.",
+     "definitionFit": "Equine is an adjective meaning of horses; here it stands in as a noun for a member of the horse family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Horse"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +936,66 @@
     "text": "Catch stray hens surrounding me",
     "enumeration": "6"
    },
-   "solution": "ENMESH"
+   "solution": "ENMESH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENMESH",
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stray",
+      "for": "anagram",
+      "note": "letters that stray wander out of place, ending up in a new order"
+     },
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "to surround something is to be all around it, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hens",
+      "gives": "HENS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "ME",
+      "SH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HENS",
+       "gives": "ENSH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plea to round up the wandering chickens that have gathered around the speaker.",
+     "definitionFit": "To enmesh is to entangle as if in a net, which is a way to catch something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stray"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +1015,53 @@
      }
     ]
    },
-   "solution": "USESUP"
+   "solution": "USESUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USES UP",
+    "definitions": [
+     {
+      "text": "Consumes",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the abbreviation for American"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink in small mouthfuls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "E",
+      "SUP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone guzzles an American energy drink.",
+     "walkthrough": "Energy drink reads as one product, but energy and drink each give their own piece.",
+     "definitionFit": "To use up something is to exhaust it entirely, which is what consuming it means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +1085,50 @@
      }
     ]
    },
-   "solution": "ATYOURSERVICE"
+   "solution": "ATYOURSERVICE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AT YOUR SERVICE",
+    "definitions": [
+     {
+      "text": "Prepared to do as asked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "to broadcast seed is to scatter it widely, so these letters are strewn into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over a security",
+      "gives": "OVERASECURITY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OVERASECURITY",
+       "gives": "ATYOURSERVICE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A security announcement is sent out on air, with someone ready to comply.",
+     "definitionFit": "The phrase is a polite offer of help, saying the speaker is willing to do whatever is wanted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +1142,59 @@
     "text": "Improper behaviour in last month nothing strange",
     "enumeration": "9"
    },
-   "solution": "INDECORUM"
+   "solution": "INDECORUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDECORUM",
+    "definitions": [
+     {
+      "text": "Improper behaviour",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "last month",
+      "gives": "DEC",
+      "note": "DEC is the abbreviation for December, the last month of the year"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "strange",
+      "gives": "RUM",
+      "note": "rum is an old British word for odd or peculiar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DEC",
+      "O",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Bad behaviour happened during December, though nothing odd took place.",
+     "walkthrough": "Strange looks like an anagram signal, but it simply gives RUM, a British word for odd.",
+     "definitionFit": "Indecorum is a lack of propriety or good manners, which is improper behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strange"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +1208,50 @@
     "text": "Brawl risks him getting damaged",
     "enumeration": "8"
    },
-   "solution": "SKIRMISH"
+   "solution": "SKIRMISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SKIRMISH",
+    "definitions": [
+     {
+      "text": "Brawl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so its letters fall into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "risks him",
+      "gives": "RISKSHIM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RISKSHIM",
+       "gives": "SKIRMISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting into a fight puts a man in danger of being hurt.",
+     "definitionFit": "A skirmish is a short, disorderly fight, a close synonym of brawl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "damaged"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1275,70 @@
      }
     ]
    },
-   "solution": "KEEPSONESWORD"
+   "solution": "KEEPSONESWORD",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "KEEPS ONES WORD",
+    "definitions": [
+     {
+      "text": "fulfils promise",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes inside, so one piece is put within the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fortress",
+      "gives": "KEEP",
+      "note": "a keep is the strongest tower of a castle"
+     },
+     {
+      "clueFragment": "Lad",
+      "gives": "SON",
+      "note": "a son is a lad, a boy"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms in mathematics"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "SWORD",
+      "note": "a sword is a weapon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEEP",
+      "SON",
+      "E",
+      "SWORD"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy goes into the castle's lower level armed, true to his word.",
+     "walkthrough": "Base is the mathematical constant e, the base of natural logarithms; the lad slips in between fortress and base.",
+     "definitionFit": "To keep one's word is the idiom for doing what one has pledged, which is fulfilling a promise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 19,
@@ -336,7 +1352,55 @@
     "text": "Gets hold of extremely scarce remedies",
     "enumeration": "7"
    },
-   "solution": "SECURES"
+   "solution": "SECURES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SECURES",
+    "definitions": [
+     {
+      "text": "Gets hold of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outermost letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scarce",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the first and last letters of scarce"
+     },
+     {
+      "clueFragment": "remedies",
+      "gives": "CURES",
+      "note": "cures are remedies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "CURES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone manages to obtain treatments that are in very short supply.",
+     "definitionFit": "To secure something is to obtain it firmly, so it matches gets hold of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1420,67 @@
      }
     ]
    },
-   "solution": "ONETIME"
+   "solution": "ONETIME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "ONE-TIME",
+    "definitions": [
+     {
+      "text": "Former",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at regular points",
+      "for": "letter_selection",
+      "note": "taking letters at regular points means every other letter, starting from the second"
+     },
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down clue, brought up means lifted so the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "issue",
+      "gives": "EMIT",
+      "note": "to emit is to issue or give out"
+     },
+     {
+      "clueFragment": "reunion",
+      "gives": "ENO",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of reunion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE",
+      "TIME"
+     ],
+     "reversals": [
+      {
+       "from": "EMITENO",
+       "to": "ONETIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A past topic is raised from time to time at a gathering of old friends.",
+     "definitionFit": "One-time means having been so at some earlier point, as in a one-time champion, so it means former."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1494,56 @@
     "text": "Mark in text reflected some spiritual musings",
     "enumeration": "6"
    },
-   "solution": "UMLAUT"
+   "solution": "UMLAUT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "UMLAUT",
+    "definitions": [
+     {
+      "text": "Mark in text",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of the words that follow, so the letters sit inside them"
+     },
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a reflection is a mirror image, so the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spiritual musings",
+      "gives": "TUALMU",
+      "note": "the letters spanning the end of spiritual and the start of musings"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "TUALMU",
+       "to": "UMLAUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A notation in a book reflected some of the writer's religious thoughts.",
+     "definitionFit": "An umlaut is the two-dot mark placed over a vowel, as in German, so it is a mark in text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflected"
+    }
+   }
   },
   {
    "number": 22,
@@ -384,7 +1557,57 @@
     "text": "Prepare case once more from record held in storage facility",
     "enumeration": "6"
    },
-   "solution": "REPACK"
+   "solution": "REPACK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REPACK",
+    "definitions": [
+     {
+      "text": "Prepare case once more",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "something held in another is enclosed by it, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "storage facility",
+      "gives": "RACK",
+      "note": "a rack is a frame for storing things"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EP",
+      "ACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A disc kept in a warehouse is boxed up again.",
+     "definitionFit": "To repack is to put things back into a suitcase or box, which is preparing a case again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1621,53 @@
     "text": "Before international, pressure for each player",
     "enumeration": "5"
    },
-   "solution": "PIPER"
+   "solution": "PIPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIPER",
+    "definitions": [
+     {
+      "text": "player",
+      "at": 40
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure in physics"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     },
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in per person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "Each player is put under pressure in the run-up to an international match.",
+     "walkthrough": "Before international, pressure means pressure is placed before international, not that pressure comes first in time.",
+     "definitionFit": "A piper is someone who plays the bagpipes or a pipe, a kind of musical player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 24,
@@ -418,7 +1687,53 @@
      }
     ]
    },
-   "solution": "SPEEDCAM"
+   "solution": "SPEEDCAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPEED CAM",
+    "definitions": [
+     {
+      "text": "roadside device",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "a new version is made over afresh, so the letters are put into a different order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spec made",
+      "gives": "SPECMADE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPECMADE",
+       "gives": "SPEEDCAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh specification has been drawn up for a piece of kit at the side of the road.",
+     "definitionFit": "A speed camera is a fixed unit by the road that photographs vehicles going too fast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 25,
@@ -432,7 +1747,50 @@
     "text": "Long look from half of antelopes",
     "enumeration": "4"
    },
-   "solution": "GAZE"
+   "solution": "GAZE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GAZE",
+    "definitions": [
+     {
+      "text": "Long look",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "deletion",
+      "note": "taking half of a word means the other half is thrown away"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "antelopes",
+      "gives": "GAZELLES",
+      "note": "gazelles are small antelopes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAZE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gives a lingering stare at half a herd of antelopes.",
+     "definitionFit": "A gaze is a steady, lasting stare, which is a long look."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "antelopes"
+    }
+   }
   },
   {
    "number": 26,
@@ -446,7 +1804,54 @@
     "text": "Risk annexing area of supreme leader",
     "enumeration": "8"
    },
-   "solution": "IMPERIAL"
+   "solution": "IMPERIAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IMPERIAL",
+    "definitions": [
+     {
+      "text": "of supreme leader",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "annexing",
+      "for": "container",
+      "note": "to annex territory is to take it inside one's borders, so one piece swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Risk",
+      "gives": "IMPERIL",
+      "note": "to imperil is to put at risk"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPERI",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A dangerous move by a country seizing land belonging to its ruler.",
+     "definitionFit": "Imperial means relating to an emperor, and an emperor is the supreme ruler of an empire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "annexing"
+    }
+   }
   },
   {
    "number": 27,
@@ -460,7 +1865,66 @@
     "text": "Codeword military group is to recall before another",
     "enumeration": "6"
    },
-   "solution": "SIERRA"
+   "solution": "SIERRA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SIERRA",
+    "definitions": [
+     {
+      "text": "Codeword",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to recall",
+      "for": "reversal",
+      "note": "to recall is to call back, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "military group",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "RA",
+      "note": "RA is the Royal Artillery, another British army corps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIER",
+      "RA"
+     ],
+     "reversals": [
+      {
+       "from": "REIS",
+       "to": "SIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army unit is about to be called back ahead of a second unit, given a secret password.",
+     "walkthrough": "Both the military group and is are turned round together; another means a second army corps, placed after them.",
+     "definitionFit": "Sierra is the code word for S in the NATO phonetic alphabet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Codeword"
+    }
+   }
   },
   {
    "number": 28,
@@ -474,7 +1938,57 @@
     "text": "Troubled being rushed to cover fool",
     "enumeration": "8"
    },
-   "solution": "HARASSED"
+   "solution": "HARASSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HARASSED",
+    "definitions": [
+     {
+      "text": "Troubled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cover",
+      "for": "container",
+      "note": "covering something means going over and around it, so one piece encloses the other"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rushed",
+      "gives": "HARED",
+      "note": "to hare is to run very fast"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAR",
+      "ASS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was worried at having to hurry to stand in for a clown.",
+     "definitionFit": "Harassed means pestered and stressed, a close synonym for troubled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 29,
@@ -488,7 +2002,57 @@
     "text": "That woman joining Cambridge university is reclusive type",
     "enumeration": "6"
    },
-   "solution": "HERMIT"
+   "solution": "HERMIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HERMIT",
+    "definitions": [
+     {
+      "text": "reclusive type",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "joining",
+      "for": "charade",
+      "note": "joining means one part attaches to the next, so they sit side by side"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That woman",
+      "gives": "HER",
+      "note": "her refers to that woman"
+     },
+     {
+      "clueFragment": "Cambridge university",
+      "gives": "MIT",
+      "note": "MIT is the Massachusetts Institute of Technology in Cambridge, Massachusetts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "MIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman starting at Cambridge turns out to be a loner.",
+     "walkthrough": "Cambridge suggests the English university, but the Cambridge here is in Massachusetts.",
+     "definitionFit": "A hermit lives alone, apart from society, so is a reclusive person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cambridge"
+    }
+   }
   }
  ]
 }
