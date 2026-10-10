@@ -119,11 +119,13 @@ def inputs(files_hash, reprints, series, numbers):
     return f"{files_hash}+{extra}" if extra else files_hash
 
 
-def row(rel, inputs_key, found, files_hash, scan_key, sol_seen, verdicts, vlm=None):
-    """An edition's ledger row after a read; `vlm` the VLM version it was read with."""
+def row(rel, inputs_key, found, files_hash, scan_key, sol_seen, verdicts, vlm=None, solution_key=None):
+    """An edition's ledger row after a read; `vlm` the VLM version it was
+    read with, `solution_key` its solution reader's code (solution_key())."""
     import scan_queue
     out = {"edition": rel, "inputs": inputs_key, "scan": found, "filesHash": files_hash, "scanKey": scan_key,
-           "solutionsSeen": sol_seen, "verdicts": verdicts, "readAt": scan_queue.now()}
+           "solutionKey": solution_key, "solutionsSeen": sol_seen, "verdicts": verdicts,
+           "readAt": scan_queue.now()}
     if vlm:
         out["vlm"] = vlm
     return out
@@ -239,6 +241,6 @@ def main(spec):
         key = inputs(ctx["filesHash"], ctx["reprints"], series, [p["number"] for p in found["puzzles"]])
         seen_by = ctx["vlmVersion"] if vlm_up and got["vlm"] else None
         scan_queue.append(ledger, [row(rel, key, found, ctx["filesHash"], ctx["scanKey"], ctx["solutionsSeen"],
-                                       verdicts, seen_by)])
+                                       verdicts, seen_by, ctx.get("solutionKey"))])
         progress(read_line(rel, verdicts))
     return EXITS["read"]
