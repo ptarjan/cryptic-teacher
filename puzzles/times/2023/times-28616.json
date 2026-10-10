@@ -23,6 +23,9 @@
   "date": "2023-05-30",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,49 @@
     "text": "Check flight bringing amenity for skiers",
     "enumeration": "9"
    },
-   "solution": "CHAIRLIFT"
+   "solution": "CHAIRLIFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAIRLIFT",
+    "definitions": [
+     {
+      "text": "amenity for skiers",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "bringing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Check",
+      "gives": "CH",
+      "note": "CH is the chess abbreviation for check"
+     },
+     {
+      "clueFragment": "flight",
+      "gives": "AIRLIFT",
+      "note": "an airlift is a flight carrying supplies or people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "AIRLIFT"
+     ]
+    },
+    "explanation": {
+     "surface": "A flight is checked because it carries something skiers will appreciate.",
+     "definitionFit": "A chairlift is the seated cable ride that carries skiers up a slope, a facility of any ski resort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +95,59 @@
     "text": "Trainee in rebel element, ultimately",
     "enumeration": "5"
    },
-   "solution": "CADET"
+   "solution": "CADET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CADET",
+    "definitions": [
+     {
+      "text": "Trainee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end of the word just before it, so only its final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rebel",
+      "gives": "CADE",
+      "note": "Jack Cade led the Kentish rebellion of 1450"
+     },
+     {
+      "clueFragment": "element",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of element"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CADE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee is part of a rebellious faction in the end.",
+     "walkthrough": "Jack Cade is a stock crossword rebel from English history.",
+     "definitionFit": "A cadet is a young person in training for the armed forces or police."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "element"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +161,51 @@
     "text": "Time of day for a nonet to be reproduced",
     "enumeration": "9"
    },
-   "solution": "AFTERNOON"
+   "solution": "AFTERNOON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AFTERNOON",
+    "definitions": [
+     {
+      "text": "Time of day",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be reproduced",
+      "for": "anagram",
+      "note": "reproduced suggests the letters are made over again in a different form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for a nonet",
+      "gives": "FORANONET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FORANONET",
+       "gives": "AFTERNOON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scheduling a performance of a piece written for nine players.",
+     "walkthrough": "'for' looks like a link word, but it belongs to the fodder.",
+     "definitionFit": "The afternoon is the period between noon and evening, a part of the day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +219,49 @@
     "text": "Sports club employee, heading off — one delivering the goods",
     "enumeration": "9"
    },
-   "solution": "ROUNDSMAN"
+   "solution": "ROUNDSMAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROUNDSMAN",
+    "definitions": [
+     {
+      "text": "one delivering the goods",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its heading off, a word loses its front letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sports club employee",
+      "gives": "GROUNDSMAN",
+      "note": "a groundsman looks after a sports club's pitch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUNDSMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker at a sports club leaves, and is described as someone who performs well.",
+     "walkthrough": "'delivering the goods' sounds like the idiom for succeeding; read literally, it is a delivery round.",
+     "definitionFit": "A roundsman is a tradesman who makes regular delivery rounds, such as a milkman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delivering"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +275,53 @@
     "text": "Mutiny aboard warship over service requiring bishop",
     "enumeration": "15"
    },
-   "solution": "INSUBORDINATION"
+   "solution": "INSUBORDINATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSUBORDINATION",
+    "definitions": [
+     {
+      "text": "Mutiny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, over means the first part sits above the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aboard warship",
+      "gives": "INSUB",
+      "note": "aboard a submarine is IN SUB"
+     },
+     {
+      "clueFragment": "service requiring bishop",
+      "gives": "ORDINATION",
+      "note": "an ordination is a church service at which a bishop confers holy orders"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSUB",
+      "ORDINATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A shipboard uprising during a church service that needs a bishop.",
+     "definitionFit": "Insubordination is refusal to obey superiors, and mutiny is its open, collective form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "warship"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +341,82 @@
      }
     ]
    },
-   "solution": "TRAVELLERSTALES"
+   "solution": "TRAVELLERSTALES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "anagram"
+    ],
+    "answer": "TRAVELLERS TALES",
+    "definitions": [
+     {
+      "text": "tall stories",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word means all but its last letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one word wraps the other"
+     },
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "something disturbed is knocked out of its order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bank employees",
+      "gives": "TELLERS",
+      "note": "bank tellers serve customers at the counter"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "RAVE",
+      "note": "a rave is a large dance party"
+     },
+     {
+      "clueFragment": "least",
+      "gives": "LEAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAV",
+      "ELLERS",
+      "TALES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEAST",
+       "gives": "TALES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bank staff are unbothered by the exaggerated stories told at a party.",
+     "walkthrough": "The possessive 's is really 'is', joining wordplay to definition; the party drops its last letter before going inside.",
+     "definitionFit": "Travellers' tales is an idiom for far-fetched stories, from the exaggerated accounts brought home by voyagers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disturbed"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +430,57 @@
     "text": "Doctrine of boxer, possibly, with university degree",
     "enumeration": "5"
    },
-   "solution": "DOGMA"
+   "solution": "DOGMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOGMA",
+    "definitions": [
+     {
+      "text": "Doctrine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with means the next part is set alongside the first"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boxer, possibly",
+      "gives": "DOG",
+      "note": "a boxer is a breed of dog"
+     },
+     {
+      "clueFragment": "university degree",
+      "gives": "MA",
+      "note": "Master of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOG",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "The fixed beliefs of a fighter who holds a degree.",
+     "walkthrough": "The boxer is a dog breed, not a fighter.",
+     "definitionFit": "Dogma is a set of principles laid down as undeniably true, especially by a church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxer"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +494,50 @@
     "text": "Get-up-and-go? It's a lot of nonsense",
     "enumeration": "5"
    },
-   "solution": "DRIVE"
+   "solution": "DRIVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DRIVE",
+    "definitions": [
+     {
+      "text": "Get-up-and-go",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of a word is nearly all of it, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nonsense",
+      "gives": "DRIVEL",
+      "note": "drivel is silly talk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cynic dismissing enthusiasm as mostly rubbish.",
+     "definitionFit": "Drive is energy and determination, the same quality as get-up-and-go."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +551,55 @@
     "text": "Scotsman devoured by great big monster",
     "enumeration": "5"
    },
-   "solution": "GIANT"
+   "solution": "GIANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GIANT",
+    "definitions": [
+     {
+      "text": "big monster",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devoured by",
+      "for": "container",
+      "note": "something devoured ends up inside whatever ate it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "great",
+      "gives": "GT",
+      "note": "GT is the abbreviation for great, as in Gt Britain"
+     },
+     {
+      "clueFragment": "Scotsman",
+      "gives": "IAN",
+      "note": "Ian is a typically Scottish first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "IAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scot is eaten by a huge beast.",
+     "definitionFit": "A giant is a creature of enormous size in folklore, a huge ogre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "great"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +613,54 @@
     "text": "It includes Judith, potentially making Cora happy",
     "enumeration": "9"
    },
-   "solution": "APOCRYPHA"
+   "solution": "APOCRYPHA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APOCRYPHA",
+    "definitions": [
+     {
+      "text": "It includes Judith",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "potentially",
+      "for": "anagram",
+      "note": "potentially says the letters could form something else if rearranged"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cora happy",
+      "gives": "CORAHAPPY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CORAHAPPY",
+       "gives": "APOCRYPHA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something containing a friend called Judith might please Cora.",
+     "walkthrough": "Judith is a book of the Apocrypha, not a woman.",
+     "definitionFit": "The Apocrypha is the collection of biblical books outside the Hebrew canon, among them the Book of Judith."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Judith"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +674,46 @@
     "text": "Diversions of French at city on Loire",
     "enumeration": "7"
    },
-   "solution": "DETOURS"
+   "solution": "DETOURS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DETOURS",
+    "definitions": [
+     {
+      "text": "Diversions",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     },
+     {
+      "clueFragment": "city on Loire",
+      "gives": "TOURS",
+      "note": "Tours is a city on the Loire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "TOURS"
+     ]
+    },
+    "explanation": {
+     "surface": "Road diversions around a French city.",
+     "definitionFit": "Detours are roundabout routes taken to avoid something, which is what diversions are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +727,67 @@
     "text": "Notedly frenzied French film director recalled in past",
     "enumeration": "7"
    },
-   "solution": "AGITATO"
+   "solution": "AGITATO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "AGITATO",
+    "definitions": [
+     {
+      "text": "Notedly frenzied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled means called back, so the name runs backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "past",
+      "gives": "AGO",
+      "note": "ago means in the past"
+     },
+     {
+      "clueFragment": "French film director",
+      "gives": "TATI",
+      "note": "Jacques Tati made Monsieur Hulot's Holiday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "ITAT",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "TATI",
+       "to": "ITAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frenetic French director remembered from long ago.",
+     "walkthrough": "'Notedly' signals a musical term, describing how notes are played.",
+     "definitionFit": "Agitato is a musical direction meaning agitated, to be played in a restless, hurried manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +801,54 @@
     "text": "Weary chap with grasp of Irish",
     "enumeration": "5"
    },
-   "solution": "TIRED"
+   "solution": "TIRED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIRED",
+    "definitions": [
+     {
+      "text": "Weary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with grasp of",
+      "for": "container",
+      "note": "to grasp something is to hold it within, so one part is put inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "TED",
+      "note": "Ted is a man's name"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "IR is the abbreviation for Irish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IR",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An exhausted man who understands the Irish language.",
+     "definitionFit": "Tired and weary are synonyms for being fatigued."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grasp"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +862,56 @@
     "text": "Insectivorous bird biting female warder at Tower",
     "enumeration": "9"
    },
-   "solution": "BEEFEATER"
+   "solution": "BEEFEATER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEEFEATER",
+    "definitions": [
+     {
+      "text": "warder at Tower",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "biting",
+      "for": "container",
+      "note": "something bitten is held between the jaws, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insectivorous bird",
+      "gives": "BEEEATER",
+      "note": "the bee-eater is a colourful bird that catches bees"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEE",
+      "F",
+      "EATER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird snaps at a woman who guards the Tower of London.",
+     "walkthrough": "The Tower is the Tower of London, guarded by the Yeoman Warders.",
+     "definitionFit": "Beefeater is the popular name for a Yeoman Warder of the Tower of London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "biting"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +925,49 @@
     "text": "Book space for cleaning utensil",
     "enumeration": "5"
    },
-   "solution": "BROOM"
+   "solution": "BROOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROOM",
+    "definitions": [
+     {
+      "text": "cleaning utensil",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "ROOM",
+      "note": "room means space"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ROOM"
+     ]
+    },
+    "explanation": {
+     "surface": "Reserving a slot for a cleaning tool.",
+     "definitionFit": "A broom is a long-handled brush used for sweeping floors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 13,
@@ -252,7 +981,62 @@
     "text": "Repeated strikes in cafeteria in centre of Basingstoke",
     "enumeration": "9"
    },
-   "solution": "BUFFETING"
+   "solution": "BUFFETING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BUFFETING",
+    "definitions": [
+     {
+      "text": "Repeated strikes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its single middle letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cafeteria",
+      "gives": "BUFFET",
+      "note": "a buffet is a self-service eatery"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Basingstoke",
+      "gives": "G",
+      "select": "middle",
+      "note": "sixth of eleven letters, the centre one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUFFET",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Workers walking out in a canteen in a Hampshire town.",
+     "walkthrough": "Basingstoke is a town in Hampshire; 'strikes' are blows, not walkouts.",
+     "definitionFit": "Buffeting is a series of blows, as wind buffets a plane."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strikes"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +1050,56 @@
     "text": "Commanding position of stationery items and fruit",
     "enumeration": "9"
    },
-   "solution": "RULERSHIP"
+   "solution": "RULERSHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RULERSHIP",
+    "definitions": [
+     {
+      "text": "Commanding position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "and simply sets one part beside the next"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stationery items",
+      "gives": "RULERS",
+      "note": "rulers are measuring strips sold by stationers"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "HIP",
+      "note": "a hip is the fruit of the rose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RULERS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A dominant place among office supplies and produce.",
+     "definitionFit": "Rulership is the state of governing, a position of command."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +1113,73 @@
     "text": "Game girl brought up in a fantasy kingdom",
     "enumeration": "9"
    },
-   "solution": "RURITANIA"
+   "solution": "RURITANIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RURITANIA",
+    "definitions": [
+     {
+      "text": "fantasy kingdom",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down entry, brought up means raised from bottom to top, so the next word reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "gives": "RU",
+      "note": "rugby union"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "RITA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "RITA",
+      "NI",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "IN",
+       "to": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spirited girl raised in an imaginary realm.",
+     "walkthrough": "'brought up' looks as though it applies to the girl, but only the short word after it is reversed.",
+     "definitionFit": "Ruritania is the invented Central European kingdom of Anthony Hope's The Prisoner of Zenda."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1193,68 @@
     "text": "Restrict meat butcher finally provided in scam",
     "enumeration": "9"
    },
-   "solution": "HAMSTRING"
+   "solution": "HAMSTRING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "HAMSTRING",
+    "definitions": [
+     {
+      "text": "Restrict",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of the word before it, keeping only its final letter"
+     },
+     {
+      "text": "provided in",
+      "for": "container",
+      "note": "provided in means supplied inside, so the letter is placed within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat",
+      "gives": "HAM",
+      "note": "ham is cured pork"
+     },
+     {
+      "clueFragment": "scam",
+      "gives": "STING",
+      "note": "a sting is a confidence trick"
+     },
+     {
+      "clueFragment": "butcher",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of butcher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAM",
+      "ST",
+      "R",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Holding back the meat a butcher eventually supplied in a swindle.",
+     "definitionFit": "To hamstring is to cripple or severely hamper, as by cutting a leg tendon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "butcher"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1268,55 @@
     "text": "Banker bird enthusiast entertains at home",
     "enumeration": "9"
    },
-   "solution": "FINANCIER"
+   "solution": "FINANCIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FINANCIER",
+    "definitions": [
+     {
+      "text": "Banker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertains",
+      "for": "container",
+      "note": "to entertain guests is to have them inside your home, so one part holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird enthusiast",
+      "gives": "FANCIER",
+      "note": "a fancier breeds birds, as a pigeon fancier"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "in means at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IN",
+      "ANCIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher hosts a guest at their house.",
+     "walkthrough": "'Banker' is the definition, not a waterside bird.",
+     "definitionFit": "A financier is a person who manages large sums of money, such as a banker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertains"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1330,65 @@
     "text": "Snag about maiden at a dance in Havana",
     "enumeration": "5"
    },
-   "solution": "RUMBA"
+   "solution": "RUMBA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RUMBA",
+    "definitions": [
+     {
+      "text": "dance in Havana",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means placed around, so one word wraps the other"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snag",
+      "gives": "RUB",
+      "note": "a rub is a difficulty, as in 'there's the rub'"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M is the cricket abbreviation for a maiden over"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "M",
+      "B",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A problem with a young woman at a Cuban dance.",
+     "walkthrough": "A maiden in cricket is an over with no runs scored, M on scorecards.",
+     "definitionFit": "The rumba is a ballroom dance of Afro-Cuban origin, so it belongs to Havana."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maiden"
+    }
+   }
   },
   {
    "number": 19,
@@ -336,7 +1402,67 @@
     "text": "One praising corporal, perhaps, by main road in Orient",
     "enumeration": "9"
    },
-   "solution": "ENCOMIAST"
+   "solution": "ENCOMIAST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ENCOMIAST",
+    "definitions": [
+     {
+      "text": "One praising",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so one part follows the other"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orient",
+      "gives": "EAST",
+      "note": "the Orient is the East"
+     },
+     {
+      "clueFragment": "corporal, perhaps",
+      "gives": "NCO",
+      "note": "a corporal is a non-commissioned officer"
+     },
+     {
+      "clueFragment": "main road",
+      "gives": "MI",
+      "note": "the M1 motorway, written with I for 1"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NCO",
+      "MI",
+      "AST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone praising a soldier on a highway in the Far East.",
+     "walkthrough": "The M1 is Britain's first major motorway, London to Leeds; crosswords write its 1 as I.",
+     "definitionFit": "An encomiast is someone who writes or delivers an encomium, a speech of high praise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corporal"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1476,55 @@
     "text": "Qualified medic participating in my jazz group",
     "enumeration": "5"
    },
-   "solution": "COMBO"
+   "solution": "COMBO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMBO",
+    "definitions": [
+     {
+      "text": "jazz group",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "participating in",
+      "for": "container",
+      "note": "taking part in something puts you inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my",
+      "gives": "COO",
+      "note": "coo and my are both exclamations of surprise"
+     },
+     {
+      "clueFragment": "Qualified medic",
+      "gives": "MB",
+      "note": "Bachelor of Medicine, a doctor's qualification"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MB",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor sitting in with the speaker's jazz band.",
+     "walkthrough": "'my' looks possessive but is the exclamation, as is coo.",
+     "definitionFit": "A combo is a small jazz or dance band, short for combination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "my"
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1538,43 @@
     "text": "Reportedly a girl's cereal",
     "enumeration": "5"
    },
-   "solution": "MAIZE"
+   "solution": "MAIZE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MAIZE",
+    "definitions": [
+     {
+      "text": "cereal",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as told by word of mouth, so what is heard counts, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a girl's",
+      "gives": "MAIZE",
+      "soundsLike": "MAE'S",
+      "note": "Mae is a girl's name, and Mae's sounds the same"
+     }
+    ],
+    "explanation": {
+     "surface": "Breakfast food said to belong to a girl.",
+     "definitionFit": "Maize is corn, a cereal crop grown for its grain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "girl's"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1588,54 @@
     "text": "American associated with bird book",
     "enumeration": "5"
    },
-   "solution": "TITUS"
+   "solution": "TITUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TITUS",
+    "definitions": [
+     {
+      "text": "book",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "associated with",
+      "for": "charade",
+      "note": "associated with means joined alongside, so one part sits next to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIT",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "An American linked to a bird guide.",
+     "walkthrough": "The parts come in the opposite order to the clue.",
+     "definitionFit": "Titus is a book of the New Testament, Paul's epistle to Titus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1649,67 @@
     "text": "Liberal leaves Indian city, securing good character in Patras?",
     "enumeration": "5"
    },
-   "solution": "SIGMA"
+   "solution": "SIGMA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SIGMA",
+    "definitions": [
+     {
+      "text": "character in Patras",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "leaves means departs, so that letter goes away from the word"
+     },
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing means holding fast inside, so one part is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L for Liberal"
+     },
+     {
+      "clueFragment": "Indian city",
+      "gives": "SIMLA",
+      "note": "Simla is a hill city in northern India"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "G",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal politician leaves India, holding a decent figure in Greece.",
+     "walkthrough": "Patras is a Greek port, so its 'character' is a letter of the Greek alphabet.",
+     "definitionFit": "Sigma is the eighteenth letter of the Greek alphabet, the letter used in Patras."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1723,67 @@
     "text": "Muslim sect, one with post in southern isle",
     "enumeration": "7"
    },
-   "solution": "ISMAILI"
+   "solution": "ISMAILI",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ISMAILI",
+    "definitions": [
+     {
+      "text": "Muslim sect",
+      "at": 0,
+      "note": "the name is used of the sect and of its members"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with means alongside, so one part comes next to the other"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "southern isle",
+      "gives": "SI",
+      "note": "S for southern, I for isle"
+     },
+     {
+      "clueFragment": "post",
+      "gives": "MAIL",
+      "note": "post and mail are letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "S",
+      "MAIL",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A religious group with one member working at a southern island's post office.",
+     "definitionFit": "The Ismaili are a branch of Shia Islam led by the Aga Khan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1797,44 @@
     "text": "Touching down between flights?",
     "enumeration": "7"
    },
-   "solution": "LANDING"
+   "solution": "LANDING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LANDING",
+    "definitions": [
+     {
+      "text": "Touching down",
+      "at": 0
+     },
+     {
+      "text": "between flights",
+      "at": 14,
+      "note": "a location phrase standing for the noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Touching down",
+      "note": "first meaning: an aircraft's arrival on the ground"
+     },
+     {
+      "clueFragment": "between flights",
+      "note": "second meaning: the level floor between two flights of stairs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both halves sound like air travel, but the flights of the second are staircases.",
+     "definitionFit": "The word means both an aircraft coming down to land and the platform separating flights of stairs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flights"
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1848,43 @@
     "text": "Saw 17 in Zurich, perhaps",
     "enumeration": "5"
    },
-   "solution": "GNOME"
+   "solution": "GNOME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GNOME",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     },
+     {
+      "text": "17 in Zurich, perhaps",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saw",
+      "note": "first meaning: a maxim or pithy saying"
+     },
+     {
+      "clueFragment": "17 in Zurich, perhaps",
+      "note": "second meaning: a Swiss banker"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Saw is the noun for a proverb, not the past of see; 17 is FINANCIER.",
+     "definitionFit": "A gnome is an aphorism, and 'the gnomes of Zurich' is a scornful name for Swiss bankers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 27,
@@ -448,7 +1898,51 @@
     "text": "Again lost at sea, looking back regretfully",
     "enumeration": "9"
    },
-   "solution": "NOSTALGIA"
+   "solution": "NOSTALGIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOSTALGIA",
+    "definitions": [
+     {
+      "text": "looking back regretfully",
+      "at": 19,
+      "note": "a gerund phrase for the noun: the act of looking back"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused and adrift, so these letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Again lost",
+      "gives": "AGAINLOST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGAINLOST",
+       "gives": "NOSTALGIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor lost at sea once more, wistfully remembering home.",
+     "definitionFit": "Nostalgia is a sentimental longing for the past, a wistful backward glance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   }
  ]
 }
