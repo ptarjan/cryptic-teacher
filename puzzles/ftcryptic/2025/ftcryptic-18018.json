@@ -24,6 +24,9 @@
   "date": "2025-04-07",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,44 @@
     "text": "Some herb or a geranium? The former",
     "enumeration": "6"
    },
-   "solution": "BORAGE"
+   "solution": "BORAGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BORAGE",
+    "definitions": [
+     {
+      "text": "The former",
+      "at": 25,
+      "note": "points back to 'herb', the first of the two options named"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "'some' asks for only part of the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "herb or a geranium",
+      "gives": "BORAGE",
+      "note": "the letters run across herb, or, a and the start of geranium"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener wonders whether a plant is a herb or a geranium, and settles on the first.",
+     "walkthrough": "The question looks like a botanical quiz; 'The former' is the definition, picking herb rather than geranium.",
+     "definitionFit": "Borage is a blue-flowered herb, so it is the first of the two plant categories offered, not a geranium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +91,46 @@
     "text": "Royal line in the drink?",
     "enumeration": "7"
    },
-   "solution": "BOURBON"
+   "solution": "BOURBON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOURBON",
+    "definitions": [
+     {
+      "text": "Royal line",
+      "at": 0
+     },
+     {
+      "text": "drink",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal line",
+      "note": "first meaning: the French and Spanish ruling dynasty"
+     },
+     {
+      "clueFragment": "drink",
+      "note": "second meaning: an American whiskey"
+     }
+    ],
+    "explanation": {
+     "surface": "A queue of royals finds itself thrown into the water.",
+     "definitionFit": "The House of Bourbon is a royal dynasty, and bourbon is also a corn-based American whiskey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +144,50 @@
     "text": "Rare battle in editing process",
     "enumeration": "9"
    },
-   "solution": "REDACTION"
+   "solution": "REDACTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDACTION",
+    "definitions": [
+     {
+      "text": "editing process",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rare",
+      "gives": "RED",
+      "note": "rare meat is red inside"
+     },
+     {
+      "clueFragment": "battle",
+      "gives": "ACTION",
+      "note": "a battle is military action"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "ACTION"
+     ]
+    },
+    "explanation": {
+     "surface": "An unusual fight breaks out during the editing of a text.",
+     "walkthrough": "'Rare' reads as unusual, but it is the steak sense: underdone, so red.",
+     "definitionFit": "Redaction is the editing or censoring of a text, blacking out sensitive passages before publication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rare"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +201,59 @@
     "text": "Slippery lips of gaoler on a piece of cake",
     "enumeration": "6"
    },
-   "solution": "GREASY"
+   "solution": "GREASY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GREASY",
+    "definitions": [
+     {
+      "text": "Slippery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lips of",
+      "for": "letter_selection",
+      "note": "lips are the edges of something, so only the outside letters of the next word are kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gaoler",
+      "gives": "GR",
+      "select": "outer",
+      "note": "first and last letters of gaoler"
+     },
+     {
+      "clueFragment": "a piece of cake",
+      "gives": "EASY",
+      "note": "a piece of cake is something easy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "EASY"
+     ]
+    },
+    "explanation": {
+     "surface": "A prison guard's lips are greasy from eating cake.",
+     "walkthrough": "A gaoler is a British spelling of jailer.",
+     "definitionFit": "Something greasy is coated with oil or fat and so hard to grip, which is slippery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lips"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +273,49 @@
      }
     ]
    },
-   "solution": "SPACEBAR"
+   "solution": "SPACEBAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPACE BAR",
+    "definitions": [
+     {
+      "text": "Key",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "room",
+      "gives": "SPACE",
+      "note": "room as in space to move"
+     },
+     {
+      "clueFragment": "counter",
+      "gives": "BAR",
+      "note": "a bar is a counter where drinks are served"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPACE",
+      "BAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A room key has been left lying on the counter.",
+     "definitionFit": "The space bar is the long key at the bottom of a keyboard that inserts a gap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +329,46 @@
     "text": "Secretary in agony",
     "enumeration": "4"
    },
-   "solution": "PAIN"
+   "solution": "PAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAIN",
+    "definitions": [
+     {
+      "text": "agony",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secretary",
+      "gives": "PA",
+      "note": "PA is a personal assistant, a secretary"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "An office secretary is in agony.",
+     "definitionFit": "Pain and agony are synonyms for physical or mental suffering, agony being the extreme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +382,49 @@
     "text": "Tip last bit in drink",
     "enumeration": "8"
    },
-   "solution": "COCKTAIL"
+   "solution": "COCKTAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCKTAIL",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tip",
+      "gives": "COCK",
+      "note": "to cock something is to tip or tilt it, like a hat"
+     },
+     {
+      "clueFragment": "last bit",
+      "gives": "TAIL",
+      "note": "the tail is the end part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCK",
+      "TAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tips the dregs of a glass into a drink.",
+     "definitionFit": "A cocktail is a mixed alcoholic beverage, so it is a kind of drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tip"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +438,44 @@
     "text": "Money the 5 down of Dumas?",
     "enumeration": "5"
    },
-   "solution": "BREAD"
+   "solution": "BREAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BREAD",
+    "definitions": [
+     {
+      "text": "Money",
+      "at": 0
+     },
+     {
+      "text": "the 5 down of Dumas?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "note": "first meaning: slang for cash"
+     },
+     {
+      "clueFragment": "the 5 down of Dumas?",
+      "note": "second meaning: the French word in 5 down translated, since Dumas wrote in French"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about how much the novelist Dumas earned, or how he suffered.",
+     "walkthrough": "5 down is PAIN, which in French means bread; Alexandre Dumas stands for the French language.",
+     "definitionFit": "Bread is slang for money, and it is the English for the French word pain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dumas"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +489,46 @@
     "text": "Again, deal with withdrawal",
     "enumeration": "7"
    },
-   "solution": "RETREAT"
+   "solution": "RETREAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RETREAT",
+    "definitions": [
+     {
+      "text": "withdrawal",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Again",
+      "gives": "RE",
+      "note": "the prefix re- means again"
+     },
+     {
+      "clueFragment": "deal with",
+      "gives": "TREAT",
+      "note": "to treat a matter is to deal with it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TREAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has to handle a pullout a second time.",
+     "definitionFit": "A retreat is an army's withdrawal from a position, or a withdrawal from society."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +542,44 @@
     "text": "Underwear lives again, might one say?",
     "enumeration": "6"
    },
-   "solution": "UNDIES"
+   "solution": "UNDIES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNDIES",
+    "definitions": [
+     {
+      "text": "Underwear",
+      "at": 0
+     },
+     {
+      "text": "lives again, might one say?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Underwear",
+      "note": "first meaning: informal word for underclothes"
+     },
+     {
+      "clueFragment": "lives again, might one say?",
+      "note": "second meaning: a whimsical coinage, the opposite of dying"
+     }
+    ],
+    "explanation": {
+     "surface": "Underwear that comes back to life, a ghostly piece of laundry.",
+     "walkthrough": "The question mark flags an invented word: to un-die would be to come back to life.",
+     "definitionFit": "Undies is the informal term for underclothes, and split as un-dies it jokingly means reverses death."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +593,72 @@
     "text": "Diplomatic papers returned, secret out",
     "enumeration": "8"
    },
-   "solution": "DISCREET"
+   "solution": "DISCREET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "DISCREET",
+    "definitions": [
+     {
+      "text": "Diplomatic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word is read backwards"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "'out' suggests something put out of order, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "identity papers"
+     },
+     {
+      "clueFragment": "secret",
+      "gives": "SECRET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SCREET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SECRET",
+       "gives": "SCREET"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ID",
+       "to": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Diplomatic papers have been sent back after a secret leaked.",
+     "definitionFit": "Being discreet means being tactful and careful in speech, which is the diplomatic way to behave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +672,42 @@
     "text": "Entering Baghdad, journalist put off",
     "enumeration": "7"
    },
-   "solution": "ADJOURN"
+   "solution": "ADJOURN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ADJOURN",
+    "definitions": [
+     {
+      "text": "put off",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Entering",
+      "for": "hidden_word",
+      "note": "what enters goes inside, so the answer sits inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Baghdad, journalist",
+      "gives": "ADJOURN",
+      "note": "the letters span the end of Baghdad and the start of journalist"
+     }
+    ],
+    "explanation": {
+     "surface": "A reporter arriving in the Iraqi capital is deterred.",
+     "definitionFit": "To adjourn a meeting is to postpone it, putting it off to a later time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Entering"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +721,48 @@
     "text": "Behind, get behind team",
     "enumeration": "8"
    },
-   "solution": "BACKSIDE"
+   "solution": "BACKSIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKSIDE",
+    "definitions": [
+     {
+      "text": "Behind",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get behind",
+      "gives": "BACK",
+      "note": "to back someone is to support or get behind them"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a sports team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fan urges everyone to support the team.",
+     "walkthrough": "'Behind' appears twice: first as the bottom, then inside 'get behind' meaning support.",
+     "definitionFit": "Behind is an informal noun for the buttocks, and so is backside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Behind"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +776,51 @@
     "text": "God set to change, is that hard to stomach?",
     "enumeration": "6"
    },
-   "solution": "STODGE"
+   "solution": "STODGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STODGE",
+    "definitions": [
+     {
+      "text": "is that hard to stomach?",
+      "at": 19,
+      "note": "a question describing the food rather than naming it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "the letters are made to change their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God set",
+      "gives": "GODSET",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GODSET",
+       "gives": "STODGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A believer asks whether a divinely ordained change is difficult to accept.",
+     "definitionFit": "Stodge is heavy, starchy food that sits in the stomach and is difficult to digest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "God"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +834,42 @@
     "text": "Firework, brilliant thing",
     "enumeration": "7"
    },
-   "solution": "CRACKER"
+   "solution": "CRACKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRACKER",
+    "definitions": [
+     {
+      "text": "Firework",
+      "at": 0
+     },
+     {
+      "text": "brilliant thing",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firework",
+      "note": "first meaning: a small explosive firework that bangs"
+     },
+     {
+      "clueFragment": "brilliant thing",
+      "note": "second meaning: informal praise for something excellent"
+     }
+    ],
+    "explanation": {
+     "surface": "A firework is described as a dazzling, shining object.",
+     "definitionFit": "A cracker is a banger-type firework, and calling something a cracker praises it as outstanding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brilliant"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +883,47 @@
     "text": "Spike scalping slow mover",
     "enumeration": "4"
    },
-   "solution": "NAIL"
+   "solution": "NAIL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NAIL",
+    "definitions": [
+     {
+      "text": "Spike",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scalping",
+      "for": "deletion",
+      "note": "scalping removes the top of the head, so the first letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slow mover",
+      "gives": "SNAIL",
+      "note": "a snail is proverbially slow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A spike is used to scalp a sluggish creature.",
+     "definitionFit": "A nail is a thin metal spike hammered into wood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scalping"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +937,73 @@
     "text": "Medical device, unique or otherwise in case of toxicologist",
     "enumeration": "10"
    },
-   "solution": "TOURNIQUET"
+   "solution": "TOURNIQUET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TOURNIQUET",
+    "definitions": [
+     {
+      "text": "Medical device",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "otherwise",
+      "for": "anagram",
+      "note": "otherwise means in a different way, so the letters are arranged differently"
+     },
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is the outer covering, so only the first and last letters are taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one group of letters goes in another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unique or",
+      "gives": "OURNIQUE",
+      "note": "the letters of unique and or rearranged"
+     },
+     {
+      "clueFragment": "toxicologist",
+      "gives": "TT",
+      "select": "outer",
+      "note": "first and last letters of toxicologist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OURNIQUE",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNIQUEOR",
+       "gives": "OURNIQUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poison expert carries a one-of-a-kind medical instrument.",
+     "definitionFit": "A tourniquet is a band tightened round a limb to stop bleeding, a piece of first-aid equipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1017,43 @@
     "text": "Distasteful — sugary then?",
     "enumeration": "9"
    },
-   "solution": "UNSAVOURY"
+   "solution": "UNSAVOURY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNSAVOURY",
+    "definitions": [
+     {
+      "text": "Distasteful",
+      "at": 0
+     },
+     {
+      "text": "sugary then?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Distasteful",
+      "note": "first meaning: unpleasant or morally objectionable"
+     },
+     {
+      "clueFragment": "sugary then?",
+      "note": "second meaning: read literally as not savoury, so sweet"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone finds a dish unpleasant and wonders if it was too sweet.",
+     "definitionFit": "Unsavoury means unpleasant or disreputable, and taken literally not-savoury food would be sweet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sugary"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1067,42 @@
     "text": "Punishment delivered by hand — absolutely",
     "enumeration": "8"
    },
-   "solution": "SPANKING"
+   "solution": "SPANKING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPANKING",
+    "definitions": [
+     {
+      "text": "Punishment delivered by hand",
+      "at": 0
+     },
+     {
+      "text": "absolutely",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Punishment delivered by hand",
+      "note": "first meaning: smacking on the bottom"
+     },
+     {
+      "clueFragment": "absolutely",
+      "note": "second meaning: very"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone insists, without doubt, on corporal punishment.",
+     "definitionFit": "A spanking is a smacking given with the hand, and spanking as an intensifier means completely, as in spanking new."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "absolutely"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1116,49 @@
     "text": "Criminal's plagiarism — is that intriguing?",
     "enumeration": "10"
    },
-   "solution": "CONSPIRACY"
+   "solution": "CONSPIRACY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSPIRACY",
+    "definitions": [
+     {
+      "text": "is that intriguing?",
+      "at": 24,
+      "note": "a question; the answer is the noun for the act of intriguing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criminal's",
+      "gives": "CONS",
+      "note": "a con is a convict, and the 's is kept"
+     },
+     {
+      "clueFragment": "plagiarism",
+      "gives": "PIRACY",
+      "note": "copying others' work is piracy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONS",
+      "PIRACY"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer asks whether a crook's copying is interesting.",
+     "walkthrough": "'Intriguing' reads as fascinating, but here it means plotting.",
+     "definitionFit": "A conspiracy is a secret plot, and intriguing in its verb sense means plotting secretly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "intriguing"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1172,61 @@
     "text": "Show taxi rank rate",
     "enumeration": "7"
    },
-   "solution": "CABARET"
+   "solution": "CABARET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CABARET",
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rank",
+      "for": "anagram",
+      "note": "rank means rotten or foul, so the word that follows is spoilt into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     },
+     {
+      "clueFragment": "rate",
+      "gives": "ARET",
+      "note": "the letters of rate rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAB",
+      "ARET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATE",
+       "gives": "ARET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sign displays the fare at the taxi stand.",
+     "walkthrough": "'Taxi rank' reads as a cab stand, but rank works on the word after it.",
+     "definitionFit": "Cabaret is a form of entertainment with song and dance in a nightclub, a type of show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rank"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1240,44 @@
     "text": "Infiltrating twerps, stupid attention-seeker?",
     "enumeration": "4"
    },
-   "solution": "PSST"
+   "solution": "PSST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PSST",
+    "definitions": [
+     {
+      "text": "attention-seeker?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Infiltrating",
+      "for": "hidden_word",
+      "note": "something infiltrating has slipped inside, so the answer lies inside the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "twerps, stupid",
+      "gives": "PSST",
+      "note": "the letters span the end of twerps and the start of stupid"
+     }
+    ],
+    "explanation": {
+     "surface": "A show-off sneaks in among some silly fools.",
+     "walkthrough": "The 'attention-seeker' is not a person but a sound used to catch someone's notice.",
+     "definitionFit": "Psst is the whispered sound used to attract someone's notice discreetly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "attention-seeker"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1291,56 @@
     "text": "Platform set up in Le Carre trilogy",
     "enumeration": "7"
    },
-   "solution": "TERRACE"
+   "solution": "TERRACE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TERRACE",
+    "definitions": [
+     {
+      "text": "Platform",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is inside the words that follow"
+     },
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, set up means raised, read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Le Carre trilogy",
+      "gives": "ECARRET",
+      "note": "the letters span the end of Le, all of Carre and the start of trilogy"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ECARRET",
+       "to": "TERRACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stage is erected in a spy-novel trilogy by John le Carre.",
+     "definitionFit": "A terrace is a raised flat area of ground or a paved platform beside a building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1354,50 @@
     "text": "Show-off rose up after revolution",
     "enumeration": "6"
    },
-   "solution": "POSEUR"
+   "solution": "POSEUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POSEUR",
+    "definitions": [
+     {
+      "text": "Show-off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after revolution",
+      "for": "anagram",
+      "note": "a revolution turns everything around, so the letters come out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rose up",
+      "gives": "ROSEUP",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROSEUP",
+       "gives": "POSEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vain person climbed to prominence after the uprising.",
+     "definitionFit": "A poseur is someone who behaves affectedly to impress others, which is a show-off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1411,55 @@
     "text": "Can eaten by giant, raw",
     "enumeration": "6"
    },
-   "solution": "BITING"
+   "solution": "BITING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BITING",
+    "definitions": [
+     {
+      "text": "raw",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "what is eaten ends up inside the eater"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "giant",
+      "gives": "BIG",
+      "note": "a giant is big"
+     },
+     {
+      "clueFragment": "Can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "TIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A giant eats a can of uncooked food.",
+     "walkthrough": "'Raw' reads as uncooked, but it is the weather sense: bitterly cold.",
+     "definitionFit": "A raw wind is a bitterly cold one, also described as biting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raw"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1473,42 @@
     "text": "Perfect summation",
     "enumeration": "5"
    },
-   "solution": "TOTAL"
+   "solution": "TOTAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOTAL",
+    "definitions": [
+     {
+      "text": "Perfect",
+      "at": 0
+     },
+     {
+      "text": "summation",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perfect",
+      "note": "first meaning: complete, utter"
+     },
+     {
+      "clueFragment": "summation",
+      "note": "second meaning: the sum of figures added up"
+     }
+    ],
+    "explanation": {
+     "surface": "A flawless closing speech or addition.",
+     "definitionFit": "Total as an adjective means complete or absolute, and as a noun the amount reached by adding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Perfect"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1522,47 @@
     "text": "Spinner's arm",
     "enumeration": "8"
    },
-   "solution": "REVOLVER"
+   "solution": "REVOLVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REVOLVER",
+    "definitions": [
+     {
+      "text": "Spinner",
+      "at": 0
+     },
+     {
+      "text": "arm",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spinner",
+      "note": "first meaning: something that revolves"
+     },
+     {
+      "clueFragment": "arm",
+      "note": "second meaning: a weapon, specifically a handgun"
+     }
+    ],
+    "explanation": {
+     "surface": "A spin bowler's bowling arm.",
+     "walkthrough": "In cricket a spinner is a slow bowler who spins the ball, which suggests a limb; here 's means is.",
+     "definitionFit": "A revolver is literally a thing that revolves, and it is also a handgun with a rotating cylinder, a firearm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "arm"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1576,61 @@
     "text": "Princess welcoming leader in Thessaloniki, Greek character",
     "enumeration": "4"
    },
-   "solution": "BETA"
+   "solution": "BETA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BETA",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader is the one at the front, so the first letter is taken"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome someone is to take them in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Princess",
+      "gives": "BEA",
+      "note": "Bea is Princess Beatrice, granddaughter of Elizabeth II"
+     },
+     {
+      "clueFragment": "Thessaloniki",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of Thessaloniki"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "T",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal receives a Greek city's leader, who is a notable personality.",
+     "definitionFit": "Beta is the second letter of the Greek alphabet, and a letter is a character."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1644,55 @@
     "text": "Fee: earner upset with it",
     "enumeration": "8"
    },
-   "solution": "RETAINER"
+   "solution": "RETAINER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RETAINER",
+    "definitions": [
+     {
+      "text": "Fee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earner",
+      "gives": "EARNER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EARNERIT",
+       "gives": "RETAINER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wage-earner is unhappy about the charge.",
+     "definitionFit": "A retainer is an advance fee paid to secure someone's services, as with a lawyer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 28,
@@ -449,7 +1706,47 @@
     "text": "Country after sea monster",
     "enumeration": "6"
    },
-   "solution": "MEDUSA"
+   "solution": "MEDUSA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEDUSA",
+    "definitions": [
+     {
+      "text": "monster",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "MED",
+      "note": "the Med is the Mediterranean Sea"
+     },
+     {
+      "clueFragment": "Country",
+      "gives": "USA",
+      "note": "the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MED",
+      "USA"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation chases a sea monster.",
+     "walkthrough": "'Sea monster' reads as one phrase; split it, as sea is wordplay and monster the definition. 'After' places the country second.",
+     "definitionFit": "Medusa is the snake-haired Gorgon of Greek myth, a monster whose gaze turned people to stone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 29,
@@ -463,7 +1760,61 @@
     "text": "Message carrier holding short poem",
     "enumeration": "8"
    },
-   "solution": "TELEGRAM"
+   "solution": "TELEGRAM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TELEGRAM",
+    "definitions": [
+     {
+      "text": "Message",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut down, so the word loses its final letter"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "one thing holds another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carrier",
+      "gives": "TRAM",
+      "note": "a tram carries passengers"
+     },
+     {
+      "clueFragment": "poem",
+      "gives": "ELEGY",
+      "note": "an elegy is a mournful poem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ELEG",
+      "RAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A messenger turns up with a brief verse.",
+     "walkthrough": "'Message carrier' reads as a courier; the definition is just Message.",
+     "definitionFit": "A telegram is a message sent by telegraph and delivered on paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carrier"
+    }
+   }
   },
   {
    "number": 30,
@@ -477,7 +1828,48 @@
     "text": "Barrier in lap, we hear?",
     "enumeration": "6"
    },
-   "solution": "GROYNE"
+   "solution": "GROYNE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GROYNE",
+    "definitions": [
+     {
+      "text": "Barrier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a sound, so the word is identified by how it is pronounced"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lap",
+      "gives": "GROYNE",
+      "soundsLike": "GROIN",
+      "note": "the lap is the groin area when seated"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sits with a barrier across their lap.",
+     "walkthrough": "A groyne is a low wall built out from a beach to stop sand drifting; it is pronounced exactly like groin.",
+     "definitionFit": "A groyne is a sea-defence barrier running from the shore into the water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lap"
+    }
+   }
   }
  ]
 }
