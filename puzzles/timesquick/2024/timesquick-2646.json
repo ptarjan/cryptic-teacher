@@ -24,6 +24,9 @@
   "date": "2024-04-10",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,46 @@
     "text": "Sailor, stabbed, doubled over",
     "enumeration": "10"
    },
-   "solution": "JACKKNIFED"
+   "solution": "JACKKNIFED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JACKKNIFED",
+    "definitions": [
+     {
+      "text": "doubled over",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "JACK",
+      "note": "jack is an old word for a sailor, as in jack tar"
+     },
+     {
+      "clueFragment": "stabbed",
+      "gives": "KNIFED",
+      "note": "to knife someone is to stab them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "KNIFED"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor is stabbed in a brawl and doubles over in pain.",
+     "definitionFit": "To jackknife is to bend sharply at the middle, folding like a pocket knife closing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doubled"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +93,62 @@
     "text": "Support for limb motionless initially in seizure",
     "enumeration": "7"
    },
-   "solution": "ARMREST"
+   "solution": "ARMREST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ARMREST",
+    "definitions": [
+     {
+      "text": "Support for limb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word it follows"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside the other, sitting in it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motionless",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of motionless"
+     },
+     {
+      "clueFragment": "seizure",
+      "gives": "ARREST",
+      "note": "an arrest is a seizure by the police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "M",
+      "REST"
+     ]
+    },
+    "explanation": {
+     "surface": "A limb held rigid during a fit needs support.",
+     "walkthrough": "'Seizure' suggests a medical fit, but here it is the police sense of seizing someone.",
+     "definitionFit": "An armrest is the part of a chair on which you lean your arm, so it holds up a limb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "seizure"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +162,43 @@
     "text": "Bird of prey child has on a string",
     "enumeration": "4"
    },
-   "solution": "KITE"
+   "solution": "KITE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KITE",
+    "definitions": [
+     {
+      "text": "Bird of prey",
+      "at": 0
+     },
+     {
+      "text": "child has on a string",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird of prey",
+      "note": "first meaning: a hawk-like raptor"
+     },
+     {
+      "clueFragment": "child has on a string",
+      "note": "second meaning: a toy flown in the wind on a line"
+     }
+    ],
+    "explanation": {
+     "surface": "A child keeps a captive hawk tethered by a cord.",
+     "definitionFit": "The same word names a small raptor and the paper toy flown on a line, which was named after the bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "string"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +212,45 @@
     "text": "By the sound of it, swallowed a delicious drink",
     "enumeration": "6"
    },
-   "solution": "NECTAR"
+   "solution": "NECTAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NECTAR",
+    "definitions": [
+     {
+      "text": "delicious drink",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "By the sound of it",
+      "for": "homophone",
+      "note": "the solver must judge how the words are spoken, not how they are spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swallowed a",
+      "gives": "NECTAR",
+      "soundsLike": "NECKED A",
+      "note": "to neck a drink is British slang for gulping it down"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone appears to have gulped down a tasty drink.",
+     "walkthrough": "'Neck' is informal British for drinking quickly, so 'necked a' is said just like the answer.",
+     "definitionFit": "Nectar was the drink of the gods in myth, so any delicious drink can be called that."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swallowed"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +264,60 @@
     "text": "Briefly run up to a series of boats",
     "enumeration": "8"
    },
-   "solution": "FLOTILLA"
+   "solution": "FLOTILLA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FLOTILLA",
+    "definitions": [
+     {
+      "text": "series of boats",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "FLOW",
+      "note": "water runs, or flows"
+     },
+     {
+      "clueFragment": "up to",
+      "gives": "TILL",
+      "note": "till means up to, as in waiting till noon"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLO",
+      "TILL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dashes over to a line of moored boats.",
+     "definitionFit": "A flotilla is a small fleet, a group of boats sailing together in a line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +331,43 @@
     "text": "Bore strict training",
     "enumeration": "5"
    },
-   "solution": "DRILL"
+   "solution": "DRILL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRILL",
+    "definitions": [
+     {
+      "text": "Bore",
+      "at": 0
+     },
+     {
+      "text": "strict training",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bore",
+      "note": "first meaning: to make a hole through something"
+     },
+     {
+      "clueFragment": "strict training",
+      "note": "second meaning: rigorous repetitive instruction, as on a parade ground"
+     }
+    ],
+    "explanation": {
+     "surface": "Strict training is a bore.",
+     "definitionFit": "The word is a verb for boring a hole and a noun for disciplined, repetitive exercises."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bore"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +381,51 @@
     "text": "Best seats here, but a thousand can't sit down?",
     "enumeration": "10"
    },
-   "solution": "GRANDSTAND"
+   "solution": "GRANDSTAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRANDSTAND",
+    "definitions": [
+     {
+      "text": "Best seats here",
+      "at": 0,
+      "note": "a place description standing for the noun"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a thousand",
+      "gives": "GRAND",
+      "note": "a grand is slang for a thousand pounds or dollars"
+     },
+     {
+      "clueFragment": "can't sit down",
+      "gives": "STAND",
+      "note": "those who cannot sit must stand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAND",
+      "STAND"
+     ]
+    },
+    "explanation": {
+     "surface": "The prime seating at a stadium, yet a crowd of a thousand is left standing.",
+     "definitionFit": "A grandstand is the main covered stand at a sports ground, where the best seats are found."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "thousand"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +439,63 @@
     "text": "Shortly put down one chapter in colloquial speech",
     "enumeration": "7"
    },
-   "solution": "DEMOTIC"
+   "solution": "DEMOTIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DEMOTIC",
+    "definitions": [
+     {
+      "text": "colloquial speech",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Shortly",
+      "for": "deletion",
+      "note": "shortly means made short, so the last letter of the phrase's word is lost"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put down",
+      "gives": "DEMOTE",
+      "note": "to demote is to put down in rank"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "chapter",
+      "gives": "C",
+      "note": "C is a standard abbreviation for chapter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMOT",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A soon-to-be-dropped chapter is written in everyday speech.",
+     "definitionFit": "Demotic is the ordinary language of the common people, as opposed to formal or literary forms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shortly"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +509,50 @@
     "text": "Remove restrictions from disc, safely reformatted",
     "enumeration": "10"
    },
-   "solution": "DECLASSIFY"
+   "solution": "DECLASSIFY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECLASSIFY",
+    "definitions": [
+     {
+      "text": "Remove restrictions from",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reformatted",
+      "for": "anagram",
+      "note": "reformatting rearranges the contents into a new layout"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disc, safely",
+      "gives": "DISCSAFELY",
+      "note": "the letters of both words together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DISCSAFELY",
+       "gives": "DECLASSIFY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computer disk is wiped and reformatted so it can be freely used.",
+     "definitionFit": "To declassify a document is to lift the secrecy restrictions on who may see it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reformatted"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +566,52 @@
     "text": "Basket maker more comfy out of cold",
     "enumeration": "5"
    },
-   "solution": "OSIER"
+   "solution": "OSIER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OSIER",
+    "definitions": [
+     {
+      "text": "Basket maker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of means without, so the following letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more comfy",
+      "gives": "COSIER",
+      "note": "cosier means more comfortable"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OSIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A basket weaver is snugger once out of the cold.",
+     "definitionFit": "The osier is a willow whose flexible twigs are woven into baskets, so it is the material that makes them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "maker"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +625,56 @@
     "text": "Prepare to swallow a red wine at the start",
     "enumeration": "4"
    },
-   "solution": "CHEW"
+   "solution": "CHEW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHEW",
+    "definitions": [
+     {
+      "text": "Prepare to swallow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the start",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a red",
+      "gives": "CHE",
+      "note": "Che Guevara, the Marxist revolutionary, is a famous red"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "W",
+      "select": "first",
+      "note": "the first letter of wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone readies themselves to gulp a glass of red wine.",
+     "walkthrough": "'A red wine' reads as one phrase, but 'a red' is a communist, Che.",
+     "definitionFit": "Chewing is what you do to food to get it ready for swallowing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +688,50 @@
     "text": "Set of bells in collar, moving",
     "enumeration": "8"
    },
-   "solution": "CARILLON"
+   "solution": "CARILLON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CARILLON",
+    "definitions": [
+     {
+      "text": "Set of bells",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "letters that are moving shift out of their places into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in collar",
+      "gives": "INCOLLAR",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INCOLLAR",
+       "gives": "CARILLON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bells on an animal's collar jingle as it moves.",
+     "definitionFit": "A carillon is a set of tuned bells in a tower, played from a keyboard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "collar"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +745,47 @@
     "text": "Steal identity, an informal one",
     "enumeration": "8"
    },
-   "solution": "NICKNAME"
+   "solution": "NICKNAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NICKNAME",
+    "definitions": [
+     {
+      "text": "an informal one",
+      "at": 16,
+      "note": "one stands for identity, so this means an informal name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steal",
+      "gives": "NICK",
+      "note": "nick is British slang for steal"
+     },
+     {
+      "clueFragment": "identity",
+      "gives": "NAME",
+      "note": "a name is what identifies someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICK",
+      "NAME"
+     ]
+    },
+    "explanation": {
+     "surface": "An identity thief uses a casual alias.",
+     "definitionFit": "A nickname is a familiar, unofficial name used in place of someone's proper one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "identity"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +799,61 @@
     "text": "Get thanks when opening a can",
     "enumeration": "6"
    },
-   "solution": "ATTAIN"
+   "solution": "ATTAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATTAIN",
+    "definitions": [
+     {
+      "text": "Get",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when opening",
+      "for": "container",
+      "note": "something opening a container sits inside it, at its mouth"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is informal British for thanks"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "TA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is thanked for opening a tin.",
+     "walkthrough": "'Ta' is informal British for thanks; 'when opening' means it sits just inside the can.",
+     "definitionFit": "To attain something is to get or achieve it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +867,47 @@
     "text": "Son makes big strides skiing here",
     "enumeration": "6"
    },
-   "solution": "SLOPES"
+   "solution": "SLOPES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLOPES",
+    "definitions": [
+     {
+      "text": "skiing here",
+      "at": 22,
+      "note": "a place description standing for the noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "makes big strides",
+      "gives": "LOPES",
+      "note": "to lope is to run with long easy strides"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LOPES"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy strides out confidently while skiing.",
+     "definitionFit": "Skiers go down the slopes, the inclined runs of a ski resort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "strides"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +921,61 @@
     "text": "In large level area place a meal for all to see",
     "enumeration": "7"
    },
-   "solution": "PLATEAU"
+   "solution": "PLATEAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLATEAU",
+    "definitions": [
+     {
+      "text": "large level area",
+      "at": 3
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "PL",
+      "note": "PL is the abbreviation for place, as in street names"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "TEA",
+      "note": "tea is an evening meal in British usage"
+     },
+     {
+      "clueFragment": "for all to see",
+      "gives": "U",
+      "note": "U is the film certificate for universal viewing, suitable for all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "A",
+      "TEA",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets out a picnic in the open on a wide flat stretch of land.",
+     "definitionFit": "A plateau is an expanse of high, flat ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +989,46 @@
     "text": "Specimen, small, more than adequate",
     "enumeration": "6"
    },
-   "solution": "SAMPLE"
+   "solution": "SAMPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAMPLE",
+    "definitions": [
+     {
+      "text": "Specimen",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "more than adequate",
+      "gives": "AMPLE",
+      "note": "ample means plentiful, more than enough"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lab specimen is small but plenty for the test.",
+     "definitionFit": "A sample is a portion taken as an example of the whole, which is what a specimen is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1042,46 @@
     "text": "Regular staff, one looking after cattle",
     "enumeration": "8"
    },
-   "solution": "STOCKMAN"
+   "solution": "STOCKMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOCKMAN",
+    "definitions": [
+     {
+      "text": "one looking after cattle",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regular",
+      "gives": "STOCK",
+      "note": "stock as an adjective means standard or regular, as in a stock phrase"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "MAN",
+      "note": "to man a post is to staff it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOCK",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A farm's permanent employees include a herdsman.",
+     "definitionFit": "A stockman is a farm worker in charge of livestock, especially cattle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1095,46 @@
     "text": "Toxic gas over region",
     "enumeration": "5"
    },
-   "solution": "OZONE"
+   "solution": "OZONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OZONE",
+    "definitions": [
+     {
+      "text": "Toxic gas",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scoring abbreviation for an over"
+     },
+     {
+      "clueFragment": "region",
+      "gives": "ZONE",
+      "note": "a zone is an area or region"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "ZONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A poisonous cloud hangs over the district.",
+     "definitionFit": "Ozone is a form of oxygen that is poisonous to breathe at ground level."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1148,63 @@
     "text": "A convict returning for festival",
     "enumeration": "4"
    },
-   "solution": "GALA"
+   "solution": "GALA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GALA",
+    "definitions": [
+     {
+      "text": "festival",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the letters are read right to left"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "convict",
+      "gives": "LAG",
+      "note": "an old lag is a British term for a convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAL",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ALAG",
+       "to": "GALA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A released prisoner comes home in time for the celebrations.",
+     "definitionFit": "A gala is a festive public celebration or entertainment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1218,56 @@
     "text": "Secretly look up to find castle tower",
     "enumeration": "4"
    },
-   "solution": "KEEP"
+   "solution": "KEEP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "KEEP",
+    "definitions": [
+     {
+      "text": "castle tower",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the letters run from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secretly look",
+      "gives": "PEEK",
+      "note": "to peek is to take a furtive look"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEEK",
+       "to": "KEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneaks a glance upwards at a castle's tower.",
+     "definitionFit": "A keep is the strongest central tower of a medieval castle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1281,48 @@
     "text": "Female at Hebridean isle?",
     "enumeration": "5"
    },
-   "solution": "FIONA"
+   "solution": "FIONA",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "FIONA",
+    "definitions": [
+     {
+      "text": "Female at Hebridean isle?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "Hebridean isle",
+      "gives": "IONA",
+      "note": "Iona is a small island in the Inner Hebrides off western Scotland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IONA"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman visiting a Scottish island.",
+     "walkthrough": "'At' simply sets the two pieces side by side; the whole clue also hints at a Scottish girl, as the name is especially popular in Scotland.",
+     "definitionFit": "Fiona is a female first name of Scottish origin, fitting a woman from the Hebrides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "at"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1336,52 @@
     "text": "Simulated pressure on nurse",
     "enumeration": "7"
    },
-   "solution": "PRETEND"
+   "solution": "PRETEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRETEND",
+    "definitions": [
+     {
+      "text": "Simulated",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure in physics"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning, as in business letters"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "TEND",
+      "note": "to tend the sick is to nurse them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RE",
+      "TEND"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse is put under fake pressure in a training exercise.",
+     "definitionFit": "Pretend as an adjective, informally, means make-believe or not real, so simulated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nurse"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1401,46 @@
      }
     ]
    },
-   "solution": "ELEVENPLUS"
+   "solution": "ELEVENPLUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ELEVEN-PLUS",
+    "definitions": [
+     {
+      "text": "Part of simple sum",
+      "at": 0
+     },
+     {
+      "text": "school exam",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of simple sum",
+      "note": "first meaning: the start of an addition such as ... two"
+     },
+     {
+      "clueFragment": "school exam",
+      "note": "second meaning: the test taken at about age eleven in Britain to decide entry to grammar schools"
+     }
+    ],
+    "explanation": {
+     "surface": "A child meets a basic addition question in an exam.",
+     "definitionFit": "The eleven-plus is the British selection exam for grammar school, and literally the opening words of an addition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sum"
+    }
+   }
   }
  ]
 }
