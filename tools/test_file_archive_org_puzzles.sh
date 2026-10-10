@@ -1524,6 +1524,22 @@ check("a sure listed read whose crossings are mostly unread is unread", {}, sett
 check("a plain cell's sure misread one letter from the only listed word is that word",
       {(2, "across"): "BEELZEBUB"}, settled(tso.plain_swaps, "BEEIZEBUB", True))
 check("a sure misread a letter from two listed words is unread", {}, settled(tso.plain_swaps, "BRANG", True))
+# whole_listed(): a heavy print's light read whole as one listed word is
+# that word where accepted crossings hold every cell a letter's change makes
+# another listed word in (15901 PETAL beside PINUP); where a crossing is
+# unread, the read's first glyph may be an F (FETAL) and the light stays
+# unread; a whole read an accepted crossing contradicts is no word there.
+def whole(read, held_cols, crossing="PETAL"):
+    lts = {(5, "across"): [(1, j) for j in range(5)]}
+    lts.update({(j + 1, "down"): [(0, j), (1, j)] for j in range(5)})
+    accepted = {(j + 1, "down"): "X" + crossing[j] for j in held_cols}
+    return tso.whole_listed(lts, accepted, [{(5, "across"): set(read)}])
+check("a whole read whose every changeable cell a crossing holds is taken",
+      {(5, "across"): "PETAL"}, whole({"PETAL"}, range(5)))
+check("a whole read with a changeable cell no crossing holds is unread", {}, whole({"PETAL"}, range(1, 5)))
+check("a rival whole read a crossing contradicts leaves the word",
+      {(5, "across"): "PETAL"}, whole({"PETAL", "PEDAL"}, range(5)))
+check("a whole read a crossing contradicts is unread", {}, whole({"FETAL"}, range(5)))
 # crossed_reads(): an unread light's cells take accepted crossings' letters
 # and plain cells' sure reads (Gale 1987: ?MADEUS, ?LEANOR); a numbered
 # cell's own sure read is no letter (DUCKINGSTOOL's D read as a sure B),
