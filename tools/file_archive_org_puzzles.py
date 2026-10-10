@@ -2928,7 +2928,7 @@ def read_puzzle(d, found, hit, solutions):
     sol = solutions.get(n)
     if sol:
         answers, info = read_solution(sol, grid, above=paper_of(sol["dir"]).solution_above)
-        verdict["solutionFrom"] = f"{sol['dir'].name} leaf {sol['leaf']}"
+        verdict["solutionFrom"] = solution_source(sol)
         verdict["solution"] = info
         verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
     return verdict, puzzle
@@ -3353,9 +3353,31 @@ def inputs_of(files_hash, found, series):
     return edition_commit.inputs(files_hash, reprint_key(numbers, series), series, numbers)
 
 
-def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
+def solution_source(sol):
+    """Where a linked solution heading `sol` prints: a verdict's solutionFrom."""
+    return f"{sol['dir'].name} leaf {sol['leaf']}"
+
+
+def solution_sources(dirs, scans, rels, held, sister):
+    """({number: the solution heading a read takes, its "dir" set}, {number:
+    {solution_source} of every page linking it}): each of `dirs`' linked
+    headings, the first per number standing, over the `sister` ones."""
+    first, every = {}, {}
+    for d in dirs:
+        for s in linked_solutions(paper_of(d), scans[rels[d]], held):
+            first.setdefault(s["number"], {**s, "dir": d})
+            every.setdefault(s["number"], set()).add(solution_source({**s, "dir": d}))
+    for n, s in sister.items():
+        every.setdefault(n, set()).add(solution_source(s))
+    return {**sister, **first}, every
+
+
+def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
     """Why an edition's ledger `row` is read again, or None: never read, its
-    files (input_hash) or the solutions it can see moved, its titles moved
+    files (input_hash) or the solutions it can see moved, a solution it read
+    off a page that no longer links it (`sol_from`: {number: {solution_source}}
+    of every page linking each solution it sees; any of them may be the one
+    read), its titles moved
     since its verdicts (a scan by new code, see scan_key), read without the
     VLM that now answers, or last read before `reread` (a datetime: the
     explicit --reread)."""
@@ -3363,6 +3385,9 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
         return "never read"
     if row["inputs"] != inputs or row.get("solutionsSeen") != sol_seen:
         return "inputs changed"
+    if any(v.get("solutionFrom") and v["solutionFrom"] not in (sol_from or {}).get(v["number"], {v["solutionFrom"]})
+           for v in row.get("verdicts", ())):
+        return "solution moved"
     if sorted(p["number"] for p in row["scan"]["puzzles"]) != sorted(v.get("read_as", v["number"])
                                                                      for v in row.get("verdicts", ())):
         return "titles changed"
@@ -3435,9 +3460,15 @@ def staged_at(d):
 #: How urgent each reason to read an edition is (tools/edition_queue.py
 #: takes the lowest first): pages Paul saved by hand, then any never-read
 #: edition and the re-reads annotation asked for, then an edition whose
-#: inputs moved, then the re-reads REREAD_BEFORE makes due.
+#: inputs moved, then the re-reads REREAD_BEFORE makes due. A reason not
+#: named here (a fix's re-read: "refused <cause> before its fix", "solution
+#: read in part before its fix") ranks with --reread (rank_of_reason).
 RANKS = {"saved by hand": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
-         "read without the VLM": 2, "scan stale": 2, "--reread": 3}
+         "solution moved": 2, "read without the VLM": 2, "scan stale": 2, "--reread": 3}
+
+
+def rank_of_reason(reason):
+    return RANKS.get(reason, RANKS["--reread"])
 
 
 def scan_current(row, fh):
@@ -3466,8 +3497,7 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
     stale_set = set(stale)
     scans = {rels[d]: (known.get(rels[d]) or {}).get("scan") or {"puzzles": [], "solutions": []} for d in every}
     held = held_dates(paper.series)
-    solutions = {s["number"] for d in every for s in linked_solutions(paper_of(d), scans[rels[d]], held)} | \
-        set(sister_solutions(cache, paper))
+    solutions, sources = solution_sources(every, scans, rels, held, sister_solutions(cache, paper))
     asked = set(asked)
     reads = {}
     for d in dirs:
@@ -3476,7 +3506,8 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
             why = "scan stale" if "inputs" in row else "never read"
         else:
             sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
-            why = due_reason(row, inputs_of(row["filesHash"], scans[rel], paper.series), sol_seen, seen_by, reread)
+            why = due_reason(row, inputs_of(row["filesHash"], scans[rel], paper.series), sol_seen, seen_by, reread,
+                             sources)
         if not why and rel in asked:
             why = "annotation asked"
         if why == "never read" and paper.key in NEWEST_FIRST:
@@ -3497,7 +3528,7 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
         return [rel for _, rel in dated[lo:hi]] + undated
     keys = sorted(reads, key=staged_at, reverse=True) if paper.key in NEWEST_FIRST else list(reads)
     queue = scan_queue.order(keys, {d: known.get(rels[d]) or {} for d in reads}, lambda row: "inputs" not in row)
-    read_units = [{"kind": "read", "paper": paper.key, "rel": rels[d], "reason": reads[d], "rank": RANKS[reads[d]],
+    read_units = [{"kind": "read", "paper": paper.key, "rel": rels[d], "reason": reads[d], "rank": rank_of_reason(reads[d]),
                    "needs": needs(d), "force": reads[d] == "annotation asked"} for d in queue]
     rank_of = {}
     for u in read_units:
@@ -3652,11 +3683,8 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             saved = time.monotonic()
     if unscanned:
         flush()
-    solutions, dated = {}, held_dates(paper.series)
-    for d in dirs:
-        for s in linked_solutions(paper_of(d), scans[rels[d]], dated):
-            solutions.setdefault(s["number"], {**s, "dir": d})
-    solutions = {**sister_solutions(cache, paper or TIMES), **solutions}
+    solutions, sources = solution_sources(dirs, scans, rels, held_dates(paper.series),
+                                          sister_solutions(cache, paper or TIMES))
     due = {}
     for d in dirs:
         rel = rels[d]
@@ -3665,7 +3693,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         fh = known[rel]["filesHash"]
         h = inputs_of(fh, scans[rel], paper.series)
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
-        why = due_reason(known[rel], h, sol_seen, seen_by, reread)
+        why = due_reason(known[rel], h, sol_seen, seen_by, reread, sources)
         if why or editions and (unit is None or unit.get("force")):
             due[d] = (h, sol_seen, fh)
         elif unit is not None:

@@ -107,6 +107,18 @@ check("the old whole-name key is the one the ledger rows carry, re-keyed not res
 check("a title no verdict covers makes the edition due", "titles changed",
       f.due_reason({"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
                     "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))
+# Gale 1991-04-13 read No 18,579's answers off 1991-04-03, a page the
+# solution pairing no longer links: due once, and not again once read off
+# the page it now links from.
+moved = {"inputs": "h", "solutionsSeen": [18579], "vlm": "v", "scan": {"puzzles": [{"number": 18579}]},
+         "verdicts": [{"number": 18579, "solutionFrom": "1991-04-03 leaf 0"}]}
+check("a solution read off a page that no longer links it is due; one off any page that does is not",
+      ["solution moved", None, None],
+      [f.due_reason(moved, "h", [18579], "v", None, {18579: {"1991-04-20 leaf 0"}}),
+       f.due_reason(moved, "h", [18579], "v", None, {18579: {"1991-04-20 leaf 0", "1991-04-03 leaf 0"}}),
+       f.due_reason({**moved, "verdicts": [{"number": 18579}]}, "h", [18579], "v", None, {18579: {"1991-04-20 leaf 0"}})])
+check("a fix's re-read ranks with --reread, not as an unknown reason", [3, 2],
+      [f.rank_of_reason("refused not-a-grid before its fix"), f.rank_of_reason("solution moved")])
 refused = lambda cause, at: {"inputs": "h", "solutionsSeen": [], "vlm": "v", "readAt": at,
                              "scan": {"puzzles": [{"number": 1}]}, "verdicts": [{"number": 1, "cause": cause}]}
 check("a title filed as another number than it read is not due again", None,
