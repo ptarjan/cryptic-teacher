@@ -40,7 +40,8 @@ check("read since, it asks nothing (mirror)", [], q.vote_mended_requests())
 q.sources = lambda: {"times-1": ("archive", "ed/1", row("2026-10-01T00:00:00+00:00", "starts mid-clue"))}
 check("another blank asks nothing (mirror)", [], q.vote_mended_requests())
 q.sources = lambda: {"times-1": ("archive", "ed/1", row("2026-10-09T12:00:00+00:00", "readings differ: Ier / ler"))}
-check("a word split at a kept hyphen, read before join_split's change, asks again", [q.VOTE_MENDED[2][0]],
+check("a word split at a kept hyphen, read before join_split's changes, asks again from the last",
+      [next(at for at, why in reversed(q.VOTE_MENDED) if "readings differ" in why)],
       [r["requestedAt"] for r in q.vote_mended_requests()])
 # Each VOTE_MENDED change dates its own reasons: a light no reading laid,
 # read after the speck mend but before relaid() took one copy's readers,

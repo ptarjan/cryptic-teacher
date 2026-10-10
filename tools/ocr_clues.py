@@ -965,6 +965,7 @@ def parted(clue, others):
                 sizes.append(len(w))
                 if len(sizes) > 1:
                     apart.setdefault(joined, list(sizes))
+    printed = [{w.lower() for w in theirs} for theirs in others]
     marked_apart = {}
     for theirs in others:
         for a, b, c in zip(theirs, theirs[1:], theirs[2:]):
@@ -984,6 +985,10 @@ def parted(clue, others):
                     and sum(a != b for a, b in zip(j, w.lower())) == 1]
             sizes = near[0] if len(near) == 1 else None
         if not sizes:
+            return w
+        if known(w.lower()) and sum(w.lower() in whole for whole in printed) * 2 > len(others):
+            # A known word most readings print whole ("Edwardian") stays
+            # whole, though one reading split it.
             return w
         if is_word(w.lower()):
             # A dictionary word stays whole ("hairstyle", which a reading
@@ -2046,9 +2051,10 @@ def join_split(clue, others):
     pieces across the line end's hyphen this reading kept, or across a
     speck read as a comma or stop ("bow- Ier", "giy, ing"), not both words
     and neither one letter nor an apostrophe's tail ("lady's, rather"), are
-    run together when another reading has the one lexicon word they spell,
-    or one a letter from it, and none has the pieces apart: the vote then
-    settles its spelling."""
+    run together when more readings have the one lexicon word they spell
+    (or one a letter from it) than have the pieces apart ("Edward, ian",
+    which one other reading split too); two words ("dis, orderly") only
+    when most readings have the one: the vote then settles its spelling."""
     if not others:
         return clue
     held = [{w.lower() for w in t} for t in others]
@@ -2062,10 +2068,11 @@ def join_split(clue, others):
         if m.group(2) == " ":
             ok = m.group(3).islower() and sum(whole in h for h in held) * 2 > len(others) and is_word(whole)
         else:
-            spelt = {w for h in held for w in h if w.isalpha() and is_word(w)
-                     and (w == whole or (len(whole) > 4 and within_one(whole, w)))}
-            ok = (len(spelt) == 1 and min(len(a), len(b)) > 1 and not (is_word(a) and is_word(b))
-                  and not any(a in h and b in h for h in held))
+            spelt = {w for h in held for w in h if w.isalpha()
+                     and (known(w) if w == whole else len(whole) > 4 and is_word(w) and within_one(whole, w))}
+            ones = sum(bool(h & spelt) for h in held)
+            ok = (len(spelt) == 1 and min(len(a), len(b)) > 1 and ones > sum(a in h and b in h for h in held)
+                  and (ones * 2 > len(others) or not (is_word(a) and is_word(b))))
         if ok:
             clue = clue[:m.start()] + m.group(1) + m.group(3) + clue[m.end():]
             k = m.start()
