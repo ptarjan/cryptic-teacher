@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,47 @@
     "text": "Money made, paid well",
     "enumeration": "6"
    },
-   "solution": "PROFIT"
+   "solution": "PROFIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROFIT",
+    "definitions": [
+     {
+      "text": "Money made",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paid",
+      "gives": "PRO",
+      "note": "a pro is a paid professional"
+     },
+     {
+      "clueFragment": "well",
+      "gives": "FIT",
+      "note": "fit means well, in good health"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "FIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts of the money they earned in a well-paid job.",
+     "walkthrough": "'Paid well' reads as one phrase about wages, but splits into two adjectives: a paid player is a pro, a well person is fit.",
+     "definitionFit": "Profit is the financial gain left over, the money a business or deal has earned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "paid"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +89,64 @@
     "text": "Regret investing peso: not so – for another currency?",
     "enumeration": "5"
    },
-   "solution": "RUPEE"
+   "solution": "RUPEE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RUPEE",
+    "definitions": [
+     {
+      "text": "another currency",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not so",
+      "for": "deletion",
+      "note": "'not so' tells the solver to take those two letters away from the word before it"
+     },
+     {
+      "text": "investing",
+      "for": "container",
+      "note": "to invest is to clothe or surround, so the regret word wraps around what follows"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "peso",
+      "gives": "PESO",
+      "note": "taken as written, then losing its last two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "PE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller regrets putting money into Mexican pesos and wonders about switching currency.",
+     "walkthrough": "'Not so' acts on the word it follows, removing those exact letters. The question mark admits the peso is itself a currency.",
+     "definitionFit": "The rupee is the monetary unit of India and Pakistan, a different currency from the peso."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "investing"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +160,55 @@
     "text": "Scent bait entering country",
     "enumeration": "9"
    },
-   "solution": "FRAGRANCE"
+   "solution": "FRAGRANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRAGRANCE",
+    "definitions": [
+     {
+      "text": "Scent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "one thing entering another goes inside it, so the bait word sits within the country"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "FRANCE",
+      "note": "a European country"
+     },
+     {
+      "clueFragment": "bait",
+      "gives": "RAG",
+      "note": "to rag is to tease or bait someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RAG",
+      "RANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fisherman's smelly bait is being brought into the country.",
+     "walkthrough": "'Bait' is the verb meaning to tease or torment, not a fisherman's lure.",
+     "definitionFit": "A fragrance is a pleasant smell, the same as a scent or perfume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bait"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +222,47 @@
     "text": "Old Greek article on prohibition",
     "enumeration": "6"
    },
-   "solution": "THEBAN"
+   "solution": "THEBAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THEBAN",
+    "definitions": [
+     {
+      "text": "Old Greek",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "prohibition",
+      "gives": "BAN",
+      "note": "a ban is a prohibition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "BAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece on Prohibition written by an ancient Greek.",
+     "walkthrough": "'On' just places one piece after the other in a down clue.",
+     "definitionFit": "A Theban was a citizen of Thebes, a leading city-state of ancient Greece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +276,54 @@
     "text": "Musician in suit, flat unfortunately",
     "enumeration": "8"
    },
-   "solution": "FLAUTIST"
+   "solution": "FLAUTIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FLAUTIST",
+    "definitions": [
+     {
+      "text": "Musician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things that go unfortunately go wrong, so the letters before it come out in the wrong order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suit, flat",
+      "gives": "SUITFLAT",
+      "note": "the eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SUITFLAT",
+       "gives": "FLAUTIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer in a smart suit plays unfortunately flat.",
+     "walkthrough": "Playing flat is a musician's fault, so the surface stays in the concert hall while 'unfortunately' quietly signals the reshuffle.",
+     "definitionFit": "A flautist is a player of the flute, so a kind of musician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +343,67 @@
      }
     ]
    },
-   "solution": "FATHERCHRISTMAS"
+   "solution": "FATHERCHRISTMAS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FATHER CHRISTMAS",
+    "definitions": [
+     {
+      "text": "Annual visitor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cavalier",
+      "for": "anagram",
+      "note": "a cavalier manner is careless and offhand, so the letters are treated freely and rearranged"
+     },
+     {
+      "text": "welcomed in",
+      "for": "container",
+      "note": "something welcomed in is taken inside, so the man goes within the rearranged letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charms at first",
+      "gives": "CHARMSATFIRST",
+      "note": "the thirteen letters to rearrange"
+     },
+     {
+      "clueFragment": "that man",
+      "gives": "HE",
+      "note": "he is the pronoun for that man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAT",
+      "HE",
+      "RCHRISTMAS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHARMSATFIRST",
+       "gives": "FATRCHRISTMAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dashing visitor who comes once a year charms people at first and is welcomed in.",
+     "walkthrough": "'At first' looks like a first-letter instruction but is plain fodder for the anagram. HE goes after the third letter of the rearrangement.",
+     "definitionFit": "Father Christmas is the British name for Santa Claus, who calls once a year on Christmas Eve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +417,74 @@
     "text": "Unspecified object: hang it loosely round nanny's shoulders",
     "enumeration": "8"
    },
-   "solution": "ANYTHING"
+   "solution": "ANYTHING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ANYTHING",
+    "definitions": [
+     {
+      "text": "Unspecified object",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loosely",
+      "for": "anagram",
+      "note": "something held loosely is not fixed in place, so those letters may be rearranged"
+     },
+     {
+      "text": "shoulders",
+      "for": "letter_selection",
+      "note": "a word's shoulders are its two edges, so keep only its outside letters"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means surrounding it, so the rearranged letters enclose the edge letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hang it",
+      "gives": "HANGIT",
+      "note": "the six letters to rearrange"
+     },
+     {
+      "clueFragment": "nanny's",
+      "gives": "NY",
+      "select": "outer",
+      "note": "first and last letters of nanny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NY",
+      "THING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HANGIT",
+       "gives": "ATHING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for draping something loosely around a nanny's shoulders, like a shawl.",
+     "walkthrough": "The rearranged letters split after their first letter to admit the nanny's edges.",
+     "definitionFit": "Anything means any object or thing at all, without specifying which one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shoulders"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +498,53 @@
     "text": "Monkey drops in West Country river",
     "enumeration": "5"
    },
-   "solution": "TAMAR"
+   "solution": "TAMAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TAMAR",
+    "definitions": [
+     {
+      "text": "West Country river",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops",
+      "for": "deletion",
+      "note": "to drop something is to let it go, so the following letters are removed from the monkey"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monkey",
+      "gives": "TAMARIN",
+      "note": "a tamarin is a small South American monkey"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written, the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAMAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A monkey drops into a river in the West Country.",
+     "walkthrough": "'In' looks like a preposition but is the pair of letters dropped from TAMARIN. The West Country is south-west England.",
+     "definitionFit": "The Tamar is the river forming most of the border between Devon and Cornwall in south-west England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +564,65 @@
      }
     ]
    },
-   "solution": "SNAREDRUM"
+   "solution": "SNAREDRUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SNARE DRUM",
+    "definitions": [
+     {
+      "text": "one's beaten",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written the wrong way",
+      "for": "reversal",
+      "note": "writing something the wrong way round means setting it down back to front"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rub out",
+      "gives": "MURDER",
+      "note": "rub out is slang for kill"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "ANS",
+      "note": "ans. is the abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNA",
+      "REDRUM"
+     ],
+     "reversals": [
+      {
+       "from": "MURDERANS",
+       "to": "SNAREDRUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to rub out an answer written incorrectly, as at school.",
+     "walkthrough": "'Rub out' suggests erasing, but it is gangster slang for kill. Read backwards, REDRUM is the famous word from The Shining.",
+     "definitionFit": "A snare drum is struck with sticks, so it is something that gets beaten in a band."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rub"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +636,61 @@
     "text": "They say a dad, for example, should be in work",
     "enumeration": "10"
    },
-   "solution": "APPARENTLY"
+   "solution": "APPARENTLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APPARENTLY",
+    "definitions": [
+     {
+      "text": "They say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "should be in",
+      "for": "container",
+      "note": "something that should be in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "PLY",
+      "note": "to ply a trade is to work at it"
+     },
+     {
+      "clueFragment": "dad, for example",
+      "gives": "PARENT",
+      "note": "a dad is one example of a parent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "PARENT",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A father, for example, ought to be out at work.",
+     "walkthrough": "'They say' is the definition, introducing hearsay, not a sound-alike signal; 'work' is the verb used of a trade one plies.",
+     "definitionFit": "Apparently and 'they say' both introduce something reported or seeming true without confirmation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +704,43 @@
     "text": "Average – or low?",
     "enumeration": "4"
    },
-   "solution": "MEAN"
+   "solution": "MEAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MEAN",
+    "definitions": [
+     {
+      "text": "Average",
+      "at": 0
+     },
+     {
+      "text": "low",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Average",
+      "note": "the arithmetic average"
+     },
+     {
+      "clueFragment": "low",
+      "note": "base, ignoble, as in a low trick"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question invites a choice between two sizes, but both words lead to the same answer.",
+     "definitionFit": "Mean is both the statistical average and an adjective for petty, contemptible behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +754,43 @@
     "text": "Drop iron?",
     "enumeration": "8"
    },
-   "solution": "DECREASE"
+   "solution": "DECREASE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DECREASE",
+    "definitions": [
+     {
+      "text": "Drop",
+      "at": 0
+     },
+     {
+      "text": "iron?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drop",
+      "note": "first meaning: a fall or reduction"
+     },
+     {
+      "clueFragment": "iron?",
+      "note": "second meaning: to take the creases out, as an iron does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Iron' seems to be the metal, but split as de-crease the answer means to remove creases. The question mark flags the invented sense.",
+     "definitionFit": "A decrease is a drop in amount, while ironing literally takes the creases out of cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "iron"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +804,53 @@
     "text": "Mahler played in part of Manhattan",
     "enumeration": "6"
    },
-   "solution": "HARLEM"
+   "solution": "HARLEM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARLEM",
+    "definitions": [
+     {
+      "text": "part of Manhattan",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "music that is played is performed in a new form, so the composer's letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mahler",
+      "gives": "MAHLER",
+      "note": "the composer's name, six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAHLER",
+       "gives": "HARLEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Mahler symphony is performed in a New York neighbourhood.",
+     "definitionFit": "Harlem is a neighbourhood in northern Manhattan, New York City."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +864,42 @@
     "text": "Double jackpot winner collects",
     "enumeration": "4"
    },
-   "solution": "TWIN"
+   "solution": "TWIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TWIN",
+    "definitions": [
+     {
+      "text": "Double",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collects",
+      "for": "hidden_word",
+      "note": "the phrase before collects, holding the letters within it as a collection"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jackpot winner",
+      "gives": "TWIN",
+      "note": "spans the end of jackpot and start of winner"
+     }
+    ],
+    "explanation": {
+     "surface": "A lottery winner collects a double jackpot.",
+     "definitionFit": "A twin or double is an exact counterpart of someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Double"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +913,53 @@
     "text": "British government a little bit sorry? The lot of them!",
     "enumeration": "9"
    },
-   "solution": "WHITEHALL"
+   "solution": "WHITEHALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHITEHALL",
+    "definitions": [
+     {
+      "text": "British government",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a little bit",
+      "gives": "WHIT",
+      "note": "a whit is a tiny amount"
+     },
+     {
+      "clueFragment": "sorry?",
+      "gives": "EH",
+      "note": "eh? is what you say when you did not hear, like sorry?"
+     },
+     {
+      "clueFragment": "The lot of them!",
+      "gives": "ALL",
+      "note": "all means the whole lot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIT",
+      "EH",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that the government is a bit sorry, every last one of them.",
+     "walkthrough": "'Sorry?' is the request to repeat, not an apology.",
+     "definitionFit": "Whitehall is the London street of ministries, used as a name for the British civil service and government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sorry"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +973,46 @@
     "text": "Plot against part of church",
     "enumeration": "8"
    },
-   "solution": "CONSPIRE"
+   "solution": "CONSPIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSPIRE",
+    "definitions": [
+     {
+      "text": "Plot",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "CON",
+      "note": "con means against, as in pros and cons"
+     },
+     {
+      "clueFragment": "part of church",
+      "gives": "SPIRE",
+      "note": "a spire is the tall pointed part of a church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "SPIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A scheme hatched against a section of the church.",
+     "definitionFit": "To conspire is to plot secretly with others, so the verb plot is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plot"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1026,46 @@
     "text": "Fraud prior to bid?",
     "enumeration": "9"
    },
-   "solution": "PRETENDER"
+   "solution": "PRETENDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRETENDER",
+    "definitions": [
+     {
+      "text": "Fraud",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prior to",
+      "gives": "PRE",
+      "note": "pre means before"
+     },
+     {
+      "clueFragment": "bid",
+      "gives": "TENDER",
+      "note": "a tender is a formal bid for a contract"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "TENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A con artist strikes just before an auction bid.",
+     "definitionFit": "A pretender falsely claims a title or quality, making them a fraud or impostor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bid"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1085,58 @@
      }
     ]
    },
-   "solution": "BOATRACE"
+   "solution": "BOATRACE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BOAT RACE",
+    "definitions": [
+     {
+      "text": "annual competition",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered by",
+      "for": "container",
+      "note": "something covered by another sits under or inside it, so it goes within the couple word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "couple",
+      "gives": "BRACE",
+      "note": "a brace is a pair"
+     },
+     {
+      "clueFragment": "Grass",
+      "gives": "OAT",
+      "note": "oat is a cereal grass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OAT",
+      "RACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of players keep the grass covered during a yearly contest.",
+     "walkthrough": "'Grass' suggests informing or a lawn but here is the cereal plant. The Boat Race is the yearly rowing race between Oxford and Cambridge universities on the Thames.",
+     "definitionFit": "The Boat Race is held every spring, so it is an annual sporting competition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grass"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1156,63 @@
      }
     ]
    },
-   "solution": "FIREDOOR"
+   "solution": "FIREDOOR",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "FIRE DOOR",
+    "definitions": [
+     {
+      "text": "way out, possibly?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the nothing symbol inside the letters that follow"
+     },
+     {
+      "text": "ridiculously",
+      "for": "anagram",
+      "note": "something done ridiculously is absurd and disordered, so those letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "order if",
+      "gives": "ORDERIF",
+      "note": "seven letters taken as written"
+     },
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OORDERIF",
+       "gives": "FIREDOOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nothing is in order if things are ridiculously far out.",
+     "walkthrough": "'Way out' sounds like slang for absurd, but it is a literal exit; the question mark admits a fire door is only one example.",
+     "definitionFit": "A fire door is an exit used to escape a building in a fire, so an example of a way out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1226,49 @@
     "text": "Novel exploring manners mostly, Austen's first of all",
     "enumeration": "4"
    },
-   "solution": "EMMA"
+   "solution": "EMMA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EMMA",
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of all",
+      "for": "letter_selection",
+      "note": "the first of all the words means the opening letter of each word in the run"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exploring manners mostly, Austen's",
+      "gives": "EMMA",
+      "select": "first",
+      "note": "opening letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMMA"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a Jane Austen novel that mostly explores social manners.",
+     "walkthrough": "The whole clue describes the book, so the wordplay hides in plain sight.",
+     "definitionFit": "Emma is Jane Austen's 1815 novel about a matchmaking heroine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1282,56 @@
     "text": "Fear primarily? Correct!",
     "enumeration": "6"
    },
-   "solution": "FRIGHT"
+   "solution": "FRIGHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FRIGHT",
+    "definitions": [
+     {
+      "text": "Fear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so take just the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fear",
+      "gives": "F",
+      "select": "first",
+      "note": "opening letter of the word"
+     },
+     {
+      "clueFragment": "Correct",
+      "gives": "RIGHT",
+      "note": "right means correct"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A quiz host confirms that the main answer is fear: correct!",
+     "walkthrough": "'Fear' does double duty, as definition and as the source of the first letter.",
+     "definitionFit": "A fright is a sudden feeling of fear or alarm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Correct"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1351,57 @@
      }
     ]
    },
-   "solution": "TEASET"
+   "solution": "TEASET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TEA SET",
+    "definitions": [
+     {
+      "text": "China",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter, so keep only that"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kid",
+      "gives": "TEASE",
+      "note": "to kid is to tease"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "T",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEASE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A child ends up in the East, in China.",
+     "walkthrough": "'Kid' is the verb for teasing, not a child, and 'China' is crockery rather than the country.",
+     "definitionFit": "A tea set is a matching group of cups, saucers and teapot, typically made of china."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1415,54 @@
     "text": "Sandy-coloured growths coming up",
     "enumeration": "5"
    },
-   "solution": "STRAW"
+   "solution": "STRAW",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STRAW",
+    "definitions": [
+     {
+      "text": "Sandy-coloured",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down entry, coming up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "growths",
+      "gives": "WARTS",
+      "note": "warts are small growths on the skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRAW"
+     ],
+     "reversals": [
+      {
+       "from": "WARTS",
+       "to": "STRAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pale, sandy growths are sprouting up, like plants.",
+     "walkthrough": "'Growths coming up' suggests plants emerging, but the growths are on skin.",
+     "definitionFit": "Straw as a colour is a pale yellow, like dry stalks or sand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "growths"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1476,69 @@
     "text": "Officer requires agents organised to protect queen",
     "enumeration": "8"
    },
-   "solution": "SERGEANT"
+   "solution": "SERGEANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SERGEANT",
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "organising puts things into a new arrangement, so the letters are reordered"
+     },
+     {
+      "text": "to protect",
+      "for": "container",
+      "note": "protecting something means surrounding it, so the rearranged letters go around the queen"
+     }
+    ],
+    "linkWords": [
+     "requires"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agents",
+      "gives": "AGENTS",
+      "note": "six letters to rearrange"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the usual abbreviation for the queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ER",
+      "GEANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGENTS",
+       "gives": "SGEANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior officer needs his agents organised to guard the Queen.",
+     "definitionFit": "A sergeant is a non-commissioned officer in the army or a police officer of that rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "agents"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1552,69 @@
     "text": "Length of rope shortly lifted over head of equine",
     "enumeration": "5"
    },
-   "solution": "NOOSE"
+   "solution": "NOOSE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOOSE",
+    "definitions": [
+     {
+      "text": "Length of rope",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down entry, lifted means raised so the word reads upwards"
+     },
+     {
+      "text": "head of",
+      "for": "charade",
+      "note": "the head of a word is its first letter, placed here under the raised word"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shortly",
+      "gives": "SOON",
+      "note": "soon means shortly"
+     },
+     {
+      "clueFragment": "equine",
+      "gives": "E",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOOS",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "SOON",
+       "to": "NOOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short rope is raised over a horse's head.",
+     "walkthrough": "In a down clue, 'over' puts the reversed word above the E.",
+     "definitionFit": "A noose is a loop at the end of a length of rope, as for a lasso."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shortly"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1628,42 @@
     "text": "Gorgeous source of entertainment",
     "enumeration": "4"
    },
-   "solution": "FAIR"
+   "solution": "FAIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FAIR",
+    "definitions": [
+     {
+      "text": "Gorgeous",
+      "at": 0
+     },
+     {
+      "text": "source of entertainment",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gorgeous",
+      "note": "first meaning: beautiful"
+     },
+     {
+      "clueFragment": "source of entertainment",
+      "note": "second meaning: a funfair"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one phrase praising a show; the adjective and noun are separate.",
+     "definitionFit": "Fair is an old word for beautiful and also a travelling show of rides and amusements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gorgeous"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1677,55 @@
     "text": "Equip ancient teacher for final battle",
     "enumeration": "10"
    },
-   "solution": "ARMAGEDDON"
+   "solution": "ARMAGEDDON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARMAGEDDON",
+    "definitions": [
+     {
+      "text": "final battle",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Equip",
+      "gives": "ARM",
+      "note": "to arm is to equip with weapons"
+     },
+     {
+      "clueFragment": "ancient",
+      "gives": "AGED",
+      "note": "aged means very old"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "DON",
+      "note": "a don is a university teacher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARM",
+      "AGED",
+      "DON"
+     ]
+    },
+    "explanation": {
+     "surface": "An old schoolmaster is kitted out for the last great fight.",
+     "definitionFit": "Armageddon is the Bible's site of the last battle between good and evil at the end of the world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "teacher"
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1739,47 @@
     "text": "Perfect foxtrot, riotous",
     "enumeration": "8"
    },
-   "solution": "FLAWLESS"
+   "solution": "FLAWLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAWLESS",
+    "definitions": [
+     {
+      "text": "Perfect",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foxtrot",
+      "gives": "F",
+      "note": "Foxtrot is F in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "riotous",
+      "gives": "LAWLESS",
+      "note": "riotous means unruly, lawless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAWLESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer's foxtrot is flawless yet wild.",
+     "walkthrough": "'Foxtrot' looks like the dance but is the radio alphabet's F.",
+     "definitionFit": "Flawless means without any defect, which is to say perfect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foxtrot"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1793,43 @@
     "text": "English artist key, for example?",
     "enumeration": "6"
    },
-   "solution": "TURNER"
+   "solution": "TURNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TURNER",
+    "definitions": [
+     {
+      "text": "English artist",
+      "at": 0
+     },
+     {
+      "text": "key, for example?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English artist",
+      "note": "first meaning: J. M. W. ..., the landscape painter"
+     },
+     {
+      "clueFragment": "key, for example?",
+      "note": "second meaning: something that turns, as a key does in a lock"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Key' suggests music or a map, but here it is the thing you turn in a lock; the question mark flags the made-up noun.",
+     "definitionFit": "J. M. W. Turner was a great English painter, and a turner is literally anything that turns, like a key."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "key"
+    }
+   }
   }
  ]
 }
