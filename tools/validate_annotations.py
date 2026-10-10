@@ -2296,6 +2296,48 @@ def missing_link_word_fix(ann, extra, missing):
     return ""
 
 
+MAX_SURPLUS_EDITS = 3
+
+
+def surplus_letters_fix(ann, extra, missing, want):
+    """The single-block edits that take exactly the surplus letters away when the
+    blocks give too many and none too few: drop a block whose letters are the
+    surplus, or cut the surplus off one block's ends. Edits that also leave the
+    blocks spelling the answer in order are listed first."""
+    if missing or not extra:
+        return ""
+    blocks = [b for b in ann.get("blocks") or [] if isinstance(b, dict)]
+    gives = [letters(b.get("gives")) for b in blocks]
+    edits = []
+    for i, g in enumerate(gives):
+        if sorted(g) == sorted(extra):
+            edits.append((i, ""))
+            continue
+        for k in range(len(extra) + 1):
+            cut = g[k:len(g) - (len(extra) - k)]
+            if cut and sorted(g[:k] + g[len(g) - (len(extra) - k):]) == sorted(extra) \
+                    and (i, cut) not in edits:
+                edits.append((i, cut))
+    if not edits:
+        return ""
+    edits.sort(key=lambda e: "".join(e[1] if j == e[0] else g
+                                     for j, g in enumerate(gives)) != want)
+    said = []
+    for i, cut in edits[:MAX_SURPLUS_EDITS]:
+        frag = blocks[i].get("clueFragment")
+        if cut:
+            said.append(f"block {frag!r} gives {cut!r}, not {gives[i]!r}")
+        else:
+            said.append(f"drop block {frag!r} > {gives[i]!r}"
+                        + (" (a word used for nothing goes in linkWords)" if frag else ""))
+    head = ("one edit makes them add up: " if len(said) == 1 else
+            "each of these single edits makes them add up — make the one the clue supports: ")
+    tail = (". A cut block's note must name the cut word; if the clue itself removes "
+            "the letters, type it deletion and list the indicator"
+            if any(cut for _, cut in edits[:MAX_SURPLUS_EDITS]) else "")
+    return f". {head}{'; or '.join(said)}{tail}"
+
+
 def check_blocks_account_for_answer(entries, errors, warnings):
     """The letters the blocks hand over have to be the answer's letters.
 
@@ -2327,7 +2369,8 @@ def check_blocks_account_for_answer(entries, errors, warnings):
                 + (f" (missing {missing!r})" if missing else "")
                 + " — the blocks are what the learner actually reads, so they have "
                   "to be the parse, not a sketch of one"
-                + missing_link_word_fix(ann, extra, missing))
+                + missing_link_word_fix(ann, extra, missing)
+                + surplus_letters_fix(ann, extra, missing, want))
     if hits:
         errors.append(
             f"puzzle: {len(hits)} clue(s) ({', '.join(hits)}) have blocks whose letters "
