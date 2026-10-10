@@ -23,6 +23,9 @@
   "date": "2023-08-02",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,43 @@
     "text": "Some dry goods, guarded by three Pharisees",
     "enumeration": "4"
    },
-   "solution": "EPHA"
+   "solution": "EPHA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EPHA",
+    "definitions": [
+     {
+      "text": "Some dry goods",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guarded by",
+      "for": "hidden_word",
+      "note": "what is guarded sits protected inside its guardians, so the answer lies within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "three Pharisees",
+      "gives": "EPHA",
+      "note": "the end of the first word and the start of the second, read across the gap"
+     }
+    ],
+    "explanation": {
+     "surface": "Biblical Pharisees standing watch over a stock of grain or other dry provisions.",
+     "walkthrough": "EPHA (or ephah) is an ancient Hebrew dry measure of about a bushel, so the lift from thrEE PHArisees fits the biblical scene.",
+     "definitionFit": "An epha is a Hebrew unit for measuring grain, so it denotes a quantity of dry goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "guarded"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +89,60 @@
     "text": "Bacon, perhaps poor, prepared with his help",
     "enumeration": "11"
    },
-   "solution": "PHILOSOPHER"
+   "solution": "PHILOSOPHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PHILOSOPHER",
+    "definitions": [
+     {
+      "text": "Bacon, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "food that is prepared is cut up and made into something new"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poor",
+      "gives": "POOR",
+      "note": "fodder"
+     },
+     {
+      "clueFragment": "his help",
+      "gives": "HISHELP",
+      "note": "fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POORHISHELP",
+       "gives": "PHILOSOPHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poor slice of bacon cooked with someone's assistance.",
+     "walkthrough": "Bacon is not the breakfast meat but Francis Bacon, the Elizabethan thinker.",
+     "definitionFit": "Francis Bacon was an English thinker who shaped scientific method, an example of this profession."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bacon"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +156,83 @@
     "text": "Greek character back with a woman in the temple",
     "enumeration": "9"
    },
-   "solution": "ATHENAEUM"
+   "solution": "ATHENAEUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "reversal"
+    ],
+    "answer": "ATHENAEUM",
+    "definitions": [
+     {
+      "text": "temple",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits within it"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means reading the letters the wrong way"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "ENA",
+      "note": "Ena is a woman's name"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "MU",
+      "note": "mu is the twelfth Greek letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TH",
+      "ENA",
+      "E",
+      "UM"
+     ],
+     "reversals": [
+      {
+       "from": "MU",
+       "to": "UM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek figure turns back with a woman inside the temple.",
+     "walkthrough": "'The' is used literally, though it reads as part of 'the temple'; the woman goes inside it.",
+     "definitionFit": "An athenaeum was originally a temple of Athena, and is now a name for a literary institution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "the"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +246,56 @@
     "text": "Officer to sit with upper-class resident",
     "enumeration": "10"
    },
-   "solution": "LIEUTENANT"
+   "solution": "LIEUTENANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIEUTENANT",
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sit",
+      "gives": "LIE",
+      "note": "to sit or lie is to stay put in one place"
+     },
+     {
+      "clueFragment": "upper-class",
+      "gives": "U",
+      "note": "U is the standard abbreviation for upper-class"
+     },
+     {
+      "clueFragment": "resident",
+      "gives": "TENANT",
+      "note": "a tenant is someone resident in a property"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIE",
+      "U",
+      "TENANT"
+     ]
+    },
+    "explanation": {
+     "surface": "An officer is made to sit beside a posh resident, perhaps at a dinner.",
+     "walkthrough": "'With' simply puts the pieces side by side.",
+     "definitionFit": "A lieutenant is a commissioned military rank, an officer below captain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sit"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +309,54 @@
     "text": "Understatement no mature person prevaricates about",
     "enumeration": "7"
    },
-   "solution": "LITOTES"
+   "solution": "LITOTES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LITOTES",
+    "definitions": [
+     {
+      "text": "Understatement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prevaricates",
+      "gives": "LIES",
+      "note": "to prevaricate is to evade the truth, to lie"
+     },
+     {
+      "clueFragment": "no mature person",
+      "gives": "TOT",
+      "note": "a tot is a small child, not yet grown up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "TOT",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up downplays things, dodging the truth on some issue.",
+     "definitionFit": "Litotes is the figure of speech of understating by negating the opposite, as in 'not bad'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mature"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +376,69 @@
      }
     ]
    },
-   "solution": "ELECTRICCURRENT"
+   "solution": "ELECTRICCURRENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELECTRIC CURRENT",
+    "definitions": [
+     {
+      "text": "I",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "a stopper is pushed into an opening, so the letter is plugged inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "choose",
+      "gives": "ELECT",
+      "note": "to elect is to choose"
+     },
+     {
+      "clueFragment": "Roman Catholic",
+      "gives": "RC",
+      "note": "RC is the abbreviation for Roman Catholic"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "prevailing",
+      "gives": "CURRENT",
+      "note": "the current view is the prevailing one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECT",
+      "R",
+      "I",
+      "C",
+      "CURRENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone opts to block the Catholic view that holds sway.",
+     "walkthrough": "The opening 'I' looks like the speaker but is the definition: in physics I is the symbol for electric current.",
+     "definitionFit": "Physicists use the symbol I for the flow of charge measured in amperes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +452,58 @@
     "text": "Bird heading briefly over rescue vessel",
     "enumeration": "7"
    },
-   "solution": "TITLARK"
+   "solution": "TITLARK",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TITLARK",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heading",
+      "gives": "TITLE",
+      "note": "a title is a heading"
+     },
+     {
+      "clueFragment": "rescue vessel",
+      "gives": "ARK",
+      "note": "Noah's Ark rescued the animals from the Flood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TITL",
+      "ARK"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird heading quickly over a lifeboat at sea.",
+     "walkthrough": "In a down clue 'over' puts the first piece above the second.",
+     "definitionFit": "The titlark is an old name for the meadow pipit, a small songbird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +517,51 @@
     "text": "Isolated as Man United?",
     "enumeration": "5"
    },
-   "solution": "ALONE"
+   "solution": "ALONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALONE",
+    "definitions": [
+     {
+      "text": "Isolated",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "AL",
+      "note": "Al is a man's name"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "ONE",
+      "note": "people united are as one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is a football club like Manchester United left out on its own?",
+     "walkthrough": "Man United is the usual nickname of Manchester United football club, which is the misdirection.",
+     "definitionFit": "Alone means on one's own, cut off from others, just as isolated does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +575,55 @@
     "text": "Fish starters in the restaurant ready",
     "enumeration": "5"
    },
-   "solution": "TROUT"
+   "solution": "TROUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TROUT",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starters",
+      "for": "letter_selection",
+      "note": "starters come first, so the opening letters of the words are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the restaurant",
+      "gives": "TR",
+      "select": "first",
+      "note": "the first letters of these two words"
+     },
+     {
+      "clueFragment": "ready",
+      "gives": "OUT",
+      "note": "out means ready, as a flower is out when open"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "The restaurant's fish starters are ready to serve.",
+     "definitionFit": "A trout is a freshwater fish of the salmon family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starters"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +643,51 @@
      }
     ]
    },
-   "solution": "HIGHSTREET"
+   "solution": "HIGHSTREET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HIGH STREET",
+    "definitions": [
+     {
+      "text": "Where eg utensils may be purchased",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for mashing",
+      "for": "anagram",
+      "note": "mashing crushes things into a new form, so the letters are pulped and remade"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get her this",
+      "gives": "GETHERTHIS",
+      "note": "the fodder, ten letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETHERTHIS",
+       "gives": "HIGHSTREET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen errand: buy her this utensil so she can mash the potatoes.",
+     "walkthrough": "'Mashing' sits naturally with kitchen utensils, which hides its role as the anagram signal.",
+     "definitionFit": "The high street is a town's main shopping street, where household goods such as utensils are sold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "mashing"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +701,58 @@
     "text": "Game up in Italian river, endlessly deep",
     "enumeration": "4"
    },
-   "solution": "POLO"
+   "solution": "POLO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "POLO",
+    "definitions": [
+     {
+      "text": "Game up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end, the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian river",
+      "gives": "PO",
+      "note": "the Po is Italy's longest river"
+     },
+     {
+      "clueFragment": "deep",
+      "gives": "LOW",
+      "note": "a deep voice or note is a low one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "LO"
+     ]
+    },
+    "explanation": {
+     "surface": "A game being played up an Italian river where the water runs deep.",
+     "walkthrough": "'Up' belongs with 'Game': polo is played mounted, and up means on horseback.",
+     "definitionFit": "Polo is a team sport played on horseback, so it is a game where the players are mounted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +766,49 @@
     "text": "Bard's work shown in text here and there",
     "enumeration": "6"
    },
-   "solution": "SONNET"
+   "solution": "SONNET",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SONNET",
+    "definitions": [
+     {
+      "text": "Bard's work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "here and there",
+      "for": "letter_selection",
+      "note": "taking letters only here and there means skipping every other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shown in text",
+      "gives": "SONNET",
+      "select": "alternate",
+      "note": "the first, third, fifth and so on of these letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SONNET"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece by Shakespeare quoted at intervals in a printed text.",
+     "walkthrough": "The Bard is Shakespeare, who wrote 154 poems of this form.",
+     "definitionFit": "Shakespeare, known as the Bard, wrote a famous sequence of fourteen-line poems of this kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shown"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +828,56 @@
      }
     ]
    },
-   "solution": "TEACHEST"
+   "solution": "TEACHEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TEA CHEST",
+    "definitions": [
+     {
+      "text": "leaves boxing",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "match",
+      "gives": "TEST",
+      "note": "a test is a Test match, an international cricket fixture"
+     },
+     {
+      "clueFragment": "Hurt",
+      "gives": "ACHE",
+      "note": "to hurt is to ache"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "ACHE",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "An injury sustained in a match, then the player walks out of the boxing ring.",
+     "walkthrough": "'Leaves boxing' reads as quitting the sport but is the definition: something that boxes leaves, such as tea.",
+     "definitionFit": "A tea chest is a large wooden crate originally used to ship tea leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +891,50 @@
     "text": "Port sacked in Ottoman push",
     "enumeration": "11"
    },
-   "solution": "SOUTHAMPTON"
+   "solution": "SOUTHAMPTON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOUTHAMPTON",
+    "definitions": [
+     {
+      "text": "Port",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sacked",
+      "for": "anagram",
+      "note": "a sacked city is ransacked and left in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ottoman push",
+      "gives": "OTTOMANPUSH",
+      "note": "fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OTTOMANPUSH",
+       "gives": "SOUTHAMPTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town plundered during an Ottoman military advance.",
+     "definitionFit": "Southampton is a major port on England's south coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sacked"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +948,70 @@
     "text": "Party member to avoid leader of Greens? There's benefit",
     "enumeration": "4"
    },
-   "solution": "DOLE"
+   "solution": "DOLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "DOLE",
+    "definitions": [
+     {
+      "text": "benefit",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to avoid",
+      "for": "deletion",
+      "note": "to avoid something is to leave it out, so that letter is dropped"
+     },
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "'leader of' keeps only the first letter of 'Greens'"
+     }
+    ],
+    "linkWords": [
+     "There's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "LEG",
+      "note": "a leg is a limb, a member of the body"
+     },
+     {
+      "clueFragment": "Greens",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of Greens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A party member snubs the Green Party leader and gains some advantage.",
+     "walkthrough": "The dole is British slang for state unemployment benefit.",
+     "definitionFit": "Dole is unemployment pay, a state benefit handed to people out of work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +1035,65 @@
      }
     ]
    },
-   "solution": "STICKITOUT"
+   "solution": "STICKITOUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STICK IT OUT",
+    "definitions": [
+     {
+      "text": "last?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought round",
+      "for": "container",
+      "note": "something brought round another wraps it on both sides"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guinness maybe",
+      "gives": "STOUT",
+      "note": "Guinness is a famous Irish dark beer of this type"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "TICK",
+      "note": "a tick is a moment, a second"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TICK",
+      "I",
+      "TOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone orders a Guinness round, then a second, then one last one.",
+     "walkthrough": "'Last' looks like an adjective but is the verb: to endure. The inserted pair goes just after the first letter.",
+     "definitionFit": "To stick it out is to persevere to the end, to last through something hard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1107,58 @@
     "text": "House man's inside to find reference work",
     "enumeration": "9"
    },
-   "solution": "THESAURUS"
+   "solution": "THESAURUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THESAURUS",
+    "definitions": [
+     {
+      "text": "reference work",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means placed within the other word"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "gives": "TAURUS",
+      "note": "Taurus is one of the twelve astrological houses of the zodiac"
+     },
+     {
+      "clueFragment": "man's",
+      "gives": "HES",
+      "note": "man's read as 'he is', contracted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HES",
+      "AURUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A man goes into a house to look up a reference book.",
+     "walkthrough": "'House' is the astrological sense, a sign of the zodiac.",
+     "definitionFit": "A thesaurus is a book listing synonyms, consulted as a reference."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1172,62 @@
     "text": "Sheepish expert taken in by counterfeit notes",
     "enumeration": "10"
    },
-   "solution": "SHAMEFACED"
+   "solution": "SHAMEFACED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SHAMEFACED",
+    "definitions": [
+     {
+      "text": "Sheepish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "something taken in by others is held within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "counterfeit",
+      "gives": "SHAM",
+      "note": "a sham is a fake"
+     },
+     {
+      "clueFragment": "notes",
+      "gives": "EFD",
+      "note": "three musical notes of the scale"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHAM",
+      "EF",
+      "ACE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An expert caught out passing forged banknotes looks embarrassed.",
+     "walkthrough": "'Notes' looks like banknotes, matching 'counterfeit', but gives the musical notes E, F and D; ACE goes between F and D.",
+     "definitionFit": "Shamefaced means showing embarrassment or guilt, the same as looking sheepish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1241,58 @@
     "text": "Articles presented in trifling taste for numskull",
     "enumeration": "7"
    },
-   "solution": "FATHEAD"
+   "solution": "FATHEAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FATHEAD",
+    "definitions": [
+     {
+      "text": "numskull",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "presented in",
+      "for": "container",
+      "note": "things presented in something are put inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trifling taste",
+      "gives": "FAD",
+      "note": "a fad is a passing, trivial craze"
+     },
+     {
+      "clueFragment": "Articles",
+      "gives": "THEA",
+      "note": "two articles, the definite and the indefinite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "THEA",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Pieces served in a trifle with no taste, fit for a fool.",
+     "walkthrough": "'Trifling taste' hints at a dessert, the trifle, but means a frivolous craze.",
+     "definitionFit": "A fathead is an informal word for a stupid person, a dimwit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trifling"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1306,55 @@
     "text": "Understand everything — mostly electronic?",
     "enumeration": "7"
    },
-   "solution": "DIGITAL"
+   "solution": "DIGITAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DIGITAL",
+    "definitions": [
+     {
+      "text": "electronic?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Understand",
+      "gives": "DIGIT",
+      "note": "dig it is slang for understand or appreciate"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all is everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIGIT",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Can one grasp everything about electronics, more or less?",
+     "walkthrough": "The question mark flags that digital is only one kind of electronic, a definition by example.",
+     "definitionFit": "Digital technology encodes data as numbers, the basis of most modern electronic devices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "everything"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1368,61 @@
     "text": "Italian author incorporating Homer's principal nymph",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "nymph",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorporating",
+      "for": "container",
+      "note": "a word incorporating another takes it into its body"
+     },
+     {
+      "text": "principal",
+      "for": "letter_selection",
+      "note": "the principal letter is the one at the head of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian author",
+      "gives": "ECO",
+      "note": "Umberto Eco wrote The Name of the Rose"
+     },
+     {
+      "clueFragment": "Homer's",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of Homer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "H",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian novelist writing about a nymph from Homer's epics.",
+     "definitionFit": "In Greek myth Echo was a mountain nymph doomed to repeat the last words of others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "principal"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1436,55 @@
     "text": "Impresario after concert books Queen",
     "enumeration": "8"
    },
-   "solution": "PROMOTER"
+   "solution": "PROMOTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROMOTER",
+    "definitions": [
+     {
+      "text": "Impresario",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concert",
+      "gives": "PROM",
+      "note": "a prom is a promenade concert, as at the BBC Proms"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, a collection of books"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROM",
+      "OT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatrical impresario turns up after a concert carrying books for the Queen.",
+     "definitionFit": "A promoter organises and finances concerts or shows, which is what an impresario does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 21,
@@ -372,7 +1498,54 @@
     "text": "Lives continuing as normal where cathedral burned",
     "enumeration": "5"
    },
-   "solution": "PARIS"
+   "solution": "PARIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARIS",
+    "definitions": [
+     {
+      "text": "where cathedral burned",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "continuing",
+      "for": "charade",
+      "note": "continuing means coming after, so the first piece follows on from the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as normal",
+      "gives": "PAR",
+      "note": "par is the normal standard, as in on a par"
+     },
+     {
+      "clueFragment": "Lives",
+      "gives": "IS",
+      "note": "to live is to be, and he lives is he is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "Life goes on as usual after a cathedral fire.",
+     "walkthrough": "The cathedral is Notre-Dame, badly damaged by fire in 2019.",
+     "definitionFit": "Notre-Dame cathedral in the French capital suffered a major fire in April 2019."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Lives"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1559,54 @@
     "text": "Looker's twitching after surgical procedure",
     "enumeration": "5"
    },
-   "solution": "OPTIC"
+   "solution": "OPTIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPTIC",
+    "definitions": [
+     {
+      "text": "Looker's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "in a down clue, coming after means sitting below, so the twitch word is sent second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surgical procedure",
+      "gives": "OP",
+      "note": "an op is an operation"
+     },
+     {
+      "clueFragment": "twitching",
+      "gives": "TIC",
+      "note": "a tic is an involuntary twitch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "An eye that twitches following an operation on it.",
+     "walkthrough": "'Looker's' means belonging to the eye, matching the adjective.",
+     "definitionFit": "Optic means relating to the eye or vision, the organ a person looks with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Looker's"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1620,55 @@
     "text": "Award's military one churchyard elegist accepts",
     "enumeration": "6"
    },
-   "solution": "GRAMMY"
+   "solution": "GRAMMY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRAMMY",
+    "definitions": [
+     {
+      "text": "Award's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "one who accepts something takes it in, so it is held within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "churchyard elegist",
+      "gives": "GRAY",
+      "note": "Thomas Gray wrote Elegy Written in a Country Churchyard"
+     },
+     {
+      "clueFragment": "military one",
+      "gives": "MM",
+      "note": "MM is the Military Medal, a British award"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRA",
+      "MM",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "The poet of the churchyard elegy is handed a military decoration.",
+     "walkthrough": "'Award's' means 'Award is', the definition with a link; the Military Medal is itself an award, matching the definition's sense.",
+     "definitionFit": "A Grammy is an annual American music industry prize for recordings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "military"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1682,43 @@
     "text": "Luxurious establishment on Piccadilly — it's a cracker",
     "enumeration": "4"
    },
-   "solution": "RITZ"
+   "solution": "RITZ",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RITZ",
+    "definitions": [
+     {
+      "text": "Luxurious establishment on Piccadilly",
+      "at": 0
+     },
+     {
+      "text": "it's a cracker",
+      "at": 40
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Luxurious establishment on Piccadilly",
+      "note": "first meaning: the grand London hotel on Piccadilly, a street in central London"
+     },
+     {
+      "clueFragment": "it's a cracker",
+      "note": "second meaning: a brand of savoury biscuit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Cracker' sounds like praise for a smashing hotel, but it is the American snack biscuit brand.",
+     "definitionFit": "The name belongs both to the famous London hotel and to a well-known make of salty biscuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cracker"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1732,63 @@
     "text": "Choosing body, mischievous spirit with reader on ecstasy",
     "enumeration": "10"
    },
-   "solution": "ELECTORATE"
+   "solution": "ELECTORATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELECTORATE",
+    "definitions": [
+     {
+      "text": "Choosing body",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another follows it, so the reader word is sent second"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "reader",
+      "gives": "LECTOR",
+      "note": "a lector reads lessons aloud in church"
+     },
+     {
+      "clueFragment": "mischievous spirit",
+      "gives": "ATE",
+      "note": "Ate is the Greek goddess of mischief and rash folly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LECTOR",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An impish spirit and a reader turn up together high on ecstasy.",
+     "walkthrough": "'Mischievous spirit' reads as an imp or elf, but here it is the Greek goddess of folly; a lector is a church reader.",
+     "definitionFit": "The electorate is all the people entitled to vote, the body that chooses representatives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1802,63 @@
     "text": "Art deco's altered with a line of priests",
     "enumeration": "10"
    },
-   "solution": "SACERDOTAL"
+   "solution": "SACERDOTAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SACERDOTAL",
+    "definitions": [
+     {
+      "text": "of priests",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "altered",
+      "for": "anagram",
+      "note": "altered means changed, so these letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Art deco's",
+      "gives": "ARTDECOS",
+      "note": "fodder"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARTDECOSAL",
+       "gives": "SACERDOTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Art Deco building has been remodelled to suit a line of priests.",
+     "definitionFit": "Sacerdotal is a formal adjective meaning relating to the priesthood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1872,49 @@
     "text": "Second goal brings delight",
     "enumeration": "4"
    },
-   "solution": "SEND"
+   "solution": "SEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEND",
+    "definitions": [
+     {
+      "text": "delight",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "brings"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "goal",
+      "gives": "END",
+      "note": "an end is an aim or goal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A second goal in a match sends the fans into raptures.",
+     "definitionFit": "To send someone is informal for to thrill them, as in music that really sends you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "goal"
+    }
+   }
   }
  ]
 }
