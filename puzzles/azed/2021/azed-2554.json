@@ -37,6 +37,9 @@
   "date": "2021-05-30",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -49,7 +52,52 @@
    "clue": {
     "text": "Hole in the wall passers inched around (13, two words)"
    },
-   "solution": "CASHDISPENSER"
+   "solution": "CASHDISPENSER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CASH DISPENSER",
+    "definitions": [
+     {
+      "text": "Hole in the wall",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "letters moved around are put in a different order, so the two words are reshuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passers inched",
+      "gives": "PASSERSINCHED",
+      "note": "taken as written: thirteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PASSERSINCHED",
+       "gives": "CASHDISPENSER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pedestrians edge their way round a gap in a wall.",
+     "walkthrough": "'Hole in the wall' is the British colloquial name for a street cash machine, a fitting thing for passers-by to inch around.",
+     "definitionFit": "A cash machine set into a building's outer wall is informally called a hole in the wall in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hole"
+    }
+   }
   },
   {
    "number": 1,
@@ -62,7 +110,75 @@
    "clue": {
     "text": "Unadorned melodies from American company in wild antic (11, two words)"
    },
-   "solution": "CANTUSFIRMI"
+   "solution": "CANTUSFIRMI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CANTUS FIRMI",
+    "definitions": [
+     {
+      "text": "Unadorned melodies",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "something wild is out of control, so the letters of antic run riot into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the company and the American go inside the scrambled word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "antic",
+      "gives": "ANTIC",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the standard abbreviation for American"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "FIRM",
+      "note": "a firm is a business company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANT",
+      "USFIRM",
+      "I"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANTIC",
+       "gives": "CANTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plain tunes come from a US firm in a crazy prank.",
+     "walkthrough": "CANTUS FIRMI is the plural of cantus firmus, the fixed plainsong melody round which other parts are woven.",
+     "definitionFit": "A cantus firmus is a plain pre-existing melody used as the basis of a polyphonic composition; the plural matches 'melodies'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 2,
@@ -76,7 +192,46 @@
     "text": "Young salmon species, what angler takes in hand",
     "enumeration": "5"
    },
-   "solution": "SPROD"
+   "solution": "SPROD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPROD",
+    "definitions": [
+     {
+      "text": "Young salmon",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "species",
+      "gives": "SP",
+      "note": "sp. is the abbreviation for species"
+     },
+     {
+      "clueFragment": "what angler takes in hand",
+      "gives": "ROD",
+      "note": "an angler holds a fishing rod"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "ROD"
+     ]
+    },
+    "explanation": {
+     "surface": "A fisherman holds his rod while describing a kind of young salmon.",
+     "definitionFit": "Sprod is a dialect word for a salmon in its second year, a young fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "species"
+    }
+   }
   },
   {
    "number": 3,
@@ -90,7 +245,59 @@
     "text": "Sort of barbecue food to suspend over middle of pit",
     "enumeration": "5"
    },
-   "solution": "HANGI"
+   "solution": "HANGI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HANGI",
+    "definitions": [
+     {
+      "text": "Sort of barbecue food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "only the central letter of the following short word is kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suspend",
+      "gives": "HANG",
+      "note": "to suspend something is to hang it"
+     },
+     {
+      "clueFragment": "pit",
+      "gives": "I",
+      "select": "middle",
+      "note": "the middle letter of the three-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HANG",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for cooking: hang meat above a fire pit.",
+     "walkthrough": "A hangi is the Maori way of cooking in an earth oven, a pit of heated stones, so the pit in the surface belongs to the answer.",
+     "definitionFit": "Hangi names both the Maori earth-oven feast and the food cooked in it, a kind of outdoor barbecue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspend"
+    }
+   }
   },
   {
    "number": 4,
@@ -104,7 +311,60 @@
     "text": "Extended bit of verse? Digital player replaces one in time",
     "enumeration": "6"
    },
-   "solution": "DIPODY"
+   "solution": "DIPODY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "DIPODY",
+    "definitions": [
+     {
+      "text": "Extended bit of verse?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaces",
+      "for": "substitution",
+      "note": "one item takes the place of another inside the word for time"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "DAY",
+      "note": "a day is a period of time"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a, the indefinite article, means one"
+     },
+     {
+      "clueFragment": "Digital player",
+      "gives": "IPOD",
+      "note": "the iPod is Apple's digital music player"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IPOD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A music player swapped in to keep time with a long passage of poetry.",
+     "walkthrough": "The question mark flags the definition: a dipody is a double foot, so it is a metrical foot extended to twice its length.",
+     "definitionFit": "In prosody a dipody is a unit of two metrical feet, so it is a stretched-out piece of verse rhythm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +377,70 @@
    "clue": {
     "text": "Labouring unpaid e.g. in the main unearths old coin (11, two words)"
    },
-   "solution": "SPADEGUINEA"
+   "solution": "SPADEGUINEA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SPADE GUINEA",
+    "definitions": [
+     {
+      "text": "old coin",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Labouring",
+      "for": "anagram",
+      "note": "labouring words are worked over and knocked into a new shape"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the reworked letters sit inside the word for the sea"
+     }
+    ],
+    "linkWords": [
+     "unearths"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unpaid e.g.",
+      "gives": "UNPAIDEG",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "the main",
+      "gives": "SEA",
+      "note": "the main is a poetic name for the open sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PADEGUIN",
+      "EA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNPAIDEG",
+       "gives": "PADEGUIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working for nothing finds an antique coin while digging.",
+     "walkthrough": "The spade guinea was a George III gold guinea whose shield is spade-shaped, which suits the digging picture.",
+     "definitionFit": "A spade guinea is a historical British gold coin, named for the spade-shaped shield on its reverse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Labouring"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +454,63 @@
     "text": "Basket for clothes or bread on middle of tray",
     "enumeration": "6"
    },
-   "solution": "PITARA"
+   "solution": "PITARA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PITARA",
+    "definitions": [
+     {
+      "text": "Basket for clothes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "only the central letters of the following word are kept"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one piece sits on top of the other, so the bread comes first"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bread",
+      "gives": "PITA",
+      "note": "pita is a flat bread"
+     },
+     {
+      "clueFragment": "tray",
+      "gives": "RA",
+      "select": "middle",
+      "note": "the two middle letters of the four-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PITA",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A basket carries either laundry or a loaf set on a tray.",
+     "definitionFit": "A pitara is an Indian box or basket in which clothes are kept or carried."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +524,47 @@
     "text": "Not far from Edinburgh, eastern quarter",
     "enumeration": "5"
    },
-   "solution": "EWEST"
+   "solution": "EWEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EWEST",
+    "definitions": [
+     {
+      "text": "Not far from Edinburgh",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "quarter",
+      "gives": "WEST",
+      "note": "west is one of the four quarters of the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "WEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Directions to somewhere close to Edinburgh, in the east part.",
+     "walkthrough": "'from Edinburgh' is part of the definition: it marks the word as Scots, meaning near.",
+     "definitionFit": "Ewest is a Scots adjective meaning near or close by, hence a word heard in Edinburgh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Edinburgh"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +578,65 @@
     "text": "It's used for swabbing decks, that is after sticky stuff's lifted",
     "enumeration": "6"
    },
-   "solution": "SOOGIE"
+   "solution": "SOOGIE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SOOGIE",
+    "definitions": [
+     {
+      "text": "It's used for swabbing decks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down clue lifting something turns it upside down, so its letters run bottom to top"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the abbreviation comes behind the upturned piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sticky stuff's",
+      "gives": "GOOS",
+      "note": "goo is sticky stuff, plus the 's"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOOG",
+      "IE"
+     ],
+     "reversals": [
+      {
+       "from": "GOOS",
+       "to": "SOOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deckhand scrubs the ship once the tar has been prised up.",
+     "definitionFit": "Soogie, or sujee, is nautical slang for the soapy mixture or cloth used to scrub ship's paintwork and decks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lifted"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +649,63 @@
    "clue": {
     "text": "Travel railroads illegally, free and easy once on perches (11, three words)"
    },
-   "solution": "RIDETHERODS"
+   "solution": "RIDETHERODS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIDE THE RODS",
+    "definitions": [
+     {
+      "text": "Travel railroads illegally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue the earlier pieces are placed on top of the last one"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to rid is to free"
+     },
+     {
+      "clueFragment": "easy once",
+      "gives": "ETHE",
+      "note": "ethe is an obsolete word for easy; 'once' marks it as old"
+     },
+     {
+      "clueFragment": "perches",
+      "gives": "RODS",
+      "note": "a rod and a perch are the same old unit of length"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RID",
+      "ETHE",
+      "RODS"
+     ]
+    },
+    "explanation": {
+     "surface": "Birds sitting relaxed and carefree on their perches.",
+     "walkthrough": "To ride the rods was North American hobo slang for travelling clinging to the rods under a freight wagon.",
+     "definitionFit": "The idiom described hobos stealing rides beneath railway cars, which is travelling the railroads without paying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "perches"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +719,61 @@
     "text": "Father moving left couple, damage past",
     "enumeration": "6"
    },
-   "solution": "APPAIR"
+   "solution": "APPAIR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "APPAIR",
+    "definitions": [
+     {
+      "text": "damage past",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving left",
+      "for": "reversal",
+      "note": "in an across clue moving leftwards means reading from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "PAIR",
+      "note": "a couple is a pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "PAIR"
+     ],
+     "reversals": [
+      {
+       "from": "PA",
+       "to": "AP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dad walks out on a couple, the harm now behind them.",
+     "walkthrough": "'past' is part of the definition, marking the word as obsolete.",
+     "definitionFit": "Appair is an obsolete form of impair, meaning to harm or damage, so it is damage in a bygone sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +787,60 @@
     "text": "Mature Pacific tree, green all round – a sudden change",
     "enumeration": "9"
    },
-   "solution": "PERIPETIA"
+   "solution": "PERIPETIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PERIPETIA",
+    "definitions": [
+     {
+      "text": "a sudden change",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all round",
+      "for": "container",
+      "note": "the vegetable surrounds the other pieces entirely"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mature",
+      "gives": "RIPE",
+      "note": "something mature is ripe"
+     },
+     {
+      "clueFragment": "Pacific tree",
+      "gives": "TI",
+      "note": "the ti is a palm-like tree of the Pacific islands"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "PEA",
+      "note": "a pea is a green vegetable, and pea green a colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "RIPETI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A ripening tropical tree, ringed with greenery, suddenly alters.",
+     "definitionFit": "Peripetia is the term from Greek drama for an abrupt reversal of fortune in a plot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +854,56 @@
     "text": "Key points absorbed by idiotic officers in retreat",
     "enumeration": "4"
    },
-   "solution": "FOCI"
+   "solution": "FOCI",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "FOCI",
+    "definitions": [
+     {
+      "text": "Key points",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbed by",
+      "for": "hidden_word",
+      "note": "the letters are swallowed up inside the following words"
+     },
+     {
+      "text": "in retreat",
+      "for": "reversal",
+      "note": "retreating means going backwards, so the letters read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idiotic officers",
+      "gives": "ICOF",
+      "note": "the letters spanning the end of the first word and start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ICOF",
+       "to": "FOCI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Foolish officers take in the main points while falling back.",
+     "definitionFit": "Foci, plural of focus, are central points of attention or importance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +917,59 @@
     "text": "I'll yield to fool in character, one sharing lessons",
     "enumeration": "9"
    },
-   "solution": "CLASSMATE"
+   "solution": "CLASSMATE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CLASSMATE",
+    "definitions": [
+     {
+      "text": "one sharing lessons",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'ll yield to",
+      "for": "substitution",
+      "note": "yielding means giving up one's place to another item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "character",
+      "gives": "CLIMATE",
+      "note": "the climate of something is its prevailing character or mood"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "ASS",
+      "MATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil admits stepping aside for a clown who's quite a character.",
+     "definitionFit": "A classmate is a fellow pupil, someone who attends the same lessons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +983,70 @@
     "text": "Cheese, round, in yellow wrapping? It's opened out to be studied",
     "enumeration": "8"
    },
-   "solution": "GATEFOLD"
+   "solution": "GATEFOLD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GATEFOLD",
+    "definitions": [
+     {
+      "text": "It's opened out to be studied",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turned round means facing the other way, so the cheese reads backwards"
+     },
+     {
+      "text": "wrapping",
+      "for": "container",
+      "note": "the colour is wrapped around the turned cheese"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheese",
+      "gives": "FETA",
+      "note": "feta is a Greek cheese"
+     },
+     {
+      "clueFragment": "yellow",
+      "gives": "GOLD",
+      "note": "gold is a yellow colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ATEF",
+      "OLD"
+     ],
+     "reversals": [
+      {
+       "from": "FETA",
+       "to": "ATEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wheel of cheese in yellow foil, unwrapped for inspection.",
+     "walkthrough": "The question mark ends the wordplay; the definition follows.",
+     "definitionFit": "A gatefold is an oversized page folded into a book or magazine that the reader unfolds to look at."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 15,
@@ -256,7 +1060,54 @@
     "text": "Colourful bird to be sold in marketplace",
     "enumeration": "6"
    },
-   "solution": "TROGON"
+   "solution": "TROGON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TROGON",
+    "definitions": [
+     {
+      "text": "Colourful bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the phrase for being sold is placed inside the marketplace word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marketplace",
+      "gives": "TRON",
+      "note": "tron is a Scots word for a marketplace or its public weighing beam"
+     },
+     {
+      "clueFragment": "to be sold",
+      "gives": "GO",
+      "note": "goods that go are sold, as in 'it went for a fiver'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRO",
+      "GO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A brightly feathered bird is up for sale at the market.",
+     "definitionFit": "Trogons are tropical birds with vivid green, red and yellow plumage, the quetzal among them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sold"
+    }
+   }
   },
   {
    "number": 16,
@@ -270,7 +1121,43 @@
     "text": "Gratuity some received as handout",
     "enumeration": "4"
    },
-   "solution": "DASH"
+   "solution": "DASH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DASH",
+    "definitions": [
+     {
+      "text": "Gratuity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only part of the following words is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "received as handout",
+      "gives": "DASH",
+      "note": "the letters across the end of the first word, the second word, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A tip is partly taken as a charitable handout.",
+     "walkthrough": "Dash is a West African word for a tip or gift, sometimes a bribe.",
+     "definitionFit": "In West African usage a dash is a small payment or present given for a service, a gratuity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "handout"
+    }
+   }
   },
   {
    "number": 17,
@@ -284,7 +1171,64 @@
     "text": "Ruby performed turns making one shiver",
     "enumeration": "6"
    },
-   "solution": "DIDDER"
+   "solution": "DIDDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DIDDER",
+    "definitions": [
+     {
+      "text": "shiver",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns",
+      "for": "reversal",
+      "note": "turning the whole thing about makes it run backwards"
+     }
+    ],
+    "linkWords": [
+     "making one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruby",
+      "gives": "RED",
+      "note": "ruby is a shade of red"
+     },
+     {
+      "clueFragment": "performed",
+      "gives": "DID",
+      "note": "did is the past of do, to perform"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DID",
+      "DER"
+     ],
+     "reversals": [
+      {
+       "from": "REDDID",
+       "to": "DIDDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer called Ruby does turns frightening enough to make you shiver.",
+     "walkthrough": "'Ruby' looks like a stage name and 'turns' like acts on a bill.",
+     "definitionFit": "Didder is a dialect verb meaning to shiver or tremble with cold or fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1242,73 @@
     "text": "What's added to drink, dry, weak one with dash of soda in?",
     "enumeration": "5"
    },
-   "solution": "TWIST"
+   "solution": "TWIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TWIST",
+    "definitions": [
+     {
+      "text": "What's added to drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dash of",
+      "for": "letter_selection",
+      "note": "a dash is a small splash, so only the first letter of the mixer is used"
+     },
+     {
+      "text": "in?",
+      "for": "container",
+      "note": "the other pieces are placed inside the word for dry"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dry",
+      "gives": "TT",
+      "note": "TT means teetotal, someone who stays dry"
+     },
+     {
+      "clueFragment": "weak",
+      "gives": "W",
+      "note": "W is the abbreviation for weak"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "soda",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WIS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A bartender asks what goes in a dry, weak drink with a splash of soda.",
+     "walkthrough": "'dry' is not a description of the drink: TT stands for teetotal.",
+     "definitionFit": "A twist is a strip of citrus peel dropped into a cocktail as a garnish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1322,46 @@
     "text": "Singular, smart, unconventional",
     "enumeration": "5"
    },
-   "solution": "SPACY"
+   "solution": "SPACY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPACY",
+    "definitions": [
+     {
+      "text": "unconventional",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singular",
+      "gives": "S",
+      "note": "S is the grammatical abbreviation for singular"
+     },
+     {
+      "clueFragment": "smart",
+      "gives": "PACY",
+      "note": "smart in the sense of quick or brisk, as in a smart pace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PACY"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Singular' and 'smart' look like a list of compliments, but each supplies letters.",
+     "definitionFit": "Spacy, or spacey, means odd or eccentric, as if not quite on this planet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "smart"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1375,69 @@
     "text": "Dandy in a party, one of seven turning up",
     "enumeration": "6"
    },
-   "solution": "ADONIS"
+   "solution": "ADONIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ADONIS",
+    "definitions": [
+     {
+      "text": "Dandy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue turning upward means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "one of seven",
+      "gives": "SIN",
+      "note": "one of the seven deadly sins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DO",
+      "NIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIN",
+       "to": "NIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fop appears at a gathering, one of a group of seven arriving.",
+     "definitionFit": "An Adonis is a very handsome young man, used loosely for a beau or fop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seven"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1451,58 @@
     "text": "On our side, holding ring that's anything but impregnable",
     "enumeration": "6"
    },
-   "solution": "POROUS"
+   "solution": "POROUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POROUS",
+    "definitions": [
+     {
+      "text": "anything but impregnable",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "the first phrase holds the ring inside itself"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On our side",
+      "gives": "PROUS",
+      "note": "pro means on the side of, and us means our people"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is O-shaped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "O",
+      "ROUS"
+     ]
+    },
+    "explanation": {
+     "surface": "An ally wearing a ring that offers no defence at all.",
+     "walkthrough": "'impregnable' suggests a fortress but here means not letting liquid through.",
+     "definitionFit": "Something porous lets water and air pass through it, the opposite of being sealed or impenetrable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "impregnable"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1516,44 @@
     "text": "The old pool contribution to couple's honeymoon",
     "enumeration": "5"
    },
-   "solution": "PLESH"
+   "solution": "PLESH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PLESH",
+    "definitions": [
+     {
+      "text": "The old pool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contribution to",
+      "for": "hidden_word",
+      "note": "the following words each contribute some of their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "couple's honeymoon",
+      "gives": "PLESH",
+      "note": "the end of the first word and the first letter of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Friends chip into a kitty to pay for a couple's honeymoon.",
+     "walkthrough": "'pool' looks like a shared fund of money; it is a pool of water.",
+     "definitionFit": "Plesh is Spenser's word for a pool or puddle, hence an old word for a pool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pool"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1567,68 @@
     "text": "Litter disfigured lake in Peru",
     "enumeration": "6"
    },
-   "solution": "PALKEE"
+   "solution": "PALKEE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PALKEE",
+    "definitions": [
+     {
+      "text": "Litter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disfigured",
+      "for": "anagram",
+      "note": "something disfigured is spoiled in shape, so the letters lose their order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the reshaped letters are placed inside the country code"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peru",
+      "gives": "PE",
+      "note": "PE is the international vehicle code for Peru"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "LAKE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ALKE",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAKE",
+       "gives": "ALKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rubbish spoils a lake in South America.",
+     "walkthrough": "'Litter' wants to be rubbish; it is the old carried chair.",
+     "definitionFit": "A palkee, or palki, is an Indian palanquin, a covered chair carried on poles like a litter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Litter"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1641,68 @@
    "clue": {
     "text": "Last course over after post-school education? If so, one's had enough (5, two words)"
    },
-   "solution": "FEDUP"
+   "solution": "FEDUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FED UP",
+    "definitions": [
+     {
+      "text": "If so, one's had enough",
+      "at": 46,
+      "note": "an extended description of the state, not a synonym"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means read the other way round"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the turned dessert follows the education abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "post-school education",
+      "gives": "FE",
+      "note": "FE is further education, study after leaving school"
+     },
+     {
+      "clueFragment": "Last course",
+      "gives": "PUD",
+      "note": "pud, short for pudding, is the final course of a meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "DUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUD",
+       "to": "DUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dinner is over at the college; whoever finishes pudding has eaten enough.",
+     "walkthrough": "'had enough' plays on being full after a meal, while fed up means bored and exasperated.",
+     "definitionFit": "To be fed up is to be weary of something and unwilling to tolerate more of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1715,53 @@
    "clue": {
     "text": "Installed head of state admitting space (5, two words)"
    },
-   "solution": "PUTIN"
+   "solution": "PUTIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PUT IN",
+    "definitions": [
+     {
+      "text": "Installed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting means letting something in, so the leader's name takes in a gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head of state",
+      "gives": "PUTIN",
+      "note": "the surname of Russia's president"
+     },
+     {
+      "clueFragment": "space",
+      "note": "a blank space between letters, which splits the name into two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUTIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A national leader is installed, taking in room for himself.",
+     "walkthrough": "The 'space' is literally the gap between words, so the name becomes a two-word phrase without any letter changing.",
+     "definitionFit": "To put in equipment is to install it, so put in means installed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1775,50 @@
     "text": "Final challenge for Balliol undergrad, maybe, to announce impending nuptials for last time",
     "enumeration": "6"
    },
-   "solution": "OUTASK"
+   "solution": "OUTASK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTASK",
+    "definitions": [
+     {
+      "text": "to announce impending nuptials for last time",
+      "at": 46
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Balliol undergrad, maybe",
+      "gives": "OU",
+      "note": "Balliol is an Oxford college, so its undergraduate belongs to OU, Oxford University"
+     },
+     {
+      "clueFragment": "Final challenge",
+      "gives": "TASK",
+      "note": "a task is a challenge, and finals are the last university exams"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OU",
+      "TASK"
+     ]
+    },
+    "explanation": {
+     "surface": "An Oxford student's last exam comes before a final wedding announcement.",
+     "walkthrough": "The role of 'Final' puzzled solvers; it seems to evoke Oxford finals. Outask is an old term for calling the marriage banns the third and last time.",
+     "definitionFit": "To outask was to proclaim banns of marriage for the final time in church before a wedding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Final"
+    }
+   }
   },
   {
    "number": 26,
@@ -422,7 +1832,49 @@
     "text": "Star group exchanging parts, no longer equal in Scotland",
     "enumeration": "5"
    },
-   "solution": "SAMEN"
+   "solution": "SAMEN",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "SAMEN",
+    "definitions": [
+     {
+      "text": "no longer equal in Scotland",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exchanging parts",
+      "for": "cycling",
+      "note": "the front and back sections of the constellation name swap places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Star group",
+      "gives": "MENSA",
+      "note": "Mensa is a southern constellation, the Table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A band of celebrities swapping roles are no longer equals north of the border.",
+     "walkthrough": "'Star group' suggests a band of celebrities but means a constellation.",
+     "definitionFit": "Samen is an obsolete Scots form of same, meaning equal or identical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Star"
+    }
+   }
   },
   {
    "number": 27,
@@ -436,7 +1888,57 @@
     "text": "King's given over part of church for his consort's junior in rank",
     "enumeration": "5"
    },
-   "solution": "KNAVE"
+   "solution": "KNAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KNAVE",
+    "definitions": [
+     {
+      "text": "his consort's junior in rank",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given over",
+      "for": "charade",
+      "note": "in a down clue the first piece is placed above the second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King's",
+      "gives": "K",
+      "note": "K is the abbreviation for king in chess and cards"
+     },
+     {
+      "clueFragment": "part of church",
+      "gives": "NAVE",
+      "note": "the nave is the main body of a church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A king hands over part of a church to a junior royal.",
+     "walkthrough": "'his' points back to the king: in cards the knave, or jack, ranks just below the queen, the king's consort.",
+     "definitionFit": "In a pack of cards the knave ranks below the queen, so it is junior to the king's wife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "church"
+    }
+   }
   },
   {
    "number": 28,
@@ -450,7 +1952,54 @@
     "text": "Foreign knife, its head buried in dog now dead",
     "enumeration": "4"
    },
-   "solution": "KURI"
+   "solution": "KURI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "KURI",
+    "definitions": [
+     {
+      "text": "dog now dead",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "buried",
+      "for": "deletion",
+      "note": "something buried is hidden away, so that letter disappears from the knife"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foreign knife",
+      "gives": "KUKRI",
+      "note": "the kukri is the curved Nepalese knife of the Gurkhas"
+     },
+     {
+      "clueFragment": "its head",
+      "gives": "K",
+      "note": "the knife's opening letter, whose twin sits inside the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KU",
+      "RI"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog was killed with a foreign blade buried to the hilt.",
+     "walkthrough": "The letter that goes is a copy of the knife's head, the one buried in the middle.",
+     "definitionFit": "The kuri was the Polynesian dog brought to New Zealand by the Maori, now extinct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "buried"
+    }
+   }
   },
   {
    "number": 29,
@@ -464,7 +2013,60 @@
     "text": "Flat layout with outer bits for atelier",
     "enumeration": "6"
    },
-   "solution": "PLANAR"
+   "solution": "PLANAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PLANAR",
+    "definitions": [
+     {
+      "text": "Flat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outer bits for",
+      "for": "letter_selection",
+      "note": "only the first and last letters of the following word stand in for it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "layout",
+      "gives": "PLAN",
+      "note": "a plan is a layout"
+     },
+     {
+      "clueFragment": "atelier",
+      "gives": "AR",
+      "select": "outer",
+      "note": "the outside letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A floor plan of an artist's studio flat.",
+     "walkthrough": "'Flat' looks like a home; it is the adjective.",
+     "definitionFit": "Planar means lying in a single plane, that is, flat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flat"
+    }
+   }
   },
   {
    "number": 30,
@@ -478,7 +2080,61 @@
     "text": "Distinctive sound of mobile Girton 'fresher', not old",
     "enumeration": "8"
    },
-   "solution": "RINGTONE"
+   "solution": "RINGTONE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RINGTONE",
+    "definitions": [
+     {
+      "text": "Distinctive sound of mobile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'fresher'",
+      "for": "anagram",
+      "note": "making something fresher remakes it, so the college name is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girton",
+      "gives": "GIRTON",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "not old",
+      "gives": "NE",
+      "note": "ne is an obsolete word for not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RINGTO",
+      "NE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GIRTON",
+       "gives": "RINGTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first-year at Girton College has a phone with a recognisable sound.",
+     "walkthrough": "Girton is a Cambridge college and a fresher a first-year student, so the surface is a new undergraduate's phone.",
+     "definitionFit": "A ringtone is the particular sound a mobile phone makes for an incoming call."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fresher"
+    }
+   }
   },
   {
    "number": 31,
@@ -492,7 +2148,42 @@
     "text": "Great fighting cocks",
     "enumeration": "4"
    },
-   "solution": "MAIN"
+   "solution": "MAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAIN",
+    "definitions": [
+     {
+      "text": "Great",
+      "at": 0
+     },
+     {
+      "text": "fighting cocks",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great",
+      "note": "first meaning: chief or principal"
+     },
+     {
+      "clueFragment": "fighting cocks",
+      "note": "second meaning: a match of cockfighting"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'fighting' reads as an adjective on the cocks, but the whole phrase names a contest.",
+     "definitionFit": "The word means principal or major, and is also the term for a cockfighting contest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fighting"
+    }
+   }
   },
   {
    "number": 32,
@@ -506,7 +2197,60 @@
     "text": "Cross almost always kept in pannier",
     "enumeration": "6"
    },
-   "solution": "PEEVED"
+   "solution": "PEEVED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PEEVED",
+    "definitions": [
+     {
+      "text": "Cross",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "something kept in is held inside the bag"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pannier",
+      "gives": "PED",
+      "note": "a ped is a pannier, a wicker basket"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "EVE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is always cross at being stuffed into a saddlebag.",
+     "definitionFit": "Cross is a synonym for annoyed or irritated, which is what peeved means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 33,
@@ -520,7 +2264,62 @@
     "text": "Lack of feeling seen in assets (sovereign's last) being disposed of",
     "enumeration": "13"
    },
-   "solution": "INSENSATENESS"
+   "solution": "INSENSATENESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "INSENSATENESS",
+    "definitions": [
+     {
+      "text": "Lack of feeling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "only the final letter of the monarch word is used"
+     },
+     {
+      "text": "being disposed of",
+      "for": "anagram",
+      "note": "disposing of things scatters them, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seen in assets",
+      "gives": "SEENINASSETS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "sovereign's",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEENINASSETSN",
+       "gives": "INSENSATENESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch callously sells off property without a second thought.",
+     "definitionFit": "Insensateness is being without sensation or sensitivity, an absence of feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sovereign's"
+    }
+   }
   }
  ]
 }
