@@ -315,8 +315,18 @@ eq.plan = units(["s0", "s1"], [("r1", ["s1"])])
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=2, scan_workers=1, replan=0.2)
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
-check("a read whose scan waits behind a full scan pool starts at once (the unit scans its own)", True,
+check("a read whose days-after scan waits behind a full scan pool starts at once", True,
       ev.index(["start", "read", "r1", "v1"]) < ev.index(["end", "scan", "s0"]))
+log.unlink()
+fake(sleep={"s0": 1.5}, outcome={"bad": "failed"})
+eq.plan = units(["s0", "r1", "bad"], [("r1", ["r1"]), ("bad", ["bad"])])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=2, scan_workers=1, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("a read whose own scan waits behind a full scan pool starts only after that scan ends done", True,
+      ev.index(["end", "scan", "r1"]) < ev.index(["start", "read", "r1", "v1"]))
+check("a read whose own scan failed is left for the next run, not read unscanned", False,
+      ["start", "read", "bad", "v1"] in ev)
 log.unlink()
 fake()
 calls = []
