@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Go bang, finally dropping surprise!",
     "enumeration": "8"
    },
-   "solution": "PEEKABOO"
+   "solution": "PEEKABOO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PEEKABOO",
+    "definitions": [
+     {
+      "text": "surprise!",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally dropping",
+      "for": "deletion",
+      "note": "dropping something at the end means the closing letter of the preceding word is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "PEE",
+      "note": "to go is a polite way of saying to urinate"
+     },
+     {
+      "clueFragment": "bang",
+      "gives": "KABOOM",
+      "note": "the noise of an explosion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEE",
+      "KABOO"
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation urging something to explode and finally deliver a shock.",
+     "walkthrough": "KABOOM loses its last letter to leave KABOO, giving PEE + KABOO = PEEKABOO.",
+     "definitionFit": "Peekaboo is the cry with which a hidden face is revealed to startle and delight a baby."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,62 @@
     "text": "Have secret service overthrown Eastern European?",
     "enumeration": "5"
    },
-   "solution": "ELOPE"
+   "solution": "ELOPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ELOPE",
+    "definitions": [
+     {
+      "text": "Have secret service",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overthrown",
+      "for": "reversal",
+      "note": "something overthrown is turned upside down, so in a down entry the letters run bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "POLE",
+      "note": "a Pole is a European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELOP",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EPOLE",
+       "to": "ELOPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a European's intelligence agency has been toppled in a coup.",
+     "walkthrough": "'Secret service' looks like spies, but it means a wedding ceremony held in secret.",
+     "definitionFit": "To elope is to run off and marry without telling anyone, so a clandestine wedding ceremony."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +167,63 @@
     "text": "Article follows king getting stick for not working",
     "enumeration": "5"
    },
-   "solution": "KAPUT"
+   "solution": "KAPUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KAPUT",
+    "definitions": [
+     {
+      "text": "not working",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "follows says the article comes after the monarch rather than before"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is king in chess and cards"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "getting stick",
+      "gives": "PUT",
+      "note": "to stick something somewhere is to put it there"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "A",
+      "PUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article criticises a monarch for being idle.",
+     "walkthrough": "'Follows' places the article after the king.",
+     "definitionFit": "Kaput is informal for broken or finished, describing a machine that has stopped functioning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +243,60 @@
      }
     ]
    },
-   "solution": "BEERGUT"
+   "solution": "BEERGUT",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "BEER GUT",
+    "definitions": [
+     {
+      "text": "boozy hangover",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two words here trade places"
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drugs",
+      "gives": "BEER",
+      "soundsLike": "GEAR",
+      "note": "gear is slang for drugs; it takes the opening sound of the next word"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "GUT",
+      "soundsLike": "BUT",
+      "note": "still in the sense of however; it takes the opening sound of the previous word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEER",
+      "GUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Drugs taken without pause result in a dreadful morning after drinking.",
+     "walkthrough": "'Hangover' is not the morning-after feeling but a literal overhang: the belly that sags over the belt.",
+     "definitionFit": "A beer gut is a paunch from heavy drinking, a belly hanging over the waistband."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hangover"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +316,49 @@
      }
     ]
    },
-   "solution": "OUTRAGE"
+   "solution": "OUTRAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTRAGE",
+    "definitions": [
+     {
+      "text": "Scandal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not in",
+      "gives": "OUT",
+      "note": "the opposite of in"
+     },
+     {
+      "clueFragment": "Vogue",
+      "gives": "RAGE",
+      "note": "something all the rage is in vogue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gossip item about a story missing from the fashion magazine.",
+     "definitionFit": "An outrage is a shocking affair causing public indignation, much as a scandal does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vogue"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +372,65 @@
     "text": "Dump man beginning to make a mark",
     "enumeration": "6"
    },
-   "solution": "STIGMA"
+   "solution": "STIGMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STIGMA",
+    "definitions": [
+     {
+      "text": "mark",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dump man",
+      "gives": "STIG",
+      "note": "Stig of the Dump is a classic British children's novel about a caveman living in a chalk pit"
+     },
+     {
+      "clueFragment": "make",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STIG",
+      "M",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A man leaves a rubbish tip and sets out to leave a trace.",
+     "walkthrough": "The 'a' does double duty in the surface but simply supplies its own letter.",
+     "definitionFit": "A stigma is a mark of disgrace, and also literally a spot or scar on the skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dump"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +444,54 @@
     "text": "Certain wages remain unsettled after private complaint",
     "enumeration": "7"
    },
-   "solution": "STIPEND"
+   "solution": "STIPEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STIPEND",
+    "definitions": [
+     {
+      "text": "Certain wages",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the second phrase's letters behind those of the first in the grid"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "private complaint",
+      "gives": "STI",
+      "note": "a sexually transmitted infection is a complaint of the private parts"
+     },
+     {
+      "clueFragment": "remain unsettled",
+      "gives": "PEND",
+      "note": "to pend is to remain undecided"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STI",
+      "PEND"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's pay stays in limbo after they lodge a confidential grievance.",
+     "definitionFit": "A stipend is a fixed salary, typically paid to clergy or students, so a particular kind of pay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "private"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +505,52 @@
     "text": "Lie over crime a bit cunningly",
     "enumeration": "9"
    },
-   "solution": "IMBRICATE"
+   "solution": "IMBRICATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMBRICATE",
+    "definitions": [
+     {
+      "text": "Lie over",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cunningly",
+      "for": "anagram",
+      "note": "doing something cunningly means arranging it artfully, so these letters are worked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crime a bit",
+      "gives": "CRIMEABIT",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRIMEABIT",
+       "gives": "IMBRICATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a sly untruth to cover up a minor offence.",
+     "walkthrough": "'Lie over' looks like deceit but means to overlap, as roof tiles do.",
+     "definitionFit": "To imbricate is to arrange so edges overlap like tiles or fish scales, each lying across the next."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lie"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +564,61 @@
     "text": "Old pens in one pocket",
     "enumeration": "9"
    },
-   "solution": "MINIATURE"
+   "solution": "MINIATURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MINIATURE",
+    "definitions": [
+     {
+      "text": "pocket",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pens",
+      "for": "container",
+      "note": "to pen is to shut in an enclosure, so the first word wraps around what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "MATURE",
+      "note": "old in the sense of grown up or aged"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "INI",
+      "ATURE"
+     ]
+    },
+    "explanation": {
+     "surface": "Antique writing pens kept in a single pocket.",
+     "walkthrough": "'Pocket' is used as an adjective, as in pocket edition; it is not something to hold the pens.",
+     "definitionFit": "Pocket as an adjective means small enough for a pocket, i.e. reduced in scale, which is what miniature means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pocket"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +632,56 @@
     "text": "My posse occasionally laugh uncontrollably",
     "enumeration": "6"
    },
-   "solution": "CORPSE"
+   "solution": "CORPSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CORPSE",
+    "definitions": [
+     {
+      "text": "laugh uncontrollably",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means every so often, so only every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "My",
+      "gives": "COR",
+      "note": "cor! is a British exclamation of surprise, like my!"
+     },
+     {
+      "clueFragment": "posse",
+      "gives": "PSE",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "PSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Every now and then the speaker's gang dissolve into helpless giggles.",
+     "walkthrough": "To corpse is actors' slang for breaking into laughter on stage.",
+     "definitionFit": "In theatre jargon an actor who corpses breaks character by giggling helplessly during a scene."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "My"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +695,54 @@
     "text": "\"Dog, second-rate individual\" (that's a bit below the belt)",
     "enumeration": "8"
    },
-   "solution": "TAILBONE"
+   "solution": "TAILBONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAILBONE",
+    "definitions": [
+     {
+      "text": "that's a bit below the belt",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "gives": "TAIL",
+      "note": "to dog someone is to follow or tail them"
+     },
+     {
+      "clueFragment": "second-rate",
+      "gives": "B",
+      "note": "B grade is second class"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "a single one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAIL",
+      "B",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Calling someone a mongrel and a nobody is an insult that's below the belt.",
+     "walkthrough": "'Below the belt' suggests unfairness, but the definition is literal: a body part beneath the waist.",
+     "definitionFit": "The tailbone, or coccyx, is the small bone at the base of the spine, below where a belt sits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "belt"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +756,59 @@
     "text": "I cooked with Grace Dent's scale",
     "enumeration": "10"
    },
-   "solution": "CENTIGRADE"
+   "solution": "CENTIGRADE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CENTIGRADE",
+    "definitions": [
+     {
+      "text": "scale",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked means prepared or doctored, so the letters are mixed into another form"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Grace Dent",
+      "gives": "GRACEDENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IGRACEDENT",
+       "gives": "CENTIGRADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook boasts of making a meal alongside Grace Dent, the British restaurant critic, on her rating system.",
+     "walkthrough": "Grace Dent is a British food critic, which makes 'cooked' and 'scale' read as kitchen talk.",
+     "definitionFit": "Centigrade is the temperature scale, also called Celsius, with water freezing at zero and boiling at one hundred."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scale"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +822,47 @@
     "text": "One tends to worship single mother",
     "enumeration": "4"
    },
-   "solution": "IMAM"
+   "solution": "IMAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMAM",
+    "definitions": [
+     {
+      "text": "One tends to worship",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MAM",
+      "note": "a dialect word for mum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone parent tends to be devout.",
+     "walkthrough": "Read 'tends to' as 'looks after', not 'is inclined to'.",
+     "definitionFit": "An imam leads prayers in a mosque, so he is someone who attends to the worship of a congregation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tends"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +876,64 @@
     "text": "Dog smelt better after scrubbing sides — it takes some beating",
     "enumeration": "8"
    },
-   "solution": "OMELETTE"
+   "solution": "OMELETTE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OMELETTE",
+    "definitions": [
+     {
+      "text": "it takes some beating",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after scrubbing sides",
+      "for": "letter_selection",
+      "note": "scrubbing the sides wipes away the outer edges, leaving only the inner letters of each word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "gives": "O",
+      "select": "middle",
+      "note": "middle letter"
+     },
+     {
+      "clueFragment": "smelt",
+      "gives": "MEL",
+      "select": "middle",
+      "note": "inner letters"
+     },
+     {
+      "clueFragment": "better",
+      "gives": "ETTE",
+      "select": "middle",
+      "note": "inner letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MEL",
+      "ETTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog smelled sweeter once its flanks were washed, though it didn't enjoy the scrubbing.",
+     "walkthrough": "Every word of the first part loses its first and last letters. 'Takes some beating' sounds like praise but refers to whisked eggs.",
+     "definitionFit": "An omelette is made from eggs that have been whisked hard, so it literally needs a beating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beating"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +947,48 @@
     "text": "Opposed to police in London? That's virtually everywhere",
     "enumeration": "9"
    },
-   "solution": "METAVERSE"
+   "solution": "METAVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "METAVERSE",
+    "definitions": [
+     {
+      "text": "That's virtually everywhere",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police in London",
+      "gives": "MET",
+      "note": "the Metropolitan Police"
+     },
+     {
+      "clueFragment": "Opposed to",
+      "gives": "AVERSE",
+      "note": "averse to means against"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "AVERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hostile to the capital's police force, which is apparently all over the place.",
+     "walkthrough": "'Opposed to' doubles as a placing hint: the averse part sits beside the police.",
+     "definitionFit": "The metaverse is an online virtual-reality world, so it is everywhere in a virtual sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "virtually"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1002,43 @@
     "text": "Key worker or hairdresser?",
     "enumeration": "9"
    },
-   "solution": "LOCKSMITH"
+   "solution": "LOCKSMITH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOCKSMITH",
+    "definitions": [
+     {
+      "text": "Key worker",
+      "at": 0
+     },
+     {
+      "text": "hairdresser?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Key worker",
+      "note": "first meaning: a tradesman who makes keys and fixes locks"
+     },
+     {
+      "clueFragment": "hairdresser?",
+      "note": "second, whimsical meaning: someone who works on locks of hair"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Key worker' suggests an essential pandemic worker, but it is someone who literally works with keys; the question mark flags the punning second sense.",
+     "definitionFit": "A smith is a craftsman, and locks are both door fastenings and tresses of hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1058,66 @@
      }
     ]
    },
-   "solution": "DRAWUP"
+   "solution": "DRAWUP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DRAW UP",
+    "definitions": [
+     {
+      "text": "draft",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to admit",
+      "for": "container",
+      "note": "to admit is to let in, so the party takes another word inside it"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means read the other way round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Provincial politicians",
+      "gives": "DUP",
+      "note": "the Democratic Unionist Party of Northern Ireland, often called the Province"
+     },
+     {
+      "clueFragment": "fighting",
+      "gives": "WAR",
+      "note": "armed fighting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RAW",
+      "UP"
+     ],
+     "reversals": [
+      {
+       "from": "WAR",
+       "to": "RAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Regional politicians let in a squabble about a proposed document.",
+     "definitionFit": "To draw up a document is to draft it, compose a first version."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Provincial"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1131,55 @@
     "text": "Coat mostly held firm",
     "enumeration": "6"
    },
-   "solution": "STUCCO"
+   "solution": "STUCCO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STUCCO",
+    "definitions": [
+     {
+      "text": "Coat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "held",
+      "gives": "STUCK",
+      "note": "stuck fast, held in place"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUC",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "A jacket that mostly stayed put.",
+     "walkthrough": "'Held firm' reads as one phrase but splits into two separate parts.",
+     "definitionFit": "Stucco is a plaster rendering applied as a coat over walls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1193,52 @@
     "text": "Bawdy old book set",
     "enumeration": "7"
    },
-   "solution": "OBSCENE"
+   "solution": "OBSCENE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBSCENE",
+    "definitions": [
+     {
+      "text": "Bawdy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SCENE",
+      "note": "a stage set or scene"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "SCENE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rude scene in an antique novel.",
+     "definitionFit": "Obscene and bawdy both describe indecent, lewd content."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1252,61 @@
     "text": "Criminal crows about coming back",
     "enumeration": "8"
    },
-   "solution": "MURDERER"
+   "solution": "MURDERER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MURDERER",
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming back",
+      "for": "reversal",
+      "note": "coming back means returning the way it came, so read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crows",
+      "gives": "MURDER",
+      "note": "a murder is the collective noun for crows"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MURDER",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RE",
+       "to": "ER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An offender boasts about returning.",
+     "walkthrough": "'Crows' looks like a verb meaning boasts, but it is the plural noun for the birds.",
+     "definitionFit": "A murderer is one who has committed homicide, a criminal of the gravest kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crows"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1320,39 @@
     "text": "They coin terms?",
     "enumeration": "7"
    },
-   "solution": "MINTERS"
+   "solution": "MINTERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MINTERS",
+    "definitions": [
+     {
+      "text": "They coin terms?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They coin terms?",
+      "note": "surface reading: people who invent new words or phrases"
+     },
+     {
+      "clueFragment": "coin",
+      "note": "setter's reading: those who coin money, with terms suggesting the people who stamp it out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Coining terms suggests people who invent words; the answer is the people who literally coin money, and the question mark flags the play on the two senses of coin.",
+     "definitionFit": "To mint is to manufacture coins, and to mint a word means to invent it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "coin"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1366,59 @@
     "text": "Film wrapped by Gervais perhaps is likely to fall flat",
     "enumeration": "7"
    },
-   "solution": "RICKETY"
+   "solution": "RICKETY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RICKETY",
+    "definitions": [
+     {
+      "text": "likely to fall flat",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapped by",
+      "for": "container",
+      "note": "something wrapped by another is enclosed in it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gervais perhaps",
+      "gives": "RICKY",
+      "note": "Ricky Gervais, the comedian, is an example of a Ricky"
+     },
+     {
+      "clueFragment": "Film",
+      "gives": "ET",
+      "note": "the Spielberg film E.T."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RICK",
+      "ET",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian's film is likely to flop.",
+     "walkthrough": "'Fall flat' suggests a joke failing; here it means collapsing.",
+     "definitionFit": "Something rickety is shaky and unstable, so liable to collapse at any moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1432,56 @@
     "text": "Some persevered, turning back days before",
     "enumeration": "4"
    },
-   "solution": "EVES"
+   "solution": "EVES",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "EVES",
+    "definitions": [
+     {
+      "text": "days before",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of means only a portion of the following word is used"
+     },
+     {
+      "text": "turning back",
+      "for": "reversal",
+      "note": "turning back means going in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "persevered",
+      "gives": "SEVE",
+      "note": "letters inside the word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "SEVE",
+       "to": "EVES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some people kept going despite having to retreat.",
+     "definitionFit": "An eve is the day or evening preceding an event, such as Christmas Eve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1495,39 @@
     "text": "Keep going with the flow",
     "enumeration": "10"
    },
-   "solution": "SANDCASTLE"
+   "solution": "SANDCASTLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SANDCASTLE",
+    "definitions": [
+     {
+      "text": "Keep going with the flow",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep going with the flow",
+      "note": "surface reading: carry on and go along with whatever happens"
+     },
+     {
+      "clueFragment": "Keep",
+      "note": "setter's reading: a keep is a castle stronghold, and this one disappears as the tide comes in"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Keep' is a castle tower, not a verb, and 'going' means being washed away.",
+     "definitionFit": "A beach fort built from moulded grains is destroyed as the incoming tide flows over it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Keep"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1541,75 @@
     "text": "It needs hint of lime when served up",
     "enumeration": "5"
    },
-   "solution": "SALSA"
+   "solution": "SALSA",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "SALSA",
+    "definitions": [
+     {
+      "text": "It needs hint of lime when served up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hint of",
+      "for": "letter_selection",
+      "note": "a hint is just a trace, so only the opening letter is taken"
+     },
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "served up in a down entry means presented from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It",
+      "gives": "SA",
+      "note": "it means sex appeal, abbreviated SA"
+     },
+     {
+      "clueFragment": "lime",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as in the sense of while"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "L",
+      "SA"
+     ],
+     "reversals": [
+      {
+       "from": "AS",
+       "to": "SA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sauce needs a touch of lime when it is brought to the table.",
+     "walkthrough": "The whole clue is also the definition: this Mexican sauce is typically finished with a squeeze of lime. 'It' as sex appeal is an old crossword convention.",
+     "definitionFit": "Salsa is a Mexican tomato and chilli sauce, commonly sharpened with lime juice before serving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "It"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1623,55 @@
     "text": "Look good in charge, showing sound reasoning",
     "enumeration": "5"
    },
-   "solution": "LOGIC"
+   "solution": "LOGIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOGIC",
+    "definitions": [
+     {
+      "text": "sound reasoning",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo! means look!"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "abbreviation of in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "G",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss who looks the part demonstrates good judgement.",
+     "definitionFit": "Logic is the discipline of valid argument, so sound reasoning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Look"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1691,49 @@
      }
     ]
    },
-   "solution": "PRAISEBE"
+   "solution": "PRAISEBE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "PRAISE BE",
+    "definitions": [
+     {
+      "text": "I'm grateful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for audience",
+      "for": "homophone",
+      "note": "for an audience means as heard by listeners, so the sound counts rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "petitions",
+      "gives": "PRAISE",
+      "soundsLike": "PRAYS",
+      "note": "petitions as a verb means prays"
+     },
+     {
+      "clueFragment": "exist",
+      "gives": "BE",
+      "note": "to exist is to be"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone thanks a crowd for supporting their appeals.",
+     "definitionFit": "Praise be is an exclamation of relief and thanks, roughly meaning thank goodness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1747,66 @@
     "text": "Passing report, Brussels takes file back from Germany",
     "enumeration": "6"
    },
-   "solution": "EULOGY"
+   "solution": "EULOGY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EULOGY",
+    "definitions": [
+     {
+      "text": "Passing report",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back from",
+      "for": "letter_selection",
+      "note": "the back of a word is its rear end, so just the closing letter is kept"
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brussels",
+      "gives": "EU",
+      "note": "Brussels is the seat of the European Union"
+     },
+     {
+      "clueFragment": "file",
+      "gives": "LOG",
+      "note": "a log is a record or file"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EU",
+      "LOG",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A news item on how the EU retrieves a dossier from Berlin.",
+     "walkthrough": "'File back' tempts a reversal, but 'back' belongs with Germany. 'Passing' here means death.",
+     "definitionFit": "A eulogy is a tribute speech given at a funeral, an account of someone who has died."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Passing"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1820,52 @@
     "text": "Bug expert breaking the ice",
     "enumeration": "6"
    },
-   "solution": "TECHIE"
+   "solution": "TECHIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TECHIE",
+    "definitions": [
+     {
+      "text": "Bug expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "anagram",
+      "note": "breaking smashes something into pieces that are then rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the ice",
+      "gives": "THEICE",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEICE",
+       "gives": "TECHIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An entomologist starts a conversation at a party.",
+     "walkthrough": "'Bug' means a software fault, not an insect.",
+     "definitionFit": "A techie is a technology specialist, the person who fixes computer glitches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bug"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1885,65 @@
      }
     ]
    },
-   "solution": "SOYSAUCE"
+   "solution": "SOYSAUCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "SOY SAUCE",
+    "definitions": [
+     {
+      "text": "Dip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter alone"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests something thrown into disorder, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "case you",
+      "gives": "CASEYOU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "stress",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CASEYOUS",
+       "gives": "SOYSAUCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to take a quick swim in case anxiety gets the better of someone.",
+     "definitionFit": "Soy sauce is a salty condiment into which sushi and dumplings are dunked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dip"
+    }
+   }
   }
  ]
 }
