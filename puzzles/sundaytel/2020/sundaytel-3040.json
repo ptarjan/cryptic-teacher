@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,62 @@
     "text": "In establishment serving drinks, another empty bottle",
     "enumeration": "6"
    },
-   "solution": "CARAFE"
+   "solution": "CARAFE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CARAFE",
+    "definitions": [
+     {
+      "text": "bottle",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an emptied word has lost its insides, so only its first and last letters remain"
+     },
+     {
+      "text": "In",
+      "for": "container",
+      "note": "'in' places the shortened word inside the place where drinks are served"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "establishment serving drinks",
+      "gives": "CAFE",
+      "note": "a cafe is a place serving coffee and other drinks"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "AR",
+      "select": "outer",
+      "note": "the word with its middle removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AR",
+      "AFE"
+     ]
+    },
+    "explanation": {
+     "surface": "In a bar, someone finishes yet another bottle and leaves it empty on the table.",
+     "walkthrough": "The two letters go in after the C, not in the middle, making CARAFE.",
+     "definitionFit": "A carafe is a glass vessel for serving wine or water, a kind of bottle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +104,50 @@
     "text": "Before last part, raise drink",
     "enumeration": "8"
    },
-   "solution": "COCKTAIL"
+   "solution": "COCKTAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCKTAIL",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "Before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raise",
+      "gives": "COCK",
+      "note": "to cock is to raise or tilt up, as with an ear or an eyebrow"
+     },
+     {
+      "clueFragment": "last part",
+      "gives": "TAIL",
+      "note": "the tail is the final part of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCK",
+      "TAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Before the final part of the evening, someone raises a drink in a toast.",
+     "walkthrough": "'Before' tells you the raising word comes ahead of the last part, though the clue lists them the other way round.",
+     "definitionFit": "A cocktail is a mixed alcoholic beverage, a particular kind of drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raise"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +161,56 @@
     "text": "Blame a financial centre for greed",
     "enumeration": "8"
    },
-   "solution": "RAPACITY"
+   "solution": "RAPACITY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAPACITY",
+    "definitions": [
+     {
+      "text": "greed",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blame",
+      "gives": "RAP",
+      "note": "to take the rap is to take the blame"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "financial centre",
+      "gives": "CITY",
+      "note": "the City is London's financial district"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAP",
+      "A",
+      "CITY"
+     ]
+    },
+    "explanation": {
+     "surface": "Bankers are blamed for avarice, a familiar newspaper complaint.",
+     "walkthrough": "The City (capital C) is the City of London, home of British banking.",
+     "definitionFit": "Rapacity is grasping, aggressive greed, a near synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Blame"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +224,45 @@
     "text": "On the radio, channel ran well",
     "enumeration": "4"
    },
-   "solution": "FLEW"
+   "solution": "FLEW",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLEW",
+    "definitions": [
+     {
+      "text": "ran well",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On the radio",
+      "for": "homophone",
+      "note": "on the radio we only hear words, so the spelling of the word heard can change"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "channel",
+      "gives": "FLEW",
+      "soundsLike": "FLUE",
+      "note": "a flue is a channel or duct for smoke"
+     }
+    ],
+    "explanation": {
+     "surface": "A radio channel's broadcast went off smoothly.",
+     "walkthrough": "'Channel' looks like a radio station, but it is a chimney duct.",
+     "definitionFit": "Flew is the past tense of fly, which can mean to move fast, so it means ran swiftly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "channel"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +276,51 @@
     "text": "Happy and rich — as may be image from computer?",
     "enumeration": "8"
    },
-   "solution": "UPLOADED"
+   "solution": "UPLOADED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPLOADED",
+    "definitions": [
+     {
+      "text": "as may be image from computer",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Happy",
+      "gives": "UP",
+      "note": "feeling up is feeling cheerful"
+     },
+     {
+      "clueFragment": "rich",
+      "gives": "LOADED",
+      "note": "loaded is slang for wealthy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "LOADED"
+     ]
+    },
+    "explanation": {
+     "surface": "Cheerful and wealthy — perhaps the clue wonders whether a computer picture can be so.",
+     "walkthrough": "The definition is a descriptive phrase: a picture sent from a computer to a website has been put online.",
+     "definitionFit": "An image transferred from a local machine to a server or website is said to have been uploaded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rich"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +340,63 @@
      }
     ]
    },
-   "solution": "PRESENTTENSE"
+   "solution": "PRESENTTENSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PRESENT TENSE",
+    "definitions": [
+     {
+      "text": "might this be simple",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after stuffing knocked out",
+      "for": "letter_selection",
+      "note": "with its stuffing knocked out a word loses everything but its outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Offering",
+      "gives": "PRESENT",
+      "note": "a present is an offering or gift"
+     },
+     {
+      "clueFragment": "figure",
+      "gives": "TEN",
+      "note": "ten is a number, or figure"
+     },
+     {
+      "clueFragment": "solace",
+      "gives": "SE",
+      "select": "outer",
+      "note": "only the first and last letters survive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESENT",
+      "TEN",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grieving person, emptied out, is offered comfort by someone.",
+     "walkthrough": "In grammar the simple present (I walk) is one form of this tense, contrasted with the continuous present (I am walking).",
+     "definitionFit": "Grammar books name 'simple present' as one form of the present tense, so the question hints at the grammatical term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "simple"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +410,52 @@
     "text": "Take out odd parts of both amps — electrical units",
     "enumeration": "4"
    },
-   "solution": "OHMS"
+   "solution": "OHMS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OHMS",
+    "definitions": [
+     {
+      "text": "electrical units",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Take out odd parts",
+      "for": "letter_selection",
+      "note": "removing the odd-numbered letters leaves only the second, fourth, sixth and so on"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "both amps",
+      "gives": "OHMS",
+      "select": "alternate",
+      "note": "the even letters of the two words read in order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OHMS"
+     ]
+    },
+    "explanation": {
+     "surface": "An electrician disconnects pieces from two amplifiers.",
+     "walkthrough": "Amps are themselves electrical units, which makes the surface feel like a definition throughout.",
+     "definitionFit": "The ohm is the standard measure of electrical resistance, so ohms are units in electricity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "amps"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +469,46 @@
     "text": "Oxbridge lecturer, important fool",
     "enumeration": "6"
    },
-   "solution": "DONKEY"
+   "solution": "DONKEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DONKEY",
+    "definitions": [
+     {
+      "text": "fool",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oxbridge lecturer",
+      "gives": "DON",
+      "note": "a don is a university teacher, especially at Oxford or Cambridge"
+     },
+     {
+      "clueFragment": "important",
+      "gives": "KEY",
+      "note": "key means crucial or important"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DON",
+      "KEY"
+     ]
+    },
+    "explanation": {
+     "surface": "An Oxford or Cambridge academic is described as a self-important idiot.",
+     "definitionFit": "A donkey is used figuratively for a stupid person, as the animal is thought slow-witted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "important"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +522,62 @@
     "text": "Water down funnel you invert, all ends in sink",
     "enumeration": "6"
    },
-   "solution": "DILUTE"
+   "solution": "DILUTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DILUTE",
+    "definitions": [
+     {
+      "text": "Water down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all ends",
+      "for": "letter_selection",
+      "note": "the ends of all the preceding words are taken, the last letter of each"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' puts those collected letters inside the word for sink"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sink",
+      "gives": "DIE",
+      "note": "to die away is to sink or fade"
+     },
+     {
+      "clueFragment": "funnel you invert",
+      "gives": "LUT",
+      "select": "last",
+      "note": "the final letters of three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "LUT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for pouring water down a funnel turned upside down, everything ending up in the kitchen sink.",
+     "walkthrough": "'Invert' suggests a reversal, but it only supplies its last letter; sink is a verb meaning fade, as in a dying sound.",
+     "definitionFit": "To dilute a liquid is to thin it by adding water, the plain sense of water down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invert"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +591,43 @@
     "text": "Money — a nicker?",
     "enumeration": "6"
    },
-   "solution": "COPPER"
+   "solution": "COPPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COPPER",
+    "definitions": [
+     {
+      "text": "Money",
+      "at": 0
+     },
+     {
+      "text": "a nicker",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "note": "first meaning: low-value coins, small change"
+     },
+     {
+      "clueFragment": "a nicker",
+      "note": "second meaning: one who nicks, or arrests, people — a police officer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A nicker is British slang for a pound, which pulls toward money; here it means someone who nicks, i.e. arrests.",
+     "definitionFit": "Copper is slang for a police officer and also for bronze coins of small value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nicker"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +641,50 @@
     "text": "Mean girl somehow beginning to develop",
     "enumeration": "8"
    },
-   "solution": "GERMINAL"
+   "solution": "GERMINAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GERMINAL",
+    "definitions": [
+     {
+      "text": "beginning to develop",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow says the letters arrive by some unstated method, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mean girl",
+      "gives": "MEANGIRL",
+      "note": "the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEANGIRL",
+       "gives": "GERMINAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spiteful girl is, one way or another, starting to grow up.",
+     "definitionFit": "Germinal describes something at the earliest stage of growth, like a seed sprouting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mean"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +704,67 @@
      }
     ]
    },
-   "solution": "EALINGCOMEDY"
+   "solution": "EALINGCOMEDY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EALING COMEDY",
+    "definitions": [
+     {
+      "text": "Old film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny means peculiar or odd, so the letters are put into a strange new order"
+     },
+     {
+      "text": "case",
+      "for": "letter_selection",
+      "note": "the case of a word is its outer shell, the first and last letters"
+     }
+    ],
+    "linkWords": [
+     "that's",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cinema gold",
+      "gives": "CINEMAGOLD",
+      "note": "ten letters for the mix"
+     },
+     {
+      "clueFragment": "every",
+      "gives": "EY",
+      "select": "outer",
+      "note": "the outside letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CINEMAGOLDEY",
+       "gives": "EALINGCOMEDY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A classic film is cinematic gold and funny from start to finish.",
+     "walkthrough": "Ealing Studios in west London made a famous run of comedies in the 1940s and 50s, such as Kind Hearts and Coronets.",
+     "definitionFit": "An Ealing comedy is one of the post-war British comic films from Ealing Studios, so an old movie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +778,42 @@
     "text": "Nail course of action",
     "enumeration": "4"
    },
-   "solution": "TACK"
+   "solution": "TACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TACK",
+    "definitions": [
+     {
+      "text": "Nail",
+      "at": 0
+     },
+     {
+      "text": "course of action",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nail",
+      "note": "first meaning: a small sharp nail with a broad head"
+     },
+     {
+      "clueFragment": "course of action",
+      "note": "second meaning: an approach or policy, as in try a different one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Nail' reads as a verb meaning settle on, but it is the noun for a short pin.",
+     "definitionFit": "A tack is both a short broad-headed nail and, from sailing, a line of approach or policy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nail"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +827,48 @@
     "text": "Greenish-brown mist by lake",
     "enumeration": "5"
    },
-   "solution": "HAZEL"
+   "solution": "HAZEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAZEL",
+    "definitions": [
+     {
+      "text": "Greenish-brown",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mist",
+      "gives": "HAZE",
+      "note": "haze is a thin mist"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAZE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A murky colour describes a misty view beside a lake.",
+     "definitionFit": "Hazel is a light brown colour with a green tinge, used especially of eyes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +882,42 @@
     "text": "Opening oven, tray's grabbed",
     "enumeration": "4"
    },
-   "solution": "VENT"
+   "solution": "VENT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VENT",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbed",
+      "for": "hidden_word",
+      "note": "something grabbed is held inside, so the letters sit within the neighbouring words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oven, tray's",
+      "gives": "VENT",
+      "note": "the run of letters spans the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone opens an oven and snatches out a baking tray.",
+     "definitionFit": "A vent is an aperture through which air or gas escapes, so an opening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Opening"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +931,63 @@
     "text": "A model written up for Greek writer",
     "enumeration": "5"
    },
-   "solution": "AESOP"
+   "solution": "AESOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AESOP",
+    "definitions": [
+     {
+      "text": "Greek writer",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written up",
+      "for": "reversal",
+      "note": "in a down clue, writing a word upward means reading it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "POSE",
+      "note": "to model is to pose for an artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ESOP"
+     ],
+     "reversals": [
+      {
+       "from": "POSE",
+       "to": "ESOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A model has been described in print for a Greek author.",
+     "definitionFit": "Aesop was the ancient Greek storyteller credited with the famous fables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1001,43 @@
     "text": "Wide secondary route?",
     "enumeration": "5"
    },
-   "solution": "BROAD"
+   "solution": "BROAD",
+   "annotation": {
+    "type": [
+     "charade",
+     "cryptic_definition"
+    ],
+    "answer": "BROAD",
+    "definitions": [
+     {
+      "text": "Wide",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secondary",
+      "gives": "B",
+      "note": "B is the grade below A, so second class"
+     },
+     {
+      "clueFragment": "route",
+      "gives": "ROAD",
+      "note": "a road is a route"
+     }
+    ],
+    "explanation": {
+     "surface": "A minor road is asked about as though it were broad.",
+     "walkthrough": "In Britain a B-road is a secondary road, below the main A-roads, and the question mark flags this.",
+     "definitionFit": "Broad and wide are synonyms describing great width."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "secondary"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1061,42 @@
      }
     ]
    },
-   "solution": "INTHEPICTURE"
+   "solution": "INTHEPICTURE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN THE PICTURE",
+    "definitions": [
+     {
+      "text": "Informed",
+      "at": 0
+     },
+     {
+      "text": "as is a film actor",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Informed",
+      "note": "first meaning: kept up to date with what is going on"
+     },
+     {
+      "clueFragment": "as is a film actor",
+      "note": "second meaning, taken literally: appearing in a movie"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense uses picture in its old meaning of a cinema film.",
+     "definitionFit": "The idiom means fully briefed on a situation, while literally a film's cast are in the movie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +1110,57 @@
     "text": "Like to claim language is expanding",
     "enumeration": "8"
    },
-   "solution": "DILATING"
+   "solution": "DILATING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DILATING",
+    "definitions": [
+     {
+      "text": "expanding",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to claim",
+      "for": "container",
+      "note": "to claim is to take hold of, so one word holds the other inside it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like",
+      "gives": "DIG",
+      "note": "to dig something is slang for liking it"
+     },
+     {
+      "clueFragment": "language",
+      "gives": "LATIN",
+      "note": "Latin is a language"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "LATIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enjoys arguing that a language keeps growing.",
+     "definitionFit": "Dilating means widening or enlarging, as pupils do, so it means expanding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 19,
@@ -320,7 +1174,61 @@
     "text": "Stake put underground, set to rot",
     "enumeration": "8"
    },
-   "solution": "INTEREST"
+   "solution": "INTEREST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "INTEREST",
+    "definitions": [
+     {
+      "text": "Stake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to rot",
+      "for": "anagram",
+      "note": "rotting things decay and break down, so the letters fall apart and re-form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put underground",
+      "gives": "INTER",
+      "note": "to inter is to bury"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "taken as written, three letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "EST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SET",
+       "gives": "EST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wooden post is driven into the ground and left to decay.",
+     "walkthrough": "'Stake' looks like a fence post, matching the rot, but it means a share in a business.",
+     "definitionFit": "An interest is a share or financial stake held in a venture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stake"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +1242,71 @@
     "text": "Gathering container, go off to collect first of gooseberries",
     "enumeration": "12"
    },
-   "solution": "CONGREGATION"
+   "solution": "CONGREGATION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CONGREGATION",
+    "definitions": [
+     {
+      "text": "Gathering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "go off",
+      "for": "anagram",
+      "note": "something that goes off is spoiled, so the letters are thrown into disorder"
+     },
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of takes only the opening letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "to collect"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "CONTAINER",
+      "note": "taken as written for the mix"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "GO",
+      "note": "taken as written for the mix"
+     },
+     {
+      "clueFragment": "gooseberries",
+      "gives": "G",
+      "select": "first",
+      "note": "the initial letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CONTAINERGOG",
+       "gives": "CONGREGATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tub of picked gooseberries is going off.",
+     "walkthrough": "'Go' belongs both to the fodder and to the indicator 'go off'; 'to collect' just says the extra letter is gathered into the mix.",
+     "definitionFit": "A congregation is an assembly of people, especially worshippers in church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 21,
@@ -348,7 +1320,50 @@
     "text": "Revolutionary massage for infant",
     "enumeration": "6"
    },
-   "solution": "CHERUB"
+   "solution": "CHERUB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHERUB",
+    "definitions": [
+     {
+      "text": "infant",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine revolutionary"
+     },
+     {
+      "clueFragment": "massage",
+      "gives": "RUB",
+      "note": "a rub is a massage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "RUB"
+     ]
+    },
+    "explanation": {
+     "surface": "A dramatic, radical massage is recommended for a baby.",
+     "walkthrough": "'Revolutionary' reads as an adjective (or a reversal signal), but it is the noun for Che.",
+     "definitionFit": "A cherub is a chubby winged child in art, and the word is used for a sweet baby."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 22,
@@ -362,7 +1377,46 @@
     "text": "Some old capital in African country",
     "enumeration": "6"
    },
-   "solution": "GUINEA"
+   "solution": "GUINEA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GUINEA",
+    "definitions": [
+     {
+      "text": "Some old capital",
+      "at": 0
+     },
+     {
+      "text": "African country",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some old capital",
+      "note": "first meaning: an old British gold coin worth 21 shillings, an amount of money"
+     },
+     {
+      "clueFragment": "African country",
+      "note": "second meaning: a West African nation whose capital is Conakry"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Capital' tempts you to look for a city, but it means money.",
+     "definitionFit": "The guinea was a former British coin and the name of a West African state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 23,
@@ -376,7 +1430,50 @@
     "text": "Hold onto unworkable relationship, initially for some time",
     "enumeration": "4"
    },
-   "solution": "HOUR"
+   "solution": "HOUR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "HOUR",
+    "definitions": [
+     {
+      "text": "some time",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each word in the phrase"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hold onto unworkable relationship",
+      "gives": "HOUR",
+      "select": "first",
+      "note": "the initial letters of four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice about clinging to a failing romance for a while.",
+     "definitionFit": "An hour is a measured period, so a stretch of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -390,7 +1487,50 @@
     "text": "Temperature on oven grill",
     "enumeration": "5"
    },
-   "solution": "TOAST"
+   "solution": "TOAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOAST",
+    "definitions": [
+     {
+      "text": "grill",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     },
+     {
+      "clueFragment": "oven",
+      "gives": "OAST",
+      "note": "an oast is a kiln for drying hops, a kind of oven"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Cooking instructions: set the heat on the oven grill.",
+     "walkthrough": "Oast houses, with their cone roofs, are hop-drying kilns typical of Kent in England.",
+     "definitionFit": "To toast bread is to brown it under heat, exactly what a grill does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grill"
+    }
+   }
   },
   {
    "number": 25,
@@ -404,7 +1544,42 @@
     "text": "Food market, we hear?",
     "enumeration": "4"
    },
-   "solution": "FARE"
+   "solution": "FARE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FARE",
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear says the word is identified by its sound when spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "market",
+      "gives": "FARE",
+      "soundsLike": "FAIR",
+      "note": "a fair is a market"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether food is sold at a market.",
+     "definitionFit": "Fare means the food and drink served, as in simple country cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -418,7 +1593,43 @@
     "text": "Kiss cheek",
     "enumeration": "4"
    },
-   "solution": "NECK"
+   "solution": "NECK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NECK",
+    "definitions": [
+     {
+      "text": "Kiss",
+      "at": 0
+     },
+     {
+      "text": "cheek",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kiss",
+      "note": "first meaning: to kiss and cuddle amorously"
+     },
+     {
+      "clueFragment": "cheek",
+      "note": "second meaning: impudence or nerve, as in having the nerve to"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Together the words suggest a peck on the cheek; cheek in fact means audacity.",
+     "definitionFit": "To neck is to kiss passionately, and neck in British usage also means brazen impudence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cheek"
+    }
+   }
   },
   {
    "number": 27,
@@ -432,7 +1643,42 @@
     "text": "By the sound of it, white container for liquid",
     "enumeration": "4"
    },
-   "solution": "PAIL"
+   "solution": "PAIL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PAIL",
+    "definitions": [
+     {
+      "text": "container for liquid",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "By the sound of it",
+      "for": "homophone",
+      "note": "judging by the sound means the spoken form matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "white",
+      "gives": "PAIL",
+      "soundsLike": "PALE",
+      "note": "pale means whitish"
+     }
+    ],
+    "explanation": {
+     "surface": "Something white-sounding is apparently a vessel for fluid.",
+     "definitionFit": "A pail is a bucket, an open vessel for carrying water or milk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -446,7 +1692,63 @@
     "text": "On drinking limit, cardinal plastered",
     "enumeration": "8"
    },
-   "solution": "RENDERED"
+   "solution": "RENDERED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RENDERED",
+    "definitions": [
+     {
+      "text": "plastered",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "a drinker takes something in, so one word swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "limit",
+      "gives": "END",
+      "note": "an end is a limit"
+     },
+     {
+      "clueFragment": "cardinal",
+      "gives": "RED",
+      "note": "cardinal is a deep red colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "END",
+      "E",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman, on the brink of his limit, is drunk.",
+     "walkthrough": "'Plastered' and 'drinking' suggest drunkenness; the definition is the builder's sense, coated with plaster.",
+     "definitionFit": "To render a wall is to coat it with plaster or cement, so rendered means plastered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plastered"
+    }
+   }
   },
   {
    "number": 29,
@@ -460,7 +1762,57 @@
     "text": "Stick fences in for dog, say",
     "enumeration": "6"
    },
-   "solution": "CANINE"
+   "solution": "CANINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANINE",
+    "definitions": [
+     {
+      "text": "dog, say",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fences",
+      "for": "container",
+      "note": "a fence encloses ground, so one word surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stick",
+      "gives": "CANE",
+      "note": "a cane is a walking stick"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone uses a stick to fence in a dog.",
+     "definitionFit": "A dog is an example of a canine, the family of animals that includes wolves and foxes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fences"
+    }
+   }
   },
   {
    "number": 30,
@@ -480,7 +1832,61 @@
      }
     ]
    },
-   "solution": "BLACKEYE"
+   "solution": "BLACKEYE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BLACK EYE",
+    "definitions": [
+     {
+      "text": "injury",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cut",
+      "for": "deletion",
+      "note": "cutting a word shortens it by removing its last letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the shortened word inside the word for extra"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra",
+      "gives": "BYE",
+      "note": "a bye is an extra in cricket, a run scored without the batsman hitting the ball"
+     },
+     {
+      "clueFragment": "needed",
+      "gives": "LACKED",
+      "note": "lacked means needed or was without"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LACKE",
+      "YE"
+     ]
+    },
+    "explanation": {
+     "surface": "A film extra needs stitches after a cut.",
+     "walkthrough": "'Cut' looks like the injury, but it trims the last letter.",
+     "definitionFit": "A black eye is bruising round the eye after a blow, a common injury."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 31,
@@ -494,7 +1900,49 @@
     "text": "Dire situation adding pressure to match?",
     "enumeration": "6"
    },
-   "solution": "PLIGHT"
+   "solution": "PLIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLIGHT",
+    "definitions": [
+     {
+      "text": "Dire situation",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "adding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     },
+     {
+      "clueFragment": "match",
+      "gives": "LIGHT",
+      "note": "a match is a light for a fire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A desperate predicament made worse by stress before a sporting fixture.",
+     "definitionFit": "A plight is a dangerous or difficult predicament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "match"
+    }
+   }
   }
  ]
 }
