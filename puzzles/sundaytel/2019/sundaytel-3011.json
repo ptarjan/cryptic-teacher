@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,44 @@
     "text": "Ray is so suspicious",
     "enumeration": "5"
    },
-   "solution": "FISHY"
+   "solution": "FISHY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FISHY",
+    "definitions": [
+     {
+      "text": "Ray is so",
+      "at": 0
+     },
+     {
+      "text": "suspicious",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ray is so",
+      "note": "first meaning: a ray is a fish, so it is like a fish"
+     },
+     {
+      "clueFragment": "suspicious",
+      "note": "second meaning: dubious, smelling of something not right"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone named Ray is acting in a way that arouses distrust.",
+     "walkthrough": "Ray looks like a man's name, but it is the flat sea creature.",
+     "definitionFit": "The adjective means both resembling a sea creature and, informally, questionable or arousing doubt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ray"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +86,39 @@
     "text": "Housework decreasing, apparently?",
     "enumeration": "7"
    },
-   "solution": "IRONING"
+   "solution": "IRONING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "IRONING",
+    "definitions": [
+     {
+      "text": "Housework decreasing, apparently?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Housework",
+      "note": "surface reading: a domestic chore that is shrinking in amount"
+     },
+     {
+      "clueFragment": "decreasing",
+      "note": "setter's reading: de-creasing, taking the creases out of clothes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split 'decreasing' as de-creasing: the chore that removes creases from laundry.",
+     "definitionFit": "Pressing clothes with a hot flat appliance is a household task that literally removes wrinkles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "decreasing"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +142,56 @@
      }
     ]
    },
-   "solution": "HENLEYONTHAMES"
+   "solution": "HENLEYONTHAMES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HENLEY-ON-THAMES",
+    "definitions": [
+     {
+      "text": "somewhere in Oxfordshire",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wandering",
+      "for": "anagram",
+      "note": "a thing wandering moves about without fixed order, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The holy man",
+      "gives": "THEHOLYMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seen",
+      "gives": "SEEN",
+      "note": "taken as written; it doubles as the link in the surface"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEHOLYMANSEEN",
+       "gives": "HENLEYONTHAMES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wandering monk or priest has been spotted somewhere in an English county.",
+     "walkthrough": "All fourteen letters of 'The holy man seen' are shuffled; Oxfordshire is an English county west of London.",
+     "definitionFit": "The town famous for its rowing regatta lies on the river in south Oxfordshire, so it is a place in that county."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wandering"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +205,47 @@
     "text": "Mistake, foreman not finishing",
     "enumeration": "5"
    },
-   "solution": "GAFFE"
+   "solution": "GAFFE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GAFFE",
+    "definitions": [
+     {
+      "text": "Mistake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not finishing",
+      "for": "deletion",
+      "note": "something not finishing stops short of its end, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foreman",
+      "gives": "GAFFER",
+      "note": "a gaffer is British slang for a foreman or boss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAFFE"
+     ]
+    },
+    "explanation": {
+     "surface": "A supervisor has made an error by failing to complete a job.",
+     "definitionFit": "A gaffe is a social blunder or embarrassing slip, a kind of error."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finishing"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +259,53 @@
     "text": "Tastier cooking for creative type",
     "enumeration": "7"
    },
-   "solution": "ARTISTE"
+   "solution": "ARTISTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARTISTE",
+    "definitions": [
+     {
+      "text": "creative type",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "ingredients that are cooking get mixed and transformed, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tastier",
+      "gives": "TASTIER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TASTIER",
+       "gives": "ARTISTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Making food more flavourful is a job suited to an inventive person.",
+     "definitionFit": "An artiste is a performer or entertainer, someone whose work is imaginative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooking"
+    }
+   }
   },
   {
    "number": 6,
@@ -112,7 +319,58 @@
     "text": "Lucky swimmer, showing strength on the outside",
     "enumeration": "9"
    },
-   "solution": "FORTUNATE"
+   "solution": "FORTUNATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FORTUNATE",
+    "definitions": [
+     {
+      "text": "Lucky",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the outside",
+      "for": "container",
+      "note": "being on the outside means wrapping round something else, so one word surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strength",
+      "gives": "FORTE",
+      "note": "a forte is someone's strong point"
+     },
+     {
+      "clueFragment": "swimmer",
+      "gives": "TUNA",
+      "note": "a tuna is a fish, a swimmer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "TUNA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fortunate swimmer looks muscular from the outside.",
+     "walkthrough": "'Swimmer' is crossword shorthand for a fish; FORTE splits to hold it.",
+     "definitionFit": "Fortunate means favoured by chance, the same as lucky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 7,
@@ -126,7 +384,42 @@
     "text": "Observed in meeting, a spectacularly sharp intake of breath",
     "enumeration": "4"
    },
-   "solution": "GASP"
+   "solution": "GASP",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GASP",
+    "definitions": [
+     {
+      "text": "sharp intake of breath",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Observed in",
+      "for": "hidden_word",
+      "note": "something observed in a stretch of text can be seen inside it, running across the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meeting, a spectacularly",
+      "gives": "GASP",
+      "note": "the letters run from the end of meeting through a into the start of spectacularly"
+     }
+    ],
+    "explanation": {
+     "surface": "At a gathering, someone draws breath dramatically in surprise.",
+     "definitionFit": "A gasp is a sudden audible inhalation, typically from shock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Observed"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +443,61 @@
      }
     ]
    },
-   "solution": "NOWINSITUATION"
+   "solution": "NOWINSITUATION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NO-WIN SITUATION",
+    "definitions": [
+     {
+      "text": "dilemma",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "state",
+      "for": "anagram",
+      "note": "to be in a state is to be in disarray, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "suit I own in a",
+      "gives": "OTSUITIOWNINA",
+      "note": "taken as written, plus an O and a T the printed words lack: the setter's slip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OWINSITUATION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUITIOWNINA",
+       "gives": "OWINSITUATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fretting over a new outfit finds themselves in a quandary.",
+     "walkthrough": "N for 'New' leads, then 'suit I own in a' is shuffled; as printed those letters are an O and a T short of the rest of the answer, a slip in the clue.",
+     "definitionFit": "A dilemma is a predicament where every option looks bad, which is a situation nobody can come out of ahead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +511,47 @@
     "text": "One of five children from the south-east? Sparkly little thing",
     "enumeration": "6"
    },
-   "solution": "SEQUIN"
+   "solution": "SEQUIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEQUIN",
+    "definitions": [
+     {
+      "text": "Sparkly little thing",
+      "at": 42
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from the south-east",
+      "gives": "SE",
+      "note": "SE is the abbreviation for south-east"
+     },
+     {
+      "clueFragment": "One of five children",
+      "gives": "QUIN",
+      "note": "a quin is one of quintuplets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "QUIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A quintuplet from south-east England is a dazzling little star.",
+     "walkthrough": "The clue gives the parts in reverse order: the compass point comes first in the answer.",
+     "definitionFit": "A sequin is a small shiny disc sewn onto clothing for glitter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "children"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +565,46 @@
     "text": "Sad sort of crossword clue thrown out",
     "enumeration": "8"
    },
-   "solution": "DOWNCAST"
+   "solution": "DOWNCAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWNCAST",
+    "definitions": [
+     {
+      "text": "Sad",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sort of crossword clue",
+      "gives": "DOWN",
+      "note": "clues are either across or down"
+     },
+     {
+      "clueFragment": "thrown out",
+      "gives": "CAST",
+      "note": "to cast is to throw"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "CAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is miserable because a type of puzzle hint has been discarded.",
+     "definitionFit": "Downcast describes someone dejected, with eyes lowered, a synonym for unhappy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 11,
@@ -192,7 +618,53 @@
     "text": "Greek island has drunken hordes",
     "enumeration": "6"
    },
-   "solution": "RHODES"
+   "solution": "RHODES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RHODES",
+    "definitions": [
+     {
+      "text": "Greek island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunken",
+      "for": "anagram",
+      "note": "drunken people stagger about in disorder, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hordes",
+      "gives": "HORDES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HORDES",
+       "gives": "RHODES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday island in the Aegean suffers from rowdy crowds of revellers.",
+     "definitionFit": "Rhodes is the largest of the Dodecanese islands, belonging to Greece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunken"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +684,47 @@
      }
     ]
    },
-   "solution": "PIPEUP"
+   "solution": "PIPEUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIPE UP",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duct",
+      "gives": "PIPE",
+      "note": "a pipe is a duct or conduit"
+     },
+     {
+      "clueFragment": "raised",
+      "gives": "UP",
+      "note": "something raised is up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIPE",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A conduit has been lifted, for instance.",
+     "walkthrough": "'say' looks like 'for example' but it is the definition, a verb.",
+     "definitionFit": "To pipe up is to speak out suddenly, a phrasal synonym for the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +738,55 @@
     "text": "Bogus debtor's note held by London players",
     "enumeration": "8"
    },
-   "solution": "SPURIOUS"
+   "solution": "SPURIOUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPURIOUS",
+    "definitions": [
+     {
+      "text": "Bogus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another sits within its grasp, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London players",
+      "gives": "SPURS",
+      "note": "Spurs is the nickname of Tottenham Hotspur, a London football club"
+     },
+     {
+      "clueFragment": "debtor's note",
+      "gives": "IOU",
+      "note": "an IOU is a written acknowledgement of a debt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPUR",
+      "IOU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A fake promissory note is in the hands of a London team.",
+     "walkthrough": "Tottenham Hotspur is a north London football club, widely called Spurs.",
+     "definitionFit": "Spurious means false or not genuine, the same as fake or counterfeit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +800,44 @@
     "text": "Bargain by the sound of it? I'm off!",
     "enumeration": "7"
    },
-   "solution": "GOODBYE"
+   "solution": "GOODBYE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GOODBYE",
+    "definitions": [
+     {
+      "text": "I'm off!",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "going by how something sounds means its spoken form matters, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bargain",
+      "gives": "GOODBYE",
+      "soundsLike": "GOOD BUY",
+      "note": "a bargain is a good purchase"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone spots a cheap deal and dashes away to grab it.",
+     "definitionFit": "The farewell word is what you say when you are leaving, as is the exclamation about departing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bargain"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +857,69 @@
      }
     ]
    },
-   "solution": "BOWWINDOW"
+   "solution": "BOWWINDOW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "BOW WINDOW",
+    "definitions": [
+     {
+      "text": "Curved feature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail of",
+      "for": "letter_selection",
+      "note": "the tail is the back end of something, so only the final letter of the following word is kept"
+     },
+     {
+      "text": "bites",
+      "for": "container",
+      "note": "a mouth that bites closes round something, so one piece encloses the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "BOWWOW",
+      "note": "bow-wow is a nursery word for a dog"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hound",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of hound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOWW",
+      "IN",
+      "D",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog bites into a curved patch at the end of a hound's tail.",
+     "walkthrough": "'in' looks like a link word but is wordplay; bow-wow is a child's word for a dog, and it is split open to hold the other letters.",
+     "definitionFit": "A bow window is a curved bay window, a rounded architectural projection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +933,54 @@
     "text": "In insect, bovine disease not there!",
     "enumeration": "6"
    },
-   "solution": "ABSENT"
+   "solution": "ABSENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABSENT",
+    "definitions": [
+     {
+      "text": "not there!",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "placed in something means set inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insect",
+      "gives": "ANT",
+      "note": "an ant is an insect"
+     },
+     {
+      "clueFragment": "bovine disease",
+      "gives": "BSE",
+      "note": "BSE is bovine spongiform encephalopathy, mad cow disease"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BSE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation that a cattle disease is not found in some insect.",
+     "definitionFit": "Absent means missing or away, the same as not present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +994,59 @@
     "text": "Most excellent bows with trimmed edges for present",
     "enumeration": "6"
    },
-   "solution": "BESTOW"
+   "solution": "BESTOW",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BESTOW",
+    "definitions": [
+     {
+      "text": "present",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with trimmed edges",
+      "for": "letter_selection",
+      "note": "trimming the edges cuts away both ends, so only the inner letters remain"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most excellent",
+      "gives": "BEST",
+      "note": "best is the superlative of good"
+     },
+     {
+      "clueFragment": "bows",
+      "gives": "OW",
+      "select": "middle",
+      "note": "the word with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEST",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "The finest ribbon bows, neatly trimmed, for a gift.",
+     "walkthrough": "'present' looks like a noun in the gift-wrapping scene, but it is the verb, to give.",
+     "definitionFit": "To bestow is to confer or give as an honour or gift."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1060,61 @@
     "text": "Sell abroad last of merchandise: ten left",
     "enumeration": "6"
    },
-   "solution": "EXPORT"
+   "solution": "EXPORT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EXPORT",
+    "definitions": [
+     {
+      "text": "Sell abroad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of something is its final part, so only the end letter of the following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "merchandise",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of merchandise"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "X",
+      "note": "X is the Roman numeral for ten"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A trader ships the final stock overseas with ten items remaining.",
+     "definitionFit": "To export is to send goods to another country for sale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 19,
@@ -316,7 +1128,61 @@
     "text": "Sugarcoat introduction to song, little number",
     "enumeration": "7"
    },
-   "solution": "SWEETEN"
+   "solution": "SWEETEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWEETEN",
+    "definitions": [
+     {
+      "text": "Sugarcoat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction to",
+      "for": "letter_selection",
+      "note": "an introduction is the opening, so only the first letter of the following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of song"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "WEE",
+      "note": "wee is Scottish and British informal for small"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "TEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for making a short musical piece sound more pleasing.",
+     "definitionFit": "To sweeten something unpleasant is to make it more palatable, as sugarcoating does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1196,50 @@
     "text": "Novel soaring, Italian title",
     "enumeration": "7"
    },
-   "solution": "SIGNORA"
+   "solution": "SIGNORA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIGNORA",
+    "definitions": [
+     {
+      "text": "Italian title",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Novel",
+      "for": "anagram",
+      "note": "novel means new and different, so these letters take a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soaring",
+      "gives": "SOARING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOARING",
+       "gives": "SIGNORA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soaring book with an Italian name on its cover.",
+     "definitionFit": "Signora is the Italian form of address for a married woman, equivalent to Mrs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Novel"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1259,49 @@
      }
     ]
    },
-   "solution": "NOWTHEN"
+   "solution": "NOWTHEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOW THEN",
+    "definitions": [
+     {
+      "text": "Warning",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "will be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the present",
+      "gives": "NOW",
+      "note": "now means at the present time"
+     },
+     {
+      "clueFragment": "at that time",
+      "gives": "THEN",
+      "note": "then refers to a particular moment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOW",
+      "THEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A caution is issued now about what will happen later.",
+     "definitionFit": "The phrase is spoken as a mild admonition, an expression cautioning someone to behave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1315,55 @@
     "text": "Summit entertained by serenade at the lectern?",
     "enumeration": "8"
    },
-   "solution": "SPEAKING"
+   "solution": "SPEAKING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPEAKING",
+    "definitions": [
+     {
+      "text": "at the lectern?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertained by",
+      "for": "container",
+      "note": "a guest entertained by a host is taken in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serenade",
+      "gives": "SING",
+      "note": "to serenade someone is to sing to them"
+     },
+     {
+      "clueFragment": "Summit",
+      "gives": "PEAK",
+      "note": "a summit is a peak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEAK",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A mountain top is treated to music by a lectern, it seems.",
+     "walkthrough": "The definition is by example: someone at a lectern is giving a talk, hence the question mark.",
+     "definitionFit": "A lectern is a stand for someone delivering an address, so a person there is lecturing aloud to an audience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "serenade"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1377,68 @@
     "text": "Embracing love, swami unfortunately sounds catty?",
     "enumeration": "6"
    },
-   "solution": "MIAOWS"
+   "solution": "MIAOWS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MIAOWS",
+    "definitions": [
+     {
+      "text": "sounds catty?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Embracing",
+      "for": "container",
+      "note": "embracing means holding in one's arms, so one piece wraps around the other"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things that turn out unfortunately go wrong, so these letters are put in a wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swami",
+      "gives": "SWAMI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIA",
+      "O",
+      "WS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SWAMI",
+       "gives": "MIAWS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Hindu teacher, despite his loving nature, comes across as spiteful.",
+     "walkthrough": "'catty' suggests spite, but here the question mark points to what a cat literally says.",
+     "definitionFit": "A cat makes mewing noises, so a sound a cat makes is literally catlike vocalising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "catty"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1452,52 @@
     "text": "Sheep drops on mongrel",
     "enumeration": "4"
    },
-   "solution": "MUTT"
+   "solution": "MUTT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MUTT",
+    "definitions": [
+     {
+      "text": "mongrel",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops",
+      "for": "deletion",
+      "note": "a thing that drops something lets it fall away, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sheep",
+      "gives": "MUTTON",
+      "note": "mutton is the meat of a sheep"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written; these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUTT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sheep leaves droppings on a stray dog.",
+     "definitionFit": "A mutt is an informal word for a dog of mixed breed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 23,
@@ -406,7 +1511,54 @@
     "text": "Companion runs into brute",
     "enumeration": "6"
    },
-   "solution": "FRIEND"
+   "solution": "FRIEND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRIEND",
+    "definitions": [
+     {
+      "text": "Companion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means entering it, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brute",
+      "gives": "FIEND",
+      "note": "a fiend is a cruel or wicked person"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "IEND"
+     ]
+    },
+    "explanation": {
+     "surface": "A pal happens to meet a nasty thug.",
+     "definitionFit": "A friend is someone you keep company with, a close companion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1572,47 @@
     "text": "Published, precise total",
     "enumeration": "8"
    },
-   "solution": "OUTRIGHT"
+   "solution": "OUTRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTRIGHT",
+    "definitions": [
+     {
+      "text": "total",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Published",
+      "gives": "OUT",
+      "note": "a book that is out has been published"
+     },
+     {
+      "clueFragment": "precise",
+      "gives": "RIGHT",
+      "note": "right means correct or exact"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A published figure gives an exact sum.",
+     "walkthrough": "'total' looks like a noun but is the adjective, as in an outright victory.",
+     "definitionFit": "Outright means complete or absolute, the same as total used as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "total"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1626,47 @@
     "text": "Promise bit of corn from Cornwall?",
     "enumeration": "5"
    },
-   "solution": "SWEAR"
+   "solution": "SWEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEAR",
+    "definitions": [
+     {
+      "text": "Promise",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from Cornwall",
+      "gives": "SW",
+      "note": "Cornwall is in the south-west of England, abbreviated SW"
+     },
+     {
+      "clueFragment": "bit of corn",
+      "gives": "EAR",
+      "note": "an ear is the seed-bearing head of a cereal plant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A vow involving a piece of grain from a western English county.",
+     "walkthrough": "Cornwall is the county at England's south-western tip; the clue gives the parts in reverse order.",
+     "definitionFit": "To swear is to vow or give one's solemn word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corn"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1680,48 @@
     "text": "Silly idiots, ninnies and nincompoops: empty heads",
     "enumeration": "5"
    },
-   "solution": "INANE"
+   "solution": "INANE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "INANE",
+    "definitions": [
+     {
+      "text": "Silly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads",
+      "for": "letter_selection",
+      "note": "the head of something is its front, so only the first letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idiots, ninnies and nincompoops: empty",
+      "gives": "INANE",
+      "select": "first",
+      "note": "the first letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INANE"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of fools with nothing inside their skulls.",
+     "definitionFit": "Inane means senseless or foolish, a synonym for silly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   }
  ]
 }
