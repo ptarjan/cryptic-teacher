@@ -30,10 +30,12 @@ with tempfile.TemporaryDirectory() as tmp:
 key = pathlib.Path(I.ROOT, f"{I.KEY}.txt")
 print("KEY", key.read_text().strip() == I.KEY
       and any(fnmatch.fnmatch(key.name, g) for g in stage_site.PUBLISH))
+print("UNVERIFIED", I.error_code('{"errorCode":"SiteVerificationNotCompleted"}')
+      == "SiteVerificationNotCompleted" and I.error_code("<html>") is None)
 PY
 )
 echo "$out"
-for k in COLD NOREDIRECT CHANGED KEY; do
+for k in COLD NOREDIRECT CHANGED KEY UNVERIFIED; do
   grep -qx "$k True" <<<"$out" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"

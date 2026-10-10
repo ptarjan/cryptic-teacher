@@ -71,8 +71,22 @@ def ping(urls):
             with urllib.request.urlopen(req, timeout=60) as r:
                 print(f"IndexNow: {r.status} for {len(urls[i:i + BATCH])} URL(s)")
         except urllib.error.HTTPError as e:
+            text = e.read().decode(errors="replace")
+            if error_code(text) == "SiteVerificationNotCompleted":
+                # IndexNow checks KEY_URL on its own schedule after the first
+                # ping; until it has, every ping gets this. Bing still has the
+                # sitemap, so the deploy stays green.
+                print(f"IndexNow: key not verified yet, {len(urls) - i} URL(s) unsent")
+                return
             raise SystemExit(f"IndexNow refused {len(urls[i:i + BATCH])} URL(s): HTTP {e.code} "
-                             f"{e.read().decode(errors='replace')[:500]}")
+                             f"{text[:500]}")
+
+
+def error_code(text):
+    try:
+        return json.loads(text).get("errorCode")
+    except (ValueError, AttributeError):
+        return None
 
 
 def main(argv):
