@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Standard model used to be more than enough",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXAMPLE",
+    "definitions": [
+     {
+      "text": "Standard model",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used to be",
+      "gives": "EX",
+      "note": "an ex is something that used to be, as in ex-wife"
+     },
+     {
+      "clueFragment": "more than enough",
+      "gives": "AMPLE",
+      "note": "ample means plentiful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "AMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former standard model, perhaps of a car, that was once more than adequate.",
+     "definitionFit": "An example is a pattern or exemplar others are measured against, a standard to copy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,72 @@
     "text": "Employ criminal gang to get into drugs",
     "enumeration": "6"
    },
-   "solution": "ENGAGE"
+   "solution": "ENGAGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENGAGE",
+    "definitions": [
+     {
+      "text": "Employ",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests crooked, so the letters of the word beside it are bent out of order"
+     },
+     {
+      "text": "to get into",
+      "for": "container",
+      "note": "getting into something means going inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drugs",
+      "gives": "E",
+      "note": "E is ecstasy; the plural gives two of them, one each side"
+     },
+     {
+      "clueFragment": "gang",
+      "gives": "NGAG",
+      "note": "the four letters of gang rearranged"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "E",
+      "note": "the second ecstasy tablet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NGAG",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GANG",
+       "gives": "NGAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss hires a criminal gang to move into the drugs trade.",
+     "walkthrough": "Drugs is read as E plus E, two ecstasy tablets, with the rearranged gang between them.",
+     "definitionFit": "To engage someone is to hire them, as you would employ staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drugs"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +168,52 @@
     "text": "Have enough money for a fine car",
     "enumeration": "6"
    },
-   "solution": "AFFORD"
+   "solution": "AFFORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFFORD",
+    "definitions": [
+     {
+      "text": "Have enough money for",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "FORD",
+      "note": "a Ford is a make of car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "F",
+      "FORD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wondering whether they can pay for a nice car.",
+     "definitionFit": "To afford something is to be able to pay for it, a straight synonym phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +227,68 @@
     "text": "Ownership of society's work is returned before hearing",
     "enumeration": "10"
    },
-   "solution": "POSSESSION"
+   "solution": "POSSESSION",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "POSSESSION",
+    "definitions": [
+     {
+      "text": "Ownership",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is returned",
+      "for": "reversal",
+      "note": "returned means sent back the way it came, so these letters are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "society's",
+      "gives": "S",
+      "note": "S is the abbreviation for society; the 's ties it to the next word"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP, short for opus, is a work"
+     },
+     {
+      "clueFragment": "hearing",
+      "gives": "SESSION",
+      "note": "a court sits in session to hear a case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POS",
+      "SESSION"
+     ],
+     "reversals": [
+      {
+       "from": "SOP",
+       "to": "POS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legal dispute over who owns a society's work, handed back before the court hearing.",
+     "definitionFit": "Possession is the state of having or owning something, a plain synonym for ownership."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +302,64 @@
     "text": "Bear up having hard time",
     "enumeration": "5"
    },
-   "solution": "EPOCH"
+   "solution": "EPOCH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EPOCH",
+    "definitions": [
+     {
+      "text": "time",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is written from the bottom upward"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bear",
+      "gives": "COPE",
+      "note": "to cope with something is to bear it"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPOC",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "COPE",
+       "to": "EPOC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Encouragement to someone struggling through a difficult period.",
+     "walkthrough": "'Hard time' looks like one phrase, but hard gives a letter and time alone is the definition.",
+     "definitionFit": "An epoch is a long historical period, a stretch of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bear"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +373,56 @@
     "text": "Mum abandoning vernacular is silly",
     "enumeration": "7"
    },
-   "solution": "IDIOTIC"
+   "solution": "IDIOTIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IDIOTIC",
+    "definitions": [
+     {
+      "text": "silly",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoning",
+      "for": "deletion",
+      "note": "to abandon something is to leave it behind, so those letters drop out"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vernacular",
+      "gives": "IDIOMATIC",
+      "note": "idiomatic language is natural, everyday vernacular"
+     },
+     {
+      "clueFragment": "Mum",
+      "gives": "MA",
+      "note": "Ma is mum; these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDIO",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Dropping your mother tongue is a foolish thing to do.",
+     "definitionFit": "Idiotic behaviour is stupid or foolish, a direct synonym of silly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mum"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +436,73 @@
     "text": "It's not fair raising tax on only one church",
     "enumeration": "9"
    },
-   "solution": "INJUSTICE"
+   "solution": "INJUSTICE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "INJUSTICE",
+    "definitions": [
+     {
+      "text": "It's not fair",
+      "at": 0,
+      "note": "a clause describing the answer; the answer is a noun for an unfair thing"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raising",
+      "for": "reversal",
+      "note": "raising lifts something upward, which in a down entry reads it bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tax",
+      "gives": "NI",
+      "note": "NI is National Insurance, a UK payroll tax"
+     },
+     {
+      "clueFragment": "only",
+      "gives": "JUST",
+      "note": "just means only"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "JUST",
+      "I",
+      "CE"
+     ],
+     "reversals": [
+      {
+       "from": "NI",
+       "to": "IN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a tax rise falls on a single church alone.",
+     "definitionFit": "An injustice is an unfair act or situation, exactly what is described as not fair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "raising"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +516,46 @@
     "text": "Native American states",
     "enumeration": "4"
    },
-   "solution": "INCA"
+   "solution": "INCA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCA",
+    "definitions": [
+     {
+      "text": "Native American",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "states",
+      "gives": "IN",
+      "note": "IN is the postal code for Indiana"
+     },
+     {
+      "clueFragment": "states",
+      "gives": "CA",
+      "note": "CA is the postal code for California"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "One word, states, supplies two US state abbreviations side by side.",
+     "definitionFit": "The Inca were an indigenous people of South America, so an Inca is a Native American."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "states"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +569,54 @@
     "text": "At Dior \"Le Fashion\" is specially cut",
     "enumeration": "8"
    },
-   "solution": "TAILORED"
+   "solution": "TAILORED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAILORED",
+    "definitions": [
+     {
+      "text": "specially cut",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fashion",
+      "for": "anagram",
+      "note": "to fashion is to shape or make, so the preceding letters are remade in a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At Dior \"Le",
+      "gives": "ATDIORLE",
+      "note": "the letters of these words, taken together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATDIORLE",
+       "gives": "TAILORED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Paris fashion house's look described as bespoke.",
+     "walkthrough": "Fashion looks like part of the brand name in quotes, but as a verb it signals the rearrangement.",
+     "definitionFit": "Tailored clothes are cut to fit a particular person, made specially for them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fashion"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +630,61 @@
     "text": "Building material originally cast on Greek island",
     "enumeration": "8"
    },
-   "solution": "CONCRETE"
+   "solution": "CONCRETE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CONCRETE",
+    "definitions": [
+     {
+      "text": "Building material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the start, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cast",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of cast"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Greek island",
+      "gives": "CRETE",
+      "note": "Crete is the largest Greek island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "CRETE"
+     ]
+    },
+    "explanation": {
+     "surface": "Building material first poured on a Greek island.",
+     "definitionFit": "Concrete is the cement, sand and aggregate mix used in construction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +698,57 @@
     "text": "Model in picture files has talents",
     "enumeration": "5"
    },
-   "solution": "GIFTS"
+   "solution": "GIFTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GIFTS",
+    "definitions": [
+     {
+      "text": "talents",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "picture files",
+      "gives": "GIFS",
+      "note": "GIFs are a common image file format"
+     },
+     {
+      "clueFragment": "Model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIF",
+      "T",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion model whose photos online show real ability.",
+     "definitionFit": "Gifts are natural aptitudes, the same as talents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +762,62 @@
     "text": "1-0 given at last after goal protest",
     "enumeration": "9"
    },
-   "solution": "OBJECTION"
+   "solution": "OBJECTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OBJECTION",
+    "definitions": [
+     {
+      "text": "protest",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the end, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goal",
+      "gives": "OBJECT",
+      "note": "an object is an aim or goal"
+     },
+     {
+      "clueFragment": "1-0",
+      "gives": "IO",
+      "note": "the numerals read as the letters I and O"
+     },
+     {
+      "clueFragment": "given",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of given"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBJECT",
+      "IO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A team at 1-0 down protests after a late goal.",
+     "walkthrough": "Goal is a football score in the surface, but here it means aim. The pieces are placed with goal first, as after directs.",
+     "definitionFit": "An objection is a formal protest against something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "goal"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +837,51 @@
      }
     ]
    },
-   "solution": "GARDENHOSE"
+   "solution": "GARDENHOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GARDEN HOSE",
+    "definitions": [
+     {
+      "text": "Used to water",
+      "at": 0,
+      "note": "a description; the answer is the thing used to water"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cultivated",
+      "for": "anagram",
+      "note": "cultivated ground is worked over, so these letters are worked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oranges he'd",
+      "gives": "ORANGESHED",
+      "note": "the letters of these words, taken together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORANGESHED",
+       "gives": "GARDENHOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grower watering the orange trees he has raised.",
+     "definitionFit": "A garden hose is the flexible pipe people use for watering plants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cultivated"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +895,50 @@
     "text": "Fell in low river",
     "enumeration": "4"
    },
-   "solution": "MOOR"
+   "solution": "MOOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOOR",
+    "definitions": [
+     {
+      "text": "Fell",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "low",
+      "gives": "MOO",
+      "note": "to low is to moo, as cattle do"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tumbled into a shallow river.",
+     "walkthrough": "Fell reads as a past tense verb, but it is the noun: in northern England a fell is a stretch of upland.",
+     "definitionFit": "A fell and a moor are both open, uncultivated hill country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fell"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +952,61 @@
     "text": "Depression about husband's evident everywhere",
     "enumeration": "10"
    },
-   "solution": "THROUGHOUT"
+   "solution": "THROUGHOUT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "THROUGHOUT",
+    "definitions": [
+     {
+      "text": "everywhere",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Depression",
+      "gives": "TROUGH",
+      "note": "a trough is a dip or depression"
+     },
+     {
+      "clueFragment": "husband's",
+      "gives": "H",
+      "note": "H is the abbreviation for husband; the 's means 'is'"
+     },
+     {
+      "clueFragment": "evident",
+      "gives": "OUT",
+      "note": "something out is in the open, plain to see"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "ROUGH",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband's depression is plain for all to see.",
+     "definitionFit": "Throughout means in every part, the same as everywhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Depression"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1020,63 @@
     "text": "Is the Queen arriving in Birmingham university hospital dept causing surprise?",
     "enumeration": "12"
    },
-   "solution": "ASTONISHMENT"
+   "solution": "ASTONISHMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASTONISHMENT",
+    "definitions": [
+     {
+      "text": "surprise",
+      "at": 69
+     }
+    ],
+    "linkWords": [
+     "causing",
+     "arriving in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Birmingham university",
+      "gives": "ASTON",
+      "note": "Aston is a university in Birmingham"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the Queen",
+      "gives": "HM",
+      "note": "HM stands for Her Majesty"
+     },
+     {
+      "clueFragment": "hospital dept",
+      "gives": "ENT",
+      "note": "ENT is the ear, nose and throat department"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTON",
+      "IS",
+      "HM",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Would a royal visit to a Birmingham hospital department cause a stir?",
+     "walkthrough": "Arriving in tells you the Queen's piece follows the university's.",
+     "definitionFit": "Astonishment is a feeling of great surprise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arriving"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1090,63 @@
     "text": "Pushy old boy has unexpected virtues",
     "enumeration": "9"
    },
-   "solution": "OBTRUSIVE"
+   "solution": "OBTRUSIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OBTRUSIVE",
+    "definitions": [
+     {
+      "text": "Pushy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unexpected",
+      "for": "anagram",
+      "note": "unexpected suggests things turning out differently, so the letters come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is the abbreviation for old boy, a former pupil"
+     },
+     {
+      "clueFragment": "virtues",
+      "gives": "TRUSIVE",
+      "note": "the letters of virtues rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "TRUSIVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VIRTUES",
+       "gives": "TRUSIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An assertive former pupil turns out to have surprising good qualities.",
+     "definitionFit": "Obtrusive means intrusively prominent, forcing itself on others like a pushy person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "virtues"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1160,53 @@
     "text": "Woodcutter bonds with a wife",
     "enumeration": "8"
    },
-   "solution": "CHAINSAW"
+   "solution": "CHAINSAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAINSAW",
+    "definitions": [
+     {
+      "text": "Woodcutter",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bonds",
+      "gives": "CHAINS",
+      "note": "chains are bonds or fetters"
+     },
+     {
+      "clueFragment": "with a",
+      "gives": "A",
+      "note": "with is a joining word; a is taken as written"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAINS",
+      "A",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A lumberjack ties the knot with his wife.",
+     "definitionFit": "A chainsaw is a powered tool for cutting wood, so it is literally a woodcutter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Woodcutter"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1220,74 @@
     "text": "Unfortunately fails to get home in East End",
     "enumeration": "8"
    },
-   "solution": "FINALISE"
+   "solution": "FINALISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "FINALISE",
+    "definitions": [
+     {
+      "text": "End",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unfortunately",
+      "for": "anagram",
+      "note": "things that go unfortunately go wrong, so the letters fall out of order"
+     },
+     {
+      "text": "to get",
+      "for": "container",
+      "note": "getting something means taking it inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fails",
+      "gives": "FALIS",
+      "note": "the letters of fails rearranged"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "E is the abbreviation for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IN",
+      "ALIS",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FAILS",
+       "gives": "FALIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sadly cannot find a home in London's East End.",
+     "walkthrough": "East End looks like the London district, the old working-class area east of the City; split, East gives a letter and End is the verb defined.",
+     "definitionFit": "To finalise something is to complete it, bringing it to an end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1315,46 @@
      }
     ]
    },
-   "solution": "HAIROFTHEDOG"
+   "solution": "HAIROFTHEDOG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAIR OF THE DOG",
+    "definitions": [
+     {
+      "text": "Hangover cure",
+      "at": 0
+     },
+     {
+      "text": "one of many carried by man's best friend",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hangover cure",
+      "note": "first meaning: a morning drink taken to ease a hangover"
+     },
+     {
+      "clueFragment": "one of many carried by man's best friend",
+      "note": "second meaning, read literally: a single strand from a dog's coat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Man's best friend is the dog, and a dog carries many strands of fur, so the phrase is read word for word.",
+     "definitionFit": "The idiom names an alcoholic drink taken to relieve a hangover, from the old notion that like cures like."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carried"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1368,59 @@
     "text": "Awful smell of sulphur by ditch — not right",
     "enumeration": "6"
    },
-   "solution": "STENCH"
+   "solution": "STENCH",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "STENCH",
+    "definitions": [
+     {
+      "text": "Awful smell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not right",
+      "for": "deletion",
+      "note": "not right tells you the letter standing for right is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sulphur",
+      "gives": "S",
+      "note": "S is the chemical symbol for sulphur"
+     },
+     {
+      "clueFragment": "ditch",
+      "gives": "TRENCH",
+      "note": "a trench is a ditch"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right; it is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TENCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A ditch reeking of sulphur.",
+     "definitionFit": "A stench is a strong, foul odour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ditch"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1440,49 @@
      }
     ]
    },
-   "solution": "URGEON"
+   "solution": "URGEON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "URGE ON",
+    "definitions": [
+     {
+      "text": "Incite",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to blow top",
+      "for": "deletion",
+      "note": "blowing your top here means losing the top letter, which in a down entry is the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "SURGEON",
+      "note": "a surgeon is a doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URGEON"
+     ]
+    },
+    "explanation": {
+     "surface": "Provoking a doctor until they lose their temper.",
+     "walkthrough": "To blow your top usually means to lose your temper; here it means losing the first letter.",
+     "definitionFit": "To urge on is to spur or encourage, which is to incite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blow"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1496,42 @@
     "text": "Chair a Question Time covering Middle East trouble spot",
     "enumeration": "4"
    },
-   "solution": "IRAQ"
+   "solution": "IRAQ",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IRAQ",
+    "definitions": [
+     {
+      "text": "Middle East trouble spot",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "hidden_word",
+      "note": "covering means the words hold the solution inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chair a Question Time",
+      "gives": "IRAQ",
+      "note": "inside chaIR A Question"
+     }
+    ],
+    "explanation": {
+     "surface": "An invitation to host Question Time, the BBC debate show, on a Middle East crisis.",
+     "definitionFit": "Iraq is a Middle Eastern country that has seen repeated war and conflict."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Chair"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1545,73 @@
     "text": "Western hero, after good turn, goes north on freight train",
     "enumeration": "10"
    },
-   "solution": "GUNFIGHTER"
+   "solution": "GUNFIGHTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "GUNFIGHTER",
+    "definitions": [
+     {
+      "text": "Western hero",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "train",
+      "for": "anagram",
+      "note": "to train something is to shape or discipline it, so the letters are put into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "U",
+      "note": "a U-turn, so turn gives U"
+     },
+     {
+      "clueFragment": "goes north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "freight",
+      "gives": "FIGHTER",
+      "note": "the letters of freight rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "U",
+      "N",
+      "FIGHTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FREIGHT",
+       "gives": "FIGHTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cowboy hero turns north and boards a freight train.",
+     "walkthrough": "Freight train reads as one noun, but train is the signal working on freight.",
+     "definitionFit": "A gunfighter is the classic gunslinging protagonist of a cowboy film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1625,48 @@
     "text": "Little bit of criticism snootily expressed?",
     "enumeration": "5"
    },
-   "solution": "FLECK"
+   "solution": "FLECK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLECK",
+    "definitions": [
+     {
+      "text": "Little bit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snootily expressed",
+      "for": "homophone",
+      "note": "expressed tells you to say the word out loud, in a posh accent"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criticism",
+      "gives": "FLECK",
+      "soundsLike": "FLAK",
+      "note": "flak is criticism; in a very plummy accent the vowel shifts"
+     }
+    ],
+    "explanation": {
+     "surface": "A mild jab of criticism delivered in a stuck-up voice.",
+     "walkthrough": "In an exaggerated upper-class English accent the short a of flak drifts towards a short e.",
+     "definitionFit": "A fleck is a small spot or particle, a tiny bit of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1680,46 @@
     "text": "Toil away at a PC?",
     "enumeration": "4"
    },
-   "solution": "PLOD"
+   "solution": "PLOD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLOD",
+    "definitions": [
+     {
+      "text": "Toil away",
+      "at": 0
+     },
+     {
+      "text": "a PC",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toil away",
+      "note": "first meaning: to work slowly and steadily"
+     },
+     {
+      "clueFragment": "a PC",
+      "note": "second meaning: British slang for a police constable"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "PC looks like a personal computer to toil at, but it is a police constable; the question mark flags the slang.",
+     "definitionFit": "To plod is to work doggedly, and Plod is a jokey British name for an ordinary policeman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "PC"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1739,49 @@
      }
     ]
    },
-   "solution": "STILLLIFE"
+   "solution": "STILLLIFE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STILL LIFE",
+    "definitions": [
+     {
+      "text": "Artist's static composition",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nevertheless",
+      "gives": "STILL",
+      "note": "still can mean nevertheless"
+     },
+     {
+      "clueFragment": "vitality",
+      "gives": "LIFE",
+      "note": "life is liveliness or vitality"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STILL",
+      "LIFE"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's motionless arrangement that still manages to feel lively.",
+     "definitionFit": "A still life is a painting of arranged inanimate objects, a static composition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "static"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1795,63 @@
     "text": "Egg on relative to lose pound in weight",
     "enumeration": "5"
    },
-   "solution": "OUNCE"
+   "solution": "OUNCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OUNCE",
+    "definitions": [
+     {
+      "text": "weight",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to lose",
+      "for": "deletion",
+      "note": "losing something means it goes missing, so those letters are dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Egg",
+      "gives": "O",
+      "note": "an egg is O-shaped"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "UNCLE",
+      "note": "an uncle is a relative"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L, from libra, is the pound sign; it is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "UNCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Urging a family member to shed a pound of body weight.",
+     "walkthrough": "Egg on looks like the verb to encourage, but the egg gives a letter and on places it before the relative.",
+     "definitionFit": "An ounce is a unit of weight, a sixteenth of a pound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Egg"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1865,66 @@
     "text": "Cajole chap into married life that's hollow",
     "enumeration": "7"
    },
-   "solution": "WHEEDLE"
+   "solution": "WHEEDLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "WHEEDLE",
+    "definitions": [
+     {
+      "text": "Cajole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's hollow",
+      "for": "deletion",
+      "note": "something hollow has had its middle emptied, so only the outside letters stay"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "WED",
+      "note": "wed means married"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "HE",
+      "note": "a chap is a he"
+     },
+     {
+      "clueFragment": "life",
+      "gives": "LE",
+      "note": "life with its middle removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HE",
+      "ED",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Coaxing a man into a married life that feels empty.",
+     "definitionFit": "To wheedle is to coax or persuade by flattery, the same as to cajole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hollow"
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +1938,65 @@
     "text": "Tick off chicken as food produced here",
     "enumeration": "7"
    },
-   "solution": "KITCHEN"
+   "solution": "KITCHEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "KITCHEN",
+    "definitions": [
+     {
+      "text": "food produced here",
+      "at": 20,
+      "note": "a description of a place; the answer is that place"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something off has gone wrong or out of order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tick",
+      "gives": "KITC",
+      "note": "the letters of tick rearranged"
+     },
+     {
+      "clueFragment": "chicken",
+      "gives": "HEN",
+      "note": "a hen is a chicken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KITC",
+      "HEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TICK",
+       "gives": "KITC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Checking off a chicken from the menu as it is cooked.",
+     "walkthrough": "Tick off reads as a phrase meaning reprimand, but off is the rearrangement signal.",
+     "definitionFit": "A kitchen is the room where meals are cooked and prepared."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   }
  ]
 }
