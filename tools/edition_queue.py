@@ -812,8 +812,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # mount), so after the first it is made on a thread while this loop
         # goes on reaping and starting from the plan before it.
         # Checked apart from planning: a plan can take minutes (a cold cache
-        # on the media mount), and the code it would run is the old.
-        if may_start() and time.monotonic() - code_checked >= replan:
+        # on the media mount), and the code it would run is the old. An image
+        # re-execs only once it has made a whole plan of its own (kept in
+        # plan_file for the next), or changes landing faster than a plan
+        # takes would leave every image running the last kept, stale plan.
+        if may_start() and plan_done is not None and time.monotonic() - code_checked >= replan:
             code_checked = time.monotonic()
             if not any(b.busy() for b in beside) and any(digest(f) != h for f, h in code.items()):
                 reexec()
