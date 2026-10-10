@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Suit forever?",
     "enumeration": "8"
    },
-   "solution": "DIAMONDS"
+   "solution": "DIAMONDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIAMONDS",
+    "definitions": [
+     {
+      "text": "Suit",
+      "at": 0
+     },
+     {
+      "text": "forever?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suit",
+      "note": "first meaning: one of the four suits in a pack of cards"
+     },
+     {
+      "clueFragment": "forever?",
+      "note": "second meaning: from the Bond title and song '... Are Forever', so these gems are what lasts forever"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the second sense: the James Bond film and Shirley Bassey song say diamonds are forever, so the gems are a playful example of things that last.",
+     "definitionFit": "Diamonds is a card suit, and the famous Bond title makes the stones a byword for permanence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Suit"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,55 @@
     "text": "Professional indoor court",
     "enumeration": "6"
    },
-   "solution": "DOCTOR"
+   "solution": "DOCTOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOCTOR",
+    "definitions": [
+     {
+      "text": "Professional",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "places the abbreviation inside the word just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "indoor",
+      "gives": "DOOR",
+      "note": "split as 'in door': the container signal, then the word that holds the abbreviation"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "CT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "It sounds like a sports professional who plays on an indoor court.",
+     "walkthrough": "'indoor' must be split into 'in door', the container signal and the word that holds the abbreviation.",
+     "definitionFit": "A doctor is a qualified medical professional, the typical example of a professional person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "indoor"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +148,56 @@
     "text": "Not going for Greek character in song",
     "enumeration": "6"
    },
-   "solution": "ANURIA"
+   "solution": "ANURIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANURIA",
+    "definitions": [
+     {
+      "text": "Not going",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "places the letter name inside the musical word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song",
+      "gives": "ARIA",
+      "note": "an aria is a solo song in opera"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "NU",
+      "note": "nu is a letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NU",
+      "RIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek character in an opera chooses not to leave.",
+     "walkthrough": "'Not going' looks like staying put; in medicine 'going' is a euphemism for passing urine.",
+     "definitionFit": "Anuria is the medical failure to pass urine, and 'go' is a polite word for urinating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +211,68 @@
     "text": "Check-up before noon, first folder",
     "enumeration": "9"
    },
-   "solution": "ORIGAMIST"
+   "solution": "ORIGAMIST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ORIGAMIST",
+    "definitions": [
+     {
+      "text": "folder",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is read from the bottom, so backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Check",
+      "gives": "GIRO",
+      "note": "a giro is a British payment cheque, here in the American spelling check"
+     },
+     {
+      "clueFragment": "before noon",
+      "gives": "AM",
+      "note": "am stands for ante meridiem, before midday"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "first is written 1st, with the 1 read as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORIG",
+      "AM",
+      "IST"
+     ],
+     "reversals": [
+      {
+       "from": "GIRO",
+       "to": "ORIG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical check-up booked for the morning, the first to be filed away.",
+     "walkthrough": "'Check-up' looks like a medical appointment; in fact 'up' turns 'Check' backwards in this down entry. A giro is a state benefit cheque in Britain.",
+     "definitionFit": "An origamist folds paper into shapes, so is literally a folder rather than a cardboard file."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "folder"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +292,50 @@
      }
     ]
    },
-   "solution": "DUEDILIGENCE"
+   "solution": "DUEDILIGENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUE DILIGENCE",
+    "definitions": [
+     {
+      "text": "Gathering information",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that should be here anytime now",
+      "gives": "DUE",
+      "note": "something due is expected at any moment"
+     },
+     {
+      "clueFragment": "coach",
+      "gives": "DILIGENCE",
+      "note": "a diligence was a public stagecoach in France"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUE",
+      "DILIGENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Collecting the timetable for a bus that's expected any minute.",
+     "walkthrough": "The two pieces appear in the clue in reverse order: 'coach' comes first but its word goes second. A diligence was an old French stagecoach.",
+     "definitionFit": "Due diligence is the investigation done before a deal, essentially gathering information to check the facts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coach"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +349,63 @@
     "text": "Masterful play on Radio Three to start with",
     "enumeration": "6"
    },
-   "solution": "ADROIT"
+   "solution": "ADROIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ADROIT",
+    "definitions": [
+     {
+      "text": "Masterful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "play",
+      "for": "anagram",
+      "note": "to play on something is to fool about with it, so the letters get reworked"
+     },
+     {
+      "text": "to start with",
+      "for": "letter_selection",
+      "note": "only the opening letter of the word just before this phrase is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Radio",
+      "gives": "RADIO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Three",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Three"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RADIOT",
+       "gives": "ADROIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A masterly drama goes out on BBC Radio 3 to open the schedule.",
+     "walkthrough": "Radio Three is a BBC station, so 'play on Radio Three' reads as a broadcast drama; in fact 'play' is the shuffle signal.",
+     "definitionFit": "Adroit means skilful and deft, which is what someone masterful at a task is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +429,43 @@
    "group": [
     "6-down",
     "15-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOING THE DISHES",
+    "definitions": [
+     {
+      "text": "Preparing food",
+      "at": 0
+     },
+     {
+      "text": "clearing up afterwards",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Preparing food",
+      "note": "first meaning: making up the various dishes of a meal"
+     },
+     {
+      "clueFragment": "clearing up afterwards",
+      "note": "second meaning: the household chore of washing up plates after eating"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The usual sense is washing up, but read literally the phrase can also mean cooking the dishes of a meal.",
+     "definitionFit": "The idiom names washing the plates after a meal, while its literal reading fits cooking the courses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Preparing"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +479,50 @@
     "text": "Quirks expose report of deceptive people",
     "enumeration": "8"
    },
-   "solution": "OUTLIERS"
+   "solution": "OUTLIERS",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "OUTLIERS",
+    "definitions": [
+     {
+      "text": "Quirks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "report of",
+      "for": "homophone",
+      "note": "a report is something spoken, so the word is wanted for its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expose",
+      "gives": "OUT",
+      "note": "to out someone is to expose them"
+     },
+     {
+      "clueFragment": "deceptive people",
+      "gives": "LIERS",
+      "soundsLike": "LIARS",
+      "note": "people who deceive, said aloud, matches people who lie down"
+     }
+    ],
+    "explanation": {
+     "surface": "Odd habits reveal what is said about dishonest people.",
+     "walkthrough": "Fibbers and people lying down are spelled differently but sound the same.",
+     "definitionFit": "Outliers are values or people that stand far from the norm, so oddities or quirks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "expose"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +536,59 @@
     "text": "No 5 prepared and cooked in the oven",
     "enumeration": "8"
    },
-   "solution": "TANDOORI"
+   "solution": "TANDOORI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TANDOORI",
+    "definitions": [
+     {
+      "text": "cooked in the oven",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been made ready and reworked, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "5",
+      "gives": "ADROIT",
+      "note": "the solution to 5 across in this puzzle"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOADROIT",
+       "gives": "TANDOORI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dish number five on a takeaway menu is made and baked.",
+     "walkthrough": "'No 5' looks like a menu number, but 'No' is a word of the fodder and 5 stands for the answer at 5 across.",
+     "definitionFit": "Tandoori food is cooked in a tandoor, a clay oven used in South Asian cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "No"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +602,55 @@
     "text": "It's raw food if it's cured badly",
     "enumeration": "8"
    },
-   "solution": "CRUDITES"
+   "solution": "CRUDITES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CRUDITES",
+    "definitions": [
+     {
+      "text": "raw food",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is botched, so these letters are jumbled into a new order"
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "if"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it's cured",
+      "gives": "ITSCURED",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITSCURED",
+       "gives": "CRUDITES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook warns that meat or fish which has been cured carelessly is still effectively raw.",
+     "walkthrough": "The surface plays on curing being a way to preserve and in effect cook food; spoil the cure and it stays raw.",
+     "definitionFit": "Crudités are a French starter of raw vegetable sticks, usually served with a dip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cured"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +664,52 @@
     "text": "Pay attention and join the army in the wrong order",
     "enumeration": "6"
    },
-   "solution": "LISTEN"
+   "solution": "LISTEN",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "LISTEN",
+    "definitions": [
+     {
+      "text": "Pay attention",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the wrong order",
+      "for": "cycling",
+      "note": "the phrase says the parts of the word come out of sequence, here with its front moved to the back"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "join the army",
+      "gives": "ENLIST",
+      "note": "to enlist is to sign up for military service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIST",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sergeant barks at a recruit to listen up and to sign up properly.",
+     "walkthrough": "Move the first two letters of ENLIST to the end and you get LISTEN; both words use exactly the same letters.",
+     "definitionFit": "To listen is to pay attention to what is being said, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +723,73 @@
     "text": "Half cancelling old-fashioned entry after a person one knows",
     "enumeration": "12"
    },
-   "solution": "ACQUAINTANCE"
+   "solution": "ACQUAINTANCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "ACQUAINTANCE",
+    "definitions": [
+     {
+      "text": "person one knows",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Half",
+      "for": "deletion",
+      "note": "only half of the following word survives, the rest being cut away"
+     },
+     {
+      "text": "entry",
+      "for": "container",
+      "note": "an entry is a going in, so one word goes inside another"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the result is placed behind the little word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cancelling",
+      "gives": "CANCELLING",
+      "note": "taken as written, then its second half is dropped"
+     },
+     {
+      "clueFragment": "old-fashioned",
+      "gives": "QUAINT",
+      "note": "quaint means charmingly old-fashioned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "QUAINT",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone partly scrapping an outdated diary note about a friend.",
+     "walkthrough": "The first five letters of the ten in 'cancelling' are CANCE; QUAINT goes inside after its C, and A goes on the front.",
+     "definitionFit": "An acquaintance is someone you know slightly, a person you have met but are not close to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entry"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +803,50 @@
     "text": "Agreements of EU board",
     "enumeration": "5"
    },
-   "solution": "OUIJA"
+   "solution": "OUIJA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUIJA",
+    "definitions": [
+     {
+      "text": "board",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agreements",
+      "gives": "OUI",
+      "note": "French for yes, an agreement in one EU language"
+     },
+     {
+      "clueFragment": "EU",
+      "gives": "JA",
+      "note": "German for yes, another EU member's word of agreement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUI",
+      "JA"
+     ]
+    },
+    "explanation": {
+     "surface": "It reads as the European Union's board signing off on agreements.",
+     "walkthrough": "'Agreements of EU' means two ways of saying yes in European languages: French OUI and German JA.",
+     "definitionFit": "A Ouija board is the lettered board used in seances, its name joining the French and German words for yes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +860,75 @@
     "text": "Change into home gear first to get disguised",
     "enumeration": "9"
    },
-   "solution": "INCOGNITO"
+   "solution": "INCOGNITO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "INCOGNITO",
+    "definitions": [
+     {
+      "text": "disguised",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Change",
+      "for": "anagram",
+      "note": "to change something is to alter it, so the word that follows is rearranged"
+     },
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "says the next pair of pieces must be placed ahead of the rearranged letters"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "at home is in"
+     },
+     {
+      "clueFragment": "gear",
+      "gives": "COG",
+      "note": "a cog is a toothed wheel, a gear"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "NITO",
+      "note": "the letters of this word rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "COG",
+      "NITO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTO",
+       "gives": "NITO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone slips into their home clothes first so they can go out unrecognised.",
+     "walkthrough": "'Change into home gear' reads as getting into comfortable clothes; really 'Change' rearranges 'into', and 'home' and 'gear' are separate pieces.",
+     "definitionFit": "Going incognito means hiding your identity, so a person incognito is disguised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gear"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +942,80 @@
     "text": "Cause of delay, if rejected, gets the Guardian in terrible mess",
     "enumeration": "12"
    },
-   "solution": "FILIBUSTERER"
+   "solution": "FILIBUSTERER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "anagram"
+    ],
+    "answer": "FILIBUSTERER",
+    "definitions": [
+     {
+      "text": "Cause of delay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the little word is read the other way round"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "says one piece goes inside the following word"
+     },
+     {
+      "text": "mess",
+      "for": "anagram",
+      "note": "a mess is a jumble, so the combined letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if",
+      "gives": "FI",
+      "note": "the little word turned round"
+     },
+     {
+      "clueFragment": "the Guardian",
+      "gives": "US",
+      "note": "a newspaper refers to itself as 'we', and this puzzle runs in the Guardian"
+     },
+     {
+      "clueFragment": "terrible",
+      "gives": "TERRIBLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "LIBUSTERER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TERRIBLEUS",
+       "gives": "LIBUSTERER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper is blamed for holding things up by landing in a dreadful mess.",
+     "walkthrough": "The Guardian, as the paper speaking of itself, is US; tuck it into 'terrible', jumble the lot, and put reversed 'if' in front.",
+     "definitionFit": "A filibusterer is a legislator who talks at great length to stall a vote, so they are a cause of delay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Guardian"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +1048,63 @@
     "text": "Wild 'dance to the end of love' story",
     "enumeration": "8"
    },
-   "solution": "ANECDOTE"
+   "solution": "ANECDOTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ANECDOTE",
+    "definitions": [
+     {
+      "text": "story",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wild",
+      "for": "anagram",
+      "note": "something wild is unruly, so these letters run free into a new order"
+     },
+     {
+      "text": "the end of",
+      "for": "letter_selection",
+      "note": "only the last letter of the following word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance to",
+      "gives": "DANCETO",
+      "note": "the letters as written"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of love"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DANCETOE",
+       "gives": "ANECDOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale of a wild dance that lasts until love runs out, quoted like a song title.",
+     "walkthrough": "The quotation marks make the phrase look like a song title, and 'the end of love' reads as a romantic finale; it just means the final letter.",
+     "definitionFit": "An anecdote is a short personal story told for amusement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1118,72 @@
     "text": "Reminder for musician on vacation on irregular income",
     "enumeration": "8"
    },
-   "solution": "MNEMONIC"
+   "solution": "MNEMONIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MNEMONIC",
+    "definitions": [
+     {
+      "text": "Reminder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a word on vacation has been vacated, emptied of its inside, leaving just the outside"
+     },
+     {
+      "text": "irregular",
+      "for": "anagram",
+      "note": "irregular means out of the normal pattern, so these letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musician",
+      "gives": "MN",
+      "select": "outer",
+      "note": "the first and last letters of musician"
+     },
+     {
+      "clueFragment": "income",
+      "gives": "EMONIC",
+      "note": "the letters of this word rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MN",
+      "EMONIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INCOME",
+       "gives": "EMONIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note to a holidaying musician about their unsteady earnings.",
+     "walkthrough": "In a down clue 'on' means placed above, so the emptied musician sits over the jumbled income.",
+     "definitionFit": "A mnemonic is a memory aid such as a rhyme, so a reminder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1207,51 @@
      }
     ]
    },
-   "solution": "NONETHEWISER"
+   "solution": "NONETHEWISER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NONE THE WISER",
+    "definitions": [
+     {
+      "text": "Not better informed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "to broadcast is to scatter widely, so these letters are spread into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on either news",
+      "gives": "ONEITHERNEWS",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONEITHERNEWS",
+       "gives": "NONETHEWISER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has watched both channels' news bulletins still knows nothing more.",
+     "walkthrough": "'Broadcast' fits the news surface perfectly, which hides that it is the shuffle signal.",
+     "definitionFit": "To be none the wiser is an idiom for having learnt nothing new, still no better informed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1265,65 @@
     "text": "Think I would dine on eggs to start with",
     "enumeration": "6"
    },
-   "solution": "IDEATE"
+   "solution": "IDEATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IDEATE",
+    "definitions": [
+     {
+      "text": "Think",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to start with",
+      "for": "letter_selection",
+      "note": "only the opening letter of the word just before this phrase is wanted"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I would",
+      "gives": "ID",
+      "note": "I'd is the short form of I would"
+     },
+     {
+      "clueFragment": "dine",
+      "gives": "EAT",
+      "note": "to dine is to eat"
+     },
+     {
+      "clueFragment": "eggs",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of eggs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "EAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone muses that they would have eggs for breakfast.",
+     "walkthrough": "'On' in a down clue means sitting above, so the eating pieces come before the egg's initial.",
+     "definitionFit": "To ideate is to form ideas, a formal word for thinking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dine"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1337,48 @@
     "text": "Sounds like size zero is too much",
     "enumeration": "6"
    },
-   "solution": "EXCESS"
+   "solution": "EXCESS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EXCESS",
+    "definitions": [
+     {
+      "text": "too much",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounds like",
+      "for": "homophone",
+      "note": "says the answer is what the next words sound like when spoken"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "size zero",
+      "gives": "EXCESS",
+      "soundsLike": "XS",
+      "note": "a size zero garment is extra small, labelled XS"
+     }
+    ],
+    "explanation": {
+     "surface": "A comment that the ultra-thin size zero look is going too far.",
+     "walkthrough": "Clothing labels mark extra small as XS, and the two letters said aloud make the word.",
+     "definitionFit": "Excess means an amount beyond what is needed, so too much."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "zero"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1392,74 @@
     "text": "Legal to chase police officer capturing mafia chief involved in wrongdoing",
     "enumeration": "9"
    },
-   "solution": "COMPLICIT"
+   "solution": "COMPLICIT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COMPLICIT",
+    "definitions": [
+     {
+      "text": "involved in wrongdoing",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "to capture is to hold within, so the officer's word surrounds the next piece"
+     },
+     {
+      "text": "to chase",
+      "for": "charade",
+      "note": "what chases comes behind, so the legal word follows the officer"
+     },
+     {
+      "text": "chief",
+      "for": "container",
+      "note": "the chief of a word is its head, so only its first letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police officer",
+      "gives": "COP",
+      "note": "a cop is a police officer"
+     },
+     {
+      "clueFragment": "mafia",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of mafia"
+     },
+     {
+      "clueFragment": "Legal",
+      "gives": "LICIT",
+      "note": "licit means lawful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "M",
+      "P",
+      "LICIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawful pursuit of a policeman who has caught a mob boss involved in crime.",
+     "walkthrough": "'Legal' comes first in the clue but its piece goes last, because it chases the officer.",
+     "definitionFit": "Complicit describes someone who shares in guilt for a wrong, so involved in wrongdoing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Legal"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1473,43 @@
     "text": "Some chocolate ripple? Not now!",
     "enumeration": "5"
    },
-   "solution": "LATER"
+   "solution": "LATER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LATER",
+    "definitions": [
+     {
+      "text": "Not now!",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion, so only part of the following words is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chocolate ripple",
+      "gives": "LATER",
+      "note": "found running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A child asks for some ice cream and a parent says not yet.",
+     "walkthrough": "Chocolate ripple is an ice cream, which makes the parental 'Not now!' a natural reply.",
+     "definitionFit": "Saying 'later' puts something off to another time, which is exactly what 'not now' means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ripple"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1523,42 @@
     "text": "Finger pointer",
     "enumeration": "5"
    },
-   "solution": "INDEX"
+   "solution": "INDEX",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INDEX",
+    "definitions": [
+     {
+      "text": "Finger",
+      "at": 0
+     },
+     {
+      "text": "pointer",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finger",
+      "note": "first meaning: the forefinger, next to the thumb"
+     },
+     {
+      "clueFragment": "pointer",
+      "note": "second meaning: a guide that directs you to items, as at the back of a book"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one thing, a finger used to point, but the two words are separate meanings.",
+     "definitionFit": "The index finger is the forefinger, and an index is a list that points readers to where topics appear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pointer"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1572,55 @@
     "text": "Talk about Northern fancy",
     "enumeration": "6"
    },
-   "solution": "ORNATE"
+   "solution": "ORNATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORNATE",
+    "definitions": [
+     {
+      "text": "fancy",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the speaking word goes round the letter that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Talk",
+      "gives": "ORATE",
+      "note": "to orate is to give a formal speech"
+     },
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "N",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to discuss someone's crush on a northerner.",
+     "walkthrough": "'Fancy' can be a verb meaning to be attracted to, but here it is the adjective meaning elaborate.",
+     "definitionFit": "Ornate means elaborately decorated, which is what fancy means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1634,54 @@
     "text": "Basic being into each other",
     "enumeration": "8"
    },
-   "solution": "INCHOATE"
+   "solution": "INCHOATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INCHOATE",
+    "definitions": [
+     {
+      "text": "Basic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "other",
+      "for": "anagram",
+      "note": "other means different, so the letters take a different arrangement"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "into each",
+      "gives": "INTOEACH",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTOEACH",
+       "gives": "INCHOATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple keen on one another is described, a bit dismissively, as a simple thing.",
+     "walkthrough": "'Into each other' reads as a smitten couple; 'other' alone is the shuffle signal.",
+     "definitionFit": "Inchoate means just begun and not yet fully formed, so rudimentary or basic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "other"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1695,67 @@
     "text": "Repeat once more, only half botched",
     "enumeration": "6"
    },
-   "solution": "ENCORE"
+   "solution": "ENCORE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENCORE",
+    "definitions": [
+     {
+      "text": "Repeat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "botched",
+      "for": "anagram",
+      "note": "something botched is spoilt, so these letters are scrambled"
+     },
+     {
+      "text": "only half",
+      "for": "deletion",
+      "note": "keeping only half of a word means cutting off the other half"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once",
+      "gives": "ENCO",
+      "note": "the letters of this word rearranged"
+     },
+     {
+      "clueFragment": "more",
+      "gives": "MORE",
+      "note": "taken as written, then its first half is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENCO",
+      "RE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONCE",
+       "gives": "ENCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer is asked to go again, after the first attempt went partly wrong.",
+     "walkthrough": "Keep the back half of 'more' after the scrambled 'once'.",
+     "definitionFit": "An encore is a repeat performance demanded by the audience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "botched"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1769,61 @@
     "text": "Think again about idiots in press getting rid of extremists",
     "enumeration": "8"
    },
-   "solution": "REASSESS"
+   "solution": "REASSESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "REASSESS",
+    "definitions": [
+     {
+      "text": "Think again about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "says the fools go inside the trimmed word"
+     },
+     {
+      "text": "getting rid of extremists",
+      "for": "deletion",
+      "note": "the extremes of a word are its outer letters, and these are thrown out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idiots",
+      "gives": "ASSES",
+      "note": "asses are fools"
+     },
+     {
+      "clueFragment": "press",
+      "gives": "PRESS",
+      "note": "taken as written, then its end letters are dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ASSES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper reconsiders the fools in its pages once it has purged its radicals.",
+     "walkthrough": "'Extremists' sounds political, but means the extreme letters of 'press', leaving RES to hold ASSES.",
+     "definitionFit": "To reassess is to evaluate again, so to think again about something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremists"
+    }
+   }
   }
  ]
 }
