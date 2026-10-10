@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Lots of water and wine drinking companion examined",
     "enumeration": "8"
    },
-   "solution": "SEARCHED"
+   "solution": "SEARCHED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SEARCHED",
+    "definitions": [
+     {
+      "text": "examined",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "something drinking takes a liquid inside itself, so one piece goes into the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lots of water",
+      "gives": "SEA",
+      "note": "a sea is a large body of water"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "red is wine by colour"
+     },
+     {
+      "clueFragment": "companion",
+      "gives": "CH",
+      "note": "CH is Companion of Honour, a British award"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "R",
+      "CH",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker of wine and water is inspected alongside a friend.",
+     "walkthrough": "The companion sits inside the wine, and the sea goes in front.",
+     "definitionFit": "To have searched something is to have inspected it closely, a plain synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "companion"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +108,53 @@
     "text": "Goddess wanting husband for a very long time",
     "enumeration": "3"
    },
-   "solution": "ERA"
+   "solution": "ERA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ERA",
+    "definitions": [
+     {
+      "text": "a very long time",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so a letter is missing from the goddess"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Goddess",
+      "gives": "HERA",
+      "note": "Hera is the Greek queen of the gods"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERA"
+     ]
+    },
+    "explanation": {
+     "surface": "A goddess has been without a husband for ages.",
+     "walkthrough": "Remove the H of HERA to leave ERA.",
+     "definitionFit": "An era is a long historical period, so it serves for a lengthy stretch of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wanting"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +168,67 @@
     "text": "Are you texting student about returning part of geometry kit?",
     "enumeration": "5"
    },
-   "solution": "RULER"
+   "solution": "RULER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RULER",
+    "definitions": [
+     {
+      "text": "part of geometry kit",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means coming back the way it went, so the word for about is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Are you texting",
+      "gives": "RU",
+      "note": "in text-message shorthand 'are you' is written R U"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is a learner, as on a learner driver's plate"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "U",
+      "L",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RE",
+       "to": "ER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone messages a pupil asking whether they are returning a borrowed piece of a maths set.",
+     "definitionFit": "A ruler is the straight edge found in a school geometry set alongside compass and protractor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "texting"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +242,50 @@
     "text": "Speculation he shot spy I broadcast",
     "enumeration": "10"
    },
-   "solution": "HYPOTHESIS"
+   "solution": "HYPOTHESIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HYPOTHESIS",
+    "definitions": [
+     {
+      "text": "Speculation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast also means scattered widely, as seed is sown, so the letters are strewn into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he shot spy I",
+      "gives": "HESHOTSPYI",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HESHOTSPYI",
+       "gives": "HYPOTHESIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rumour goes out on air that a man shot a spy, as the speaker confesses.",
+     "definitionFit": "A hypothesis is a supposition or theory not yet proven, so it is a form of conjecture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +299,72 @@
     "text": "Sinks blade into rampant knight? On the contrary!",
     "enumeration": "6"
    },
-   "solution": "DROWNS"
+   "solution": "DROWNS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DROWNS",
+    "definitions": [
+     {
+      "text": "Sinks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rampant",
+      "for": "reversal",
+      "note": "rampant means rearing up on hind legs, and in a down clue rearing up flips the word upwards"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into says one piece goes inside another"
+     },
+     {
+      "text": "On the contrary",
+      "for": "container",
+      "note": "the exclamation swaps the roles the surface gave, so the thing said to go inside becomes the outside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blade",
+      "gives": "SWORD",
+      "note": "a sword is a blade"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the knight in chess notation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROW",
+      "N",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SWORD",
+       "to": "DROWS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone plunges a blade into a rearing heraldic knight, then insists it was the other way round.",
+     "walkthrough": "'On the contrary!' reverses the surface instruction: the knight goes into the upturned blade, not the blade into the knight.",
+     "definitionFit": "Drowns as a verb means submerges or goes under, matching the third-person verb sinks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +378,61 @@
     "text": "Row after sailor died on a ship",
     "enumeration": "6"
    },
-   "solution": "ABOARD"
+   "solution": "ABOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABOARD",
+    "definitions": [
+     {
+      "text": "on a ship",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the word for row behind the sailor in the finished string"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB is an able seaman"
+     },
+     {
+      "clueFragment": "Row",
+      "gives": "OAR",
+      "note": "to row is to oar a boat"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "D is the abbreviation for died"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "OAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An argument broke out after a seaman died at sea.",
+     "walkthrough": "'Row' wants to be a quarrel; it is the verb of propelling a boat. The oar comes after the sailor.",
+     "definitionFit": "Aboard is the adverb for being on or in a vessel, a direct equivalent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +446,53 @@
     "text": "Degenerates set up video game company",
     "enumeration": "4"
    },
-   "solution": "AGES"
+   "solution": "AGES",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "AGES",
+    "definitions": [
+     {
+      "text": "Degenerates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "set up in a down clue means placed upwards, so the word reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "video game company",
+      "gives": "SEGA",
+      "note": "Sega is the Japanese video game maker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGES"
+     ],
+     "reversals": [
+      {
+       "from": "SEGA",
+       "to": "AGES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Delinquents establish a computer gaming firm.",
+     "definitionFit": "To age is to decline with time, so ages works as the verb degenerates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Degenerates"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +506,60 @@
     "text": "Playing hearts or clubs before players",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORCHESTRA",
+    "definitions": [
+     {
+      "text": "players",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Playing",
+      "for": "anagram",
+      "note": "playing with letters means rearranging them for fun"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hearts or",
+      "gives": "HEARTSOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is clubs in card notation"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEARTSORC",
+       "gives": "ORCHESTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A card player chooses between leading hearts or clubs ahead of the other players.",
+     "walkthrough": "The card-game picture misleads: 'Playing' signals the shuffle and 'players' are musicians.",
+     "definitionFit": "An orchestra is a body of instrumental musicians, so it is a group of players."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +573,63 @@
     "text": "Celebrating two bands receiving Eastern gong",
     "enumeration": "11"
    },
-   "solution": "REMEMBERING"
+   "solution": "REMEMBERING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REMEMBERING",
+    "definitions": [
+     {
+      "text": "Celebrating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking in, so the two bands hold the rest within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two bands",
+      "gives": "REMRING",
+      "note": "R.E.M. is an American rock band, and a ring is a band of metal"
+     },
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for Eastern"
+     },
+     {
+      "clueFragment": "gong",
+      "gives": "MBE",
+      "note": "gong is slang for a medal or honour, and the MBE is a British one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REM",
+      "E",
+      "MBE",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "Two musical groups toast receiving a gong from the East.",
+     "walkthrough": "A gong is British slang for an honour such as the MBE (Member of the Order of the British Empire).",
+     "definitionFit": "Remembering an event can mean commemorating it, as in remembering the fallen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gong"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +643,56 @@
     "text": "Career Republicans pocketing the lot",
     "enumeration": "6"
    },
-   "solution": "GALLOP"
+   "solution": "GALLOP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GALLOP",
+    "definitions": [
+     {
+      "text": "Career",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pocketing",
+      "for": "container",
+      "note": "pocketing means putting something away inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republicans",
+      "gives": "GOP",
+      "note": "the GOP (Grand Old Party) is the US Republican Party"
+     },
+     {
+      "clueFragment": "the lot",
+      "gives": "ALL",
+      "note": "the lot means everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ALL",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Republican politicians make a career of grabbing everything for themselves.",
+     "walkthrough": "'Career' is not a profession here but the verb meaning to rush headlong.",
+     "definitionFit": "To career is to dash at speed, and to gallop is likewise to run fast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Career"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +706,69 @@
     "text": "Break past Coe, keeping close to Cram",
     "enumeration": "8"
    },
-   "solution": "OVERCOME"
+   "solution": "OVERCOME",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "OVERCOME",
+    "definitions": [
+     {
+      "text": "Break",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding on to, so the runner's name holds a letter inside"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "past",
+      "gives": "OVER",
+      "note": "over means finished or past"
+     },
+     {
+      "clueFragment": "Coe",
+      "gives": "COE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Cram",
+      "gives": "M",
+      "select": "last",
+      "note": "last letter of the surname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "CO",
+      "M",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Sebastian Coe breaks away while Steve Cram stays close behind him in a race.",
+     "walkthrough": "Coe and Cram were rival British middle-distance runners of the 1980s.",
+     "definitionFit": "To overcome resistance or a person is to break them, defeating them utterly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Break"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +782,58 @@
     "text": "Talking about sport and running",
     "enumeration": "9"
    },
-   "solution": "OPERATING"
+   "solution": "OPERATING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPERATING",
+    "definitions": [
+     {
+      "text": "running",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the speech word goes around the sport"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Talking",
+      "gives": "ORATING",
+      "note": "orating is speaking formally"
+     },
+     {
+      "clueFragment": "sport",
+      "gives": "PE",
+      "note": "PE is physical education, school sport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PE",
+      "RATING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone chats about games and jogging.",
+     "walkthrough": "'Sport and running' look like a pair of pastimes; running is the definition, as in a machine running.",
+     "definitionFit": "A machine that is operating is working or functioning, which is what running means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +847,61 @@
     "text": "Relative shares reason for travelling to prison",
     "enumeration": "11"
    },
-   "solution": "PROPORTIONS"
+   "solution": "PROPORTIONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PROPORTIONS",
+    "definitions": [
+     {
+      "text": "Relative shares",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "travelling means moving about, so these letters move into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reason for",
+      "gives": "PRO",
+      "note": "a pro, as in pros and cons, is an argument in favour"
+     },
+     {
+      "clueFragment": "to prison",
+      "gives": "TOPRISON",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "PORTIONS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOPRISON",
+       "gives": "PORTIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains why they are making the trip to visit a jail.",
+     "walkthrough": "'Reason for travelling' looks like one phrase; the split is after 'for', with 'travelling' acting on what follows.",
+     "definitionFit": "Proportions are parts considered in relation to a whole, that is comparative amounts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reason"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +915,54 @@
     "text": "Appears to be writing on diocese",
     "enumeration": "5"
    },
-   "solution": "SEEMS"
+   "solution": "SEEMS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEEMS",
+    "definitions": [
+     {
+      "text": "Appears to be",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one thing on another sits after it, so the writing comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diocese",
+      "gives": "SEE",
+      "note": "a see is a bishop's diocese"
+     },
+     {
+      "clueFragment": "writing",
+      "gives": "MS",
+      "note": "MS is a manuscript, a piece of writing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "MS"
+     ]
+    },
+    "explanation": {
+     "surface": "It looks like a written piece about a church district.",
+     "walkthrough": "In an across clue 'A on B' puts A after B, so the writing follows the diocese.",
+     "definitionFit": "Seems is a verb meaning gives the impression of being, a straight synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writing"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +976,61 @@
     "text": "Divisive chairs accepting reduced role",
     "enumeration": "10"
    },
-   "solution": "SEPARATING"
+   "solution": "SEPARATING",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "SEPARATING",
+    "definitions": [
+     {
+      "text": "Divisive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means letting in, so the seats take a word inside"
+     },
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "reduced means cut down, so the word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chairs",
+      "gives": "SEATING",
+      "note": "seating is chairs collectively"
+     },
+     {
+      "clueFragment": "role",
+      "gives": "PART",
+      "note": "an actor's role is a part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "PAR",
+      "ATING"
+     ]
+    },
+    "explanation": {
+     "surface": "Committee chairmen at odds take on a lesser role.",
+     "walkthrough": "'Chairs' looks like people chairing meetings; it is furniture.",
+     "definitionFit": "Something separating forces groups apart, so it causes division between them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chairs"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +1044,47 @@
     "text": "Respected alumnus spotted",
     "enumeration": "6"
    },
-   "solution": "OBEYED"
+   "solution": "OBEYED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBEYED",
+    "definitions": [
+     {
+      "text": "Respected",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alumnus",
+      "gives": "OB",
+      "note": "OB is old boy, a former pupil"
+     },
+     {
+      "clueFragment": "spotted",
+      "gives": "EYED",
+      "note": "eyed means looked at, caught sight of"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "EYED"
+     ]
+    },
+    "explanation": {
+     "surface": "A distinguished former student is seen.",
+     "walkthrough": "'Respected' looks like an adjective praising the alumnus but is the verb heeded.",
+     "definitionFit": "Respected rules are complied with, so obeyed fits as a past-tense verb of compliance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Respected"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1098,54 @@
     "text": "Bigoted vice-president initially ignored reality",
     "enumeration": "9"
    },
-   "solution": "EXISTENCE"
+   "solution": "EXISTENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EXISTENCE",
+    "definitions": [
+     {
+      "text": "reality",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially ignored",
+      "for": "deletion",
+      "note": "the first letter of each is left out, as if passed over at the start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bigoted",
+      "gives": "SEXIST",
+      "note": "a sexist is prejudiced on grounds of sex"
+     },
+     {
+      "clueFragment": "vice-president",
+      "gives": "PENCE",
+      "note": "Mike Pence was US vice-president under Trump"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXIST",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A prejudiced deputy leader overlooked the facts.",
+     "definitionFit": "Existence is the state of being real, so it serves as a synonym for actuality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1159,62 @@
     "text": "Moderate bit of inheritance covers time left",
     "enumeration": "6"
    },
-   "solution": "GENTLE"
+   "solution": "GENTLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GENTLE",
+    "definitions": [
+     {
+      "text": "Moderate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "covers means wraps round, so the inherited unit surrounds two letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bit of inheritance",
+      "gives": "GENE",
+      "note": "a gene is a unit of heredity"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is time"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "T",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A small legacy pays for the remaining period, within reason.",
+     "walkthrough": "'Bit of inheritance' suggests money from a will; it is a gene.",
+     "definitionFit": "Gentle as an adjective means mild or not extreme, the same as moderate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "inheritance"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1228,54 @@
     "text": "Ring doctor during birth",
     "enumeration": "6"
    },
-   "solution": "ORIGIN"
+   "solution": "ORIGIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORIGIN",
+    "definitions": [
+     {
+      "text": "birth",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ring",
+      "gives": "O",
+      "note": "O is ring-shaped"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "RIG",
+      "note": "to doctor results is to rig them"
+     },
+     {
+      "clueFragment": "during",
+      "gives": "IN",
+      "note": "in means during, as in 'in the night'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RIG",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone telephones a physician while a baby is being born.",
+     "walkthrough": "'Ring doctor' reads as phoning a medic; doctor is the verb meaning falsify.",
+     "definitionFit": "Birth can mean beginnings or descent, as in noble birth, which is what origin means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1289,56 @@
     "text": "Island fruit, oddly acidic",
     "enumeration": "6"
    },
-   "solution": "HAWAII"
+   "solution": "HAWAII",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HAWAII",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the odd-numbered positions only, the first, third and so on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "HAW",
+      "note": "a haw is the berry of the hawthorn"
+     },
+     {
+      "clueFragment": "acidic",
+      "gives": "AII",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAW",
+      "AII"
+     ]
+    },
+    "explanation": {
+     "surface": "Tropical fruit from an island tastes strangely sour.",
+     "walkthrough": "'Island fruit' suggests a pineapple; the fruit is the humble hawthorn berry.",
+     "definitionFit": "Hawaii is the largest island of the Pacific state that shares its name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1352,62 @@
     "text": "Old queen takes her son's ex to my boss",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "my boss",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "takes means receives into itself, so the royal letters enclose the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina"
+     },
+     {
+      "clueFragment": "her son's ex",
+      "gives": "DI",
+      "note": "Diana, Princess of Wales, was the former wife of Elizabeth II's son Charles"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DI",
+      "TO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "The late Queen brings her son's former wife to meet the speaker's employer.",
+     "walkthrough": "'My boss' is the setter speaking: the crossword setter answers to the puzzles editor.",
+     "definitionFit": "A newspaper setter's work is commissioned and checked by an editor, so the editor is their superior."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1421,48 @@
     "text": "Figures to the left and to the right",
     "enumeration": "5"
    },
-   "solution": "STATS"
+   "solution": "STATS",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "STATS",
+    "definitions": [
+     {
+      "text": "Figures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the left and to the right",
+      "for": "palindrome",
+      "note": "a word that reads the same in either direction, leftwards or rightwards, is symmetrical"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to the left and to the right",
+      "gives": "STATS",
+      "note": "the word reads identically from either end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATS"
+     ]
+    },
+    "explanation": {
+     "surface": "Numbers are laid out on both sides of the page.",
+     "walkthrough": "The wordplay is just a description of the answer as a palindrome.",
+     "definitionFit": "Stats is short for statistics, which are numerical data."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1476,68 @@
     "text": "Use commercial vehicle identification badge at last",
     "enumeration": "9"
    },
-   "solution": "ADVANTAGE"
+   "solution": "ADVANTAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ADVANTAGE",
+    "definitions": [
+     {
+      "text": "Use",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final position, so only the end letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "VAN",
+      "note": "a van is a vehicle"
+     },
+     {
+      "clueFragment": "identification",
+      "gives": "TAG",
+      "note": "a tag is an identifying label"
+     },
+     {
+      "clueFragment": "badge",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VAN",
+      "TAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to deploy a trade vehicle's ID badge at last.",
+     "walkthrough": "'Identification badge' reads as one item; it splits into a label and the final letter of 'badge'.",
+     "definitionFit": "Use as a noun means benefit, as in 'of no use', which is what advantage means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1551,68 @@
     "text": "Someone else's son released from jail after ambassador intervenes",
     "enumeration": "5"
    },
-   "solution": "THEIR"
+   "solution": "THEIR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "THEIR",
+    "definitions": [
+     {
+      "text": "Someone else's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "released from",
+      "for": "deletion",
+      "note": "released from means let out of, so a letter leaves the word"
+     },
+     {
+      "text": "intervenes",
+      "for": "container",
+      "note": "intervenes means comes between, so the envoy goes inside"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jail",
+      "gives": "STIR",
+      "note": "stir is slang for prison"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is son"
+     },
+     {
+      "clueFragment": "ambassador",
+      "gives": "HE",
+      "note": "HE is His Excellency, an ambassador's title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HE",
+      "IR"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy is freed from prison after a diplomat steps in.",
+     "definitionFit": "Their is the possessive for belonging to another person or people, a pronoun fit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "son"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1626,62 @@
     "text": "Go with rising cry",
     "enumeration": "4"
    },
-   "solution": "WEEP"
+   "solution": "WEEP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WEEP",
+    "definitions": [
+     {
+      "text": "cry",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "rising in a down clue means going upwards, so the letters read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "PEE",
+      "note": "to go is a euphemism for urinating"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "EEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEEW",
+       "to": "WEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Head off with a mounting wail.",
+     "walkthrough": "'Go' as in needing to go to the toilet.",
+     "definitionFit": "To cry is to shed tears, so weep is a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 25,
@@ -383,7 +1695,60 @@
     "text": "Unknown tongues confused most recent arrival",
     "enumeration": "8"
    },
-   "solution": "YOUNGEST"
+   "solution": "YOUNGEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "YOUNGEST",
+    "definitions": [
+     {
+      "text": "most recent arrival",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused means mixed up, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unknown",
+      "gives": "Y",
+      "note": "Y is an algebraic unknown"
+     },
+     {
+      "clueFragment": "tongues",
+      "gives": "TONGUES",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "OUNGEST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TONGUES",
+       "gives": "OUNGEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The newcomer is bewildered by foreign languages.",
+     "definitionFit": "The youngest child of a family is the last-born, the latest addition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tongues"
+    }
+   }
   },
   {
    "number": 26,
@@ -397,7 +1762,51 @@
     "text": "Ladies abandoned morals",
     "enumeration": "6"
    },
-   "solution": "IDEALS"
+   "solution": "IDEALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDEALS",
+    "definitions": [
+     {
+      "text": "morals",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "anagram",
+      "note": "abandoned means wild and uninhibited, so the letters run loose"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ladies",
+      "gives": "LADIES",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LADIES",
+       "gives": "IDEALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Women gave up their principles.",
+     "walkthrough": "'Abandoned' looks like a verb, ladies dropping morals; it is the adjective meaning unrestrained.",
+     "definitionFit": "Ideals are principles or standards of conduct, so they are a person's moral values."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 27,
@@ -411,7 +1820,49 @@
     "text": "Contents of stranger story",
     "enumeration": "3"
    },
-   "solution": "LIE"
+   "solution": "LIE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LIE",
+    "definitions": [
+     {
+      "text": "story",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Contents of",
+      "for": "letter_selection",
+      "note": "the contents of something are what is inside it, so the outer letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stranger",
+      "gives": "LIE",
+      "select": "middle",
+      "note": "a stranger is an alien; its inside letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIE"
+     ]
+    },
+    "explanation": {
+     "surface": "The substance of an odder tale.",
+     "walkthrough": "Stranger is the noun, an alien, not the comparative of strange.",
+     "definitionFit": "A story can mean a fib, as when a child is told not to tell stories."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stranger"
+    }
+   }
   },
   {
    "number": 28,
@@ -425,7 +1876,65 @@
     "text": "Met founder reversing when in the van, not paying attention",
     "enumeration": "6"
    },
-   "solution": "ASLEEP"
+   "solution": "ASLEEP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ASLEEP",
+    "definitions": [
+     {
+      "text": "not paying attention",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "reversing means going backwards, so the founder's name is read right to left"
+     }
+    ],
+    "linkWords": [
+     "in the van"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as means when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "Met founder",
+      "gives": "PEEL",
+      "note": "Sir Robert Peel founded London's Metropolitan Police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "LEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEEL",
+       "to": "LEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police founder backs up while a passenger in the van dozes off.",
+     "walkthrough": "The Met is London's Metropolitan Police. 'In the van' means at the front, so the word for when leads.",
+     "definitionFit": "Someone asleep, or figuratively asleep, is inattentive, as in 'asleep at the wheel'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "van"
+    }
+   }
   },
   {
    "number": 29,
@@ -439,7 +1948,64 @@
     "text": "Watched on, cautious when out of uniform",
     "enumeration": "8"
    },
-   "solution": "REGARDED"
+   "solution": "REGARDED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "REGARDED",
+    "definitions": [
+     {
+      "text": "Watched",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of means without, so a letter goes missing from the word"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about"
+     },
+     {
+      "clueFragment": "cautious",
+      "gives": "GUARDED",
+      "note": "guarded means wary"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is uniform in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "GARDED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone kept watch, careful when not wearing a uniform.",
+     "walkthrough": "'Out of uniform' suggests plain clothes; it means losing the letter U.",
+     "definitionFit": "Regarded means looked at attentively, so it is a past-tense synonym of watched."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "uniform"
+    }
+   }
   }
  ]
 }
