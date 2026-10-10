@@ -189,15 +189,18 @@ def save_reprint(pid, identifier, position, across, down, root=None):
     """Keep a book leaf that reprints held puzzle `pid` as a reading of it:
     one clue a line, "<number> <text> (<count>)", under ACROSS and DOWN, as
     the archive.org filer's column readings are set out. `across` and `down`
-    are light_spec lights ([number, length, source, printed])."""
+    are light_spec lights ([number, length, source, printed]); a light whose
+    number the OCR lost (None) is set out without one, as a lost number
+    reads in a column."""
     lines = []
     for heading, lights in (("ACROSS", across), ("DOWN", down)):
         lines.append(heading)
         for light in lights:
             printed = (light[3] if len(light) > 3 else None) or {}
             if printed.get("clue"):
+                head = "" if light[0] is None else f"{light[0]} "
                 count = f" ({printed['enumeration']})" if printed.get("enumeration") else ""
-                lines.append(f"{light[0]} {printed['clue']}{count}")
+                lines.append(f"{head}{printed['clue']}{count}")
     d = pathlib.Path(root or REPRINT_DIR) / pid
     d.mkdir(parents=True, exist_ok=True)
     path = d / f"{identifier}-{position}.txt"
