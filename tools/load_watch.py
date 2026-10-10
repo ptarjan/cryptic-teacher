@@ -108,9 +108,17 @@ def charge(a, b, seconds, hz):
     ticks = collections.Counter()
     parents = collections.defaultdict(collections.Counter)
     gone = collections.defaultdict(int)  # parent pid -> inclusive pre-window ticks of vanished children
+    alive = {pid for pid, p in a.items() if pid in b and b[pid]["start"] == p["start"]}
     for pid, p in a.items():
-        if pid not in b or b[pid]["start"] != p["start"]:
-            gone[p["ppid"]] += p["own"] + p["kids"]
+        if pid in alive:
+            continue
+        # The reaper is the parent, or after the parent died, the nearest live ancestor
+        # (a subreaper such as claude) or pid 1; charge the pre-window ticks off both.
+        up = p["ppid"]
+        while up in a and up not in alive and up > 1:
+            up = a[up]["ppid"]
+        for reaper in {up, 1}:
+            gone[reaper] += p["own"] + p["kids"]
     for pid, p in b.items():
         old = a.get(pid)
         if old and old["start"] != p["start"]:

@@ -76,6 +76,15 @@ check("the vanished child is not a row of its own", False, "pool_worker.py" in c
 check("parent job is named", "gale_read.sh", parent["fetch_puzzle.py --reindex"])
 check("an idle parent is not charged", False, "gale_read.sh" in cores)
 
+# A child whose parent died is reaped by a subreaper ancestor (claude) or pid 1; its
+# pre-window ticks come off that reaper, not off the dead parent.
+r1 = {30: dict(start=1, state="S", ppid=1, own=0, kids=0, argv=["claude"]),
+      31: dict(start=1, state="S", ppid=30, own=0, kids=0, argv=["bash", "-c", "x"]),
+      32: dict(start=1, state="R", ppid=31, own=90000, kids=0, argv=["python3", "capture.py"])}
+r2 = {30: dict(start=1, state="S", ppid=1, own=0, kids=90100, argv=["claude"])}
+cores, _ = lw.charge(r1, r2, 10, 100)
+check("orphan's lifetime is not charged to its subreaper", {"claude": 0.1}, cores)
+
 # The parent label climbs past bash/flock wrappers, and names none when only wrappers remain.
 w1 = {60: dict(start=1, state="S", ppid=1, own=0, kids=0, argv=["bash", "gale_read.sh"]),
       61: dict(start=1, state="S", ppid=60, own=0, kids=0, argv=["flock", "-n", "l", "x"]),
