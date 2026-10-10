@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Soldier given order at start of operation",
     "enumeration": "8"
    },
-   "solution": "COMMANDO"
+   "solution": "COMMANDO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COMMANDO",
+    "definitions": [
+     {
+      "text": "Soldier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "order",
+      "gives": "COMMAND",
+      "note": "an order or instruction"
+     },
+     {
+      "clueFragment": "operation",
+      "gives": "O",
+      "select": "first",
+      "note": "opening letter of operation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMMAND",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier receives his instructions just as a military operation begins.",
+     "definitionFit": "A commando is a soldier trained for raids, a member of an elite assault unit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "operation"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,61 @@
     "text": "Cleaner, for example, put up rate",
     "enumeration": "6"
    },
-   "solution": "CHARGE"
+   "solution": "CHARGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CHARGE",
+    "definitions": [
+     {
+      "text": "rate",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down clue, putting something up makes it read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cleaner",
+      "gives": "CHAR",
+      "note": "a char, or charwoman, is a cleaner"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A domestic cleaner, say, has raised her prices.",
+     "walkthrough": "A char is an old British term for a woman paid to clean houses.",
+     "definitionFit": "A charge is the price asked for something, the same as a rate or fee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cleaner"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +169,55 @@
     "text": "Sullen and ill-tempered detective grabbing ring",
     "enumeration": "6"
    },
-   "solution": "MOROSE"
+   "solution": "MOROSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOROSE",
+    "definitions": [
+     {
+      "text": "Sullen and ill-tempered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "grabbing something means holding it, so one piece clasps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detective",
+      "gives": "MORSE",
+      "note": "Inspector Morse, the Oxford TV detective"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "O is ring-shaped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOR",
+      "O",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy detective seizes a ring as evidence.",
+     "walkthrough": "Inspector Morse is a famously gloomy British TV detective, which suits the surface.",
+     "definitionFit": "Morose describes a gloomy, bad-tempered person, matching both sullen and ill-tempered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +231,55 @@
     "text": "Legendary beauty devilish man adored",
     "enumeration": "9"
    },
-   "solution": "ANDROMEDA"
+   "solution": "ANDROMEDA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANDROMEDA",
+    "definitions": [
+     {
+      "text": "Legendary beauty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devilish",
+      "for": "anagram",
+      "note": "devilish suggests mischief, so the letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "MAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "adored",
+      "gives": "ADORED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANADORED",
+       "gives": "ANDROMEDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wicked man worshipped a woman of mythical loveliness.",
+     "definitionFit": "Andromeda was the Greek princess chained to a rock for her beauty and rescued by Perseus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "devilish"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +293,64 @@
     "text": "Helping to support French composer? No second thought required",
     "enumeration": "12"
    },
-   "solution": "DELIBERATION"
+   "solution": "DELIBERATION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DELIBERATION",
+    "definitions": [
+     {
+      "text": "thought",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No second",
+      "for": "deletion",
+      "note": "no second means the abbreviation for a second of time is dropped"
+     }
+    ],
+    "linkWords": [
+     "to support",
+     "required"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French composer",
+      "gives": "DELIBES",
+      "note": "Léo Delibes, composer of the ballet Coppélia"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "Helping",
+      "gives": "RATION",
+      "note": "a ration is a helping or portion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DELIBE",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A portion is served to a French composer, without a moment's further consideration.",
+     "walkthrough": "In a down clue, the piece that supports another goes beneath it, so the helping comes after the composer.",
+     "definitionFit": "Deliberation is careful consideration, a noun synonym of thought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Helping"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +364,52 @@
     "text": "Rise when clubs close",
     "enumeration": "6"
    },
-   "solution": "ASCEND"
+   "solution": "ASCEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASCEND",
+    "definitions": [
+     {
+      "text": "Rise",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as in the sense 'at the time that'"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the card-suit abbreviation for clubs"
+     },
+     {
+      "clueFragment": "close",
+      "gives": "END",
+      "note": "a close or conclusion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "C",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "Something goes up at the moment the nightclubs shut for the night.",
+     "definitionFit": "To ascend is to go upward, a straightforward verb synonym for rise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +423,49 @@
     "text": "Son, with difficulty, finds a broken piece of pottery",
     "enumeration": "5"
    },
-   "solution": "SHARD"
+   "solution": "SHARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHARD",
+    "definitions": [
+     {
+      "text": "broken piece of pottery",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "finds a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "with difficulty",
+      "gives": "HARD",
+      "note": "something done hard is done with effort or difficulty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy struggles to locate a fragment of an old pot.",
+     "definitionFit": "A shard is a sharp fragment, especially of broken earthenware or glass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "difficulty"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +479,53 @@
     "text": "Retired American after English warrant",
     "enumeration": "8"
    },
-   "solution": "EMERITUS"
+   "solution": "EMERITUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMERITUS",
+    "definitions": [
+     {
+      "text": "Retired",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "warrant",
+      "gives": "MERIT",
+      "note": "to warrant is to deserve, to merit"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MERIT",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A retired American comes after an English legal warrant.",
+     "walkthrough": "'After' places the American at the end, following English and warrant.",
+     "definitionFit": "Emeritus describes a professor or official who has retired but keeps an honorary title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "warrant"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +545,44 @@
      }
     ]
    },
-   "solution": "DEADENDS"
+   "solution": "DEADENDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEAD ENDS",
+    "definitions": [
+     {
+      "text": "Unproductive results",
+      "at": 0
+     },
+     {
+      "text": "blind alleys",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unproductive results",
+      "note": "first meaning: lines of enquiry that lead nowhere"
+     },
+     {
+      "clueFragment": "blind alleys",
+      "note": "second meaning: streets closed at one end"
+     }
+    ],
+    "explanation": {
+     "surface": "Fruitless outcomes keep turning up in back streets.",
+     "definitionFit": "The phrase means both streets with no exit and, figuratively, courses of action with no prospect of progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +596,76 @@
     "text": "Dog, adult one about to be put on tight lead",
     "enumeration": "8"
    },
-   "solution": "AIREDALE"
+   "solution": "AIREDALE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AIREDALE",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tight",
+      "for": "anagram",
+      "note": "tight is slang for drunk, and a drunk word staggers into a new order"
+     }
+    ],
+    "linkWords": [
+     "to be put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the abbreviation for adult, as in film ratings"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "lead",
+      "gives": "LEAD",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "I",
+      "RE",
+      "DALE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEAD",
+       "gives": "DALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grown dog is to be put on a short leash, held tight.",
+     "walkthrough": "'Tight lead' reads as a taut leash, but tight means drunk and scrambles the word lead.",
+     "definitionFit": "The Airedale is a large terrier breed, so the answer is an example of a dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +679,65 @@
     "text": "Picture producer, one leaving America in disguise",
     "enumeration": "6"
    },
-   "solution": "CAMERA"
+   "solution": "CAMERA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CAMERA",
+    "definitions": [
+     {
+      "text": "Picture producer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving a word departs from it, so those letters are taken out"
+     },
+     {
+      "text": "in disguise",
+      "for": "anagram",
+      "note": "a disguise changes appearance, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "AMERICA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAMERA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMERCA",
+       "gives": "CAMERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film-maker slips out of the USA incognito.",
+     "walkthrough": "Remove the I from AMERICA and rearrange what is left.",
+     "definitionFit": "A camera is the device that takes photographs, so it literally produces pictures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "disguise"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +757,78 @@
      }
     ]
    },
-   "solution": "BOOGIEWOOGIE"
+   "solution": "BOOGIEWOOGIE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "BOOGIE-WOOGIE",
+    "definitions": [
+     {
+      "text": "style of music",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "encapsulating",
+      "for": "container",
+      "note": "encapsulating means enclosing, so one piece wraps around another"
+     },
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about and land in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go-go",
+      "gives": "GOGO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Bowie",
+      "gives": "BOWIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates id est, that is"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOGIEWOOGIE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GOGOBOWIEIOE",
+       "gives": "BOOGIEWOOGIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "David Bowie joins some go-go dancing in a retro musical style.",
+     "walkthrough": "The IE wraps around O first, then everything is jumbled together.",
+     "definitionFit": "Boogie-woogie is a fast blues piano style with a driving bass, popular in the 1930s and 40s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +842,49 @@
     "text": "Rush round with enthusiasm",
     "enumeration": "5"
    },
-   "solution": "GUSTO"
+   "solution": "GUSTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GUSTO",
+    "definitions": [
+     {
+      "text": "enthusiasm",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rush",
+      "gives": "GUST",
+      "note": "a gust is a sudden rush of wind"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUST",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurries about eagerly.",
+     "definitionFit": "Gusto means hearty relish or zest, a close synonym of enthusiasm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +898,50 @@
     "text": "Verbal attack made by bishop on verge",
     "enumeration": "9"
    },
-   "solution": "BROADSIDE"
+   "solution": "BROADSIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROADSIDE",
+    "definitions": [
+     {
+      "text": "Verbal attack",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "on verge",
+      "gives": "ROADSIDE",
+      "note": "the verge is the grassy edge of a road, the roadside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ROADSIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric launches a tirade while standing at the side of the road.",
+     "walkthrough": "A verge, in British usage, is the strip of grass beside a road.",
+     "definitionFit": "A broadside, originally a ship's full volley of guns, is figuratively a fierce spoken or written attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "verge"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +965,49 @@
      }
     ]
    },
-   "solution": "MERRYGOROUND"
+   "solution": "MERRYGOROUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MERRY-GO-ROUND",
+    "definitions": [
+     {
+      "text": "Ride",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bit drunk",
+      "gives": "MERRY",
+      "note": "merry means tipsy"
+     },
+     {
+      "clueFragment": "bypass",
+      "gives": "GOROUND",
+      "note": "to go round something is to bypass it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MERRY",
+      "GOROUND"
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy person takes a ride along the bypass road.",
+     "definitionFit": "A merry-go-round is a fairground carousel, a ride with revolving wooden horses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bypass"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1027,53 @@
      }
     ]
    },
-   "solution": "ROOTCAUSE"
+   "solution": "ROOTCAUSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROOT CAUSE",
+    "definitions": [
+     {
+      "text": "The origin of a problem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "otherwise",
+      "for": "anagram",
+      "note": "otherwise means in a different way, so the letters are arranged differently"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so acute or",
+      "gives": "SOACUTEOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOACUTEOR",
+       "gives": "ROOTCAUSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Where a difficulty starts, whether it is severe or not.",
+     "definitionFit": "The root cause is the fundamental underlying reason something has gone wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "acute"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1087,54 @@
     "text": "Professional shot wide, we hear, and swore",
     "enumeration": "8"
    },
-   "solution": "PROMISED"
+   "solution": "PROMISED",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "PROMISED",
+    "definitions": [
+     {
+      "text": "swore",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear points to a word recognised by its sound rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Professional",
+      "gives": "PRO",
+      "note": "pro is short for professional"
+     },
+     {
+      "clueFragment": "shot wide",
+      "gives": "MISED",
+      "soundsLike": "MISSED",
+      "note": "a shot that goes wide has missed"
+     }
+    ],
+    "explanation": {
+     "surface": "A golf pro sliced his drive and cursed.",
+     "walkthrough": "'Swore' looks like cursing, but it is the sense of making a solemn vow.",
+     "definitionFit": "To have promised and to have sworn both mean to have given a solemn pledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "swore"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1148,49 @@
     "text": "Golfing group, perhaps in favour of fee, by the sound of it",
     "enumeration": "8"
    },
-   "solution": "FOURSOME"
+   "solution": "FOURSOME",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FOURSOME",
+    "definitions": [
+     {
+      "text": "Golfing group, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "the sound of words matters here rather than their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in favour of",
+      "gives": "FOUR",
+      "soundsLike": "FOR",
+      "note": "for means in favour of"
+     },
+     {
+      "clueFragment": "fee",
+      "gives": "SOME",
+      "soundsLike": "SUM",
+      "note": "a fee is a sum of money"
+     }
+    ],
+    "explanation": {
+     "surface": "Some golfers seem to support charging a fee.",
+     "definitionFit": "A foursome is a group of four, typically a golf match of two pairs, so 'perhaps' marks it as one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fee"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1218,55 @@
      }
     ]
    },
-   "solution": "ROOMATTHETOP"
+   "solution": "ROOMATTHETOP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROOM AT THE TOP",
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "translated",
+      "for": "anagram",
+      "note": "translating changes the form of words, so these letters are recast in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "metaphor",
+      "gives": "METAPHOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Otto",
+      "gives": "OTTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "METAPHOROTTO",
+       "gives": "ROOMATTHETOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Otto renders a figure of speech in a work of fiction into another language.",
+     "definitionFit": "Room at the Top is John Braine's 1957 novel about an ambitious young man, so it is an example of a novel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Novel"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1280,39 @@
     "text": "Three consecutive letters from a spiritual leader?",
     "enumeration": "6"
    },
-   "solution": "GANDHI"
+   "solution": "GANDHI",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GANDHI",
+    "definitions": [
+     {
+      "text": "Three consecutive letters from a spiritual leader?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Three consecutive letters from a spiritual leader?",
+      "note": "surface reading: three letters in a row written by some guru"
+     },
+     {
+      "clueFragment": "Three consecutive letters",
+      "note": "setter's reading: the alphabet letters that follow F, written out as the seventh, then the word 'and', then the next two together"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The answer splits as G AND HI, three alphabetically consecutive letters joined by 'and'; the question mark flags the wordplay.",
+     "definitionFit": "Mahatma Gandhi led India's independence movement and is revered as a spiritual and moral leader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1326,42 @@
     "text": "Whole convent I renovated? Just a part",
     "enumeration": "6"
    },
-   "solution": "ENTIRE"
+   "solution": "ENTIRE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTIRE",
+    "definitions": [
+     {
+      "text": "Whole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Just a part",
+      "for": "hidden_word",
+      "note": "only a part of the following words is needed, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "convent I renovated",
+      "gives": "ENTIRE",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Was the whole nunnery refurbished, or only one section?",
+     "definitionFit": "Entire and whole both mean complete, with nothing missing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Whole"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1381,63 @@
      }
     ]
    },
-   "solution": "MARCOPOLO"
+   "solution": "MARCOPOLO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARCO POLO",
+    "definitions": [
+     {
+      "text": "traveller",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "to attend",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old lady",
+      "gives": "MA",
+      "note": "one's old lady is one's mother, ma"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "county",
+      "gives": "CO",
+      "note": "Co. is the abbreviation for county"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "POLO",
+      "note": "polo is a game played on horseback"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "R",
+      "CO",
+      "POLO"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly woman rightly goes to watch a county match with someone on a journey.",
+     "walkthrough": "'To attend' places the right just before the county.",
+     "definitionFit": "Marco Polo was the Venetian merchant famed for his journey to China, the archetypal traveller."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1451,50 @@
     "text": "Hatred coming from platform lacking leadership",
     "enumeration": "5"
    },
-   "solution": "ODIUM"
+   "solution": "ODIUM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ODIUM",
+    "definitions": [
+     {
+      "text": "Hatred",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking leadership",
+      "for": "deletion",
+      "note": "with no leader, the word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "coming from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "platform",
+      "gives": "PODIUM",
+      "note": "a podium is a raised platform"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODIUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Hostility is voiced from a stage by someone with no leader.",
+     "definitionFit": "Odium is general loathing or disgust directed at someone, a formal word for hatred."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leadership"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1508,42 @@
     "text": "Measure mountain range",
     "enumeration": "5"
    },
-   "solution": "CHAIN"
+   "solution": "CHAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHAIN",
+    "definitions": [
+     {
+      "text": "Measure",
+      "at": 0
+     },
+     {
+      "text": "mountain range",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Measure",
+      "note": "first meaning: an old unit of length, 22 yards"
+     },
+     {
+      "clueFragment": "mountain range",
+      "note": "second meaning: a connected line of peaks"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as an instruction to gauge some mountains, but the two parts define separately.",
+     "definitionFit": "A chain is an imperial length of 22 yards, and also a series of linked mountains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Measure"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1557,62 @@
     "text": "Unemotional, head of technology in firm",
     "enumeration": "6"
    },
-   "solution": "STOLID"
+   "solution": "STOLID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STOLID",
+    "definitions": [
+     {
+      "text": "Unemotional",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the other here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "SOLID",
+      "note": "firm and solid are synonyms"
+     },
+     {
+      "clueFragment": "technology",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of technology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "OLID"
+     ]
+    },
+    "explanation": {
+     "surface": "A dispassionate tech chief working in a company.",
+     "walkthrough": "'Firm' looks like a company, but it is the adjective meaning solid.",
+     "definitionFit": "A stolid person is impassive and shows little feeling, hence unemotional."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1632,56 @@
      }
     ]
    },
-   "solution": "AGNUSDEI"
+   "solution": "AGNUSDEI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGNUS DEI",
+    "definitions": [
+     {
+      "text": "Emblem of Christ",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly hints these letters could be arranged otherwise"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is the Roman numeral for 500"
+     },
+     {
+      "clueFragment": "guineas",
+      "gives": "GUINEAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DGUINEAS",
+       "gives": "AGNUSDEI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A religious symbol might cost five hundred guineas.",
+     "walkthrough": "A guinea is an old British gold coin worth 21 shillings.",
+     "definitionFit": "Agnus Dei, Latin for Lamb of God, is the lamb image used as a symbol of Christ."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "guineas"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1695,54 @@
     "text": "Read my novel, it's wonderful",
     "enumeration": "6"
    },
-   "solution": "DREAMY"
+   "solution": "DREAMY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DREAMY",
+    "definitions": [
+     {
+      "text": "wonderful",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so these letters take a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Read my",
+      "gives": "READMY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "READMY",
+       "gives": "DREAMY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author urges you to read their book, boasting how great it is.",
+     "walkthrough": "'Novel' looks like a book; it is an adjective signalling new order.",
+     "definitionFit": "Informally, dreamy means delightful or lovely, as in a dreamy holiday."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1756,63 @@
     "text": "Beer brewed by agreeable girl",
     "enumeration": "8"
    },
-   "solution": "BERENICE"
+   "solution": "BERENICE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BERENICE",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing mixes and transforms ingredients, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beer",
+      "gives": "BEER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "agreeable",
+      "gives": "NICE",
+      "note": "nice means pleasant or agreeable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BERE",
+      "NICE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEER",
+       "gives": "BERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant young woman has made some home-brewed ale.",
+     "definitionFit": "Berenice is a female first name, so it stands as an example of a girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brewed"
+    }
+   }
   }
  ]
 }
