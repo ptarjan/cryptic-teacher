@@ -24,6 +24,9 @@
   "date": "2024-07-03",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,46 @@
     "text": "Son isn't a very good person",
     "enumeration": "5"
    },
-   "solution": "SAINT"
+   "solution": "SAINT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAINT",
+    "definitions": [
+     {
+      "text": "a very good person",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     },
+     {
+      "clueFragment": "isn't",
+      "gives": "AINT",
+      "note": "colloquial contraction meaning is not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AINT"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent's grumble that their boy is no paragon of virtue.",
+     "definitionFit": "A saint is someone of exceptional holiness or goodness, a model of virtue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "isn't"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +93,60 @@
     "text": "Go through fabric stiffener when time is key",
     "enumeration": "6"
    },
-   "solution": "SEARCH"
+   "solution": "SEARCH",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SEARCH",
+    "definitions": [
+     {
+      "text": "Go through",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when time is key",
+      "for": "substitution",
+      "note": "says the letter standing for time is to become a key, so one letter swaps for another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fabric stiffener",
+      "gives": "STARCH",
+      "note": "starch is used to stiffen cloth"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "E",
+      "note": "E is a musical key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "E",
+      "ARCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Laundry instructions about rummaging through the starch at the crucial moment.",
+     "walkthrough": "In STARCH the T is replaced by E, giving the answer SEARCH.",
+     "definitionFit": "To search a place is to go through it thoroughly, looking for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +160,70 @@
     "text": "Glove in cold season without top temperature is on and off",
     "enumeration": "12"
    },
-   "solution": "INTERMITTENT"
+   "solution": "INTERMITTENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "INTERMITTENT",
+    "definitions": [
+     {
+      "text": "on and off",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without top",
+      "for": "deletion",
+      "note": "the season loses its uppermost letter, which in a down clue is its first"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the glove is placed inside the other letters, so these words signal an insertion"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold season",
+      "gives": "INTER",
+      "note": "winter, losing its first letter"
+     },
+     {
+      "clueFragment": "Glove",
+      "gives": "MITTEN",
+      "note": "a mitten is a kind of glove"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "MITTEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that the warmth of winter gloves comes and goes.",
+     "walkthrough": "The glove sits inside the beheaded season plus temperature, just before the final letter; 'top' means first letter because this is a down entry.",
+     "definitionFit": "Something intermittent happens at irregular intervals, stopping and starting rather than continuously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +237,66 @@
     "text": "Runs in to adore stirring bullfighter",
     "enumeration": "8"
    },
-   "solution": "TOREADOR"
+   "solution": "TOREADOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TOREADOR",
+    "definitions": [
+     {
+      "text": "bullfighter",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stirring",
+      "for": "anagram",
+      "note": "stirring mixes things up, so the letters are jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the runs abbreviation is placed inside the mixed letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runs",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for runs"
+     },
+     {
+      "clueFragment": "to adore",
+      "gives": "TOADORE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "R",
+      "EADOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOADORE",
+       "gives": "TOEADOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rousing matador who runs into the ring to adulation.",
+     "definitionFit": "A toreador is a bullfighter, especially one on horseback, as in the song from Carmen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stirring"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +310,54 @@
     "text": "More irritated tackling constant goal getter",
     "enumeration": "6"
    },
-   "solution": "SCORER"
+   "solution": "SCORER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCORER",
+    "definitions": [
+     {
+      "text": "goal getter",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tackling",
+      "for": "container",
+      "note": "to tackle something is to get hold of it, so one piece grips the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More irritated",
+      "gives": "SORER",
+      "note": "comparative of sore, meaning irritated"
+     },
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "C is the symbol for a constant, such as the speed of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "ORER"
+     ]
+    },
+    "explanation": {
+     "surface": "A football picture: an angrier defender going in on the striker.",
+     "definitionFit": "A scorer is the player who gets goals, as in a team's top scorer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tackling"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +371,50 @@
     "text": "Low average signal",
     "enumeration": "4"
    },
-   "solution": "MEAN"
+   "solution": "MEAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MEAN",
+    "definitions": [
+     {
+      "text": "Low",
+      "at": 0
+     },
+     {
+      "text": "average",
+      "at": 4
+     },
+     {
+      "text": "signal",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Low",
+      "note": "base or contemptible"
+     },
+     {
+      "clueFragment": "average",
+      "note": "the arithmetic average"
+     },
+     {
+      "clueFragment": "signal",
+      "note": "to signify or indicate"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three separate meanings of one short word, not two: a triple definition.",
+     "definitionFit": "The word serves as an adjective for petty or ignoble, a noun for a statistical middle value, and a verb for signify."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "signal"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +428,64 @@
     "text": "Planet hot and ultimately very wet underfoot",
     "enumeration": "6"
    },
-   "solution": "MARSHY"
+   "solution": "MARSHY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MARSHY",
+    "definitions": [
+     {
+      "text": "wet underfoot",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the closing letter of the next word is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Planet",
+      "gives": "MARS",
+      "note": "the fourth planet from the sun"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on taps"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARS",
+      "H",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of an alien world's climate and boggy ground.",
+     "definitionFit": "Marshy ground is boggy and waterlogged, so it squelches beneath one's feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Planet"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +499,52 @@
     "text": "What might be playing Hart score?",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ORCHESTRA",
+    "definitions": [
+     {
+      "text": "What might be playing Hart score",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests performing freely, so the letters are set in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hart score",
+      "gives": "HARTSCORE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HARTSCORE",
+       "gives": "ORCHESTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quiz question asking who would perform a score by the songwriter Lorenz Hart.",
+     "walkthrough": "The whole clue is both definition and wordplay: the band of players that might perform a score is spelt by the letters of the two words.",
+     "definitionFit": "An orchestra is the ensemble of musicians that would perform a composer's score."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Hart"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +558,48 @@
     "text": "What traveller takes proper food?",
     "enumeration": "12"
    },
-   "solution": "THOROUGHFARE"
+   "solution": "THOROUGHFARE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THOROUGHFARE",
+    "definitions": [
+     {
+      "text": "What traveller takes",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "proper",
+      "gives": "THOROUGH",
+      "note": "as in a proper or thorough job"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "FARE",
+      "note": "fare means food, as in simple fare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOROUGH",
+      "FARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle about what a traveller eats, answered by a decent meal.",
+     "walkthrough": "The surface suggests a meal for the journey; the definition is the road a traveller takes.",
+     "definitionFit": "A thoroughfare is a main road or route, which is what a traveller takes to get somewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +613,50 @@
     "text": "One who's back in Poirot cast?",
     "enumeration": "5"
    },
-   "solution": "ACTOR"
+   "solution": "ACTOR",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal",
+     "and_lit"
+    ],
+    "answer": "ACTOR",
+    "definitions": [
+     {
+      "text": "One who's back in Poirot cast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit inside the run of words that follows"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going in the opposite direction, so read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poirot cast",
+      "gives": "ROTCA",
+      "note": "the letters spanning the end of the detective's name and the start of the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking which performer has returned to play in an Agatha Christie adaptation.",
+     "walkthrough": "The whole clue defines too: someone appearing in the cast of a Poirot production is a performer.",
+     "definitionFit": "An actor is a performer, the sort of person who makes up a cast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +670,77 @@
     "text": "Certain about including right individual blood type. Wrong",
     "enumeration": "9"
    },
-   "solution": "ERRONEOUS"
+   "solution": "ERRONEOUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "ERRONEOUS",
+    "definitions": [
+     {
+      "text": "Wrong",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the word for certain runs backwards"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means holding within, so the other pieces go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "one individual"
+     },
+     {
+      "clueFragment": "blood type",
+      "gives": "O",
+      "note": "O is a blood group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "RONEO",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "SURE",
+       "to": "ERUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical note, confident about a patient's blood group, turns out to be mistaken.",
+     "definitionFit": "Erroneous means containing an error, that is, incorrect or wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Certain"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +754,50 @@
     "text": "Cannabis finally concealed for border",
     "enumeration": "3"
    },
-   "solution": "HEM"
+   "solution": "HEM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HEM",
+    "definitions": [
+     {
+      "text": "border",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally concealed",
+      "for": "deletion",
+      "note": "the last letter is hidden away, so it drops out of the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cannabis",
+      "gives": "HEMP",
+      "note": "hemp is the cannabis plant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEM"
+     ]
+    },
+    "explanation": {
+     "surface": "Drugs smuggled out of sight at a frontier crossing.",
+     "definitionFit": "A hem is the folded edge, or border, of a piece of cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +811,63 @@
     "text": "List of appalling Conservative after Conservative",
     "enumeration": "9"
    },
-   "solution": "DIRECTORY"
+   "solution": "DIRECTORY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIRECTORY",
+    "definitions": [
+     {
+      "text": "List",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the second Conservative behind the first, fixing their order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appalling",
+      "gives": "DIRE",
+      "note": "dire means dreadful"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "TORY",
+      "note": "a Tory is a member of the UK Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIRE",
+      "C",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "A rundown of one dreadful Conservative after another.",
+     "walkthrough": "Tory is the everyday name for a member of Britain's Conservative Party; the first Conservative is TORY, the second is C, which comes before it.",
+     "definitionFit": "A directory is a list or book of names, addresses or contents arranged for reference."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appalling"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +881,49 @@
     "text": "Caught with penchant for housework",
     "enumeration": "8"
    },
-   "solution": "CLEANING"
+   "solution": "CLEANING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLEANING",
+    "definitions": [
+     {
+      "text": "housework",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is the cricket abbreviation for caught"
+     },
+     {
+      "clueFragment": "with penchant",
+      "gives": "LEANING",
+      "note": "a leaning is a penchant or inclination; with simply joins the pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEANING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone found to have a fondness for doing the chores.",
+     "definitionFit": "Cleaning is a central household chore, so it stands for housework in general."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Caught"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +937,61 @@
     "text": "Dark and mysterious planet in far edge of universe",
     "enumeration": "9"
    },
-   "solution": "SATURNINE"
+   "solution": "SATURNINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SATURNINE",
+    "definitions": [
+     {
+      "text": "Dark and mysterious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "far edge of",
+      "for": "letter_selection",
+      "note": "the far edge of a word is its last letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "planet",
+      "gives": "SATURN",
+      "note": "the sixth planet from the sun"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "universe",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of universe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SATURN",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An astronomer's description of a shadowy planet at the outer limit of space.",
+     "definitionFit": "Saturnine describes a gloomy, brooding temperament, once blamed on Saturn's astrological influence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "planet"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1005,63 @@
     "text": "Public transport turning up prepared for part of a group",
     "enumeration": "6"
    },
-   "solution": "SUBSET"
+   "solution": "SUBSET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SUBSET",
+    "definitions": [
+     {
+      "text": "part of a group",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means reading from bottom to top, the opposite way"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public transport",
+      "gives": "BUS",
+      "note": "a bus is public transport"
+     },
+     {
+      "clueFragment": "prepared",
+      "gives": "SET",
+      "note": "set means ready or prepared"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "SET"
+     ],
+     "reversals": [
+      {
+       "from": "BUS",
+       "to": "SUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bus arriving for a waiting party of passengers.",
+     "definitionFit": "In mathematics a subset is a set contained within a larger set, part of the whole group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1075,49 @@
     "text": "One mathematical figure regarded as symbolic",
     "enumeration": "6"
    },
-   "solution": "ICONIC"
+   "solution": "ICONIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICONIC",
+    "definitions": [
+     {
+      "text": "symbolic",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "regarded as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "mathematical figure",
+      "gives": "CONIC",
+      "note": "a conic is a curve formed by slicing a cone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CONIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A geometry class treating a single shape as a symbol.",
+     "definitionFit": "Something iconic serves as an emblem or icon, so it stands for something larger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1131,53 @@
     "text": "What's sticky Cajun soup giving out bad small",
     "enumeration": "3"
    },
-   "solution": "GUM"
+   "solution": "GUM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GUM",
+    "definitions": [
+     {
+      "text": "What's sticky",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving out",
+      "for": "deletion",
+      "note": "giving something out means letting it go, so those letters leave the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cajun soup",
+      "gives": "GUMBO",
+      "note": "gumbo is a Louisiana stew-like soup"
+     },
+     {
+      "clueFragment": "bad small",
+      "gives": "BO",
+      "note": "BO is body odour, a bad smell; small is read as smell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about a gloopy bowl of southern soup.",
+     "walkthrough": "The clue as published reads 'bad small'; 'bad smell' is evidently meant, giving BO, the initials of body odour, removed from GUMBO.",
+     "definitionFit": "Gum is a sticky substance, an adhesive or the residue of chewing gum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cajun"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1191,55 @@
     "text": "Consequence of workers cutting vehicle test",
     "enumeration": "6"
    },
-   "solution": "MOMENT"
+   "solution": "MOMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOMENT",
+    "definitions": [
+     {
+      "text": "Consequence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "something cutting into another thing sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle test",
+      "gives": "MOT",
+      "note": "the MOT is Britain's annual roadworthiness test for vehicles"
+     },
+     {
+      "clueFragment": "workers",
+      "gives": "MEN",
+      "note": "workers as men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The fallout when mechanics skimp on a car inspection.",
+     "walkthrough": "MOT is the UK's compulsory yearly safety test for cars.",
+     "definitionFit": "Moment means importance or weight, as in a matter of great moment or consequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Consequence"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1253,54 @@
     "text": "Sad following holiday problem with car?",
     "enumeration": "9"
    },
-   "solution": "BREAKDOWN"
+   "solution": "BREAKDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BREAKDOWN",
+    "definitions": [
+     {
+      "text": "problem with car",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places the sad word behind the holiday word, fixing their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holiday",
+      "gives": "BREAK",
+      "note": "a break is a short holiday"
+     },
+     {
+      "clueFragment": "Sad",
+      "gives": "DOWN",
+      "note": "down means sad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREAK",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling low after a trip away because the car let you down.",
+     "walkthrough": "The question mark flags the definition as an example: a car's failure is one kind of breakdown.",
+     "definitionFit": "A breakdown is a mechanical failure that stops a vehicle working."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sad"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1314,54 @@
     "text": "Tease about new style",
     "enumeration": "4"
    },
-   "solution": "KIND"
+   "solution": "KIND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KIND",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tease",
+      "gives": "KID",
+      "note": "to kid is to tease"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KI",
+      "N",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Mocking someone's latest fashion.",
+     "definitionFit": "Kind means sort or type, much as style can mean a variety, as in something of that kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tease"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1375,50 @@
     "text": "Your setter is assessed as very angry",
     "enumeration": "5"
    },
-   "solution": "IRATE"
+   "solution": "IRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRATE",
+    "definitions": [
+     {
+      "text": "very angry",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "is",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Your setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "assessed",
+      "gives": "RATE",
+      "note": "to rate something is to assess it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "The compiler confesses to being judged furious by solvers.",
+     "definitionFit": "Irate means extremely angry, furious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "assessed"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1432,48 @@
     "text": "Increase of former unease?",
     "enumeration": "9"
    },
-   "solution": "EXTENSION"
+   "solution": "EXTENSION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXTENSION",
+    "definitions": [
+     {
+      "text": "Increase",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "unease",
+      "gives": "TENSION",
+      "note": "tension is nervous unease"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TENSION"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a growth is just old anxiety.",
+     "walkthrough": "The question mark covers splitting the answer into a former tension.",
+     "definitionFit": "An extension is an enlargement or lengthening, such as of a building or a deadline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Increase"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1487,54 @@
     "text": "Sudden blow besetting European visitor",
     "enumeration": "5"
    },
-   "solution": "GUEST"
+   "solution": "GUEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GUEST",
+    "definitions": [
+     {
+      "text": "visitor",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "besetting",
+      "for": "container",
+      "note": "besetting means surrounding on all sides, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sudden blow",
+      "gives": "GUST",
+      "note": "a gust is a sudden blast of wind"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "E",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller from abroad caught in a squall.",
+     "definitionFit": "A guest is someone visiting another's home or staying at a hotel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blow"
+    }
+   }
   }
  ]
 }
