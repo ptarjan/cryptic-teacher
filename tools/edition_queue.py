@@ -661,7 +661,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 except BaseException as e:  # noqa: BLE001 -- raised again on the dispatch loop
                     box["error"] = e
             planner = (threading.Thread(target=make, daemon=True), box)
-            if planned is None:
+            if planned is None and fetch:
+                # Scans and reads start first; the fetch plan (every done
+                # edition's siblings, minutes off a cold cache) is made on
+                # the thread at once after.
+                box["plan"], box["partial"] = (*plan(papers, cache, reread, newer, box["notes"]), []), True
+            elif planned is None:
                 make()
             else:
                 planner[0].start()
@@ -670,12 +675,14 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if "error" in box:
                 raise box["error"]
             scans, reads, fetches = box["plan"]
-            planned, plan_done = box["begun"], time.monotonic()
-            keep_plan(plan_file, plan_key, box["plan"])
+            planned, plan_done = box["begun"], None if box.get("partial") else time.monotonic()
+            if plan_done is not None:
+                keep_plan(plan_file, plan_key, box["plan"])
             for n in box["notes"]:
                 log(n)
-            log(f"planned: {len(scans)} scans, {len(reads)} reads" + (f", {len(fetches)} fetches" if fetch else "")
-                + f" due in {plan_done - planned:.0f}s; running {len(running) + len(adopted)}")
+            log(f"planned: {len(scans)} scans, {len(reads)} reads"
+                + (", fetches next" if box.get("partial") else f", {len(fetches)} fetches" if fetch else "")
+                + f" due in {time.monotonic() - planned:.0f}s; running {len(running) + len(adopted)}")
         fetches = [u for u in fetches if u["paper"] not in stopped]
         busy = {key_of(u) for _, (u, _) in units_running()}
         # A read of an edition read before, waiting only on a new scan, starts

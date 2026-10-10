@@ -11,6 +11,7 @@ python3 - "$REPO/tools" <<'PY'
 import contextlib, io, sys, tempfile, time, urllib.error
 sys.path.insert(0, sys.argv[1])
 import fetch_archive_org_editions as fa
+fa.STALE_CACHE = fa.Path(tempfile.mkdtemp())  # never the real ~/.cache
 fa.RETRY_WAITS = (0, 0, 0)
 calls = []
 def script(*steps):
@@ -421,6 +422,41 @@ check("a dir changed within SETTLED keeps no verdict", fresh not in fa._STALE)
 settle(fresh, os.path.join(lr, IT))
 fa.load_done(lr)
 check("mirror: once settled it is kept", fresh in fa._STALE and lack in fa._STALE)
+# A plan in a fresh process starts from the verdicts the last one saved
+# (save_stale): with every dir unmoved it reads and stats no pages.json.
+def fresh_process():
+    fa._MEMO.clear(); fa._STALE.clear(); fa._STALE_LOADED.clear(); fa.dir_cache._READ.clear()
+before = fa.load_done(lr)
+fresh_process()
+stats.clear()
+reads, real_open = [], open
+def spy_open(p, *a, **k):
+    reads.append(os.fspath(p))
+    return real_open(p, *a, **k)
+os.stat = lambda p, *a, **k: (stats.update([os.fspath(p)]), real_stat(p, *a, **k))[1]
+fa.open = spy_open
+fa.Path.read_text = lambda self, *a, real=fa.Path.read_text, **k: (reads.append(str(self)), real(self, *a, **k))[1]
+try:
+    warm = fa.load_done(lr)
+finally:
+    os.stat = real_stat
+    del fa.open
+    fa.Path.read_text = fa.Path.read_text.__kwdefaults__["real"]
+check("a fresh process with the tree unmoved: the same plan, no pages.json read or stat'd",
+      warm == before and fa._STALE and not [p for p in reads + list(stats) if p.endswith("pages.json")])
+for n in sibs:
+    d = os.path.join(lr, IT, fa.slug_of(IT, n))
+    old = os.stat(d).st_mtime_ns
+    ed(n, [{"leaf": 25, "headings": daily}])
+    resettle(d, old=old)
+fresh_process()
+check("mirror: a fresh process re-checks the editions whose siblings changed",
+      before != {(IT, n) for n in sibs} and fa.load_done(lr) == {(IT, n) for n in sibs})
+fresh_process()
+fa._STALE_VERSION[:] = ["other code"]
+fa.load_stale(lr)
+check("verdicts saved under other code are not loaded", not fa._STALE)
+fa._STALE_VERSION.clear()
 # A plan in a fresh process (a re-exec'd dispatcher, empty _MEMO and _STALE)
 # opens no edition's gzip: they sit on a slow disk, one per done edition.
 for x in ("djvu.xml.gz", "pagetext.json.gz"):
