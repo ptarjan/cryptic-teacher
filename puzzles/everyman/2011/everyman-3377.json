@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Crime writer speaks about that woman losing husband",
     "enumeration": "6"
    },
-   "solution": "SAYERS"
+   "solution": "SAYERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SAYERS",
+    "definitions": [
+     {
+      "text": "Crime writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word goes about another, wrapping round it on both sides"
+     },
+     {
+      "text": "losing husband",
+      "for": "deletion",
+      "note": "husband is abbreviated H in crosswords, and losing it means that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speaks",
+      "gives": "SAYS",
+      "note": "speaks = says"
+     },
+     {
+      "clueFragment": "that woman",
+      "gives": "ER",
+      "note": "that woman is HER; minus H for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAY",
+      "ER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A crime novelist talks about a widow.",
+     "walkthrough": "The 'widow' surface is a decoy: husband is the crossword abbreviation H, struck from the pronoun before it is wrapped.",
+     "definitionFit": "Dorothy L. Sayers wrote the Lord Peter Wimsey detective novels, so she is a famous crime writer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "husband"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,46 @@
     "text": "Corrupt place by underworld river",
     "enumeration": "4"
    },
-   "solution": "STYX"
+   "solution": "STYX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STYX",
+    "definitions": [
+     {
+      "text": "underworld river",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corrupt place",
+      "gives": "STY",
+      "note": "a pigsty, figuratively a place of filth or corruption"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "X",
+      "note": "by as in multiplication, the times sign X"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STY",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone points to a den of vice beside a river of the dead.",
+     "definitionFit": "In Greek myth the Styx is the river souls cross into Hades, the underworld."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 2,
@@ -75,7 +171,39 @@
      }
     ]
    },
-   "solution": "YOUONLYLIVEONCE"
+   "solution": "YOUONLYLIVEONCE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "YOU ONLY LIVE ONCE",
+    "definitions": [
+     {
+      "text": "Saying",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saying contradicted by Ian Fleming?",
+      "note": "surface: a proverb the author of James Bond disagreed with"
+     },
+     {
+      "clueFragment": "Ian Fleming",
+      "note": "Fleming wrote the Bond novel titled with 'twice', which contradicts the well-known saying ending 'once'"
+     }
+    ],
+    "explanation": {
+     "surface": "A proverb that the creator of James Bond would argue with.",
+     "walkthrough": "Fleming's Bond novel is You Only Live Twice, so the saying it contradicts is YOU ONLY LIVE ONCE.",
+     "definitionFit": "The phrase is a common proverb urging people to seize life's chances, so it is a saying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +217,57 @@
     "text": "News agency could make overtures if the top two leave",
     "enumeration": "7"
    },
-   "solution": "REUTERS"
+   "solution": "REUTERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "REUTERS",
+    "definitions": [
+     {
+      "text": "News agency",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "if the top two leave",
+      "for": "deletion",
+      "note": "in a down clue the top is the start, so the first two letters are removed"
+     },
+     {
+      "text": "could make",
+      "for": "anagram",
+      "note": "the remaining letters could make something else when rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overtures",
+      "gives": "ERTURES",
+      "note": "overtures without its first two letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ERTURES",
+       "gives": "REUTERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A press agency might make approaches if its two bosses quit.",
+     "walkthrough": "'The top two' sounds like senior staff, but it means the first two letters of overtures.",
+     "definitionFit": "Reuters is an international news agency founded in London that supplies stories to newspapers worldwide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +287,58 @@
      }
     ]
    },
-   "solution": "CAUGHTON"
+   "solution": "CAUGHTON",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "CAUGHT ON",
+    "definitions": [
+     {
+      "text": "became popular",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear means the word is taken by its sound, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Block of flats",
+      "gives": "CAUGHT",
+      "soundsLike": "COURT",
+      "note": "Court is a common name for a block of flats in Britain; in non-rhotic speech it sounds like the past of catch"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is a standard abbreviation for name"
+     }
+    ],
+    "explanation": {
+     "surface": "An apartment building with a traditional name became fashionable.",
+     "walkthrough": "In British speech, without a sounded R, court and caught are pronounced alike; blocks of flats are often called something Court.",
+     "definitionFit": "To catch on is an idiom for becoming fashionable or widely adopted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Block"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +352,55 @@
     "text": "Ring gossip about note",
     "enumeration": "5"
    },
-   "solution": "ARENA"
+   "solution": "ARENA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARENA",
+    "definitions": [
+     {
+      "text": "Ring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means the first word goes around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gossip",
+      "gives": "ANA",
+      "note": "ana is a collection of anecdotes or gossip about a person"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "RE",
+      "note": "re is the second note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RE",
+      "NA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone telephones to chat about a memo.",
+     "walkthrough": "Ana is a rare literary word for a collection of anecdotes or table talk about a person; 'Ring' looks like a phone call but is the definition.",
+     "definitionFit": "A boxing or circus ring is an arena, an enclosed space for a contest or show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +414,59 @@
     "text": "Complained, having woken up after end of screening",
     "enumeration": "7"
    },
-   "solution": "GROUSED"
+   "solution": "GROUSED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GROUSED",
+    "definitions": [
+     {
+      "text": "Complained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of picks only the final letter of the following word"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "screening",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of screening"
+     },
+     {
+      "clueFragment": "having woken up",
+      "gives": "ROUSED",
+      "note": "roused = woken up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ROUSED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cinemagoer grumbled after dozing off and waking at the film's finish.",
+     "walkthrough": "'After' places the waking word behind the letter taken from screening.",
+     "definitionFit": "To grouse is informal for to grumble or complain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "screening"
+    }
+   }
   },
   {
    "number": 7,
@@ -165,7 +494,59 @@
      }
     ]
    },
-   "solution": "THINONTHEGROUND"
+   "solution": "THINONTHEGROUND",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "THIN ON THE GROUND",
+    "definitions": [
+     {
+      "text": "Few in number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "redeveloped",
+      "for": "anagram",
+      "note": "something redeveloped is rebuilt in a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "then in hot",
+      "gives": "THENINHOT",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "stadium",
+      "gives": "GROUND",
+      "note": "a sports ground is a stadium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THINONTHE",
+      "GROUND"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THENINHOT",
+       "gives": "THINONTHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Attendance was sparse at the newly rebuilt stadium on a hot day.",
+     "definitionFit": "Thin on the ground is an idiom meaning scarce or present only in small numbers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -179,7 +560,54 @@
     "text": "HRH sitting tight in this garment",
     "enumeration": "10"
    },
-   "solution": "NIGHTSHIRT"
+   "solution": "NIGHTSHIRT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NIGHTSHIRT",
+    "definitions": [
+     {
+      "text": "this garment",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tight",
+      "for": "anagram",
+      "note": "tight is slang for drunk, and drunk letters stagger into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "HRH sitting",
+      "gives": "HRHSITTING",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HRHSITTING",
+       "gives": "NIGHTSHIRT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal sits still wearing a particular piece of clothing.",
+     "walkthrough": "'Sitting tight' reads as a phrase, but tight alone is the anagram signal; HRH (His/Her Royal Highness) is fodder.",
+     "definitionFit": "A nightshirt is a long shirt worn in bed, a garment for sleeping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 9,
@@ -207,7 +635,51 @@
      }
     ]
    },
-   "solution": "YOUMUSTBEJOKING"
+   "solution": "YOUMUSTBEJOKING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YOU MUST BE JOKING",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cryptic",
+      "for": "anagram",
+      "note": "cryptic means hidden or encoded, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yes, in UK jumbo, got",
+      "gives": "YESINUKJUMBOGOT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YESINUKJUMBOGOT",
+       "gives": "YOUMUSTBEJOKING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confirms they boarded a jumbo jet in Britain, with a puzzling cross-reference.",
+     "walkthrough": "The definition is 25 across, DON'T MAKE ME LAUGH, another incredulous retort.",
+     "definitionFit": "Both are exclamations of disbelief, telling a speaker their suggestion is absurd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cryptic"
+    }
+   }
   },
   {
    "number": 10,
@@ -221,7 +693,41 @@
     "text": "Huge film",
     "enumeration": "7"
    },
-   "solution": "TITANIC"
+   "solution": "TITANIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TITANIC",
+    "definitions": [
+     {
+      "text": "Huge",
+      "at": 0
+     },
+     {
+      "text": "film",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Huge",
+      "note": "first meaning: gigantic, like the Titans of myth"
+     },
+     {
+      "clueFragment": "film",
+      "note": "second meaning: James Cameron's 1997 blockbuster about the sinking liner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a description of a blockbuster, but the two words are separate meanings.",
+     "definitionFit": "The adjective means enormous in size or power, and it is also the title of a famous movie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -235,7 +741,41 @@
     "text": "Queen featured in Bolivian newspaper",
     "enumeration": "4"
    },
-   "solution": "ANNE"
+   "solution": "ANNE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANNE",
+    "definitions": [
+     {
+      "text": "Queen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featured in",
+      "for": "hidden_word",
+      "note": "featured in says the answer appears within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bolivian newspaper",
+      "gives": "ANNE",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A monarch appears in a South American paper.",
+     "definitionFit": "Anne was Queen of Great Britain from 1702 to 1714."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -249,7 +789,46 @@
     "text": "Entrance for freight vehicles generally",
     "enumeration": "9"
    },
-   "solution": "TRANSPORT"
+   "solution": "TRANSPORT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRANSPORT",
+    "definitions": [
+     {
+      "text": "Entrance",
+      "at": 0
+     },
+     {
+      "text": "freight vehicles generally",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Entrance",
+      "note": "first meaning: as a verb, to delight or carry away with emotion"
+     },
+     {
+      "clueFragment": "freight vehicles generally",
+      "note": "second meaning: the collective term for vehicles that carry goods or people"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Entrance' looks like a noun for a gateway, but it is the verb (en-TRANCE), to enrapture.",
+     "definitionFit": "To transport someone is to fill them with delight; as a noun, the word covers all conveyances collectively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Entrance"
+    }
+   }
   },
   {
    "number": 13,
@@ -263,7 +842,56 @@
     "text": "Monk brought in power-driven tool and portable stove",
     "enumeration": "10"
    },
-   "solution": "SALAMANDER"
+   "solution": "SALAMANDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALAMANDER",
+    "definitions": [
+     {
+      "text": "portable stove",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought in",
+      "for": "container",
+      "note": "brought in means placed inside the next item"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power-driven tool",
+      "gives": "SANDER",
+      "note": "an electric sander for smoothing wood"
+     },
+     {
+      "clueFragment": "Monk",
+      "gives": "LAMA",
+      "note": "a lama is a Tibetan Buddhist monk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "LAMA",
+      "NDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A monk was given an electric tool and a camping stove.",
+     "definitionFit": "A salamander is a portable stove or heater, named after the mythical lizard said to live in fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -277,7 +905,62 @@
     "text": "Deep chasm in one area of former Red Sea state",
     "enumeration": "9"
    },
-   "solution": "ABYSSINIA"
+   "solution": "ABYSSINIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABYSSINIA",
+    "definitions": [
+     {
+      "text": "former Red Sea state",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deep chasm",
+      "gives": "ABYSS",
+      "note": "an abyss is a deep chasm"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABYSS",
+      "IN",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A geographer describes a deep gorge in a former country by the Red Sea.",
+     "walkthrough": "'In' looks like a container signal but is used as written.",
+     "definitionFit": "Abyssinia is the old name for Ethiopia, whose territory once included the Red Sea coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +974,40 @@
     "text": "What can make prelims simpler?",
     "enumeration": "7"
    },
-   "solution": "ANAGRAM"
+   "solution": "ANAGRAM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANAGRAM",
+    "definitions": [
+     {
+      "text": "What can make prelims simpler?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What can make prelims simpler?",
+      "note": "surface: something that makes preliminary exams easier"
+     },
+     {
+      "clueFragment": "prelims simpler",
+      "note": "setter's reading: the letters of the first word rearrange exactly into the second, and the device doing that is the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A student wonders what could make preliminary exams easier.",
+     "walkthrough": "PRELIMS and SIMPLER share the same seven letters; the clue describes the wordplay device itself.",
+     "definitionFit": "A rearrangement of a word's letters into another word is the device the answer names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "prelims"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +1021,43 @@
     "text": "Wife's language",
     "enumeration": "5"
    },
-   "solution": "DUTCH"
+   "solution": "DUTCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUTCH",
+    "definitions": [
+     {
+      "text": "Wife's",
+      "at": 0
+     },
+     {
+      "text": "language",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife's",
+      "note": "first meaning; the clue's 's is short for is"
+     },
+     {
+      "clueFragment": "language",
+      "note": "second meaning: the tongue of the Netherlands"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Wife's' reads as possessive, but it is 'wife is'. 'Old Dutch' is Cockney for a wife, from the music-hall song.",
+     "definitionFit": "Cockney uses the word for a wife, and it is also the national language of the Netherlands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wife's"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1071,48 @@
     "text": "A schoolgirl is wrong",
     "enumeration": "5"
    },
-   "solution": "AMISS"
+   "solution": "AMISS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMISS",
+    "definitions": [
+     {
+      "text": "wrong",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "schoolgirl",
+      "gives": "MISS",
+      "note": "a miss is a girl or young woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MISS"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher declares that a pupil has made a mistake.",
+     "definitionFit": "Amiss is an adjective meaning faulty or not as it should be."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1126,58 @@
     "text": "Speech defect demonstrated by m-me interrupting celebrity",
     "enumeration": "7"
    },
-   "solution": "STAMMER"
+   "solution": "STAMMER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAMMER",
+    "definitions": [
+     {
+      "text": "Speech defect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "something interrupting breaks into the middle of the next word"
+     }
+    ],
+    "linkWords": [
+     "demonstrated by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrity",
+      "gives": "STAR",
+      "note": "a star is a celebrity"
+     },
+     {
+      "clueFragment": "m-me",
+      "gives": "MME",
+      "note": "the hesitant 'me' with its hyphen dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "MME",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous person faltering over 'me' shows a speech problem.",
+     "walkthrough": "The hyphen is ignored, and the faltering m-me in the clue itself illustrates the defect being defined.",
+     "definitionFit": "A stammer is a speech impediment in which sounds are involuntarily repeated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1191,47 @@
     "text": "Paid driver to reveal coat, reportedly",
     "enumeration": "9"
    },
-   "solution": "CHAUFFEUR"
+   "solution": "CHAUFFEUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHAUFFEUR",
+    "definitions": [
+     {
+      "text": "Paid driver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as spoken, so the words count by their sound"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reveal coat",
+      "gives": "CHAUFFEUR",
+      "soundsLike": "SHOW FUR",
+      "note": "reveal = show, and an animal's coat is its fur"
+     }
+    ],
+    "explanation": {
+     "surface": "A hired driver is asked to display his coat.",
+     "definitionFit": "A chauffeur is employed to drive a private car for someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1245,64 @@
     "text": "Tipsy - provided upset in opera",
     "enumeration": "7"
    },
-   "solution": "FIDELIO"
+   "solution": "FIDELIO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FIDELIO",
+    "definitions": [
+     {
+      "text": "opera",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset turns the words upside down, reading them bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tipsy",
+      "gives": "OILED",
+      "note": "oiled is slang for drunk"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "if = provided"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "DELIO"
+     ],
+     "reversals": [
+      {
+       "from": "OILEDIF",
+       "to": "FIDELIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at the opera, slightly drunk, is upset.",
+     "walkthrough": "Both pieces, OILED then IF, are turned upside down together.",
+     "definitionFit": "Fidelio is Beethoven's only opera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tipsy"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1316,43 @@
     "text": "Boy band leader?",
     "enumeration": "9"
    },
-   "solution": "ALEXANDER"
+   "solution": "ALEXANDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALEXANDER",
+    "definitions": [
+     {
+      "text": "Boy",
+      "at": 0
+     },
+     {
+      "text": "band leader?",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "note": "first meaning: a boy's name"
+     },
+     {
+      "clueFragment": "band leader?",
+      "note": "second meaning: in the Irving Berlin song"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Boy band' looks like a pop group, but the clue splits as boy / band leader.",
+     "definitionFit": "It is a common male first name, and Alexander's Ragtime Band is a famous song about the band he leads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1366,42 @@
     "text": "Nobleman's fists",
     "enumeration": "5"
    },
-   "solution": "DUKES"
+   "solution": "DUKES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUKES",
+    "definitions": [
+     {
+      "text": "Nobleman's",
+      "at": 0,
+      "note": "possessive; the apostrophe is dropped in the grid"
+     },
+     {
+      "text": "fists",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nobleman's",
+      "note": "first meaning: belonging to a duke"
+     },
+     {
+      "clueFragment": "fists",
+      "note": "second meaning: slang for fists"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Ignoring the apostrophe is a standard crossword liberty.",
+     "definitionFit": "A duke is a high-ranking peer, and 'dukes' is old slang for the hands used in fighting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1415,49 @@
     "text": "Read about challenge",
     "enumeration": "4"
    },
-   "solution": "DARE"
+   "solution": "DARE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DARE",
+    "definitions": [
+     {
+      "text": "challenge",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests moving around, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Read",
+      "gives": "READ",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "READ",
+       "gives": "DARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone studies a contest or a provocation.",
+     "definitionFit": "A dare is a challenge to do something bold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1471,48 @@
     "text": "Daily spell cut short",
     "enumeration": "4"
    },
-   "solution": "CHAR"
+   "solution": "CHAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHAR",
+    "definitions": [
+     {
+      "text": "Daily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cut short means the last letter is chopped off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spell",
+      "gives": "CHARM",
+      "note": "a charm is a magic spell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A daily period of work was curtailed.",
+     "walkthrough": "'Daily' looks like an adjective but is the noun: in Britain a daily is a cleaning woman who comes in each day, as is a char (charwoman).",
+     "definitionFit": "Char and daily are both British words for a domestic cleaner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Daily"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1540,39 @@
      }
     ]
    },
-   "solution": "DONTMAKEMELAUGH"
+   "solution": "DONTMAKEMELAUGH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DONT MAKE ME LAUGH",
+    "definitions": [
+     {
+      "text": "9 poor jokes --!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "9 poor jokes --!",
+      "note": "surface: a scoffing reaction to weak jokes, after 9's own exclamation"
+     },
+     {
+      "clueFragment": "9",
+      "note": "setter's reading: the answer is a retort matching 9 across, the kind of thing said to a feeble joker"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone groans 'You must be joking' at a comedian's bad material.",
+     "walkthrough": "The dash invites the solver to finish the line, a sarcastic reply to bad jokes that echoes 9 across.",
+     "definitionFit": "The phrase is a sarcastic retort used to dismiss something as absurd or unfunny."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 26,
@@ -465,7 +1592,49 @@
      }
     ]
    },
-   "solution": "RYEGRASS"
+   "solution": "RYEGRASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RYE-GRASS",
+    "definitions": [
+     {
+      "text": "Fodder",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place in East Sussex",
+      "gives": "RYE",
+      "note": "Rye is a small historic town in East Sussex, England"
+     },
+     {
+      "clueFragment": "weed",
+      "gives": "GRASS",
+      "note": "weed and grass are both slang for cannabis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RYE",
+      "GRASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Cattle feed comes from a Sussex town, along with something smokable.",
+     "definitionFit": "Ryegrass is a grass grown widely as pasture and hay for livestock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "weed"
+    }
+   }
   },
   {
    "number": 27,
@@ -479,7 +1648,48 @@
     "text": "Join private after one leaves",
     "enumeration": "6"
    },
-   "solution": "SOLDER"
+   "solution": "SOLDER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOLDER",
+    "definitions": [
+     {
+      "text": "Join",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after one leaves",
+      "for": "deletion",
+      "note": "one is the Roman numeral I, and leaving means it is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "private",
+      "gives": "SOLDIER",
+      "note": "a private is the lowest-ranking soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Enlist as a private once someone else has gone.",
+     "walkthrough": "'Join' looks like enlisting, which fits the private, but it means fusing metal.",
+     "definitionFit": "To solder is to fuse metal parts together with a melted alloy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "private"
+    }
+   }
   }
  ]
 }
