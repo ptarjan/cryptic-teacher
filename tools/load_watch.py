@@ -15,6 +15,10 @@ every child it reaped in the window, but also the pre-window ticks of a child th
 was already running when the window opened; those are known from the first
 snapshot and are subtracted, so nothing is counted twice.
 
+The message leads with what is waiting: runnable threads and busy cores from
+/proc/stat and the CPU pressure stall share, all three VM-wide like the load average
+itself, then the per-process ranking, which sees only this container.
+
 Quiet by design: one wake per 60 minutes unless the top consumer changed, one jsonl
 line per check in load_watch.jsonl beside the state file.
 """
@@ -59,6 +63,18 @@ def read_pressure(proc):
     except (OSError, ValueError, KeyError):
         pass
     return None
+
+
+def read_stat(proc):
+    """Whole-machine busy and total ticks over all CPUs, and runnable threads; None if unreadable."""
+    try:
+        lines = (Path(proc) / "stat").read_text().splitlines()
+        cpu = [int(x) for x in lines[0].split()[1:]]
+        running = next(int(x.split()[1]) for x in lines if x.startswith("procs_running "))
+    except (OSError, IndexError, ValueError, StopIteration):
+        return None
+    idle = cpu[3] + (cpu[4] if len(cpu) > 4 else 0)  # idle + iowait
+    return {"busy": sum(cpu[:8]) - idle, "running": running}
 
 
 def read_proc(proc, pid):
@@ -144,25 +160,37 @@ def charge(a, b, seconds, hz):
 
 def sample(proc, seconds=SAMPLE_SECONDS, hz=None, sleep=time.sleep):
     hz = hz or os.sysconf("SC_CLK_TCK")
-    a = snap(proc)
+    sa, a = read_stat(proc), snap(proc)
     sleep(seconds)
-    b = snap(proc)
+    sb, b = read_stat(proc), snap(proc)
     cores, parent = charge(a, b, seconds, hz)
     states = collections.Counter(p["state"] for p in b.values())
     ranked = sorted(((v, k) for k, v in cores.items() if v >= MIN_CORES), reverse=True)
     return {"ranked": [(round(v, 2), k, parent.get(k)) for v, k in ranked],
             "total": round(sum(cores.values()), 2),
             "R": max(states["R"] - 1, 0),  # this sampler is itself runnable
-            "D": states["D"]}
+            "D": states["D"],
+            # The load average and these two are the whole VM, every container in it;
+            # the ranking sees only this container's processes.
+            "busy": round((sb["busy"] - sa["busy"]) / hz / seconds, 2) if sa and sb else None,
+            "runnable": max(sb["running"] - 1, 0) if sb else None}
 
 
 def message(load5, ncores, s, pressure):
-    rows = [f"{v:.1f} cores {k}" + (f" (parent {par})" if par else "") for v, k, par in s["ranked"][:SHOW]]
-    tail = f"{s['total']:.1f} cores used, {s['R']} running, {s['D']} in D-state"
+    """Lead with what is waiting: a load above the core count means threads queued for a CPU."""
+    head = []
+    if s.get("runnable") is not None:
+        head.append(f"{s['runnable']} threads runnable for {ncores} cores")
     if pressure:
-        tail += f", cpu pressure avg60 {pressure['avg60']:g}%"
+        head.append(f"tasks stalled waiting for CPU {pressure['avg60']:g}% of the last minute")
+    if s.get("busy") is not None:
+        head.append(f"the VM used {s['busy']:.1f} cores, our processes {s['total']:.1f}")
+    else:
+        head.append(f"our processes used {s['total']:.1f} cores")
+    head.append(f"{s['R']} of our processes running, {s['D']} in D-state")
+    rows = [f"{v:.1f} cores {k}" + (f" (parent {par})" if par else "") for v, k, par in s["ranked"][:SHOW]]
     body = ", ".join(rows) if rows else "nothing above noise in the sample"
-    return f"load {load5:g} on {ncores} cores: {body}. {tail}.\n{TASK}"
+    return f"load {load5:g} on {ncores} cores: {'; '.join(head)}. Top consumers: {body}.\n{TASK}"
 
 
 def append_log(path, rec):
@@ -200,6 +228,7 @@ def main(proc="/proc", state_dir=STATE_DIR, ncores=None, now=time.time, sleep=ti
         pressure = read_pressure(proc)
         text = message(load5, ncores, s, pressure)
         rec.update(top=top, R=s["R"], D=s["D"], total=s["total"], pressure=pressure,
+                   busy=s["busy"], runnable=s["runnable"],
                    ranked=s["ranked"][:SHOW])
         recent = "woke_at" in state and now() - state["woke_at"] < REPEAT_SECONDS
         if recent and top == state.get("woke_top"):
