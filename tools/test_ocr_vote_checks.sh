@@ -1292,6 +1292,120 @@ check("a re-lay that parts a laid run-together compound clues hyphenate is held 
 check("mirror: one that parts a laid run of two plain words is not ('ofconmission')",
       None, doubt("Go wrong and out ofconmission", "Go wrong and out of commission"))
 
+# times-15602 8D: 7D's clue and its count "(6;3)." read in ahead of 8D's own.
+seven = {"7-down": ("The main China-Korea Division", None, None)}
+check("a clue read in ahead of another, its count and all, is cut off it (times-15602 8D)",
+      "Covered inside as the tennis court is",
+      oc.run_in("The main China-Korea Division (6;3). Covered inside as the tennis court is", "8-down", seven))
+check("mirror: words before a count no other clue prints stay for bled() to refuse",
+      "Odd words here (6;3). Covered inside",
+      oc.run_in("Odd words here (6;3). Covered inside", "8-down", seven))
+check("bled() refuses a count with ';' and ').' run in mid-clue",
+      True, oc.bled("The main China-Korea Division (6;3). Covered inside") is not None)
+check("mirror: a year in brackets after a comma is the clue's own words",
+      None, oc.bled("After middle age (51), metal on US mobiles"))
+import enumeration as en
+check("a ';' between counts that fill the light is a misread ','", "6,3", en.comma_misread("6;3", 9))
+check("mirror: a ';' whose counts do not fill the light is the paper's (two answers)", "7;8", en.comma_misread("7;8", 7))
+check("a book reprint's marks replace the scan's specks where the words agree (times-15602 15D)",
+      "Reverse some undertaking, as it were",
+      oc.reprint_marked("Reverse, some undertaking, as it were", "Reverse  some  undertaking,  as  it  were"))
+check("the scan's words stand where the book rewords them (times-15602 18D)",
+      "Army takes a long time to get Americans freed",
+      oc.reprint_marked("Army takes a long, time to get Americans freed", "Army takes a long time to get certain prisoners"))
+check("mirror: another clue's reprint changes nothing",
+      "Covered inside as the tennis court is", oc.reprint_marked("Covered inside as the tennis court is", "Neat-sounding passage"))
+# The book's marks vote both ways with the scan's (times-15602 vs book-32043).
+rm = oc.reprint_marked
+check("a clue number the book's reader glued on is not taken ('.15 A blow')",
+      "A blow to the head", rm("A blow to the head", ".15 A blow to the head"))
+check("mirror: the book's marks still clear the scan's speck beside it",
+      "A blow to the head", rm("A blow. to the head", ".15 A blow to the head"))
+check("a run-together word in the book ('Ina') leaves the scan's words",
+      "Bird in a tree", rm("Bird in a tree", "Bird Ina tree"))
+check("mirror: the scan's own run-together is not parted by marks alone",
+      "Bird Ina tree", rm("Bird Ina tree", "Bird in a tree"))
+check("a capital the scan reads mid-clue takes the book's lower case ('To')",
+      "Lift to the top", rm("Lift To the top", "Lift to the top"))
+check("mirror: a capital after a colon stays",
+      "Lift: To the top", rm("Lift: To the top", "Lift: to the top"))
+check("where the paper ends 'Humbug?' and the book 'Humbug!', the paper's stands",
+      "Humbug? Nonsense", rm("Humbug? Nonsense", "Humbug! Nonsense"))
+check("mirror: a speck where the book prints '!' takes the book's",
+      "Humbug! Nonsense", rm("Humbug . Nonsense", "Humbug! Nonsense"))
+check("no space before '?', though the scan has more spaces",
+      "Is this the way?", rm("Is this the way ?", "Is this the way?"))
+check("mirror: nor from the book's space before '?'",
+      "Is this the way?", rm("Is this the way?", "Is this the way ?"))
+check("an unpaired curly quote in the book is no vote: the scan's pair stands",
+      'He said "stop" now', rm('He said "stop" now', "He said \u201cstop now"))
+check("mirror: a paired book quote mends the scan's lost half, spelt straight",
+      "He said 'stop' now", rm("He said stop' now", "He said \u2018stop\u2019 now"))
+check("a dash both prints read between words is the house em dash",
+      "Run \u2014 fast away", rm("Run - fast away", "Run \u2014 fast away"))
+check("mirror: a closed plain hyphen in either stays a hyphen ('20-look')",
+      "A 20-look clue", rm("A 20-look clue", "A 20 \u2014 look clue"))
+check("the book's count where the scan's lost its marks and the totals match (9 -> 5,4)",
+      "5,4", oc.reprint_count("9", "5,4"))
+check("mirror: totals that differ keep the scan's", "9", oc.reprint_count("9", "5,3"))
+check("mirror: a scan count with marks keeps them", "5,4", oc.reprint_count("5,4", "9"))
+
+# A run of spaces ("Toe  so", cryptic-20467 1995) is a join, never the print's.
+check("a run of plain spaces is cut to one, italics moved with it",
+      ("Toe so it", [{"at": 4, "length": 2}]), en.collapse_spaces("Toe  so it", [{"at": 5, "length": 2}]))
+check("mirror: a typeset en space is the setter's and stays",
+      "\u2002\u2002 9", en.collapse_spaces("\u2002\u2002 9")[0])
+check("enumeration.clue builds the clue with one space",
+      "wrong Elvis? Dead right!", en.clue("wrong Elvis?  Dead right! (3,6)")["text"])
+spaced_e = {"clue": {"text": "Toe  so it"}, "annotation": {"definitions": [{"text": "Toe  so", "at": 0}, {"text": "so it", "at": 5}], "hiddenLetter": 8}}
+en.collapse_entry_spaces(spaced_e)
+check("an annotated clue's quoted phrases, definition offsets and hiddenLetter follow its spaces",
+      ("Toe so it", "Toe so", 4, 7), (spaced_e["clue"]["text"], spaced_e["annotation"]["definitions"][0]["text"],
+                            spaced_e["annotation"]["definitions"][1]["at"],
+                            spaced_e["annotation"]["hiddenLetter"]))
+check("corrects() takes a re-read that only cuts a run of spaces", True, fa.corrects("Toe  so it", "Toe so it"))
+check("mirror: nor one that changes marks besides", False, fa.corrects("Toe  so it", "Toe, so it"))
+import edition_commit as ec
+two = {"entries": [{"number": 1, "direction": "across", "clue": {"text": "Toe  so it"}},
+                   {"number": 2, "direction": "down", "clue": {"text": "Plain clue"}}]}
+check("strayed() flags a clue with a run of spaces, so its edition comes due", {"1-across"}, ec.strayed(two))
+check("mirror: spaces=False (the held file's lost lights) leaves it to be collapsed", set(), ec.strayed(two, spaces=False))
+check("collapse_held_spaces cuts the held clue in place", ({"1-across": "Toe so it"}, "Toe so it"),
+      (fa.collapse_held_spaces(two), two["entries"][0]["clue"]["text"]))
+import puzzle_integrity as pi
+gate_new = {"id": "times-1", "source": {"retrievedFrom": "newspaper"},
+            "entries": [{"number": 1, "direction": "across", "clue": {"text": "Toe  so it"}}]}
+flags = []; pi.check_new_spaces(None, gate_new, flags)
+check("the write gate refuses an OCR clue with a run of spaces", 1, len(flags))
+flags = []; pi.check_new_spaces(gate_new, gate_new, flags)
+check("mirror: one the held file already had stays for its re-read", 0, len(flags))
+flags = []; pi.check_new_spaces(None, {**gate_new, "source": {"retrievedFrom": "publisher"}}, flags)
+check("mirror: a publisher feed is collapsed by its filer, not gated", 0, len(flags))
+
+# A held file's count is mended alone, its words unchanged (times-15602 7D).
+def held_count(enum, length=9, group=None):
+    lights = [{"number": 7, "direction": "down", "length": length, "clue": {"text": "The main China-Korea Division", "enumeration": enum}}]
+    if group:
+        lights[0]["group"] = ["7-down", "9-down"]
+        lights.append({"number": 9, "direction": "down", "length": group, "clue": {"text": "See 7"}})
+    return {"entries": lights}
+held = held_count("6;3")
+check("a held ';' whose counts fill the light becomes ',' with its separator (times-15602 7D)",
+      (["7-down"], {"text": "The main China-Korea Division", "enumeration": "6,3", "separators": [{"at": 6, "mark": ","}]}),
+      (fa.book_counted(held, {}), held["entries"][0]["clue"]))
+held = held_count("9")
+check("a held bare count takes the book's marks at the same total", (["7-down"], "5,4"),
+      (fa.book_counted(held, {"7-down": ("The main China-Korea Division", "5,4")}), held["entries"][0]["clue"]["enumeration"]))
+held = held_count("7;8", length=7)
+check("mirror: a ';' that does not fill the light is the paper's", ([], "7;8"), (fa.book_counted(held, {}), held["entries"][0]["clue"]["enumeration"]))
+held = held_count("9")
+check("mirror: a book count at another total changes nothing", [], fa.book_counted(held, {"7-down": ("x", "5,3")}))
+held = held_count("4;5", length=4, group=5)
+fa.book_counted(held, {})
+check("a linked group's count puts a break on the boundary at the earlier light's end",
+      ("4,5", [{"at": 4, "mark": ","}], None), (held["entries"][0]["clue"]["enumeration"], held["entries"][0]["clue"].get("separators"),
+                            held["entries"][1]["clue"].get("separators")))
+
 print(f"FAILS {fails}")
 EOF
 )

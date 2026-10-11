@@ -251,6 +251,9 @@ def build(record, identifier, model, unsolved=False):
         group_ids = groups.get(entry_id(e), [entry_id(e)])
         if group_ids[0] != entry_id(e):
             raise SystemExit(f"{entry_id(e)} carries an enumeration but is a continuation")
+        # A ";" between counts that fill the light is a misread ",".
+        e["enumeration"] = enumeration.comma_misread(
+            e["enumeration"], sum(by_id[i]["length"] for i in group_ids if i in by_id))
         seps.update(separators(group_ids, by_id, e["enumeration"], fill))
 
     out = []
@@ -259,6 +262,8 @@ def build(record, identifier, model, unsolved=False):
         # The clue as the book printed it. A continuation ("See 11") is
         # printed without an enumeration and stays that way.
         line = f"{e['clue']} ({printed})" if printed else e["clue"]
+        # A justified line's runs of spaces ("Author  of  'Crown") are one.
+        line = re.sub(r"[ \t]{2,}", " ", line)
         e["clue"] = enumeration.clue(line, separators=seps.get(entry_id(e)),
                                      missing=not has_words(enumeration.split(line)[0]))
         if groups.get(entry_id(e), [None])[0] == entry_id(e):

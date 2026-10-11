@@ -2052,5 +2052,7 @@ tools/test_fifteensquared_index.sh            do the fifteensquared readers find
                                               posts off the index, without opening every cached
                                               post, and does tools/ft_puzzles.py's budget count
                                               its parse?
+tools/collapse_clue_spaces.py                 one-shot migration (2026-10-11): cut each run of
+                                              spaces in held clue text
 ```
 <!-- LAYOUT-END -->

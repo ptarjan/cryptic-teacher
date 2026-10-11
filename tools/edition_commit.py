@@ -81,13 +81,22 @@ def commit_decided(decided, commit):
     return verdicts
 
 
-def strayed(puzzle):
+def strayed(puzzle, spaces=True):
     """The lights of a puzzle whose clue ocr_clues.stray flags (a doubled
-    word, a stray letter)."""
+    word, a stray letter), and with `spaces` those whose clue holds a run
+    of spaces (spaced): either makes the edition due (inputs)."""
     import ocr_clues
     from groups import entry_id
     return {entry_id(e) for e in puzzle.get("entries") or ()
-            if ocr_clues.stray((e.get("clue") or {}).get("text") or "")}
+            if ocr_clues.stray((e.get("clue") or {}).get("text") or "")} | (spaced(puzzle) if spaces else set())
+
+
+def spaced(puzzle):
+    """The lights of a puzzle whose clue text holds a run of spaces ("Toe
+    so"), which enumeration.collapse_spaces cuts to one."""
+    from groups import entry_id
+    return {entry_id(e) for e in puzzle.get("entries") or ()
+            if "  " in ((e.get("clue") if isinstance(e.get("clue"), dict) else None) or {}).get("text", "")}
 
 
 def held_paths(series, numbers):

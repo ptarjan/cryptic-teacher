@@ -55,8 +55,9 @@ TODAY = date(2026, 10, 5)
 # mutation below also proves forgiving them does not blank out the rest of it.
 # cryptic-24447 holds the corpus's three-plus-light group ALL AND SUN DRY.
 # times-29329 is annotated, so its clue can be edited out from under its annotation.
+# times-15602 is an OCR (newspaper) file, for the checks only those get.
 base = {pid: pi.read_puzzle_file(pi.puzzle_paths.find(pid))
-        for pid in ("cryptic-24104", "cryptic-24447", "times-29329")}
+        for pid in ("cryptic-24104", "cryptic-24447", "times-29329", "times-15602")}
 
 
 def kinds(pid, mutate=None):
@@ -99,6 +100,9 @@ MUTATIONS = {
     # The clue cleaned in place and its annotation left quoting the old words.
     # A known copy of another puzzle, filed under its own id.
     "REPRINT": ("cryptic-24104", lambda p, by: p["source"].update(reprintOf="times-1")),
+    # An OCR channel's ";" whose counts fill the light: a misread "," (7D's
+    # count as the scan read it).
+    "COUNT": ("times-15602", lambda p, by: by["7-down"]["clue"].update(enumeration="6;3")),
     "CURLY": ("cryptic-24104", lambda p, by: by["2-down"]["clue"].update(
         text=by["2-down"]["clue"]["text"] + " \u2018it\u2019s\u2019")),
     "QUOTE": ("times-29329", lambda p, by: by["20-down"]["clue"].update(

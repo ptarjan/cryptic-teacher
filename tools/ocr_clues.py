@@ -1420,6 +1420,38 @@ def run_on(text, lid, laid):
     return text
 
 
+#: A count closing a clue inside another clue's text, the next clue's
+#: capital after it: "The main China-Korea Division (6;3). Covered ...".
+RUN_IN = re.compile(r"\(\s*\d{1,2}(?:\s?[,.;:\-]\s?\d{1,2})*\s*\)[.,;:]?\s+(?=[A-Z\"'\u2018\u201c])")
+
+
+def run_in(text, lid, laid):
+    """`text` (light `lid`'s clue) without another clue read in ahead of
+    it, that clue's count and all (times-15602 8D "The main China-Korea
+    Division (6;3). Covered inside as the tennis court is", 7D's clue and
+    count before 8D's own): the words before a count that print most of
+    another laid clue (`laid`, {light: (text, ...)}) and it them, as
+    run_on() cuts one run on after. A run-in no laid clue prints is left
+    for bled() to refuse. Else `text` as it is."""
+    for m in RUN_IN.finditer(text or ""):
+        head = [w.lower() for w in marked(clean(text[:m.start()])) if w not in MARKS]
+        if len(head) < 2 or sum(map(len, head)) < RUN_ON_LETTERS:
+            continue
+        for k, (t, _, _) in laid.items():
+            theirs = [w for w in marked(clean(t or "")) if w not in MARKS]
+            low = [w.lower() for w in theirs]
+            if k != lid and theirs and prints(align(head, low), head, theirs) \
+                    and prints(align(low, head), low, head):
+                return text[m.end():]
+    return text
+
+
+def runs_in_cut(laid):
+    """`laid` ({light: (text, enum, group)}) with each clue's run-in cut
+    (run_in), each against the others as laid."""
+    return {lid: (run_in(t, lid, laid) if t else t, e, g) for lid, (t, e, g) in laid.items()}
+
+
 def elsewhere_run(end, side, clues):
     """Whether `end` (a reading's words past a clue's end, `side` "end", or
     before its start, "start") opens (or closes) on RUN_ON_LETTERS letters
@@ -2739,19 +2771,168 @@ def join_split(clue, others):
             k = m.start(3)
 
 
+#: A word of a clue for reprint_marked(): letters and digits, an
+#: apostrophe inside ("Alice's", "o'clock").
+MARK_WORD = re.compile(r"[^\W_]+(?:['\u2019][^\W_]+)*")
+#: Marks that print one way or another in one print: dashes, quotes.
+MARK_SPELLINGS = (("\u2014", "-"), ("\u2013", "-"), ("\u2019", "'"), ("\u2018", "'"),
+                  ("\u201c", '"'), ("\u201d", '"'), ("''", '"'))
+
+
+def gaps(text):
+    """(words, gaps) of a clue: gaps[i] the marks and spaces before
+    words[i], gaps[-1] those after the last word; runs of spaces as one."""
+    words, out, at = [], [], 0
+    for m in MARK_WORD.finditer(text):
+        words.append(m.group())
+        out.append(re.sub(r"\s+", " ", text[at:m.start()]))
+        at = m.end()
+    out.append(re.sub(r"\s+", " ", text[at:]))
+    return words, out
+
+
+def straight_quotes(gap):
+    """`gap` with its quotes spelt the house way, straight ("'", '"'), as
+    the scans' clues print them: a book's curly quote taken into a scan's
+    clue would mix the two spellings."""
+    for a, b in MARK_SPELLINGS[2:]:
+        gap = gap.replace(a, b)
+    return gap
+
+
+def mark_spelling(gap):
+    for a, b in MARK_SPELLINGS:
+        gap = gap.replace(a, b)
+    return gap
+
+
+#: Quote pairs a book prints curly; one left unpaired in a book's clue is a
+#: speck or a quote the book's reader lost the other half of.
+CURLY_PAIRS = (("\u201c", "\u201d", '"'), ("\u2018", "\u2019", "'"))
+#: Marks that end a sentence: two prints of one clue that end it apart
+#: ("Humbug?" and "Humbug!") are the paper's and the book's own wording.
+SENTENCE_ENDS = frozenset("?!")
+#: A space before one of these is a reader's: "way ?" is "way?".
+SPACE_BEFORE = re.compile(r"[ \t]+(?=[?!,;:]|\.(?!\.))")
+
+
+def unpaired_quotes(gaps_):
+    """The quote marks (CURLY_PAIRS) a clue's gaps hold unpaired: for each
+    pair whose opening and closing counts differ, its three spellings."""
+    joined = "".join(gaps_)
+    return "".join(o + c + s for o, c, s in CURLY_PAIRS if joined.count(o) != joined.count(c))
+
+
+def dash_voted(mine, theirs):
+    """The house dash " \u2014 " for a gap the two prints both read as a
+    dash between words, spaced or an em/en dash in each; a hyphen ("-")
+    where one print closes up a plain hyphen ("20-look", a light named in
+    the clue); else None."""
+    def dash(g):
+        bare = g.strip()
+        return bare in ("-", "--", "\u2013", "\u2014") and (bare != "-" and bare != "--" or g != bare)
+    if dash(mine) and dash(theirs):
+        return " \u2014 "
+    marks = {mine.strip(), theirs.strip()}
+    if "-" in {mine, theirs} and marks <= {"-", "--", "\u2013", "\u2014"}:
+        return "-"
+    return None
+
+
+def reprint_marked(text, reprint):
+    """`text` (a clue voted off a newspaper scan) with the marks and spaces
+    between its words voted with `reprint` (the same clue read off a book's
+    reprint, a second, cleaner print), wherever the two print the same
+    words either side. The book's marks stand over the scan's specks: a
+    stray stop, quote or middle dot, a spurious comma ("Reverse, some"), a
+    mangled ellipsis, a lost dash. The scan's stand over the book's own
+    slips: an unpaired curly quote, and where both end a sentence apart
+    ("Humbug?" and "Humbug!") the paper's wording. The words stay the
+    scan's (a glued clue number ".15 A blow", a run-together "Ina"; where
+    the book's editor rewords, the marks around them too), save a word the
+    scan capitalises mid-clue that the book prints in lower case ("To").
+    A dash both read between words is the house dash " \u2014 "
+    (dash_voted); one mark spelt two ways keeps the scan's spelling; of two
+    spacings the one with more spaces stands, and no space goes before
+    ? ! , ; : or a stop. With too few words shared (another clue), `text`
+    as it is."""
+    if not text or not reprint:
+        return text
+    words, mine = gaps(text)
+    theirs_words, theirs = gaps(reprint)
+    low, theirs_low = [w.lower() for w in words], [w.lower() for w in theirs_words]
+    sm = SequenceMatcher(None, low, theirs_low, autojunk=False)
+    if not words or sum(b.size for b in sm.get_matching_blocks()) * 2 < max(len(words), len(theirs_words)):
+        return text
+    same = {}
+    for a, b, size in sm.get_matching_blocks():
+        for k in range(size):
+            same[a + k] = b + k
+    loose = unpaired_quotes(theirs)
+    out = list(mine)
+    for i in range(len(words) + 1):
+        # The gap before word i lies between words i-1 and i: both shared,
+        # and side by side in the reprint too (the ends: the one word).
+        left = i == 0 or (i - 1 in same)
+        right = i == len(words) or i in same
+        if not (left and right):
+            continue
+        j = same[i] if i < len(words) else len(theirs_words)
+        if i and i < len(words) and same[i - 1] != j - 1:
+            continue
+        if i == len(words) and same.get(i - 1) != len(theirs_words) - 1:
+            continue
+        if i == 0 and j != 0:
+            continue
+        theirs_gap = theirs[j]
+        if i == 0:
+            theirs_gap = theirs_gap.lstrip()
+        if i == len(words):
+            theirs_gap = theirs_gap.rstrip()
+        if loose:
+            # The book's unpaired quote is no vote: the scan's quotes stand.
+            theirs_gap = "".join(ch for ch in theirs_gap if ch not in loose) + "".join(
+                ch for ch in out[i].replace("''", '"') if mark_spelling(ch) in loose)
+        ends, theirs_ends = SENTENCE_ENDS & set(out[i]), SENTENCE_ENDS & set(theirs_gap)
+        if ends and theirs_ends and ends != theirs_ends:
+            continue
+        dash = dash_voted(out[i], theirs_gap) if 0 < i < len(words) else None
+        a, b = mark_spelling(out[i]).replace(" ", ""), mark_spelling(theirs_gap).replace(" ", "")
+        if dash:
+            out[i] = dash
+        elif a != b or theirs_gap.count(" ") > out[i].count(" "):
+            out[i] = straight_quotes(theirs_gap)
+        if 0 < i < len(words) and words[i] != theirs_words[j] and words[i].lower() == theirs_words[j] \
+                and words[i][:1].isupper() and not re.search(r"[.?!:\"'\u201c\u2018(\u2014-]\s*$", out[i]):
+            words[i] = theirs_words[j]
+    return SPACE_BEFORE.sub("", "".join(g + w for g, w in zip(out, words + [""])))
+
+
+def reprint_count(enum, reprint_enum):
+    """The count `enum` (a clue's off a newspaper scan) voted with
+    `reprint_enum` (a book reprint's of the same clue): the book's where
+    the scan's has lost its marks and the two total alike ("9" for "5,4");
+    else the scan's."""
+    if enum and reprint_enum and re.fullmatch(r"\d+", enum.strip()) and re.search(r"\D", reprint_enum) \
+            and re.fullmatch(r"\d+(?:[,\-]\d+)+", reprint_enum) \
+            and sum(map(int, re.findall(r"\d+", reprint_enum))) == int(enum):
+        return reprint_enum
+    return enum
+
+
 def cut_at_count(text, enum):
     """A clue's text cut at its own count (`enum`) inside it: what follows
     is the next clue's specks or start, or the page's text, run on. The
     count's bracket may read as a full stop or be lost ("spotty (6. The
     solution", "outs (5 _ Concise")."""
-    for m in re.finditer(r"\s*\((\d{1,2}(?:\s*[,\-.]\s*\d{1,2})*)(?:\)|\.|(?=\s))\W*\S", text or ""):
+    for m in re.finditer(r"\s*\((\d{1,2}(?:\s*[,;\-.]\s*\d{1,2})*)(?:\)|\.|(?=\s))\W*\S", text or ""):
         if enum and re.sub(r"\D+", ",", m.group(1)) == re.sub(r"\D+", ",", enum):
             return text[:m.start()].rstrip()
     return text
 
 
 #: A count: "(15)", "(5,4)", "(3-2)".
-COUNT_IN = r"\(\d{1,2}(?:\s*[,\-.]\s*\d{1,2})*\)"
+COUNT_IN = r"\(\d{1,2}(?:\s*[,;\-.]\s*\d{1,2})*\)"
 #: A clue number opening a capitalised clue, not a cross-reference ("1
 #: Down", "No. 1 Court", "e.g. 10 Downing Street").
 NEXT_CLUE = r"\s+\d{1,2}\.?\s+(?!(?:Down|Across|Ac|Dn)\b)[A-Z\"'][a-z]"
@@ -2780,12 +2961,14 @@ NUMBERED_IN = re.compile(
 #: The page's own words read into a clue: a pointer to another page's
 #: puzzle ("Concise crossword, page 22"), a notice of a solution ("The
 #: solution to the Collins Competition", "Prize Puzzle No 18,178"), or a
-#: count with text after it ("(41. Times Two", "(5 _ Concise"), not an
-#: aside the clue closes ("(2 Hen. IV)").
+#: count with text after it ("(41. Times Two", "(5 _ Concise", the
+#: previous clue's "(6;3). Covered" run in ahead), not an aside the clue
+#: closes ("(2 Hen. IV)").
 PAGE_TEXT = re.compile(r"\bcr\w{4,8}d\W{1,3}(?:page|p)\W{0,2}\d"
                        r"|\bpuzzle\s+no\W{0,2}\s*\d"
                        r"|\bsolution\s+(?:to|of)\s+(?:\S+\s+){0,4}(?:puzzle|competition)\b"
-                       r"|(?-i:\(\s*\d{1,2}(?:[,.\-]\s?\d{1,2})*[).]?\s+(?:_|[A-Z])(?![^()]*\)))", re.IGNORECASE)
+                       r"|(?-i:\(\s*\d{1,2}(?:\s?[,.;:\-]\s?\d{1,2})*(?:\)[.,;:]?|\.)?\s+(?:_|[A-Z])(?![^()]*\)))",
+                       re.IGNORECASE)
 
 
 #: A list's heading read into a clue: "ACROSS" or "DOWN" in capitals,
@@ -3046,6 +3229,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
         text = trimmed(text, lid, voted=False)
         # Voted whole, the other clue's words in the other readings confirm it.
         text = run_on(text, lid, laid)
+        text = run_in(text, lid, laid)
         # A list counts up, so only a number above this clue's own can be
         # the next clue run on, and with the grid known, only one naming a
         # light: "Map 10 E" in 24 across is the clue's text.

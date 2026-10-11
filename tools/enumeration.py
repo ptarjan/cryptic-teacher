@@ -142,10 +142,80 @@ def split(printed):
     return (text or None), enum
 
 
+def _space_map(text):
+    """(text with each run of plain spaces cut to one, [new offset of each
+    old offset 0..len(text)])."""
+    at, out = [], []
+    for i, ch in enumerate(text):
+        at.append(len(out))
+        if not (ch == " " and i and text[i - 1] == " "):
+            out.append(ch)
+    at.append(len(out))
+    return "".join(out), at
+
+
+def collapse_spaces(text, italics=()):
+    """`text` with each run of plain spaces inside it ("Toe  so") cut to
+    one, and its italic spans moved to match: (text, italics). Only U+0020:
+    a typeset space (en, em, thin) is the setter's (cryptic-30059's 14-down
+    is five en spaces). A run of spaces is a feed's or a reader's join,
+    never the print's."""
+    italics = list(italics or ())
+    if not text or "  " not in text:
+        return text, italics
+    text_now, at = _space_map(text)
+    def to(i):
+        return at[max(0, min(i, len(text)))]
+    moved = [{**r, "at": to(r["at"]), "length": to(r["at"] + r["length"]) - to(r["at"])} for r in italics]
+    return text_now, [r for r in moved if r["length"] > 0]
+
+
+def _spaces_cut(value):
+    """`value` (an annotation) with a run of plain spaces in each string
+    in it cut to one."""
+    if isinstance(value, str):
+        return _space_map(value)[0] if "  " in value else value
+    if isinstance(value, dict):
+        return {k: _spaces_cut(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_spaces_cut(v) for v in value]
+    return value
+
+
+def collapse_entry_spaces(entry):
+    """Cut each run of spaces in `entry`'s clue text to one, in place, and
+    move what points into the text with it: italics, and its annotation's
+    definition offsets and hiddenLetter. Whether anything changed."""
+    clue = entry.get("clue") if isinstance(entry.get("clue"), dict) else None
+    text = (clue or {}).get("text")
+    if not text or "  " not in text:
+        return False
+    clue["text"], italics = collapse_spaces(text, clue.get("italics"))
+    if "italics" in clue:
+        clue["italics"] = italics
+    _, at = _space_map(text)
+    note = entry.get("annotation") if isinstance(entry.get("annotation"), dict) else None
+    if note:
+        # The phrases it quotes ("willing  consent") are the clue's words,
+        # spaced as the clue now is (fetch_puzzle.drop_stale_annotations
+        # drops an annotation quoting words its clue lacks).
+        entry["annotation"] = note = _spaces_cut(note)
+        for d in note.get("definitions") or ():
+            if isinstance(d, dict) and isinstance(d.get("at"), int):
+                d["at"] = at[max(0, min(d["at"], len(text)))]
+        if isinstance(note.get("hiddenLetter"), int):
+            note["hiddenLetter"] = at[max(0, min(note["hiddenLetter"], len(text)))]
+    return True
+
+
 def clue(printed, **keys):
     """A clue object from a printed line plus its other keys (separators,
-    italics, missing, ...); empty values are left out."""
+    italics, missing, ...); empty values are left out. A run of spaces in
+    the words is cut to one (collapse_spaces)."""
     text, enumeration = split(printed)
+    text, italics = collapse_spaces(text, keys.get("italics"))
+    if "italics" in keys:
+        keys = {**keys, "italics": italics}
     out = {"text": text, "enumeration": enumeration, **keys}
     out["italics"] = clip_italics(out.get("italics"), text)
     return {k: v for k, v in out.items() if v not in (None, "", [], {}, False)}
@@ -160,6 +230,26 @@ def clip_italics(italics, text):
         if end > r["at"]:
             out.append({"at": r["at"], "length": end - r["at"]})
     return out
+
+
+def comma_misread(enum, cells):
+    """`enum` with each ";" read as the "," it is when its counts fill
+    `cells` (the light's, or its linked lights' together): a scan's comma
+    with a speck under it ("6;3" over YELLOW SEA's nine squares). A ";"
+    whose counts do not fill the light is the paper's own, two answers'
+    counts in one bracket (the Guardian's "7;8" over a 7-letter light when
+    each clue leads to two solutions), and stays."""
+    if enum and ";" in enum and cells and sum(counts(enum)) == cells:
+        return enum.replace(";", ",")
+    return enum
+
+
+def semicolon_misread(clue, cells):
+    """The enumeration of `clue` when it holds a ";" that comma_misread()
+    reads as a comma, else None: the write gate refuses it, as no word
+    break is drawn for a ";" (separators)."""
+    enum = clue.get("enumeration")
+    return enum if comma_misread(enum, cells) != enum else None
 
 
 def printed(clue):
