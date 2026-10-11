@@ -155,7 +155,8 @@ sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).enco
 # kept on the branch salvage/<job>-<time> and the room is told; the reset then
 # goes ahead.
 _ct_salvage() {
-  local tree="$1" job="$2" c failed=0 msg lock out
+  local tree="$1" job="$2" c failed=0 msg lock out tools
+  tools="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
   # A run killed mid-git leaves its lock, and mid-rebase its rebase: the
   # lease says no run of this job is live, so one older than a minute is dead.
   lock="$(git -C "$tree" rev-parse --git-dir)/index.lock"
@@ -174,10 +175,12 @@ _ct_salvage() {
   # by tools/push_puzzle_commit.sh, which leaves the local commit) is skipped.
   for c in $(git -C "$tree" cherry origin/master HEAD | sed -n 's/^+ //p'); do
     msg=$(git -C "$tree" log -1 --format=%s "$c")
-    (cd "$tree" && bash tools/push_puzzle_commit.sh "$c" >/dev/null 2>&1)
+    # This start's code, not the dropped tree's: a fix to the push lands
+    # on the run it is for.
+    (cd "$tree" && bash "$tools/push_puzzle_commit.sh" "$c" >/dev/null 2>&1)
     case $? in
       0) echo "WORKTREE: salvaged and pushed: $msg" >&2 ;;
-      3) if out=$(cd "$tree" && python3 tools/scan_queue.py conflicted "$c" 2>&1); then
+      3) if out=$(cd "$tree" && python3 "$tools/scan_queue.py" conflicted "$c" 2>&1); then
            echo "WORKTREE: $msg conflicts with origin/master; origin's version stands and the source is read again: $out" >&2
          else
            failed=1
