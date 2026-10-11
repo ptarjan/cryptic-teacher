@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,50 @@
     "text": "As the PM, I replaced fellow on board",
     "enumeration": "8"
    },
-   "solution": "SHIPMATE"
+   "solution": "SHIPMATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHIPMATE",
+    "definitions": [
+     {
+      "text": "fellow on board",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaced",
+      "for": "anagram",
+      "note": "things replaced are put back in new positions, so the letters before it are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As the PM, I",
+      "gives": "ASTHEPMI",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASTHEPMI",
+       "gives": "SHIPMATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prime minister is swapped out for a crewmate on board a vessel.",
+     "definitionFit": "A shipmate is a companion who sails with you, a fellow aboard the same vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "PM"
+    }
+   }
   },
   {
    "number": 2,
@@ -52,7 +98,46 @@
      }
     ]
    },
-   "solution": "HEARHEAR"
+   "solution": "HEARHEAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HEAR HEAR",
+    "definitions": [
+     {
+      "text": "statement of agreement",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pronounced",
+      "for": "homophone",
+      "note": "pronounced means spoken, so the word for present is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repeatedly pronounced present",
+      "gives": "HEARHEAR",
+      "soundsLike": "HERE HERE",
+      "note": "present means here, said twice"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone keeps saying they are present, which comes across as agreeing.",
+     "definitionFit": "The phrase is the traditional cry of approval in Parliament and at meetings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +157,49 @@
      }
     ]
    },
-   "solution": "PARALLELBARS"
+   "solution": "PARALLELBARS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARALLEL BARS",
+    "definitions": [
+     {
+      "text": "gymnastic event",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Similar",
+      "gives": "PARALLEL",
+      "note": "parallel means alike or corresponding"
+     },
+     {
+      "clueFragment": "pieces of music",
+      "gives": "BARS",
+      "note": "bars are measures of music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARALLEL",
+      "BARS"
+     ]
+    },
+    "explanation": {
+     "surface": "Matching tunes are chosen to accompany a gymnastics routine.",
+     "definitionFit": "The parallel bars are a men's artistic gymnastics apparatus and the event performed on it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "music"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +213,66 @@
     "text": "Joyce, for example, has car in US and runs over husband",
     "enumeration": "6"
    },
-   "solution": "AUTHOR"
+   "solution": "AUTHOR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AUTHOR",
+    "definitions": [
+     {
+      "text": "Joyce, for example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over here means covering, so the car word sits around the husband"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car in US",
+      "gives": "AUTO",
+      "note": "auto is American for a car"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUT",
+      "H",
+      "O",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "James Joyce owns an American car and drives over his partner.",
+     "walkthrough": "H goes inside AUTO, then R follows; the clue's order of pieces is loose, so the parse rests on the definition.",
+     "definitionFit": "James Joyce, the Irish novelist of Ulysses, is an example of a writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joyce"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +286,53 @@
     "text": "Moderate support for work of artist finally reduced by pound",
     "enumeration": "4"
    },
-   "solution": "EASE"
+   "solution": "EASE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EASE",
+    "definitions": [
+     {
+      "text": "Moderate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally reduced by",
+      "for": "deletion",
+      "note": "reduced at the end by means the closing letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support for work of artist",
+      "gives": "EASEL",
+      "note": "an easel holds a painter's canvas"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L is the abbreviation for a pound sterling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter's stand costs a pound less than expected.",
+     "walkthrough": "The L removed from the end of EASEL is the pound.",
+     "definitionFit": "To ease pain or tension is to moderate it, as a verb meaning lessen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Moderate"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +346,57 @@
     "text": "Finishing courses, upset and under pressure",
     "enumeration": "8"
    },
-   "solution": "STRESSED"
+   "solution": "STRESSED",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STRESSED",
+    "definitions": [
+     {
+      "text": "under pressure",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned upside down, which in a down clue reads the word from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finishing courses",
+      "gives": "DESSERTS",
+      "note": "desserts are the courses that end a meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRESSED"
+     ],
+     "reversals": [
+      {
+       "from": "DESSERTS",
+       "to": "STRESSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone completing their training is anxious and tense.",
+     "walkthrough": "'Finishing courses' suggests education; it is the end of a dinner.",
+     "definitionFit": "Stressed means strained or tense, as someone under pressure feels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "courses"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +410,44 @@
     "text": "Capital on the Continent used by entrepreneur, often",
     "enumeration": "4"
    },
-   "solution": "EURO"
+   "solution": "EURO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EURO",
+    "definitions": [
+     {
+      "text": "Capital on the Continent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used by",
+      "for": "hidden_word",
+      "note": "used by means the answer is taken from inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entrepreneur, often",
+      "gives": "EURO",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A businessman often spends money in mainland Europe.",
+     "walkthrough": "Capital is money, not a city.",
+     "definitionFit": "The euro is the currency, the money or capital, of most countries of mainland Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +461,58 @@
     "text": "Chic, getting tangled up with that small talk",
     "enumeration": "8"
    },
-   "solution": "CHITCHAT"
+   "solution": "CHITCHAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHITCHAT",
+    "definitions": [
+     {
+      "text": "small talk",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting tangled up",
+      "for": "anagram",
+      "note": "things tangled up are knotted and disordered, so the letters are mixed together"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chic",
+      "gives": "CHIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "that",
+      "gives": "THAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHICTHAT",
+       "gives": "CHITCHAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stylish person gets caught up in idle gossip.",
+     "definitionFit": "Chitchat is light informal conversation, a synonym for idle chatter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Chic"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +526,55 @@
     "text": "Everybody used their brains — not reaching conclusions, however",
     "enumeration": "8"
    },
-   "solution": "ALTHOUGH"
+   "solution": "ALTHOUGH",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ALTHOUGH",
+    "definitions": [
+     {
+      "text": "however",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not reaching conclusions",
+      "for": "deletion",
+      "note": "failing to reach the end means each of the two words stops short of its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everybody",
+      "gives": "ALL",
+      "note": "everybody is all"
+     },
+     {
+      "clueFragment": "used their brains",
+      "gives": "THOUGHT",
+      "note": "to use one's brains is to think"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "THOUGH"
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone thought hard but nobody got to an answer.",
+     "walkthrough": "Both words lose their last letters, giving ALTHOUGH.",
+     "definitionFit": "Although and however are both conjunctions or adverbs introducing a contrast or concession."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conclusions"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +588,51 @@
     "text": "Accompanied by piano, song for man and wife, for instance",
     "enumeration": "4"
    },
-   "solution": "PAIR"
+   "solution": "PAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAIR",
+    "definitions": [
+     {
+      "text": "man and wife, for instance",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "Accompanied by",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, softly"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "AIR",
+      "note": "an air is a tune or song"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A married couple sings a duet at the piano.",
+     "walkthrough": "The song is accompanied by the piano, so P comes before AIR.",
+     "definitionFit": "A married couple is an example of a pair, two people joined together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +652,39 @@
      }
     ]
    },
-   "solution": "ATHLETESFOOT"
+   "solution": "ATHLETESFOOT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ATHLETES FOOT",
+    "definitions": [
+     {
+      "text": "Sportsman's complaint? Trainer can cover it up",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sportsman's complaint?",
+      "note": "surface reading: a grumble voiced by a player, perhaps against a coach"
+     },
+     {
+      "clueFragment": "Trainer can cover it up",
+      "note": "setter's reading: a trainer is a sports shoe, which hides a fungal infection of the foot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The trainer looks like a coach hushing up a scandal, but it is a running shoe covering an itchy foot condition.",
+     "definitionFit": "The condition is a fungal skin infection of the feet, named for sportspeople who catch it in changing rooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trainer"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +698,65 @@
     "text": "Amiability as short day closes without punishment for pupil",
     "enumeration": "12"
    },
-   "solution": "FRIENDLINESS"
+   "solution": "FRIENDLINESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FRIENDLINESS",
+    "definitions": [
+     {
+      "text": "Amiability",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the word for closes goes around the punishment"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short day",
+      "gives": "FRI",
+      "note": "Fri is the short form of Friday"
+     },
+     {
+      "clueFragment": "closes",
+      "gives": "ENDS",
+      "note": "closes means ends"
+     },
+     {
+      "clueFragment": "punishment for pupil",
+      "gives": "LINES",
+      "note": "lines are sentences a pupil is made to write out as punishment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRI",
+      "END",
+      "LINES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher is friendly as a brief Friday ends with no detention.",
+     "walkthrough": "'Without' reads as 'lacking' but means outside. Lines are a traditional school punishment.",
+     "definitionFit": "Friendliness is the quality of being warm and amiable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +770,65 @@
     "text": "Announced poor marks, then was concerned about learner",
     "enumeration": "8"
    },
-   "solution": "DECLARED"
+   "solution": "DECLARED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DECLARED",
+    "definitions": [
+     {
+      "text": "Announced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for concerned goes around the learner"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poor marks",
+      "gives": "DE",
+      "note": "D and E are low grades in an exam"
+     },
+     {
+      "clueFragment": "was concerned",
+      "gives": "CARED",
+      "note": "to care is to be concerned"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "C",
+      "L",
+      "ARED"
+     ]
+    },
+    "explanation": {
+     "surface": "Bad exam results were made public, worrying the student.",
+     "walkthrough": "Poor marks are low exam grades, and learner is the L of a learner driver's plate.",
+     "definitionFit": "To declare something is to announce it formally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "marks"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +842,63 @@
     "text": "French writer turned up damaging information, as follows",
     "enumeration": "5"
    },
-   "solution": "DUMAS"
+   "solution": "DUMAS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DUMAS",
+    "definitions": [
+     {
+      "text": "French writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "turned up means flipped upward, which in a down clue reads the word from the bottom"
+     }
+    ],
+    "linkWords": [
+     "follows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damaging information",
+      "gives": "MUD",
+      "note": "mud is scandal or smears, as in mudslinging"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUM",
+      "AS"
+     ],
+     "reversals": [
+      {
+       "from": "MUD",
+       "to": "DUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French author unearths scandal, described below.",
+     "definitionFit": "Alexandre Dumas was the French novelist who wrote The Three Musketeers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +912,44 @@
     "text": "Pain streaker runs without",
     "enumeration": "6"
    },
-   "solution": "STITCH"
+   "solution": "STITCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STITCH",
+    "definitions": [
+     {
+      "text": "Pain",
+      "at": 0
+     },
+     {
+      "text": "streaker runs without",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pain",
+      "note": "first meaning: a sharp pain in the side"
+     },
+     {
+      "clueFragment": "streaker runs without",
+      "note": "second meaning: a streaker runs without a ... on, completing the idiom"
+     }
+    ],
+    "explanation": {
+     "surface": "A streaker sprints off, perhaps in pain from the exertion.",
+     "walkthrough": "The second half is a fill-in-the-blank: someone naked is 'without a stitch on', a single bit of sewn clothing.",
+     "definitionFit": "A stitch is both a sudden side ache from running and a single loop of thread in clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +963,43 @@
     "text": "Kind of examination, of the type that dentist does",
     "enumeration": "4"
    },
-   "solution": "ORAL"
+   "solution": "ORAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ORAL",
+    "definitions": [
+     {
+      "text": "Kind of examination",
+      "at": 0
+     },
+     {
+      "text": "of the type that dentist does",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind of examination",
+      "note": "first meaning: a spoken test"
+     },
+     {
+      "clueFragment": "of the type that dentist does",
+      "note": "second meaning: relating to the mouth"
+     }
+    ],
+    "explanation": {
+     "surface": "A dentist conducts a certain kind of check-up.",
+     "definitionFit": "The adjective means both spoken, as in a viva test, and relating to the mouth, a dentist's domain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "examination"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1013,54 @@
     "text": "Players together after part of cricket match? It's not clear",
     "enumeration": "8"
    },
-   "solution": "OVERCAST"
+   "solution": "OVERCAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERCAST",
+    "definitions": [
+     {
+      "text": "It's not clear",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the word for players together behind the cricket part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of cricket match",
+      "gives": "OVER",
+      "note": "an over is a set of six balls bowled from one end in cricket"
+     },
+     {
+      "clueFragment": "Players together",
+      "gives": "CAST",
+      "note": "the cast is the full company of actors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "CAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket team meets after part of the game, unsure of the result.",
+     "walkthrough": "Players looks sporting next to cricket, but it means actors.",
+     "definitionFit": "An overcast sky is cloudy, the opposite of clear weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Players"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1074,57 @@
     "text": "In short spell, I had easily dominated",
     "enumeration": "5"
    },
-   "solution": "TIMID"
+   "solution": "TIMID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TIMID",
+    "definitions": [
+     {
+      "text": "easily dominated",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short is cut down, so the word for spell loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spell",
+      "gives": "TIME",
+      "note": "a spell is a period of time"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd is the contraction of I had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIM",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits that for a brief period they were a pushover.",
+     "definitionFit": "A timid person lacks confidence and so is readily pushed around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spell"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1138,64 @@
     "text": "Negotiate with a couple of partners in area",
     "enumeration": "8"
    },
-   "solution": "TRANSACT"
+   "solution": "TRANSACT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TRANSACT",
+    "definitions": [
+     {
+      "text": "Negotiate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means the preceding pieces sit inside the word for area"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "couple of partners",
+      "gives": "NS",
+      "note": "North and South are partners at bridge"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "TRACT",
+      "note": "a tract is an area of land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "ANS",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Two business partners bargain in a region.",
+     "walkthrough": "In bridge the four players are named by compass points, and N and S play as partners.",
+     "definitionFit": "To transact is to conduct or negotiate a piece of business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partners"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1209,50 @@
     "text": "Cold-blooded animal's current temperature",
     "enumeration": "4"
    },
-   "solution": "NEWT"
+   "solution": "NEWT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEWT",
+    "definitions": [
+     {
+      "text": "Cold-blooded animal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "NEW",
+      "note": "current in the sense of latest, new"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A reptile's body temperature is being measured right now.",
+     "walkthrough": "'Current' tempts toward electricity (AC, I), but here it means up to date.",
+     "definitionFit": "A newt is an amphibian, and amphibians are cold-blooded creatures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1266,50 @@
     "text": "Haphazardly wore drab set of clothes",
     "enumeration": "8"
    },
-   "solution": "WARDROBE"
+   "solution": "WARDROBE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WARDROBE",
+    "definitions": [
+     {
+      "text": "set of clothes",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Haphazardly",
+      "for": "anagram",
+      "note": "haphazardly means without order or plan, so the letters are scattered into a new sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wore drab",
+      "gives": "WOREDRAB",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WOREDRAB",
+       "gives": "WARDROBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone carelessly dressed in dull clothes.",
+     "definitionFit": "A wardrobe can mean a person's whole collection of clothes, not just the cupboard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drab"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1323,65 @@
     "text": "Mistakes in text are holding sailor back",
     "enumeration": "6"
    },
-   "solution": "ERRATA"
+   "solution": "ERRATA",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ERRATA",
+    "definitions": [
+     {
+      "text": "Mistakes in text",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means keeping inside, so the sailor goes within the word are"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the whole combination is read in the reverse direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "tar is an old word for a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERRATA"
+     ],
+     "reversals": [
+      {
+       "from": "ATARRE",
+       "to": "ERRATA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A proofreader finds errors in a text about a seaman.",
+     "walkthrough": "Tar is an old nickname for a sailor; the reversal applies to the whole combination after the insertion.",
+     "definitionFit": "Errata is the Latin plural for errors, used for a list of printing mistakes in a book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sailor"
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1401,44 @@
      }
     ]
    },
-   "solution": "SMALLFRY"
+   "solution": "SMALLFRY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SMALL FRY",
+    "definitions": [
+     {
+      "text": "People of little importance",
+      "at": 0
+     },
+     {
+      "text": "school of the future",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People of little importance",
+      "note": "first meaning: insignificant people"
+     },
+     {
+      "clueFragment": "school of the future?",
+      "note": "second meaning: young fish, which will one day form a school of adult fish"
+     }
+    ],
+    "explanation": {
+     "surface": "Unimportant people are told they are the future of the school.",
+     "walkthrough": "School here is a shoal of fish, not a place of learning; fry are newly hatched fish.",
+     "definitionFit": "The phrase is an idiom for unimportant people, and literally means little young fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "school"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1452,46 @@
     "text": "Get out of carriage, say, that's on fire",
     "enumeration": "6"
    },
-   "solution": "ALIGHT"
+   "solution": "ALIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALIGHT",
+    "definitions": [
+     {
+      "text": "Get out of carriage",
+      "at": 0
+     },
+     {
+      "text": "on fire",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "say",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get out of carriage",
+      "note": "first meaning: to step down from a vehicle"
+     },
+     {
+      "clueFragment": "on fire",
+      "note": "second meaning: burning"
+     }
+    ],
+    "explanation": {
+     "surface": "Passengers are told to leave a carriage that is burning.",
+     "definitionFit": "The word is both a verb for stepping off a train and an adjective meaning burning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carriage"
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1511,63 @@
      }
     ]
    },
-   "solution": "CROSSSECTION"
+   "solution": "CROSSSECTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CROSS-SECTION",
+    "definitions": [
+     {
+      "text": "Sample of people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "silly means foolish or muddled, so the letters of notices are jumbled"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "irritated",
+      "gives": "CROSS",
+      "note": "cross means annoyed"
+     },
+     {
+      "clueFragment": "notices",
+      "gives": "NOTICES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "SECTION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTICES",
+       "gives": "SECTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Members of the public are annoyed by foolish signs.",
+     "definitionFit": "A cross-section is a representative sample drawn from all parts of a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notices"
+    }
+   }
   },
   {
    "number": 24,
@@ -412,7 +1581,49 @@
     "text": "Finishes off solo in total disarray, just and no more",
     "enumeration": "4"
    },
-   "solution": "ONLY"
+   "solution": "ONLY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ONLY",
+    "definitions": [
+     {
+      "text": "just and no more",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finishes off",
+      "for": "letter_selection",
+      "note": "finishes means endings, so the closing letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "solo in total disarray",
+      "gives": "ONLY",
+      "select": "last",
+      "note": "the last letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A solo performer ends up in complete chaos.",
+     "walkthrough": "'Disarray' looks like an anagram signal but is just one of the four words supplying a final letter.",
+     "definitionFit": "Only means merely, nothing beyond what is stated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disarray"
+    }
+   }
   },
   {
    "number": 25,
@@ -426,7 +1637,46 @@
     "text": "Amusing person, such as joker",
     "enumeration": "4"
    },
-   "solution": "CARD"
+   "solution": "CARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARD",
+    "definitions": [
+     {
+      "text": "Amusing person",
+      "at": 0
+     },
+     {
+      "text": "such as joker",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amusing person",
+      "note": "first meaning: an eccentric, funny individual"
+     },
+     {
+      "clueFragment": "such as joker",
+      "note": "second meaning: a joker belongs to a pack of playing ..."
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The joker seems to describe the amusing person, but it is the extra card in a deck.",
+     "definitionFit": "A card is old slang for a witty character, and also a playing card, of which the joker is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "joker"
+    }
+   }
   },
   {
    "number": 26,
@@ -440,7 +1690,59 @@
     "text": "College, from middle of fifteenth century",
     "enumeration": "4"
    },
-   "solution": "ETON"
+   "solution": "ETON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ETON",
+    "definitions": [
+     {
+      "text": "College",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "middle of means only the central letter of the nine-letter word is kept"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fifteenth",
+      "gives": "E",
+      "select": "middle",
+      "note": "the fifth of nine letters"
+     },
+     {
+      "clueFragment": "century",
+      "gives": "TON",
+      "note": "a ton is a hundred, as a century is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "A college dates from the mid-1400s.",
+     "walkthrough": "The surface is true: Eton College was founded in 1440. 'Fifteenth century' looks like one phrase but splits into two pieces.",
+     "definitionFit": "Eton College is the famous English public school near Windsor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "century"
+    }
+   }
   },
   {
    "number": 27,
@@ -454,7 +1756,68 @@
     "text": "Sincere changes, inserting line that moderates report",
     "enumeration": "8"
    },
-   "solution": "SILENCER"
+   "solution": "SILENCER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SILENCER",
+    "definitions": [
+     {
+      "text": "that moderates report",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "changes means the letters of sincere are altered into a new order"
+     },
+     {
+      "text": "inserting",
+      "for": "container",
+      "note": "inserting means putting the line inside the rearranged letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sincere",
+      "gives": "SINCERE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "L",
+      "ENCER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SINCERE",
+       "gives": "SIENCER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An honest person changes, adding a line that tones down a written account.",
+     "walkthrough": "Report here is the bang of a gun, not a document.",
+     "definitionFit": "A silencer is a device fitted to a gun barrel to muffle the noise of the shot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 28,
@@ -468,7 +1831,54 @@
     "text": "Legal document about trial regarded as awful",
     "enumeration": "8"
    },
-   "solution": "DETESTED"
+   "solution": "DETESTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DETESTED",
+    "definitions": [
+     {
+      "text": "regarded as awful",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the legal document wraps around the trial"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Legal document",
+      "gives": "DEED",
+      "note": "a deed is a legal document"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "TEST",
+      "note": "a trial is a test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "TEST",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A contract concerning a court case was thought terrible.",
+     "definitionFit": "To detest something is to loathe it, so it is regarded as awful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trial"
+    }
+   }
   }
  ]
 }
