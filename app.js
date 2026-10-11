@@ -6843,14 +6843,23 @@
   let pickable = null;
   function pickerPuzzles() {
     if (pickable) return pickable;
+    // A book's reprint row carries the book's year instead of a date.
     const reprints = (INDEX.reprints || []).filter((r) => BY_ID[r.reprintOf])
-      .map((r) => Object.assign({}, BY_ID[r.reprintOf], {
-        id: r.id, series: r.series, number: r.number, date: r.date, name: r.name,
-        reprintOf: r.reprintOf }));
+      .map((r) => {
+        const row = Object.assign({}, BY_ID[r.reprintOf], {
+          id: r.id, series: r.series, number: r.number, name: r.name, reprintOf: r.reprintOf });
+        delete row.date; delete row.year;
+        if (r.date !== undefined) row.date = r.date;
+        if (r.year !== undefined) row.year = r.year;
+        return row;
+      });
+    // The index's order: newest day (a year is its 1 January), then highest number.
+    const day = (p) => p.date || (p.year !== undefined ? `${p.year}-01-01` : "");
+    const before = (r, p) => day(r) > day(p) || (day(r) === day(p) && r.number > p.number);
     pickable = [];
     let i = 0;
     INDEX.puzzles.forEach((p) => {
-      while (i < reprints.length && reprints[i].date > (p.date || "")) pickable.push(reprints[i++]);
+      while (i < reprints.length && before(reprints[i], p)) pickable.push(reprints[i++]);
       pickable.push(p);
     });
     pickable.push(...reprints.slice(i));
@@ -7288,8 +7297,10 @@
     const p = BY_ID[id];
     return (REPRINTS_OF[id] || []).map((r) => {
       const when = puzzleDate(p).words;
-      return `${thePaper(r.series, "The")} printed this as ${displayNumber(r)} on ${puzzleDate(r).words}: `
-        + `it is the ${p.name}${when ? `, from ${thePaper(p.series, "the")} of ${when}` : ""}.`;
+      // A book has no paper of its own (INDEX.papers says ""): it is named by its number.
+      const lead = r.year !== undefined ? `Reprinted as ${displayNumber(r)} (${r.year})`
+        : `${thePaper(r.series, "The")} printed this as ${displayNumber(r)} on ${puzzleDate(r).words}`;
+      return `${lead}: it is the ${p.name}${when ? `, from ${thePaper(p.series, "the")} of ${when}` : ""}.`;
     }).join(" ");
   }
 

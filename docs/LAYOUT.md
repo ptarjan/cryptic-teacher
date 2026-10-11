@@ -2028,7 +2028,10 @@ tools/test_blocks_surplus.sh                  when a clue's blocks give too many
                                               none too few, the warning names the single-block
                                               edits that take exactly the surplus away
 tools/test_reprints.js                        a paper that reprints another's puzzle is listed,
-                                              and every way in opens the original
+                                              and every way in opens the original; a book
+                                              puzzle renamed to the newspaper puzzle it
+                                              reprints stays listed and counted in its book at
+                                              its own number and year
 tools/gale_arrived.py                         mark a Gale download arrived on the checklists
                                               within seconds of it landing
 tools/deleted_paths.py                        the commit that last deleted a path, read from a

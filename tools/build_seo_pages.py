@@ -882,11 +882,12 @@ def series_path(series):
 
 def reprint_rows(idx):
     """A row per reprint (the index's `reprints`) whose original has answers:
-    the original's row under the reprinting paper's series, number, date and
-    name, so it lists under that paper and links to the original's pages."""
+    the original's row under the reprinting paper's series, number, date (or
+    a book's year) and name, so it lists under that paper and links to the
+    original's pages."""
     by_id = {p["id"]: p for p in idx["puzzles"]}
-    return [dict(by_id[r["reprintOf"]], series=r["series"], number=r["number"],
-                 date=r["date"], name=r["name"])
+    return [{**{k: v for k, v in by_id[r["reprintOf"]].items() if k not in ("date", "year")},
+             **{k: r[k] for k in ("series", "number", "date", "year", "name") if k in r}}
             for r in idx.get("reprints", ())
             if by_id.get(r["reprintOf"], {}).get("hasSolutions")]
 
@@ -894,9 +895,14 @@ def reprint_rows(idx):
 def listings(idx):
     """{series: {year: [rows' puzzles, newest first]}}, busiest series first,
     newest year first, undated last. A reprinting paper is listed by its
-    reprint rows."""
+    reprint rows, each in its place by the index's order (newest day, then the
+    cryptic, then highest number), so a book's reprint sits at its number."""
     out = {}
-    for p in idx["puzzles"] + reprint_rows(idx):
+    rows = idx["puzzles"] + reprint_rows(idx)
+    rows.sort(key=lambda p: (series_meta.puzzle_day(p) or date.min,
+                             (p.get("series") or "cryptic") == "cryptic", p["number"]),
+              reverse=True)
+    for p in rows:
         if p.get("hasSolutions"):
             s, y = listing_key(p)
             out.setdefault(s, {}).setdefault(y, []).append(p)
