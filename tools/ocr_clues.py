@@ -1702,10 +1702,12 @@ def relay_doubt(clue, text, out, printed):
     if words and out[0].islower() and laid and key_letters(laid[0]) != words[0]:
         return "starts lower-case"
     keyed = [key_letters(w) for w in out.split()]
-    sm = SequenceMatcher(None, [key_letters(t) for t in laid], keyed, autojunk=False)
+    laid_keys = [key_letters(t) for t in laid]
+    sm = SequenceMatcher(None, laid_keys, keyed, autojunk=False)
     for op, i1, i2, _, _ in sm.get_opcodes():
         if op == "delete" and 0 < i1 and i2 < len(laid) and any(
-                is_word(t.strip(STRIP)) and key_letters(t) not in keyed for t in laid[i1:i2]):
+                is_word(t.strip(STRIP)) and keyed.count(key_letters(t)) < laid_keys.count(key_letters(t))
+                for t in laid[i1:i2]):
             return "lost " + " ".join(laid[i1:i2])
     hit = [i for i, t in enumerate(laid) if key_letters(t) in words or len(key_letters(t)) > 2 and any(
         similar(key_letters(t), w) >= 0.5 or len(w) > 2 and w.replace("'", "") in key_letters(t) for w in words)]
