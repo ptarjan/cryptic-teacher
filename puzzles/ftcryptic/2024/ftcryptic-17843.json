@@ -24,6 +24,9 @@
   "date": "2024-09-16",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,55 @@
     "text": "Thinly populated section at the outset: do detailed analysis",
     "enumeration": "6"
    },
-   "solution": "SPARSE"
+   "solution": "SPARSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPARSE",
+    "definitions": [
+     {
+      "text": "Thinly populated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "the outset of a word is its opening, so only the leading letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "section",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of section"
+     },
+     {
+      "clueFragment": "do detailed analysis",
+      "gives": "PARSE",
+      "note": "to parse a sentence is to analyse it grammatically in detail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PARSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A survey of a sparsely inhabited district begins with close study.",
+     "definitionFit": "Sparse describes something scattered thinly, as a population spread over a wide area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "section"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +102,59 @@
     "text": "Person of note's quantity of money, we hear — big offer delights you at first",
     "enumeration": "8"
    },
-   "solution": "SOMEBODY"
+   "solution": "SOMEBODY",
+   "annotation": {
+    "type": [
+     "homophone",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SOMEBODY",
+    "definitions": [
+     {
+      "text": "Person of note",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so a word that sounds the same is wanted"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points at the opening of each word, so the leading letters are taken"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quantity of money",
+      "gives": "SOME",
+      "soundsLike": "SUM",
+      "note": "a sum is an amount of money"
+     },
+     {
+      "clueFragment": "big offer delights you",
+      "gives": "BODY",
+      "select": "first",
+      "note": "first letters of big, offer, delights and you"
+     }
+    ],
+    "explanation": {
+     "surface": "A celebrity's fee is rumoured to be a generous offer that will delight you.",
+     "definitionFit": "Being a somebody means being important or well known, a person of some standing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +168,55 @@
     "text": "Improve image of broadcast before British race",
     "enumeration": "8"
    },
-   "solution": "AIRBRUSH"
+   "solution": "AIRBRUSH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRBRUSH",
+    "definitions": [
+     {
+      "text": "Improve image of",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is an abbreviation for British"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "RUSH",
+      "note": "to rush is to race"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "B",
+      "RUSH"
+     ]
+    },
+    "explanation": {
+     "surface": "A TV channel polishes its image ahead of a British sporting race.",
+     "definitionFit": "To airbrush a photograph is to retouch it so that it looks better."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +230,53 @@
     "text": "Discarded small piece? Not right",
     "enumeration": "4"
    },
-   "solution": "SHED"
+   "solution": "SHED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SHED",
+    "definitions": [
+     {
+      "text": "Discarded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not right",
+      "for": "deletion",
+      "note": "not right means the abbreviation for right is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small piece",
+      "gives": "SHRED",
+      "note": "a shred is a tiny scrap"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A small part was thrown away because it was wrong.",
+     "definitionFit": "Shed is a past participle meaning cast off, as a snake discards its skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +290,67 @@
     "text": "Significant, the man's to appear ultimately in charge",
     "enumeration": "8"
    },
-   "solution": "HISTORIC"
+   "solution": "HISTORIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HISTORIC",
+    "definitions": [
+     {
+      "text": "Significant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points at the final position, so only the last letter of the word before is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the man's",
+      "gives": "HIS",
+      "note": "possessive of he"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "appear",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of appear"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the standard abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIS",
+      "TO",
+      "R",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A man is set to emerge in the end as the leader, a momentous event.",
+     "definitionFit": "A historic event is one important enough to be remembered in history."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "appear"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +364,67 @@
     "text": "Mysterious place, blini prepared formerly inside",
     "enumeration": "12"
    },
-   "solution": "INEXPLICABLE"
+   "solution": "INEXPLICABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INEXPLICABLE",
+    "definitions": [
+     {
+      "text": "Mysterious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "food that is prepared has been worked over, so the letters are reworked into a new order"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means placed within, so the word for formerly goes into the mix"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place, blini",
+      "gives": "PLACEBLINI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "formerly",
+      "gives": "EX",
+      "note": "ex means former or formerly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "EX",
+      "PLICABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PLACEBLINI",
+       "gives": "INPLICABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange restaurant where Russian pancakes used to be made on the premises.",
+     "walkthrough": "Blini are small Russian pancakes.",
+     "definitionFit": "Inexplicable means impossible to explain, which makes something mysterious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +438,55 @@
     "text": "Maybe eleven in the morning, note at the beginning",
     "enumeration": "4"
    },
-   "solution": "TEAM"
+   "solution": "TEAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEAM",
+    "definitions": [
+     {
+      "text": "Maybe eleven",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the beginning",
+      "for": "charade",
+      "note": "at the beginning means this piece is placed in front of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is a note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "am is the abbreviation for the morning hours"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Eleven in the morning, perhaps, with a reminder note to start.",
+     "walkthrough": "'eleven in the morning' looks like a time; eleven is a cricket or football side.",
+     "definitionFit": "A cricket or football side has eleven players, so eleven is an example of a team."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eleven"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +500,61 @@
     "text": "Respond angrily referring to flipping left-winger!",
     "enumeration": "6"
    },
-   "solution": "RETORT"
+   "solution": "RETORT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RETORT",
+    "definitions": [
+     {
+      "text": "Respond angrily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "referring to",
+      "gives": "RE",
+      "note": "re means concerning or referring to"
+     },
+     {
+      "clueFragment": "left-winger",
+      "gives": "TROT",
+      "note": "Trot is short for Trotskyist, a left-winger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TORT"
+     ],
+     "reversals": [
+      {
+       "from": "TROT",
+       "to": "TORT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone snaps back at a lefty who keeps changing position.",
+     "walkthrough": "'flipping' reads as a mild British expletive, as in 'that flipping lefty'.",
+     "definitionFit": "To retort is to make a sharp, angry reply."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +568,56 @@
     "text": "Restriction on movement of dog? Not many in support",
     "enumeration": "6"
    },
-   "solution": "CURFEW"
+   "solution": "CURFEW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CURFEW",
+    "definitions": [
+     {
+      "text": "Restriction on movement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in support",
+      "for": "charade",
+      "note": "in a down answer, a support sits underneath, so this piece goes after the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     },
+     {
+      "clueFragment": "Not many",
+      "gives": "FEW",
+      "note": "few means not many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR",
+      "FEW"
+     ]
+    },
+    "explanation": {
+     "surface": "Should dogs be confined at night? Few people back the idea.",
+     "definitionFit": "A curfew is an order keeping people indoors during set hours, so it limits their movement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +631,47 @@
     "text": "Try to sell old German currency (and French)?",
     "enumeration": "6"
    },
-   "solution": "MARKET"
+   "solution": "MARKET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARKET",
+    "definitions": [
+     {
+      "text": "Try to sell",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old German currency",
+      "gives": "MARK",
+      "note": "the Deutschmark, replaced by the euro"
+     },
+     {
+      "clueFragment": "and French",
+      "gives": "ET",
+      "note": "et is French for and"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARK",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about whether a trader would hawk obsolete marks and francs.",
+     "walkthrough": "'and French' looks like a second currency, francs; it means the French word for 'and'.",
+     "definitionFit": "To market a product is to promote it in order to sell it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +685,44 @@
     "text": "Where drink may be found, stop jogging?",
     "enumeration": "8"
    },
-   "solution": "DECANTER"
+   "solution": "DECANTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DECANTER",
+    "definitions": [
+     {
+      "text": "Where drink may be found",
+      "at": 0
+     },
+     {
+      "text": "stop jogging",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where drink may be found",
+      "note": "first meaning: a glass vessel for serving wine or spirits"
+     },
+     {
+      "clueFragment": "stop jogging",
+      "note": "second, whimsical meaning: de- undoes a word"
+     }
+    ],
+    "explanation": {
+     "surface": "A runner hints that the pub is the place to quit jogging.",
+     "walkthrough": "The question mark flags the joke reading: a canter is a horse's easy pace, and the prefix de- reverses it.",
+     "definitionFit": "A decanter is the stoppered glass bottle that wine or port is poured into before serving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jogging"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +736,53 @@
     "text": "Warning hindmost name change is needed",
     "enumeration": "12"
    },
-   "solution": "ADMONISHMENT"
+   "solution": "ADMONISHMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADMONISHMENT",
+    "definitions": [
+     {
+      "text": "Warning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "a change alters the order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "is needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hindmost name",
+      "gives": "HINDMOSTNAME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HINDMOSTNAME",
+       "gives": "ADMONISHMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that the last name on a list must be altered.",
+     "definitionFit": "An admonishment is a reprimand or caution, a warning against bad conduct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +796,41 @@
     "text": "Put up with tedious person",
     "enumeration": "4"
    },
-   "solution": "BORE"
+   "solution": "BORE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BORE",
+    "definitions": [
+     {
+      "text": "Put up with",
+      "at": 0
+     },
+     {
+      "text": "tedious person",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put up with",
+      "note": "first meaning: past tense of bear, to tolerate"
+     },
+     {
+      "clueFragment": "tedious person",
+      "note": "second meaning: someone dull and tiresome"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tolerated a tiresome companion.",
+     "definitionFit": "Bore is the past tense of bear, to endure, and also a noun for a dull person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +844,69 @@
     "text": "Fitting to include editor on return as expert",
     "enumeration": "5"
    },
-   "solution": "ADEPT"
+   "solution": "ADEPT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ADEPT",
+    "definitions": [
+     {
+      "text": "expert",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on return",
+      "for": "reversal",
+      "note": "something on its return comes back the opposite way, so the editor abbreviation runs backwards"
+     },
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include means to take something inside, so one word goes within another"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fitting",
+      "gives": "APT",
+      "note": "apt means suitable or fitting"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the usual abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DE",
+      "PT"
+     ],
+     "reversals": [
+      {
+       "from": "ED",
+       "to": "DE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It seems right that a returning editor should be taken on as a specialist.",
+     "definitionFit": "Adept means highly skilled, which is what an expert is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fitting"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +920,56 @@
     "text": "End of street, one in France? Correct",
     "enumeration": "4"
    },
-   "solution": "TRUE"
+   "solution": "TRUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRUE",
+    "definitions": [
+     {
+      "text": "Correct",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which is all that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of street"
+     },
+     {
+      "clueFragment": "one in France",
+      "gives": "RUE",
+      "note": "one refers back to street; the French for street is rue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks whether a French address at the end of a road is right.",
+     "walkthrough": "'one' looks like UN, French for one; here it stands for 'a street'.",
+     "definitionFit": "True and correct are synonyms meaning accurate, in accordance with fact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +983,41 @@
     "text": "Pay special attention to where tennis is played",
     "enumeration": "5"
    },
-   "solution": "COURT"
+   "solution": "COURT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COURT",
+    "definitions": [
+     {
+      "text": "Pay special attention to",
+      "at": 0
+     },
+     {
+      "text": "where tennis is played",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pay special attention to",
+      "note": "first meaning: to woo or seek the favour of"
+     },
+     {
+      "clueFragment": "where tennis is played",
+      "note": "second meaning: the marked playing area for tennis"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests watching the ball; the first half means wooing someone.",
+     "definitionFit": "To court someone is to woo them with attention, and a court is also a tennis playing surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1031,45 @@
     "text": "Back part of boat having austere appearance",
     "enumeration": "5"
    },
-   "solution": "STERN"
+   "solution": "STERN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STERN",
+    "definitions": [
+     {
+      "text": "Back part of boat",
+      "at": 0
+     },
+     {
+      "text": "austere",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "having",
+     "appearance"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Back part of boat",
+      "note": "first meaning: the rear of a vessel"
+     },
+     {
+      "clueFragment": "austere",
+      "note": "second meaning: severe and strict in manner or look"
+     }
+    ],
+    "explanation": {
+     "surface": "The rear of a vessel looks plain and severe.",
+     "definitionFit": "The stern is the rear of a ship, and stern also describes a grim, unsmiling severity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1083,72 @@
     "text": "Record keepers, amazingly stoic with logs I'd studied from the start",
     "enumeration": "12"
    },
-   "solution": "DISCOLOGISTS"
+   "solution": "DISCOLOGISTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DISCOLOGISTS",
+    "definitions": [
+     {
+      "text": "Record keepers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the start",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, so only that one is taken"
+     },
+     {
+      "text": "amazingly",
+      "for": "anagram",
+      "note": "something amazing defies expectation, so the letters end up in a surprising new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stoic",
+      "gives": "STOIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "logs I'd",
+      "gives": "LOGSID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "studied",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of studied"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STOICLOGSIDS",
+       "gives": "DISCOLOGISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Archivists calmly sit with logbooks they have pored over from the beginning.",
+     "walkthrough": "'Record keepers' suggests archivists; the records are gramophone ones.",
+     "definitionFit": "Discologists study and collect gramophone records, so they keep records in the musical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1168,59 @@
      }
     ]
    },
-   "solution": "TAILCOAT"
+   "solution": "TAILCOAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAIL COAT",
+    "definitions": [
+     {
+      "text": "part of arrangement put on formally?",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheers",
+      "gives": "TA",
+      "note": "ta is British slang for thanks"
+     },
+     {
+      "clueFragment": "the Italian",
+      "gives": "IL",
+      "note": "il is Italian for the"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "IL",
+      "CO",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "Toasting an Italian company at a formal arrangement.",
+     "walkthrough": "'Cheers' here means thanks, not a toast. The definition is cryptic: an outfit put on for formal events is an arrangement of clothes.",
+     "definitionFit": "A tailcoat is part of formal evening dress, worn with white tie on very formal occasions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cheers"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1234,45 @@
     "text": "Maltese maybe I calumniate",
     "enumeration": "8"
    },
-   "solution": "ISLANDER"
+   "solution": "ISLANDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISLANDER",
+    "definitions": [
+     {
+      "text": "Maltese maybe",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "calumniate",
+      "gives": "SLANDER",
+      "note": "to calumniate is to slander"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SLANDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses to defaming a person from Malta, perhaps.",
+     "definitionFit": "Malta is an island nation, so a Maltese person is an example of an islander."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1292,40 @@
      }
     ]
    },
-   "solution": "ORBITALROADS"
+   "solution": "ORBITALROADS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ORBITAL ROADS",
+    "definitions": [
+     {
+      "text": "They go round where many people live",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They go round where many people live",
+      "note": "surface reading: people doing the rounds of a crowded neighbourhood, like visitors or postmen"
+     },
+     {
+      "clueFragment": "They go round where many people live",
+      "note": "setter's reading: routes that encircle a city, carrying traffic around it"
+     }
+    ],
+    "explanation": {
+     "surface": "Canvassers or delivery workers make circuits of a densely populated area.",
+     "walkthrough": "London's M25 is the classic British example of a motorway encircling a big city.",
+     "definitionFit": "Ring motorways circle large towns and cities, so they literally travel around densely inhabited places."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1339,57 @@
     "text": "Key centre of west headland",
     "enumeration": "6"
    },
-   "solution": "ESCAPE"
+   "solution": "ESCAPE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ESCAPE",
+    "definitions": [
+     {
+      "text": "Key",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a four-letter word is its middle pair, which alone is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "west",
+      "gives": "ES",
+      "select": "middle",
+      "note": "middle two letters of west"
+     },
+     {
+      "clueFragment": "headland",
+      "gives": "CAPE",
+      "note": "a cape is a headland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "CAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A vital promontory in the middle of the west coast.",
+     "walkthrough": "'Key' looks like an adjective meaning important; it is the Esc key on a computer keyboard.",
+     "definitionFit": "Escape is the name of a keyboard key, labelled Esc, so it is an example of a key."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1403,48 @@
     "text": "Inducement of vehicle? Twaddle",
     "enumeration": "6"
    },
-   "solution": "CARROT"
+   "solution": "CARROT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARROT",
+    "definitions": [
+     {
+      "text": "Inducement",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "Twaddle",
+      "gives": "ROT",
+      "note": "rot means nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "ROT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dismisses a car sales incentive as nonsense.",
+     "definitionFit": "A carrot is an incentive or reward dangled to encourage action, as in carrot and stick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1458,46 @@
     "text": "Second horse's unexpected difficulty",
     "enumeration": "4"
    },
-   "solution": "SNAG"
+   "solution": "SNAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SNAG",
+    "definitions": [
+     {
+      "text": "unexpected difficulty",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "NAG",
+      "note": "a nag is an old horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A racehorse finishing second runs into trouble.",
+     "definitionFit": "A snag is a hidden obstacle or problem that crops up unexpectedly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1511,42 @@
     "text": "Country by Pacific unpleasantly cold, it's said",
     "enumeration": "5"
    },
-   "solution": "CHILE"
+   "solution": "CHILE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHILE",
+    "definitions": [
+     {
+      "text": "Country by Pacific",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "what is said is spoken, so the sound of the words counts rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unpleasantly cold",
+      "gives": "CHILE",
+      "soundsLike": "CHILLY",
+      "note": "chilly means unpleasantly cold"
+     }
+    ],
+    "explanation": {
+     "surface": "A traveller remarks that a coastal nation is unpleasantly cold.",
+     "definitionFit": "Chile is the long South American nation running down the Pacific coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1560,54 @@
     "text": "Able to go around island",
     "enumeration": "4"
    },
-   "solution": "ELBA"
+   "solution": "ELBA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ELBA",
+    "definitions": [
+     {
+      "text": "island",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go around",
+      "for": "reversal",
+      "note": "going around means turning about to face the other way, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Able",
+      "gives": "ABLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELBA"
+     ],
+     "reversals": [
+      {
+       "from": "ABLE",
+       "to": "ELBA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is free to tour an island.",
+     "walkthrough": "Elba is the Mediterranean island where Napoleon was exiled; the palindrome 'Able was I ere I saw Elba' plays on the same pair.",
+     "definitionFit": "Elba is an Italian island off the Tuscan coast, so it is an example of an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1621,53 @@
     "text": "Formerly in abeyance, I overlooked",
     "enumeration": "4"
    },
-   "solution": "ONCE"
+   "solution": "ONCE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ONCE",
+    "definitions": [
+     {
+      "text": "Formerly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooked",
+      "for": "deletion",
+      "note": "something overlooked is left out, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in abeyance",
+      "gives": "ONICE",
+      "note": "on ice means put on hold, suspended"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits a matter that used to be shelved was ignored.",
+     "definitionFit": "Once as an adverb means at some time in the past, which is what formerly means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooked"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1681,41 @@
     "text": "Defend ourselves? Not entirely grim!",
     "enumeration": "4"
    },
-   "solution": "DOUR"
+   "solution": "DOUR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DOUR",
+    "definitions": [
+     {
+      "text": "grim",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not entirely",
+      "for": "hidden_word",
+      "note": "not entirely means only part of the phrase is used, a run of letters inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Defend ourselves",
+      "gives": "DOUR",
+      "note": "found across the end of defend and the start of ourselves"
+     }
+    ],
+    "explanation": {
+     "surface": "A rueful question about self-defence that is only half grim.",
+     "definitionFit": "Dour describes a severe, gloomy, unsmiling manner, which is grim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -441,7 +1729,65 @@
     "text": "Musician, a rapper originally, with Glasgow player?",
     "enumeration": "8"
    },
-   "solution": "ARRANGER"
+   "solution": "ARRANGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ARRANGER",
+    "definitions": [
+     {
+      "text": "Musician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally refers to where a word begins, so only its first letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rapper",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of rapper"
+     },
+     {
+      "clueFragment": "Glasgow player",
+      "gives": "RANGER",
+      "note": "a player for Rangers, the Glasgow football club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "RANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician who started out rapping now plays football in Glasgow.",
+     "walkthrough": "Rangers is one of Glasgow's two big football clubs, so a Glasgow player is a Ranger.",
+     "definitionFit": "An arranger is a musician who adapts a composition for particular instruments or voices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 29,
@@ -461,7 +1807,57 @@
      }
     ]
    },
-   "solution": "NOGOOD"
+   "solution": "NOGOOD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NO GOOD",
+    "definitions": [
+     {
+      "text": "worthless",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sign of approval",
+      "gives": "NOD",
+      "note": "a nod signals agreement"
+     },
+     {
+      "clueFragment": "sticky stuff",
+      "gives": "GOO",
+      "note": "goo is sticky muck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "GOO",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Approving of something gummy is pointless.",
+     "definitionFit": "Something no good is useless, of no value at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sign"
+    }
+   }
   },
   {
    "number": 30,
@@ -475,7 +1871,49 @@
     "text": "In from France with agreement plea",
     "enumeration": "8"
    },
-   "solution": "ENTREATY"
+   "solution": "ENTREATY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENTREATY",
+    "definitions": [
+     {
+      "text": "plea",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In from France",
+      "gives": "EN",
+      "note": "en is French for in"
+     },
+     {
+      "clueFragment": "agreement",
+      "gives": "TREATY",
+      "note": "a treaty is a formal agreement between states"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TREATY"
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomatic appeal arrives from France along with a pact.",
+     "definitionFit": "An entreaty is an earnest request, which is what a plea is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 31,
@@ -489,7 +1927,42 @@
     "text": "Reportedly more important kitchen utensil",
     "enumeration": "6"
    },
-   "solution": "GRATER"
+   "solution": "GRATER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GRATER",
+    "definitions": [
+     {
+      "text": "kitchen utensil",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "a report is something spoken, so the sound of the words is what counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more important",
+      "gives": "GRATER",
+      "soundsLike": "GREATER",
+      "note": "greater means more important"
+     }
+    ],
+    "explanation": {
+     "surface": "Rumour has it that a certain kitchen tool matters more than the rest.",
+     "definitionFit": "A grater is a kitchen tool with sharp holes for shredding cheese or vegetables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
