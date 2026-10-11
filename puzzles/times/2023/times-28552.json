@@ -23,6 +23,9 @@
   "date": "2023-03-16",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -42,7 +45,44 @@
      }
     ]
    },
-   "solution": "STARSIGNS"
+   "solution": "STARSIGNS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAR SIGNS",
+    "definitions": [
+     {
+      "text": "Celebrity autographs",
+      "at": 0
+     },
+     {
+      "text": "Leo and the others",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celebrity autographs",
+      "note": "first meaning, read whimsically: the signatures of famous people, stars' signs"
+     },
+     {
+      "clueFragment": "Leo and the others",
+      "note": "second meaning: the twelve signs of the zodiac, Leo being one"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone collecting famous people's signatures, starting with a celebrity called Leo.",
+     "walkthrough": "The question mark flags the playful first reading: a star's sign is a celebrity's autograph.",
+     "definitionFit": "Leo is one of the zodiac signs, so Leo and the rest are the astrological star signs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Leo"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +96,80 @@
     "text": "My northbound route taken through Salisbury's suburbs? Pity",
     "enumeration": "8"
    },
-   "solution": "SYMPATHY"
+   "solution": "SYMPATHY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "SYMPATHY",
+    "definitions": [
+     {
+      "text": "Pity",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suburbs",
+      "for": "letter_selection",
+      "note": "suburbs are the outskirts of a city, so only the outer letters are kept"
+     },
+     {
+      "text": "northbound",
+      "for": "reversal",
+      "note": "going north in a down entry means reading upwards, so the word runs backwards"
+     },
+     {
+      "text": "taken through",
+      "for": "container",
+      "note": "a route taken through a place runs inside it, so the pieces sit within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Salisbury's",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the first and last letters of the cathedral city's name"
+     },
+     {
+      "clueFragment": "My",
+      "gives": "MY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "route",
+      "gives": "PATH",
+      "note": "a path is a route"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "YM",
+      "PATH",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "MY",
+       "to": "YM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lamenting a drive north through Salisbury's outskirts.",
+     "definitionFit": "Sympathy is the feeling of pity or sorrow for another's trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suburbs"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +183,56 @@
     "text": "A daughter getting US university grant",
     "enumeration": "5"
    },
-   "solution": "ADMIT"
+   "solution": "ADMIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADMIT",
+    "definitions": [
+     {
+      "text": "grant",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the genealogical abbreviation for daughter"
+     },
+     {
+      "clueFragment": "US university",
+      "gives": "MIT",
+      "note": "the Massachusetts Institute of Technology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "MIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter winning funding from an American university.",
+     "walkthrough": "'Grant' looks like a noun for a scholarship but is the verb.",
+     "definitionFit": "To grant a point in argument is to admit or concede it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grant"
+    }
+   }
   },
   {
    "number": 3,
@@ -90,7 +252,56 @@
      }
     ]
    },
-   "solution": "SCOTCHEGG"
+   "solution": "SCOTCHEGG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCOTCH EGG",
+    "definitions": [
+     {
+      "text": "snack",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "supplied with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "SCOTCH",
+      "note": "Scotch whisky"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g., exempli gratia"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOTCH",
+      "EG",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A drink served with something tasty to nibble.",
+     "walkthrough": "A Scotch egg is a British picnic snack: a boiled egg wrapped in sausage meat and breadcrumbs, then fried.",
+     "definitionFit": "The Scotch egg is a classic British snack food, often eaten cold at picnics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drink"
+    }
+   }
   },
   {
    "number": 4,
@@ -104,7 +315,46 @@
     "text": "Two pianos a part of the family",
     "enumeration": "7"
    },
-   "solution": "GRANDPA"
+   "solution": "GRANDPA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRANDPA",
+    "definitions": [
+     {
+      "text": "part of the family",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two pianos",
+      "gives": "GRANDP",
+      "note": "one piano is a grand, the other is P, the musical direction piano"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRANDP",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A household so musical that the pianos count as relatives.",
+     "definitionFit": "A grandpa, or grandfather, is a member of one's family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pianos"
+    }
+   }
   },
   {
    "number": 5,
@@ -118,7 +368,50 @@
     "text": "Creature wanting fish braised in the cooking?",
     "enumeration": "7"
    },
-   "solution": "SEABIRD"
+   "solution": "SEABIRD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEABIRD",
+    "definitions": [
+     {
+      "text": "Creature wanting fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the cooking",
+      "for": "anagram",
+      "note": "food in the cooking is being mixed and transformed, so the letters are stirred into new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "braised",
+      "gives": "BRAISED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRAISED",
+       "gives": "SEABIRD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal that wants fish but finds it braised in the kitchen.",
+     "definitionFit": "Gulls, terns and gannets are birds of the sea that feed largely on fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "braised"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +425,57 @@
     "text": "Side with expert featured in business paper",
     "enumeration": "5"
    },
-   "solution": "FACET"
+   "solution": "FACET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FACET",
+    "definitions": [
+     {
+      "text": "Side",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featured in",
+      "for": "container",
+      "note": "something featured in a paper appears inside its pages, so one piece sits within another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "business paper",
+      "gives": "FT",
+      "note": "the Financial Times, Britain's business daily"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ACE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking sides alongside a specialist quoted in the financial press.",
+     "definitionFit": "A facet is one side or aspect of something, like a face of a cut gem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Side"
+    }
+   }
   },
   {
    "number": 6,
@@ -146,7 +489,42 @@
     "text": "Failure to remember polyphonic composition",
     "enumeration": "5"
    },
-   "solution": "FUGUE"
+   "solution": "FUGUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FUGUE",
+    "definitions": [
+     {
+      "text": "Failure to remember",
+      "at": 0
+     },
+     {
+      "text": "polyphonic composition",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Failure to remember",
+      "note": "first meaning: a dissociative state of memory loss"
+     },
+     {
+      "clueFragment": "polyphonic composition",
+      "note": "second meaning: a piece in which voices enter in imitation, as in Bach"
+     }
+    ],
+    "explanation": {
+     "surface": "A musician who cannot recall a complex piece.",
+     "definitionFit": "In psychiatry the word names a period of amnesia; in music it names a contrapuntal form built on a subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Failure"
+    }
+   }
   },
   {
    "number": 7,
@@ -160,7 +538,62 @@
     "text": "Writer thrown by Scots hooligan entering sober society",
     "enumeration": "9"
    },
-   "solution": "CASTANEDA"
+   "solution": "CASTANEDA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CASTANEDA",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering a group means going inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thrown",
+      "gives": "CAST",
+      "note": "cast means thrown"
+     },
+     {
+      "clueFragment": "sober society",
+      "gives": "AA",
+      "note": "Alcoholics Anonymous"
+     },
+     {
+      "clueFragment": "Scots hooligan",
+      "gives": "NED",
+      "note": "ned is Scottish slang for a young troublemaker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAST",
+      "A",
+      "NED",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An author knocked over when a Glasgow thug crashed a temperance meeting.",
+     "walkthrough": "'Thrown' looks like it describes the writer, but it is a wordplay piece; the hooligan's word sits inside the sober society's initials.",
+     "definitionFit": "Carlos Castaneda was the author of The Teachings of Don Juan and its sequels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 8,
@@ -174,7 +607,58 @@
     "text": "Henry having stopped defeats gets cheers",
     "enumeration": "6"
    },
-   "solution": "THANKS"
+   "solution": "THANKS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THANKS",
+    "definitions": [
+     {
+      "text": "cheers",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having stopped",
+      "for": "container",
+      "note": "a letter that has stopped something plugs it like a stopper, sitting inside"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defeats",
+      "gives": "TANKS",
+      "note": "to tank a rival is slang for defeating them heavily"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "H",
+      "note": "H is the symbol for the henry, the unit of inductance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "ANKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A king named Henry halting his losing streak and being applauded.",
+     "walkthrough": "H goes inside TANKS. 'Cheers' is British casual thanks rather than applause.",
+     "definitionFit": "In British usage cheers is an informal way of saying thank you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Henry"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +672,62 @@
     "text": "Reptile showing love for a voodoo priestess",
     "enumeration": "5"
    },
-   "solution": "MAMBO"
+   "solution": "MAMBO",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MAMBO",
+    "definitions": [
+     {
+      "text": "voodoo priestess",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "showing",
+      "for": "substitution",
+      "note": "showing one thing for another means putting it in that other's place, a swap of letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reptile",
+      "gives": "MAMBA",
+      "note": "the mamba is a venomous African snake"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nil in tennis, the letter O"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter that is swapped out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAMB",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A snake being worshipped in a voodoo ceremony.",
+     "walkthrough": "The final A of MAMBA is replaced by O, giving MAMBO.",
+     "definitionFit": "In Haitian Vodou a mambo is a priestess, the female counterpart of a houngan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +741,61 @@
     "text": "Much of East Anglia redeveloped — effect of numbers?",
     "enumeration": "9"
    },
-   "solution": "ANALGESIA"
+   "solution": "ANALGESIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ANALGESIA",
+    "definitions": [
+     {
+      "text": "effect of numbers",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Much of",
+      "for": "deletion",
+      "note": "much of something is most but not all of it, so a letter is dropped"
+     },
+     {
+      "text": "redeveloped",
+      "for": "anagram",
+      "note": "redeveloping land means rebuilding it in a new layout, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "East Anglia",
+      "gives": "EASTANGLIA",
+      "note": "the region of eastern England, taken as letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANALGESIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EASANGLIA",
+       "gives": "ANALGESIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A property developer rebuilding most of eastern England and wondering what the figures will show.",
+     "walkthrough": "The T is dropped from EAST ANGLIA and the other nine letters rearranged. 'Numbers' are not figures but things that numb: anaesthetic drugs.",
+     "definitionFit": "Analgesia, the absence of pain, is what painkillers or numbing agents produce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "numbers"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +809,65 @@
     "text": "Industrious worker with plainclothes officers detaining a settler?",
     "enumeration": "7"
    },
-   "solution": "ANTACID"
+   "solution": "ANTACID",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANTACID",
+    "definitions": [
+     {
+      "text": "settler",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detaining",
+      "for": "container",
+      "note": "police detaining someone hold them inside, so one piece is kept within another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Industrious worker",
+      "gives": "ANT",
+      "note": "the ant is proverbially hard-working"
+     },
+     {
+      "clueFragment": "plainclothes officers",
+      "gives": "CID",
+      "note": "the Criminal Investigation Department, British detectives who work out of uniform"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "A",
+      "CID"
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives holding a pioneer while an ant scurries by.",
+     "walkthrough": "The question mark warns that 'settler' is not a colonist but something that settles the stomach.",
+     "definitionFit": "An antacid neutralises excess stomach acid, settling an upset digestion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "settler"
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +887,55 @@
      }
     ]
    },
-   "solution": "ICEPACK"
+   "solution": "ICEPACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICE PACK",
+    "definitions": [
+     {
+      "text": "this could be a chiller",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one thing coming after another tells the solver which piece is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kill in America",
+      "gives": "ICE",
+      "note": "to ice someone is US slang for murdering them"
+     },
+     {
+      "clueFragment": "Wolves",
+      "gives": "PACK",
+      "note": "wolves hunt as a pack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE",
+      "PACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A predator pack making a kill, the stuff of a horror story.",
+     "walkthrough": "'Chiller' suggests a frightening film, but here it is a cold compress.",
+     "definitionFit": "An ice pack is a bag of ice used to cool an injury, so it is literally a thing that chills."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chiller"
+    }
+   }
   },
   {
    "number": 13,
@@ -256,7 +955,60 @@
      }
     ]
    },
-   "solution": "HOUSEMAIDSKNEE"
+   "solution": "HOUSEMAIDSKNEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOUSEMAIDS KNEE",
+    "definitions": [
+     {
+      "text": "joint tenderness",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mistakenly",
+      "for": "anagram",
+      "note": "something done mistakenly is done wrongly, so the letters come out in the wrong order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seek",
+      "gives": "SEEK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hideous man",
+      "gives": "HIDEOUSMAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEKHIDEOUSMAN",
+       "gives": "HOUSEMAIDSKNEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seeking out an ugly man, hoping for affection in a shared lodging.",
+     "walkthrough": "'Tenderness' suggests romance; it means soreness, and 'joint' is the knee.",
+     "definitionFit": "Housemaid's knee is bursitis of the kneecap, a painful swelling once blamed on kneeling to scrub floors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tenderness"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +1022,58 @@
     "text": "Holding trump, not played as first card, and not bothered",
     "enumeration": "9"
    },
-   "solution": "UNRUFFLED"
+   "solution": "UNRUFFLED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNRUFFLED",
+    "definitions": [
+     {
+      "text": "not bothered",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Holding",
+      "for": "container",
+      "note": "holding something means keeping it within, so one word sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not played as first card",
+      "gives": "UNLED",
+      "note": "in card games a suit that has not been led is unled"
+     },
+     {
+      "clueFragment": "trump",
+      "gives": "RUFF",
+      "note": "to ruff is to play a trump card"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "RUFF",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "A calm bridge player keeping a trump back and not leading it.",
+     "walkthrough": "To lead a card is to play the first card of a trick, so a suit not yet played first is unled.",
+     "definitionFit": "Unruffled means calm and composed, unbothered by trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Holding"
+    }
+   }
   },
   {
    "number": 15,
@@ -290,7 +1093,49 @@
      }
     ]
    },
-   "solution": "KICKSTART"
+   "solution": "KICKSTART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KICK-START",
+    "definitions": [
+     {
+      "text": "get moving",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give up",
+      "gives": "KICK",
+      "note": "to kick a habit is to give it up"
+     },
+     {
+      "clueFragment": "advantage",
+      "gives": "START",
+      "note": "as in a head start, an advantage at the outset"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KICK",
+      "START"
+     ]
+    },
+    "explanation": {
+     "surface": "Abandoning a lead and setting off.",
+     "definitionFit": "To kick-start something is to get it going, as with kicking a motorcycle engine into life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advantage"
+    }
+   }
   },
   {
    "number": 16,
@@ -304,7 +1149,59 @@
     "text": "Limit small space below second property",
     "enumeration": "8"
    },
-   "solution": "STRAITEN"
+   "solution": "STRAITEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRAITEN",
+    "definitions": [
+     {
+      "text": "Limit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "in a down entry, below means coming later, which fixes the order of the pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "property",
+      "gives": "TRAIT",
+      "note": "a trait is a characteristic or property"
+     },
+     {
+      "clueFragment": "small space",
+      "gives": "EN",
+      "note": "an en is a narrow space in printing, half an em"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRAIT",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A small flat squeezed in beneath someone's second home.",
+     "definitionFit": "To straiten is to restrict or confine, as in straitened circumstances."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "property"
+    }
+   }
   },
   {
    "number": 17,
@@ -324,7 +1221,66 @@
      }
     ]
    },
-   "solution": "GREGORIANCHANT"
+   "solution": "GREGORIANCHANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GREGORIAN CHANT",
+    "definitions": [
+     {
+      "text": "sacred song",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding here, so one word wraps round the unit symbol"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Either of two men",
+      "gives": "GREGORIAN",
+      "note": "read literally: Greg or Ian, one man or the other"
+     },
+     {
+      "clueFragment": "talk",
+      "gives": "CHAT",
+      "note": "to chat is to talk"
+     },
+     {
+      "clueFragment": "Newton's",
+      "gives": "N",
+      "note": "N is the symbol for the newton, the unit of force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREGORIAN",
+      "CHA",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Two men debating Isaac Newton's religious verses.",
+     "walkthrough": "N sits inside CHAT to give CHANT. Newton is not the scientist but the unit named after him.",
+     "definitionFit": "Gregorian chant is the unaccompanied plainsong of the Western Church, sung in worship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Newton's"
+    }
+   }
   },
   {
    "number": 18,
@@ -344,7 +1300,63 @@
      }
     ]
    },
-   "solution": "REENTRY"
+   "solution": "REENTRY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RE-ENTRY",
+    "definitions": [
+     {
+      "text": "comeback",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round makes a word face the other way, so it is read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At no time",
+      "gives": "NEER",
+      "note": "ne'er, poetic never"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "TRY",
+      "note": "a go is a try or attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REEN",
+      "TRY"
+     ],
+     "reversals": [
+      {
+       "from": "NEER",
+       "to": "REEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Never changing tack, someone attempting a return.",
+     "definitionFit": "A re-entry is a return, as of a spacecraft or a performer coming back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 19,
@@ -358,7 +1370,60 @@
     "text": "Old seat almost brought into curving line",
     "enumeration": "7"
    },
-   "solution": "ARCHAIC"
+   "solution": "ARCHAIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ARCHAIC",
+    "definitions": [
+     {
+      "text": "Old",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter goes"
+     },
+     {
+      "text": "brought into",
+      "for": "container",
+      "note": "brought into something means placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curving line",
+      "gives": "ARC",
+      "note": "an arc is a curved line"
+     },
+     {
+      "clueFragment": "seat",
+      "gives": "CHAIR",
+      "note": "a chair is a seat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "CHAI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "An antique chair fitted into a curved row of seating.",
+     "definitionFit": "Archaic means very old or belonging to an earlier period."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seat"
+    }
+   }
   },
   {
    "number": 20,
@@ -372,7 +1437,42 @@
     "text": "Discourage females?",
     "enumeration": "6"
    },
-   "solution": "DAMPEN"
+   "solution": "DAMPEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DAMPEN",
+    "definitions": [
+     {
+      "text": "Discourage",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "females",
+      "gives": "DAMPEN",
+      "note": "two female animals: a dam is a mother beast and a pen a female swan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAMPEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Putting women off.",
+     "walkthrough": "The question mark signals that 'females' must be read as two specific female creatures, DAM and PEN.",
+     "definitionFit": "To dampen enthusiasm is to discourage it, making it less lively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "females"
+    }
+   }
   },
   {
    "number": 21,
@@ -386,7 +1486,53 @@
     "text": "Easily approached a story with repeated introduction?",
     "enumeration": "7"
    },
-   "solution": "AFFABLE"
+   "solution": "AFFABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFFABLE",
+    "definitions": [
+     {
+      "text": "Easily approached",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "repeated introduction",
+      "gives": "F",
+      "note": "the opening letter of the story is used an extra time"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "FABLE",
+      "note": "a fable is a short moral story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "F",
+      "FABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A storyteller who keeps starting the same tale twice and is easy to talk to.",
+     "walkthrough": "The F that introduces FABLE appears twice, giving A + F + FABLE.",
+     "definitionFit": "An affable person is friendly and approachable, easy to strike up a conversation with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 22,
@@ -400,7 +1546,43 @@
     "text": "Muscular — like some bully?",
     "enumeration": "5"
    },
-   "solution": "BEEFY"
+   "solution": "BEEFY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEEFY",
+    "definitions": [
+     {
+      "text": "Muscular",
+      "at": 0
+     },
+     {
+      "text": "like some bully",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muscular",
+      "note": "first meaning: brawny and well built"
+     },
+     {
+      "clueFragment": "like some bully",
+      "note": "second meaning: bully beef is corned beef, so some bully is made of beef"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bully' suggests a thug, but bully beef is tinned corned beef, a British army staple.",
+     "definitionFit": "The adjective describes a hefty, strong person and also something tasting of or containing beef."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bully"
+    }
+   }
   },
   {
    "number": 23,
@@ -414,7 +1596,60 @@
     "text": "Tree house abroad entered with unending caution",
     "enumeration": "7"
    },
-   "solution": "CASCARA"
+   "solution": "CASCARA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CASCARA",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unending",
+      "for": "deletion",
+      "note": "unending means without an end, so the last letter is cut off"
+     },
+     {
+      "text": "entered with",
+      "for": "container",
+      "note": "a house entered with something has that thing going inside its walls"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house abroad",
+      "gives": "CASA",
+      "note": "casa is house in Spanish and Italian"
+     },
+     {
+      "clueFragment": "caution",
+      "gives": "CARE",
+      "note": "care is caution"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAS",
+      "CAR",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A foreign house broken into by someone being endlessly careful.",
+     "definitionFit": "Cascara is a North American buckthorn whose bark yields a laxative, so the name is a tree's."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entered"
+    }
+   }
   },
   {
    "number": 24,
@@ -428,7 +1663,60 @@
     "text": "Running across a fish leaving river",
     "enumeration": "5"
    },
-   "solution": "ABEAM"
+   "solution": "ABEAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ABEAM",
+    "definitions": [
+     {
+      "text": "Running across",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so that letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "BREAM",
+      "note": "a bream is a freshwater fish"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BEAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish swimming out of a river at speed.",
+     "walkthrough": "R is removed from BREAM.",
+     "definitionFit": "Abeam is a nautical term meaning at right angles across a ship's length."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Running"
+    }
+   }
   },
   {
    "number": 25,
@@ -442,7 +1730,62 @@
     "text": "Most sickly-looking Gunners seen around a training facility",
     "enumeration": "9"
    },
-   "solution": "PALAESTRA"
+   "solution": "PALAESTRA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PALAESTRA",
+    "definitions": [
+     {
+      "text": "training facility",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen around",
+      "for": "container",
+      "note": "seen around something means encircling it, so a letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most sickly-looking",
+      "gives": "PALEST",
+      "note": "the palest person looks most unwell"
+     },
+     {
+      "clueFragment": "Gunners",
+      "gives": "RA",
+      "note": "the Royal Artillery, the British Army's gunners"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "A",
+      "EST",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "Pasty-faced Arsenal players spotted near a training ground.",
+     "walkthrough": "'Gunners' hints at Arsenal football club, but here means the Royal Artillery.",
+     "definitionFit": "A palaestra was the ancient Greek wrestling school, a place for athletic training."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gunners"
+    }
+   }
   },
   {
    "number": 26,
@@ -456,7 +1799,61 @@
     "text": "King cutting an old soldier's head off",
     "enumeration": "5"
    },
-   "solution": "AVERT"
+   "solution": "AVERT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AVERT",
+    "definitions": [
+     {
+      "text": "head off",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "cutting into something means going inside it, so a letter is placed within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "A",
+      "note": "the article a"
+     },
+     {
+      "clueFragment": "old soldier's",
+      "gives": "VET",
+      "note": "a vet is a veteran, a former serviceman"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R for Rex, Latin king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VE",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch beheading an ageing soldier.",
+     "walkthrough": "R goes inside A VET. 'Head off' looks like part of the beheading but is the definition.",
+     "definitionFit": "To head off trouble is to avert it, turning it aside before it happens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 27,
@@ -470,7 +1867,55 @@
     "text": "5 in city imbibing rum",
     "enumeration": "5"
    },
-   "solution": "NODDY"
+   "solution": "NODDY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NODDY",
+    "definitions": [
+     {
+      "text": "5",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imbibing",
+      "for": "container",
+      "note": "something imbibing drink takes it in, so one piece is swallowed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "NY",
+      "note": "New York"
+     },
+     {
+      "clueFragment": "rum",
+      "gives": "ODD",
+      "note": "rum in the sense of strange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ODD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A seabird in town drinking spirits.",
+     "walkthrough": "The definition is the answer to 5 down, SEABIRD. 'Rum' suggests the drink but means odd.",
+     "definitionFit": "The noddy is a tropical tern, a seabird named for its apparent tameness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rum"
+    }
+   }
   },
   {
    "number": 28,
@@ -484,7 +1929,56 @@
     "text": "My cat has unusual name: \"Chichester\"?",
     "enumeration": "9"
    },
-   "solution": "YACHTSMAN"
+   "solution": "YACHTSMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YACHTSMAN",
+    "definitions": [
+     {
+      "text": "Chichester",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "unusual means out of the ordinary, so the letters fall into an unfamiliar order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "My cat has",
+      "gives": "MYCATHAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MYCATHASN",
+       "gives": "YACHTSMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pet owner explaining their cat's odd name.",
+     "walkthrough": "Sir Francis Chichester sailed single-handed round the world in 1966-67; the question mark marks him as an example.",
+     "definitionFit": "Chichester was a famous solo sailor, an example of a yachtsman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Chichester"
+    }
+   }
   }
  ]
 }
