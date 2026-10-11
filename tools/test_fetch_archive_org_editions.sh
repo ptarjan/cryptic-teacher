@@ -523,5 +523,34 @@ try:
           counted_stale() == [])
 finally:
     fa.dir_cache.os = os
+# dir_cache.appended's accumulator is per thread: the planner thread iterates
+# its fold of a ledger (file_archive_org_puzzles likely(), sister_solutions)
+# while the queue's main thread folds lines just appended into its own.
+import threading
+led = os.path.join(tempfile.mkdtemp(), "ledger.jsonl")
+with open(led, "w") as f:
+    f.writelines(f'{{"edition": "e{i}"}}\n' for i in range(5))
+def fold(acc, line):
+    acc[json.loads(line)["edition"]] = True
+ready, go, seen_err = threading.Event(), threading.Event(), []
+def planner():
+    it = iter(fa.dir_cache.appended(led, dict, fold))
+    next(it); ready.set(); go.wait(5)
+    try:
+        list(it)
+    except RuntimeError as e:
+        seen_err.append(e)
+t = threading.Thread(target=planner); t.start(); ready.wait(5)
+with open(led, "a") as f:
+    f.writelines(f'{{"edition": "n{i}"}}\n' for i in range(5))
+mine = fa.dir_cache.appended(led, dict, fold)
+go.set(); t.join()
+check("a thread iterating its fold while another folds appended lines: no change under it",
+      not seen_err and len(mine) == 10)
+for _ in range(20):
+    c = threading.Thread(target=fa.dir_cache.appended, args=(led, dict, fold)); c.start(); c.join()
+fa.dir_cache.appended(led, dict, fold)
+check("threads come and go: their folds are dropped (the live ones' and the last gone one's stay)",
+      len([k for k in fa.dir_cache._READ if k[0] == led]) <= 2)
 sys.exit(1 if fails else 0)
 PY
