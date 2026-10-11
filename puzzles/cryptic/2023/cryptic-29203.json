@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Neighbourhood wanting police officer to be authoritarian",
     "enumeration": "6"
    },
-   "solution": "STRICT"
+   "solution": "STRICT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STRICT",
+    "definitions": [
+     {
+      "text": "authoritarian",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so the officer's letters are taken away from the neighbourhood word"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neighbourhood",
+      "gives": "DISTRICT",
+      "note": "a district is a neighbourhood"
+     },
+     {
+      "clueFragment": "police officer",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRICT"
+     ]
+    },
+    "explanation": {
+     "surface": "A local community wants its policeman to take a hard line.",
+     "walkthrough": "Take DI away from the front of DISTRICT to leave STRICT.",
+     "definitionFit": "A strict person demands obedience and enforces rules firmly, which is what an authoritarian does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wanting"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,81 @@
     "text": "Give in as say, snot's brought up containing cold bacteria's source",
     "enumeration": "7"
    },
-   "solution": "SUCCUMB"
+   "solution": "SUCCUMB",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SUCCUMB",
+    "definitions": [
+     {
+      "text": "Give in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down answer, brought up means raised from bottom to top, so the letters run backwards"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the reversed word wraps around the cold letter"
+     },
+     {
+      "text": "source",
+      "for": "letter_selection",
+      "note": "a source is where something starts, so take the opening letter of bacteria"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as say, snot",
+      "gives": "MUCUS",
+      "note": "snot is an example of mucus, hence as say"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "bacteria's",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of bacteria"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUC",
+      "C",
+      "UM",
+      "B"
+     ],
+     "reversals": [
+      {
+       "from": "MUCUS",
+       "to": "SUCUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cold sufferer coughs up phlegm laden with germs and gives up.",
+     "walkthrough": "'As say' marks snot as one example of the wider word; brought up suits a down answer, where the letters climb from the bottom.",
+     "definitionFit": "To succumb is to yield or give way, especially to illness or pressure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +187,59 @@
     "text": "Nonconformist bishop's breaking wind",
     "enumeration": "5"
    },
-   "solution": "REBEL"
+   "solution": "REBEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REBEL",
+    "definitions": [
+     {
+      "text": "Nonconformist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "something breaking into a word bursts in, so the bishop sits inside the other word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wind",
+      "gives": "REEL",
+      "note": "to reel in a line is to wind it"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is bishop in chess notation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "B",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "An unconventional clergyman scandalises everyone by passing wind.",
+     "walkthrough": "'Wind' reads as flatulence, but it is the verb that rhymes with find.",
+     "definitionFit": "A rebel refuses to conform to authority or convention, so is a nonconformist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +263,80 @@
    "group": [
     "3-down",
     "20-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "COCAINE ADDICT",
+    "definitions": [
+     {
+      "text": "Someone who loves Charlie",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "debut",
+      "for": "letter_selection",
+      "note": "a debut is a first appearance, so take the first letter of the comedian's name"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off, so the word act loses its last letter"
+     },
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared is made ready by working it up, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chaplin's",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of Chaplin"
+     },
+     {
+      "clueFragment": "act",
+      "gives": "AC",
+      "note": "act with its tail cut"
+     },
+     {
+      "clueFragment": "dedication",
+      "gives": "DEDICATION",
+      "note": "taken as written into the anagram"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OCAINEADDICT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACDEDICATION",
+       "gives": "OCAINEADDICT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan of Charlie Chaplin admires the way the star's early short films were made with real commitment.",
+     "walkthrough": "Charlie is slang for cocaine, not the silent-film comedian.",
+     "definitionFit": "Charlie is slang for cocaine, so someone who loves it, compulsively, is a cocaine addict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +350,62 @@
     "text": "Journalist is getting to grips with court rulings",
     "enumeration": "6"
    },
-   "solution": "EDICTS"
+   "solution": "EDICTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EDICTS",
+    "definitions": [
+     {
+      "text": "rulings",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting to grips with",
+      "for": "container",
+      "note": "to get to grips with something is to grasp it, so these letters hold the court abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the standard abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "I",
+      "CT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter is wrestling with the judgements handed down by a court.",
+     "walkthrough": "'Court rulings' reads as one phrase, but the definition is rulings alone and court only supplies its abbreviation.",
+     "definitionFit": "Edicts are official orders or decrees issued by an authority, so they are rulings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +429,67 @@
    "group": [
     "5-down",
     "18-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DUSTIN HOFFMAN",
+    "definitions": [
+     {
+      "text": "Film star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "middle of asks for the central letter of the town's name"
+     },
+     {
+      "text": "wandering around",
+      "for": "anagram",
+      "note": "wandering around means straying aimlessly, so the letters move out of their order with the extra one mixed in"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fans found him",
+      "gives": "FANSFOUNDHIM",
+      "note": "taken as written into the anagram"
+     },
+     {
+      "clueFragment": "Luton",
+      "gives": "T",
+      "select": "middle",
+      "note": "the third of five letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FANSFOUNDHIMT",
+       "gives": "DUSTINHOFFMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Admirers of a movie star spot him strolling round Luton.",
+     "walkthrough": "Luton is an English town north of London, an unlikely haunt for a Hollywood star; around tells you the central letter joins the anagram.",
+     "definitionFit": "Dustin Hoffman is an Oscar-winning American actor, star of The Graduate and Rain Man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "wandering"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +509,57 @@
      }
     ]
    },
-   "solution": "COVERGIRL"
+   "solution": "COVERGIRL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COVER GIRL",
+    "definitions": [
+     {
+      "text": "model?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "charade",
+      "note": "opening means coming first, so the film word leads and the miss word follows"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film's",
+      "gives": "COVER",
+      "note": "a film is a thin covering layer"
+     },
+     {
+      "clueFragment": "Miss",
+      "gives": "GIRL",
+      "note": "Miss is the title for a girl or young woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COVER",
+      "GIRL"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman's screen debut leads to a modelling contract.",
+     "walkthrough": "The question mark admits the definition is by example: not every model is a cover girl.",
+     "definitionFit": "A cover girl is a model whose photograph appears on the front of a magazine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "film's"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +579,55 @@
      }
     ]
    },
-   "solution": "SPLITUP"
+   "solution": "SPLITUP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPLIT UP",
+    "definitions": [
+     {
+      "text": "Separate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends of",
+      "for": "letter_selection",
+      "note": "ends of asks for the first and last letters of the vessel word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship",
+      "gives": "SP",
+      "select": "outer",
+      "note": "the outer letters of ship"
+     },
+     {
+      "clueFragment": "illuminated",
+      "gives": "LITUP",
+      "note": "lit up means illuminated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "LITUP"
+     ]
+    },
+    "explanation": {
+     "surface": "The bow and stern of a vessel are both floodlit at night.",
+     "definitionFit": "To split up is to part company or divide, which is to separate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Separate"
+    }
+   }
   },
   {
    "number": 8,
@@ -187,7 +651,65 @@
      }
     ]
    },
-   "solution": "THREELINEWHIP"
+   "solution": "THREELINEWHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THREE-LINE WHIP",
+    "definitions": [
+     {
+      "text": "Instruction for division",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down answer, over means placed above, so the number word sits on top of the next piece"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "to begin with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "literally 3",
+      "gives": "THREE",
+      "note": "the figure 3 spelt out as a word"
+     },
+     {
+      "clueFragment": "3's helping",
+      "gives": "LINE",
+      "note": "3 points to 3-down, cocaine, and a helping of cocaine is a line"
+     },
+     {
+      "clueFragment": "yank",
+      "gives": "WHIP",
+      "note": "to whip something away is to yank it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THREE",
+      "LINE",
+      "WHIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A maths puzzle: an instruction to divide, with 3 written over 3.",
+     "walkthrough": "A division is a vote in the UK Parliament, not arithmetic. 3 refers to the answer at 3-down; to begin with puts the first two pieces before the yank word.",
+     "definitionFit": "A three-line whip is a party's strictest order to its MPs to attend and vote a certain way in a parliamentary division."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "division"
+    }
+   }
   },
   {
    "number": 9,
@@ -201,7 +723,49 @@
     "text": "Crust should colour artisan bread first of all",
     "enumeration": "4"
    },
-   "solution": "SCAB"
+   "solution": "SCAB",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SCAB",
+    "definitions": [
+     {
+      "text": "Crust",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of all",
+      "for": "letter_selection",
+      "note": "first of all asks for the opening letter of every word that follows the definition"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "should colour artisan bread",
+      "gives": "SCAB",
+      "select": "first",
+      "note": "the initials of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAB"
+     ]
+    },
+    "explanation": {
+     "surface": "Baking advice: the crust of a craft loaf ought to be browned first.",
+     "definitionFit": "A scab is the hard crust that forms over a healing wound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crust"
+    }
+   }
   },
   {
    "number": 10,
@@ -215,7 +779,68 @@
     "text": "As one actor appears occasionally – the boy's four, see",
     "enumeration": "10"
    },
-   "solution": "COHESIVELY"
+   "solution": "COHESIVELY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COHESIVELY",
+    "definitions": [
+     {
+      "text": "As one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appears occasionally",
+      "for": "letter_selection",
+      "note": "something that appears only occasionally shows up every other time, so take alternate letters of the word actor"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actor",
+      "gives": "CO",
+      "select": "alternate",
+      "note": "the second and fourth letters of actor"
+     },
+     {
+      "clueFragment": "the boy's",
+      "gives": "HES",
+      "note": "the boy is = he's"
+     },
+     {
+      "clueFragment": "four",
+      "gives": "IV",
+      "note": "four in Roman numerals"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "ELY",
+      "note": "Ely is a bishop's see, a cathedral city in Cambridgeshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "HES",
+      "IV",
+      "ELY"
+     ]
+    },
+    "explanation": {
+     "surface": "A child actor makes the odd appearance in a play, and here the four-year-old boy can be seen.",
+     "walkthrough": "A bishop's seat is called a see, and ELY is the crossword's favourite one.",
+     "definitionFit": "To act cohesively is to act together in unity, as if one body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 11,
@@ -229,7 +854,78 @@
     "text": "New clue's badly constructed using indicator, initially for 'middle parts'",
     "enumeration": "6"
    },
-   "solution": "NUCLEI"
+   "solution": "NUCLEI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NUCLEI",
+    "definitions": [
+     {
+      "text": "middle parts",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly constructed",
+      "for": "anagram",
+      "note": "something badly constructed is put together wrongly, so the word clue is rearranged"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the preceding word indicator"
+     }
+    ],
+    "linkWords": [
+     "using",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "clue's",
+      "gives": "UCLE",
+      "note": "the letters of clue in a new order"
+     },
+     {
+      "clueFragment": "indicator",
+      "gives": "I",
+      "select": "first",
+      "note": "the opening letter of indicator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "UCLE",
+      "I"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLUE",
+       "gives": "UCLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-referential grumble about a fresh crossword clue whose indicator is clumsy.",
+     "walkthrough": "The surface pokes fun at cryptic-clue jargon: indicator really is just a word giving its first letter here.",
+     "definitionFit": "Nuclei is the plural of nucleus, the central core of an atom or cell, so they are middle parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "indicator"
+    }
+   }
   },
   {
    "number": 12,
@@ -243,7 +939,63 @@
     "text": "Change state of emergency, essentially – maybe Qatar's hosting",
     "enumeration": "8"
    },
-   "solution": "EMIGRATE"
+   "solution": "EMIGRATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EMIGRATE",
+    "definitions": [
+     {
+      "text": "Change state",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "essentially points to the core, the single central letter of the word emergency"
+     },
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host takes a guest inside, so the Gulf state's word wraps around the central letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maybe Qatar",
+      "gives": "EMIRATE",
+      "note": "Qatar is an example of an emirate, hence maybe"
+     },
+     {
+      "clueFragment": "emergency",
+      "gives": "G",
+      "select": "middle",
+      "note": "the fifth of nine letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMI",
+      "G",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A national emergency, perhaps with Qatar hosting the World Cup, prompts a change of state.",
+     "walkthrough": "The definition is a verb phrase: to change the state you live in.",
+     "definitionFit": "To emigrate is to leave your own country to settle in another, literally a change of state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +1009,66 @@
     "text": "Suffering embarrassment when skilfully taking a cast off",
     "enumeration": "9"
    },
-   "solution": "ABASHEDLY"
+   "solution": "ABASHEDLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ABASHEDLY",
+    "definitions": [
+     {
+      "text": "Suffering embarrassment",
+      "at": 0,
+      "note": "an adverb; read it as 'while suffering embarrassment'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking in means absorbing, so the skilful word swallows the other pieces"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skilfully",
+      "gives": "ABLY",
+      "note": "ably means skilfully"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cast off",
+      "gives": "SHED",
+      "note": "to shed is to cast off, as a snake does its skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "A",
+      "SHED",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler or a knitter feels awkward when deftly casting off.",
+     "walkthrough": "'Cast off' looks like a knitting or sailing term, but it is a verb meaning discard, like a snake's old skin.",
+     "definitionFit": "Abashedly describes doing something in an embarrassed, self-conscious manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +1082,56 @@
     "text": "Partners ask Nike to change leather",
     "enumeration": "9"
    },
-   "solution": "SNAKESKIN"
+   "solution": "SNAKESKIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SNAKESKIN",
+    "definitions": [
+     {
+      "text": "leather",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "to change the letters is to alter their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partners",
+      "gives": "NS",
+      "note": "North and South are partners in bridge"
+     },
+     {
+      "clueFragment": "ask Nike",
+      "gives": "ASKNIKE",
+      "note": "taken as written into the anagram"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NSASKNIKE",
+       "gives": "SNAKESKIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Business partners ask the sportswear firm Nike to switch to a different leather.",
+     "walkthrough": "In the card game bridge, North and South play as partners.",
+     "definitionFit": "Snakeskin is the treated skin of a snake, used as a decorative leather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Partners"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1145,68 @@
     "text": "Feeble Fed's quietly pursuing cartel at last",
     "enumeration": "4"
    },
-   "solution": "LIMP"
+   "solution": "LIMP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LIMP",
+    "definitions": [
+     {
+      "text": "Feeble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pursuing",
+      "for": "charade",
+      "note": "pursuing means following behind, so the setter's piece comes after the cartel letter"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word cartel"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cartel",
+      "gives": "L",
+      "select": "last",
+      "note": "the last letter of cartel"
+     },
+     {
+      "clueFragment": "Fed's",
+      "gives": "IM",
+      "note": "Fed is the setter, so Fed's is I'm"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is piano, the musical direction for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A weak Federal agent quietly tails a drug cartel.",
+     "walkthrough": "Fed is this puzzle's setter, so the setter's own name becomes I'M.",
+     "definitionFit": "Limp means lacking firmness or energy, which is a synonym of feeble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fed's"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1220,56 @@
     "text": "To begin with, 'anon' means in the future",
     "enumeration": "4"
    },
-   "solution": "AWAY"
+   "solution": "AWAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AWAY",
+    "definitions": [
+     {
+      "text": "in the future",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "To begin with",
+      "for": "letter_selection",
+      "note": "to begin with asks for only the opening letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anon",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of anon"
+     },
+     {
+      "clueFragment": "means",
+      "gives": "WAY",
+      "note": "a way is a means of doing something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on usage: the old word anon signifies some time later.",
+     "walkthrough": "The surface says anon means later, which is true, but anon only gives its first letter.",
+     "definitionFit": "Away can describe time still to come, as in Christmas is three weeks away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "means"
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1283,53 @@
     "text": "Pavlov commands a dog using prime bits of fatty food?",
     "enumeration": "7"
    },
-   "solution": "AVOCADO"
+   "solution": "AVOCADO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AVOCADO",
+    "definitions": [
+     {
+      "text": "fatty food?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prime bits of",
+      "for": "letter_selection",
+      "note": "prime bits are the letters in prime-numbered positions: second, third, fifth, seventh and so on"
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pavlov commands a dog",
+      "gives": "AVOCADO",
+      "select": "prime",
+      "note": "letters 2, 3, 5, 7, 11, 13 and 17 of the run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVOCADO"
+     ]
+    },
+    "explanation": {
+     "surface": "Pavlov trains his dog with treats of rich food.",
+     "walkthrough": "Count the letters of the whole run as one string; 'prime' looks like 'best', but means the primes 2, 3, 5, 7.",
+     "definitionFit": "An avocado is a fruit unusually high in fat, so it is a fatty food, by example, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "prime"
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1343,77 @@
     "text": "Nurse infant over advanced influenza, finally getting spicy food",
     "enumeration": "9"
    },
-   "solution": "ENCHILADA"
+   "solution": "ENCHILADA",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENCHILADA",
+    "definitions": [
+     {
+      "text": "spicy food",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "the child word stretches over the advanced letter, covering it on both sides"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of influenza"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "EN",
+      "note": "EN is an Enrolled Nurse"
+     },
+     {
+      "clueFragment": "infant",
+      "gives": "CHILD",
+      "note": "an infant is a young child"
+     },
+     {
+      "clueFragment": "advanced",
+      "gives": "A",
+      "note": "A is the abbreviation for advanced"
+     },
+     {
+      "clueFragment": "influenza",
+      "gives": "A",
+      "select": "last",
+      "note": "the final letter of influenza"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "CHIL",
+      "A",
+      "D",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A sick child is nursed through a bad bout of flu and finally gets something spicy to eat.",
+     "definitionFit": "An enchilada is a Mexican dish, a tortilla rolled round a filling and covered in chilli sauce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nurse"
+    }
+   }
   },
   {
    "number": 18,
@@ -360,7 +1446,75 @@
      }
     ]
    },
-   "solution": "DROPOUT"
+   "solution": "DROPOUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "reversal"
+    ],
+    "answer": "DROP-OUT",
+    "definitions": [
+     {
+      "text": "Beatnik",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled means called back, so the letters are read backwards"
+     },
+     {
+      "text": "lining",
+      "for": "container",
+      "note": "a lining surrounds what it lines, so the dung word goes around the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poo",
+      "gives": "TURD",
+      "note": "a turd is a piece of poo"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "PO",
+      "note": "the Po is Italy's longest river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "O",
+      "PO",
+      "UT"
+     ],
+     "reversals": [
+      {
+       "from": "TURD",
+       "to": "DRUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beat poet remembers excrement lining the banks of an ancient river.",
+     "walkthrough": "Strictly, lining should put the poo word inside, but here it goes around the old river pieces.",
+     "definitionFit": "A beatnik rejected conventional society, the sort of person called a dropout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "poo"
+    }
+   }
   },
   {
    "number": 20,
@@ -387,7 +1541,56 @@
     "text": "Produce example Nectar card – store review all terms",
     "enumeration": "8"
    },
-   "solution": "HONEYDEW"
+   "solution": "HONEYDEW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HONEYDEW",
+    "definitions": [
+     {
+      "text": "Produce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all terms",
+      "for": "letter_selection",
+      "note": "a term is an end, so every one of the next words gives its closing letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "example Nectar",
+      "gives": "HONEY",
+      "note": "honey is one example of a nectar, a sweet drink of the gods"
+     },
+     {
+      "clueFragment": "card – store review",
+      "gives": "DEW",
+      "select": "last",
+      "note": "the last letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HONEY",
+      "DEW"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper examines a supermarket loyalty card and the terms and conditions of a store review.",
+     "walkthrough": "Nectar is a UK loyalty card scheme, which the surface leans on; here Nectar is a sweet drink, and Produce is fruit and vegetables.",
+     "definitionFit": "A honeydew is a kind of melon, an item of fresh produce sold by greengrocers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nectar"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1604,71 @@
     "text": "Group of footballers – big characters from Tottenham Hotspur – come stripped to work out",
     "enumeration": "6"
    },
-   "solution": "FATHOM"
+   "solution": "FATHOM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "FATHOM",
+    "definitions": [
+     {
+      "text": "work out",
+      "at": 80
+     }
+    ],
+    "indicators": [
+     {
+      "text": "big characters from",
+      "for": "letter_selection",
+      "note": "big characters are capital letters, so take only the capitals of the club's name"
+     },
+     {
+      "text": "stripped",
+      "for": "deletion",
+      "note": "something stripped has its outer layer removed, so the word come loses its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group of footballers",
+      "gives": "FA",
+      "note": "the FA is the Football Association"
+     },
+     {
+      "clueFragment": "Tottenham Hotspur",
+      "gives": "TH",
+      "select": "first",
+      "note": "the two capital letters, which open each word"
+     },
+     {
+      "clueFragment": "come",
+      "gives": "OM",
+      "note": "the inside of the word come"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "TH",
+      "OM"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballing body and the stars of Spurs arrive in their kit, ready to train.",
+     "walkthrough": "Tottenham Hotspur, known as Spurs, is a London football club.",
+     "definitionFit": "To fathom something is to understand it after thought, which is to work it out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1682,61 @@
     "text": "Why some like Mars being in transit regularly with Earth",
     "enumeration": "5"
    },
-   "solution": "TASTE"
+   "solution": "TASTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TASTE",
+    "definitions": [
+     {
+      "text": "Why some like Mars",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so take every other letter of the word transit"
+     }
+    ],
+    "linkWords": [
+     "being in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "transit",
+      "gives": "TAST",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     },
+     {
+      "clueFragment": "Earth",
+      "gives": "E",
+      "note": "E is the abbreviation for Earth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAST",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An astronomer explains why the planet Mars, regularly crossing in front of the Sun, appeals to stargazers.",
+     "walkthrough": "Mars is not the planet but the Mars bar, a British chocolate bar.",
+     "definitionFit": "People like a Mars bar because of its taste, its flavour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mars"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1750,75 @@
     "text": "Journalist is working with ITV before mass protest of a modern variety",
     "enumeration": "10"
    },
-   "solution": "HACKTIVISM"
+   "solution": "HACKTIVISM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HACKTIVISM",
+    "definitions": [
+     {
+      "text": "protest of a modern variety",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working suggests the letters are being worked over and moved into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Journalist",
+      "gives": "HACK",
+      "note": "a hack is a journalist, usually a jobbing one"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ITV",
+      "gives": "ITV",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "M is the symbol for mass in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HACK",
+      "TIVIS",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISITV",
+       "gives": "TIVIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter goes to work at the ITV television network before covering a large modern demonstration.",
+     "walkthrough": "ITV is a British commercial television channel; before puts the mass letter after the others.",
+     "definitionFit": "Hacktivism is political protest carried out by hacking computer systems, a recent kind of activism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "mass"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1832,63 @@
     "text": "Deposit's unreasonably small on reflection",
     "enumeration": "4"
    },
-   "solution": "SOOT"
+   "solution": "SOOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SOOT",
+    "definitions": [
+     {
+      "text": "Deposit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows things mirrored, so the letters are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unreasonably",
+      "gives": "TOO",
+      "note": "too means excessively, beyond reason"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOOS",
+       "to": "SOOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looking back, a tenant decides the deposit demanded is far too little.",
+     "definitionFit": "Soot is the black powdery residue that a fire leaves deposited inside a chimney."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deposit's"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1902,64 @@
     "text": "Busy men with a net at sea",
     "enumeration": "6"
    },
-   "solution": "ORNATE"
+   "solution": "ORNATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ORNATE",
+    "definitions": [
+     {
+      "text": "Busy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused and in disorder, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR is other ranks, ordinary soldiers"
+     },
+     {
+      "clueFragment": "a net",
+      "gives": "NATE",
+      "note": "the letters of a net rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "NATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANET",
+       "gives": "NATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crewmen are hard at work handling a net out on the ocean.",
+     "walkthrough": "Busy here means fussy or over-decorated, not occupied.",
+     "definitionFit": "A busy design is crowded with detail, which is what ornate means: elaborately decorated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Busy"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1973,61 @@
     "text": "Spoil hot iron with constant temperature",
     "enumeration": "6"
    },
-   "solution": "INFECT"
+   "solution": "INFECT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFECT",
+    "definitions": [
+     {
+      "text": "Spoil",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "IN",
+      "note": "hot and in both mean fashionable"
+     },
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "c is a constant in maths and physics"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the symbol for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FE",
+      "C",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Pressing clothes with a hot iron at a fixed setting can ruin them.",
+     "definitionFit": "To infect is to contaminate or taint something, which is to spoil it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   }
  ]
 }
