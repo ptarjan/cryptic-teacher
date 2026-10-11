@@ -24,6 +24,9 @@
   "date": "2024-11-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,64 @@
     "text": "Put together outside lock, with edges cut and fixed",
     "enumeration": "7"
    },
-   "solution": "FOCUSED"
+   "solution": "FOCUSED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FOCUSED",
+    "definitions": [
+     {
+      "text": "fixed",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with edges cut",
+      "for": "letter_selection",
+      "note": "trimming off the edges of a word leaves only its interior letters"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the first piece sits outside, wrapped around the second piece"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put together",
+      "gives": "FUSED",
+      "note": "things put together by melting are fused"
+     },
+     {
+      "clueFragment": "lock",
+      "gives": "OC",
+      "select": "middle",
+      "note": "the word lock with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OC",
+      "USED"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for assembling something around a lock, trimming the edges and fixing it in place.",
+     "definitionFit": "A gaze or camera that is focused is fixed steadily on one point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 1,
@@ -48,10 +108,46 @@
    },
    "length": 5,
    "clue": {
-    "text": "20% of sta, if that",
+    "text": "20% of staff, if that",
     "enumeration": "5"
    },
-   "solution": "FIFTH"
+   "solution": "FIFTH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FIFTH",
+    "definitions": [
+     {
+      "text": "20%",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "the answer is made of letters from the following words, read straight through"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "staff, if that",
+      "gives": "FIFTH",
+      "note": "the letters run from the end of staff across if and into that"
+     }
+    ],
+    "explanation": {
+     "surface": "A grudging estimate that a fifth of the workforce, at most, is involved.",
+     "walkthrough": "The source text dropped the ff ligature of staff; with it restored the answer runs across the words.",
+     "definitionFit": "Twenty per cent is one part in five, a fraction called a fifth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 2,
@@ -75,7 +171,67 @@
      }
     ]
    },
-   "solution": "COCKAHOOP"
+   "solution": "COCKAHOOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "COCK-A-HOOP",
+    "definitions": [
+     {
+      "text": "In high spirits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lift",
+      "gives": "COCK",
+      "note": "to cock is to tilt or lift, as with an ear or a hat"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "teddy bear",
+      "gives": "POOH",
+      "note": "Winnie-the-Pooh, the famous teddy bear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCK",
+      "A",
+      "HOOP"
+     ],
+     "reversals": [
+      {
+       "from": "POOH",
+       "to": "HOOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful child hoists a teddy bear into the air.",
+     "walkthrough": "The teddy bear is Winnie-the-Pooh, from A. A. Milne's stories; 'lift' is the verb cock, as in cocking an ear.",
+     "definitionFit": "Cock-a-hoop is an idiom for being jubilant and boastfully elated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +245,44 @@
     "text": "Hide in the region of Ierapetra?",
     "enumeration": "7"
    },
-   "solution": "SECRETE"
+   "solution": "SECRETE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SECRETE",
+    "definitions": [
+     {
+      "text": "Hide",
+      "at": 0
+     },
+     {
+      "text": "in the region of Ierapetra?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hide",
+      "note": "first meaning: to conceal something away"
+     },
+     {
+      "clueFragment": "in the region of Ierapetra?",
+      "note": "second meaning, read cryptically: Ierapetra is a town in the south-east corner of Crete"
+     }
+    ],
+    "explanation": {
+     "surface": "A suggestion for where to go into hiding, somewhere on a Greek island.",
+     "walkthrough": "Split it as SE CRETE: south-east Crete, where Ierapetra stands. The question mark flags this playful reading.",
+     "definitionFit": "To secrete something is to conceal it, a less common sense alongside the biological one of discharging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "region"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +296,47 @@
     "text": "Take drugs and see such beautiful things in the forest",
     "enumeration": "4"
    },
-   "solution": "DOES"
+   "solution": "DOES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOES",
+    "definitions": [
+     {
+      "text": "Take drugs",
+      "at": 0,
+      "note": "the answer is the third-person form, as in 'she does drugs'"
+     },
+     {
+      "text": "beautiful things in the forest",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "and see such"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take drugs",
+      "note": "first meaning: to do drugs is slang for taking them"
+     },
+     {
+      "clueFragment": "beautiful things in the forest",
+      "note": "second meaning: female deer grazing among the trees"
+     }
+    ],
+    "explanation": {
+     "surface": "A hallucinogenic trip in which the woods appear full of lovely sights.",
+     "definitionFit": "Does are female deer, graceful animals of woodland, and the verb form is slang for using drugs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +350,40 @@
     "text": "The shortening of many fine pieces orchestrated by Barber",
     "enumeration": "7"
    },
-   "solution": "HAIRCUT"
+   "solution": "HAIRCUT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HAIRCUT",
+    "definitions": [
+     {
+      "text": "The shortening of many fine pieces orchestrated by Barber",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many fine pieces orchestrated by Barber",
+      "note": "surface reading: a composer, Samuel Barber, arranging his musical works for orchestra"
+     },
+     {
+      "clueFragment": "The shortening of many fine pieces",
+      "note": "setter's reading: a barber trims lots of thin strands on a customer's head"
+     }
+    ],
+    "explanation": {
+     "surface": "A music critic notes that a composer has abridged several of his orchestral works.",
+     "walkthrough": "Samuel Barber was an American composer, so pieces and orchestrated suggest music; lower-case barber is just the person with scissors.",
+     "definitionFit": "A trim at the barber's shortens many fine strands of hair on the head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Barber"
+    }
+   }
   },
   {
    "number": 5,
@@ -131,7 +397,51 @@
     "text": "Buzz preceding campanologists? They're very impressive",
     "enumeration": "10"
    },
-   "solution": "HUMDINGERS"
+   "solution": "HUMDINGERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HUMDINGERS",
+    "definitions": [
+     {
+      "text": "They're very impressive",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "preceding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Buzz",
+      "gives": "HUM",
+      "note": "a hum is a low buzzing sound"
+     },
+     {
+      "clueFragment": "campanologists?",
+      "gives": "DINGERS",
+      "note": "bell-ringers playfully called those who make bells go ding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUM",
+      "DINGERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether the droning sound comes from bell-ringers practising.",
+     "walkthrough": "Campanologists are bell-ringers; the question mark admits that dingers is an invented name for them.",
+     "definitionFit": "A humdinger is an informal word for something or someone remarkably good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Buzz"
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +455,68 @@
     "text": "Stupid jerk following Solomon would riot naked",
     "enumeration": "7"
    },
-   "solution": "IDIOTIC"
+   "solution": "IDIOTIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IDIOTIC",
+    "definitions": [
+     {
+      "text": "Stupid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naked",
+      "for": "letter_selection",
+      "note": "stripped naked, the word loses its outer covering and keeps only its inner letters"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following sends the jerk to the end, after the setter's words and the stripped word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solomon would",
+      "gives": "ID",
+      "note": "the setter Solomon refers to himself as I, and would contracts to 'd"
+     },
+     {
+      "clueFragment": "riot",
+      "gives": "IO",
+      "select": "middle",
+      "note": "the inner letters of riot"
+     },
+     {
+      "clueFragment": "jerk",
+      "gives": "TIC",
+      "note": "a tic is an involuntary jerk or twitch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "IO",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A daft claim that the setter would run wild with no clothes on.",
+     "walkthrough": "Setters often refer to themselves by their pseudonym, so Solomon stands for the first person. 'Following' places the jerk after the rest.",
+     "definitionFit": "Idiotic is a common synonym for stupid, describing foolish behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "jerk"
+    }
+   }
   },
   {
    "number": 7,
@@ -159,7 +530,52 @@
     "text": "'This is the press's doing,' cried maniac",
     "enumeration": "5"
    },
-   "solution": "CIDER"
+   "solution": "CIDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CIDER",
+    "definitions": [
+     {
+      "text": "This is the press's doing",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maniac",
+      "for": "anagram",
+      "note": "a maniac behaves wildly, so the word before it is thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cried",
+      "gives": "CRIED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRIED",
+       "gives": "CIDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frenzied person yells that the newspapers are to blame.",
+     "walkthrough": "The quotation seems to be about journalists, but the press is the apple press.",
+     "definitionFit": "Cider is made by crushing apples in a press, so it is the press's product."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "press's"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +589,69 @@
     "text": "Time replaces article during State Summit for Linguistic Evolution",
     "enumeration": "9"
    },
-   "solution": "TEXTSPEAK"
+   "solution": "TEXTSPEAK",
+   "annotation": {
+    "type": [
+     "substitution",
+     "charade"
+    ],
+    "answer": "TEXTSPEAK",
+    "definitions": [
+     {
+      "text": "Linguistic Evolution",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaces",
+      "for": "substitution",
+      "note": "one letter swaps out another inside a word, as a replacement player does"
+     }
+    ],
+    "linkWords": [
+     "during",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "State",
+      "gives": "TEXAS",
+      "note": "a US state"
+     },
+     {
+      "clueFragment": "Summit",
+      "gives": "PEAK",
+      "note": "a summit is a peak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEXTS",
+      "PEAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A conference heading for a language symposium held at a state-level summit.",
+     "walkthrough": "The swap happens inside the name of the state, which is what 'during' signals: the article in it gives way to the time abbreviation.",
+     "definitionFit": "Textspeak, the abbreviated style of phone messages, is a recent development in how language changes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Summit"
+    }
+   }
   },
   {
    "number": 9,
@@ -193,7 +671,62 @@
      }
     ]
    },
-   "solution": "FACECREAM"
+   "solution": "FACECREAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FACE CREAM",
+    "definitions": [
+     {
+      "text": "Moisturiser",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "put on",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ACE",
+      "note": "an ace is the one in a pack of cards"
+     },
+     {
+      "clueFragment": "carbon",
+      "gives": "C",
+      "note": "C is the chemical symbol for carbon"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "REAM",
+      "note": "a ream is a quantity of paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ACE",
+      "C",
+      "REAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone applies a skincare product to a man and has carbon paper to hand.",
+     "definitionFit": "Face cream is a cosmetic applied to keep the skin of the face moist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carbon"
+    }
+   }
   },
   {
    "number": 10,
@@ -207,7 +740,49 @@
     "text": "List of popular cards read out",
     "enumeration": "5"
    },
-   "solution": "INDEX"
+   "solution": "INDEX",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "INDEX",
+    "definitions": [
+     {
+      "text": "List",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read out",
+      "for": "homophone",
+      "note": "reading aloud means we go by the sound of the word, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "cards",
+      "gives": "DEX",
+      "soundsLike": "DECKS",
+      "note": "packs of cards are decks"
+     }
+    ],
+    "explanation": {
+     "surface": "A list of well-liked greeting cards is being recited.",
+     "definitionFit": "An index is an alphabetical list, as at the back of a book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cards"
+    }
+   }
   },
   {
    "number": 11,
@@ -221,7 +796,59 @@
     "text": "Chicken crosses road to get to the other side",
     "enumeration": "6"
    },
-   "solution": "HEAVEN"
+   "solution": "HEAVEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HEAVEN",
+    "definitions": [
+     {
+      "text": "the other side",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crosses",
+      "for": "container",
+      "note": "the first piece lies across the second, enclosing it from either end"
+     }
+    ],
+    "linkWords": [
+     "to get to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chicken",
+      "gives": "HEN",
+      "note": "a hen is a chicken"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "AVE",
+      "note": "Ave is the abbreviation for avenue, a road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "AVE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "The old joke: why did the chicken cross the road? To get to the other side.",
+     "walkthrough": "The punchline of the joke becomes the definition: the other side is the afterlife.",
+     "definitionFit": "The other side is a euphemism for the afterlife, which heaven names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +862,51 @@
     "text": "Midge is following one who was in Scotland for the views",
     "enumeration": "8"
    },
-   "solution": "PICTURES"
+   "solution": "PICTURES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PICTURES",
+    "definitions": [
+     {
+      "text": "views",
+      "at": 51
+     }
+    ],
+    "linkWords": [
+     "is following",
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one who was in Scotland",
+      "gives": "PICT",
+      "note": "the Picts were an ancient people of Scotland"
+     },
+     {
+      "clueFragment": "Midge",
+      "gives": "URES",
+      "note": "Midge Ure, the Ultravox singer; 'Midge is' contracts to Ure's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PICT",
+      "URES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Midge tags along behind a Scot in search of scenery.",
+     "walkthrough": "Midge Ure is a Scottish rock musician of Ultravox and Live Aid fame, and 'is' joins his surname as a contraction.",
+     "definitionFit": "Pictures and views are both scenes depicted or looked at, as in picture postcards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Midge"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +920,79 @@
     "text": "Silly criminal stops waving blade, leading to arrest? Or freedom?",
     "enumeration": "10"
    },
-   "solution": "DISYLLABLE"
+   "solution": "DISYLLABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DISYLLABLE",
+    "definitions": [
+     {
+      "text": "arrest? Or freedom?",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "a criminal is crooked, so the adjacent word is bent out of shape"
+     },
+     {
+      "text": "waving",
+      "for": "anagram",
+      "note": "something waving moves about, so the adjacent word is jumbled"
+     },
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "a stopper sits inside a bottle neck, so one group fills the inside of another"
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blade",
+      "gives": "BLADE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Silly",
+      "gives": "SILLY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ISYLL",
+      "ABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BLADE",
+       "gives": "DABLE"
+      },
+      {
+       "fodder": "SILLY",
+       "gives": "ISYLL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish crook halts his knife-waving, which brings arrest, or perhaps freedom.",
+     "walkthrough": "The definition is by example: arrest and freedom are each words of two syllables.",
+     "definitionFit": "A disyllable is a word of two syllables, and both ar-rest and free-dom fit that description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "arrest"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +1006,66 @@
     "text": "Former FBI chief, at home, beginning to grey and gathering dust",
     "enumeration": "9"
    },
-   "solution": "HOOVERING"
+   "solution": "HOOVERING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HOOVERING",
+    "definitions": [
+     {
+      "text": "gathering dust",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter alone"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former FBI chief",
+      "gives": "HOOVER",
+      "note": "J. Edgar Hoover, long-serving director of the FBI"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "grey",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of grey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOOVER",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A retired FBI boss, staying home, turning grey and growing dusty.",
+     "walkthrough": "Hoover is also a British brand of vacuum cleaner, and to hoover is everyday British for to vacuum.",
+     "definitionFit": "Hoovering means vacuuming, which collects dust from floors and carpets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dust"
+    }
+   }
   },
   {
    "number": 14,
@@ -277,7 +1079,71 @@
     "text": "Beef and pork with egg on eaten by exhausted boxer",
     "enumeration": "9"
    },
-   "solution": "HAMBURGER"
+   "solution": "HAMBURGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HAMBURGER",
+    "definitions": [
+     {
+      "text": "Beef",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exhausted",
+      "for": "letter_selection",
+      "note": "an exhausted thing is emptied out, leaving only its shell"
+     },
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "what is eaten goes inside the eater"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pork",
+      "gives": "HAM",
+      "note": "ham is cured pork"
+     },
+     {
+      "clueFragment": "boxer",
+      "gives": "BR",
+      "select": "outer",
+      "note": "the outside letters of boxer"
+     },
+     {
+      "clueFragment": "egg on",
+      "gives": "URGE",
+      "note": "to egg on is to urge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAM",
+      "B",
+      "URGE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-out fighter wolfing down beef, pork and egg.",
+     "definitionFit": "A hamburger is a patty of minced beef, so beef here stands for the dish by its main ingredient."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "egg"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +1157,47 @@
     "text": "Make tea, eat, then get on your bike",
     "enumeration": "5"
    },
-   "solution": "CYCLE"
+   "solution": "CYCLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CYCLE",
+    "definitions": [
+     {
+      "text": "Make tea, eat",
+      "at": 0
+     },
+     {
+      "text": "get on your bike",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make tea, eat",
+      "note": "first meaning: rotate letters, as moving the front letter of tea to the end makes eat"
+     },
+     {
+      "clueFragment": "get on your bike",
+      "note": "second meaning: to ride a bicycle"
+     }
+    ],
+    "explanation": {
+     "surface": "A daily routine: brew up, have a meal, then go for a ride.",
+     "walkthrough": "Shifting the T of TEA from front to back gives EAT, so 'make tea, eat' is an example of rotating letters.",
+     "definitionFit": "To cycle letters is to move them round in order; to cycle is also to ride a bicycle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tea"
+    }
+   }
   },
   {
    "number": 16,
@@ -302,10 +1208,68 @@
    },
    "length": 9,
    "clue": {
-    "text": "Piece cut o and wound alot — a bit of pink string?",
+    "text": "Piece cut off and wound a lot — a bit of pink string?",
     "enumeration": "9"
    },
-   "solution": "CHIPOLATA"
+   "solution": "CHIPOLATA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHIPOLATA",
+    "definitions": [
+     {
+      "text": "bit of pink string?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wound",
+      "for": "anagram",
+      "note": "wound as in twisted round, so the letters are coiled into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piece cut off",
+      "gives": "CHIP",
+      "note": "a chip is a small piece broken off"
+     },
+     {
+      "clueFragment": "a lot — a",
+      "gives": "ALOTA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIP",
+      "OLATA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALOTA",
+       "gives": "OLATA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for cutting and winding pink string, perhaps for a parcel.",
+     "walkthrough": "The source lost the ff ligature in 'off'. A string of sausages is a chain of links, so one small pink sausage is a bit of it.",
+     "definitionFit": "A chipolata is a small thin sausage, sold joined in a string of links."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "string"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1283,62 @@
     "text": "Vehicle of speed regularly taken out straddled by mod",
     "enumeration": "5"
    },
-   "solution": "MOPED"
+   "solution": "MOPED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MOPED",
+    "definitions": [
+     {
+      "text": "Vehicle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly taken out",
+      "for": "letter_selection",
+      "note": "removing letters at regular intervals leaves every other one"
+     },
+     {
+      "text": "straddled by",
+      "for": "container",
+      "note": "something straddled has a piece on each side of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mod",
+      "gives": "MOD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "speed",
+      "gives": "PE",
+      "select": "alternate",
+      "note": "the second and fourth letters of speed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "PE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A 1960s mod rider whose scooter's speed has been curbed.",
+     "walkthrough": "Mods, the 1960s British youth subculture, famously rode motor scooters, so the surface fits.",
+     "definitionFit": "A moped is a light motorised two-wheeler, a type of vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mod"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1352,43 @@
     "text": "One putting clothes on furniture",
     "enumeration": "7"
    },
-   "solution": "DRESSER"
+   "solution": "DRESSER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRESSER",
+    "definitions": [
+     {
+      "text": "One putting clothes on",
+      "at": 0
+     },
+     {
+      "text": "furniture",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One putting clothes on",
+      "note": "first meaning: a person who dresses others, as in a theatre"
+     },
+     {
+      "clueFragment": "furniture",
+      "note": "second meaning: a sideboard with shelves for dishes"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone getting dressed and laying the clothes on a piece of furniture.",
+     "definitionFit": "A dresser is both a theatre assistant who helps actors change and a kitchen cabinet with shelves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1402,49 @@
     "text": "Measure enclosed space alongside lodge",
     "enumeration": "9"
    },
-   "solution": "YARDSTICK"
+   "solution": "YARDSTICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YARDSTICK",
+    "definitions": [
+     {
+      "text": "Measure",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "alongside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enclosed space",
+      "gives": "YARD",
+      "note": "a yard is an enclosed area beside a building"
+     },
+     {
+      "clueFragment": "lodge",
+      "gives": "STICK",
+      "note": "to lodge something is to make it stick fast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YARD",
+      "STICK"
+     ]
+    },
+    "explanation": {
+     "surface": "Measuring a fenced-off plot next to a cabin.",
+     "definitionFit": "A yardstick is a standard by which things are judged, a figurative measure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lodge"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1458,38 @@
     "text": "E–n–c–h–a–n–t–e–d",
     "enumeration": "7"
    },
-   "solution": "SPELLED"
+   "solution": "SPELLED",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPELLED",
+    "definitions": [
+     {
+      "text": "E–n–c–h–a–n–t–e–d",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "E–n–c–h–a–n–t–e–d",
+      "note": "surface reading: a word stretched out with dashes, delighted or bewitched"
+     },
+     {
+      "clueFragment": "E–n–c–h–a–n–t–e–d",
+      "note": "setter's reading: a word written letter by letter, and also a synonym of bewitched"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue is both things at once: the word for bewitched, set out letter by letter.",
+     "definitionFit": "Spelled means put under a magic spell, and the clue's letters are also written out one by one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1503,63 @@
     "text": "Cover large area with scattered bits of lumber",
     "enumeration": "8"
    },
-   "solution": "UMBRELLA"
+   "solution": "UMBRELLA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UMBRELLA",
+    "definitions": [
+     {
+      "text": "Cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scattered bits of",
+      "for": "anagram",
+      "note": "pieces strewn about end up in no particular order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "lumber",
+      "gives": "LUMBER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LALUMBER",
+       "gives": "UMBRELLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Covering a big patch of ground with timber offcuts.",
+     "definitionFit": "An umbrella is a portable cover against rain, and the word also means anything that covers broadly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cover"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1573,65 @@
     "text": "Luke's beginning, dominated by Elizabeth's praise",
     "enumeration": "5"
    },
-   "solution": "BLESS"
+   "solution": "BLESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BLESS",
+    "definitions": [
+     {
+      "text": "praise",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a name is its first letter only"
+     },
+     {
+      "text": "dominated by",
+      "for": "container",
+      "note": "dominated suggests being held within another's grip, so one piece is enclosed"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elizabeth",
+      "gives": "BESS",
+      "note": "Bess is a pet form of Elizabeth"
+     },
+     {
+      "clueFragment": "Luke's",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of Luke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchy note: the opening of Luke's gospel overshadowed by Elizabeth's song of praise.",
+     "walkthrough": "Elizabeth appears near the start of Luke's Gospel, which makes the surface apt.",
+     "definitionFit": "To bless is to praise or glorify, as in 'bless the Lord'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Luke's"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1645,61 @@
     "text": "Twist definition or meaning, originally",
     "enumeration": "6"
    },
-   "solution": "DEFORM"
+   "solution": "DEFORM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DEFORM",
+    "definitions": [
+     {
+      "text": "Twist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the word's origin, its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "definition",
+      "gives": "DEF",
+      "note": "DEF is a common abbreviation for definition"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "meaning",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of meaning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEF",
+      "OR",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning against distorting a word's definition or sense.",
+     "definitionFit": "To deform something is to twist it out of its proper shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Twist"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1713,48 @@
     "text": "Say, Iron Maiden, and others",
     "enumeration": "5"
    },
-   "solution": "METAL"
+   "solution": "METAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "METAL",
+    "definitions": [
+     {
+      "text": "Say, Iron",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maiden",
+      "gives": "M",
+      "note": "M is the cricket scoring abbreviation for a maiden over"
+     },
+     {
+      "clueFragment": "and others",
+      "gives": "ETAL",
+      "note": "et al., Latin for and others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ETAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Naming Iron Maiden and other bands of a heavy rock genre.",
+     "walkthrough": "Iron Maiden is a heavy metal band, a deliberate red herring: the comma splits it, so 'Say, Iron' defines by example.",
+     "definitionFit": "Iron is one example of a metal, which the word say signals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Maiden"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1768,55 @@
     "text": "He made a useful point, with spirit, following a change of heart",
     "enumeration": "4"
    },
-   "solution": "BIRO"
+   "solution": "BIRO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BIRO",
+    "definitions": [
+     {
+      "text": "He made a useful point",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following a change of heart",
+      "for": "anagram",
+      "note": "a change of heart rearranges the middle letters while the ends stay put"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spirit",
+      "gives": "BRIO",
+      "note": "brio is liveliness or spirit"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRIO",
+       "gives": "BIRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who argued well and with vigour after altering his opinion.",
+     "walkthrough": "László Bíró invented the ballpoint pen, whose brand name in Britain is the everyday word for one.",
+     "definitionFit": "Bíró invented the ballpoint pen, so he literally created a handy writing point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1830,39 @@
     "text": "Passages of Burns?",
     "enumeration": "5"
    },
-   "solution": "GLENS"
+   "solution": "GLENS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GLENS",
+    "definitions": [
+     {
+      "text": "Passages of Burns?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Passages of Burns?",
+      "note": "surface reading: extracts from the poetry of Robert Burns"
+     },
+     {
+      "clueFragment": "Burns",
+      "note": "setter's reading: burns are Scottish streams, and the valleys they flow along are their routes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A burn is a Scottish word for a stream; the Scottish valleys a stream runs through are its passages.",
+     "definitionFit": "Narrow Scottish valleys, often carrying a stream, are the courses through which burns pass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Burns"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1876,62 @@
     "text": "Great swimmer Ian Thorpe's first",
     "enumeration": "9"
    },
-   "solution": "BRILLIANT"
+   "solution": "BRILLIANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BRILLIANT",
+    "definitions": [
+     {
+      "text": "Great",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swimmer",
+      "gives": "BRILL",
+      "note": "brill is a flatfish, a swimmer"
+     },
+     {
+      "clueFragment": "Ian",
+      "gives": "IAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Thorpe's",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Thorpe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRILL",
+      "IAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for Ian Thorpe, the Australian Olympic swimming champion.",
+     "walkthrough": "Ian Thorpe looks like one block, but the swimmer is a fish and only his surname's first letter is used.",
+     "definitionFit": "Brilliant is an enthusiastic synonym for great or excellent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1945,48 @@
     "text": "Book about the origin of tennis?",
     "enumeration": "7"
    },
-   "solution": "RESERVE"
+   "solution": "RESERVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESERVE",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "the origin of tennis?",
+      "gives": "SERVE",
+      "note": "every tennis point starts with a serve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SERVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A book on how the game of tennis began.",
+     "walkthrough": "'Origin' looks historical, but it means the start of each rally.",
+     "definitionFit": "To book a table or seat is to reserve it in advance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "origin"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +2000,48 @@
     "text": "Unusual — not even Hitler had one",
     "enumeration": "7"
    },
-   "solution": "ODDBALL"
+   "solution": "ODDBALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODDBALL",
+    "definitions": [
+     {
+      "text": "Unusual",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not even",
+      "gives": "ODD",
+      "note": "a number that is not even is odd"
+     },
+     {
+      "clueFragment": "Hitler had one",
+      "gives": "BALL",
+      "note": "from the British wartime song claiming Hitler had only one ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODD",
+      "BALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolboy joke about the dictator's anatomy.",
+     "walkthrough": "The wartime British song 'Hitler Has Only Got One Ball' supplies the second piece.",
+     "definitionFit": "Oddball, used as an adjective, means eccentric or strange."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "even"
+    }
+   }
   }
  ]
 }
