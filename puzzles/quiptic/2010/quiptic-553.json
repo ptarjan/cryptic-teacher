@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,63 @@
     "text": "High wind ravaged first-century Ceylon",
     "enumeration": "7"
    },
-   "solution": "CYCLONE"
+   "solution": "CYCLONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CYCLONE",
+    "definitions": [
+     {
+      "text": "High wind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word it is attached to"
+     },
+     {
+      "text": "ravaged",
+      "for": "anagram",
+      "note": "something ravaged has been wrecked and thrown into disorder, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "century",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of century"
+     },
+     {
+      "clueFragment": "Ceylon",
+      "gives": "CEYLON",
+      "note": "taken as written; the old name of Sri Lanka"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CCEYLON",
+       "gives": "CYCLONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A storm wrecked Ceylon in the first century AD.",
+     "walkthrough": "'first-century' reads as a date, but it means just the first letter of century, which joins the island's name in the mix.",
+     "definitionFit": "A cyclone is a violent rotating storm, a classic example of very strong wind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "century"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +106,46 @@
     "text": "Head of Finance",
     "enumeration": "7"
    },
-   "solution": "CAPITAL"
+   "solution": "CAPITAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAPITAL",
+    "definitions": [
+     {
+      "text": "Head",
+      "at": 0
+     },
+     {
+      "text": "Finance",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Head",
+      "note": "first meaning: the top part of a column, or a head city"
+     },
+     {
+      "clueFragment": "Finance",
+      "note": "second meaning: money available for investment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a job title, Head of Finance; split it at 'of' into two separate meanings of one word.",
+     "definitionFit": "Capital is the crowning top section of a pillar, and also the stock of money a business works with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,65 @@
     "text": "Museum keeper introduces artist in engraved gold",
     "enumeration": "7"
    },
-   "solution": "CURATOR"
+   "solution": "CURATOR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CURATOR",
+    "definitions": [
+     {
+      "text": "Museum keeper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduces",
+      "for": "container",
+      "note": "to be introduces into something is to be put inside it, so the artist goes within the engraving word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "engraved",
+      "gives": "CUT",
+      "note": "to engrave is to cut lines into a surface"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician, a standard abbreviation for an artist"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "RA",
+      "T",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A museum official brings an artist's work set in engraved gold into the collection.",
+     "walkthrough": "Gold is OR in heraldry, a convention setters use constantly; the artist is the usual Royal Academician.",
+     "definitionFit": "A curator is the person in charge of a museum or gallery collection, its keeper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "introduces"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +231,46 @@
     "text": "Last letter is partly to Megan",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "Last letter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "partly means only a portion of the following words is used, a run of letters spanning them"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to Megan",
+      "gives": "OMEGA",
+      "note": "the run of letters across the end of to and the start of Megan"
+     }
+    ],
+    "explanation": {
+     "surface": "The final letter of a correspondence is addressed in part to Megan.",
+     "definitionFit": "Omega is the final character of the Greek alphabet, hence the last letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +284,55 @@
     "text": "Texts emir about dangerous radical",
     "enumeration": "9"
    },
-   "solution": "EXTREMIST"
+   "solution": "EXTREMIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXTREMIST",
+    "definitions": [
+     {
+      "text": "dangerous radical",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests turning around or moving here and there, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Texts",
+      "gives": "TEXTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "emir",
+      "gives": "EMIR",
+      "note": "taken as written; an emir is a Muslim ruler"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEXTSEMIR",
+       "gives": "EXTREMIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ruler sends messages about a dangerous radical.",
+     "definitionFit": "An extremist holds radical views and may support violent means, a dangerous radical."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +346,64 @@
     "text": "Fictional detective's chasing heartless rogue to expose guilt",
     "enumeration": "7"
    },
-   "solution": "REMORSE"
+   "solution": "REMORSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REMORSE",
+    "definitions": [
+     {
+      "text": "guilt",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "letter_selection",
+      "note": "heartless removes the middle of the word, keeping only its two ends"
+     },
+     {
+      "text": "chasing",
+      "for": "charade",
+      "note": "something chasing comes behind, so the detective sits after the other piece"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "to expose"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rogue",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the first and last letters of rogue"
+     },
+     {
+      "clueFragment": "Fictional detective",
+      "gives": "MORSE",
+      "note": "Inspector Morse, Colin Dexter's Oxford detective"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MORSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A TV detective pursues a scoundrel to make him reveal his guilty conscience.",
+     "definitionFit": "Remorse is deep regret for wrongdoing, the feeling of guilt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +417,65 @@
     "text": "Right to get life after setting off a gun",
     "enumeration": "5"
    },
-   "solution": "RIFLE"
+   "solution": "RIFLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RIFLE",
+    "definitions": [
+     {
+      "text": "a gun",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "setting off",
+      "for": "anagram",
+      "note": "setting off suggests an explosion, which scatters the word into a new order"
+     }
+    ],
+    "linkWords": [
+     "to get",
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     },
+     {
+      "clueFragment": "life",
+      "gives": "LIFE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IFLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIFE",
+       "gives": "IFLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sentenced to life after setting off a gun gets what they deserve.",
+     "walkthrough": "'setting off a gun' paints a shooting, but setting off belongs to life, and 'a gun' is the definition.",
+     "definitionFit": "A rifle is a long-barrelled firearm, one particular kind of gun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "setting"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +489,63 @@
     "text": "Zoo in Maine keeps old horse down by the lake",
     "enumeration": "9"
    },
-   "solution": "MENAGERIE"
+   "solution": "MENAGERIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MENAGERIE",
+    "definitions": [
+     {
+      "text": "Zoo",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "down by",
+      "for": "charade",
+      "note": "in a down entry, something down by another sits below it, so it comes after"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "keeps"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maine",
+      "gives": "ME",
+      "note": "ME is the postal abbreviation for the US state of Maine"
+     },
+     {
+      "clueFragment": "old horse",
+      "gives": "NAG",
+      "note": "a nag is an old or worn-out horse"
+     },
+     {
+      "clueFragment": "the lake",
+      "gives": "ERIE",
+      "note": "Lake Erie, one of the Great Lakes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "NAG",
+      "ERIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Maine zoo houses an old horse down by the lake.",
+     "definitionFit": "A menagerie is a collection of wild animals kept for show, an old word for a zoo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "keeps"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +559,52 @@
     "text": "Nastier variety of wine",
     "enumeration": "7"
    },
-   "solution": "RETSINA"
+   "solution": "RETSINA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RETSINA",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "variety of",
+      "for": "anagram",
+      "note": "a variety is a different version or form, so the letters take on another arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nastier",
+      "gives": "NASTIER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NASTIER",
+       "gives": "RETSINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rather unpleasant kind of wine.",
+     "walkthrough": "The joke is that retsina, flavoured with pine resin, is a wine many find nasty.",
+     "definitionFit": "Retsina is a Greek white wine flavoured with pine resin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "variety"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +618,63 @@
     "text": "Scramble to point inside eastern burial chamber",
     "enumeration": "7"
    },
-   "solution": "ENCRYPT"
+   "solution": "ENCRYPT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ENCRYPT",
+    "definitions": [
+     {
+      "text": "Scramble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places the compass point within the following words"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E for east, eastern"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "N",
+      "note": "N, north, a point of the compass"
+     },
+     {
+      "clueFragment": "burial chamber",
+      "gives": "CRYPT",
+      "note": "a crypt is an underground vault for burials"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "CRYPT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to clamber to a spot inside an eastern tomb.",
+     "walkthrough": "The point goes inside, between eastern and the burial chamber.",
+     "definitionFit": "To encrypt a message is to scramble it into code so outsiders cannot read it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scramble"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +688,43 @@
     "text": "English parfait couldn't be better",
     "enumeration": "7"
    },
-   "solution": "PERFECT"
+   "solution": "PERFECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PERFECT",
+    "definitions": [
+     {
+      "text": "English parfait",
+      "at": 0
+     },
+     {
+      "text": "couldn't be better",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English parfait",
+      "note": "first meaning: the English translation of the French word parfait"
+     },
+     {
+      "clueFragment": "couldn't be better",
+      "note": "second meaning: flawless, ideal"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Parfait looks like the dessert, but here it is just French for a word you must give in English.",
+     "definitionFit": "Something flawless and ideal is beyond improvement; parfait in French carries exactly that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "parfait"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +738,56 @@
     "text": "Devotee of blow's a jerk",
     "enumeration": "7"
    },
-   "solution": "FANATIC"
+   "solution": "FANATIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FANATIC",
+    "definitions": [
+     {
+      "text": "Devotee",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blow",
+      "gives": "FAN",
+      "note": "to fan is to blow air on something"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jerk",
+      "gives": "TIC",
+      "note": "a tic is an involuntary twitch or jerk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAN",
+      "A",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A fan of fisticuffs is a bit of a jerk.",
+     "definitionFit": "A fanatic is an extremely keen enthusiast, a devotee of some cause or pursuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jerk"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +811,58 @@
      }
     ]
    },
-   "solution": "TETEATETE"
+   "solution": "TETEATETE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TETE-A-TETE",
+    "definitions": [
+     {
+      "text": "private conversation",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "something holding another keeps it inside, so the heads wrap around the next letter"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French heads",
+      "gives": "TETETETE",
+      "note": "tete is French for head, so two heads give it twice"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TETE",
+      "A",
+      "TETE"
+     ]
+    },
+    "explanation": {
+     "surface": "French leaders are having a private chat.",
+     "walkthrough": "The A goes between the two French heads.",
+     "definitionFit": "A tete-a-tete, literally head-to-head, is an intimate talk between two people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +876,61 @@
     "text": "Stern on leading yacht's really dirty",
     "enumeration": "5"
    },
-   "solution": "GRIMY"
+   "solution": "GRIMY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GRIMY",
+    "definitions": [
+     {
+      "text": "really dirty",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "letter_selection",
+      "note": "leading points to the letter at the front of the word it qualifies"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stern",
+      "gives": "GRIM",
+      "note": "stern and grim both mean severe"
+     },
+     {
+      "clueFragment": "yacht",
+      "gives": "Y",
+      "select": "first",
+      "note": "the opening letter of yacht"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRIM",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "The back end of the lead yacht is filthy.",
+     "walkthrough": "'Stern' looks like the rear of a boat, which suits the yacht, but it is the adjective meaning severe.",
+     "definitionFit": "Grimy means covered in ingrained grime, so very dirty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stern"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +944,56 @@
     "text": "Student has taken to old city I would find garish",
     "enumeration": "5"
    },
-   "solution": "LURID"
+   "solution": "LURID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LURID",
+    "definitions": [
+     {
+      "text": "garish",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "has taken to",
+     "find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L for learner, a student driver"
+     },
+     {
+      "clueFragment": "old city",
+      "gives": "UR",
+      "note": "Ur, the ancient Sumerian city"
+     },
+     {
+      "clueFragment": "I would",
+      "gives": "ID",
+      "note": "I'd is the contraction of I would"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "UR",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A student who has taken up an ancient city as a subject finds it tasteless.",
+     "definitionFit": "Lurid colours are unnaturally vivid and glaring, the same as garish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Student"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +1007,58 @@
     "text": "Media star taking break to adapt for the theatre",
     "enumeration": "9"
    },
-   "solution": "DRAMATISE"
+   "solution": "DRAMATISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DRAMATISE",
+    "definitions": [
+     {
+      "text": "adapt for the theatre",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking break",
+      "for": "anagram",
+      "note": "taking a break breaks the words apart, and the pieces are reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Media",
+      "gives": "MEDIA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "star",
+      "gives": "STAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEDIASTAR",
+       "gives": "DRAMATISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity takes time off to turn something into a stage play.",
+     "definitionFit": "To dramatise a story is to rewrite it as a play for performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1072,49 @@
     "text": "Bring in worker who's valued",
     "enumeration": "9"
    },
-   "solution": "IMPORTANT"
+   "solution": "IMPORTANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPORTANT",
+    "definitions": [
+     {
+      "text": "valued",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "who's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bring in",
+      "gives": "IMPORT",
+      "note": "to import goods is to bring them in from abroad"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker ant, a standard crossword worker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPORT",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "An employer recruits a staff member who is highly prized.",
+     "definitionFit": "Someone important is of great significance, someone much valued."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1128,50 @@
     "text": "Product presentation by company's becoming dated",
     "enumeration": "9"
    },
-   "solution": "PACKAGING"
+   "solution": "PACKAGING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PACKAGING",
+    "definitions": [
+     {
+      "text": "Product presentation",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "PACK",
+      "note": "a pack is a group or company of animals or people"
+     },
+     {
+      "clueFragment": "becoming dated",
+      "gives": "AGING",
+      "note": "growing old, the US-style spelling of ageing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PACK",
+      "AGING"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm's way of displaying its goods is looking old-fashioned.",
+     "definitionFit": "Packaging is the wrapping and design in which goods are presented for sale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1185,65 @@
     "text": "Mocking actors wearing Indian dress at club",
     "enumeration": "9"
    },
-   "solution": "SARCASTIC"
+   "solution": "SARCASTIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SARCASTIC",
+    "definitions": [
+     {
+      "text": "Mocking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "someone wearing a garment is inside it, so the actors go within the dress"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indian dress",
+      "gives": "SARI",
+      "note": "a sari is the draped garment worn by many Indian women"
+     },
+     {
+      "clueFragment": "actors",
+      "gives": "CAST",
+      "note": "the cast is the set of actors in a production"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "C",
+      "note": "C for clubs, the card suit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAR",
+      "CAST",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Performers dressed in saris at a club are being ridiculed.",
+     "walkthrough": "'club' looks like a nightclub venue, but it is the card suit, supplying a single letter.",
+     "definitionFit": "Sarcastic remarks use irony to scorn or ridicule, so they are mocking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1257,44 @@
     "text": "Fruit from somewhere in Japan",
     "enumeration": "7"
    },
-   "solution": "SATSUMA"
+   "solution": "SATSUMA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SATSUMA",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     },
+     {
+      "text": "somewhere in Japan",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fruit",
+      "note": "first meaning: a small loose-skinned citrus fruit"
+     },
+     {
+      "clueFragment": "somewhere in Japan",
+      "note": "second meaning: a former province in southern Kyushu"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The fruit really is named after the Japanese province, so the surface is literally true.",
+     "definitionFit": "The satsuma mandarin takes its name from the old Japanese province where it was cultivated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1308,46 @@
     "text": "Refuse to criticise",
     "enumeration": "7"
    },
-   "solution": "RUBBISH"
+   "solution": "RUBBISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUBBISH",
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0
+     },
+     {
+      "text": "criticise",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refuse",
+      "note": "first meaning: waste, garbage (the noun, stressed on the first syllable)"
+     },
+     {
+      "clueFragment": "criticise",
+      "note": "second meaning: to dismiss scornfully as worthless"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Refuse to criticise' reads as declining to find fault, but refuse is the noun for waste; British 'rubbish' as a verb means to pan.",
+     "definitionFit": "Rubbish is British for household waste, and to rubbish something is to disparage it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1361,57 @@
     "text": "Refuse right away to get thrown out",
     "enumeration": "5"
    },
-   "solution": "EJECT"
+   "solution": "EJECT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EJECT",
+    "definitions": [
+     {
+      "text": "thrown out",
+      "at": 25,
+      "note": "a past participle standing for the verb meaning throw out"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "away tells you to remove the letter for right from the word"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refuse",
+      "gives": "REJECT",
+      "note": "to refuse something is to reject it"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R for right, the letter taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EJECT"
+     ]
+    },
+    "explanation": {
+     "surface": "Turn something down at once and you get chucked out.",
+     "walkthrough": "Refuse is a verb this time, unlike in 18 Down; drop R from REJECT.",
+     "definitionFit": "To eject someone is to expel them forcibly, to throw them out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1425,73 @@
     "text": "Implicate bishop in Rome playing with the Italian following",
     "enumeration": "7"
    },
-   "solution": "EMBROIL"
+   "solution": "EMBROIL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EMBROIL",
+    "definitions": [
+     {
+      "text": "Implicate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests moving freely about, so the letters change places"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the Italian word is placed at the end"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "Rome",
+      "gives": "ROME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the Italian",
+      "gives": "IL",
+      "note": "il is Italian for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMBRO",
+      "IL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BROME",
+       "gives": "EMBRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop is caught up in some scheme in Rome involving an Italian.",
+     "definitionFit": "To embroil someone is to drag them into a conflict, to implicate them in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1505,48 @@
     "text": "Rolls taken from the Yorkshire diners, reportedly",
     "enumeration": "7"
    },
-   "solution": "TEETERS"
+   "solution": "TEETERS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEETERS",
+    "definitions": [
+     {
+      "text": "Rolls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is said out loud, so the sound counts rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "taken from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Yorkshire diners",
+      "gives": "TEETERS",
+      "soundsLike": "T'EATERS",
+      "note": "Yorkshire dialect shortens the to t', and diners are eaters"
+     }
+    ],
+    "explanation": {
+     "surface": "Bread rolls are being taken by Yorkshire people eating out.",
+     "walkthrough": "Rolls looks like bread but is a verb, rocking unsteadily. In Yorkshire speech 'the' is clipped to t', as in 'on t'moor'.",
+     "definitionFit": "Something that teeters sways or rocks unsteadily, as a ship rolls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rolls"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1560,64 @@
     "text": "Brought back first-class piece of shin",
     "enumeration": "5"
    },
-   "solution": "TIBIA"
+   "solution": "TIBIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TIBIA",
+    "definitions": [
+     {
+      "text": "shin",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Brought back",
+      "for": "reversal",
+      "note": "something brought back returns the way it came, so the letters run from right to left"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first-class",
+      "gives": "AI",
+      "note": "A1 means first-class, with the 1 standing as the letter I"
+     },
+     {
+      "clueFragment": "piece",
+      "gives": "BIT",
+      "note": "a bit is a piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIB",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AIBIT",
+       "to": "TIBIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone returned a top-quality piece of shin, perhaps from the butcher.",
+     "walkthrough": "A1 is a common phrase for first-rate, and setters let the digit 1 serve as I.",
+     "definitionFit": "The tibia is the shinbone, the larger bone of the lower leg."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shin"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1631,59 @@
     "text": "Easily persuaded to take short way to bar",
     "enumeration": "9"
    },
-   "solution": "TRACTABLE"
+   "solution": "TRACTABLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TRACTABLE",
+    "definitions": [
+     {
+      "text": "Easily persuaded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off before the end, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "to take",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "TRACK",
+      "note": "a track is a path or way"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "TABLE",
+      "note": "to table a proposal, in American usage, is to shelve it, barring its discussion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAC",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is readily talked into a shortcut to the pub.",
+     "walkthrough": "The bar of the surface is a pub, but here it is a verb: in American usage, tabling a motion sets it aside. The link 'to take' is loose.",
+     "definitionFit": "A tractable person is docile and manageable, readily led or persuaded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1697,59 @@
     "text": "Your old style repast is lacking a little herb",
     "enumeration": "5"
    },
-   "solution": "THYME"
+   "solution": "THYME",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "THYME",
+    "definitions": [
+     {
+      "text": "herb",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is lacking",
+      "for": "deletion",
+      "note": "is lacking means some letters are missing from the meal word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Your old style",
+      "gives": "THY",
+      "note": "thy is the archaic form of your"
+     },
+     {
+      "clueFragment": "repast",
+      "gives": "MEAL",
+      "note": "a repast is a meal"
+     },
+     {
+      "clueFragment": "a little",
+      "gives": "AL",
+      "note": "A as written and L, an abbreviation for little; these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THY",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned meal of yours is missing a pinch of herbs.",
+     "definitionFit": "Thyme is an aromatic garden herb used in cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1763,56 @@
     "text": "One accepting offer as Speaker's no Liberal",
     "enumeration": "5"
    },
-   "solution": "TAKER"
+   "solution": "TAKER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TAKER",
+    "definitions": [
+     {
+      "text": "One accepting offer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "no means without, so the letter for Liberal is taken out"
+     }
+    ],
+    "linkWords": [
+     "as",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speaker",
+      "gives": "TALKER",
+      "note": "a speaker is one who talks"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L, the abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician accepts a deal, given the Commons Speaker isn't a Liberal.",
+     "definitionFit": "A taker is someone who accepts what is offered, as in 'any takers?'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Speaker"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1826,46 @@
     "text": "Usefulness of electricity, say?",
     "enumeration": "7"
    },
-   "solution": "UTILITY"
+   "solution": "UTILITY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UTILITY",
+    "definitions": [
+     {
+      "text": "Usefulness",
+      "at": 0
+     },
+     {
+      "text": "electricity, say",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Usefulness",
+      "note": "first meaning: the quality of being useful"
+     },
+     {
+      "clueFragment": "electricity, say",
+      "note": "second meaning: a public service such as power, gas or water"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as asking how useful electricity is; 'say' flags that electricity is just one example of the second meaning.",
+     "definitionFit": "Utility means usefulness, and a utility is also a public service like electricity supply."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1879,50 @@
     "text": "Heard aircraftman's a bit annoying",
     "enumeration": "7"
    },
-   "solution": "IRKSOME"
+   "solution": "IRKSOME",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "IRKSOME",
+    "definitions": [
+     {
+      "text": "annoying",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heard",
+      "for": "homophone",
+      "note": "heard means we take the sound of the following word, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aircraftman's",
+      "gives": "IRKS",
+      "soundsLike": "ERK'S",
+      "note": "erk is RAF slang for a lowest-rank aircraftman"
+     },
+     {
+      "clueFragment": "a bit",
+      "gives": "SOME",
+      "note": "some means a bit, a certain amount"
+     }
+    ],
+    "explanation": {
+     "surface": "An airman was overheard being slightly irritating.",
+     "walkthrough": "An erk is British forces slang for an aircraftman, the lowest RAF rank.",
+     "definitionFit": "Something irksome is tiresome and irritating, hence annoying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heard"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1936,70 @@
     "text": "I've worked in agony to win",
     "enumeration": "7"
    },
-   "solution": "ACHIEVE"
+   "solution": "ACHIEVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ACHIEVE",
+    "definitions": [
+     {
+      "text": "win",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked",
+      "for": "anagram",
+      "note": "worked means shaped or kneaded, so the letters are reformed"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the reworked letters inside the word for agony"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agony",
+      "gives": "ACHE",
+      "note": "an ache is a pain"
+     },
+     {
+      "clueFragment": "I've",
+      "gives": "IVE",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACH",
+      "IEV",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IVE",
+       "gives": "IEV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete says they worked through great pain to triumph.",
+     "walkthrough": "'I've worked' reads as someone describing their effort, but worked only rearranges the contraction before it.",
+     "definitionFit": "To achieve something is to succeed in gaining it, to win it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worked"
+    }
+   }
   },
   {
    "number": 28,
@@ -477,7 +2013,74 @@
     "text": "Corsets made ridges around top of leg!",
     "enumeration": "7"
    },
-   "solution": "GIRDLES"
+   "solution": "GIRDLES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GIRDLES",
+    "definitions": [
+     {
+      "text": "Corsets",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made",
+      "for": "anagram",
+      "note": "made suggests something constructed anew, so the letters are formed into a fresh order"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "top of, in an across clue, picks out the very first letter of the next word"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the reworked letters encircle the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ridges",
+      "gives": "RIDGES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of leg"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIRD",
+      "L",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIDGES",
+       "gives": "GIRDES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tight undergarments left welts around the thigh.",
+     "walkthrough": "L sits inside GIRD-ES.",
+     "definitionFit": "A girdle is a close-fitting elastic undergarment, a type of corset."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "made"
+    }
+   }
   }
  ]
 }
