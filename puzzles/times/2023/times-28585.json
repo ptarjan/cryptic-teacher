@@ -23,6 +23,9 @@
   "date": "2023-04-24",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,43 @@
     "text": "Fellow worshippers, say, participating in sombre threnody",
     "enumeration": "8"
    },
-   "solution": "BRETHREN"
+   "solution": "BRETHREN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BRETHREN",
+    "definitions": [
+     {
+      "text": "Fellow worshippers, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "participating in",
+      "for": "hidden_word",
+      "note": "letters taking part in a phrase are found sitting inside its words, across the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sombre threnody",
+      "gives": "BRETHREN",
+      "note": "runs from the end of the first word into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Members of a congregation join in singing a gloomy lament.",
+     "walkthrough": "A threnody is a song of mourning; the answer straddles its start and the tail of sombre.",
+     "definitionFit": "Brethren is an old plural of brother, used for members of a church or religious community; 'say' marks them as one example of fellow worshippers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "participating"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +89,49 @@
     "text": "Rotten time for coarse food",
     "enumeration": "8"
    },
-   "solution": "ROUGHAGE"
+   "solution": "ROUGHAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROUGHAGE",
+    "definitions": [
+     {
+      "text": "coarse food",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rotten",
+      "gives": "ROUGH",
+      "note": "rough as in poor or unpleasant, a rotten time"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUGH",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is having a miserable spell, eating poor-quality grub.",
+     "definitionFit": "Roughage is dietary fibre, the coarse indigestible part of food such as bran."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rotten"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +151,66 @@
      }
     ]
    },
-   "solution": "TOECURLING"
+   "solution": "TOECURLING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TOE-CURLING",
+    "definitions": [
+     {
+      "text": "Embarrassing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned round, so the abbreviation runs the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, a set of books"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Scottish sport",
+      "gives": "CURLING",
+      "note": "curling, sliding stones on ice, is strongly associated with Scotland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "E",
+      "CURLING"
+     ],
+     "reversals": [
+      {
+       "from": "OT",
+       "to": "TO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Books on English and Scottish games prove to be cringeworthy reads.",
+     "definitionFit": "Toe-curling is an informal adjective for something so cringeworthy it makes you squirm with discomfort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +224,78 @@
     "text": "Others managed these at first, including a posh eating-place",
     "enumeration": "10"
    },
-   "solution": "RESTAURANT"
+   "solution": "RESTAURANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RESTAURANT",
+    "definitions": [
+     {
+      "text": "eating-place",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first asks for only the opening letter of the word just before it"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means the following words are taken in among the letters already built"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Others",
+      "gives": "REST",
+      "note": "the rest are the others"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "ran a business, managed it"
+     },
+     {
+      "clueFragment": "these",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter of these"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class, posh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REST",
+      "AU",
+      "RANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Other people ran these places at the start, including one smart dining venue.",
+     "walkthrough": "The A and U go in between the others and managed-plus-T. U for upper-class is a crossword convention from Nancy Mitford's U and non-U.",
+     "definitionFit": "A restaurant is a place where meals are served to paying customers, a public eatery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "these"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +309,47 @@
     "text": "Old conquerors — and not belonging to island",
     "enumeration": "7"
    },
-   "solution": "NORMANS"
+   "solution": "NORMANS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NORMANS",
+    "definitions": [
+     {
+      "text": "Old conquerors",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and not",
+      "gives": "NOR",
+      "note": "nor means and not"
+     },
+     {
+      "clueFragment": "belonging to island",
+      "gives": "MANS",
+      "note": "Man's, the possessive of the Isle of Man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOR",
+      "MANS"
+     ]
+    },
+    "explanation": {
+     "surface": "Ancient invaders who had no tie to the island they took.",
+     "walkthrough": "The Isle of Man is a self-governing island in the Irish Sea, often clued just as island.",
+     "definitionFit": "The Normans invaded and conquered England in 1066 under William the Conqueror."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 6,
@@ -112,7 +363,52 @@
     "text": "Attorney leaves western state for Russian river",
     "enumeration": "4"
    },
-   "solution": "NEVA"
+   "solution": "NEVA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NEVA",
+    "definitions": [
+     {
+      "text": "Russian river",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "when someone leaves, they go away, so those letters drop out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attorney",
+      "gives": "DA",
+      "note": "DA is a District Attorney in the US"
+     },
+     {
+      "clueFragment": "western state",
+      "gives": "NEVADA",
+      "note": "a state in the western US"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEVA"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer quits a US state to go to Russia.",
+     "definitionFit": "The Neva is the river flowing through St Petersburg into the Gulf of Finland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 7,
@@ -126,7 +422,61 @@
     "text": "Key French couturier reserving time for press chief",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "press chief",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reserving",
+      "for": "container",
+      "note": "reserving means keeping something held within, so the designer's name holds the next letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Key",
+      "gives": "E",
+      "note": "E is a musical key"
+     },
+     {
+      "clueFragment": "French couturier",
+      "gives": "DIOR",
+      "note": "Christian Dior, the French fashion designer"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DITOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A major Paris fashion house books a slot for a newspaper boss.",
+     "definitionFit": "An editor is the person in charge of a newspaper or publication, so a chief of the press."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 8,
@@ -140,7 +490,55 @@
     "text": "Campaigner having a certain appeal in more basic setting",
     "enumeration": "8"
    },
-   "solution": "CRUSADER"
+   "solution": "CRUSADER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRUSADER",
+    "definitions": [
+     {
+      "text": "Campaigner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in more basic setting",
+      "for": "container",
+      "note": "a setting is a mount that holds a stone, so the appeal sits within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more basic",
+      "gives": "CRUDER",
+      "note": "cruder means more basic, less refined"
+     },
+     {
+      "clueFragment": "a certain appeal",
+      "gives": "SA",
+      "note": "SA is sex appeal, a certain kind of appeal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRU",
+      "SA",
+      "DER"
+     ]
+    },
+    "explanation": {
+     "surface": "An activist with a particular charm in a rougher environment.",
+     "walkthrough": "'A certain appeal' coyly means sex appeal, abbreviated SA.",
+     "definitionFit": "A crusader is someone who campaigns vigorously for a cause, from the medieval holy wars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "certain"
+    }
+   }
   },
   {
    "number": 9,
@@ -154,7 +552,71 @@
     "text": "Shrub in old list of French rarities, principally",
     "enumeration": "8"
    },
-   "solution": "OLEANDER"
+   "solution": "OLEANDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OLEANDER",
+    "definitions": [
+     {
+      "text": "Shrub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "principally",
+      "for": "letter_selection",
+      "note": "principally means first and foremost, so only the opening letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "list",
+      "gives": "LEAN",
+      "note": "a ship lists when it leans to one side"
+     },
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     },
+     {
+      "clueFragment": "rarities",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of rarities"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "LEAN",
+      "DE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A bush features in an antique catalogue of French curiosities.",
+     "walkthrough": "List is a verb here, to tilt, not a catalogue.",
+     "definitionFit": "Oleander is a poisonous evergreen shrub with pink or white flowers, common around the Mediterranean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "list"
+    }
+   }
   },
   {
    "number": 10,
@@ -168,7 +630,62 @@
     "text": "Line up outside initially under pressure",
     "enumeration": "6"
    },
-   "solution": "DURESS"
+   "solution": "DURESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DURESS",
+    "definitions": [
+     {
+      "text": "pressure",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to just the opening letter of the word after it"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means wrapped round the other letter, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Line up",
+      "gives": "DRESS",
+      "note": "soldiers dress ranks when they line up"
+     },
+     {
+      "clueFragment": "under",
+      "gives": "U",
+      "select": "first",
+      "note": "first letter of under"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "U",
+      "RESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting into line while a sense of compulsion bears down.",
+     "walkthrough": "'Under pressure' reads as a phrase, but under only supplies its first letter. To dress is the military term for aligning troops.",
+     "definitionFit": "Duress is coercion by threats or force, pressure applied to make someone act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "under"
+    }
+   }
   },
   {
    "number": 11,
@@ -182,7 +699,50 @@
     "text": "In my past it involved inflammation of the eardrum",
     "enumeration": "10"
    },
-   "solution": "TYMPANITIS"
+   "solution": "TYMPANITIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TYMPANITIS",
+    "definitions": [
+     {
+      "text": "inflammation of the eardrum",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled or convoluted, so these letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In my past it",
+      "gives": "INMYPASTIT",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INMYPASTIT",
+       "gives": "TYMPANITIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls that their earlier medical history featured an ear problem.",
+     "definitionFit": "The tympanum is the eardrum and -itis denotes inflammation, so this is the medical term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 12,
@@ -196,7 +756,50 @@
     "text": "Fine atmosphere for outdoor entertainment",
     "enumeration": "4"
    },
-   "solution": "FAIR"
+   "solution": "FAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAIR",
+    "definitions": [
+     {
+      "text": "outdoor entertainment",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F is fine, as on pencils"
+     },
+     {
+      "clueFragment": "atmosphere",
+      "gives": "AIR",
+      "note": "air is atmosphere, as in an air of calm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Good weather and ambience make for a pleasant day out.",
+     "walkthrough": "Fine looks like weather, but it is the abbreviation F.",
+     "definitionFit": "A fair is a funfair or fête with rides and stalls, typically held outdoors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 13,
@@ -210,7 +813,51 @@
     "text": "Countless men run Bude, surprisingly",
     "enumeration": "10"
    },
-   "solution": "UNNUMBERED"
+   "solution": "UNNUMBERED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNNUMBERED",
+    "definitions": [
+     {
+      "text": "Countless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "surprisingly suggests an unexpected outcome, so the letters come out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men run Bude",
+      "gives": "MENRUNBUDE",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENRUNBUDE",
+       "gives": "UNNUMBERED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hordes of men, unexpectedly, are in charge of a seaside town.",
+     "walkthrough": "Bude is a seaside town in Cornwall.",
+     "definitionFit": "Unnumbered means not counted or too many to count, so it matches countless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Countless"
+    }
+   }
   },
   {
    "number": 14,
@@ -224,7 +871,60 @@
     "text": "Mad medic on small lorry",
     "enumeration": "10"
    },
-   "solution": "MOONSTRUCK"
+   "solution": "MOONSTRUCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOONSTRUCK",
+    "definitions": [
+     {
+      "text": "Mad",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medic",
+      "gives": "MO",
+      "note": "MO is a medical officer"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "lorry",
+      "gives": "TRUCK",
+      "note": "a truck is a lorry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "ON",
+      "S",
+      "TRUCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A crazy doctor rides on a little lorry.",
+     "walkthrough": "A lorry is the British word for a truck.",
+     "definitionFit": "Moonstruck means unbalanced or dreamily crazed, from the old belief that the moon causes madness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "medic"
+    }
+   }
   },
   {
    "number": 15,
@@ -238,7 +938,69 @@
     "text": "Book recollecting meeting he originally organised",
     "enumeration": "10"
    },
-   "solution": "EIGHTEENMO"
+   "solution": "EIGHTEENMO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EIGHTEENMO",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the outset, so only the opening letter of the next word counts"
+     },
+     {
+      "text": "recollecting",
+      "for": "anagram",
+      "note": "re-collecting means gathering again into a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meeting",
+      "gives": "MEETING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "organised",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of organised"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEETINGHEO",
+       "gives": "EIGHTEENMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A volume recalls a gathering that he first arranged.",
+     "walkthrough": "Recollecting looks like remembering; read it as re-collecting.",
+     "definitionFit": "Eighteenmo is a book size in which each sheet is folded into eighteen leaves, so a book of that format."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "recollecting"
+    }
+   }
   },
   {
    "number": 16,
@@ -252,7 +1014,64 @@
     "text": "Temptress in food shop meeting prince from the East",
     "enumeration": "7"
    },
-   "solution": "DELILAH"
+   "solution": "DELILAH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DELILAH",
+    "definitions": [
+     {
+      "text": "Temptress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the East",
+      "for": "reversal",
+      "note": "in an across clue, coming from the east means read from right to left"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "meeting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "food shop",
+      "gives": "DELI",
+      "note": "a deli is a delicatessen"
+     },
+     {
+      "clueFragment": "prince",
+      "gives": "HAL",
+      "note": "Prince Hal, the young Henry V in Shakespeare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DELI",
+      "LAH"
+     ],
+     "reversals": [
+      {
+       "from": "HAL",
+       "to": "LAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seductress at the delicatessen encounters an oriental prince.",
+     "definitionFit": "Delilah is the Biblical woman who seduced Samson and betrayed him, the archetypal temptress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prince"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +1085,61 @@
     "text": "Dejected teacher going about with company of actors",
     "enumeration": "8"
    },
-   "solution": "DOWNCAST"
+   "solution": "DOWNCAST",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DOWNCAST",
+    "definitions": [
+     {
+      "text": "Dejected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going about",
+      "for": "container",
+      "note": "going about means circling round, so the teacher's letters surround the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teacher",
+      "gives": "DON",
+      "note": "a don is a university teacher"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is an abbreviation for with"
+     },
+     {
+      "clueFragment": "company of actors",
+      "gives": "CAST",
+      "note": "the cast of a play"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "W",
+      "N",
+      "CAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy tutor travels around with a theatre troupe.",
+     "definitionFit": "Downcast describes someone with lowered eyes and spirits, a synonym for low and dispirited."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1153,60 @@
     "text": "Dynamic type carrying goods left one gawping!",
     "enumeration": "7"
    },
-   "solution": "GOGGLER"
+   "solution": "GOGGLER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GOGGLER",
+    "definitions": [
+     {
+      "text": "one gawping",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding inside, so the dynamic type holds the following letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dynamic type",
+      "gives": "GOER",
+      "note": "a goer is an energetic, lively person"
+     },
+     {
+      "clueFragment": "goods",
+      "gives": "GG",
+      "note": "G is good, doubled for the plural"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "GGL",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A go-getter with a haul of merchandise leaves someone staring in amazement.",
+     "definitionFit": "To goggle is to stare with wide eyes, so a goggler is someone gaping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "goods"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1220,60 @@
     "text": "Invigorate Republican soldiers in various directions",
     "enumeration": "8"
    },
-   "solution": "ENERGISE"
+   "solution": "ENERGISE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ENERGISE",
+    "definitions": [
+     {
+      "text": "Invigorate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the earlier words inside the compass points that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "various directions",
+      "gives": "ENEE",
+      "note": "east-north-east and east, two compass directions"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "GIS",
+      "note": "GIs are American soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENE",
+      "RGIS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Pep up the Republican troops who are scattered every which way.",
+     "definitionFit": "To energise is to fill with energy, giving vigour to someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "various"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1287,54 @@
     "text": "Young creature perpetually restricted by obstruction",
     "enumeration": "7"
    },
-   "solution": "LEVERET"
+   "solution": "LEVERET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEVERET",
+    "definitions": [
+     {
+      "text": "Young creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricted by",
+      "for": "container",
+      "note": "something restricted is hemmed in, so it goes inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obstruction",
+      "gives": "LET",
+      "note": "let is an old word for a hindrance, as in without let or hindrance"
+     },
+     {
+      "clueFragment": "perpetually",
+      "gives": "EVER",
+      "note": "ever means always"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EVER",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A young animal is forever blocked by something in its way.",
+     "definitionFit": "A leveret is a young hare in its first year."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "obstruction"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1348,53 @@
     "text": "Insubstantial western rowing crew? Not so",
     "enumeration": "10"
    },
-   "solution": "WEIGHTLESS"
+   "solution": "WEIGHTLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WEIGHTLESS",
+    "definitions": [
+     {
+      "text": "Insubstantial",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "western",
+      "gives": "W",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "rowing crew",
+      "gives": "EIGHT",
+      "note": "an eight is a rowing crew of eight oarsmen"
+     },
+     {
+      "clueFragment": "Not so",
+      "gives": "LESS",
+      "note": "less means not so much, as in less heavy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "EIGHT",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A flimsy rowing team from the west — or perhaps not.",
+     "walkthrough": "'Not so' looks like a retort, but it just means less.",
+     "definitionFit": "Weightless means having no weight, so lacking substance; insubstantial in a literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Not"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1408,70 @@
     "text": "Convict, possibly, one taking tea round back of prison",
     "enumeration": "6"
    },
-   "solution": "INMATE"
+   "solution": "INMATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INMATE",
+    "definitions": [
+     {
+      "text": "Convict, possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the earlier letters go around the next one"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of prison"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "MATE",
+      "note": "maté is a South American herbal tea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "MATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner, perhaps, has tea brought round at the back of the jail.",
+     "definitionFit": "An inmate is a resident of an institution, and a convict in prison is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tea"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1485,66 @@
     "text": "Elder possibly demands support, accommodating religious leader",
     "enumeration": "4"
    },
-   "solution": "TREE"
+   "solution": "TREE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TREE",
+    "definitions": [
+     {
+      "text": "Elder possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     },
+     {
+      "text": "accommodating",
+      "for": "container",
+      "note": "accommodating means giving room to, so the support holds the next letter"
+     }
+    ],
+    "linkWords": [
+     "demands"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a tee supports a golf ball"
+     },
+     {
+      "clueFragment": "religious",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of religious"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "A church elder insists on backing, making room for a religious head.",
+     "walkthrough": "Elder looks like a church official, but it is the elder tree.",
+     "definitionFit": "The elder is a small tree bearing elderflowers and elderberries, so one example of a tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Elder"
+    }
+   }
   },
   {
    "number": 23,
@@ -364,7 +1558,44 @@
     "text": "Seize report of widely-encountered ruminants",
     "enumeration": "10"
    },
-   "solution": "COMMANDEER"
+   "solution": "COMMANDEER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COMMANDEER",
+    "definitions": [
+     {
+      "text": "Seize",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "report of",
+      "for": "homophone",
+      "note": "a report is something heard, so the words are spoken out loud"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "widely-encountered ruminants",
+      "gives": "COMMANDEER",
+      "soundsLike": "COMMON DEER",
+      "note": "widely encountered is common; ruminants here are deer"
+     }
+    ],
+    "explanation": {
+     "surface": "Grab an account of the deer you see everywhere.",
+     "definitionFit": "To commandeer is to take possession of something by authority, especially for military use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 24,
@@ -378,7 +1609,43 @@
     "text": "Bovine creature without water, perhaps?",
     "enumeration": "4"
    },
-   "solution": "NEAT"
+   "solution": "NEAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NEAT",
+    "definitions": [
+     {
+      "text": "Bovine creature",
+      "at": 0
+     },
+     {
+      "text": "without water, perhaps",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bovine creature",
+      "note": "first meaning: an old word for cattle, an ox or cow"
+     },
+     {
+      "clueFragment": "without water, perhaps",
+      "note": "second meaning: of a spirit, served undiluted"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface pictures a thirsty cow; one sense is archaic livestock, the other how you might order whisky.",
+     "definitionFit": "The word is both an archaic noun for cattle and an adjective for a drink taken straight, without water or mixer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "water"
+    }
+   }
   },
   {
    "number": 25,
@@ -392,7 +1659,71 @@
     "text": "Peacekeepers worry about gunmen finally being free?",
     "enumeration": "6"
    },
-   "solution": "UNNAIL"
+   "solution": "UNNAIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UNNAIL",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so only the last letter of the word before"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the earlier words go round the selected letter"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peacekeepers",
+      "gives": "UN",
+      "note": "the United Nations provides peacekeeping forces"
+     },
+     {
+      "clueFragment": "gunmen",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of gunmen"
+     },
+     {
+      "clueFragment": "worry",
+      "gives": "AIL",
+      "note": "to ail is to trouble or worry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "N",
+      "N",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "UN troops fret over whether the gunmen will ultimately be released.",
+     "definitionFit": "To unnail is to release something by removing its nails, so to free it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Peacekeepers"
+    }
+   }
   },
   {
    "number": 26,
@@ -406,7 +1737,62 @@
     "text": "Steep charge imposed on son at university",
     "enumeration": "8"
    },
-   "solution": "SATURATE"
+   "solution": "SATURATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SATURATE",
+    "definitions": [
+     {
+      "text": "Steep",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "imposed on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "RATE",
+      "note": "a rate is a charge, as in a fee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AT",
+      "U",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hefty fee is levied on a student son.",
+     "walkthrough": "Steep looks like an adjective for the fee; it is the verb, to soak.",
+     "definitionFit": "To steep something is to soak it in liquid, and to saturate is to soak it completely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Steep"
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1812,43 @@
      }
     ]
    },
-   "solution": "TAKEOVER"
+   "solution": "TAKEOVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKE OVER",
+    "definitions": [
+     {
+      "text": "Assume control",
+      "at": 0
+     },
+     {
+      "text": "do a spot of bowling",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assume control",
+      "note": "first meaning: to take charge of something from someone else"
+     },
+     {
+      "clueFragment": "do a spot of bowling",
+      "note": "second meaning: in cricket, to bowl one over, a set of six balls"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In cricket an over is a set of six deliveries by one bowler, so a bowler taking an over does a bit of bowling.",
+     "definitionFit": "The phrasal verb means to gain control of something, and literally read it is a cricket bowler's turn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bowling"
+    }
+   }
   }
  ]
 }
