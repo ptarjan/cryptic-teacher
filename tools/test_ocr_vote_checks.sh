@@ -453,6 +453,23 @@ check("a bracket before a word the vote leaves stays (mirror)", "Fairly (slow mo
 # news-1986-02-01, news-1981-02-05: a k's lost arm reads h; an h never reads k.
 check("a k read as h is a confused letter", True, "king" in oc.confused("hing"))
 check("an h is never a misread k (mirror)", False, "caneh" in oc.confused("canek"))
+# news-1976-03-26, times-1987-04-10: a word broken at a line end, every reading broken.
+check("halves that are no words across a mark join as the word they spell", "in nuclear physics",
+      oc.join_split("in nuclear phy, sics", [mark("# in nuclear phy : sics #")] * 2))
+check("halves across a dash join too", "to heavenly models",
+      oc.join_split("to heav — enly models", [mark("# to heav — enly models #")] * 2))
+check("two words across a comma stay apart (mirror)", "a dog, house",
+      oc.join_split("a dog, house", [mark("# a dog, house #")] * 2))
+# news-1974-06-19, news-1997-06-10: a corpus word no lexicon holds, one reading split.
+check("a word the corpus knows stays whole though a reading split it", "embraced by St Ignatius",
+      oc.parted("embraced by St Ignatius", [mark("# embraced by St Ignatius #"), mark("# cmbraced by St Ignat iuS #")]))
+check("a misread the corpus does not know is parted as readings print it (mirror)", "embraced by St Ignat lus",
+      oc.parted("embraced by St Ignatlus", [mark("# embraced by St Ignat lus #")] * 2))
+check("a reading's split of a corpus word the clue prints is joined, no end lost", "greeting Italian composer",
+      oc.agree("greeting Italian composer", [mark("# greeting Ital ian composer #")] * 2)[0])
+check("de-, -ist and -ion for -or make known words", [True, True, True],
+      [oc.formed(w) for w in ("decentralization", "collaborationist", "prestidigitation")])
+check("a non-word with such an ending is none (mirror)", False, oc.formed("dexqztist"))
 glued = ["some", "consider", "this", "an", "irritating", "featureofengland'snationai", "game"]
 at = [(i, i) for i in range(6)] + [(6, None)]
 check("a reading prints a clue whose run-together word holds its word (No 4 21D)", True,
