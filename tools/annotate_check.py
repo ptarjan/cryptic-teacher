@@ -46,6 +46,7 @@ Exit code is the validator's: 0 when the puzzle is publishable. Warnings and
 audit hits are worth fixing and do not fail the build. 2 when the annotations
 were not applied at all (STOPPED), so the puzzle file is as it was.
 """
+import collections
 import contextlib
 import io
 import json
@@ -745,6 +746,151 @@ def unname_block_notes(path, pending):
     return sorted(set(changed), key=changed.index)
 
 
+LINK_EDGE = " ,;:"
+
+
+def link_word_candidates(a, clue):
+    """The edits that could take each link word out of the block it sits in.
+
+    A link word inside a block fragment is one of two slips, and the letters
+    tell them apart: the word is wordplay (its letters are in the block, "US
+    gunman is" giving USGUNMANIS, so it leaves linkWords), or the fragment ran
+    onto the link (RANDOMISE wants "disarm one", not "to disarm one", so the
+    fragment is trimmed). A block that is nothing but the link word may also be
+    the one to go. Each candidate is a whole new annotation; which of them is
+    right is the validator's call (untangle_link_words)."""
+    links = [t for t in a.get("linkWords") or [] if isinstance(t, str) and t]
+    blocks = a.get("blocks") or []
+    out = []
+    for li, lw in enumerate(links):
+        inside = [(bi, b) for bi, b in enumerate(blocks) if isinstance(b, dict)
+                  and isinstance(b.get("clueFragment"), str) and lw in b["clueFragment"]]
+        if not inside:
+            continue
+        if not any(validate_annotations.link_adds_nothing(b["clueFragment"], lw, b.get("gives"))
+                   for _, b in inside):
+            out.append({**a, "linkWords": [t for k, t in enumerate(links) if k != li]})
+        for bi, b in inside:
+            frag = b["clueFragment"]
+            for rest in (frag[len(lw):].lstrip(LINK_EDGE) if frag.startswith(lw) else None,
+                         frag[:-len(lw)].rstrip(LINK_EDGE) if frag.endswith(lw) else None):
+                if not rest or rest == frag or rest not in clue:
+                    continue
+                nb = {k: v for k, v in b.items() if k != "at"}
+                nb["clueFragment"] = rest
+                if b.get("gives") and letters(b["gives"]) == letters(frag):
+                    nb["gives"] = letters(rest)
+                out.append({**a, "blocks": [nb if k == bi else x for k, x in enumerate(blocks)]})
+            if frag == lw:
+                out.append({**a, "blocks": [x for k, x in enumerate(blocks) if k != bi]})
+    seen, uniq = set(), []
+    for c in out:
+        key = json.dumps(c, sort_keys=True)
+        if key not in seen:
+            seen.add(key)
+            uniq.append(c)
+    return uniq
+
+
+def _checks_of(lines, templates):
+    """The checks `lines` came from, counted: a candidate is compared with the
+    annotation it replaces check by check, not word for word, because a fixed
+    link word changes the text of every line that quotes it."""
+    return collections.Counter(rule_name(ln, templates) for ln in lines)
+
+
+def untangle_link_words(path, pending):
+    """Take each link word out of the block it sits in, where exactly one edit
+    does it cleanly; the [(entry id, what changed)].
+
+    check_link_word_is_not_inside_a_block was the second commonest first-check
+    failure (195 of 2778 runs). Every candidate from link_word_candidates is run
+    through the validator with the rest of the puzzle; one is written only if it
+    clears that check, adds no check (error or warning) the original did not
+    have, and has strictly fewer findings than every other such candidate. A
+    tie is a judgement, and is left to the run."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+        puzzle = read_puzzle_file(path)
+    except (ValueError, OSError, KeyError):
+        return []
+    if not isinstance(ann, dict):
+        return []
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    templates = load_templates(Path(validate_annotations.__file__).read_text(encoding="utf-8"))
+    rule = "check_link_word_is_not_inside_a_block"
+    changed = []
+    for eid, a in list(ann.items()):
+        e = by_id.get(eid)
+        if not isinstance(a, dict) or not e or not isinstance(e.get("clue"), dict):
+            continue
+        clue = e["clue"].get("text") or ""
+        found = []
+        validate_annotations.check_link_word_is_not_inside_a_block("", normalize(a, e, puzzle["entries"]),
+                                                                  clue, found)
+        if not found:
+            continue
+        cands = link_word_candidates(a, clue)
+        if not cands:
+            continue
+        base = _entry_report(path, ann, eid)
+        if base is None:
+            continue
+        base_checks = _checks_of(base, templates)
+        if not base_checks[rule]:
+            continue
+        scored = []
+        for c in cands:
+            got = _entry_report(path, {**ann, eid: c}, eid)
+            if got is None:
+                continue
+            checks = _checks_of(got, templates)
+            if not checks[rule] and not (checks - base_checks):
+                scored.append((sum(checks.values()), c))
+        scored.sort(key=lambda s: s[0])
+        if not scored or (len(scored) > 1 and scored[1][0] == scored[0][0]):
+            continue
+        ann[eid] = scored[0][1]
+        changed.append((eid, _describe_untangle(a, scored[0][1])))
+    if changed:
+        write_pending(pending, ann)
+    return changed
+
+
+def _describe_untangle(old, new):
+    """What untangle_link_words did to one entry, in a few words."""
+    gone = [t for t in old.get("linkWords") or [] if t not in (new.get("linkWords") or [])]
+    if gone:
+        return f"{gone[0]!r} out of linkWords (it is wordplay)"
+    olds = [b.get("clueFragment") for b in old.get("blocks") or [] if isinstance(b, dict)]
+    news = [b.get("clueFragment") for b in new.get("blocks") or [] if isinstance(b, dict)]
+    if len(news) < len(olds):
+        return f"block {next(f for f in olds if f not in news)!r} dropped (it is the link word)"
+    pairs = [(o, n) for o, n in zip(olds, news) if o != n]
+    return f"block {pairs[0][0]!r} trimmed to {pairs[0][1]!r} (the rest is the link word)"
+
+
+def _entry_report(path, ann, eid):
+    """The validator's errors and warnings on entry `eid` once `ann` applied,
+    or None when the annotations are too broken to validate."""
+    try:
+        puzzle = read_puzzle_file(path)
+        e = next(x for x in puzzle["entries"] if entry_id(x) == eid)
+        e["annotation"] = normalize(ann[eid], e, puzzle["entries"])
+        move_alteration(e)
+        tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+        for other in puzzle["entries"]:
+            if other is not e and isinstance(ann.get(entry_id(other)), dict):
+                other["annotation"] = normalize(ann[entry_id(other)], other, puzzle["entries"])
+                move_alteration(other)
+        definitions.place_puzzle(puzzle)
+        with contextlib.redirect_stdout(io.StringIO()):
+            _, errors, warnings = validate_annotations.validate_puzzle(puzzle)
+    except (OSError, ValueError, KeyError, IndexError, TypeError, AttributeError, StopIteration):
+        return None
+    return [x for x in errors + warnings if x.startswith(f"{tag}:")]
+
+
 def preview(path, pending):
     """(errors, warnings) the validator would give once `pending` applied.
 
@@ -880,6 +1026,11 @@ def main(argv):
         if spaced:
             print(f"answers written with commas, now spaced in {pending.name}: "
                   f"{', '.join(spaced)}\n")
+        untangled = untangle_link_words(path, pending)
+        if untangled:
+            print(f"link words that sat inside a block, taken out in {pending.name}: "
+                  + "; ".join(f"{eid} {what}" for eid, what in untangled)
+                  + ". Make the walkthrough agree\n")
         recut_done = recut_pieces(path, pending)
         if recut_done:
             print("assembly.pieces that did not join to the answer, recut from its "
