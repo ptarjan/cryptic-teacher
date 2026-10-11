@@ -600,6 +600,20 @@ def paper_kind(series, number=None):
     return pub if kind_.lower() == pub.lower() else f"{pub} {kind_}"
 
 
+def date_numbered():
+    """{series: the name its picker and archive rows print in the title slot},
+    for every numberIsDate series.
+
+    Such a paper prints no number, so a row's date column carries the day and
+    the title slot names the puzzle instead. It is the paper AND the kind
+    ("Metro Cryptic"), never the kind alone: "Cryptic" is what half the
+    corpus is, so a list of them reads as one puzzle repeated with no paper on
+    it, while the answer page's prev/next and series links say "Metro
+    Cryptic". tools/fetch_puzzle.py copies this into the index for app.js's
+    pickerRow, and build_seo_pages.hub_row reads it, so the two rows agree.
+    """
+    return {s: paper_kind(s) for s in sorted(SERIES) if "numberIsDate" in meta(s)}
+
 def official_key(series):
     """"never" where no publisher will ever print an answer key for this series.
 

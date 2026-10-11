@@ -789,9 +789,10 @@ def hub_row(p, note=None):
     d = p.get("difficulty") or {}
     when = row_date(p)
     # The date column carries the date on every row. A date-keyed paper prints
-    # no number, so its title slot says the kind instead ("Cryptic"), as
-    # pickerRow in app.js does.
-    title = series_meta.kind(p.get("series")) if number_day(p) else display_number(p)
+    # no number, so its title slot names the paper and kind instead ("Metro
+    # Cryptic", series.date_numbered()), as pickerRow in app.js does.
+    title = (series_meta.date_numbered()[p.get("series")] if number_day(p)
+             else display_number(p))
     badge = diff_badge(d["band"]) if d.get("band") else ""
     # The app's hintsBadge() in the same words: ours, a blog's (the index's
     # `blog`, see has_blog_hints), or none.
