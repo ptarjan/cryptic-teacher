@@ -24,6 +24,9 @@
   "date": "2024-11-18",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,67 @@
     "text": "Americans lose money initially through growth of store chain",
     "enumeration": "7"
    },
-   "solution": "WALMART"
+   "solution": "WALMART",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WALMART",
+    "definitions": [
+     {
+      "text": "store chain",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially asks for the opening letter of each of the three words before it"
+     },
+     {
+      "text": "through",
+      "for": "container",
+      "note": "letters that pass through something end up sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "growth",
+      "gives": "W",
+      "note": "first part of WART, a small growth on the skin"
+     },
+     {
+      "clueFragment": "Americans lose money",
+      "gives": "ALM",
+      "select": "first",
+      "note": "first letters of these three words"
+     },
+     {
+      "clueFragment": "growth",
+      "gives": "ART",
+      "note": "rest of WART, a small growth on the skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ALM",
+      "ART"
+     ]
+    },
+    "explanation": {
+     "surface": "Americans are losing money as a store chain grows.",
+     "walkthrough": "The initials ALM go inside WART to make WALMART.",
+     "definitionFit": "Walmart is the huge American retail company with stores across the country, an example of a store chain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "growth"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +114,64 @@
     "text": "Write about keeping game in shape",
     "enumeration": "8"
    },
-   "solution": "PENTAGON"
+   "solution": "PENTAGON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PENTAGON",
+    "definitions": [
+     {
+      "text": "shape",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding it inside, so one piece sits within the others"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Write",
+      "gives": "PEN",
+      "note": "to pen is to write"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "TAG",
+      "note": "tag is the playground chasing game"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, as in a book on birds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "TAG",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer keeps a game in good shape.",
+     "walkthrough": "Shape looks like it describes keeping the game in good condition, but it is the definition: a five-sided figure.",
+     "definitionFit": "A pentagon is a geometric figure with five sides, an example of a shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shape"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +185,52 @@
     "text": "Happy game if a smile breaks out",
     "enumeration": "8"
    },
-   "solution": "FAMILIES"
+   "solution": "FAMILIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FAMILIES",
+    "definitions": [
+     {
+      "text": "Happy game",
+      "at": 0,
+      "note": "the answer completes the card game Happy Families"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks out",
+      "for": "anagram",
+      "note": "when something breaks out it bursts loose, so these letters scatter into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if a smile",
+      "gives": "IFASMILE",
+      "note": "the eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IFASMILE",
+       "gives": "FAMILIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is enjoying a game and a smile spreads across their face.",
+     "walkthrough": "Happy Families is a British children's card game in which players collect sets of illustrated family members; the answer is the second word, prompted by Happy game.",
+     "definitionFit": "Happy Families is the full name of the card game, so the answer is the word that follows Happy in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Happy"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +244,60 @@
     "text": "Feel sorry for bird under hunter's foot",
     "enumeration": "6"
    },
-   "solution": "REGRET"
+   "solution": "REGRET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REGRET",
+    "definitions": [
+     {
+      "text": "Feel sorry for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foot",
+      "for": "letter_selection",
+      "note": "the foot of a word is its bottom or last letter"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, a piece under another is written after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hunter's",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of hunter"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "EGRET",
+      "note": "an egret is a white heron"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EGRET"
+     ]
+    },
+    "explanation": {
+     "surface": "Pity the bird that ends up beneath a hunter's boot.",
+     "definitionFit": "To regret something is to be sorry about it; the phrase works as a verb in the same way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +311,52 @@
     "text": "Run exposed struggling skater",
     "enumeration": "6"
    },
-   "solution": "STREAK"
+   "solution": "STREAK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STREAK",
+    "definitions": [
+     {
+      "text": "Run exposed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "a struggling performer is all over the place, so these letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skater",
+      "gives": "SKATER",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SKATER",
+       "gives": "STREAK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skater in difficulty is shown up on the ice.",
+     "walkthrough": "Exposed is part of the definition, not an indicator: to streak is to run naked through a public place, often a sports ground.",
+     "definitionFit": "Streaking means dashing about naked in public, so to streak is literally to run with everything on show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "exposed"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +370,61 @@
     "text": "Study hardpan from the south caves",
     "enumeration": "7"
    },
-   "solution": "KOWTOWS"
+   "solution": "KOWTOWS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "KOWTOWS",
+    "definitions": [
+     {
+      "text": "caves",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the south",
+      "for": "reversal",
+      "note": "in a down entry, reading from the bottom upward means the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "SWOT",
+      "note": "to swot is British slang for studying hard"
+     },
+     {
+      "clueFragment": "hardpan",
+      "gives": "WOK",
+      "note": "read as hard pan: a wok is a sturdy round-bottomed cooking pan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KOW",
+      "TOWS"
+     ],
+     "reversals": [
+      {
+       "from": "SWOTWOK",
+       "to": "KOWTOWS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone studies a layer of hard soil seen from the south and its caves.",
+     "walkthrough": "Caves looks like a noun for hollows, but it is the verb, as in caves in. SWOT then WOK, read from the bottom, gives KOWTOWS.",
+     "definitionFit": "To kowtow is to submit meekly to someone, just as one who caves gives way under pressure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caves"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +438,54 @@
     "text": "Steep tariff on spice",
     "enumeration": "8"
    },
-   "solution": "MACERATE"
+   "solution": "MACERATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MACERATE",
+    "definitions": [
+     {
+      "text": "Steep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one piece placed on another follows it in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spice",
+      "gives": "MACE",
+      "note": "mace is a spice made from the nutmeg husk"
+     },
+     {
+      "clueFragment": "tariff",
+      "gives": "RATE",
+      "note": "a tariff is a rate charged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MACE",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy import tariff has been put on spice.",
+     "walkthrough": "Steep looks like an adjective describing the tariff; it is the verb meaning soak.",
+     "definitionFit": "To macerate food is to soak it in liquid to soften it, which is what steeping does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Steep"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +499,55 @@
     "text": "Mid-sixties tolerate fat",
     "enumeration": "6"
    },
-   "solution": "TALLOW"
+   "solution": "TALLOW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TALLOW",
+    "definitions": [
+     {
+      "text": "fat",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mid",
+      "for": "letter_selection",
+      "note": "mid points to the letter standing in the very centre of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sixties",
+      "gives": "T",
+      "select": "middle",
+      "note": "the central letter of the seven in sixties"
+     },
+     {
+      "clueFragment": "tolerate",
+      "gives": "ALLOW",
+      "note": "to allow is to tolerate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALLOW"
+     ]
+    },
+    "explanation": {
+     "surface": "People in their mid-sixties should put up with a bit of body fat.",
+     "definitionFit": "Tallow is rendered animal fat, used for candles and soap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sixties"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +561,55 @@
     "text": "Lane in comic turn at heart of old boxer",
     "enumeration": "5"
    },
-   "solution": "LOUIS"
+   "solution": "LOUIS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOUIS",
+    "definitions": [
+     {
+      "text": "old boxer",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at heart of",
+      "for": "container",
+      "note": "something at the heart of a word sits right in its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lane in comic",
+      "gives": "LOIS",
+      "note": "Lois Lane is the reporter in the Superman comics"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "U",
+      "note": "a U-turn, shortened to the letter U"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "U",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A character in a comic takes a turn inside the old boxer's story.",
+     "walkthrough": "U goes into the middle of LOIS. Joe Louis was world heavyweight champion from 1937 to 1949.",
+     "definitionFit": "Joe Louis, the Brown Bomber, was a celebrated American heavyweight boxer of the mid-twentieth century."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lane"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +623,64 @@
     "text": "Stomachs turned level and more raunchy",
     "enumeration": "8"
    },
-   "solution": "SMUTTIER"
+   "solution": "SMUTTIER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SMUTTIER",
+    "definitions": [
+     {
+      "text": "more raunchy",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned round means the letters face the other way, last first"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stomachs",
+      "gives": "TUMS",
+      "note": "tums is informal for stomachs"
+     },
+     {
+      "clueFragment": "level",
+      "gives": "TIER",
+      "note": "a tier is a level, as in a tiered cake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMUT",
+      "TIER"
+     ],
+     "reversals": [
+      {
+       "from": "TUMS",
+       "to": "SMUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A queasy feeling and a level of smut make for a rude evening.",
+     "walkthrough": "Tums is a chatty British word for stomachs, much as tummies is.",
+     "definitionFit": "Smutty means indecent or bawdy, so the comparative describes something more lewd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stomachs"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +694,45 @@
     "text": "Suddenly appear to cheer up TV shows",
     "enumeration": "5"
    },
-   "solution": "ERUPT"
+   "solution": "ERUPT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERUPT",
+    "definitions": [
+     {
+      "text": "Suddenly appear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shows",
+      "for": "hidden_word",
+      "note": "these words show the solution, which is on display within their run of letters"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheer up TV",
+      "gives": "ERUPT",
+      "note": "found running across the end of cheer, all of up and the start of TV"
+     }
+    ],
+    "explanation": {
+     "surface": "Feel-good television programmes pop up out of nowhere.",
+     "definitionFit": "To erupt is to burst out suddenly, as a volcano or a rash does, so the verb matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shows"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +746,42 @@
     "text": "Prison ship",
     "enumeration": "4"
    },
-   "solution": "BRIG"
+   "solution": "BRIG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BRIG",
+    "definitions": [
+     {
+      "text": "Prison",
+      "at": 0
+     },
+     {
+      "text": "ship",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prison",
+      "note": "first meaning: a military jail, especially on a warship"
+     },
+     {
+      "clueFragment": "ship",
+      "note": "second meaning: a two-masted square-rigged sailing vessel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a prison hulk, a single idea, but the two words define the answer separately.",
+     "definitionFit": "The word is short for brigantine, a sailing vessel, and also names a naval lock-up because such cells were once on board."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Prison"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +805,39 @@
      }
     ]
    },
-   "solution": "ITTAKESTWO"
+   "solution": "ITTAKESTWO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "IT TAKES TWO",
+    "definitions": [
+     {
+      "text": "Both are responsible",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Both are responsible for back-stage gossip",
+      "note": "surface reading: two actors share the blame for spreading theatre rumours"
+     },
+     {
+      "clueFragment": "Both are responsible",
+      "note": "setter's reading: the saying that blame for a joint act lies with each party, since nobody gossips alone"
+     }
+    ],
+    "explanation": {
+     "surface": "Two actors share the blame for spreading rumours in the dressing room.",
+     "walkthrough": "The phrase is short for it takes two to tango: gossip needs a teller and a listener, so both are to blame.",
+     "definitionFit": "The saying is used to argue that a shared act or quarrel is the fault of each participant equally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gossip"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +851,45 @@
     "text": "Remains of tree",
     "enumeration": "3"
    },
-   "solution": "ASH"
+   "solution": "ASH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ASH",
+    "definitions": [
+     {
+      "text": "Remains",
+      "at": 0
+     },
+     {
+      "text": "tree",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remains",
+      "note": "first meaning: what is left after burning"
+     },
+     {
+      "clueFragment": "tree",
+      "note": "second meaning: a deciduous tree with winged seeds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Remains of tree reads like a stump or log, but the two nouns define the answer separately.",
+     "definitionFit": "The word means the powdery residue after a fire, and also names a common woodland tree of the olive family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remains"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +909,45 @@
      }
     ]
    },
-   "solution": "INUSE"
+   "solution": "INUSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IN USE",
+    "definitions": [
+     {
+      "text": "Occupied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "predominantly",
+      "for": "hidden_word",
+      "note": "predominantly means for the most part, so most of the following word is used, with its edges trimmed"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sinuses",
+      "gives": "INUSE",
+      "note": "the word with its first and last letters trimmed"
+     }
+    ],
+    "explanation": {
+     "surface": "A head mostly taken over by blocked sinuses.",
+     "definitionFit": "Something in use is being occupied or employed, like an engaged toilet or a busy phone line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sinuses"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +961,48 @@
     "text": "Skin headless fish",
     "enumeration": "3"
    },
-   "solution": "EEL"
+   "solution": "EEL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EEL",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "headless",
+      "for": "deletion",
+      "note": "a headless word has lost its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skin",
+      "gives": "PEEL",
+      "note": "to peel is to skin a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for preparing a fish: remove the skin and the head.",
+     "walkthrough": "Skin looks like an instruction to the cook; it supplies PEEL, which loses its P.",
+     "definitionFit": "An eel is a long, snake-like fish found in rivers and the sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Skin"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1016,61 @@
     "text": "Mid-Atlantic, drone leads race",
     "enumeration": "5"
    },
-   "solution": "HUMAN"
+   "solution": "HUMAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HUMAN",
+    "definitions": [
+     {
+      "text": "race",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mid",
+      "for": "letter_selection",
+      "note": "mid asks for the letters standing in the centre of the word"
+     },
+     {
+      "text": "leads",
+      "for": "charade",
+      "note": "a piece that leads goes in front of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drone",
+      "gives": "HUM",
+      "note": "a drone is a low continuous hum"
+     },
+     {
+      "clueFragment": "Atlantic",
+      "gives": "AN",
+      "select": "middle",
+      "note": "the two central letters of the eight in Atlantic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUM",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Out in mid-ocean, a drone aircraft is ahead in a race.",
+     "walkthrough": "Drone and race suggest a flying contest; race is the definition, as in the human race.",
+     "definitionFit": "The human race is mankind, so human can stand for race in that sense, though as a noun it means one member."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drone"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1084,59 @@
     "text": "CIA involved in utter sting",
     "enumeration": "8"
    },
-   "solution": "URTICATE"
+   "solution": "URTICATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "URTICATE",
+    "definitions": [
+     {
+      "text": "sting",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled up, so these letters are mixed together"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "CIA",
+      "gives": "CIA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "utter",
+      "gives": "UTTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CIAUTTER",
+       "gives": "URTICATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "American intelligence got caught up in a complete sting operation.",
+     "walkthrough": "Sting suggests an undercover police trap; here it is the verb for what a nettle does.",
+     "definitionFit": "To urticate is to sting like a nettle, from the Latin urtica for nettle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sting"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1150,68 @@
     "text": "Conductors confuse Ayrton Senna and Rob Roy",
     "enumeration": "8"
    },
-   "solution": "ANTENNAS"
+   "solution": "ANTENNAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ANTENNAS",
+    "definitions": [
+     {
+      "text": "Conductors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rob",
+      "for": "deletion",
+      "note": "to rob is to take away, so the named letters are stripped out"
+     },
+     {
+      "text": "confuse",
+      "for": "anagram",
+      "note": "confusing letters jumbles them into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ayrton Senna",
+      "gives": "AYRTONSENNA",
+      "note": "the Brazilian racing driver's name, taken as written"
+     },
+     {
+      "clueFragment": "Roy",
+      "gives": "ROY",
+      "note": "the letters to take away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTENNAS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATNSENNA",
+       "gives": "ANTENNAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ayrton Senna and Rob Roy, the Scottish outlaw, get mixed up by orchestra leaders.",
+     "walkthrough": "Rob Roy looks like the Scottish folk hero's name, but Rob is a verb telling you to remove ROY from AYRTON SENNA before rearranging what remains.",
+     "definitionFit": "Antennas are aerials, which conduct radio signals, so conductors fits them as a whimsical description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rob"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1225,59 @@
     "text": "Slum RAF destroyed with maximum loads",
     "enumeration": "7"
    },
-   "solution": "ARMFULS"
+   "solution": "ARMFULS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARMFULS",
+    "definitions": [
+     {
+      "text": "maximum loads",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is wrecked, and its letters fall into a different arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slum",
+      "gives": "SLUM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "RAF",
+      "gives": "RAF",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SLUMRAF",
+       "gives": "ARMFULS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Air force bombing flattened a slum with the heaviest payloads.",
+     "walkthrough": "The RAF is Britain's Royal Air Force.",
+     "definitionFit": "An armful is as much as a person can carry in both arms, the most they can hold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "loads"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1291,57 @@
     "text": "Magician vanishes duck with flourish",
     "enumeration": "7"
    },
-   "solution": "PROSPER"
+   "solution": "PROSPER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PROSPER",
+    "definitions": [
+     {
+      "text": "flourish",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vanishes",
+      "for": "deletion",
+      "note": "making something vanish removes it, so one letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Magician",
+      "gives": "PROSPERO",
+      "note": "Prospero is the magician in Shakespeare's The Tempest"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck in cricket is a score of nothing, so O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROSPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A conjuror makes a duck disappear with a showy flourish.",
+     "walkthrough": "Flourish looks like a magician's showy gesture; it is the verb meaning thrive.",
+     "definitionFit": "To prosper is to thrive or do well, which is what flourishing means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flourish"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1355,62 @@
     "text": "Fuel line left in factory",
     "enumeration": "10"
    },
-   "solution": "PROPELLANT"
+   "solution": "PROPELLANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PROPELLANT",
+    "definitions": [
+     {
+      "text": "Fuel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "pieces placed in something sit within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "ROPE",
+      "note": "a rope is a line on a ship"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "factory",
+      "gives": "PLANT",
+      "note": "a plant is an industrial works"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROPE",
+      "L",
+      "LANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fuel pipeline has been abandoned at the works.",
+     "walkthrough": "Line and left look like a pipeline that was abandoned; both supply letters, and only Fuel is the definition.",
+     "definitionFit": "A propellant is the fuel burnt to drive a rocket or gun, so the noun matches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1424,43 @@
     "text": "Earlier one in order",
     "enumeration": "5"
    },
-   "solution": "PRIOR"
+   "solution": "PRIOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRIOR",
+    "definitions": [
+     {
+      "text": "Earlier",
+      "at": 0
+     },
+     {
+      "text": "one in order",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Earlier",
+      "note": "first meaning: coming before in time"
+     },
+     {
+      "clueFragment": "one in order",
+      "note": "second meaning: a senior member of a religious order"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "One in order reads like a place in a sequence, matching earlier; but order here is a monastic order.",
+     "definitionFit": "The word is an adjective meaning previous, and also a noun for a monk ranking just below an abbot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1474,58 @@
     "text": "Load of noise admitted by prisoner",
     "enumeration": "6"
    },
-   "solution": "LADING"
+   "solution": "LADING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LADING",
+    "definitions": [
+     {
+      "text": "Load",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted by",
+      "for": "container",
+      "note": "something admitted by another is let inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "LAG",
+      "note": "an old lag is British slang for a convict"
+     },
+     {
+      "clueFragment": "noise",
+      "gives": "DIN",
+      "note": "a din is a loud noise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "DIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A convict confesses to a lot of noise in the cells.",
+     "walkthrough": "Old lag is British slang for a long-serving or repeat prisoner.",
+     "definitionFit": "Lading is cargo or freight, as in a bill of lading for a ship's load."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "admitted"
+    }
+   }
   },
   {
    "number": 25,
@@ -389,7 +1539,49 @@
     "text": "Where lions hunt and feast, revelling in carcasses and heads",
     "enumeration": "6"
    },
-   "solution": "AFRICA"
+   "solution": "AFRICA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AFRICA",
+    "definitions": [
+     {
+      "text": "Where lions hunt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads",
+      "for": "letter_selection",
+      "note": "heads are the tops of things, so the first letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and feast, revelling in carcasses and",
+      "gives": "AFRICA",
+      "select": "first",
+      "note": "first letters of the six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFRICA"
+     ]
+    },
+    "explanation": {
+     "surface": "A wildlife scene where lions stalk prey and gorge on the remains.",
+     "walkthrough": "Heads looks like part of the carcasses being eaten, but it tells you to take the first letters of the words before it.",
+     "definitionFit": "Wild lions live chiefly on the African savanna, so the continent is where they hunt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 26,
@@ -403,7 +1595,47 @@
     "text": "Said to have coached wrong",
     "enumeration": "4"
    },
-   "solution": "TORT"
+   "solution": "TORT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TORT",
+    "definitions": [
+     {
+      "text": "wrong",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Said",
+      "for": "homophone",
+      "note": "said means the word is spoken, so its sound matters, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coached",
+      "gives": "TORT",
+      "soundsLike": "TAUGHT",
+      "note": "coached means taught, which in British speech rhymes exactly with the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is said to have trained a team badly.",
+     "walkthrough": "The sound match works in non-rhotic British English, where the r is silent.",
+     "definitionFit": "In law a tort is a civil wrong, such as negligence, for which damages can be claimed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 27,
@@ -417,7 +1649,62 @@
     "text": "Regularly forgive original dead-beat",
     "enumeration": "5"
    },
-   "solution": "FRIED"
+   "solution": "FRIED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FRIED",
+    "definitions": [
+     {
+      "text": "beat",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "original",
+      "for": "letter_selection",
+      "note": "the original letter is the one at the start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forgive",
+      "gives": "FRIE",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRIE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Pardon the original layabout, at regular intervals.",
+     "walkthrough": "Dead-beat looks like one word for a layabout; dead supplies a letter and beat is the definition.",
+     "definitionFit": "Fried is slang for worn out or exhausted, the same sense as beat when someone says they are beat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dead"
+    }
+   }
   },
   {
    "number": 28,
@@ -431,7 +1718,65 @@
     "text": "State of game embracing new abundance",
     "enumeration": "8"
    },
-   "solution": "RICHNESS"
+   "solution": "RICHNESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RICHNESS",
+    "definitions": [
+     {
+      "text": "abundance",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "embracing means hugging something, holding it within"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State",
+      "gives": "RI",
+      "note": "RI is the postal code for Rhode Island"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "CHESS",
+      "note": "chess is a board game"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "CH",
+      "N",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "The state of play in a game that includes something new and plentiful.",
+     "walkthrough": "State of game reads as a single phrase meaning the score; State is a US state by its postal code, and game is a separate piece.",
+     "definitionFit": "Richness is plentifulness or opulence, a near synonym for abundance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 29,
@@ -445,7 +1790,69 @@
     "text": "Found first one in abandoned coin",
     "enumeration": "6"
    },
-   "solution": "FLORIN"
+   "solution": "FLORIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "FLORIN",
+    "definitions": [
+     {
+      "text": "coin",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word before it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a piece placed in another goes within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Found",
+      "gives": "F",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "abandoned",
+      "gives": "LORN",
+      "note": "lorn is an old word for abandoned or forsaken"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOR",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Somebody found a coin someone had abandoned.",
+     "walkthrough": "I goes into LORN, after F. A florin was a British two-shilling coin before decimal currency.",
+     "definitionFit": "The florin was a British coin worth two shillings, and the name has been used for coins elsewhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Found"
+    }
+   }
   },
   {
    "number": 30,
@@ -459,7 +1866,56 @@
     "text": "Houses distressed goats etc",
     "enumeration": "8"
    },
-   "solution": "COTTAGES"
+   "solution": "COTTAGES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COTTAGES",
+    "definitions": [
+     {
+      "text": "Houses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distressed",
+      "for": "anagram",
+      "note": "something distressed is roughed up and knocked about, so these letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goats",
+      "gives": "GOATS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "etc",
+      "gives": "ETC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOATSETC",
+       "gives": "COTTAGES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farm scene: shelter for upset goats and other animals.",
+     "walkthrough": "Houses looks like a verb about sheltering livestock; it is the plural noun.",
+     "definitionFit": "Cottages are small country houses, a particular kind of dwelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Houses"
+    }
+   }
   }
  ]
 }
