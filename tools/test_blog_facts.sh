@@ -392,4 +392,24 @@ desktop_busy.busy = lambda hosts: None
 got.append(bf.desktop_wait(now=1000.0))
 print(json.dumps(got))' 2>/dev/null)"
 
+check "the post index rereads a post only when its size or mtime moves, and keeps only the joins it is told to" \
+  '[true, true, true, "null", null]' \
+  "$(REPO="$REPO" TMP="$(mktemp -d)" python3 -c '
+import hashlib, json, os, sys
+from pathlib import Path
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import blog_facts as bf
+d = Path(os.environ["TMP"]); post = d / "p.json"
+post.write_text(json.dumps({"title": "Times 1"}))
+ix = bf.Index(d / "ix.sqlite")
+first = ix.post(post)
+reads = []
+real = Path.read_bytes
+Path.read_bytes = lambda self: reads.append(self) or real(self)
+again = ix.post(post)
+os.utime(post, ns=(1, 1)); moved = ix.post(post)
+Path.read_bytes = real
+ix.put_join("a", "null"); ix.put_join("b", "{}"); ix.prune(["a"])
+print(json.dumps([first == again == (hashlib.sha256(post.read_bytes()).hexdigest(), "Times 1"), len(reads) == 1, moved == first, ix.join("a"), ix.join("b")]))' 2>/dev/null)"
+
 [ "$fails" -eq 0 ] && echo "all blog_facts checks passed" || { echo "$fails failed"; exit 1; }
