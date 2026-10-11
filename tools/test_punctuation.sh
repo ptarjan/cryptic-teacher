@@ -63,7 +63,23 @@ for was, want in [("Caught by.clever message", "Caught by clever message"),
                   # Not certain: left for a re-read.
                   ("Wiped floor wi.h woollen fabric", "Wiped floor wi.h woollen fabric"),
                   ("Big cat girl found in.Carroll's garden", "Big cat girl found in.Carroll's garden"),
-                  ("Vulgar precis of Garbo's ''I want to be alone'", "Vulgar precis of Garbo's ''I want to be alone'"),
+                  # A "''" paired with a single "'" (book-28026 1A, book-28043 5D, book-27022 17D).
+                  ("Symphony\u2014from 'The Planets''?", "Symphony\u2014from 'The Planets'?"),
+                  ("The chief character in '*A Lady's Love''", "The chief character in '*A Lady's Love'"),
+                  ("Being content, say: ''fits are violent'", "Being content, say: 'fits are violent'"),
+                  ("Vulgar precis of Garbo's ''I want to be alone'", "Vulgar precis of Garbo's 'I want to be alone'"),
+                  ("Rivals ''All about Eve'', ''Numberless Mines Explode'", 'Rivals "All about Eve", \'Numberless Mines Explode\''),
+                  # A capital after a glued stop (times-17259 1A, times-15668 2D, times-20642 16D).
+                  ("a native of.Scotland", "a native of Scotland"),
+                  ("Forever.Amber?", "Forever Amber?"),
+                  ("unlike Mr.Quiverful", "unlike Mr. Quiverful"),
+                  # Not certain: left for a re-read.
+                  ("Safe spaces arranged ''coz of monster'", "Safe spaces arranged ''coz of monster'"),
+                  ("the boys' ''toy'", "the boys' ''toy'"),
+                  ("located in Ursa.Minor?", "located in Ursa.Minor?"),
+                  ("Mature Indo.European heard", "Mature Indo.European heard"),
+                  ("In retrospect.America 5", "In retrospect.America 5"),
+                  ("Stop.Then go", "Stop.Then go"),
                   ("Sweden;, say", "Sweden;, say"),
                   ("Store.,gruel", "Store.,gruel"),
                   ("Gaping , mouth", "Gaping , mouth")]:
