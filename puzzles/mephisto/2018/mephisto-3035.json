@@ -37,6 +37,9 @@
   "date": "2018-11-04",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing; clues and answers read from cryptics.georgeho.org (ODbL)'s copy of the post, which drops the counts, so each count is read off the blogger's answer"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,88 @@
     "text": "One headless attack in case of mate at end of tether?",
     "enumeration": "12"
    },
-   "solution": "MANSLAUGHTER"
+   "solution": "MANSLAUGHTER",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "MANSLAUGHTER",
+    "definitions": [
+     {
+      "text": "One headless attack in case of mate at end of tether?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "headless",
+      "for": "deletion",
+      "note": "without a head means the word for attack loses its opening letter"
+     },
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "the case of a word is its outside, so only the first and last letters of mate are kept"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only the last letter of tether is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it, so the attack goes within the outer pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mate",
+      "gives": "ME",
+      "select": "outer",
+      "note": "the outside letters of mate"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "A means one, as in 'a pound'"
+     },
+     {
+      "clueFragment": "attack",
+      "gives": "ONSLAUGHT",
+      "note": "an onslaught is a fierce attack; it loses its first letter"
+     },
+     {
+      "clueFragment": "tether",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of tether"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "NSLAUGHT",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A spouse at the end of their tether lashes out, with one assault leaving a partner dead.",
+     "walkthrough": "Anslaught is an old form of onslaught. Read whole, the clue also describes the crime itself: killing a mate in a moment of desperation.",
+     "definitionFit": "Manslaughter is unlawful killing without premeditation, the likely charge for someone who kills a spouse when driven beyond endurance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 1,
@@ -64,7 +148,51 @@
     "text": "A hateful guy, do not spare him",
     "enumeration": "11"
    },
-   "solution": "MISANTHROPE"
+   "solution": "MISANTHROPE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISANTHROPE",
+    "definitions": [
+     {
+      "text": "A hateful guy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "do",
+      "for": "anagram",
+      "note": "to do something over is to work it into a new form, so the following words are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not spare him",
+      "gives": "NOTSPAREHIM",
+      "note": "all eleven letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTSPAREHIM",
+       "gives": "MISANTHROPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to show no mercy to a loathsome man.",
+     "walkthrough": "'do not' reads as a single instruction, but 'do' alone signals the rearrangement and 'not spare him' is the fodder.",
+     "definitionFit": "A misanthrope hates humankind, so he is a person full of hatred towards others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "do"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +206,52 @@
     "text": "Fruit and nuts without shell",
     "enumeration": "5"
    },
-   "solution": "ANANA"
+   "solution": "ANANA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANANA",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without shell",
+      "for": "deletion",
+      "note": "removing the shell leaves only the inside, so the first and last letters go"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nuts",
+      "gives": "BANANAS",
+      "note": "bananas is slang for crazy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANANA"
+     ]
+    },
+    "explanation": {
+     "surface": "A snack of fruit and nuts, with the nuts already shelled.",
+     "walkthrough": "'nuts' seems to be food alongside the fruit, but it means crazy, and BANANAS loses its outer letters.",
+     "definitionFit": "Anana is an old name for the pineapple, a tropical fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 3,
@@ -92,7 +265,63 @@
     "text": "Special mince inclined to be cut for lamb kebab",
     "enumeration": "8"
    },
-   "solution": "SHASHLIK"
+   "solution": "SHASHLIK",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SHASHLIK",
+    "definitions": [
+     {
+      "text": "lamb kebab",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be cut",
+      "for": "deletion",
+      "note": "a word that is cut is trimmed, so its last letter is lopped off"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Special",
+      "gives": "S",
+      "note": "S is the abbreviation for special"
+     },
+     {
+      "clueFragment": "mince",
+      "gives": "HASH",
+      "note": "hash is chopped or minced meat"
+     },
+     {
+      "clueFragment": "inclined",
+      "gives": "LIKE",
+      "note": "like can mean likely or inclined to, as in 'like to fail'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HASH",
+      "LIK"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook prepares special minced meat for a lamb kebab.",
+     "definitionFit": "Shashlik is a Caucasian dish of lamb pieces grilled on a skewer, a kind of kebab."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mince"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +335,60 @@
     "text": "White border once with no end of geranium",
     "enumeration": "6"
    },
-   "solution": "ARGENT"
+   "solution": "ARGENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "ARGENT",
+    "definitions": [
+     {
+      "text": "White",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "being without something means it is taken out of the word"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which is the one taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "border once",
+      "gives": "MARGENT",
+      "note": "margent is an archaic form of margin"
+     },
+     {
+      "clueFragment": "geranium",
+      "gives": "M",
+      "select": "last",
+      "note": "the last letter of geranium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A white flowerbed edging of old, now planted without any geraniums.",
+     "walkthrough": "MARGENT drops its M, the letter that ends geranium.",
+     "definitionFit": "Argent is the heraldic name for silver, shown as white on a coat of arms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +402,61 @@
     "text": "Number one chance, with friend right away",
     "enumeration": "5"
    },
-   "solution": "UNITY"
+   "solution": "UNITY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UNITY",
+    "definitions": [
+     {
+      "text": "Number one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "things sent away are no longer there, so these letters are removed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chance",
+      "gives": "OPPORTUNITY",
+      "note": "an opportunity is a chance"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "OPPO",
+      "note": "oppo is British slang for a friend or colleague"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "RT",
+      "note": "RT is an abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNITY"
+     ]
+    },
+    "explanation": {
+     "surface": "The top chance goes to a friend once the right one is gone.",
+     "walkthrough": "OPPORTUNITY loses OPPO and RT from its front. 'Number one' looks like praise for the chance but is the definition.",
+     "definitionFit": "Unity is the mathematical term for the number one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +470,60 @@
     "text": "Cell entrance blocked by fellows endlessly",
     "enumeration": "6"
    },
-   "solution": "GAMETE"
+   "solution": "GAMETE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GAMETE",
+    "definitions": [
+     {
+      "text": "Cell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocked by",
+      "for": "container",
+      "note": "something blocked by another has that thing stuck in its middle"
+     },
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entrance",
+      "gives": "GATE",
+      "note": "a gate is an entrance"
+     },
+     {
+      "clueFragment": "fellows",
+      "gives": "MEN",
+      "note": "fellows are men; the last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "ME",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Men crowd the doorway of a prison cell, blocking the way in.",
+     "definitionFit": "A gamete is a reproductive cell, such as a sperm or egg, that fuses with another at fertilisation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cell"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +537,54 @@
     "text": "The college employs bodies on plant",
     "enumeration": "9"
    },
-   "solution": "THALLUSES"
+   "solution": "THALLUSES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THALLUSES",
+    "definitions": [
+     {
+      "text": "bodies on plant",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "T",
+      "note": "t' is the dialect contraction of the, as in northern English"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "HALL",
+      "note": "a hall is a college, or its residence"
+     },
+     {
+      "clueFragment": "employs",
+      "gives": "USES",
+      "note": "to employ something is to use it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HALL",
+      "USES"
+     ]
+    },
+    "explanation": {
+     "surface": "The college puts staff to work at a manufacturing plant.",
+     "walkthrough": "'bodies' looks like the staff being employed and 'plant' like a factory; both are botanical.",
+     "definitionFit": "A thallus is the undivided body of a simple plant such as a seaweed or liverwort, lacking stem, root and leaf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +598,48 @@
     "text": "I have an inclination in speech for her",
     "enumeration": "6"
    },
-   "solution": "EILEEN"
+   "solution": "EILEEN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EILEEN",
+    "definitions": [
+     {
+      "text": "her",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in speech",
+      "for": "homophone",
+      "note": "in speech means the words are heard spoken rather than read"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I have an inclination",
+      "gives": "EILEEN",
+      "soundsLike": "I LEAN",
+      "note": "to have an inclination is to lean"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone confesses that they have a soft spot for a particular woman.",
+     "walkthrough": "'inclination' reads as a romantic liking, but it is a physical slope.",
+     "definitionFit": "Eileen is a woman's name, so it can stand for any 'her'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "inclination"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +653,55 @@
     "text": "Obscure hotel around ravine",
     "enumeration": "7"
    },
-   "solution": "INKHORN"
+   "solution": "INKHORN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INKHORN",
+    "definitions": [
+     {
+      "text": "Obscure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "a thing around another encloses it, so the second word sits inside the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel",
+      "gives": "INN",
+      "note": "an inn is a hotel"
+     },
+     {
+      "clueFragment": "ravine",
+      "gives": "KHOR",
+      "note": "a khor is a dry watercourse or ravine in North Africa"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "KHOR",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A remote hotel overlooking a gorge.",
+     "walkthrough": "'Obscure' looks like a description of the hotel, but it is the definition.",
+     "definitionFit": "Inkhorn, as in 'inkhorn terms', describes pedantic, learned language that is obscure to ordinary readers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Obscure"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +715,48 @@
     "text": "Elegant young girl getting rear pinched",
     "enumeration": "4"
    },
-   "solution": "CHIC"
+   "solution": "CHIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHIC",
+    "definitions": [
+     {
+      "text": "Elegant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting rear pinched",
+      "for": "deletion",
+      "note": "the rear of a word is its end, and pinching it takes it away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "young girl",
+      "gives": "CHICK",
+      "note": "chick is slang for a young woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A stylish young woman has her bottom pinched.",
+     "definitionFit": "Chic means stylish and fashionable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pinched"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +776,64 @@
      }
     ]
    },
-   "solution": "CLEVERCLOGS"
+   "solution": "CLEVERCLOGS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLEVER CLOGS",
+    "definitions": [
+     {
+      "text": "Smarties",
+      "at": 45,
+      "note": "plural; clever clogs is used for one or many"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in clubs more than once",
+      "gives": "C",
+      "note": "C is clubs in card notation; it opens the answer and appears again later"
+     },
+     {
+      "clueFragment": "Purchase",
+      "gives": "LEVER",
+      "note": "purchase is mechanical grip or leverage, which a lever gives"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "the second C for clubs"
+     },
+     {
+      "clueFragment": "records",
+      "gives": "LOGS",
+      "note": "logs are written records"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEVER",
+      "C",
+      "LOGS"
+     ]
+    },
+    "explanation": {
+     "surface": "Buying sweets at clubs again and again, along with records.",
+     "walkthrough": "The purchase goes in among two Cs: C-LEVER-C, then LOGS. Smarties are British chocolate sweets, which the surface plays on.",
+     "definitionFit": "A clever clogs is a know-all, informally a smarty or smart alec."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Smarties"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +847,61 @@
     "text": "Mostly mentioned clips sounded clearly something like a fiddle",
     "enumeration": "7"
    },
-   "solution": "SARANGI"
+   "solution": "SARANGI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SARANGI",
+    "definitions": [
+     {
+      "text": "something like a fiddle",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all, so the final letter goes"
+     },
+     {
+      "text": "clips",
+      "for": "container",
+      "note": "to clip something is to hold it tight within a grip"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mentioned",
+      "gives": "SAID",
+      "note": "said means mentioned; the last letter is dropped"
+     },
+     {
+      "clueFragment": "sounded clearly",
+      "gives": "RANG",
+      "note": "a bell rang, sounding clearly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "RANG",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Most of what was said about the clips rang out like a swindle.",
+     "walkthrough": "SAI, the shortened word, grips RANG.",
+     "definitionFit": "A sarangi is a bowed string instrument of north India, played much as a fiddle is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clips"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +915,42 @@
     "text": "What I give when fully committed and wild in Perth",
     "enumeration": "5"
    },
-   "solution": "MYALL"
+   "solution": "MYALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MYALL",
+    "definitions": [
+     {
+      "text": "What I give when fully committed",
+      "at": 0
+     },
+     {
+      "text": "wild in Perth",
+      "at": 37
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What I give when fully committed",
+      "note": "first meaning: giving '...' is total commitment"
+     },
+     {
+      "clueFragment": "wild in Perth",
+      "note": "second meaning: an Australian word for wild or untamed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Perth stands for Australia, where the word is native, from an Aboriginal language.",
+     "definitionFit": "Read as two words it is total effort; as one, Australian usage for a wild or uncivilised person or animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Perth"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +964,50 @@
     "text": "Imitation marble so glacial in new design",
     "enumeration": "9"
    },
-   "solution": "SCAGLIOLA"
+   "solution": "SCAGLIOLA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCAGLIOLA",
+    "definitions": [
+     {
+      "text": "Imitation marble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in new design",
+      "for": "anagram",
+      "note": "a new design is a fresh arrangement, so these letters are set out differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so glacial",
+      "gives": "SOGLACIAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOGLACIAL",
+       "gives": "SCAGLIOLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fake marble looking so icy in a new scheme of decoration.",
+     "definitionFit": "Scagliola is plasterwork of gypsum and glue coloured and polished to look like marble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "glacial"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +1021,50 @@
     "text": "Safe shelter in \"new\" Durham town",
     "enumeration": "8"
    },
-   "solution": "PETERLEE"
+   "solution": "PETERLEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PETERLEE",
+    "definitions": [
+     {
+      "text": "\"new\" Durham town",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Safe",
+      "gives": "PETER",
+      "note": "peter is old criminal slang for a safe"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "lee is shelter from the wind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PETER",
+      "LEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A secure refuge in a recently built town in County Durham.",
+     "walkthrough": "Peterlee is one of Britain's post-war new towns, in County Durham, north-east England, hence the quoted 'new'.",
+     "definitionFit": "Peterlee was founded in 1948 as a planned new town in County Durham."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Safe"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +1078,65 @@
     "text": "Bit of embarrassment after dancing act reveals derrière",
     "enumeration": "5"
    },
-   "solution": "NACHE"
+   "solution": "NACHE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NACHE",
+    "definitions": [
+     {
+      "text": "derrière",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is a single letter, here its first"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after places this piece behind the other one"
+     }
+    ],
+    "linkWords": [
+     "reveals"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dancing act",
+      "gives": "NACH",
+      "note": "nach, or nautch, is an Indian dance performance"
+     },
+     {
+      "clueFragment": "embarrassment",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of embarrassment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NACH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer's routine goes embarrassingly wrong and shows their bottom.",
+     "walkthrough": "'dancing' looks like an anagram signal for act, but the dance itself is the piece.",
+     "definitionFit": "Nache is an old word for the rump or buttock, which derrière means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1150,54 @@
     "text": "Component of dye as before reduced well in Italy",
     "enumeration": "8"
    },
-   "solution": "STILBENE"
+   "solution": "STILBENE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STILBENE",
+    "definitions": [
+     {
+      "text": "Component of dye",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "reduced means cut down, so the word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as before",
+      "gives": "STILL",
+      "note": "still means as before, continuing"
+     },
+     {
+      "clueFragment": "well in Italy",
+      "gives": "BENE",
+      "note": "bene is Italian for well"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STIL",
+      "BENE"
+     ]
+    },
+    "explanation": {
+     "surface": "An ingredient of a dye, still made in Italy as it used to be.",
+     "definitionFit": "Stilbene is a hydrocarbon whose derivatives are used in making dyes and optical brighteners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1221,62 @@
      }
     ]
    },
-   "solution": "CALLTHETUNE"
+   "solution": "CALLTHETUNE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CALL THE TUNE",
+    "definitions": [
+     {
+      "text": "order",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No good",
+      "for": "deletion",
+      "note": "with no good, the letter standing for good is taken away"
+     },
+     {
+      "text": "must",
+      "for": "anagram",
+      "note": "must is grape juice in ferment, and fermenting letters are churned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get",
+      "gives": "GET",
+      "note": "taken as written; the G for good goes"
+     },
+     {
+      "clueFragment": "late lunch",
+      "gives": "LATELUNCH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ETLATELUNCH",
+       "gives": "CALLTHETUNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner complains that a late lunch order is no good.",
+     "walkthrough": "ET (get without G) and LATE LUNCH are rearranged. 'order' looks like the meal being requested, but it is the verb defining the answer.",
+     "definitionFit": "To call the tune is to be in control and give the orders, from the idiom 'he who pays the piper calls the tune'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1290,63 @@
     "text": "Legendary Golgotha is piece of interment ground",
     "enumeration": "11"
    },
-   "solution": "HAGIOLOGIST"
+   "solution": "HAGIOLOGIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HAGIOLOGIST",
+    "definitions": [
+     {
+      "text": "Legendary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piece of",
+      "for": "letter_selection",
+      "note": "a piece of a word is one letter, here its first"
+     },
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed and broken up, so the letters are mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golgotha is",
+      "gives": "GOLGOTHAIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "interment",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of interment"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOLGOTHAISI",
+       "gives": "HAGIOLOGIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The legendary Golgotha is a patch of burial ground.",
+     "walkthrough": "'Legendary' reads as an adjective, but here it is a noun, a writer of legends. Golgotha is the place of the Crucifixion.",
+     "definitionFit": "A legendary is a compiler of saints' legends, and a hagiologist writes the lives of saints."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Legendary"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1360,50 @@
     "text": "Star in key broadcast",
     "enumeration": "6"
    },
-   "solution": "ALTAIR"
+   "solution": "ALTAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALTAIR",
+    "definitions": [
+     {
+      "text": "Star",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key",
+      "gives": "ALT",
+      "note": "Alt is a key on a computer keyboard"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALT",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity appearing in a major broadcast.",
+     "walkthrough": "'Star' and 'key' suggest a leading performer in an important show.",
+     "definitionFit": "Altair is the brightest star in the constellation Aquila."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1417,68 @@
     "text": "Duke, otherwise heading for \"Shakespeare in Love\"",
     "enumeration": "6"
    },
-   "solution": "ORSINO"
+   "solution": "ORSINO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ORSINO",
+    "definitions": [
+     {
+      "text": "Duke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "otherwise",
+      "gives": "OR",
+      "note": "or means otherwise"
+     },
+     {
+      "clueFragment": "Shakespeare",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Shakespeare"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "S",
+      "IN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A duke heading off to see the film Shakespeare in Love.",
+     "walkthrough": "The film title tempts the solver to treat it as a single unit, but it is split across three pieces.",
+     "definitionFit": "Orsino is the Duke of Illyria in Shakespeare's Twelfth Night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1492,48 @@
     "text": "Best in a mess maybe thoroughly upset",
     "enumeration": "6"
    },
-   "solution": "OUTEAT"
+   "solution": "OUTEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTEAT",
+    "definitions": [
+     {
+      "text": "Best in a mess maybe",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thoroughly",
+      "gives": "OUT",
+      "note": "out means thoroughly or completely, as in 'tired out'"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "EAT",
+      "note": "eat can mean worry or trouble, as in 'what's eating you?'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "EAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone defeated in a messy situation is completely distraught.",
+     "walkthrough": "A mess is a military dining hall, so besting someone there means out-eating them.",
+     "definitionFit": "To outeat someone is to eat more than them, beating them at a meal such as one in the mess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mess"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1547,61 @@
     "text": "Rolls is to be entered for nothing in outside film areas",
     "enumeration": "5"
    },
-   "solution": "LISTS"
+   "solution": "LISTS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "LISTS",
+    "definitions": [
+     {
+      "text": "Rolls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be entered for",
+      "for": "substitution",
+      "note": "entered for means put in place of, so one piece swaps into another's spot"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, the letter O"
+     },
+     {
+      "clueFragment": "outside film areas",
+      "gives": "LOTS",
+      "note": "lots are the outdoor areas of a film studio"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IS",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Rolls-Royce is to be entered in place of nothing at outdoor film locations.",
+     "walkthrough": "IS replaces the O in LOTS. 'Rolls' looks like the car, but it means registers.",
+     "definitionFit": "Rolls in the sense of official registers of names are lists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rolls"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1615,60 @@
     "text": "Concerned with intestines, one former physician years ago leaving hospital",
     "enumeration": "5"
    },
-   "solution": "ILEAC"
+   "solution": "ILEAC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ILEAC",
+    "definitions": [
+     {
+      "text": "Concerned with intestines",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "former physician years ago",
+      "gives": "LEACH",
+      "note": "leach is an obsolete spelling of leech, the old word for a doctor"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "LEAC"
+     ]
+    },
+    "explanation": {
+     "surface": "A one-time doctor long retired from the hospital, who specialised in the gut.",
+     "walkthrough": "Leech once meant physician, from the practice of bloodletting; the old spelling leach loses its H.",
+     "definitionFit": "Ileac means relating to the ileum, the last part of the small intestine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "physician"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1682,52 @@
     "text": "Like a chat perhaps with Gill, not the first",
     "enumeration": "5"
    },
-   "solution": "AVINE"
+   "solution": "AVINE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AVINE",
+    "definitions": [
+     {
+      "text": "Like a chat perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the first",
+      "for": "deletion",
+      "note": "without the first means the opening letter is removed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gill",
+      "gives": "RAVINE",
+      "note": "a gill, or ghyll, is a ravine in northern England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A friendly natter with someone named Gill.",
+     "walkthrough": "'chat' looks like a conversation and Gill like a woman's name; a chat is a songbird.",
+     "definitionFit": "Avine means birdlike, and the chat is a small songbird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chat"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1741,62 @@
     "text": "Bible book's used for Vic in malignancy and idleness",
     "enumeration": "8"
    },
-   "solution": "OTIOSITY"
+   "solution": "OTIOSITY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "OTIOSITY",
+    "definitions": [
+     {
+      "text": "idleness",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used for",
+      "for": "substitution",
+      "note": "something used for another is put in its place"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bible book's",
+      "gives": "OT",
+      "note": "OT is the Old Testament, a book of the Bible"
+     },
+     {
+      "clueFragment": "Vic",
+      "gives": "VIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "malignancy",
+      "gives": "VICIOSITY",
+      "note": "viciosity is an old word for viciousness or malignancy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OT",
+      "IOSITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A scriptural text is drawn on for Vic during a cancer illness and a period of rest.",
+     "walkthrough": "OT replaces VIC at the start of VICIOSITY.",
+     "definitionFit": "Otiosity is the state of being otiose, meaning idle or at leisure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "malignancy"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1810,70 @@
     "text": "One left old-timer returning for money as before",
     "enumeration": "5"
    },
-   "solution": "PAOLI"
+   "solution": "PAOLI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PAOLI",
+    "definitions": [
+     {
+      "text": "money as before",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "old-timer",
+      "gives": "OAP",
+      "note": "an OAP is an old-age pensioner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAO",
+      "L",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "ILOAP",
+       "to": "PAOLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pensioner abandoned and coming back for his old money.",
+     "walkthrough": "OAP stands for old-age pensioner, a British term for a retired person.",
+     "definitionFit": "Paoli is the plural of paolo, an old silver coin of the Papal States, so it is currency of former times."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1887,70 @@
     "text": "Groundsel, perhaps wild seen on Channel Islands round",
     "enumeration": "7"
    },
-   "solution": "SENECIO"
+   "solution": "SENECIO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SENECIO",
+    "definitions": [
+     {
+      "text": "Groundsel, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means out of control, so these letters run loose into a new order"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seen",
+      "gives": "SEEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Channel Islands",
+      "gives": "CI",
+      "note": "CI is the abbreviation for the Channel Islands"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SENE",
+      "CI",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEN",
+       "gives": "SENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wild groundsel spotted growing on the Channel Islands.",
+     "walkthrough": "The Channel Islands are the British Crown dependencies off Normandy, such as Jersey and Guernsey.",
+     "definitionFit": "Groundsel is one species of the large plant genus Senecio, which also includes ragwort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 29,
@@ -472,7 +1964,51 @@
     "text": "Lied about old age",
     "enumeration": "4"
    },
-   "solution": "EILD"
+   "solution": "EILD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EILD",
+    "definitions": [
+     {
+      "text": "old age",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean turned around, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lied",
+      "gives": "LIED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIED",
+       "gives": "EILD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told a fib about their advanced years.",
+     "walkthrough": "'Lied' could also be a German song, but here it is just the letters.",
+     "definitionFit": "Eild is a Scots and archaic word for age, especially old age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lied"
+    }
+   }
   },
   {
    "number": 30,
@@ -486,7 +2022,47 @@
     "text": "Striking content of red wine (German)",
     "enumeration": "7"
    },
-   "solution": "TANNING"
+   "solution": "TANNING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANNING",
+    "definitions": [
+     {
+      "text": "Striking",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "content of red wine",
+      "gives": "TANNIN",
+      "note": "tannin is a substance found in red wine"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANNIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A red German wine with a remarkable taste.",
+     "walkthrough": "'Striking' looks like praise for the wine, but it is a beating; 'content of' suggests a hidden word but simply describes what the wine contains.",
+     "definitionFit": "A tanning is a thrashing, so it is the act of striking someone repeatedly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Striking"
+    }
+   }
   },
   {
    "number": 31,
@@ -500,7 +2076,70 @@
     "text": "Muse on second article by Head, mostly for a Greek scholar",
     "enumeration": "12"
    },
-   "solution": "ERATOSTHENES"
+   "solution": "ERATOSTHENES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ERATOSTHENES",
+    "definitions": [
+     {
+      "text": "Greek scholar",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muse",
+      "gives": "ERATO",
+      "note": "Erato is the Muse of lyric and love poetry"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "Head",
+      "gives": "NESS",
+      "note": "a ness is a headland; the last letter is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERATO",
+      "S",
+      "THE",
+      "NES"
+     ]
+    },
+    "explanation": {
+     "surface": "A thinker muses on a second piece written by the head teacher, chiefly for a Greek academic.",
+     "walkthrough": "'Muse' looks like a verb meaning ponder; it is one of the nine Muses. 'on' and 'by' just place the pieces side by side.",
+     "definitionFit": "Eratosthenes was the Greek scholar of Alexandria who estimated the circumference of the Earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Muse"
+    }
+   }
   }
  ]
 }
