@@ -38,6 +38,9 @@
   "date": "2019-08-25",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,61 @@
     "text": "What's beginning no longer used in expression?",
     "enumeration": "3"
    },
-   "solution": "ORD"
+   "solution": "ORD",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "ORD",
+    "definitions": [
+     {
+      "text": "What's beginning no longer used in expression?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only the first letter of What's is wanted"
+     },
+     {
+      "text": "no longer used",
+      "for": "deletion",
+      "note": "something no longer used has been dropped, so that letter is taken away from the expression"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expression",
+      "gives": "WORD",
+      "note": "a word is an expression of language"
+     },
+     {
+      "clueFragment": "What's",
+      "gives": "W",
+      "select": "first",
+      "note": "first letter of What's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORD"
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle asking which term for 'beginning' has fallen out of use in speech.",
+     "walkthrough": "WORD loses its W to leave ORD. The whole clue doubles as the definition: ORD is an archaic word meaning a beginning, so it is literally a 'beginning' word no longer in use.",
+     "definitionFit": "Chambers lists ORD as an obsolete noun for a point or a beginning, so it is exactly a term for beginning that has passed out of use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "beginning"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +122,67 @@
     "text": "Lichen is situated over in border",
     "enumeration": "8"
    },
-   "solution": "ORSEILLE"
+   "solution": "ORSEILLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ORSEILLE",
+    "definitions": [
+     {
+      "text": "Lichen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue, over means turned upside down, so the phrase is read backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another, here inside the border word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "border",
+      "gives": "ORLE",
+      "note": "an orle is a heraldic border inside a shield's edge; it holds the next piece"
+     },
+     {
+      "clueFragment": "is situated",
+      "gives": "LIES",
+      "note": "something situated somewhere lies there"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "SEIL",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "LIES",
+       "to": "SEIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note that a patch of lichen is growing over the edge of a border.",
+     "walkthrough": "'over' looks like a position word for the lichen, but it turns the situated word round. An orle is a heraldic term, a narrow border set inside the edge of a shield.",
+     "definitionFit": "Orseille is another name for archil, a lichen from which a violet dye is obtained."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +196,59 @@
     "text": "Some fail to remember soaring weight in say, Syria",
     "enumeration": "4"
    },
-   "solution": "ROTL"
+   "solution": "ROTL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ROTL",
+    "definitions": [
+     {
+      "text": "weight in say, Syria",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "Some means only part of the following words is used, a run of letters inside them"
+     },
+     {
+      "text": "soaring",
+      "for": "reversal",
+      "note": "soaring means going upward, which in a down clue reads the letters from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fail to remember",
+      "gives": "LTOR",
+      "note": "the run of letters spanning the end of fail, all of to and the start of remember"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROTL"
+     ],
+     "reversals": [
+      {
+       "from": "LTOR",
+       "to": "ROTL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forgets how much something weighs in Syria.",
+     "definitionFit": "A rotl is a traditional unit of weight used in Middle Eastern countries such as Syria, varying from place to place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soaring"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +262,57 @@
     "text": "America behind, once shone in a Mediterranean island",
     "enumeration": "9"
    },
-   "solution": "LAMPEDUSA"
+   "solution": "LAMPEDUSA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAMPEDUSA",
+    "definitions": [
+     {
+      "text": "a Mediterranean island",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind says one piece comes after the other in the finished word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once shone",
+      "gives": "LAMPED",
+      "note": "to lamp is an old verb meaning to shine"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "USA",
+      "note": "the usual abbreviation for the United States of America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAMPED",
+      "USA"
+     ]
+    },
+    "explanation": {
+     "surface": "America once shone on a Mediterranean island, perhaps as an occupying power.",
+     "walkthrough": "'once' marks LAMPED as archaic. America goes behind it: LAMPED + USA.",
+     "definitionFit": "Lampedusa is an Italian island in the Mediterranean between Sicily and Tunisia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 3,
@@ -113,7 +332,66 @@
      }
     ]
    },
-   "solution": "LOOSECANNONS"
+   "solution": "LOOSECANNONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LOOSE CANNONS",
+    "definitions": [
+     {
+      "text": "they could go off anywhere",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring means travelling around, so the clergy surround the country's letter"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unattached",
+      "gives": "LOOSE",
+      "note": "not tied or fastened"
+     },
+     {
+      "clueFragment": "ministers",
+      "gives": "CANONS",
+      "note": "canons are clergymen of a cathedral; this word goes around the next piece"
+     },
+     {
+      "clueFragment": "Norway",
+      "gives": "N",
+      "note": "N is the international vehicle code for Norway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOSE",
+      "CAN",
+      "N",
+      "ONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Freelance clergy on a tour of Norway are unpredictable sorts.",
+     "walkthrough": "The definition plays on cannons literally firing in any direction, while the surface makes the ministers sound like wandering tourists.",
+     "definitionFit": "Loose cannons are unpredictable people liable to cause damage, likened to a cannon broken free on a ship's deck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ministers"
+    }
+   }
   },
   {
    "number": 4,
@@ -127,7 +405,56 @@
     "text": "Colour of sheep-farmer long forgotten",
     "enumeration": "5"
    },
-   "solution": "AMBER"
+   "solution": "AMBER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AMBER",
+    "definitions": [
+     {
+      "text": "Colour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forgotten",
+      "for": "deletion",
+      "note": "what is forgotten is left out, so that letter is dropped from the word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheep-farmer",
+      "gives": "LAMBER",
+      "note": "a lamber is someone who tends ewes at lambing time"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "L",
+      "note": "L is the abbreviation for long"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the colour of a farmer who has long been forgotten.",
+     "walkthrough": "LAMBER loses its L. 'Colour of' looks like one phrase, but 'of' only links the definition to the wordplay.",
+     "definitionFit": "Amber is a yellowish-orange colour, named after the fossil resin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 5,
@@ -141,7 +468,65 @@
     "text": "Poor Paul has bout of malaria",
     "enumeration": "8"
    },
-   "solution": "PALUDOSE"
+   "solution": "PALUDOSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PALUDOSE",
+    "definitions": [
+     {
+      "text": "of malaria",
+      "at": 19,
+      "note": "an adjective phrase, matching the adjective answer"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "something in poor shape is in a bad state, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paul",
+      "gives": "PALU",
+      "note": "the name's letters rearranged"
+     },
+     {
+      "clueFragment": "bout",
+      "gives": "DOSE",
+      "note": "a dose of an illness is a bout of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PALU",
+      "DOSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAUL",
+       "gives": "PALU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Poor Paul is suffering an attack of malaria.",
+     "walkthrough": "'bout of malaria' reads as one phrase, but 'bout' is wordplay and 'of malaria' is the definition.",
+     "definitionFit": "Paludose means marshy, from Latin palus, a marsh; Chambers also glosses the palud- words as malarious, since malaria was the marsh fever."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bout"
+    }
+   }
   },
   {
    "number": 6,
@@ -155,7 +540,57 @@
     "text": "Edition entered in log is distracting",
     "enumeration": "12"
    },
-   "solution": "DIVERSIONARY"
+   "solution": "DIVERSIONARY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DIVERSIONARY",
+    "definitions": [
+     {
+      "text": "distracting",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entered in",
+      "for": "container",
+      "note": "something entered in a record is written inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "log",
+      "gives": "DIARY",
+      "note": "a diary is a daily log; it holds the next piece"
+     },
+     {
+      "clueFragment": "Edition",
+      "gives": "VERSION",
+      "note": "an edition is a version of a text"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "VERSION",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A note that a new edition being entered in a logbook is a distraction.",
+     "definitionFit": "Something diversionary serves to divert attention, which is to distract."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "log"
+    }
+   }
   },
   {
    "number": 7,
@@ -175,7 +610,66 @@
      }
     ]
    },
-   "solution": "UBISUPRA"
+   "solution": "UBISUPRA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UBI SUPRA",
+    "definitions": [
+     {
+      "text": "as mentioned above",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "a new form of the aircraft name means its letters are remade in another order"
+     },
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "catching means holding something inside, so the rearranged letters surround the short word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Airbus",
+      "gives": "UBISRA",
+      "note": "the plane maker's letters rearranged; they go around the next piece"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UBIS",
+      "UP",
+      "RA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIRBUS",
+       "gives": "UBISRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new Airbus plane catches up, as described earlier.",
+     "definitionFit": "Ubi supra is Latin for 'where above', used in texts to refer back to an earlier passage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Airbus"
+    }
+   }
   },
   {
    "number": 8,
@@ -189,7 +683,46 @@
     "text": "Heard detectives giving expressions of approval",
     "enumeration": "4"
    },
-   "solution": "AYES"
+   "solution": "AYES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AYES",
+    "definitions": [
+     {
+      "text": "expressions of approval",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heard",
+      "for": "homophone",
+      "note": "heard means we go by what the ear takes in, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detectives",
+      "gives": "AYES",
+      "soundsLike": "EYES",
+      "note": "private eyes are detectives"
+     }
+    ],
+    "explanation": {
+     "surface": "Detectives were heard voicing their approval.",
+     "definitionFit": "Ayes are votes or shouts of yes, as in 'the ayes have it', so expressions of agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "detectives"
+    }
+   }
   },
   {
    "number": 9,
@@ -203,7 +736,66 @@
     "text": "Agree to tackle a bit for broadcast in a harmonious way",
     "enumeration": "10"
    },
-   "solution": "COMPATIBLY"
+   "solution": "COMPATIBLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "COMPATIBLY",
+    "definitions": [
+     {
+      "text": "in a harmonious way",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to tackle",
+      "for": "container",
+      "note": "to tackle something is to get hold of it, so the outer word wraps around the rest"
+     },
+     {
+      "text": "for broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so those letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agree",
+      "gives": "COMPLY",
+      "note": "to comply is to agree to a request; it wraps around the next piece"
+     },
+     {
+      "clueFragment": "a bit",
+      "gives": "ATIB",
+      "note": "these letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMP",
+      "ATIB",
+      "LY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABIT",
+       "gives": "ATIB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcaster agrees to take on a short segment for the airwaves.",
+     "definitionFit": "Doing things compatibly means in a way that fits well together, without conflict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 10,
@@ -217,7 +809,67 @@
     "text": "Nick sharing a list about segments of a tapeworm",
     "enumeration": "8"
    },
-   "solution": "STROBILA"
+   "solution": "STROBILA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STROBILA",
+    "definitions": [
+     {
+      "text": "segments of a tapeworm",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sharing",
+      "for": "container",
+      "note": "sharing space with, the theft word sits within the other letters"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about means turned around and moved, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a list",
+      "gives": "STILA",
+      "note": "these letters rearranged; they surround the next piece"
+     },
+     {
+      "clueFragment": "Nick",
+      "gives": "ROB",
+      "note": "to nick is British slang for to steal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ROB",
+      "ILA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALIST",
+       "gives": "STILA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Nick is passing round a list about tapeworm anatomy.",
+     "walkthrough": "'Nick' looks like a person's name; it is the slang verb to steal.",
+     "definitionFit": "A strobila is the chain of linked segments making up a tapeworm's body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 11,
@@ -231,7 +883,55 @@
     "text": "Second boring piece cut",
     "enumeration": "6"
    },
-   "solution": "BISECT"
+   "solution": "BISECT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BISECT",
+    "definitions": [
+     {
+      "text": "cut",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "boring means drilling into, so the short word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece",
+      "gives": "BIT",
+      "note": "a bit is a piece; it holds the next piece"
+     },
+     {
+      "clueFragment": "Second",
+      "gives": "SEC",
+      "note": "SEC is the short form of second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "SEC",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A second dull piece gets cut.",
+     "walkthrough": "'boring' reads as dull; here it means drilling into.",
+     "definitionFit": "To bisect is to cut something into two parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +945,46 @@
     "text": "City meet Palace",
     "enumeration": "6"
    },
-   "solution": "ELYSEE"
+   "solution": "ELYSEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELYSEE",
+    "definitions": [
+     {
+      "text": "Palace",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "ELY",
+      "note": "Ely is a cathedral city in Cambridgeshire, England"
+     },
+     {
+      "clueFragment": "meet",
+      "gives": "SEE",
+      "note": "to see someone is to meet them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELY",
+      "SEE"
+     ]
+    },
+    "explanation": {
+     "surface": "Directions for a rendezvous: in the city, meet at the palace.",
+     "definitionFit": "The Élysée Palace in Paris is the official residence of the French president."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "meet"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +998,69 @@
     "text": "After nothing leaks, sort of serious going!",
     "enumeration": "6"
    },
-   "solution": "URESIS"
+   "solution": "URESIS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "URESIS",
+    "definitions": [
+     {
+      "text": "going!",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaks",
+      "for": "deletion",
+      "note": "what leaks escapes and is lost, so that letter goes missing from the word"
+     },
+     {
+      "text": "sort of",
+      "for": "anagram",
+      "note": "a sort of something is a variant form of it, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "serious",
+      "gives": "SERIOUS",
+      "note": "taken as written; it loses the letter for nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URESIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SERIUS",
+       "gives": "URESIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once the leaks are fixed, things are going seriously well, with an exclamation of relief.",
+     "walkthrough": "SERIOUS loses its O and the rest is rearranged. 'going!' is a playful definition: urination is going to the toilet, tying in with the leaks.",
+     "definitionFit": "Uresis is a medical word for urination, colloquially 'going' to the lavatory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaks"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1074,54 @@
     "text": "Pity about female candidate in US",
     "enumeration": "6"
    },
-   "solution": "RUSHEE"
+   "solution": "RUSHEE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RUSHEE",
+    "definitions": [
+     {
+      "text": "candidate in US",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the pity word goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pity",
+      "gives": "RUE",
+      "note": "to rue is to regret; it goes around the next piece"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "SHE",
+      "note": "she is the female pronoun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "SHE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Sympathy for a woman running for office in America.",
+     "definitionFit": "In American colleges a rushee is a student being considered for membership of a fraternity or sorority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "candidate"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1135,72 @@
     "text": "No hint of doubt, tradition works against violent action",
     "enumeration": "8"
    },
-   "solution": "ANTIRIOT"
+   "solution": "ANTIRIOT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ANTIRIOT",
+    "definitions": [
+     {
+      "text": "against violent action",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hint of",
+      "for": "letter_selection",
+      "note": "a hint of a word is just its first letter"
+     },
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "No means that letter is absent from the word that follows"
+     },
+     {
+      "text": "works",
+      "for": "anagram",
+      "note": "works means is processed or worked over, so the letters are reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doubt",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of doubt"
+     },
+     {
+      "clueFragment": "tradition",
+      "gives": "TRADITION",
+      "note": "taken as written; it loses one letter before rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTIRIOT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRAITION",
+       "gives": "ANTIRIOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Without question, tradition is a force against violence.",
+     "walkthrough": "TRADITION loses its D and the remaining eight letters are rearranged.",
+     "definitionFit": "Antiriot describes measures, police or equipment used to counter rioting, which is violent action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1214,70 @@
     "text": "Eve supports unkempt beard for Angus's partner",
     "enumeration": "8"
    },
-   "solution": "ABERDEEN"
+   "solution": "ABERDEEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ABERDEEN",
+    "definitions": [
+     {
+      "text": "Angus's partner",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unkempt",
+      "for": "anagram",
+      "note": "unkempt means messy and uncombed, so the letters are put in disorder"
+     },
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down clue, a supporting piece sits below the one it holds up"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beard",
+      "gives": "ABERD",
+      "note": "these letters rearranged"
+     },
+     {
+      "clueFragment": "Eve",
+      "gives": "EEN",
+      "note": "e'en is a poetic and Scots contraction of even, meaning evening or eve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABERD",
+      "EEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEARD",
+       "gives": "ABERD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eve props up an untidy beard for a Scotsman called Angus.",
+     "walkthrough": "'Angus' looks like a man's name; it is the cattle breed, the Aberdeen Angus, so Aberdeen is its partner in the name.",
+     "definitionFit": "The cattle breed Aberdeen Angus pairs the two words, making Aberdeen the companion of Angus in that name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Angus's"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1291,62 @@
     "text": "Support from the President? Two seconds for say, Corbyn!",
     "enumeration": "5"
    },
-   "solution": "TRUSS"
+   "solution": "TRUSS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TRUSS",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "X for Y means X takes Y's place in the word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the President",
+      "gives": "TRUMP",
+      "note": "Donald Trump, US President"
+     },
+     {
+      "clueFragment": "Two seconds",
+      "gives": "SS",
+      "note": "S is the abbreviation for second, twice"
+     },
+     {
+      "clueFragment": "say, Corbyn",
+      "gives": "MP",
+      "note": "Jeremy Corbyn is a British Member of Parliament, an MP; this is what gets replaced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRU",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A political jibe: will the President back the left-wing British politician Jeremy Corbyn?",
+     "walkthrough": "In TRUMP the MP is swapped for SS. Liz Truss, also a politician, lurks in the answer.",
+     "definitionFit": "A truss is a supporting framework, as in a roof, or a surgical support for a hernia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "President"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1360,54 @@
     "text": "Gin fraud passed quickly over internally",
     "enumeration": "8"
    },
-   "solution": "SCHIEDAM"
+   "solution": "SCHIEDAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCHIEDAM",
+    "definitions": [
+     {
+      "text": "Gin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over internally",
+      "for": "container",
+      "note": "inside and all over, so one word sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fraud",
+      "gives": "SCAM",
+      "note": "a scam is a fraud; it holds the next piece"
+     },
+     {
+      "clueFragment": "passed quickly",
+      "gives": "HIED",
+      "note": "to hie is an old word for to hurry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "HIED",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone passed fraudulent gin over in a hurry, on the quiet.",
+     "definitionFit": "Schiedam is a Dutch gin, named after the town near Rotterdam where it is distilled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passed"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1421,46 @@
     "text": "Food container for privates",
     "enumeration": "8"
    },
-   "solution": "LUNCHBOX"
+   "solution": "LUNCHBOX",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LUNCHBOX",
+    "definitions": [
+     {
+      "text": "Food container",
+      "at": 0
+     },
+     {
+      "text": "privates",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food container",
+      "note": "first meaning: a box for carrying a packed meal"
+     },
+     {
+      "clueFragment": "privates",
+      "note": "second meaning: British slang for a man's genitals"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'privates' reads as army privates being fed; it is the euphemism for genitals.",
+     "definitionFit": "The box carrying a packed meal also serves as jokey slang, especially British, for the male genital bulge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "privates"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1474,77 @@
     "text": "Broom out of the ordinary on terribly rich soil",
     "enumeration": "8"
    },
-   "solution": "BESMIRCH"
+   "solution": "BESMIRCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "BESMIRCH",
+    "definitions": [
+     {
+      "text": "soil",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of means missing, so the letter goes from the broom word"
+     },
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "terribly means badly done, so the letters are jumbled"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on means placed next to, so one piece follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Broom",
+      "gives": "BESOM",
+      "note": "a besom is a broom of twigs"
+     },
+     {
+      "clueFragment": "the ordinary",
+      "gives": "O",
+      "note": "O is an abbreviation for ordinary"
+     },
+     {
+      "clueFragment": "rich",
+      "gives": "IRCH",
+      "note": "these letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BESM",
+      "IRCH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RICH",
+       "gives": "IRCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unusual broom sitting on terribly fertile soil.",
+     "walkthrough": "BESOM loses its O, then the rearranged RICH follows. 'soil' looks like a noun but is the verb, to dirty.",
+     "definitionFit": "To besmirch is to dirty or sully, literally or a reputation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soil"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1558,61 @@
     "text": "Showing surprise, say about Scottish rustic ending early",
     "enumeration": "5"
    },
-   "solution": "EHING"
+   "solution": "EHING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EHING",
+    "definitions": [
+     {
+      "text": "Showing surprise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending early",
+      "for": "deletion",
+      "note": "ending early means stopping before the end, so the final letter goes"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the example word goes around the rustic"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g., for example; it goes around the next piece"
+     },
+     {
+      "clueFragment": "Scottish rustic",
+      "gives": "HIND",
+      "note": "a hind is a Scottish farm labourer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "HIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish country man expresses surprise as things end early.",
+     "walkthrough": "In Scotland a hind is a skilled farm worker, not the female deer; 'ending early' means the word loses its last letter.",
+     "definitionFit": "To eh is to say 'eh?', an interjection of surprise or query, so ehing means voicing it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1626,70 @@
     "text": "Great recipe for Jews primarily producing Passover dish",
     "enumeration": "5"
    },
-   "solution": "MAROR"
+   "solution": "MAROR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "MAROR",
+    "definitions": [
+     {
+      "text": "Passover dish",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter counts"
+     },
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "X for Y means X takes Y's place in the word"
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great",
+      "gives": "MAJOR",
+      "note": "major means great or important"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, as on a prescription"
+     },
+     {
+      "clueFragment": "Jews",
+      "gives": "J",
+      "select": "first",
+      "note": "first letter of Jews; this is what gets replaced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "R",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A great recipe for Jewish cooks to make a Passover dish.",
+     "walkthrough": "In MAJOR the J is replaced by R.",
+     "definitionFit": "Maror is the bitter herb eaten at the Passover Seder meal, recalling the bitterness of slavery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recipe"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1703,64 @@
     "text": "Fellow Republican coming over for a drink",
     "enumeration": "6"
    },
-   "solution": "PERNOD"
+   "solution": "PERNOD",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PERNOD",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming over",
+      "for": "reversal",
+      "note": "coming over means turning across, so the pair is read backwards"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "DON",
+      "note": "a don is a fellow of a university college"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "REP",
+      "note": "Rep. is an abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "NOD"
+     ],
+     "reversals": [
+      {
+       "from": "DONREP",
+       "to": "PERNOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fellow Republican drops by to have a drink.",
+     "walkthrough": "'Fellow Republican' reads as one party member; split it into the college fellow and the party abbreviation.",
+     "definitionFit": "Pernod is a French brand of anise-flavoured aperitif."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fellow"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1774,64 @@
     "text": "Stick with Ohio Republican party needing a boost",
     "enumeration": "4"
    },
-   "solution": "POGO"
+   "solution": "POGO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "POGO",
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing a boost",
+      "for": "reversal",
+      "note": "a boost lifts things up, and in a down clue lifting reads the letters upward"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ohio",
+      "gives": "O",
+      "note": "O is a postal abbreviation for Ohio"
+     },
+     {
+      "clueFragment": "Republican party",
+      "gives": "GOP",
+      "note": "the GOP, Grand Old Party, is the US Republican Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POG",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OGOP",
+       "to": "POGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stay loyal to an Ohio Republican party that is in need of a lift.",
+     "walkthrough": "'Stick with' reads as stay loyal; 'Stick' is the definition and 'with' only joins.",
+     "definitionFit": "A pogo is short for pogo stick, a spring-loaded pole for bouncing on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1845,43 @@
     "text": "Press hack",
     "enumeration": "6"
    },
-   "solution": "MANGLE"
+   "solution": "MANGLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MANGLE",
+    "definitions": [
+     {
+      "text": "Press",
+      "at": 0
+     },
+     {
+      "text": "hack",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Press",
+      "note": "first meaning: a machine with rollers for pressing laundry"
+     },
+     {
+      "clueFragment": "hack",
+      "note": "second meaning: to mutilate or botch"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Together the words suggest a journalist of the press; they are two separate meanings.",
+     "definitionFit": "A mangle is a wringer for pressing laundry, and to mangle is to hack or mutilate something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hack"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1895,56 @@
     "text": "Jerry-built, nothing put on at the top",
     "enumeration": "4"
    },
-   "solution": "LEGO"
+   "solution": "LEGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEGO",
+    "definitions": [
+     {
+      "text": "Jerry-built",
+      "at": 0,
+      "note": "an adjective phrase defining a noun; read as 'what's built in jerry-built style'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put on at the top",
+      "for": "charade",
+      "note": "in a down clue, the piece at the top is put on above the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket the leg side is also called the on side"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A building is shoddy, with nothing to put on the top.",
+     "walkthrough": "'on' hides in 'put on' as a separate word: cricket's on side is the leg side, which stands at the top over O. The definition is playful, toy brick models being flimsy constructions.",
+     "definitionFit": "Lego is the plastic toy brick system, and models made with it are improvised, flimsy constructions, loosely jerry-built."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1958,55 @@
     "text": "Settled fight stopping notable achievement",
     "enumeration": "8"
    },
-   "solution": "DEFRAYED"
+   "solution": "DEFRAYED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEFRAYED",
+    "definitions": [
+     {
+      "text": "Settled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "stopping means plugging a gap, so the fight word fills the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notable achievement",
+      "gives": "DEED",
+      "note": "a deed is a notable act; it holds the next piece"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "FRAY",
+      "note": "a fray is a fight or brawl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "FRAY",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A settled fight halts a notable achievement.",
+     "walkthrough": "'Settled' looks like it describes the fight; it is the definition, meaning paid.",
+     "definitionFit": "To defray costs is to pay them, so a bill defrayed is one settled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Settled"
+    }
+   }
   },
   {
    "number": 27,
@@ -479,7 +2030,47 @@
      }
     ]
    },
-   "solution": "GOONRECORD"
+   "solution": "GOONRECORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GO ON RECORD",
+    "definitions": [
+     {
+      "text": "to state opinion openly",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sellers perhaps",
+      "gives": "GOON",
+      "note": "Peter Sellers was one of the Goons of the 1950s BBC radio comedy The Goon Show"
+     },
+     {
+      "clueFragment": "best",
+      "gives": "RECORD",
+      "note": "a record is the best ever performance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOON",
+      "RECORD"
+     ]
+    },
+    "explanation": {
+     "surface": "Sellers might have their best results in which to air their opinions publicly.",
+     "walkthrough": "'Sellers' looks like traders, but it is the comedian Peter Sellers; 'perhaps' marks him as an example of a Goon.",
+     "definitionFit": "To go on record is to make one's view publicly known, so it may be quoted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sellers"
+    }
+   }
   },
   {
    "number": 28,
@@ -493,7 +2084,50 @@
     "text": "Remote security exposes something hidden by competitor",
     "enumeration": "9"
    },
-   "solution": "OUTSENTRY"
+   "solution": "OUTSENTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTSENTRY",
+    "definitions": [
+     {
+      "text": "Remote security",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exposes something hidden",
+      "gives": "OUTS",
+      "note": "to out someone is to expose what they hid"
+     },
+     {
+      "clueFragment": "competitor",
+      "gives": "ENTRY",
+      "note": "an entry is a competitor in a race or contest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUTS",
+      "ENTRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Remote security reveals a secret kept by a rival.",
+     "walkthrough": "'something hidden by competitor' reads as one phrase; split it after 'hidden', with 'by' meaning beside.",
+     "definitionFit": "An outsentry is a sentry posted at a distance from the main body, a guard at an outpost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hidden"
+    }
+   }
   },
   {
    "number": 29,
@@ -507,7 +2141,60 @@
     "text": "Second question is about a holy city",
     "enumeration": "3"
    },
-   "solution": "QOM"
+   "solution": "QOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "QOM",
+    "definitions": [
+     {
+      "text": "a holy city",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is about",
+      "for": "reversal",
+      "note": "about means turned round, so the pair is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "Q",
+      "note": "Q is the abbreviation for question"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Q",
+      "OM"
+     ],
+     "reversals": [
+      {
+       "from": "MOQ",
+       "to": "QOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A second question concerns a sacred city.",
+     "definitionFit": "Qom in Iran is a holy city of Shia Islam, home to the shrine of Fatima Masumeh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   }
  ]
 }
