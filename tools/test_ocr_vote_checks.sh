@@ -1259,6 +1259,39 @@ sh = [oc.marked(t, breaks=True) for t in (
 check("mirror: a print that lost the laid clue's last word re-lays nothing ('die ship')",
       None, oc.agree("Check front part of die ship", sh)[0])
 
+# The re-lay is skipped only for a reading that prints the laid clue word
+# for word, every word in a row; one that misreads or loses a word ("This
+# house is surrounded trees" for "This bouse is surrounded trees") does
+# not block it (Times 1980s).
+th = [oc.marked(t, breaks=True) for t in (
+    "23 This house is surrounded by trees 24 25 Sahib, missing", "23 This house is surrounded trees 24 25 Sahib, sbows",
+    "1 2 Tony joins company, but it's unstable Hail", "23 This house is surrounded by trees 24 25 Sahib, missing")]
+check("a reading that prints the laid clue but for a misread word does not block the re-lay ('This bouse')",
+      "This house is surrounded by trees", oc.agree("This bouse is surrounded trees", th)[0])
+check("mirror: a reading that prints every laid word in a row, run together or not, blocks the re-lay",
+      "She eats junkets.", oc.agree("She eats junkets.", [mark("4 She eatsjunkets. 5 A"), mark("4 She eats junkets. 5 A")])[0])
+
+# The re-laid clue is held when it loses a dictionary word of any length
+# from inside the laid clue, a comma the laid clue has, or a hyphen the
+# laid clue ran together; or adds a colon it lacks.
+import collections
+def doubt(clue, text):
+    return oc.relay_doubt(clue, text, text, collections.Counter({w.lower(): 3 for w in oc.tokens(text)}))
+check("a re-lay that loses a long word inside the laid clue is held ('She junkets')",
+      "lost eats", doubt("She eats junkets.", "She junkets."))
+check("mirror: one that drops a speck inside the laid clue is not ('emphatically ly')",
+      None, doubt("A single person emphatically ly feels no wrong", "A single person emphatically feels no wrong"))
+check("a re-lay that loses the laid clue's comma is held ('elderl, leader,')",
+      "a comma lost", doubt("Advice for elderl, leader, go quietly", "Advice for elderly leader go quietly"))
+check("mirror: one that keeps the laid comma is not ('Drink,')",
+      None, doubt("Drink, a feature of an cdu . rational SCMion", "Drink, a feature of an educational session"))
+check("a re-lay that adds a colon the laid clue lacks is held",
+      "a mark the laid clue lacks", doubt("Sailor in OK turn of slapstick comedy", "Sailor in OK turn of slapstick: comedy"))
+check("a re-lay that parts a laid run-together compound clues hyphenate is held ('heavyhanided')",
+      "parted heavy handed", doubt("Impeccable advice heavyhanided dyer?", "Impeccable advice to heavy handed dyer?"))
+check("mirror: one that parts a laid run of two plain words is not ('ofconmission')",
+      None, doubt("Go wrong and out ofconmission", "Go wrong and out of commission"))
+
 print(f"FAILS {fails}")
 EOF
 )
