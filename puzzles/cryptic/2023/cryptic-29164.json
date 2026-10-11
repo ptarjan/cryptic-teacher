@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Juvenile boozer skinned her nose",
     "enumeration": "9"
    },
-   "solution": "PUBESCENT"
+   "solution": "PUBESCENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PUBESCENT",
+    "definitions": [
+     {
+      "text": "Juvenile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skinned",
+      "for": "letter_selection",
+      "note": "skinning strips off the outside, so only the inner letter of the word her survives"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boozer",
+      "gives": "PUB",
+      "note": "a boozer is informal British slang for a pub"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "E",
+      "select": "middle",
+      "note": "the word with its outer letters stripped"
+     },
+     {
+      "clueFragment": "nose",
+      "gives": "SCENT",
+      "note": "a nose is a smell, as in a wine's bouquet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUB",
+      "E",
+      "SCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A young drinker in a pub roughly scrapes a woman's nose.",
+     "walkthrough": "'Juvenile' could be a noun or an adjective; here it is the adjective, matching the answer.",
+     "definitionFit": "Someone at puberty is adolescent, so the adjective describes a young person not yet adult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skinned"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,61 @@
     "text": "Supports uplifting relief work",
     "enumeration": "5"
    },
-   "solution": "PODIA"
+   "solution": "PODIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PODIA",
+    "definitions": [
+     {
+      "text": "Supports",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uplifting",
+      "for": "reversal",
+      "note": "in a down entry, lifting up means the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relief",
+      "gives": "AID",
+      "note": "relief for those in need is aid"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "DIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIDOP",
+       "to": "PODIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Backing for heart-warming charitable relief work.",
+     "walkthrough": "'Uplifting' looks like an adjective for the relief work, but it reverses the pieces.",
+     "definitionFit": "Podia, plural of podium, are raised platforms that support a speaker or conductor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uplifting"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +173,58 @@
     "text": "Curse lamb and sheep, straying together",
     "enumeration": "9"
    },
-   "solution": "BLASPHEME"
+   "solution": "BLASPHEME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLASPHEME",
+    "definitions": [
+     {
+      "text": "Curse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "straying together",
+      "for": "anagram",
+      "note": "straying means wandering off course, so the joined letters wander into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lamb",
+      "gives": "LAMB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sheep",
+      "gives": "SHEEP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAMBSHEEP",
+       "gives": "BLASPHEME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shepherd swears as the lamb and the ewe wander off together.",
+     "definitionFit": "To blaspheme is to swear or speak profanely, so it is a synonym of the verb curse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "straying"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +238,71 @@
     "text": "Close to mine in his sampan, exercised nautical skills",
     "enumeration": "10"
    },
-   "solution": "SEAMANSHIP"
+   "solution": "SEAMANSHIP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SEAMANSHIP",
+    "definitions": [
+     {
+      "text": "nautical skills",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Close to",
+      "for": "letter_selection",
+      "note": "close to means the end, so the last letter of the word mine is taken"
+     },
+     {
+      "text": "exercised",
+      "for": "anagram",
+      "note": "exercised suggests working the letters about until they form something new"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mine",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "his",
+      "gives": "HIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sampan",
+      "gives": "SAMPAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EHISSAMPAN",
+       "gives": "SEAMANSHIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Near my home, he showed off sailing ability in his small boat.",
+     "walkthrough": "'Exercised' looks like part of the definition, showing skill, but it is the anagram signal; a sampan is a flat-bottomed Chinese boat.",
+     "definitionFit": "Seamanship is the skill of handling a ship at sea, so it covers nautical skills."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exercised"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +322,49 @@
      }
     ]
    },
-   "solution": "ENMASSE"
+   "solution": "ENMASSE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "EN MASSE",
+    "definitions": [
+     {
+      "text": "In group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered by",
+      "for": "hidden_word",
+      "note": "covered by means sitting inside the words that follow, wrapped up by them"
+     },
+     {
+      "text": "travelling north",
+      "for": "reversal",
+      "note": "in a down entry, going north means reading upwards, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "endless amnesty",
+      "gives": "ESSAMNE",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A group sheltered by an indefinite amnesty heads northward.",
+     "walkthrough": "'Endless' looks like a deletion signal for amnesty, but the letters straddle both words. En masse is a French phrase now used in English.",
+     "definitionFit": "En masse means all together as a body, which is acting in a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +378,65 @@
     "text": "Potters round and round in races with the French",
     "enumeration": "7"
    },
-   "solution": "TOOTLES"
+   "solution": "TOOTLES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TOOTLES",
+    "definitions": [
+     {
+      "text": "Potters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the round shapes inside the letters for the races"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "races",
+      "gives": "TT",
+      "note": "the TT races are the Tourist Trophy motorcycle races on the Isle of Man"
+     },
+     {
+      "clueFragment": "round and round",
+      "gives": "OO",
+      "note": "two circles, each the round letter O"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LES",
+      "note": "les is French for the (plural)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OO",
+      "T",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "Pottery makers circle the track at a French race meeting.",
+     "walkthrough": "Potters is the verb, to potter about idly, not people making pots.",
+     "definitionFit": "To tootle is to go along in a leisurely way, which is what someone who potters does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Potters"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +450,60 @@
     "text": "Move bishop, gentle prompt to sacrifice knight",
     "enumeration": "5"
    },
-   "solution": "BUDGE"
+   "solution": "BUDGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BUDGE",
+    "definitions": [
+     {
+      "text": "Move",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to sacrifice",
+      "for": "deletion",
+      "note": "in chess a sacrificed piece is given up, so the knight's letter is taken off the board here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "gentle prompt",
+      "gives": "NUDGE",
+      "note": "a nudge is a gentle push or reminder"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for knight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "UDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Chess commentary: shift the bishop, a quiet hint to give up the knight.",
+     "walkthrough": "The whole clue sounds like chess advice, and the chess abbreviations B and N carry the wordplay; the knight is removed from the nudge.",
+     "definitionFit": "To budge is to shift position even slightly, a synonym of the verb move."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sacrifice"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +517,43 @@
     "text": "Party clobber",
     "enumeration": "4"
    },
-   "solution": "BASH"
+   "solution": "BASH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BASH",
+    "definitions": [
+     {
+      "text": "Party",
+      "at": 0
+     },
+     {
+      "text": "clobber",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "note": "first meaning: a lively celebration"
+     },
+     {
+      "clueFragment": "clobber",
+      "note": "second meaning: to hit hard"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Clobber is also British slang for clothes, so 'party clobber' reads as party wear; here it is the verb meaning to strike.",
+     "definitionFit": "The word means both a big festive gathering and a heavy blow or to strike hard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clobber"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +567,48 @@
     "text": "Stroke bull briefly",
     "enumeration": "5"
    },
-   "solution": "DRIVE"
+   "solution": "DRIVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DRIVE",
+    "definitions": [
+     {
+      "text": "Stroke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter of the word for bull is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bull",
+      "gives": "DRIVEL",
+      "note": "bull is slang for nonsense, as is drivel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Pat a bull for a moment.",
+     "walkthrough": "Stroke here is a shot in cricket or golf, not a caress.",
+     "definitionFit": "A drive is a forceful hit of the ball in golf, cricket or tennis, a kind of stroke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stroke"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +622,52 @@
     "text": "Stared at setter, downright outspoken",
     "enumeration": "9"
    },
-   "solution": "EYEBALLED"
+   "solution": "EYEBALLED",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "EYEBALLED",
+    "definitions": [
+     {
+      "text": "Stared at",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outspoken",
+      "for": "homophone",
+      "note": "outspoken means said out loud, so the words are taken by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter",
+      "gives": "EYE",
+      "soundsLike": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "downright",
+      "gives": "BALLED",
+      "soundsLike": "BALD",
+      "note": "bald means plain or blunt, as in a bald statement"
+     }
+    ],
+    "explanation": {
+     "surface": "The setter was glared at, being bluntly frank.",
+     "walkthrough": "In crosswords the setter is often 'I' or 'me'.",
+     "definitionFit": "To eyeball someone is to stare at them hard, so eyeballed is the past tense meaning stared at."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "downright"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +681,59 @@
     "text": "Initially abashed after tot's histrionics",
     "enumeration": "5"
    },
-   "solution": "DRAMA"
+   "solution": "DRAMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DRAMA",
+    "definitions": [
+     {
+      "text": "histrionics",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word that follows it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tot",
+      "gives": "DRAM",
+      "note": "a tot is a small measure of spirits, a dram"
+     },
+     {
+      "clueFragment": "abashed",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAM",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A toddler, at first embarrassed, then throws a tantrum.",
+     "walkthrough": "'Tot' suggests a small child, but it is a shot of whisky; the 's stands for 'is', linking wordplay to definition.",
+     "definitionFit": "Histrionics are exaggerated emotional displays, which is what a person making a drama produces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tot"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +747,51 @@
     "text": "Cobblers flash buttocks with glare",
     "enumeration": "9"
    },
-   "solution": "MOONSHINE"
+   "solution": "MOONSHINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOONSHINE",
+    "definitions": [
+     {
+      "text": "Cobblers",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flash buttocks",
+      "gives": "MOON",
+      "note": "to moon is to bare one's backside as a prank"
+     },
+     {
+      "clueFragment": "glare",
+      "gives": "SHINE",
+      "note": "a glare is a harsh bright shine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOON",
+      "SHINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Shoemakers expose their bottoms in the bright light.",
+     "walkthrough": "Cobblers is British slang for nonsense (from rhyming slang), not shoemakers.",
+     "definitionFit": "Moonshine means foolish talk or fanciful nonsense, the same slang meaning as cobblers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Cobblers"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +805,67 @@
     "text": "Third of examinees surprisingly pass April assessments",
     "enumeration": "10"
    },
-   "solution": "APPRAISALS"
+   "solution": "APPRAISALS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "APPRAISALS",
+    "definitions": [
+     {
+      "text": "assessments",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Third of",
+      "for": "letter_selection",
+      "note": "third of picks out the letter standing in third place of the next word"
+     },
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "a surprising outcome is unexpected, so the letters land in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "examinees",
+      "gives": "A",
+      "select": 3,
+      "note": "the third letter"
+     },
+     {
+      "clueFragment": "pass",
+      "gives": "PASS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "April",
+      "gives": "APRIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APASSAPRIL",
+       "gives": "APPRAISALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A third of the exam candidates unexpectedly get through their April tests.",
+     "definitionFit": "An appraisal is an evaluation of worth or performance, so appraisals are assessments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Third"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +879,44 @@
     "text": "Star striker in conversation",
     "enumeration": "4"
    },
-   "solution": "BETA"
+   "solution": "BETA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BETA",
+    "definitions": [
+     {
+      "text": "Star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in conversation",
+      "for": "homophone",
+      "note": "in conversation means as spoken, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "striker",
+      "gives": "BETA",
+      "soundsLike": "BEATER",
+      "note": "a beater is one who strikes; in a non-rhotic accent it sounds like the Greek letter"
+     }
+    ],
+    "explanation": {
+     "surface": "A star centre-forward chatting.",
+     "walkthrough": "'Star striker' reads as a top footballer; star is the definition, since stars in a constellation are named with Greek letters.",
+     "definitionFit": "Astronomers name a constellation's second-brightest star with this Greek letter, as in Beta Centauri."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "striker"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +930,56 @@
     "text": "Downplay distress at dentures",
     "enumeration": "10"
    },
-   "solution": "UNDERSTATE"
+   "solution": "UNDERSTATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDERSTATE",
+    "definitions": [
+     {
+      "text": "Downplay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distress",
+      "for": "anagram",
+      "note": "distress as a verb suggests damage or upset, so the letters are knocked out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dentures",
+      "gives": "DENTURES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATDENTURES",
+       "gives": "UNDERSTATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Make light of one's embarrassment over false teeth.",
+     "walkthrough": "'Distress' looks like a noun being downplayed, but it is the anagram signal.",
+     "definitionFit": "To understate is to describe something as less serious or important than it is, a synonym of downplay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "distress"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +993,62 @@
     "text": "Supervise model regularly snorting lines",
     "enumeration": "7"
    },
-   "solution": "OVERSEE"
+   "solution": "OVERSEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OVERSEE",
+    "definitions": [
+     {
+      "text": "Supervise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at fixed intervals, so every other letter of the word model is kept"
+     },
+     {
+      "text": "snorting",
+      "for": "container",
+      "note": "snorting means taking in through the nose, so one piece is drawn inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "model",
+      "gives": "OE",
+      "select": "alternate",
+      "note": "second and fourth letters"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "VERSE",
+      "note": "lines of poetry are verse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERSE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Keep an eye on a fashion model who is always taking cocaine.",
+     "walkthrough": "'Lines' and 'snorting' paint a cocaine scene, but lines are lines of poetry.",
+     "definitionFit": "To oversee is to watch over and direct work, a direct synonym of supervise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1072,61 @@
      }
     ]
    },
-   "solution": "ONTHEWING"
+   "solution": "ONTHEWING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ON THE WING",
+    "definitions": [
+     {
+      "text": "flying",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Harry",
+      "for": "anagram",
+      "note": "to harry is to harass and disturb, so the following letters are disturbed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cutting",
+      "gives": "HEWING",
+      "note": "hewing is chopping or cutting with an axe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONT",
+      "HEWING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOT",
+       "gives": "ONT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Harry is not cutting during his flight.",
+     "walkthrough": "Harry looks like a man's name, but it is the verb meaning to harass.",
+     "definitionFit": "On the wing is an idiom for in flight, said of birds flying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Harry"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1140,63 @@
     "text": "Country lass pursuing senator with energy",
     "enumeration": "7"
    },
-   "solution": "SENEGAL"
+   "solution": "SENEGAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SENEGAL",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pursuing",
+      "for": "charade",
+      "note": "pursuing means following behind, so the girl's word comes after the rest"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "senator",
+      "gives": "SEN",
+      "note": "Sen. is the abbreviation for senator"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "lass",
+      "gives": "GAL",
+      "note": "gal is a colloquial word for a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEN",
+      "E",
+      "GAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A rural young woman chasing a vigorous senator.",
+     "walkthrough": "'Country lass' looks like one phrase, a country girl, but country is the definition by itself.",
+     "definitionFit": "Senegal is a nation in West Africa, an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1210,47 @@
     "text": "Drop most celebrated advocate of worldwide policy",
     "enumeration": "9"
    },
-   "solution": "GLOBALIST"
+   "solution": "GLOBALIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GLOBALIST",
+    "definitions": [
+     {
+      "text": "advocate of worldwide policy",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drop",
+      "gives": "GLOB",
+      "note": "a glob is a drop or blob of liquid"
+     },
+     {
+      "clueFragment": "most celebrated",
+      "gives": "ALIST",
+      "note": "the A-list is the group of the most famous people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLOB",
+      "ALIST"
+     ]
+    },
+    "explanation": {
+     "surface": "Drop the most famous champion of a world-spanning policy.",
+     "walkthrough": "'Drop' reads as a verb, but it is a noun, a drop of liquid.",
+     "definitionFit": "A globalist favours policies planned on an international or world scale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drop"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1270,61 @@
      }
     ]
    },
-   "solution": "THEPITS"
+   "solution": "THEPITS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THE PITS",
+    "definitions": [
+     {
+      "text": "Extremely poor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffing",
+      "for": "container",
+      "note": "stuffing means filling the inside, so these pieces go within the birds' word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "birds",
+      "gives": "TITS",
+      "note": "tits are small songbirds such as the blue tit"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "HE",
+      "note": "he is the male pronoun"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p (piano) is the musical mark for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HE",
+      "P",
+      "ITS"
+     ]
+    },
+    "explanation": {
+     "surface": "A very hard-up man quietly stuffs poultry for dinner.",
+     "definitionFit": "The pits is an idiom for the very worst, so it means extremely poor in quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poor"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1338,54 @@
     "text": "See you welcoming one playing alone",
     "enumeration": "7"
    },
-   "solution": "SOLOING"
+   "solution": "SOLOING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOLOING",
+    "definitions": [
+     {
+      "text": "playing alone",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming means taking a guest inside, so the next piece goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See you",
+      "gives": "SOLONG",
+      "note": "so long is a farewell, like see you"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLO",
+      "I",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "A goodbye, while greeting someone who performs solo.",
+     "definitionFit": "Soloing means performing a solo, playing or flying without anyone else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1399,62 @@
     "text": "May well vomit, oddly tired at last of marrow",
     "enumeration": "7"
    },
-   "solution": "MYELOID"
+   "solution": "MYELOID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MYELOID",
+    "definitions": [
+     {
+      "text": "of marrow",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the letters in odd-numbered positions of the preceding words"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word tired"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "May well vomit",
+      "gives": "MYELOI",
+      "select": "alternate",
+      "note": "first, third, fifth letters and so on"
+     },
+     {
+      "clueFragment": "tired",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MYELOI",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A sickly, weary person may well throw up after eating marrow.",
+     "walkthrough": "Marrow suggests the vegetable, but the answer is the medical adjective for bone marrow.",
+     "definitionFit": "Myeloid is the medical adjective meaning relating to or derived from bone marrow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "marrow"
+    }
+   }
   },
   {
    "number": 19,
@@ -363,7 +1468,65 @@
     "text": "Regrets American uncle turning up in rubber",
     "enumeration": "7"
    },
-   "solution": "MASSEUR"
+   "solution": "MASSEUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MASSEUR",
+    "definitions": [
+     {
+      "text": "rubber",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning up means reading upwards, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regrets",
+      "gives": "RUES",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "American uncle",
+      "gives": "SAM",
+      "note": "Uncle Sam personifies the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAS",
+      "SEUR"
+     ],
+     "reversals": [
+      {
+       "from": "RUESSAM",
+       "to": "MASSEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American uncle arrives wearing rubber, and regrets it.",
+     "walkthrough": "Rubber suggests the material, but it is one who rubs.",
+     "definitionFit": "A masseur gives massages, rubbing clients' muscles, so he is literally a rubber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rubber"
+    }
+   }
   },
   {
    "number": 20,
@@ -377,7 +1540,61 @@
     "text": "Take home sailors after first eyeing airmen",
     "enumeration": "4"
    },
-   "solution": "EARN"
+   "solution": "EARN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EARN",
+    "definitions": [
+     {
+      "text": "Take home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letters of the two words that follow"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the sailors' letters behind the other piece in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eyeing airmen",
+      "gives": "EA",
+      "select": "first",
+      "note": "the opening letter of each word"
+     },
+     {
+      "clueFragment": "sailors",
+      "gives": "RN",
+      "note": "RN is the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors escort ashore some airmen who were eyeing them up.",
+     "walkthrough": "'Take home' is pay after tax, as in take-home pay.",
+     "definitionFit": "To earn is to receive money for work, which is what take home means of one's wages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1608,60 @@
     "text": "Retired doorman doffing cap, recreating the past",
     "enumeration": "5"
    },
-   "solution": "RETRO"
+   "solution": "RETRO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "RETRO",
+    "definitions": [
+     {
+      "text": "recreating the past",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doffing cap",
+      "for": "deletion",
+      "note": "doffing a cap removes what is on top, so the first letter is taken off"
+     },
+     {
+      "text": "Retired",
+      "for": "reversal",
+      "note": "retired means withdrawn or gone back, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doorman",
+      "gives": "PORTER",
+      "note": "a porter guards a building's door"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETRO"
+     ],
+     "reversals": [
+      {
+       "from": "ORTER",
+       "to": "RETRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired doorman tips his hat, living in the old days.",
+     "walkthrough": "'Retired' looks like a description of the doorman, but it reverses him.",
+     "definitionFit": "Retro style imitates or revives fashions of the past, so it is recreating the past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 22,
@@ -411,7 +1681,62 @@
      }
     ]
    },
-   "solution": "CLOSESHAVE"
+   "solution": "CLOSESHAVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CLOSE SHAVE",
+    "definitions": [
+     {
+      "text": "almost a disaster",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pieces inside the word for the grotto"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grotto",
+      "gives": "CAVE",
+      "note": "a grotto is a small cave"
+     },
+     {
+      "clueFragment": "Mislays",
+      "gives": "LOSES",
+      "note": "to mislay something is to lose it"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "h is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOSES",
+      "H",
+      "AVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man loses his husband somewhere in a cave, nearly a catastrophe.",
+     "walkthrough": "'Almost' wants to be a deletion signal on grotto, but it belongs to the definition.",
+     "definitionFit": "A close shave is an idiom for a narrow escape, an event that nearly became a disaster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "almost"
+    }
+   }
   },
   {
    "number": 23,
@@ -425,7 +1750,54 @@
     "text": "Change date after two consecutive letters",
     "enumeration": "5"
    },
-   "solution": "EMEND"
+   "solution": "EMEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMEND",
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the date's letter behind the other pieces in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two consecutive letters",
+      "gives": "EMEN",
+      "note": "the names of the neighbouring letters M and N, spelt out"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "D",
+      "note": "d is the abbreviation for date"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMEN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Reschedule after receiving two letters one after another.",
+     "walkthrough": "Letters of the alphabet can be clued by their spoken names; em and en are also printers' units.",
+     "definitionFit": "To emend a text is to correct or alter it, so it is a kind of change."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1811,60 @@
     "text": "Many dons to get debanked soon",
     "enumeration": "4"
    },
-   "solution": "ANON"
+   "solution": "ANON",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ANON",
+    "definitions": [
+     {
+      "text": "soon",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "debanked",
+      "for": "letter_selection",
+      "note": "a bank lines each side, so removing the banks strips each word of its outer letters"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Many",
+      "gives": "AN",
+      "select": "middle",
+      "note": "the inner letters"
+     },
+     {
+      "clueFragment": "dons",
+      "gives": "ON",
+      "select": "middle",
+      "note": "the inner letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Many university lecturers will soon lose their bank accounts.",
+     "walkthrough": "Dons are university teachers in Britain; 'debanked' sounds financial but means the edges are removed.",
+     "definitionFit": "Anon is an archaic word for shortly or in a little while, a synonym of soon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "debanked"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1878,66 @@
     "text": "Close current books, meditative after loss of papa",
     "enumeration": "9"
    },
-   "solution": "INTENSIVE"
+   "solution": "INTENSIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "INTENSIVE",
+    "definitions": [
+     {
+      "text": "Close",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after loss of",
+      "for": "deletion",
+      "note": "loss of means the letter for papa goes missing from the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament"
+     },
+     {
+      "clueFragment": "meditative",
+      "gives": "PENSIVE",
+      "note": "pensive means deep in thought"
+     },
+     {
+      "clueFragment": "papa",
+      "gives": "P",
+      "note": "Papa is P in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NT",
+      "ENSIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Shutting the accounts after a father's death leaves one thoughtful.",
+     "walkthrough": "'Close' reads as a verb, but it is the adjective, as in close study.",
+     "definitionFit": "Close attention or study is concentrated and thorough, which is what intensive means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Close"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +1951,42 @@
     "text": "Out of the way of hyenas, ideally",
     "enumeration": "5"
    },
-   "solution": "ASIDE"
+   "solution": "ASIDE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ASIDE",
+    "definitions": [
+     {
+      "text": "Out of the way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of signals the letters come from within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hyenas, ideally",
+      "gives": "ASIDE",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Ideally one keeps well clear of hyenas.",
+     "definitionFit": "Something set aside is placed to one side, out of the way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ideally"
+    }
+   }
   },
   {
    "number": 27,
@@ -481,7 +2000,63 @@
     "text": "Waxed middle of torso to wear frock",
     "enumeration": "5"
    },
-   "solution": "GROWN"
+   "solution": "GROWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GROWN",
+    "definitions": [
+     {
+      "text": "Waxed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "middle of keeps only the centre letter of the word torso"
+     },
+     {
+      "text": "to wear",
+      "for": "container",
+      "note": "wearing a garment means being inside it, so the letter goes within the frock"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frock",
+      "gives": "GOWN",
+      "note": "a gown is a dress"
+     },
+     {
+      "clueFragment": "torso",
+      "gives": "R",
+      "select": "middle",
+      "note": "the centre letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "R",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A torso depilated before putting on a dress.",
+     "walkthrough": "Waxed suggests hair removal, but it means increased, as the moon waxes.",
+     "definitionFit": "To wax is to grow larger, so waxed and grown are past forms meaning increased in size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Waxed"
+    }
+   }
   },
   {
    "number": 28,
@@ -495,7 +2070,55 @@
     "text": "Mend great rips in clothes",
     "enumeration": "9"
    },
-   "solution": "GARMENTED"
+   "solution": "GARMENTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GARMENTED",
+    "definitions": [
+     {
+      "text": "in clothes",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rips",
+      "for": "anagram",
+      "note": "rips tear something apart, so the letters are pulled out of order and reset"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mend",
+      "gives": "MEND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "GREAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENDGREAT",
+       "gives": "GARMENTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Repair large tears in your clothing.",
+     "definitionFit": "Garmented is a literary adjective meaning dressed, which is being in clothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rips"
+    }
+   }
   }
  ]
 }
