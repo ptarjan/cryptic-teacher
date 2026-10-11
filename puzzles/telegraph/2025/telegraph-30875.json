@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -55,7 +58,55 @@
     "text": "Object in cooker: this might be hidden!",
     "enumeration": "6"
    },
-   "solution": "AGENDA"
+   "solution": "AGENDA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AGENDA",
+    "definitions": [
+     {
+      "text": "this might be hidden!",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means the first word's letters are placed inside the second's"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cooker",
+      "gives": "AGA",
+      "note": "an Aga is a brand of range cooker, a fixture of British country kitchens"
+     },
+     {
+      "clueFragment": "Object",
+      "gives": "END",
+      "note": "an end is an aim or purpose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "END",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Something is lurking in the oven, and it might be hidden there.",
+     "walkthrough": "The definition leans on the phrase 'hidden agenda', a concealed plan.",
+     "definitionFit": "A hidden agenda is a familiar idiom for a secret motive, so the answer is the thing that might be hidden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Object"
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +120,53 @@
     "text": "Fiona maybe to advance, renouncing PR",
     "enumeration": "6"
    },
-   "solution": "OGRESS"
+   "solution": "OGRESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OGRESS",
+    "definitions": [
+     {
+      "text": "Fiona maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "renouncing",
+      "for": "deletion",
+      "note": "to renounce something is to give it up, so those letters are dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to advance",
+      "gives": "PROGRESS",
+      "note": "to progress is to move forward"
+     },
+     {
+      "clueFragment": "PR",
+      "gives": "PR",
+      "note": "taken as written, the letters to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OGRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Fiona is urged to get on in her career while giving up public relations.",
+     "walkthrough": "Fiona is the princess in the Shrek films who turns out to be an ogre; 'maybe' marks her as one example.",
+     "definitionFit": "Princess Fiona in Shrek is a female ogre, so she is one example of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fiona"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +180,55 @@
     "text": "Blade made with three metals",
     "enumeration": "5"
    },
-   "solution": "KNIFE"
+   "solution": "KNIFE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KNIFE",
+    "definitions": [
+     {
+      "text": "Blade",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "three metals",
+      "gives": "K",
+      "note": "K is the chemical symbol for potassium, the first metal"
+     },
+     {
+      "clueFragment": "three metals",
+      "gives": "NI",
+      "note": "Ni is the chemical symbol for nickel, the second metal"
+     },
+     {
+      "clueFragment": "three metals",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron, the third metal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NI",
+      "FE"
+     ]
+    },
+    "explanation": {
+     "surface": "A blade forged from an alloy of three metals.",
+     "definitionFit": "A knife is a cutting tool consisting essentially of a blade with a handle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "metals"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +242,51 @@
     "text": "You must meet Hindu god in Jewish school",
     "enumeration": "7"
    },
-   "solution": "YESHIVA"
+   "solution": "YESHIVA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YESHIVA",
+    "definitions": [
+     {
+      "text": "Jewish school",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "must meet",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You",
+      "gives": "YE",
+      "note": "ye is the old form of you"
+     },
+     {
+      "clueFragment": "Hindu god",
+      "gives": "SHIVA",
+      "note": "Shiva is the Hindu god of destruction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YE",
+      "SHIVA"
+     ]
+    },
+    "explanation": {
+     "surface": "A visitor is told to meet a Hindu deity inside a Jewish school, an unlikely encounter.",
+     "definitionFit": "A yeshiva is an Orthodox Jewish college for the study of the Talmud and other religious texts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +300,46 @@
     "text": "Leading club optimistic",
     "enumeration": "6"
    },
-   "solution": "UPBEAT"
+   "solution": "UPBEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPBEAT",
+    "definitions": [
+     {
+      "text": "optimistic",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leading",
+      "gives": "UP",
+      "note": "a team that is up is ahead or leading"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "BEAT",
+      "note": "to club is to beat with a stick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "BEAT"
+     ]
+    },
+    "explanation": {
+     "surface": "The football club at the top of the table is feeling positive.",
+     "definitionFit": "Upbeat is an informal synonym for cheerful and hopeful about the future."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +363,51 @@
    "group": [
     "6-down",
     "26-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PITUITARY GLAND",
+    "definitions": [
+     {
+      "text": "It affects growth",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Excitedly",
+      "for": "anagram",
+      "note": "doing something excitedly means in an agitated, jumbled way, so the following letters are thrown about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at it during play",
+      "gives": "ATITDURINGPLAY",
+      "note": "every letter of these four words is the raw material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATITDURINGPLAY",
+       "gives": "PITUITARYGLAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Children going at it hard while playing, which is how they grow up.",
+     "walkthrough": "The whole of 'at it during play' is the fodder, not just 'at it'; the question mark covers the playful surface.",
+     "definitionFit": "This small gland at the base of the brain secretes growth hormone, so it controls how the body grows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "during"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +421,54 @@
     "text": "Yours truly picked up good girl – reader's assistant?",
     "enumeration": "8"
    },
-   "solution": "EYEGLASS"
+   "solution": "EYEGLASS",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "EYEGLASS",
+    "definitions": [
+     {
+      "text": "reader's assistant?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picking something up can mean catching it with the ear, so the sound is what counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yours truly",
+      "gives": "EYE",
+      "soundsLike": "I",
+      "note": "yours truly is the speaker, I, which sounds the same as the organ of sight"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl, especially in Scotland and northern England"
+     }
+    ],
+    "explanation": {
+     "surface": "A man fetches a nice young woman to help someone who is reading.",
+     "definitionFit": "A monocle or single lens worn to help eyesight, so it assists someone reading."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +482,65 @@
     "text": "Go without an item of underwear in burlesque",
     "enumeration": "8"
    },
-   "solution": "TRAVESTY"
+   "solution": "TRAVESTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAVESTY",
+    "definitions": [
+     {
+      "text": "burlesque",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so the first word wraps round what follows"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "TRY",
+      "note": "a go is an attempt or try"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "item of underwear",
+      "gives": "VEST",
+      "note": "in Britain a vest is a sleeveless undershirt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "A",
+      "VEST",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A burlesque dancer is told to perform minus one piece of underwear.",
+     "walkthrough": "'Without' reads as lacking, but it means outside: TR(A VEST)Y.",
+     "definitionFit": "A burlesque is a mocking imitation, and a travesty is likewise a grotesque or absurd parody of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +554,50 @@
     "text": "Most ancient ateliers renovated",
     "enumeration": "8"
    },
-   "solution": "EARLIEST"
+   "solution": "EARLIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARLIEST",
+    "definitions": [
+     {
+      "text": "Most ancient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "renovated",
+      "for": "anagram",
+      "note": "renovated things are rebuilt and rearranged, so the word's letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ateliers",
+      "gives": "ATELIERS",
+      "note": "taken as written; an atelier is an artist's workshop"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATELIERS",
+       "gives": "EARLIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The oldest artists' studios have been done up.",
+     "definitionFit": "Earliest is the superlative of early, meaning first in time and so the oldest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ancient"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +611,55 @@
     "text": "Teetotallers outside followed by goddess",
     "enumeration": "6"
    },
-   "solution": "ATHENA"
+   "solution": "ATHENA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATHENA",
+    "definitions": [
+     {
+      "text": "goddess",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one thing outside another surrounds it, so these letters go round the next part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teetotallers",
+      "gives": "AA",
+      "note": "Alcoholics Anonymous, whose members do not drink"
+     },
+     {
+      "clueFragment": "followed by",
+      "gives": "THEN",
+      "note": "then means next in order, as when one thing is followed by another"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "THEN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A group of non-drinkers is shadowed by a divine female figure.",
+     "walkthrough": "AA stands for Alcoholics Anonymous, whose members are teetotallers, and the pair of letters split to go round the other piece.",
+     "definitionFit": "Athena is the Greek goddess of wisdom and war, patron of Athens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "followed"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +687,70 @@
    "group": [
     "11-down",
     "19-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "A FEW GOOD MEN",
+    "definitions": [
+     {
+      "text": "film",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grotesque",
+      "for": "anagram",
+      "note": "grotesque means distorted and misshapen, so the word that follows is twisted out of shape"
+     }
+    ],
+    "linkWords": [
+     "coming before",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Several",
+      "gives": "AFEW",
+      "note": "a few means a small number, several"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "GO",
+      "note": "go means vigour or spirit, as in 'full of go'"
+     },
+     {
+      "clueFragment": "demon",
+      "gives": "ODMEN",
+      "note": "the letters of this word, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFEW",
+      "GO",
+      "ODMEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEMON",
+       "gives": "ODMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horror-film review: several characters precede a ghost and a hideous monster.",
+     "definitionFit": "This 1992 courtroom drama starring Tom Cruise and Jack Nicholson is a well-known Hollywood movie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +764,73 @@
     "text": "Feel bird, not rook, is flapping in amazement",
     "enumeration": "9"
    },
-   "solution": "DISBELIEF"
+   "solution": "DISBELIEF",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DISBELIEF",
+    "definitions": [
+     {
+      "text": "amazement",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not rook",
+      "for": "deletion",
+      "note": "'not' tells us to leave out the chess piece, which crossword setters abbreviate to a single letter"
+     },
+     {
+      "text": "flapping",
+      "for": "anagram",
+      "note": "flapping wings move wildly, so the remaining letters are tossed into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feel bird",
+      "gives": "FEELBIRD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R is the chess notation for a rook"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISBELIEF"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FEELBIDIS",
+       "gives": "DISBELIEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone touches a bird other than a rook and it flaps about, to their astonishment.",
+     "walkthrough": "Remove R from FEEL BIRD, add IS, then rearrange all nine letters.",
+     "definitionFit": "To be in disbelief is to be unable to credit what you see, much as being in amazement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "number": 13,
@@ -262,7 +859,40 @@
     "13-across",
     "1-across",
     "24-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "I'LL BE A MONKEY'S UNCLE",
+    "definitions": [
+     {
+      "text": "Should my sibling adopt that mischievous child",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Should my sibling adopt that mischievous child",
+      "note": "surface reading: musing on a brother or sister taking in a naughty youngster"
+     },
+     {
+      "clueFragment": "mischievous child",
+      "note": "setter's reading: a mischievous child is called a little monkey"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders what would follow if their brother or sister adopted a naughty little kid.",
+     "walkthrough": "The ellipsis invites the speaker's conclusion, which is also a stock exclamation of astonishment.",
+     "definitionFit": "The phrase is an idiomatic cry of surprise, and literally describes the relation to a sibling's adopted little monkey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "child"
+    }
+   }
   },
   {
    "number": 14,
@@ -276,7 +906,55 @@
     "text": "Atahualpa say almost eaten by lion?",
     "enumeration": "4"
    },
-   "solution": "INCA"
+   "solution": "INCA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INCA",
+    "definitions": [
+     {
+      "text": "Atahualpa say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eaten by",
+      "gives": "IN",
+      "note": "something eaten by an animal ends up in it"
+     },
+     {
+      "clueFragment": "lion",
+      "gives": "CA",
+      "note": "a lion is a big cat, and the word cat loses its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "surface": "The Inca emperor Atahualpa nearly devoured by a lion.",
+     "walkthrough": "'Eaten by lion' is read as 'in cat', with the question mark flagging lion as an example of a cat.",
+     "definitionFit": "Atahualpa was the last emperor of the Inca Empire before the Spanish conquest, so he is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "eaten"
+    }
+   }
   },
   {
    "number": 15,
@@ -296,7 +974,47 @@
      }
     ]
    },
-   "solution": "NUMBERTEN"
+   "solution": "NUMBERTEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUMBER TEN",
+    "definitions": [
+     {
+      "text": "Last-but-one batter",
+      "at": 0
+     },
+     {
+      "text": "Starmer's residence",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last-but-one batter",
+      "note": "first meaning: in cricket eleven players bat in order, so the tenth is the second-to-last"
+     },
+     {
+      "clueFragment": "Starmer's residence",
+      "note": "second meaning: 10 Downing Street, home of the British prime minister Keir Starmer"
+     }
+    ],
+    "explanation": {
+     "surface": "A cricketer near the bottom of the order is staying at the Prime Minister's house.",
+     "walkthrough": "A cricket team has eleven batters; Number Ten is also the everyday name for 10 Downing Street, the UK prime minister's official home.",
+     "definitionFit": "The phrase names both a batting position in cricket and the Downing Street address of the prime minister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "batter"
+    }
+   }
   },
   {
    "number": 16,
@@ -310,7 +1028,59 @@
     "text": "Something unknown in humour about bowlers?",
     "enumeration": "7"
    },
-   "solution": "WHATSIT"
+   "solution": "WHATSIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WHATSIT",
+    "definitions": [
+     {
+      "text": "Something unknown",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first word is wrapped round the second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "humour",
+      "gives": "WIT",
+      "note": "wit is clever humour"
+     },
+     {
+      "clueFragment": "bowlers",
+      "gives": "HATS",
+      "note": "bowlers are hard round felt hats"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HATS",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling joke about cricket bowlers.",
+     "walkthrough": "Bowlers suggests cricket, but here they are hats.",
+     "definitionFit": "A whatsit is a colloquial placeholder for a thing whose name you can't recall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bowlers"
+    }
+   }
   },
   {
    "number": 17,
@@ -330,7 +1100,64 @@
      }
     ]
    },
-   "solution": "AGNUSDEI"
+   "solution": "AGNUSDEI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "AGNUS DEI",
+    "definitions": [
+     {
+      "text": "Prayer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hard to be ignored",
+      "for": "deletion",
+      "note": "the abbreviation for hard is to be ignored, meaning left out of the word"
+     },
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow suggests an unspecified way of arranging things, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anguished",
+      "gives": "ANGUISHED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGNUSDEI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANGUISED",
+       "gives": "AGNUSDEI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An anguished prayer, said with difficulty, that can't be ignored.",
+     "definitionFit": "The Agnus Dei, Latin for 'Lamb of God', is a prayer said or sung in the Christian Mass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 18,
@@ -382,7 +1209,52 @@
     "text": "Nearby sound made by horse expending energy",
     "enumeration": "4"
    },
-   "solution": "NIGH"
+   "solution": "NIGH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NIGH",
+    "definitions": [
+     {
+      "text": "Nearby",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "expending",
+      "for": "deletion",
+      "note": "expending means using up, so the letter for energy is spent and removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sound made by horse",
+      "gives": "NEIGH",
+      "note": "the cry a horse makes"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGH"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired horse panting near by.",
+     "definitionFit": "Nigh is an old or literary word meaning near or close at hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 21,
@@ -396,7 +1268,54 @@
     "text": "Indian state welcoming Yankee painter",
     "enumeration": "4"
    },
-   "solution": "GOYA"
+   "solution": "GOYA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOYA",
+    "definitions": [
+     {
+      "text": "painter",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "a place welcoming a guest takes them in, so the state's letters enclose the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indian state",
+      "gives": "GOA",
+      "note": "Goa is a small state on India's west coast"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "Y",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An Indian state hosts an American painter.",
+     "definitionFit": "Francisco Goya was the great Spanish painter of the late 18th and early 19th centuries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Yankee"
+    }
+   }
   },
   {
    "number": 21,
@@ -410,7 +1329,63 @@
     "text": "Covered in dirt a Conservative gives scowl",
     "enumeration": "7"
    },
-   "solution": "GRIMACE"
+   "solution": "GRIMACE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRIMACE",
+    "definitions": [
+     {
+      "text": "scowl",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Covered in",
+      "for": "container",
+      "note": "to be covered in something is to be enclosed by it, so the next letters go inside"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dirt",
+      "gives": "GRIME",
+      "note": "grime is ingrained dirt"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRIM",
+      "A",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician, smeared with muck, frowns.",
+     "definitionFit": "A grimace is a twisted facial expression of disgust or pain, much like a scowl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Covered"
+    }
+   }
   },
   {
    "number": 22,
@@ -424,7 +1399,52 @@
     "text": "Corrupt oil bid: one's appetite for it?",
     "enumeration": "6"
    },
-   "solution": "LIBIDO"
+   "solution": "LIBIDO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIBIDO",
+    "definitions": [
+     {
+      "text": "one's appetite for it?",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Corrupt",
+      "for": "anagram",
+      "note": "corrupt means spoiled or twisted out of its proper form, so the letters are distorted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oil bid",
+      "gives": "OILBID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OILBID",
+       "gives": "LIBIDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dodgy oil tender: what drives someone to want it?",
+     "walkthrough": "'It' is a coy word for sex, and the question mark flags that saucy reading.",
+     "definitionFit": "Libido is sexual desire, and 'it' is a familiar euphemism for sex."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 23,
@@ -444,7 +1464,47 @@
      }
     ]
    },
-   "solution": "SEERED"
+   "solution": "SEERED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEE RED",
+    "definitions": [
+     {
+      "text": "Be annoyed",
+      "at": 0
+     },
+     {
+      "text": "stop when you do this?",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be annoyed",
+      "note": "first meaning: become suddenly angry"
+     },
+     {
+      "clueFragment": "stop when you do this?",
+      "note": "second meaning: drivers halt on noticing a traffic light at its danger colour"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to someone getting cross: halt when it happens.",
+     "walkthrough": "The question mark marks the second definition as a literal reading of the idiom.",
+     "definitionFit": "The idiom means to become angry, and literally a motorist must halt on spotting a red light."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 24,
@@ -485,7 +1545,64 @@
    "group": [
     "25-across",
     "18-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "GOING LIKE HOT CAKES",
+    "definitions": [
+     {
+      "text": "in great demand!",
+      "at": 44,
+      "note": "an adjectival phrase, while the answer is a verb phrase meaning selling quickly"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the name it follows"
+     },
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one of several possible arrangements of the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nanook",
+      "gives": "K",
+      "select": "last",
+      "note": "the final letter of the name"
+     },
+     {
+      "clueFragment": "hooks gigantic eel",
+      "gives": "HOOKSGIGANTICEEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KHOOKSGIGANTICEEL",
+       "gives": "GOINGLIKEHOTCAKES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Inuit fisherman finally lands a monster eel, and everyone wants a piece.",
+     "walkthrough": "Nanook evokes Nanook of the North, the Inuit hunter of the 1922 documentary.",
+     "definitionFit": "Something going like hot cakes sells fast because everybody wants it, which is the idiom for high demand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hooks"
+    }
+   }
   },
   {
    "number": 26,
@@ -512,7 +1629,66 @@
     "text": "Sioux sent back satisfactory inside information",
     "enumeration": "6"
    },
-   "solution": "DAKOTA"
+   "solution": "DAKOTA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DAKOTA",
+    "definitions": [
+     {
+      "text": "Sioux",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "something sent back returns the way it came, so the word is read from right to left"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means placed within, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "satisfactory",
+      "gives": "OK",
+      "note": "OK means acceptable or satisfactory"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "DATA",
+      "note": "data are facts or information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "KO",
+      "TA"
+     ],
+     "reversals": [
+      {
+       "from": "OK",
+       "to": "KO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Sioux warrior returns with a decent piece of intelligence.",
+     "definitionFit": "The Dakota are one of the main divisions of the Sioux peoples of the North American plains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sent"
+    }
+   }
   },
   {
    "number": 28,
@@ -526,7 +1702,57 @@
     "text": "Incautious taking wine and pork pie before run",
     "enumeration": "8"
    },
-   "solution": "CAVALIER"
+   "solution": "CAVALIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAVALIER",
+    "definitions": [
+     {
+      "text": "Incautious",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "CAVA",
+      "note": "cava is Spanish sparkling wine"
+     },
+     {
+      "clueFragment": "pork pie",
+      "gives": "LIE",
+      "note": "in Cockney rhyming slang a pork pie, or porky, is a lie"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for a run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAVA",
+      "LIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A reckless eater helping himself to wine and a pork pie before going for a jog.",
+     "walkthrough": "Pork pie is Cockney rhyming slang: 'pork pie' rhymes with 'lie', so a porky is a fib.",
+     "definitionFit": "A cavalier attitude is offhand and careless, showing a lack of proper concern or caution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pork"
+    }
+   }
   },
   {
    "number": 29,
@@ -540,7 +1766,56 @@
     "text": "Silly to eat son's bananas",
     "enumeration": "6"
    },
-   "solution": "INSANE"
+   "solution": "INSANE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INSANE",
+    "definitions": [
+     {
+      "text": "bananas",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to eat",
+      "for": "container",
+      "note": "eating takes something inside, so the first word swallows the next letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silly",
+      "gives": "INANE",
+      "note": "inane means silly or senseless"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "S",
+      "ANE"
+     ]
+    },
+    "explanation": {
+     "surface": "It's daft to scoff your boy's fruit.",
+     "walkthrough": "'Bananas' looks like the fruit being eaten, but it is the slang definition, meaning crazy.",
+     "definitionFit": "Bananas is informal slang for mad or crazy, the same as being out of one's mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 30,
@@ -554,7 +1829,46 @@
     "text": "Useless personnel for city in South 27",
     "enumeration": "8"
    },
-   "solution": "DEADWOOD"
+   "solution": "DEADWOOD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEADWOOD",
+    "definitions": [
+     {
+      "text": "Useless personnel",
+      "at": 0
+     },
+     {
+      "text": "city in South 27",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Useless personnel",
+      "note": "first meaning: staff who contribute nothing"
+     },
+     {
+      "clueFragment": "city in South 27",
+      "note": "second meaning: a historic gold-rush town in South Dakota, reading 27 as its answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A company's dead-weight staff are being sent off to a city out west.",
+     "walkthrough": "27 refers to the answer at 27-across, so the place is in South Dakota, the Wild West town of Wild Bill Hickok's death.",
+     "definitionFit": "Deadwood is idiom for unproductive members of an organisation and the name of a famous South Dakota town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "personnel"
+    }
+   }
   }
  ]
 }
