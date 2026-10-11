@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "A piece of cake to eat outside",
     "enumeration": "6"
    },
-   "solution": "PICNIC"
+   "solution": "PICNIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PICNIC",
+    "definitions": [
+     {
+      "text": "A piece of cake",
+      "at": 0
+     },
+     {
+      "text": "to eat outside",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A piece of cake",
+      "note": "first meaning: something very easy to do"
+     },
+     {
+      "clueFragment": "to eat outside",
+      "note": "second meaning: an outdoor meal, or to have one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests taking a slice of cake into the garden; the two halves are separate senses of one word.",
+     "definitionFit": "The word is idiomatic for an easy task ('no picnic' means hard) and literally names an outdoor meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cake"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +92,43 @@
      }
     ]
    },
-   "solution": "PLAYOFF"
+   "solution": "PLAYOFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLAY-OFF",
+    "definitions": [
+     {
+      "text": "Decisive match",
+      "at": 0
+     },
+     {
+      "text": "cancelled?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decisive match",
+      "note": "first meaning: an extra game to settle a tie"
+     },
+     {
+      "clueFragment": "cancelled?",
+      "note": "second meaning, read whimsically: a theatre show that is called off"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split it as PLAY OFF: a play that is off has been cancelled. The question mark flags this playful second reading.",
+     "definitionFit": "A play-off is the tie-breaking game held when competitors finish level, so it decides the result."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cancelled"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +142,41 @@
     "text": "The best ointment",
     "enumeration": "5"
    },
-   "solution": "CREAM"
+   "solution": "CREAM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CREAM",
+    "definitions": [
+     {
+      "text": "The best",
+      "at": 0
+     },
+     {
+      "text": "ointment",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The best",
+      "note": "first meaning: the finest part"
+     },
+     {
+      "clueFragment": "ointment",
+      "note": "second meaning: a soothing lotion rubbed on skin"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like an advert boasting of a top ointment; the two words are separate meanings.",
+     "definitionFit": "The richest part of milk rises to the top, hence the idiom for the elite; it is also a medicinal salve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +190,72 @@
     "text": "Pamper Indian with cut head and broken leg",
     "enumeration": "7"
    },
-   "solution": "INDULGE"
+   "solution": "INDULGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "INDULGE",
+    "definitions": [
+     {
+      "text": "Pamper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with cut head",
+      "for": "deletion",
+      "note": "a cut head means the opening letter of the word before is lopped off"
+     },
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is in pieces, so its letters are scattered and rearranged"
+     },
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "plain joining word placing one built piece straight after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indian",
+      "gives": "HINDU",
+      "note": "an Indian by religion, a follower of Hinduism"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "LEG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDU",
+      "LGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEG",
+       "gives": "LGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coddling an injured Indian man who has a head wound and a fractured leg.",
+     "walkthrough": "'Indian' here is a follower of the religion, not a nationality; the cut word comes first and the jumbled one follows.",
+     "definitionFit": "To indulge someone is to spoil or gratify them, a close synonym of pamper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +269,66 @@
     "text": "Plain office assistant's against backing plan",
     "enumeration": "6"
    },
-   "solution": "PAMPAS"
+   "solution": "PAMPAS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PAMPAS",
+    "definitions": [
+     {
+      "text": "Plain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "something backing goes in reverse, so the word after is read from its end"
+     },
+     {
+      "text": "against",
+      "for": "charade",
+      "note": "against means up next to, so the two pieces sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plan",
+      "gives": "MAP",
+      "note": "a map is a plan of an area"
+     },
+     {
+      "clueFragment": "office assistant's",
+      "gives": "PAS",
+      "note": "PA is a personal assistant; the 's adds the S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAM",
+      "PAS"
+     ],
+     "reversals": [
+      {
+       "from": "MAP",
+       "to": "PAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Office talk: a PA pushing back against a project plan.",
+     "walkthrough": "The plan word runs backwards and comes first, with the assistant's word set against it.",
+     "definitionFit": "The pampas are the vast treeless grassy plains of South America, so the word names a plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plain"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +342,42 @@
     "text": "Get even with some unshaven gents",
     "enumeration": "6"
    },
-   "solution": "AVENGE"
+   "solution": "AVENGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AVENGE",
+    "definitions": [
+     {
+      "text": "Get even with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only a portion, here a run of letters lying inside the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unshaven gents",
+      "gives": "AVENGE",
+      "note": "found spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Settling a score with a few scruffy, bearded men.",
+     "definitionFit": "To avenge a wrong is to retaliate for it, which is what getting even means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +391,64 @@
     "text": "Rich ruler's dog upset cart …",
     "enumeration": "9"
    },
-   "solution": "PLUTOCRAT"
+   "solution": "PLUTOCRAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PLUTOCRAT",
+    "definitions": [
+     {
+      "text": "Rich ruler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disturbed, so the following letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "PLUTO",
+      "note": "Pluto is Mickey Mouse's cartoon dog"
+     },
+     {
+      "clueFragment": "cart",
+      "gives": "CART",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLUTO",
+      "CRAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CART",
+       "gives": "CRAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy monarch's pet dog has tipped over a cart.",
+     "walkthrough": "'s stands for 'is', linking definition to wordplay.",
+     "definitionFit": "A plutocrat is someone who holds power because of wealth, a rich ruler."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +462,67 @@
     "text": "… veg container among fruit tipped over",
     "enumeration": "7"
    },
-   "solution": "SPINACH"
+   "solution": "SPINACH",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "SPINACH",
+    "definitions": [
+     {
+      "text": "veg",
+      "at": 2
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "among places one piece in the middle of another"
+     },
+     {
+      "text": "tipped over",
+      "for": "reversal",
+      "note": "in a down clue, tipping something over turns it upside down so it reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "HIPS",
+      "note": "rose hips are a fruit"
+     },
+     {
+      "clueFragment": "container",
+      "gives": "CAN",
+      "note": "a can is a container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPI",
+      "NAC",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "HCANIPS",
+       "to": "SPINACH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue: vegetables in a crate among fruit spilled over.",
+     "walkthrough": "The ellipses link it to the clue before, where a cart was upset.",
+     "definitionFit": "Spinach is a leafy green vegetable; veg is the informal short form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +546,67 @@
      }
     ]
    },
-   "solution": "INGREATDEMAND"
+   "solution": "INGREATDEMAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "IN GREAT DEMAND",
+    "definitions": [
+     {
+      "text": "Popular",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking on",
+      "for": "charade",
+      "note": "taking on means adding something extra, so a further piece joins the rest"
+     },
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy as an adjective means elaborate or ornamental, so the letters are worked into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manager",
+      "gives": "MANAGER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "didn't",
+      "gives": "DIDNT",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANAGERDIDNTE",
+       "gives": "INGREATDEMAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football manager who turned down a Spanish job yet is sought after.",
+     "walkthrough": "'Fancy' reads as a verb, 'didn't like', but it is the adjective signalling rearrangement of all thirteen letters.",
+     "definitionFit": "Something in great demand is widely wanted, which is to say popular."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +620,51 @@
     "text": "Estate car not right for cook",
     "enumeration": "4"
    },
-   "solution": "BAKE"
+   "solution": "BAKE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BAKE",
+    "definitions": [
+     {
+      "text": "cook",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not right",
+      "for": "deletion",
+      "note": "not right means the letter standing for right is taken away"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Estate car",
+      "gives": "BRAKE",
+      "note": "a brake, or shooting brake, is an old name for an estate car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "Swapping a family estate car for a chef, which makes little sense.",
+     "walkthrough": "A shooting brake is a British term for a station wagon; R for right comes out.",
+     "definitionFit": "To bake is to cook food by dry heat in an oven."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +684,39 @@
      }
     ]
    },
-   "solution": "DANCEMUSIC"
+   "solution": "DANCEMUSIC",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DANCE MUSIC",
+    "definitions": [
+     {
+      "text": "Measure scores?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Measure scores?",
+      "note": "surface reading: tally up points in a game"
+     },
+     {
+      "clueFragment": "Measure",
+      "note": "setter's reading: a measure is an old word for a stately dance, and scores are written music"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both words are read as nouns: dance-sense measures and musical scores. The question mark flags the twist.",
+     "definitionFit": "Music written for dancing combines the dance sense of measure with scores as sheet music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Measure"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +730,69 @@
     "text": "Both sides in receipt of memo collected from wartime leader",
     "enumeration": "6"
    },
-   "solution": "ROMMEL"
+   "solution": "ROMMEL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROMMEL",
+    "definitions": [
+     {
+      "text": "wartime leader",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collected",
+      "for": "anagram",
+      "note": "collected means gathered up together, so the letters are reassembled"
+     },
+     {
+      "text": "in receipt of",
+      "for": "container",
+      "note": "being in receipt of something means holding it, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Both sides",
+      "gives": "RL",
+      "note": "right and left, the two sides"
+     },
+     {
+      "clueFragment": "memo",
+      "gives": "MEMO",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OMME",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEMO",
+       "gives": "OMME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Both armies receiving an intercepted memo from a wartime commander.",
+     "definitionFit": "Erwin Rommel, the Desert Fox, commanded German forces in North Africa during the Second World War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +806,74 @@
     "text": "Local serviceman performing in production of \"Lear\"",
     "enumeration": "8"
    },
-   "solution": "REGIONAL"
+   "solution": "REGIONAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "REGIONAL",
+    "definitions": [
+     {
+      "text": "Local",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "production of",
+      "for": "anagram",
+      "note": "a production is a staged version, so the title's letters are refashioned"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the soldier and his activity inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serviceman",
+      "gives": "GI",
+      "note": "GI is an American soldier"
+     },
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "an actor performing is on stage"
+     },
+     {
+      "clueFragment": "\"Lear\"",
+      "gives": "LEAR",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "GI",
+      "ON",
+      "AL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEAR",
+       "gives": "REAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A local soldier acting in an amateur staging of King Lear.",
+     "walkthrough": "The rearranged title is split in two, with the soldier and his activity placed between its halves.",
+     "definitionFit": "Regional means belonging to a particular area, so local in scope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "production"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +897,43 @@
      }
     ]
    },
-   "solution": "OFFTHEMAP"
+   "solution": "OFFTHEMAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OFF THE MAP",
+    "definitions": [
+     {
+      "text": "Negligible",
+      "at": 0
+     },
+     {
+      "text": "like town with no charter?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Negligible",
+      "note": "first meaning: of no account, out of consideration"
+     },
+     {
+      "clueFragment": "like town with no charter?",
+      "note": "second meaning, playful: a place without official status would not be marked on any chart"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half plays on a charter, the document making a town official, and a chart showing where it is.",
+     "definitionFit": "Something off the map is so remote or minor that it is effectively of no importance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "charter"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +947,50 @@
     "text": "Rent is reduced, producing signs of joy, maybe",
     "enumeration": "9"
    },
-   "solution": "TEARDROPS"
+   "solution": "TEARDROPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEARDROPS",
+    "definitions": [
+     {
+      "text": "signs of joy, maybe",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rent",
+      "gives": "TEAR",
+      "note": "a rent is a rip"
+     },
+     {
+      "clueFragment": "is reduced",
+      "gives": "DROPS",
+      "note": "something reduced falls or drops"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAR",
+      "DROPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord cuts the rent and tenants are delighted.",
+     "walkthrough": "'Rent' reads as payment for housing but is a rip in cloth; 'maybe' marks the definition as an example.",
+     "definitionFit": "People weep from happiness as well as sorrow, so drops shed from the eyes can be signs of joy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rent"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1004,42 @@
     "text": "Principal part of foot",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARCH",
+    "definitions": [
+     {
+      "text": "Principal",
+      "at": 0
+     },
+     {
+      "text": "part of foot",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Principal",
+      "note": "first meaning: chief"
+     },
+     {
+      "clueFragment": "part of foot",
+      "note": "second meaning: the curved section of the sole"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as the main section of a foot; the two halves are separate meanings.",
+     "definitionFit": "As an adjective the word means chief or foremost; as a noun it is the raised curve under the foot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Principal"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1053,44 @@
     "text": "Top dog talked about",
     "enumeration": "4"
    },
-   "solution": "PEAK"
+   "solution": "PEAK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PEAK",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "talked about",
+      "for": "homophone",
+      "note": "talked about means spoken out loud, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "PEAK",
+      "soundsLike": "PEKE",
+      "note": "a peke is a Pekingese dog"
+     }
+    ],
+    "explanation": {
+     "surface": "A champion dog who is the subject of gossip.",
+     "walkthrough": "'Top dog' wants to be read as a phrase; Top is the definition.",
+     "definitionFit": "A peak is the summit or highest point, the top."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1104,58 @@
     "text": "Cardinal with prudish woman (unmarried)",
     "enumeration": "7"
    },
-   "solution": "PRIMARY"
+   "solution": "PRIMARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PRIMARY",
+    "definitions": [
+     {
+      "text": "Cardinal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "(unmarried)",
+      "for": "deletion",
+      "note": "unmarried means removing the letter that abbreviates married on forms"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prudish",
+      "gives": "PRIM",
+      "note": "prim means prudish"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "MARY",
+      "note": "a common woman's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRI",
+      "MARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman keeping company with a prim spinster.",
+     "walkthrough": "One of the two Ms in the middle is dropped, M being the abbreviation for married.",
+     "definitionFit": "Cardinal means chief or of first importance, as in cardinal virtues, which is what primary means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cardinal"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1169,67 @@
     "text": "Coin I've given to head of English for teaching",
     "enumeration": "9"
    },
-   "solution": "EDUCATIVE"
+   "solution": "EDUCATIVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EDUCATIVE",
+    "definitions": [
+     {
+      "text": "for teaching",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "head of picks out just the opening letter of the next word"
+     },
+     {
+      "text": "given to",
+      "for": "charade",
+      "note": "given to means attached after, so the pieces follow on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "Coin",
+      "gives": "DUCAT",
+      "note": "a ducat is an old European gold coin"
+     },
+     {
+      "clueFragment": "I've",
+      "gives": "IVE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DUCAT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Handing a coin to the head of the English department for school use.",
+     "walkthrough": "The coin and I've follow the E, though the clue mentions them first.",
+     "definitionFit": "Educative describes something that serves to instruct, intended for teaching."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1243,86 @@
     "text": "Pious companions hold up game before close of play",
     "enumeration": "7"
    },
-   "solution": "CHURCHY"
+   "solution": "CHURCHY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHURCHY",
+    "definitions": [
+     {
+      "text": "Pious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is written bottom to top"
+     },
+     {
+      "text": "hold",
+      "for": "container",
+      "note": "to hold something is to have it inside"
+     },
+     {
+      "text": "close of",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before places the first part ahead of the last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "companions",
+      "gives": "CHCH",
+      "note": "CH stands for Companion of Honour, doubled for the plural"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "Y",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "UR",
+      "CH",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "RU",
+       "to": "UR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Devout friends delay a match until the end of play.",
+     "walkthrough": "'Hold up' reads as delay but splits into two signals. CH, Companion of Honour, is a British award.",
+     "definitionFit": "Churchy describes someone showily devoted to church practice, so pious in a slightly mocking sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1336,55 @@
     "text": "Classic catchphrase included in trailer",
     "enumeration": "7"
    },
-   "solution": "VINTAGE"
+   "solution": "VINTAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VINTAGE",
+    "definitions": [
+     {
+      "text": "Classic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "included in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trailer",
+      "gives": "VINE",
+      "note": "a vine is a trailing plant"
+     },
+     {
+      "clueFragment": "catchphrase",
+      "gives": "TAG",
+      "note": "a tag is a slogan or catchphrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIN",
+      "TAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous catchphrase featured in a film preview.",
+     "walkthrough": "'Trailer' looks like a movie preview; here it is a plant that trails.",
+     "definitionFit": "Vintage describes something of enduring quality from the past, a classic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trailer"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1398,54 @@
     "text": "Means of recording flower over time",
     "enumeration": "6"
    },
-   "solution": "CAMERA"
+   "solution": "CAMERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAMERA",
+    "definitions": [
+     {
+      "text": "Means of recording",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, over puts the first piece above the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "CAM",
+      "note": "a flower is something that flows, a river; the Cam runs through Cambridge"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAM",
+      "ERA"
+     ]
+    },
+    "explanation": {
+     "surface": "A way to log a bloom's growth across time, as in time-lapse photography.",
+     "walkthrough": "'Flower' means a bloom on the surface but a river in crossword terms.",
+     "definitionFit": "A camera captures images, so it is a device for recording."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1465,39 @@
      }
     ]
    },
-   "solution": "WINDFARM"
+   "solution": "WINDFARM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WIND FARM",
+    "definitions": [
+     {
+      "text": "A spot of current cultivation?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A spot of current cultivation?",
+      "note": "surface reading: a bit of present-day gardening"
+     },
+     {
+      "clueFragment": "current cultivation",
+      "note": "setter's reading: a place where electric current is harvested from moving air"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Current' means modern on the surface but electrical current here, and 'spot' is a site, not a small amount.",
+     "definitionFit": "Turbines grouped on a site generate electricity from moving air, likened to a farm raising crops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1511,47 @@
     "text": "Pressing evacuation hasn't started",
     "enumeration": "6"
    },
-   "solution": "URGING"
+   "solution": "URGING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "URGING",
+    "definitions": [
+     {
+      "text": "Pressing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hasn't started",
+      "for": "deletion",
+      "note": "not started means the opening letter is missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evacuation",
+      "gives": "PURGING",
+      "note": "purging is emptying out, evacuation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URGING"
+     ]
+    },
+    "explanation": {
+     "surface": "An urgent evacuation that has not yet got under way.",
+     "definitionFit": "Urging someone means pressing them to act; both are present participles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "evacuation"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1565,64 @@
     "text": "Visitor with no energy and zero enthusiasm",
     "enumeration": "5"
    },
-   "solution": "GUSTO"
+   "solution": "GUSTO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GUSTO",
+    "definitions": [
+     {
+      "text": "enthusiasm",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "with no means lacking, so the letter for energy is dropped"
+     },
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "plain joining word adding the next piece after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Visitor",
+      "gives": "GUEST",
+      "note": "a guest is a visitor"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "O looks like zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUST",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A lethargic visitor showing no enthusiasm at all.",
+     "definitionFit": "Gusto is hearty enjoyment or zest, so enthusiasm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "zero"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1636,51 @@
     "text": "Boney's police on an exercise",
     "enumeration": "10"
    },
-   "solution": "NAPOLEONIC"
+   "solution": "NAPOLEONIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NAPOLEONIC",
+    "definitions": [
+     {
+      "text": "Boney's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exercise",
+      "for": "anagram",
+      "note": "exercise means putting through drills, so the letters are moved around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police on an",
+      "gives": "POLICEONAN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POLICEONAN",
+       "gives": "NAPOLEONIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bonaparte's gendarmes out on a training drill.",
+     "walkthrough": "Boney was the British nickname for Napoleon Bonaparte.",
+     "definitionFit": "Napoleonic means relating to Napoleon, as the possessive Boney's does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "exercise"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1694,51 @@
     "text": "Spoils cards, South taking the lead",
     "enumeration": "4"
    },
-   "solution": "SWAG"
+   "solution": "SWAG",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "SWAG",
+    "definitions": [
+     {
+      "text": "Spoils",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "South taking the lead",
+      "for": "cycling",
+      "note": "the compass letter moves from the back to become the leader"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cards",
+      "gives": "WAGS",
+      "note": "cards and wags are both jokers, witty people"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WAGS",
+       "gives": "SWAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bridge hand where South leads and spoils the game.",
+     "walkthrough": "'Spoils' looks like a verb but is the noun for loot. A card is an old-fashioned word for a comic character.",
+     "definitionFit": "Swag is slang for stolen goods or loot, the spoils of a theft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cards"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1758,59 @@
      }
     ]
    },
-   "solution": "YESMAN"
+   "solution": "YESMAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "YES-MAN",
+    "definitions": [
+     {
+      "text": "Toady",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to drink",
+      "for": "container",
+      "note": "drinking something takes it inside, so one piece swallows another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "craving",
+      "gives": "YEN",
+      "note": "a yen is a longing"
+     },
+     {
+      "clueFragment": "small Scotch",
+      "gives": "SMA",
+      "note": "sma' is the Scots word for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YE",
+      "SMA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A sycophant who longs for a wee dram of whisky.",
+     "walkthrough": "'Small Scotch' suggests a dram; it means the Scottish word for small. 's stands for 'is'.",
+     "definitionFit": "A yes-man agrees with superiors to please them, the behaviour of a toady."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Scotch"
+    }
+   }
   },
   {
    "number": 27,
@@ -475,7 +1830,50 @@
      }
     ]
    },
-   "solution": "BYJOVE"
+   "solution": "BYJOVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BY JOVE",
+    "definitions": [
+     {
+      "text": "goodness",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Through",
+      "gives": "BY",
+      "note": "by means by way of, through"
+     },
+     {
+      "clueFragment": "god",
+      "gives": "JOVE",
+      "note": "Jove is Jupiter, the Roman king of the gods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BY",
+      "JOVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Divine goodness working through a deity.",
+     "walkthrough": "'s stands for 'is'; 'goodness' is the exclamation, as in 'my goodness!'.",
+     "definitionFit": "Both are mild, old-fashioned exclamations of surprise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "goodness"
+    }
+   }
   }
  ]
 }
