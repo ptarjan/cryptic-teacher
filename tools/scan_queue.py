@@ -399,9 +399,12 @@ def flagged_requests():
 #: the readings print between its neighbours ("throws d sprightly"). The
 #: 06:50 one is join_split()'s halves a letter off the one word most
 #: readings print whole ("Rea dins", "builds ngs"), held blank as no other
-#: reading has it, readings differ, or not a word. The last is agree()
+#: reading has it, readings differ, or not a word. The 07:05 one is agree()
 #: passing figure-shaped specks ("is" for "(5)", "down i") at a clue's edge
 #: when no number or count is known (number_shaped), held as an end lost.
+#: The last is agree() taking the clue's own edge word split or run apart
+#: in other readings ("broom slick", "prer criptious ?") as that word, not
+#: an end lost (edge_split).
 VOTE_MENDED = (
     ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
                                    "start is lost: other readings have")),
@@ -422,6 +425,7 @@ VOTE_MENDED = (
     ("2026-10-11T06:35:00+00:00", ("a stray letter",)),
     ("2026-10-11T06:50:00+00:00", ("no other reading has", "readings differ", "not a word")),
     ("2026-10-11T07:05:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
+    ("2026-10-11T07:31:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
 )
 
 
