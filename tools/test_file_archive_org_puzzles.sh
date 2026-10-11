@@ -1439,9 +1439,9 @@ check("a frame beside a heavy edge column found within 2px of its middle", True,
 # off read; a light whose cell the leader surely reads otherwise does not
 # stand (13977's even lattice read CREATED's D as an R).
 grid3 = ["...", ".#.", "..."]
-lead = ({(1, "across"): "CAT"}, {"cellsSure": 7}, {(0, 0): "C", (0, 1): "A", (0, 2): "T", (2, 2): "D"}, {})
+lead = ({(1, "across"): "CAT"}, {"cellsSure": 7, "blocks": 1.0}, {(0, 0): "C", (0, 1): "A", (0, 2): "T", (2, 2): "D"}, {})
 other = ({(1, "across"): "COT", (1, "down"): "COB", (3, "across"): "BED", (2, "down"): "TOR"},
-         {"cellsSure": 5}, {}, {})
+         {"cellsSure": 5, "blocks": 1.0}, {}, {})
 real_framings, real_lattice = tso.framings, tso.read_lattice
 tso.framings = lambda gray, grid: [("o", 0, 0), ("l", 0, 0)]
 tso.read_lattice = lambda g, ys, xs, grid: {"o": other, "l": lead}[g]
@@ -1459,8 +1459,8 @@ check("the surest lattice's lights stand; another's where every cell agrees",
 # NONET read as NONER (15549) stays in doubt.
 def framed(lead_sure):
     tso.framings = lambda gray, grid: [("o", 0, 0), ("l", 0, 0)]
-    tso.read_lattice = lambda g, ys, xs, grid: {"o": ({(3, "across"): "BED"}, {"cellsSure": 5}, {}, {}),
-                                                "l": ({}, {"cellsSure": 7}, lead_sure, {})}[g]
+    tso.read_lattice = lambda g, ys, xs, grid: {"o": ({(3, "across"): "BED"}, {"cellsSure": 5, "blocks": 1.0}, {}, {}),
+                                                "l": ({}, {"cellsSure": 7, "blocks": 1.0}, lead_sure, {})}[g]
     try:
         return tso.read_framed(os.path.join(os.environ["TMP"], "grid3.png"), grid3)[0].get((3, "across"))
     finally:
@@ -1658,24 +1658,43 @@ im.save(ed / "leaf_0003.jpg")
 f.CROPS = Path(os.environ["TMP"]) / "crops"
 import trove_solution_ocr
 seen = []
-def fake(path, grid, tight=False):
-    seen.append((Image.open(path).size, tight))
+def fake(path, grid, tight=False, bounded=False):
+    seen.append((Image.open(path).size, tight, bounded))
     return {(1, "across"): "ABC"}, {"blocks": stats_blocks}
 trove_solution_ocr.read_answers = fake
 sol = {"dir": ed, "leaf": 3, "number": 7, "box": (100, 100, 400, 140)}
 stats_blocks = 1.0
 got, _ = f.read_solution(f.page(ed, 3), sol, ["..."])
 check("solution answers keyed as fill() reads them, the grid cropped tight at 3x and read on its own rules",
-      ({"1-across": "ABC"}, ((352 * 3, 352 * 3), True)), (got, seen[0]))
+      ({"1-across": "ABC"}, ((352 * 3, 352 * 3), True, True)), (got, seen[0]))
 # A crop another cut left at the path is never read: each read cuts afresh.
 stale = f.CROPS / "solutions" / f"{ed.name}_7.png"
 Image.new("L", (90, 90), 255).save(stale)
 seen.clear()
 f.read_solution(f.page(ed, 3), sol, ["..."])
 check("a solution crop saved by other code is not reused: the grid is cut again", (352 * 3, 352 * 3), seen[0][0])
-stats_blocks = 0.9
+stats_blocks = 0.8
 got, info = f.read_solution(f.page(ed, 3), sol, ["..."])
 check("a solution grid whose blocks are not the puzzle's gives no answers", ({}, True), (got, "refused" in info))
+stats_blocks = 0.9
+got, info = f.read_solution(f.page(ed, 3), sol, ["..."])
+check("...and a noisy print of the puzzle's grid gives its bounded lights", ({"1-across": "ABC"}, False),
+      (got, "refused" in info))
+
+# bounded_light(): a light off a grid whose blocks read unsure stands only
+# where the image ends it with blocks and no lattice read another word there
+# (times-19371 read off 19271's grid: TRACTA ran on into a letter).
+bl = trove_solution_ocr.bounded_light
+row = [(0, 1), (0, 2), (0, 3), (0, 4)]
+blocks = {(0, 0): True, (0, 5): True}
+check("a light its blocks bound, read as one word, stands", True,
+      bl(row, "across", blocks, "TREK", [{"TREK"}, {"TREK", "TQEK"}]))
+check("...not one the image runs on past (another puzzle's grid)", False,
+      bl(row, "across", {(0, 0): True, (0, 5): False}, "TREK", [{"TREK"}]))
+check("...nor one a lattice read whole as another word (PASTILLE beside BASTILLE)", False,
+      bl(row, "across", blocks, "TREK", [{"TREK"}, {"TREE"}]))
+check("...and the grid's edge bounds a light", True,
+      bl([(0, 0), (0, 1), (0, 2), (0, 3)], "across", {(0, 4): True}, "TREK", [{"TREK"}]))
 
 check("a complete puzzle goes to the corpus, with or without --out",
       [None, None], [f.destination("out", True), f.destination(None, True)])

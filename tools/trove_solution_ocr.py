@@ -736,17 +736,22 @@ def framings(gray, grid):
     return tried
 
 
-def read_framed(image, grid):
+def read_framed(image, grid, bounded=False):
     """read_answers for an image that is the grid, read on each of its
     framings(). The lattice reading the most cells surely fits best (blocks
     read alike on a lattice half a cell off; letters do not): its accepted
     lights stand, and another lattice's stand too where every cell agrees
     with the letters read so far, its sure letters first (a few pixels
     apart, two lattices cut a heavy print's letters differently, and each
-    reads lights the other misses)."""
+    reads lights the other misses). Its "blocks" is the best framing's
+    block_agreement. With `bounded`, a grid whose blocks read below
+    SURE_BLOCKS keeps only its bounded() lights."""
     gray = np.asarray(Image.open(image).convert("L"))
-    reads = sorted((read_lattice(g, ys, xs, grid) for g, ys, xs in framings(gray, grid)),
-                   key=lambda r: -r[1]["cellsSure"])
+    framed = framings(gray, grid)
+    reads = [read_lattice(g, ys, xs, grid) for g, ys, xs in framed]
+    best = max(range(len(reads)), key=lambda i: reads[i][1]["blocks"])
+    blocks, lat = reads[best][1]["blocks"], framed[best]
+    reads.sort(key=lambda r: -r[1]["cellsSure"])
     lts = lights(grid)
     accepted, stats, every, _ = reads[0]
     accepted = dict(accepted)
@@ -777,7 +782,31 @@ def read_framed(image, grid):
         accepted.update(mended)
         if len(accepted) == before and not mended:
             break
-    return accepted, {**stats, "accepted": len(accepted), "lattices": len(reads)}
+    if bounded and blocks < SURE_BLOCKS:
+        seen = blocks_read(lat[0], lat[1:], len(grid))
+        accepted = {key: w for key, w in accepted.items()
+                    if bounded_light(lts[key], key[1], seen, w, [p.get(key, ()) for p in printeds])}
+    return accepted, {**stats, "blocks": blocks, "accepted": len(accepted), "lattices": len(reads)}
+
+
+#: A grid whose blocks read on some framing at this share of cells is the
+#: puzzle's: every light read off it stands.
+SURE_BLOCKS = 0.97
+
+
+def bounded_light(cells, direction, seen, word, wholes):
+    """Whether a light read off a grid whose blocks read unsure stands: the
+    cells either side of it read as blocks (or are off the grid), so the
+    image has a light of its length there (another puzzle's grid ends its
+    lights elsewhere; a heavy letter reading as a block inside one does
+    not matter), and no lattice read the whole light as another listed word
+    (a noisy print's B read as P: PASTILLE beside BASTILLE)."""
+    dr, dc = (0, 1) if direction == "across" else (1, 0)
+    (r0, c0), (r1, c1) = cells[0], cells[-1]
+    ends = [(r0 - dr, c0 - dc), (r1 + dr, c1 + dc)]
+    if not all(seen.get(rc, True) for rc in ends):
+        return False
+    return not any(w != word and listed(w) for read in wholes for w in read)
 
 
 def agreed_reads(lts, reads):
@@ -1086,16 +1115,17 @@ def swapped_reads(lts, every, full, accepted, letters):
     return out
 
 
-def read_answers(image, grid, tight=False):
+def read_answers(image, grid, tight=False, bounded=False):
     """({(number, direction): answer} accepted, stats) for a solution image
     and the puzzle's grid (rows of "#" and ".").
 
-    With `tight` (the image is the grid, frame to frame) it is read_framed.
+    With `tight` (the image is the grid, frame to frame) it is read_framed
+    (`bounded` passed on).
     Else cells are read by read_lights and sure_letters. A light is accepted when every one of its cells is read, some
     recogniser read the light itself as exactly that word, and the word is
     known()."""
     if tight:
-        return read_framed(image, grid)
+        return read_framed(image, grid, bounded)
     gray = np.asarray(Image.open(image).convert("L"))
     lat = lattice(gray, len(grid), tight)
     lts = lights(grid)

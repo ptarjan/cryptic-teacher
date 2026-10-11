@@ -3185,8 +3185,10 @@ def byline(img, hit, series=FT.series):
 
 
 #: The share of a solution grid's cells that must be block or light exactly
-#: where the puzzle's grid has them, for its letters to count.
-SOLUTION_BLOCKS = 0.97
+#: where the puzzle's grid has them, for its letters to count; below
+#: trove_solution_ocr.SURE_BLOCKS (a noisy print: heavy letters, stippled
+#: blocks) only its lights bounded_light() keeps.
+SOLUTION_BLOCKS = 0.85
 #: The gap, in pixels, closed across a solution grid's ink before its box is
 #: taken: a frame the scan broke leaves a part of the grid the largest ink
 #: (Gale's 1987-01-15, 248px of its 340).
@@ -3217,7 +3219,7 @@ def read_solution(img, sol, grid, above=False):
     # The recogniser reads the ~23px cells far surer at three times the size.
     sol.resize((sol.width * 3, sol.height * 3), Image.BICUBIC).save(path)
     # The crop is the grid, frame to frame: read on its own rules.
-    answers, stats = trove_solution_ocr.read_answers(path, grid, tight=True)
+    answers, stats = trove_solution_ocr.read_answers(path, grid, tight=True, bounded=True)
     if stats["blocks"] < SOLUTION_BLOCKS:
         return {}, {**stats, "refused": "its blocks are not the puzzle's"}
     return {f"{n}-{d}": w for (n, d), w in answers.items()}, stats
