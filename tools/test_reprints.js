@@ -174,7 +174,7 @@ const withReprint = (idx) => {
   back.registry["picker-paper"].value = REPRINT.series;
   back.registry["picker-paper"].listeners.change[0]();
   back.registry["picker-list"].children.find(isReprint).children[0].onclick({});
-  check(back.registry["puzzle-title"].innerHTML.startsWith(ORIG.name.replace(/&/g, "&amp;")),
+  check(back.registry["puzzle-title"].innerHTML.startsWith(ORIG.name.replace(/,?\s*\d{1,2} [A-Z][a-z]+ \d{4}/, "").replace(/&/g, "&amp;")),
     "tapping the reprint row opens the original: " + back.registry["puzzle-title"].innerHTML.slice(0, 80));
 }
 // A book's reprint row (a year, no date) lists under the book with its year,

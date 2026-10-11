@@ -635,9 +635,15 @@ assert(openPuz, "the opened puzzle's data is loaded: " + openId);
 // app.js's esc(): an expected string with an apostrophe in it must be compared escaped.
 const htmlEsc = (t) => String(t).replace(/[&<>"']/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const escName = htmlEsc(openPuz.name);
+// The heading shows a date once (app.js headingParts): a name that carries its own
+// full date loses it from the title text and the date follows in a muted span.
+const bareName = openPuz.name.replace(/,?\s*(?:(?:Mon|Tues?|Wed(?:nes)?|Thu(?:rs)?|Fri|Sat(?:ur)?|Sun)[a-z]*,?\s+)?\d{1,2} [A-Z][a-z]+ \d{4}/, "").replace(/\s+/g, " ").trim();
+const escName = htmlEsc(bareName);
+assert(bareName.length > 0, "the puzzle's name is more than its date: " + openPuz.name);
 assert(openTitle.includes(escName),
   `the title names the opened puzzle: want ${escName}, got ${openTitle}`);
+assert(bareName === openPuz.name || openTitle.includes('class="muted"'),
+  `a name stripped of its date leaves the date beside it: ${openTitle}`);
 // A ?p= URL hands its indexing credit to the static write-up, not to the
 // homepage: canonicalling to the site root credits the front page for every
 // link to a specific puzzle. With no ?p the
