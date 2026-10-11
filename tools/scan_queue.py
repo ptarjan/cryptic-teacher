@@ -381,10 +381,11 @@ def flagged_requests():
 #: stop or middle dot glued between two words ("visionary.lose.his", "for
 #: .concealed"), refused as a stray mark inside a word, and the Times
 #: filer's word every reading spells alike ("ignis"), refused as no word;
-#: the last parted()'s misread most readings print whole as a known word
+#: the tenth parted()'s misread most readings print whole as a known word
 #: ("reorgauized", once "re orgau ized") and agree()'s halves of a word
 #: joined once the next word is parted off ("orig inallyby"), refused as
-#: no word.
+#: no word; the last agree()'s first letter read as a bracket the clue
+#: never closes ("(ornwall"), dropped once the vote puts the letter back.
 VOTE_MENDED = (
     ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
                                    "start is lost: other readings have")),
@@ -397,6 +398,7 @@ VOTE_MENDED = (
     ("2026-10-11T01:50:00+00:00", ("a digit inside a word",)),
     ("2026-10-11T02:31:00+00:00", ("a stray mark inside a word", "not a word")),
     ("2026-10-11T02:50:00+00:00", ("not a word",)),
+    ("2026-10-11T03:31:00+00:00", ("a bracket never closed or opened",)),
 )
 
 
