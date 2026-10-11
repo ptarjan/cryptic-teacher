@@ -929,6 +929,16 @@ check("pieces as many readings have apart as whole stay apart (mirror)", "in dis
       oc.join_split("in dis, orderly", [["in", "disorderly"], ["in", "dis", "orderly"]]))
 check("two words one of three readings prints as one stay apart (mirror)", "in dis, orderly",
       oc.join_split("in dis, orderly", [["in", "disorderly"], ["in", "x"], ["in", "y"]]))
+# Times 1977-09-19 "Rea dins of friend": halves a letter off the word most
+# readings print whole join, and the vote then spells it.
+split = [mark("# Reading uf fricnd abour certun tw rethre #"), mark("# Reading of fricnd about certun to retire #"),
+         mark("# Reading of friend about certain to retire #")]
+check("halves a letter off the word most readings print join", "Reading of friend about certain to retire",
+      oc.agree(oc.join_split("Rea dins of friend about certain to retire", split), split)[0])
+check("(mirror) two known words a letter off it, or halves most readings print apart, stay apart",
+      ["the sea sun", "Rea dins of"],
+      [oc.join_split("the sea sun", [["the", "season"]] * 2),
+       oc.join_split("Rea dins of", [["Reading", "of"], ["Rea", "dins", "of"], ["Rea", "dins", "of"]])])
 
 # Times 1976-03-25 "Put extinguisher on rapture?": the one printing reading
 # splits the last word ("Tap : ture ?"), leaving its "?" past the clue's end.
