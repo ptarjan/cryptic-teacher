@@ -1189,6 +1189,21 @@ no = ["#", "No", "uniform", "for", "this", "law", "man", "#"]
 check("mirror: two words the clue ran together stay apart ('Nouniform' for 'No uniform')",
       "No uniform for this law man", oc.agree("Nouniform for this law man", [no, no])[0])
 
+# A capital S a reader runs onto a word (a speck, or the "?" after it)
+# votes for the word, breaking a tie with the plural.
+cs = ["#", "Bring", "about", "special", "celebration", "S", "#", "Pompous"]
+cp = ["#", "Bring", "about", "special", "celebration", "#", "#", "Pompous"]
+check("a capital S run onto a word votes for the word ('celebrationS', NewsUK 1993)",
+      "Bring about special celebration", oc.agree("Bring about special celebration", [cs, cs, cp])[0])
+check("and outvotes the one reading of the plural ('upwardS / upwards', NewsUK 1977)",
+      "Retire with tail upward",
+      oc.agree("Retire with tail upward", [["#", "Retire", "with", "tail", "upward", "S", "#", "He"],
+                                            ["#", "Retire", "with", "tail", "upwards", "#", "He"],
+                                            ["#", "Retire", "with", "tail", "upward", "#", "He"]])[0])
+cw = ["#", "Bring", "about", "special", "celebrations", "#"]
+check("mirror: a plural read with its small s stays a tie with the singular",
+      None, oc.agree("Bring about special celebration", [cw, cw, cp])[0])
+
 print(f"FAILS {fails}")
 EOF
 )
