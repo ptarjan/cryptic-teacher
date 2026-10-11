@@ -24,6 +24,9 @@
   "date": "2025-01-20",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,54 @@
     "text": "Sick, boring, conceited malevolent guy",
     "enumeration": "7"
    },
-   "solution": "VILLAIN"
+   "solution": "VILLAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VILLAIN",
+    "definitions": [
+     {
+      "text": "malevolent guy",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "something boring drills into another thing, so one word sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conceited",
+      "gives": "VAIN",
+      "note": "conceited means vain"
+     },
+     {
+      "clueFragment": "Sick",
+      "gives": "ILL",
+      "note": "sick means ill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ILL",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a nasty man who is ill, dull and full of himself.",
+     "definitionFit": "A villain is a wicked person, the bad man of a story with evil intentions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +107,50 @@
      }
     ]
    },
-   "solution": "VICEPRESIDENT"
+   "solution": "VICEPRESIDENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VICE PRESIDENT",
+    "definitions": [
+     {
+      "text": "Politician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is botched, so the letters come out in the wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "isn't perceived",
+      "gives": "ISNTPERCEIVED",
+      "note": "all thirteen letters, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISNTPERCEIVED",
+       "gives": "VICEPRESIDENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that some politician goes unnoticed or is misunderstood.",
+     "definitionFit": "A vice president is a senior elected official, so an example of a politician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "badly"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +164,58 @@
     "text": "Lady Caroline went topless, looking radiant",
     "enumeration": "7"
    },
-   "solution": "LAMBENT"
+   "solution": "LAMBENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LAMBENT",
+    "definitions": [
+     {
+      "text": "radiant",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "without a top means the first letter is lost from the word it describes"
+     }
+    ],
+    "linkWords": [
+     "looking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lady Caroline",
+      "gives": "LAMB",
+      "note": "Lady Caroline Lamb, the Regency novelist and lover of Byron"
+     },
+     {
+      "clueFragment": "went",
+      "gives": "ENT",
+      "note": "went with its first letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAMB",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Lady Caroline Lamb, famously scandalous, went bare-chested and glowed.",
+     "walkthrough": "Lady Caroline Lamb was a Regency aristocrat notorious for her affair with Lord Byron.",
+     "definitionFit": "Lambent describes light that flickers softly or glows, so it is a synonym of radiant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +229,59 @@
     "text": "Spy on chap last seen in Russia",
     "enumeration": "5"
    },
-   "solution": "AGENT"
+   "solution": "AGENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AGENT",
+    "definitions": [
+     {
+      "text": "Spy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last seen in",
+      "for": "letter_selection",
+      "note": "the final letter seen in the following word is the one kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russia",
+      "gives": "A",
+      "select": "last",
+      "note": "the final letter of Russia"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "GENT",
+      "note": "a chap is a gent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy keeps watch on a man last spotted in Russia.",
+     "walkthrough": "The single letter goes before the chap; 'on' in a down clue loosely joins the two pieces.",
+     "definitionFit": "An agent is someone working secretly for an intelligence service, a synonym for spy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seen"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +301,40 @@
      }
     ]
    },
-   "solution": "NEDKELLY"
+   "solution": "NEDKELLY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NED KELLY",
+    "definitions": [
+     {
+      "text": "Notorious criminal",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leading member of Bush family?",
+      "note": "surface reading: a prominent figure in the American political dynasty of the two President Bushes"
+     },
+     {
+      "clueFragment": "leading member of Bush family?",
+      "note": "setter's reading: the head of a gang that roamed the Australian bush, a notorious bushranger"
+     }
+    ],
+    "explanation": {
+     "surface": "A notorious criminal suggested as head of the Bush political dynasty.",
+     "walkthrough": "Ned Kelly led the Kelly Gang of bushrangers, outlaws of the Australian outback known as the bush.",
+     "definitionFit": "Ned Kelly was a 19th-century Australian outlaw, famous for his home-made armour, so a notorious lawbreaker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bush"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +348,66 @@
     "text": "Firms sadly not covering overhead expense",
     "enumeration": "6"
    },
-   "solution": "ONCOST"
+   "solution": "ONCOST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ONCOST",
+    "definitions": [
+     {
+      "text": "overhead expense",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "things going sadly are going wrong, so the letters are put out of order"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "to cover something is to wrap around it, so one part encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "ONT",
+      "note": "not rearranged"
+     },
+     {
+      "clueFragment": "Firms",
+      "gives": "COS",
+      "note": "CO is company, so firms are COS"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "COS",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOT",
+       "gives": "ONT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Companies regrettably fail to cover their running costs.",
+     "definitionFit": "An oncost is an overhead, a running cost of a business beyond direct production costs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sadly"
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +421,50 @@
     "text": "Royal family's gold coach seen in north London",
     "enumeration": "6"
    },
-   "solution": "ORANGE"
+   "solution": "ORANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORANGE",
+    "definitions": [
+     {
+      "text": "Royal family",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "OR is the heraldic word for gold"
+     },
+     {
+      "clueFragment": "coach seen in north London",
+      "gives": "ANGE",
+      "note": "Ange Postecoglou, the football coach who managed Tottenham Hotspur in north London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "ANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarchy's golden state coach paraded through north London.",
+     "walkthrough": "The 's stands for 'has'. Tottenham Hotspur is a north London football club, and Ange Postecoglou was its manager.",
+     "definitionFit": "The House of Orange-Nassau is the reigning royal dynasty of the Netherlands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coach"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +478,61 @@
     "text": "Tory struggled to accept court reached guilty verdict",
     "enumeration": "9"
    },
-   "solution": "CONVICTED"
+   "solution": "CONVICTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CONVICTED",
+    "definitions": [
+     {
+      "text": "reached guilty verdict",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "accepting something means taking it in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory",
+      "gives": "CON",
+      "note": "Con is short for Conservative"
+     },
+     {
+      "clueFragment": "struggled",
+      "gives": "VIED",
+      "note": "struggled means competed, vied"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "VI",
+      "CT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative politician fought the court's guilty finding.",
+     "definitionFit": "A jury that convicted someone declared them guilty, so it delivered that finding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "struggled"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +546,58 @@
     "text": "Drag school the French quietly pressure",
     "enumeration": "7"
    },
-   "solution": "SCHLEPP"
+   "solution": "SCHLEPP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCHLEPP",
+    "definitions": [
+     {
+      "text": "Drag",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is an abbreviation for school"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p, piano, is the musical instruction to play quietly"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCH",
+      "LE",
+      "P",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to haul a school along, putting gentle pressure on the French.",
+     "definitionFit": "To schlepp, from Yiddish, is to haul or carry something heavy with effort, so to drag it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quietly"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +611,63 @@
     "text": "Digests clinic's last dopamine shot",
     "enumeration": "9"
    },
-   "solution": "COMPENDIA"
+   "solution": "COMPENDIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "COMPENDIA",
+    "definitions": [
+     {
+      "text": "Digests",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the final letter of the possessive word is the only one taken"
+     },
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "something shot is ruined or wrecked, so the letters are broken up and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clinic's",
+      "gives": "C",
+      "select": "last",
+      "note": "the final letter of clinic"
+     },
+     {
+      "clueFragment": "dopamine",
+      "gives": "DOPAMINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CDOPAMINE",
+       "gives": "COMPENDIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes in a clinic's final injection of a brain chemical.",
+     "walkthrough": "'Digests' looks like a verb about absorbing the shot, but it is a plural noun meaning summaries.",
+     "definitionFit": "Compendia, plural of compendium, are concise collections or summaries, which are also called digests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Digests"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +681,42 @@
     "text": "Visiting John, a humble prophet",
     "enumeration": "5"
    },
-   "solution": "NAHUM"
+   "solution": "NAHUM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NAHUM",
+    "definitions": [
+     {
+      "text": "prophet",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Visiting",
+      "for": "hidden_word",
+      "note": "a visitor stays inside a place for a time, so the letters sit within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "John, a humble",
+      "gives": "NAHUM",
+      "note": "found running across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A modest prophet calls on someone named John.",
+     "definitionFit": "Nahum is a minor prophet of the Hebrew Bible, with a short book named after him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Visiting"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +730,68 @@
     "text": "MAGA meme isn't working, Bannon finally admitted incompetence",
     "enumeration": "13"
    },
-   "solution": "MISMANAGEMENT"
+   "solution": "MISMANAGEMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MISMANAGEMENT",
+    "definitions": [
+     {
+      "text": "incompetence",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working here means worked over or processed, so these letters are kneaded into a new order"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the name beside it"
+     },
+     {
+      "text": "admitted",
+      "for": "anagram",
+      "note": "admitted means one extra letter is taken in to join the jumbled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "MAGA meme isn't",
+      "gives": "MAGAMEMEISNT",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "Bannon",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of Bannon"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAGAMEMEISNTN",
+       "gives": "MISMANAGEMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Steve Bannon concedes failure because a Trump slogan is not catching on.",
+     "walkthrough": "'Isn't working' reads as one phrase, but the letters of isn't belong to the fodder and 'working' alone signals the rearrangement.",
+     "definitionFit": "Mismanagement is incompetent handling of affairs, so it names the incompetence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +805,54 @@
     "text": "Nice not having hospital fold",
     "enumeration": "5"
    },
-   "solution": "PLEAT"
+   "solution": "PLEAT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PLEAT",
+    "definitions": [
+     {
+      "text": "fold",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not having",
+      "for": "deletion",
+      "note": "not having something means going without it, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nice",
+      "gives": "PLEASANT",
+      "note": "nice means pleasant"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "SAN",
+      "note": "a san is a sanatorium, a kind of hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLEA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The French city of Nice has no hospital to fall back on.",
+     "walkthrough": "Nice looks like the city on the Riviera, but it is the everyday adjective.",
+     "definitionFit": "A pleat is a doubled-over crease sewn into cloth, which is a kind of fold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +872,39 @@
      }
     ]
    },
-   "solution": "EGGTIMERS"
+   "solution": "EGGTIMERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EGG TIMERS",
+    "definitions": [
+     {
+      "text": "Kitchen helpers with hourglass figures?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kitchen helpers with hourglass figures?",
+      "note": "surface reading: shapely assistants working in a kitchen, with curvy waists"
+     },
+     {
+      "clueFragment": "Kitchen helpers with hourglass figures?",
+      "note": "setter's reading: kitchen gadgets literally shaped like hourglasses, running sand to time cooking"
+     }
+    ],
+    "explanation": {
+     "surface": "Curvaceous assistants helping out in the kitchen.",
+     "definitionFit": "Small sand glasses that time boiled eggs are hourglass-shaped utensils used by cooks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "figures"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +918,45 @@
     "text": "Hospital department on which I depend wholly",
     "enumeration": "8"
    },
-   "solution": "ENTIRELY"
+   "solution": "ENTIRELY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENTIRELY",
+    "definitions": [
+     {
+      "text": "wholly",
+      "at": 38
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hospital department",
+      "gives": "ENT",
+      "note": "ENT is ear, nose and throat"
+     },
+     {
+      "clueFragment": "on which I depend",
+      "gives": "IRELY",
+      "note": "I rely, said of what one depends on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "IRELY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saying they are wholly reliant on a hospital department.",
+     "definitionFit": "Entirely and wholly are synonyms, both meaning completely or fully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +970,50 @@
     "text": "Cut antler off? Not keen!",
     "enumeration": "9"
    },
-   "solution": "RELUCTANT"
+   "solution": "RELUCTANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RELUCTANT",
+    "definitions": [
+     {
+      "text": "Not keen",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something off has gone bad or wrong, so the letters are put in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut antler",
+      "gives": "CUTANTLER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CUTANTLER",
+       "gives": "RELUCTANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asked to saw off a deer's antler, someone declines.",
+     "definitionFit": "Reluctant means unwilling or hesitant, so not eager to do something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1027,69 @@
     "text": "First-class President of the United States to retire down south, in an ideal world",
     "enumeration": "6"
    },
-   "solution": "UTOPIA"
+   "solution": "UTOPIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "deletion"
+    ],
+    "answer": "UTOPIA",
+    "definitions": [
+     {
+      "text": "an ideal world",
+      "at": 68
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to retire",
+      "for": "reversal",
+      "note": "retiring means drawing back, so the combined letters run backwards"
+     },
+     {
+      "text": "down south",
+      "for": "deletion",
+      "note": "south is knocked down, so the letter standing for south is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First-class",
+      "gives": "AI",
+      "note": "A1 is first-class, with the digit 1 read as the letter I"
+     },
+     {
+      "clueFragment": "President of the United States",
+      "gives": "POTUS",
+      "note": "the common acronym for the US president"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTOPIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIPOTUS",
+       "to": "SUTOPIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An excellent American president retiring to the South, as in a perfect world.",
+     "walkthrough": "Reverse the whole string, then remove the S (south) at its front.",
+     "definitionFit": "Utopia, from Thomas More's book, is an imagined perfect society, so an ideal world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retire"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1103,61 @@
     "text": "Worn out TV presenter broadcasting tripe",
     "enumeration": "8"
    },
-   "solution": "DECREPIT"
+   "solution": "DECREPIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DECREPIT",
+    "definitions": [
+     {
+      "text": "Worn out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcasting",
+      "for": "anagram",
+      "note": "broadcasting scatters things widely, so the letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "TV presenter",
+      "gives": "DEC",
+      "note": "Dec is Declan Donnelly, of the British TV presenting duo Ant and Dec"
+     },
+     {
+      "clueFragment": "tripe",
+      "gives": "TRIPE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "REPIT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIPE",
+       "gives": "REPIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tired television host spouting nonsense on air.",
+     "walkthrough": "Ant and Dec are a long-running British presenting double act.",
+     "definitionFit": "Decrepit means weakened by age or use, so dilapidated and worn out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcasting"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1171,55 @@
     "text": "Here in Paris occasionally called 'stalactite'",
     "enumeration": "6"
    },
-   "solution": "ICICLE"
+   "solution": "ICICLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ICICLE",
+    "definitions": [
+     {
+      "text": "stalactite",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means every so often, so only some evenly spaced letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Here in Paris",
+      "gives": "ICI",
+      "note": "ici is French for here"
+     },
+     {
+      "clueFragment": "called",
+      "gives": "CLE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of called"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICI",
+      "CLE"
+     ]
+    },
+    "explanation": {
+     "surface": "In Paris, a speaker sometimes refers to something as a stalactite.",
+     "definitionFit": "An icicle is a hanging spike of ice, formed like a stalactite in a cave from dripping water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Paris"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1233,58 @@
     "text": "Social medium not censoring content for the moment",
     "enumeration": "7"
    },
-   "solution": "INSTANT"
+   "solution": "INSTANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INSTANT",
+    "definitions": [
+     {
+      "text": "moment",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "censoring content",
+      "for": "letter_selection",
+      "note": "censoring the content cuts out the middle, so only the outside letters remain"
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Social medium",
+      "gives": "INSTA",
+      "note": "Insta is the casual name for Instagram"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NT",
+      "select": "outer",
+      "note": "the outside letters of not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSTA",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A social media platform that, for now, is not censoring its posts.",
+     "definitionFit": "An instant is a very brief point in time, the same as a moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1298,68 @@
     "text": "Very last letter from Greece describing tense blood-feud",
     "enumeration": "8"
    },
-   "solution": "VENDETTA"
+   "solution": "VENDETTA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "VENDETTA",
+    "definitions": [
+     {
+      "text": "blood-feud",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "in crossword use, to describe is to draw round, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "last",
+      "gives": "END",
+      "note": "the last part is the end"
+     },
+     {
+      "clueFragment": "letter from Greece",
+      "gives": "ETA",
+      "note": "eta is a Greek letter"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "END",
+      "E",
+      "T",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "A final letter from Greece tells of a tense, long-running feud.",
+     "walkthrough": "'Describing' is used in its geometric sense of drawing a line around something.",
+     "definitionFit": "A vendetta is a prolonged feud between families, often involving revenge killings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1373,47 @@
     "text": "Beat man having spectacular failure",
     "enumeration": "7"
    },
-   "solution": "TANKING"
+   "solution": "TANKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANKING",
+    "definitions": [
+     {
+      "text": "having spectacular failure",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beat",
+      "gives": "TAN",
+      "note": "to tan someone's hide is to beat them"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "KING",
+      "note": "a king is a man, a piece in chess"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "Defeat a man who is failing badly.",
+     "walkthrough": "'Man' is used for a chess or draughts piece.",
+     "definitionFit": "Tanking is slang for failing heavily, as a show or share price that collapses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beat"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1427,58 @@
     "text": "Sirrah! Get thee north to the source of the Tweed!",
     "enumeration": "6"
    },
-   "solution": "HARRIS"
+   "solution": "HARRIS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "HARRIS",
+    "definitions": [
+     {
+      "text": "the source of the Tweed",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Get thee north",
+      "for": "reversal",
+      "note": "going north in a down clue means travelling upwards, so the word is read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sirrah",
+      "gives": "SIRRAH",
+      "note": "an old contemptuous form of address to a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARRIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIRRAH",
+       "to": "HARRIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned command to a servant to go north to where the Tweed rises.",
+     "walkthrough": "The Tweed meant is the cloth, not the river: Harris Tweed is woven in the Outer Hebrides.",
+     "definitionFit": "Harris, in the Outer Hebrides, is where the famous handwoven Harris Tweed cloth originates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tweed"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1498,52 @@
      }
     ]
    },
-   "solution": "EASYCHAIR"
+   "solution": "EASYCHAIR",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "EASY CHAIR",
+    "definitions": [
+     {
+      "text": "Piece of furniture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to Spooner",
+      "for": "spoonerism",
+      "note": "the Reverend Spooner was famed for swapping the opening sounds of words"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hackneyed appearance",
+      "gives": "EASYCHAIR",
+      "soundsLike": "CHEESY AIR",
+      "note": "hackneyed is cheesy and an appearance is an air; swap their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASYCHAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired-looking old piece of furniture.",
+     "walkthrough": "Swapping the opening sounds of cheesy air gives the answer.",
+     "definitionFit": "An easy chair is a large comfortable upholstered armchair, an item of furniture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "appearance"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1557,47 @@
     "text": "Build a barrier around marshland church",
     "enumeration": "5"
    },
-   "solution": "FENCE"
+   "solution": "FENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FENCE",
+    "definitions": [
+     {
+      "text": "Build a barrier around",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marshland",
+      "gives": "FEN",
+      "note": "a fen is low marshy ground"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to put a wall around a church in the marshes.",
+     "walkthrough": "'Around' belongs to the definition, not the wordplay: nothing goes inside anything.",
+     "definitionFit": "To fence a place is to enclose it with a barrier such as railings or posts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1611,46 @@
     "text": "Criminal following tech gazillionaire",
     "enumeration": "5"
    },
-   "solution": "FELON"
+   "solution": "FELON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FELON",
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f is the abbreviation for following"
+     },
+     {
+      "clueFragment": "tech gazillionaire",
+      "gives": "ELON",
+      "note": "Elon Musk, the hugely rich tech entrepreneur"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ELON"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawbreaker stalking a famous tech billionaire.",
+     "definitionFit": "A felon is someone convicted of a serious crime, so a criminal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1664,53 @@
     "text": "Soup from Romanian city that's fit for a princess?",
     "enumeration": "5"
    },
-   "solution": "TIARA"
+   "solution": "TIARA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TIARA",
+    "definitions": [
+     {
+      "text": "that's fit for a princess",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "deletion",
+      "note": "taking something from a word removes those letters from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soup",
+      "gives": "MISO",
+      "note": "miso soup, the Japanese broth"
+     },
+     {
+      "clueFragment": "Romanian city",
+      "gives": "TIMISOARA",
+      "note": "Timisoara is a city in western Romania"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "ARA"
+     ]
+    },
+    "explanation": {
+     "surface": "A soup from a Romanian city that would suit royalty.",
+     "definitionFit": "A tiara is a jewelled half-crown worn by princesses, so a headpiece fit for one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Soup"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1724,51 @@
     "text": "Horrible, evil, super disgusting",
     "enumeration": "9"
    },
-   "solution": "REPULSIVE"
+   "solution": "REPULSIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPULSIVE",
+    "definitions": [
+     {
+      "text": "disgusting",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Horrible",
+      "for": "anagram",
+      "note": "something horrible is a mess, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evil, super",
+      "gives": "EVILSUPER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVILSUPER",
+       "gives": "REPULSIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A string of words for something truly vile.",
+     "walkthrough": "'Horrible' looks like the definition, but it signals the rearrangement; the definition is at the other end.",
+     "definitionFit": "Repulsive means arousing revulsion, so it is a close synonym of disgusting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Horrible"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1782,62 @@
     "text": "Affirms second art gallery close to Thames",
     "enumeration": "6"
    },
-   "solution": "STATES"
+   "solution": "STATES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STATES",
+    "definitions": [
+     {
+      "text": "Affirms",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s is the abbreviation for second"
+     },
+     {
+      "clueFragment": "art gallery",
+      "gives": "TATE",
+      "note": "the Tate, the London art gallery"
+     },
+     {
+      "clueFragment": "Thames",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of Thames"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TATE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares a second art gallery sits near the Thames.",
+     "walkthrough": "Tate Modern and Tate Britain both stand beside the Thames in London.",
+     "definitionFit": "To state something is to declare or assert it firmly, so states means affirms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1851,54 @@
     "text": "Later this evening, little 'un nearly tucked in",
     "enumeration": "7"
    },
-   "solution": "TONIGHT"
+   "solution": "TONIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TONIGHT",
+    "definitions": [
+     {
+      "text": "Later this evening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucked in",
+      "for": "container",
+      "note": "something tucked in is placed snugly inside something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little 'un",
+      "gives": "TOT",
+      "note": "a tot is a small child"
+     },
+     {
+      "clueFragment": "nearly",
+      "gives": "NIGH",
+      "note": "nigh means nearly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "NIGH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A small child is almost asleep, tucked into bed later this evening.",
+     "definitionFit": "Tonight refers to the coming evening or night of the present day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tucked"
+    }
+   }
   }
  ]
 }
