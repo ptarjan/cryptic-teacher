@@ -870,22 +870,13 @@ gi = g.gi
 gi.held, gi.usual_pages, gi.archive_coverage.ledger = (lambda: {}), (lambda: {}), (lambda: {})
 un = Path(sys.argv[1]) / "un.json"
 un.write_text(json.dumps([{"file": "x.pdf", "why": "nothing"}]))
-times = gi.checklist([(D(1988, 1, 13), "no-scan")], Path(sys.argv[1]) / "nocache", un, docs={})
+times = gi.checklist([(D(1988, 1, 13), "no-scan")], Path(sys.argv[1]) / "nocache", un, docs={},
+                     fetched=Path(sys.argv[1]) / "nofetched", limits=Path(sys.argv[1]) / "nolimits")
 listener = g.checklist(rows, Path(sys.argv[1]) / "nostore", Path(sys.argv[1]) / "none",
                        arrivals=[{"file": "x.pdf", "number": None, "reports": []}], docs={})
-def skeleton(page):
-    """The page's tags with every text, attribute value, table, list and
-    script body gone: what is left is the shell either paper shares."""
-    s = re.sub(r"<script>.*?</script>", "<script/>", page, flags=re.S)
-    s = re.sub(r"<(table|ol|ul)\b.*?</\1>", r"<\1/>", s, flags=re.S)
-    s = re.sub(r'="[^"]*"', "", re.sub(r">[^<]*<", "><", s))
-    return re.sub(r"^[^<]*|[^>]*$", "", s)
-check("the Times and Listener pages share one skeleton", skeleton(times), skeleton(listener))
-check("and one script, but for the paper's store and status file", True,
-      re.sub(r'const S=.*?,SRC=[^,]*,|PAGE=\d+', "", re.search(r"<script>.*?</script>", times, re.S).group(0))
-      == re.sub(r'const S=.*?,SRC=[^,]*,|PAGE=\d+', "", re.search(r"<script>.*?</script>", listener, re.S).group(0)))
-check("each paper's status file is its own", True,
-      'SRC="Checklist.status.js"' in times and 'SRC="Listener%20checklist.status.js"' in listener)
+check("the Times page is progress only (tools/gale_fetch.py downloads it); the Listener's is still clicked",
+      (False, True, True), ("<script>" in times, "<script>" in listener,
+                            'SRC="Listener%20checklist.status.js"' in listener))
 # The Guardian's Azed scans (tools/andlit_azed.py): ACROSS and DOWN level,
 # bare clue numbers, a gutter of ~50px a reader's words may bridge.
 def azed(down_y=100, down="DOWN", gutter=50, extra=()):

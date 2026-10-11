@@ -97,19 +97,8 @@ check("the failed day is asked again later", False, "TTDA/1988-01-09" in gd.load
 check("a cached link", True, (gd.link("TTDA", days[0], gd.load(cache)) or "").startswith("https://go.gale.com/ps/callisto"))
 check("no link for a miss", None, gd.link("TTDA", days[3], gd.load(cache)))
 
-# The checklists: Download where a link is cached, Open in Gale always.
-docs = {"TTDA/1988-01-12": gd.entry("TTDA", times, 17563)}
-row = next(r for r in gi.checklist([(day, "no-scan"), (D(1988, 1, 13), "no-scan")], tmp / "cache", tmp / "un.json",
-                                   docs=docs).split("\n") if 'data-k="1988-01-12"' in r)
-check("Times row has Download, saying what it fetches", True, ">Download Times 1988-01-12 (No " in row and "callisto/BulkPDF" in row)
-check("its Download is the row's click, and marks it", True,
-      'class="dl"' in row and "onclick=\"mark('1988-01-12')\">Download" in row)
-check("and still Open in Gale", True, "Open in Gale" in row)
-other = next(r for r in gi.checklist([(day, "no-scan"), (D(1988, 1, 13), "no-scan")], tmp / "cache", tmp / "un.json",
-                                     docs=docs).split("\n") if 'data-k="1988-01-13"' in r)
-check("an unlinked Times row: Open in Gale only", (False, True), ("Download</a>" in other, "Open in Gale" in other))
-check("Open in Gale marks only a row with no Download", (False, True),
-      ("onclick=\"mark('1988-01-12')\">Open in Gale" in row, "onclick=\"mark('1988-01-13')\">Open in Gale" in other))
+# The Listener checklist (the Times page is progress only): Download where a
+# link is cached.
 idx = [{"number": 1309, "title": "Crossword No. 1,309", "setter": None, "date": lday}]
 page = gl.checklist(idx, tmp / "store", tmp / "none", arrivals=[],
                     docs={"LSNR/1955-06-02": gd.entry("LSNR", listener, 1309)})

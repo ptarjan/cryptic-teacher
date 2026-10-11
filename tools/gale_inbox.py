@@ -7,22 +7,20 @@ Times No 1, then the 1974-99 editions archive.org has no scan of (the list
 before it was widened, which Paul was part way through), then 2014-19, then
 2000-13, then the rest of 1930-99, each newest first.
 
-Since 2026-10-11 tools/gale_fetch.py downloads the rows itself, at a hand's
-pace, into the same inbox (Paul: "Mac script, at hand pace").
-
-Only tools/gale_docs.py asks Gale for links: each sync looks up the next
-editions' document ids, so their rows link straight to Gale's Download. This
-writes a checklist of the editions to fetch, and lays
-each page Paul saves into his inbox out as one more Times edition for
-tools/file_archive_org_puzzles.py, which reads it like any scan: our
+tools/gale_fetch.py downloads the Times rows itself (Paul 2026-10-11) and
+lays each out as its date's edition (lay_out_fetched): it knows the date,
+so its files are never swept, matched or set aside here. This module keeps
+the wanted list, renders the Times progress page (checklist), and lays out
+each page saved BY HAND into the inbox (stage) as one more Times edition
+for tools/file_archive_org_puzzles.py, which reads it like any scan: our
 readers' and the VLM's readings voted on, the Canberra reprint's beside them.
 
-    python3 tools/gale_inbox.py sync [--render]   # sweep Gale files in, mirror, stage, publish the checklist
+    python3 tools/gale_inbox.py sync [--render]   # sweep hand downloads in, mirror, stage, publish the progress page
     python3 tools/gale_inbox.py stage --inbox DIR # stage a local folder of pages (no Mac)
     python3 tools/gale_inbox.py checklist [--out FILE]
     python3 tools/gale_inbox.py match FILE...     # which edition each file is, and how that was read
 
-Paul only presses Gale's Download. Every minute (the cryptic-gale-inbox
+For a hand download, every minute (the cryptic-gale-inbox
 plugin) sync sweeps each Gale file out of the Windows desktop's and the Mac's
 Downloads, and any page saved straight into GALE_ROOT, into its paper's inbox
 (INBOXES), recognised by Gale's document id in its name or Gale's citation in
@@ -69,6 +67,7 @@ import dir_cache
 import file_archive_org_puzzles as fa
 import gale_arrived
 import gale_docs
+import gale_fetch
 import pypdf
 
 TOOLS = Path(__file__).resolve().parent
@@ -480,6 +479,49 @@ def match_there(data, name, held):
 
 # ------------------------------------------------------------ staging
 
+#: A staged edition's "how" when tools/gale_fetch.py laid it out.
+FETCHED_HOW = "fetched"
+
+
+def lay_out_fetched(day, doc, data, entry, cache=CACHE):
+    """Lay out the page PDF `data` tools/gale_fetch.py downloaded for `day`
+    (Gale document `doc`, gale_docs cache `entry`) as that date's edition,
+    as stage does a matched file, its match taken from what the download
+    already knew. Returns the edition dir."""
+    import tempfile
+    d = cache / ITEM.format(day.year) / day.isoformat()
+    name = f"GALE_{doc}.pdf"
+    with tempfile.TemporaryDirectory() as t:
+        (Path(t) / name).write_bytes(data)
+        read = images(Path(t) / name)
+    tmp = d.with_name(d.name + ".new")
+    if tmp.exists():
+        shutil.rmtree(tmp)
+    tmp.mkdir(parents=True)
+    leaves, grid = [], False
+    for img, _ in read:
+        page, found = scaled(img)
+        grid |= found
+        leaf = len(leaves)
+        page.save(tmp / f"leaf_{leaf:04d}.jpg", quality=92)
+        leaves.append({"leaf": leaf, "width": page.width, "height": page.height, "file": name})
+    m = {"file": name, "date": day.isoformat(), "how": FETCHED_HOW, "docId": doc,
+         "cited": (entry.get("title") or "").strip().rstrip(". ") or None, "page": entry.get("page"), "grid": grid}
+    (tmp / "pages.json").write_text(json.dumps({
+        "item": ITEM.format(day.year), "edition": day.isoformat(), "date": day.isoformat(), "leaves": len(leaves),
+        "crossword_pages": leaves, "url": DOC_URL.format(doc)}, indent=1))
+    (tmp / f"sources-{hashlib.sha256(data).hexdigest()[:16]}.json").write_text(json.dumps([m], indent=1))
+    if d.exists():
+        shutil.rmtree(d)
+    tmp.rename(d)
+    return d
+
+
+def fetched_dir(d):
+    """Is edition dir `d` one tools/gale_fetch.py laid out (lay_out_fetched)?"""
+    found = staged_year(d.parent).get(d.name, ((), None))[1]
+    return bool(found) and all(m.get("how") == FETCHED_HOW for m in found)
+
 def source_key(files):
     """What the inbox holds for one date, by name, size and content."""
     h = hashlib.sha256()
@@ -588,6 +630,10 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
             continue
         d = cache / ITEM.format(day.year) / day.isoformat()
         staged.add(d)
+        if fetched_dir(d):
+            print(f"left {d.parent.name}/{d.name} as tools/gale_fetch.py laid it out; "
+                  f"{', '.join(m['file'] for m in ms)} is a second copy", file=out)
+            continue
         key = source_key([m["path"] for m in ms])
         if has_sources(d, f"sources-{key}.json"):
             relink(d / "pages.json", edition_url(ms))
@@ -629,7 +675,7 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
                 shutil.rmtree(d)  # a lay-out a killed tick left half done
             elif deferred:
                 continue  # a file not matched yet may hold this date
-            elif d.is_dir() and d not in staged:
+            elif d.is_dir() and d not in staged and not fetched_dir(d):
                 shutil.rmtree(d)
                 print(f"removed {item.name}/{d.name}: no longer in the inbox", file=out)
     return dict(by_date)
@@ -1051,13 +1097,9 @@ def staged_files(cache=CACHE):
     return {day: [m["file"] for m in ms] for day, ms in staged_matches(cache).items()}
 
 
-#: The checklist's "next up": POOL rows, all shown and none moved as they
-#: are clicked; Download links are looked up (gale_docs.resolve, PER_TICK a
-#: tick) for every wanted edition, in next-up order (LOOKAHEAD None: all,
-#: the next uncached first), so every row gets one in turn;
-#: next up shows the linked rows first (page).
+#: The Listener checklist's "next up": POOL rows, all shown and none moved
+#: as they are clicked; next up shows the linked rows first (page).
 POOL = 60
-LOOKAHEAD = None
 
 
 #: A row clicked this long ago whose file has not arrived turns amber: the
@@ -1269,7 +1311,7 @@ def page(*, paper, prod, name, store, done, total, done_word, folder, steps, not
 <h1>{e(title)}</h1>
 <p><progress id="prog" value="{done}" max="{max(total, 1)}"></progress> <b id="count">{done:,} of {total:,}</b> {e(done_word)}, <span id="togo">{total - done:,}</span> to go.
 Updated {datetime.datetime.fromtimestamp(stamp).astimezone():%a %d %b %H:%M}. <span id="age"></span></p>"""]
-    out.append(SCRIPTED.get(paper, "") + AGENT_STEPS)
+    out.append(AGENT_STEPS)
     if notes:
         out.append(f'<details class="notes"><summary>Sorted automatically ({len(notes)} file(s)); nothing to do</summary><ul>')
         out += [f"<li><b>{e(f)}</b>: {e(why)}</li>" for f, why in notes]
@@ -1306,10 +1348,6 @@ of them still TO DO. Rows never move: a row you click is marked CLICKED where it
     return "\n".join(out) + "\n"
 
 
-#: Above this many wanted rows, a year's rows are None and page() lists each
-#: year's count (the page stays small enough to load over SMB and for a
-#: browser agent, and its render quick).
-YEAR_ROWS = 3000
 
 #: The plain how-to a browser agent (or Paul) follows, top of each page.
 AGENT_STEPS = """<section class="agent" id="instructions"><h2>Instructions</h2><ol>
@@ -1321,19 +1359,6 @@ come back to this tab. The row now says <b>CLICKED</b>.</li>
 row that says CLICKED or DONE, and never use retry.</li>
 <li>Stop when no row says TO DO, or when Gale shows a password or login page or an error instead of a PDF.</li>
 </ol></section>"""
-
-#: Above the how-to on a paper whose rows a script downloads.
-SCRIPTED = {"Times": """<section class="agent" id="scripted"><h2>A script downloads these now</h2>
-<p><b>tools/gale_fetch.py</b> fetches the wanted rows in this page's order at a hand's pace
-(a jittered 8-22 s apart, at most 15 in 3 minutes, a 30-60 min rest every 400), straight into the Times inbox,
-where the sync files it. The Claude-in-browser that clicked these rows is retired (Paul, 11 Oct 2026): no one
-needs to click. The script stops at Gale's first login page, captcha or non-PDF and tells the room; only then,
-and only once it has been looked at, would anyone follow the steps below.</p></section>"""}
-
-
-def search_for(n):
-    """What to type in Gale's search box for Times cryptic No `n`."""
-    return f'"Crossword Puzzle No {n:,}"'
 
 
 def search_url(day, prod="TTDA", title="crossword"):
@@ -1474,18 +1499,10 @@ def notes(staged, untitled, unmatched=UNMATCHED, log=SET_ASIDE, now=None):
     return out
 
 
-#: The Times' own item of the checklist's how-to (page).
-STEPS = (
-    ("A row with no Download button yet: click <b>Open in Gale</b> (Gale's results for that day's crossword),"
-     " open <i>The Times Crossword Puzzle No N</i> (not the Concise) and click <b>Download</b> (PDF). If the"
-     " results are empty, <b>Copy</b> the search and paste it into Gale's search box, or use <i>Browse &rarr;"
-     " Browse By Date</i> and go to the page shown."),
-)
-
 #: How next_up orders, said on the page.
 ORDER = ("Order: Times No 1 (1 Feb 1930) first; then the 1974-99 editions archive.org has no scan of, the"
          " year missing the most first and oldest date first within a year; then 2014-19, then 2000-13, then the"
-         " rest of 1930-99, each newest first. An edition leaves the list once its file arrives.")
+         " rest of 1930-99, each newest first. An edition leaves the list once its puzzle is filed.")
 #: Times No 1's date: the first issue goes first (Paul, 2026-10-02).
 FIRST_ISSUE = datetime.date(1930, 2, 1)
 
@@ -1509,96 +1526,86 @@ def next_up(rows, staged, n=POOL):
     return [(d, c) for d, c in order if d not in staged][:n]
 
 
-def arrived_days(rows, staged, waiting, docs):
-    """The dates of `rows` whose file is in the inbox: staged (`staged`,
-    {date: files}), or a file not matched yet (`waiting`, the inbox's
-    unplaced file names) named for a document the row's links name
-    (row_docs). A download stays arrived however long matching takes."""
-    named = {d for f in waiting if (d := doc_id(f))}
-    return {day for day, _ in rows if day in staged or named & set(
-        row_docs({"dl": gale_docs.link("TTDA", day, docs), "search": gale_docs.permalink("TTDA", day, docs)}))}
+#: tools/gale_fetch.py's log of each download, and of Gale's refusals.
+FETCHED, LIMITS = gale_fetch.FETCHED, gale_fetch.LIMITS
+#: The latest downloads listed.
+LATEST = 20
 
 
-def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=None, ledger=None, log=SET_ASIDE,
-              inbox=None):
-    """The Times checklist (page): progress, what was sorted automatically
-    (notes), the next editions to fetch with what to search for, then every
-    wanted edition by year, the worst year first. An edition whose saved
-    page holds no cryptic's title (titleless) is still to fetch, unless
-    Gale's citation names it the cryptic; one Gale has no cryptic for
-    (not_on_gale) leaves next up, its row saying why. A row is arrived
-    (arrived_days) once its file is in `inbox` (MIRROR), matched or not."""
+def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, ledger=None, log=SET_ASIDE,
+              fetched=FETCHED, limits=LIMITS, now=None):
+    """The Times progress page. tools/gale_fetch.py downloads every wanted
+    edition itself, so nothing on it is to click: how many editions are
+    still wanted, laid out and waiting to be read, read, and not on Gale;
+    the downloader's latest files and Gale's refusals (LIMITS); what was
+    sorted automatically from hand downloads (notes); then each year's
+    counts, in next_up's order (ORDER)."""
+    e = html.escape
+    now = now or datetime.datetime.now().astimezone()
     rows = wanted() if rows is None else rows
-    by_number = held()
-    pages = usual_pages()
     ledger = archive_coverage.ledger() if ledger is None else ledger
     matches = staged_matches(cache)
     untitled = titleless(matches, ledger, cache)
-    staged = {day: [m["file"] for m in ms] for day, ms in matches.items()
-              if day not in untitled or any(cryptic_cited(m) for m in ms)}
     docs = gale_docs.load() if docs is None else docs
     aside = aside_days(log)
-    gone = {day: why for day, _ in rows if (why := not_on_gale(day, docs, aside))}
-    years = collections.defaultdict(list)
-    for day, cls in rows:
-        years[day.year].append((day, cls))
-    filed = set(by_number.values())
-    placed = {m["file"] for ms in matches.values() for m in ms} | {
-        m["file"] for m in (json.loads(unmatched.read_text()) if unmatched.exists() else []) if not m.get("date")}
-    files = [p.name for p in inbox_files(inbox)]
-    waiting = [f for f in files if f not in placed]
-    arrived = arrived_days(rows, staged, waiting, docs)
-    # Counted by the files downloaded: each page file in the inbox (one set
-    # aside is not), and each wanted edition none has come for yet.
-    done = len(files)
-    total = done + sum(day not in arrived and day not in gone for day, _ in rows)
+    gone = {day for day, _ in rows if not_on_gale(day, docs, aside)}
 
-    def page_of(y):
-        lo, hi, most = nearest(pages, y) or (None, None, None)
-        return f"p. {most} (or {lo}-{hi})" if lo else ""
+    def read(day):
+        return f"{ITEM.format(day.year)}/{day.isoformat()}" in ledger
 
-    def row(day, cls):
-        n, sure = number_on(day, by_number)
-        st = ledger.get(f"{ITEM.format(day.year)}/{day.isoformat()}")
-        if day in filed and day in staged:
-            status = [("filed", "got")]
-        elif st:
-            status = [(f"arrived, read: {archive_coverage.verdict_class(st, {})}", "got")]
-        elif day in staged:
-            status = [(f"arrived ({', '.join(staged[day])})", "got")]
-        elif day in arrived:
-            status = [("arrived, being matched", "got")]
-        elif day in gone:
-            status = [(gone[day], "bad")]
-        else:
-            status = {"canberra-reprint": "Canberra reprint only",
-                      SCAN_UNFILED: "archive.org's scan did not file"}.get(cls, "")
-        what = f"Times {day.isoformat()} (No {'' if sure else '~'}{n:,})"
-        return {"key": day.isoformat(), "date": day, "arrived": day in arrived, "dl": gale_docs.link("TTDA", day, docs),
-                "label": f"Download {what}", "what": what,
-                "search": gale_docs.permalink("TTDA", day, docs) or search_url(day), "copy": search_for(n),
-                "status": status,
-                "cells": [[(f"{n:,}", "")] + ([] if sure else [("number estimated: check the date", "est")]),
-                          page_of(day.year)]}
+    staged = [day for day, _ in rows if day in matches]
+    left = len(rows) - len(staged) - len(gone - set(staged))
+    got = sorted(load(fetched, {}).items(), key=lambda kv: kv[1].get("at", ""), reverse=True)
+    today = sum(v.get("at", "").startswith(now.date().isoformat()) for _, v in got)
+    kept = load(limits, {})
+    refusals, recoveries = kept.get("refusals", []), kept.get("recoveries", [])
+    years = collections.defaultdict(lambda: [0, 0, 0, 0])
+    for day, _ in rows:
+        y = years[day.year]
+        y[0] += 1
+        y[1] += day in matches and not read(day)
+        y[2] += day in matches and read(day)
+        y[3] += day in gone
+    out = [f"""<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="{RELOAD_SECONDS}">
+<title>Times crosswords from Gale: {left:,} to fetch</title>
+<style>{CSS}</style>
+<h1>Times crosswords from Gale</h1>
+<p>Nothing here to click: <b>tools/gale_fetch.py</b> downloads each wanted edition itself, at a hand's pace,
+and lays it out for the reader, which files its puzzle. Updated {now:%a %d %b %H:%M}; this page reloads every
+{RELOAD_SECONDS // 60} minutes.</p>
+<table><tr><th>Wanted (no puzzle filed)</th><td>{len(rows):,}</td></tr>
+<tr><th>Still to fetch</th><td>{left:,}</td></tr>
+<tr><th>Fetched, waiting to be read</th><td>{sum(not read(d) for d in staged):,}</td></tr>
+<tr><th>Read, no puzzle filed from it</th><td>{sum(read(d) for d in staged):,}</td></tr>
+<tr><th>Not on Gale</th><td>{len(gone):,}</td></tr>
+<tr><th>Downloaded by the script</th><td>{len(got):,} ({today:,} today)</td></tr>
+<tr><th>Gale refusals</th><td>{len(refusals)}{
+        f" (last {e(refusals[-1]['at'])}, after {refusals[-1]['since_rest']} since a rest)" if refusals else ""}{
+        f"; worked again after {recoveries[-1]['waited'] / 60:.0f} min" if recoveries else ""}</td></tr></table>
+<p>{e(ORDER)}</p>"""]
+    if got:
+        out.append("<h2>Latest downloads</h2><table><tr><th>When</th><th>Edition</th><th>File</th></tr>")
+        out += [f"<tr><td>{e(v.get('at', ''))}</td><td>{e(v.get('date', ''))}</td><td>{e(doc)}</td></tr>"
+                for doc, v in got[:LATEST]]
+        out.append("</table>")
+    notes_ = notes(matches, untitled, unmatched, log, now)
+    if notes_:
+        out.append(f'<details class="notes"><summary>Hand downloads sorted automatically ({len(notes_)});'
+                   ' nothing to do</summary><ul>')
+        out += [f"<li><b>{e(f)}</b>: {e(why)}</li>" for f, why in notes_]
+        out.append("</ul></details>")
+    out.append("<h2>By year</h2><table><tr><th>Year</th><th>Wanted</th><th>Waiting to be read</th>"
+               "<th>Read, not filed</th><th>Not on Gale</th></tr>")
+    out += [f"<tr><td>{y}</td>" + "".join(f"<td>{n:,}</td>" for n in years[y]) + "</tr>"
+            for y in dict.fromkeys(d.year for d, _ in next_up(rows, (), None))]
+    out.append("</table>")
+    return "\n".join(out) + "\n"
 
-    return page(
-        paper="Times", prod="TTDA", name=CHECKLIST_NAME, store="galeCopied", done=done, total=total,
-        done_word="files downloaded", folder=SHARE + "\\Times", notes=notes(matches, untitled, unmatched, log),
-        steps=STEPS,
-        order=ORDER, what="editions", next_rows=[row(d, c) for d, c in next_up(rows, arrived | set(gone), None)],
-        years_note="In the order above (each year where its first edition falls). An edition leaves this list"
-                   " once its puzzle is filed.",
-        years=[(y, f"{len(years[y])} missing, {sum(d in arrived for d, _ in years[y])} arrived",
-                None if len(rows) > YEAR_ROWS else [row(d, c) for d, c in sorted(years[y])])
-               for y in dict.fromkeys(d.year for d, _ in next_up(rows, (), None))],
-        columns=["No", "Page"], status=status)
-
-#: Gale is asked for links (gale_docs.resolve) at most this often, whatever
-#: the tick's own schedule: the pace Paul allowed.
+#: The Listener's Gale link lookups (gale_docs.resolve) run at most this
+#: often, whatever the tick's own schedule: the pace Paul allowed.
 LOOKUP_EVERY = 180
-#: Each paper's Gale lookups in a tick start within this long of its own
-#: start (the Times' use of its does not shorten the Listener's). Short,
-#: because the next tick's sweep of the download folder waits on them.
+#: The Listener's Gale lookups in a tick start within this long of its
+#: start. Short, because the next tick's sweep waits on them.
 GALE_SECONDS = 60
 LOOKED_UP = MIRROR.parent / "looked_up"
 
@@ -1648,13 +1655,12 @@ def locked(wait=True):
 
 
 def sync(out=sys.stdout, force=False):
-    """One tick: sweep Gale files into their inboxes; mirror the Times inbox
-    and, when it moved, holds a file not matched yet (unread) or
-    RENDER_EVERY passed, stage it and publish the
-    checklist; publish its status file before the Gale lookups and again
-    after, so an open page knows when the inbox was last looked at; then the Listener's
-    (gale_listener.tick); then start the reads of the editions just laid
-    out (start_reads), and keep the Mac's arrival watcher installed
+    """One tick: sweep hand-downloaded Gale files into their inboxes;
+    mirror the Times inbox and, when it moved, holds a file not matched yet
+    (unread) or RENDER_EVERY passed, stage it and publish the progress
+    page; then the Listener's (gale_listener.tick); then start the reads of
+    the editions just laid out, by stage or tools/gale_fetch.py
+    (start_reads), and keep the Mac's arrival watcher installed
     (install_watcher). Skipped when another sync is running."""
     import gale_listener  # imports this module, so not at the top
     with locked(wait=False) as mine:
@@ -1678,38 +1684,30 @@ def _sync_locked(out, force, gale_listener):
     """sync's work under the lock."""
     moved = collect(out)
     changed = mirror(out)
-    # The arrivals are known now; the Gale lookups and staging below can
-    # take minutes.
-    publish_status(CHECKLIST)
     listener_changed = gale_listener.arrivals(out)
     ask = gale_due()
-    by_number = held()
-    linked = ask and gale_docs.resolve(
-        "TTDA", [(d, number_on(d, by_number)[0]) for d, _ in next_up(wanted(), staged_files(), LOOKAHEAD)], out,
-        until=time.monotonic() + GALE_SECONDS)
-    status = None
-    if force or moved or changed or linked or unread() or time.time() - last_render() > RENDER_EVERY:
+    staging = force or moved or changed or unread() or time.time() - last_render() > RENDER_EVERY
+    if staging:
         stage(MIRROR, out=out)
         if tidy(out):
             mirror(out)
             stage(MIRROR, out=out)
+    if staging or (FETCHED.exists() and FETCHED.stat().st_mtime > last_render()):
         CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
-        status = {}
-        CHECKLIST.write_text(checklist(status=status))
+        CHECKLIST.write_text(checklist())
         publish()
-        print(f"checklist published to {GALE_ROOT}/{CHECKLIST_NAME}", file=out)
-    publish_status(CHECKLIST, status)
+        print(f"progress page published to {GALE_ROOT}/{CHECKLIST_NAME}", file=out)
     gale_listener.tick(out, force, ask, time.monotonic() + GALE_SECONDS, listener_changed)
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sy = sub.add_parser("sync", help="sweep Gale files in, mirror the Mac inbox, stage it, publish the checklist")
+    sy = sub.add_parser("sync", help="sweep hand downloads in, mirror the Mac inbox, stage it, publish the progress page")
     sy.add_argument("--render", action="store_true", help="stage and publish even when nothing moved")
     st = sub.add_parser("stage", help="stage a local folder of pages")
     st.add_argument("--inbox", type=Path, default=MIRROR)
-    cl = sub.add_parser("checklist", help="write the checklist")
+    cl = sub.add_parser("checklist", help="write the progress page")
     cl.add_argument("--out", type=Path, default=CHECKLIST)
     mt = sub.add_parser("match", help="which edition each file is")
     mt.add_argument("files", nargs="+", type=Path)

@@ -1840,17 +1840,17 @@ tools/test_ocr_remote.sh                      does tools/ocr_remote.py compare e
                                               read on the desktop opened a file it was not
                                               sent, give the same grids from a search run
                                               there, and cap reads here at LOCAL_SLOTS?
-tools/gale_inbox.py                           the 1974-99 Times editions archive.org has no
-                                              scan of, filled by hand from Gale's Times Digital
-                                              Archive: sweeps each Gale download out of the
-                                              desktop's and Mac's Downloads into its paper's
-                                              inbox on the Media share, mirrors the Times one
-                                              over the ssh hatch, stages it as
-                                              GaleTimes<year>UKEnglish editions for
-                                              file_archive_org_puzzles.py --paper gale, and
-                                              publishes a checklist of what to fetch next (a
-                                              Download link where gale_docs.py found the page,
-                                              else Gale's search) and which pages to redo
+tools/gale_inbox.py                           every 1930-2019 Times edition with no puzzle
+                                              filed (wanted), fetched from Gale's Times Digital
+                                              Archive by gale_fetch.py: lays out each fetched
+                                              page as a GaleTimes<year>UKEnglish edition for
+                                              file_archive_org_puzzles.py --paper gale
+                                              (lay_out_fetched), publishes the Times progress
+                                              page, and for pages saved by hand sweeps each
+                                              Gale download out of the desktop's and Mac's
+                                              Downloads into its paper's inbox on the Media
+                                              share, mirrors the Times one over the ssh hatch,
+                                              matches and stages it
 tools/gale_inbox.sh                           the scheduled entry point for gale_inbox.py sync,
                                               every minute, from a worktree
 tools/gale_read.sh                            reads the Gale Times pages laid out in the last
@@ -1878,37 +1878,41 @@ tools/gale_listener.py                        the Listener crosswords of 1930-91
                                               checklist asks for a saved puzzle's solution
                                               report and links each next puzzle to Gale's
                                               Download (gale_docs.py)
-tools/gale_docs.py                            Gale's PDF Download link for each checklist's
-                                              next rows: a sync at most every 3 minutes looks
-                                              up at most 15 uncached dates per paper on Gale
+tools/gale_docs.py                            Gale's document and PDF Download link for a date
                                               (portal session, the month's issues, the issue's
-                                              contents), 2 s apart, and caches the crossword's
-                                              document and page records, misses too, in
-                                              ~/.cache/gale_inbox/docs.json; Paul allowed this
-                                              on 2026-10-07
-tools/gale_fetch.py                           downloads the Times checklist's linked rows
-                                              itself, in next-up order, at a hand's pace (8-22
-                                              s apart, at most 15 in 3 minutes, a 30-60 min
-                                              rest every 400), into the Mac's Times inbox as
-                                              GALE_<doc>.pdf for the sync to file; stops and
-                                              wakes the room at a login page, captcha, non-PDF
-                                              or repeated errors; skips what it or anyone
-                                              already got (Paul, 2026-10-11, retiring the
-                                              Claude-in-browser)
+                                              contents), cached, misses too, in
+                                              ~/.cache/gale_inbox/docs.json: the Times rows
+                                              looked up by gale_fetch.py as it goes, the
+                                              Listener checklist's next rows by a sync at most
+                                              every 3 minutes (15 a tick, 2 s apart); Paul
+                                              allowed this on 2026-10-07
+tools/gale_fetch.py                           downloads every wanted Times edition itself, in
+                                              next-up order, at a hand's pace (8-22 s apart, at
+                                              most 15 in 3 minutes) and lays each out at once
+                                              as its date's edition (no inbox, match or
+                                              set-aside), the PDF kept on the Mac; records each
+                                              Gale refusal and how long until a download works
+                                              again (~/.cache/gale_inbox/limits.json) and
+                                              learns its session cap and rest from them; stops
+                                              and wakes the room at a captcha, a wrong PDF, a
+                                              refusal no probe gets past, or repeated errors
+                                              (Paul, 2026-10-11)
 tools/gale_fetch.sh                           gale_fetch.py's long run from its own worktree,
                                               launched through track-job --restart
 tools/test_gale_fetch.sh                      on a fake clock: does gale_fetch keep its pace,
-                                              window cap and session rests, stop at a login
-                                              page, captcha, HTML, short PDF or repeated errors
-                                              (riding out one), skip what was got, and wait for
-                                              links a bounded number of times?
+                                              window cap and learned session rests, record a
+                                              refusal (login page, HTML, non-PDF, 429) and the
+                                              wait until a probe works, stop at a captcha,
+                                              short PDF, a refusal no probe gets past or
+                                              repeated errors (riding out one), skip what was
+                                              got, and wait a bounded number of times?
 tools/test_gale_docs.sh                       with Gale stood in: is the day's crossword found
                                               in an issue's contents (not the Concise or a
                                               competition), its Download link's citation one
                                               the inbox files by, at most the limit of uncached
                                               dates asked, a miss kept, Gale's first error said
-                                              and retried next tick, and do both checklists
-                                              offer Download beside Open in Gale?
+                                              and retried next tick, and does the Listener
+                                              checklist offer Download?
 tools/test_gale_listener.sh                   is a saved Listener page matched by its name,
                                               citation title, citation date (across a line
                                               break) or title, not by a browser's "(1)" copy
@@ -1958,12 +1962,13 @@ tools/test_gale_inbox.sh                      is a page saved into the Gale inbo
                                               its date by its name or puzzle number, staged as
                                               that date's Times edition with its Gale link, due
                                               again when a page is added or replaced for that
-                                              date and no other, and listed on the checklist;
-                                              is a Gale download recognised by its name or
-                                              citation and routed to its paper's inbox,
-                                              everything else left alone; does the checklist
-                                              lead with progress, pages to redo and what to
-                                              search?
+                                              date and no other; is a page gale_fetch.py
+                                              downloaded laid out without a match and left
+                                              alone by stage; is a Gale download recognised by
+                                              its name or citation and routed to its paper's
+                                              inbox, everything else left alone; does the Times
+                                              progress page count what is wanted, fetched, read
+                                              and not on Gale, with nothing to click?
 tools/test_canberra_reprint_vote.sh           does a Canberra Times reprint vote on the
                                               archive.org scan's clues like any other reading,
                                               only for the London number
