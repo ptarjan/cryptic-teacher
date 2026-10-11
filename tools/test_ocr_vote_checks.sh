@@ -281,6 +281,21 @@ check("a small letter a reading prints as a capital takes it", "Decoration for B
       oc.unstrayed("Decoration for Brand x", ["Decoration for Brand X"]))
 check("with no reading that lacks it, the flag stands (mirror)", "Turned up as new t",
       oc.unstrayed("Turned up as new t", ["Turned up as new t", "Turned np as new t"]))
+# A lone letter is a short word misread when the readings print one word
+# between its neighbours, or their misreads of them (Times 1977 "He throws d
+# sprightly", 1980 "said m go", 1981 "Restoration o the").
+check("a stray letter takes the one word the readings print in its place",
+      ["He throws a sprightly spanner in the works", "Typical signs said to go wrong on the airfield",
+       "Restoration of the kidneys"],
+      [oc.unstrayed("He throws d sprightly spanner in the works",
+                    ["He dhrows d spirtghuly spanner", "He thirows a sprizhtly spauner", "He throws a sprightly spanner"]),
+       oc.unstrayed("Typical signs said m go wrong on the airfield", ["Typical signs said to go wrong on the airfield"]),
+       oc.unstrayed("Restoration o the kidneys", ["Resinration of the kiineys"])])
+check("(mirror) readings printing two words there, or the letter itself, leave the flag",
+      ["Where chopper descends n entrance to Hades?", "He should have no difficulty solving x and y"],
+      [oc.unstrayed("Where chopper descends n entrance to Hades?",
+                    ["Where chopper descends as entrance", "Where chopper descends at entramrce"]),
+       oc.unstrayed("He should have no difficulty solving x and y", ["He should have no difficulty solving x and y"])])
 # A lone underscore touching a word is a speck read as one (times-17246's
 # "love,_emperor", 280 held clues off scans): read without it, flagged where
 # held so the edition is read again; a run of them, or one between spaces,
