@@ -439,8 +439,30 @@ def mended_at(row, verdict):
     return max(due) if whys and all(due) else None
 
 
+#: When agree() and corrected_clues() learned to drop a misread count left
+#: after a clue's last word ("Overdone quality 7"): a filed archive.org
+#: edition read before it with such a clue (count_left) is read again.
+COUNT_LEFT_AT = "2026-10-11T05:39:14+00:00"
+
+
+def count_left_requests():
+    """A request per filed archive.org puzzle read before COUNT_LEFT_AT
+    with a clue that ends in its count misread (count_left). Derived from
+    the files, so the re-read closes it."""
+    import puzzle_paths
+    from file_archive_org_puzzles import count_left
+    out, t = [], when(COUNT_LEFT_AT)
+    for i, (f, key, row) in sorted(sources().items()):
+        if f != "archive" or not read_before(row, t) or not (path := puzzle_paths.find(i)):
+            continue
+        entries = json.loads(path.read_text(encoding="utf-8")).get("entries") or ()
+        if any(count_left((e.get("clue") or {}).get("text"), e.get("length")) for e in entries):
+            out.append({"id": i, "filer": f, "source": key, "why": ["countLeft"], "requestedAt": COUNT_LEFT_AT})
+    return out
+
+
 def all_open_requests():
-    return open_requests() + flagged_requests() + vote_mended_requests()
+    return open_requests() + flagged_requests() + vote_mended_requests() + count_left_requests()
 
 
 def request_reread(puzzle, clues, why):

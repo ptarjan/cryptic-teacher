@@ -2104,6 +2104,15 @@ taken = [("Watch salesman with consumer", "Watch salesman with a consumer"),
          ("Dealer about to take manager", "Dealer about to take a manager")]
 check("(mirror) a lost article, opener, word, misread figure or name mended corrects a held clue",
       [], [t for t in taken if not f.corrects(*t)])
+check("a re-read that drops a misread count filling the light corrects a held clue (count_dropped)",
+      [True, True, True], [f.count_dropped("Song of joy 141", "Song of joy", 4),
+                           f.count_dropped("Third degree restaurant? 15-41", "Third degree restaurant?", 9),
+                           f.count_dropped("Overdone qualiry 7", "Overdone quality", 7)])
+check("mirror: figures that do not fill the light, have a unit or are kept are no count dropped",
+      [False, False, False, False], [f.count_dropped("Under extremes of 9", "Under extremes of", 5),
+                                     f.count_dropped("Goes down in 8s", "Goes down in", 8),
+                                     f.count_dropped("Song of joy 141", "Song of joy 141", 4),
+                                     f.count_dropped("Song of joy 141", "Song", 4)])
 check("a reading losing or swapping a real word, blank, unchanged, marks only or made up corrects nothing",
       [False] * 8, [f.corrects("Frontier cantonment.", "Frontier."),
                     f.corrects("Swearing and lying", "Swearing and lying (7). But not backward"),
