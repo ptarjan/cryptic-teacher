@@ -23,6 +23,9 @@
   "date": "2023-01-14",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,43 @@
     "text": "Temperature effect includes possible victim of warming sea",
     "enumeration": "4"
    },
-   "solution": "REEF"
+   "solution": "REEF",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REEF",
+    "definitions": [
+     {
+      "text": "possible victim of warming sea",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "hidden_word",
+      "note": "the phrase before it is said to include the answer, so its letters run across the word boundary inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Temperature effect",
+      "gives": "REEF",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A climate report notes that rising temperatures harm something living in the ocean.",
+     "walkthrough": "The answer sits across 'temperatuRE EFfect'.",
+     "definitionFit": "Coral reefs bleach and die when ocean water gets too warm, so they are a likely casualty of a heating sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "includes"
+    }
+   }
   },
   {
    "number": 1,
@@ -60,7 +99,43 @@
      }
     ]
    },
-   "solution": "READMYLIPS"
+   "solution": "READMYLIPS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "READ MY LIPS",
+    "definitions": [
+     {
+      "text": "I'm serious",
+      "at": 0
+     },
+     {
+      "text": "see what I'm saying?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm serious",
+      "note": "first meaning: an emphatic insistence that one means it"
+     },
+     {
+      "clueFragment": "see what I'm saying?",
+      "note": "second meaning: literally, watch my mouth to make out the words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'See what I'm saying' usually means 'understand me', but here it is literal: watching the words form on the lips.",
+     "definitionFit": "The phrase is an idiom for 'I mean this', and literally an invitation to lip-read the speaker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 2,
@@ -74,7 +149,48 @@
     "text": "Former King curtailing speech in Rivendell?",
     "enumeration": "5"
    },
-   "solution": "ELVIS"
+   "solution": "ELVIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ELVIS",
+    "definitions": [
+     {
+      "text": "Former King",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailing",
+      "for": "deletion",
+      "note": "to curtail is to cut short, so the last letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speech in Rivendell",
+      "gives": "ELVISH",
+      "note": "Rivendell is the elf haven in Tolkien, where the elves speak their own language"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELVIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A deposed monarch interrupts the talk at an elven refuge.",
+     "walkthrough": "The King is the King of Rock and Roll, not a Tolkien ruler.",
+     "definitionFit": "Elvis Presley was nicknamed the King of Rock and Roll, and he died in 1977, so he is a past King."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 3,
@@ -94,7 +210,75 @@
      }
     ]
    },
-   "solution": "SCAREDYCAT"
+   "solution": "SCAREDYCAT",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "SCAREDY-CAT",
+    "definitions": [
+     {
+      "text": "I'm afraid",
+      "at": 48,
+      "note": "the definition is what a coward would say, standing in for the coward"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to drink",
+      "for": "container",
+      "note": "drinking takes something inside, so the first word wraps around what follows"
+     },
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "cider that has turned has gone off, but cryptically turning means writing the word backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be off",
+      "gives": "SCAT",
+      "note": "scat is a command to go away"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "traditional scrumpy",
+      "gives": "CYDER",
+      "note": "the old-fashioned spelling of cider; scrumpy is rough farmhouse cider from the West of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "A",
+      "REDYC",
+      "AT"
+     ],
+     "reversals": [
+      {
+       "from": "CYDER",
+       "to": "REDYC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to leave after drinking scrumpy that has gone sour confesses to being nervous.",
+     "walkthrough": "SCAT holds A plus CYDER written backwards. The definition is a confession: the person saying 'I'm afraid' is a coward.",
+     "definitionFit": "A scaredy-cat is a childish word for a timid person, someone who would readily admit to fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +292,66 @@
     "text": "Discussion about Irish mostly living way up mountain",
     "enumeration": "9"
    },
-   "solution": "CHAIRLIFT"
+   "solution": "CHAIRLIFT",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "CHAIRLIFT",
+    "definitions": [
+     {
+      "text": "way up mountain",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the discussion goes round the pieces that follow"
+     },
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "only most of the word is used, so its last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Discussion",
+      "gives": "CHAT",
+      "note": "a chat is a discussion"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "IR is the abbreviation for Irish"
+     },
+     {
+      "clueFragment": "living",
+      "gives": "LIFE",
+      "note": "living is life"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "IR",
+      "LIF",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Talk about Irish people mostly living on a mountainside.",
+     "definitionFit": "A chairlift is a cable-hauled line of seats carrying skiers and walkers up a slope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "living"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +365,50 @@
     "text": "Her and my playing sound similar at the end",
     "enumeration": "5"
    },
-   "solution": "RHYME"
+   "solution": "RHYME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RHYME",
+    "definitions": [
+     {
+      "text": "sound similar at the end",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with letters moves them into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Her and my",
+      "gives": "HERMY",
+      "note": "the letters of the two pronouns, the 'and' only linking them"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERMY",
+       "gives": "RHYME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two people performing music together end on a matching note.",
+     "definitionFit": "Words rhyme when their final syllables share a sound, as in 'cat' and 'hat'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +422,57 @@
     "text": "One's walked all over Dartmoor, not quite disoriented",
     "enumeration": "7"
    },
-   "solution": "DOORMAT"
+   "solution": "DOORMAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DOORMAT",
+    "definitions": [
+     {
+      "text": "One's walked all over",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite",
+      "for": "deletion",
+      "note": "not quite all of the word is used, so its last letter goes"
+     },
+     {
+      "text": "disoriented",
+      "for": "anagram",
+      "note": "something disoriented has lost its bearings, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dartmoor",
+      "gives": "DARTMOO",
+      "note": "Dartmoor is a moorland in Devon; its final letter is dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DARTMOO",
+       "gives": "DOORMAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hiker has tramped across Dartmoor and is a bit lost.",
+     "definitionFit": "A doormat is literally trodden on and figuratively a person who lets others exploit them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "walked"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +486,66 @@
     "text": "Cutting of climber almost strangled by my flowering bush",
     "enumeration": "9"
    },
-   "solution": "CORROSIVE"
+   "solution": "CORROSIVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CORROSIVE",
+    "definitions": [
+     {
+      "text": "Cutting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost the whole word is used, so its final letter is dropped"
+     },
+     {
+      "text": "strangled by",
+      "for": "container",
+      "note": "a strangler's hands close around the neck, so the following pieces surround this one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my",
+      "gives": "COR",
+      "note": "cor is an exclamation of surprise, like 'my!'"
+     },
+     {
+      "clueFragment": "flowering bush",
+      "gives": "ROSE",
+      "note": "a rose is a flowering shrub"
+     },
+     {
+      "clueFragment": "climber",
+      "gives": "IVY",
+      "note": "ivy is a climbing plant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORROS",
+      "IV",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's cutting from a climbing plant gets choked by their own rose.",
+     "walkthrough": "'Cutting' looks like a plant slip in the gardening picture but is the adjective meaning sharp or biting.",
+     "definitionFit": "Corrosive remarks are caustic and wounding, which is what cutting means of words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cutting"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +559,49 @@
     "text": "Projection from mouth that usually stops kiss at the outset",
     "enumeration": "4"
    },
-   "solution": "TUSK"
+   "solution": "TUSK",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TUSK",
+    "definitions": [
+     {
+      "text": "Projection from mouth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "the outset is the beginning, so each word gives its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that usually stops kiss",
+      "gives": "TUSK",
+      "select": "first",
+      "note": "the initials of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUSK"
+     ]
+    },
+    "explanation": {
+     "surface": "Something sticking out of the mouth tends to get in the way of a kiss.",
+     "definitionFit": "A tusk is a long tooth jutting out of an animal's mouth, as on an elephant or walrus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "stops"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +615,54 @@
     "text": "Pressing desire never to lose heart",
     "enumeration": "6"
    },
-   "solution": "URGENT"
+   "solution": "URGENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "URGENT",
+    "definitions": [
+     {
+      "text": "Pressing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to lose heart",
+      "for": "deletion",
+      "note": "the heart is the middle, so the central letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desire",
+      "gives": "URGE",
+      "note": "an urge is a desire"
+     },
+     {
+      "clueFragment": "never",
+      "gives": "NOT",
+      "note": "'never' can stand for 'not', as in 'never fear'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URGE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to keep up a strong wish and never get discouraged.",
+     "definitionFit": "Pressing matters are urgent ones, demanding immediate attention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pressing"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +676,56 @@
     "text": "I'll oppose memorable date, making second to fourth day",
     "enumeration": "9"
    },
-   "solution": "ADVERSARY"
+   "solution": "ADVERSARY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ADVERSARY",
+    "definitions": [
+     {
+      "text": "I'll oppose",
+      "at": 0,
+      "note": "the definition is what an opponent would say, standing in for the opponent"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making second to fourth",
+      "for": "substitution",
+      "note": "this says letters two through four of the date are turned into something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "memorable date",
+      "gives": "ANNIVERSARY",
+      "note": "a date marking an event worth remembering"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the standard abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "VERSARY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vows resistance to moving a commemoration to a different day of the week.",
+     "walkthrough": "In ANNIVERSARY the second to fourth letters, NNI, are replaced by D.",
+     "definitionFit": "An adversary is an opponent, the kind of person who announces resistance to you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fourth"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +739,60 @@
     "text": "Brutes turn over matter to the courts",
     "enumeration": "5"
    },
-   "solution": "OGRES"
+   "solution": "OGRES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OGRES",
+    "definitions": [
+     {
+      "text": "Brutes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "'over' asks for the preceding word to be flipped end to end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turn",
+      "gives": "GO",
+      "note": "a turn in a game is a go"
+     },
+     {
+      "clueFragment": "matter to the courts",
+      "gives": "RES",
+      "note": "res is the Latin legal term for a thing or matter, as in res judicata"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OG",
+      "RES"
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thugs hand a dispute over to the legal system.",
+     "definitionFit": "Ogres are monstrous giants of folklore, so the word is used for brutal, cruel people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +806,56 @@
     "text": "Rubber marks guarantee to bring the end forward",
     "enumeration": "7"
    },
-   "solution": "MASSEUR"
+   "solution": "MASSEUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "MASSEUR",
+    "definitions": [
+     {
+      "text": "Rubber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bring the end forward",
+      "for": "cycling",
+      "note": "the final letter of the word is moved up ahead of the letters before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marks",
+      "gives": "M",
+      "note": "M is short for marks, the old German currency"
+     },
+     {
+      "clueFragment": "guarantee",
+      "gives": "ASSURE",
+      "note": "to assure is to guarantee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASSEUR"
+     ]
+    },
+    "explanation": {
+     "surface": "An eraser leaves smudges, a promise to put the conclusion earlier.",
+     "walkthrough": "The final E of ASSURE jumps forward two places to sit before the UR.",
+     "definitionFit": "A masseur rubs clients' muscles, so cryptically he is a rubber, one who rubs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rubber"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +869,62 @@
     "text": "English climate protesters circling low national park",
     "enumeration": "6"
    },
-   "solution": "EXMOOR"
+   "solution": "EXMOOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXMOOR",
+    "definitions": [
+     {
+      "text": "national park",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "the protesters go round what follows, surrounding it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "climate protesters",
+      "gives": "XR",
+      "note": "XR is Extinction Rebellion, the climate protest movement"
+     },
+     {
+      "clueFragment": "low",
+      "gives": "MOO",
+      "note": "a cow's low is a moo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "MOO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Climate activists surround a low-lying English protected landscape.",
+     "walkthrough": "'Low' is the cow's call, not an adjective for flat land.",
+     "definitionFit": "Exmoor is a moorland area in Somerset and Devon, designated one of England's national parks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +938,68 @@
     "text": "One with backbone investing billions in green energy tax",
     "enumeration": "10"
    },
-   "solution": "VERTEBRATE"
+   "solution": "VERTEBRATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "VERTEBRATE",
+    "definitions": [
+     {
+      "text": "One with backbone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "investing",
+      "for": "container",
+      "note": "investing money puts it into something, so the billions go inside the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green",
+      "gives": "VERT",
+      "note": "vert is the heraldic word for green"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "billions",
+      "gives": "B",
+      "note": "B is the abbreviation for billions"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "RATE",
+      "note": "rates were a British local property tax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERT",
+      "E",
+      "B",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A brave person puts billions into a levy on renewable power.",
+     "walkthrough": "'One with backbone' suggests a courageous person but means a creature with a spine.",
+     "definitionFit": "A vertebrate is any animal with a spinal column, literally having a backbone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "backbone"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +1019,39 @@
      }
     ]
    },
-   "solution": "LIGHTNINGSTRIKE"
+   "solution": "LIGHTNINGSTRIKE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LIGHTNING STRIKE",
+    "definitions": [
+     {
+      "text": "A coming out that's suddenly shocking?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A coming out that's suddenly shocking?",
+      "note": "surface reading: a surprise revelation of someone's identity"
+     },
+     {
+      "clueFragment": "A coming out that's suddenly shocking?",
+      "note": "setter's reading: workers coming out on a walkout called without notice, or a bolt that literally shocks"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Coming out' is the trade-union sense, workers coming out on strike; 'shocking' plays on an electrical bolt.",
+     "definitionFit": "A strike called without warning is so named, and the phrase is also a literal bolt of electricity hitting the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "coming"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +1065,65 @@
     "text": "Unusually strong queen dismissing both knights, not a pretty sight",
     "enumeration": "9"
    },
-   "solution": "GROTESQUE"
+   "solution": "GROTESQUE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GROTESQUE",
+    "definitions": [
+     {
+      "text": "not a pretty sight",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unusually",
+      "for": "anagram",
+      "note": "an unusual arrangement is not the normal order, so the letters are reworked"
+     },
+     {
+      "text": "dismissing",
+      "for": "deletion",
+      "note": "dismissed pieces are sent away, so they leave the fodder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strong queen",
+      "gives": "STRONGQUEEN",
+      "note": "the letters of both words"
+     },
+     {
+      "clueFragment": "both knights",
+      "gives": "NN",
+      "note": "N is the chess notation for knight; there is one in each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GROTESQUE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STROGQUEE",
+       "gives": "GROTESQUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A powerful chess queen captures both knights, leaving an ugly position.",
+     "walkthrough": "Remove the two Ns from STRONG QUEEN, then rearrange the rest.",
+     "definitionFit": "Grotesque means comically or repulsively ugly, something no one would call pretty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knights"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1137,64 @@
     "text": "Diver's remorse, eating endless acidic fruit",
     "enumeration": "9"
    },
-   "solution": "GUILLEMOT"
+   "solution": "GUILLEMOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GUILLEMOT",
+    "definitions": [
+     {
+      "text": "Diver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "with no end, the last letter of the fruit is lost"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes food inside, so the remorse surrounds the fruit"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remorse",
+      "gives": "GUILT",
+      "note": "guilt is remorse"
+     },
+     {
+      "clueFragment": "acidic fruit",
+      "gives": "LEMON",
+      "note": "a lemon is a sour citrus fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUIL",
+      "LEMO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A deep-sea diver feels bad about munching a sour fruit.",
+     "walkthrough": "'Diver' is a bird that dives for fish, not a person in scuba gear.",
+     "definitionFit": "The guillemot is a seabird of the auk family that dives underwater to catch fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Diver"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1218,66 @@
      }
     ]
    },
-   "solution": "PROPERTYISTHEFT"
+   "solution": "PROPERTYISTHEFT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PROPERTY IS THEFT",
+    "definitions": [
+     {
+      "text": "Anarchic idea",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "to ignore something is to leave it out, so a letter is dropped from the office worker"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suited",
+      "gives": "PROPER",
+      "note": "proper means suitable"
+     },
+     {
+      "clueFragment": "office worker",
+      "gives": "TYPIST",
+      "note": "a typist works in an office"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "weight for Americans",
+      "gives": "HEFT",
+      "note": "heft is mainly American for weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROPER",
+      "TYIST",
+      "HEFT"
+     ]
+    },
+    "explanation": {
+     "surface": "An office worker in a suit forgets to weigh a page, in American units.",
+     "walkthrough": "'Suited' is an adjective meaning fitting, not a clothed worker.",
+     "definitionFit": "The slogan is Proudhon's famous anarchist claim that private ownership is itself a form of robbery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suited"
+    }
+   }
   },
   {
    "number": 19,
@@ -334,7 +1291,45 @@
     "text": "Was suffering but carried on",
     "enumeration": "7"
    },
-   "solution": "ENDURED"
+   "solution": "ENDURED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ENDURED",
+    "definitions": [
+     {
+      "text": "Was suffering",
+      "at": 0
+     },
+     {
+      "text": "carried on",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was suffering",
+      "note": "first meaning: put up with hardship"
+     },
+     {
+      "clueFragment": "carried on",
+      "note": "second meaning: lasted, continued"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'But' reads as a contrast, yet the two halves are two senses of one verb.",
+     "definitionFit": "To endure is both to bear pain or hardship and to persist or last over time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "but"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1343,67 @@
     "text": "Support broken by climbing ladder, holding post",
     "enumeration": "6"
    },
-   "solution": "TENURE"
+   "solution": "TENURE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TENURE",
+    "definitions": [
+     {
+      "text": "holding post",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue, climbing means reading upwards, so the word goes backwards"
+     },
+     {
+      "text": "broken by",
+      "for": "container",
+      "note": "the support is broken open and the other piece is put into the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "TEE",
+      "note": "a tee supports a golf ball"
+     },
+     {
+      "clueFragment": "ladder",
+      "gives": "RUN",
+      "note": "a ladder in tights or stockings is a run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "NUR",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "RUN",
+       "to": "NUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prop gives way under someone going up a ladder holding a pole.",
+     "walkthrough": "A ladder in British usage is also a run in hosiery.",
+     "definitionFit": "Tenure is the holding of an office or position, or the period during which it is held."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ladder"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1417,59 @@
     "text": "Adding any number twice could make this field average lower",
     "enumeration": "6"
    },
-   "solution": "MEADOW"
+   "solution": "MEADOW",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MEADOW",
+    "definitions": [
+     {
+      "text": "field",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Adding any number twice could make this",
+      "for": "deletion",
+      "note": "the answer is what remains before two letters were added, so they come out of the wordplay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "average",
+      "gives": "MEAN",
+      "note": "the mean is an average"
+     },
+     {
+      "clueFragment": "lower",
+      "gives": "DOWN",
+      "note": "to lower something is to put it down"
+     },
+     {
+      "clueFragment": "any number",
+      "gives": "N",
+      "note": "N stands for an unspecified number in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEA",
+      "DOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A statistics puzzle: doubling a figure could pull the average down for this area.",
+     "walkthrough": "Put N into the answer twice and you get MEAN DOWN; so the answer is MEAN DOWN without its two Ns.",
+     "definitionFit": "A meadow is a grassy field, often used for hay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "field"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1483,47 @@
     "text": "Roll wide part of shoe",
     "enumeration": "5"
    },
-   "solution": "WHEEL"
+   "solution": "WHEEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHEEL",
+    "definitions": [
+     {
+      "text": "Roll",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wide",
+      "gives": "W",
+      "note": "W is the cricket abbreviation for a wide"
+     },
+     {
+      "clueFragment": "part of shoe",
+      "gives": "HEEL",
+      "note": "the heel is the raised back of a shoe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HEEL"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction about manipulating a broad section of footwear.",
+     "walkthrough": "A wide is a cricket delivery out of the batter's reach.",
+     "definitionFit": "To wheel something is to roll it along, as with a barrow or trolley."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Roll"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1543,54 @@
      }
     ]
    },
-   "solution": "LINEARB"
+   "solution": "LINEARB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LINEAR B",
+    "definitions": [
+     {
+      "text": "Very old script",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "library",
+      "gives": "LIB",
+      "note": "LIB is a common abbreviation for library"
+     },
+     {
+      "clueFragment": "at hand",
+      "gives": "NEAR",
+      "note": "something at hand is near"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "NEAR",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient manuscript is kept within reach in a library.",
+     "definitionFit": "Linear B is the Bronze Age Mycenaean Greek writing system, deciphered by Michael Ventris in 1952."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "script"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1604,53 @@
     "text": "Court helper drops each book in temper",
     "enumeration": "5"
    },
-   "solution": "ALLOY"
+   "solution": "ALLOY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALLOY",
+    "definitions": [
+     {
+      "text": "temper",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops",
+      "for": "deletion",
+      "note": "dropping something lets it fall away, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Court helper",
+      "gives": "BALLBOY",
+      "note": "a ballboy fetches balls on a tennis court"
+     },
+     {
+      "clueFragment": "each book",
+      "gives": "BB",
+      "note": "B is the abbreviation for book; 'each' means every B goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLOY"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis assistant loses his cool and throws each book down.",
+     "walkthrough": "'Temper' suggests anger but means to moderate by mixing in something else.",
+     "definitionFit": "To alloy is to mix a metal with a baser one, hence to temper or dilute something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "temper"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1670,55 @@
      }
     ]
    },
-   "solution": "EFIT"
+   "solution": "EFIT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "E-FIT",
+    "definitions": [
+     {
+      "text": "Crime-solving tool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "escapes",
+      "for": "deletion",
+      "note": "whatever escapes gets away, so those letters leave the word"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to help",
+      "gives": "BENEFIT",
+      "note": "to benefit someone is to help them"
+     },
+     {
+      "clueFragment": "Ben",
+      "gives": "BEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EFIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Police use a device to help after a prisoner called Ben breaks out.",
+     "definitionFit": "An E-FIT is a computer-generated likeness of a suspect, built from witness descriptions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ben"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1732,53 @@
     "text": "Question welcomed by impartial holy man",
     "enumeration": "5"
    },
-   "solution": "FAQIR"
+   "solution": "FAQIR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FAQIR",
+    "definitions": [
+     {
+      "text": "holy man",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomed by",
+      "for": "container",
+      "note": "being welcomed means being taken in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Question",
+      "gives": "Q",
+      "note": "Q is the abbreviation for question"
+     },
+     {
+      "clueFragment": "impartial",
+      "gives": "FAIR",
+      "note": "fair means impartial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "Q",
+      "IR"
+     ]
+    },
+    "explanation": {
+     "surface": "A neutral holy figure is willing to hear a query.",
+     "definitionFit": "A faqir, also spelt fakir, is a Muslim or Hindu religious ascetic who lives on alms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +1792,51 @@
     "text": "De la Mare's tragic heroine from Hugo's book",
     "enumeration": "9"
    },
-   "solution": "ESMERALDA"
+   "solution": "ESMERALDA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESMERALDA",
+    "definitions": [
+     {
+      "text": "heroine from Hugo's book",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tragic",
+      "for": "anagram",
+      "note": "a tragic turn of events wrecks things, so the name's letters are wrecked and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "De la Mare's",
+      "gives": "DELAMARES",
+      "note": "the poet's name and the possessive s supply all nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DELAMARES",
+       "gives": "ESMERALDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Points to a doomed female character in the poet Walter de la Mare's work.",
+     "walkthrough": "De la Mare looks like the author of the book, but his name is only letters; Victor Hugo is the author.",
+     "definitionFit": "Esmeralda is the Romani dancer at the heart of Victor Hugo's novel The Hunchback of Notre-Dame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "De"
+    }
+   }
   },
   {
    "number": 28,
@@ -472,7 +1850,64 @@
     "text": "Die tool fused onto article that measures angles",
     "enumeration": "10"
    },
-   "solution": "THEODOLITE"
+   "solution": "THEODOLITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "THEODOLITE",
+    "definitions": [
+     {
+      "text": "that measures angles",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fused",
+      "for": "anagram",
+      "note": "fused things are melted together into a new form, so these letters are remade"
+     }
+    ],
+    "linkWords": [
+     "onto"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "Die tool",
+      "gives": "DIETOOL",
+      "note": "these seven letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "ODOLITE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIETOOL",
+       "gives": "ODOLITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A metalworking die tool is welded onto some object for gauging angles.",
+     "walkthrough": "The definition is a relative clause standing for 'thing that measures angles'.",
+     "definitionFit": "A theodolite is a surveyor's instrument with a rotating telescope for measuring horizontal and vertical angles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Die"
+    }
+   }
   },
   {
    "number": 29,
@@ -486,7 +1921,56 @@
     "text": "Extremely tiny kiddie?",
     "enumeration": "4"
    },
-   "solution": "TYKE"
+   "solution": "TYKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "TYKE",
+    "definitions": [
+     {
+      "text": "Extremely tiny kiddie?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremes are ends, so only the outermost letters of each following word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiny",
+      "gives": "TY",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "kiddie",
+      "gives": "KE",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TY",
+      "KE"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The whole clue is both wordplay and definition: a very small child.",
+     "definitionFit": "A tyke is an informal word for a small, often mischievous child."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Extremely"
+    }
+   }
   }
  ]
 }
