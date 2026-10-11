@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Very English kind of city",
     "enumeration": "6"
    },
-   "solution": "VENICE"
+   "solution": "VENICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VENICE",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "V",
+      "note": "V is the standard abbreviation for very"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "kind",
+      "gives": "NICE",
+      "note": "nice means kind or pleasant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "E",
+      "NICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describing a city as having a thoroughly English character.",
+     "walkthrough": "'Kind of' looks like a single phrase, but 'kind' supplies letters and 'of' links them to the definition.",
+     "definitionFit": "Venice is the famous Italian city of canals in the Veneto region."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kind"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,70 @@
     "text": "Five on spinning tier leave with dizziness",
     "enumeration": "7"
    },
-   "solution": "VERTIGO"
+   "solution": "VERTIGO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "VERTIGO",
+    "definitions": [
+     {
+      "text": "dizziness",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spinning",
+      "for": "anagram",
+      "note": "something spinning is whirled around, so the letters come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     },
+     {
+      "clueFragment": "tier",
+      "gives": "TIER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "leave",
+      "gives": "GO",
+      "note": "to go is to leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ERTI",
+      "GO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIER",
+       "gives": "ERTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Five people on a revolving level departing feeling giddy.",
+     "definitionFit": "Vertigo is a sensation of whirling and loss of balance, a form of dizziness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spinning"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +176,43 @@
     "text": "Fabric many long to hold",
     "enumeration": "5"
    },
-   "solution": "NYLON"
+   "solution": "NYLON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NYLON",
+    "definitions": [
+     {
+      "text": "Fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hold",
+      "for": "hidden_word",
+      "note": "the words hold the answer, carrying it inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many long",
+      "gives": "NYLON",
+      "note": "found across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A fabric that lots of people yearn to own.",
+     "walkthrough": "The answer straddles the words: maNY LONg.",
+     "definitionFit": "Nylon is a synthetic material woven into cloth, a fabric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +226,64 @@
     "text": "Caught Peter pinching drink and cake",
     "enumeration": "7"
    },
-   "solution": "CRUMPET"
+   "solution": "CRUMPET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CRUMPET",
+    "definitions": [
+     {
+      "text": "cake",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pinching",
+      "for": "deletion",
+      "note": "pinching means nipping off, so the name loses its tail"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is the cricket abbreviation for caught"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "RUM",
+      "note": "rum is an alcoholic drink"
+     },
+     {
+      "clueFragment": "Peter",
+      "gives": "PETER",
+      "note": "taken as written; a name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUM",
+      "PET"
+     ]
+    },
+    "explanation": {
+     "surface": "A man caught stealing a drink and a cake.",
+     "walkthrough": "The parse is loose: the name is cut short and the drink sits before it with no word saying so. C for caught comes from cricket scorecards.",
+     "definitionFit": "A crumpet is a soft griddle cake, a British teatime item toasted and buttered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pinching"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +297,43 @@
     "text": "Coffee blend's weak",
     "enumeration": "6"
    },
-   "solution": "FEEBLE"
+   "solution": "FEEBLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FEEBLE",
+    "definitions": [
+     {
+      "text": "weak",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s",
+      "for": "hidden_word",
+      "note": "the possessive says the letters belong to the words before it, so they are found inside that phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coffee blend",
+      "gives": "FEEBLE",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A complaint that a mix of coffee lacks strength.",
+     "walkthrough": "The answer straddles the two words: cofFEE BLEnd.",
+     "definitionFit": "Feeble and weak are synonyms, both describing something lacking strength or force."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blend"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +347,58 @@
     "text": "Time to admit strike-breaker's mistakes in print",
     "enumeration": "6"
    },
-   "solution": "ERRATA"
+   "solution": "ERRATA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ERRATA",
+    "definitions": [
+     {
+      "text": "mistakes in print",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to admit",
+      "for": "container",
+      "note": "to admit someone is to let them in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     },
+     {
+      "clueFragment": "strike-breaker",
+      "gives": "RAT",
+      "note": "a rat is someone who works during a strike, a scab"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "RAT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "It is time to own up to a scab's misprints.",
+     "walkthrough": "A rat is a strike-breaker because they desert their fellow workers, as a rat deserts a sinking ship.",
+     "definitionFit": "Errata is a list of errors found in a printed book, the plural of erratum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "admit"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +412,57 @@
     "text": "Immoral place where money's made on the game?",
     "enumeration": "9"
    },
-   "solution": "BADMINTON"
+   "solution": "BADMINTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BADMINTON",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Immoral",
+      "gives": "BAD",
+      "note": "bad means wicked or immoral"
+     },
+     {
+      "clueFragment": "place where money's made",
+      "gives": "MINT",
+      "note": "a mint is where coins are produced"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAD",
+      "MINT",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A disreputable place where cash is earned through prostitution, 'on the game' being British slang for that trade.",
+     "walkthrough": "'On the game' is British slang for working as a prostitute, which drives the surface; 'game' is just a sport.",
+     "definitionFit": "Badminton is a racket sport played with a shuttlecock, so it is a game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Immoral"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +476,51 @@
     "text": "Mountain where girl goes to chill out",
     "enumeration": "7"
    },
-   "solution": "EVEREST"
+   "solution": "EVEREST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVEREST",
+    "definitions": [
+     {
+      "text": "Mountain",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "where",
+     "goes to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "EVE",
+      "note": "Eve is a girl's name"
+     },
+     {
+      "clueFragment": "chill out",
+      "gives": "REST",
+      "note": "to rest is to relax or chill out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE",
+      "REST"
+     ]
+    },
+    "explanation": {
+     "surface": "A mountain retreat where a young woman goes to unwind.",
+     "definitionFit": "Everest is the world's highest peak, in the Himalayas, a mountain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "chill"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +540,70 @@
      }
     ]
    },
-   "solution": "CARDIACARREST"
+   "solution": "CARDIACARREST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CARDIAC ARREST",
+    "definitions": [
+     {
+      "text": "medical emergency",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Worried",
+      "for": "anagram",
+      "note": "something worried is agitated and unsettled, so its letters are shaken into a new order"
+     },
+     {
+      "text": "to be in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "going to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carer said",
+      "gives": "CARERSAID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "transport",
+      "gives": "CART",
+      "note": "a cart is a vehicle for transport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "DIACARRES",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARERSAID",
+       "gives": "DIACARRES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An anxious carer says the patient must be in an ambulance on the way to an emergency.",
+     "walkthrough": "'Worried' reads as describing the carer, but it signals the shuffle of the two words after it.",
+     "definitionFit": "Cardiac arrest is the sudden stopping of the heart, a life-threatening medical emergency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Worried"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +617,61 @@
     "text": "Without a cap, molar decomposed in the mouth",
     "enumeration": "4"
    },
-   "solution": "ORAL"
+   "solution": "ORAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ORAL",
+    "definitions": [
+     {
+      "text": "in the mouth",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Without a cap",
+      "for": "deletion",
+      "note": "a cap sits on top, so losing it means dropping the first letter of the word"
+     },
+     {
+      "text": "decomposed",
+      "for": "anagram",
+      "note": "something decomposed has broken down, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "molar",
+      "gives": "MOLAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLAR",
+       "gives": "ORAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist's note about a rotten back tooth missing its crown.",
+     "walkthrough": "Remove the M from MOLAR, then rearrange OLAR into ORAL. 'Cap' plays on a dental cap.",
+     "definitionFit": "Oral means relating to or taking place in the mouth, as in oral hygiene."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +685,54 @@
     "text": "Full length in bed during a massage",
     "enumeration": "10"
    },
-   "solution": "UNABRIDGED"
+   "solution": "UNABRIDGED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNABRIDGED",
+    "definitions": [
+     {
+      "text": "Full length",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "massage",
+      "for": "anagram",
+      "note": "a massage kneads and works things over, so the letters are worked into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed during a",
+      "gives": "BEDDURINGA",
+      "note": "taken as written; ten letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEDDURINGA",
+       "gives": "UNABRIDGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stretched out full length on a bed while being massaged.",
+     "walkthrough": "'During' looks like a joining word, but all three words, 'bed during a', are the fodder.",
+     "definitionFit": "An unabridged text is the complete version, at its full length with nothing cut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "during"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +746,55 @@
     "text": "Unlawfully take what makes us human during sleep",
     "enumeration": "6"
    },
-   "solution": "KIDNAP"
+   "solution": "KIDNAP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KIDNAP",
+    "definitions": [
+     {
+      "text": "Unlawfully take",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during another thing lies within it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what makes us human",
+      "gives": "DNA",
+      "note": "DNA is the genetic code that makes us what we are"
+     },
+     {
+      "clueFragment": "sleep",
+      "gives": "KIP",
+      "note": "kip is British slang for a sleep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KI",
+      "DNA",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A philosophical worry about losing our humanity while asleep.",
+     "walkthrough": "Kip is everyday British slang for a nap; the genetic code is what makes us human.",
+     "definitionFit": "To kidnap is to seize and carry someone off illegally, an unlawful taking of a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "human"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +808,71 @@
     "text": "Racket involving separatists and East European prisoner",
     "enumeration": "8"
    },
-   "solution": "DETAINEE"
+   "solution": "DETAINEE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DETAINEE",
+    "definitions": [
+     {
+      "text": "prisoner",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve something is to include it, so one piece is placed within the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Racket",
+      "gives": "DIN",
+      "note": "a din is a loud noise or racket"
+     },
+     {
+      "clueFragment": "separatists",
+      "gives": "ETA",
+      "note": "ETA was the Basque separatist group"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "E is the compass abbreviation for East"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ETA",
+      "IN",
+      "E",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A news story about a protest by separatists and an Eastern European held in custody.",
+     "walkthrough": "ETA was the armed Basque separatist organisation in Spain, a stock crossword source for those letters.",
+     "definitionFit": "A detainee is a person held in custody, which is what a prisoner is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Racket"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +886,61 @@
     "text": "Doctor at university ready to criticise means to catch animal",
     "enumeration": "9"
    },
-   "solution": "MOUSETRAP"
+   "solution": "MOUSETRAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOUSETRAP",
+    "definitions": [
+     {
+      "text": "means to catch animal",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "MO",
+      "note": "MO is a medical officer, a doctor"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "ready",
+      "gives": "SET",
+      "note": "set means ready, as in ready, steady, go"
+     },
+     {
+      "clueFragment": "to criticise",
+      "gives": "RAP",
+      "note": "to rap is to rebuke or criticise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "U",
+      "SET",
+      "RAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A university doctor primed to attack some hunting device.",
+     "definitionFit": "A mousetrap is a device for catching a small rodent, which is a means of catching an animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +954,65 @@
     "text": "Advocate of love right to tuck into evening meal?",
     "enumeration": "9"
    },
-   "solution": "SUPPORTER"
+   "solution": "SUPPORTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SUPPORTER",
+    "definitions": [
+     {
+      "text": "Advocate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to tuck into",
+      "for": "container",
+      "note": "something tucked into another is pushed inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "RT",
+      "note": "RT is an abbreviation for right"
+     },
+     {
+      "clueFragment": "evening meal?",
+      "gives": "SUPPER",
+      "note": "supper is an evening meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPP",
+      "ORT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A champion of romance arriving just in time to tuck into dinner.",
+     "walkthrough": "'Tuck into' suggests eating, but it is the container signal; the meal is the outer word.",
+     "definitionFit": "An advocate is someone who backs a cause, and a supporter is a backer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tuck"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1032,51 @@
      }
     ]
    },
-   "solution": "ATIT"
+   "solution": "ATIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT IT",
+    "definitions": [
+     {
+      "text": "Having sex",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky line about romance with a woman, 'bird' being British slang for a girlfriend.",
+     "walkthrough": "'Bird' is British slang for a young woman, which drives the surface, but here it is the small songbird.",
+     "definitionFit": "'At it' is a British euphemism for being engaged in sexual activity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1090,60 @@
     "text": "Back up for officer at end of party",
     "enumeration": "4"
    },
-   "solution": "COPY"
+   "solution": "COPY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COPY",
+    "definitions": [
+     {
+      "text": "Back up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "officer",
+      "gives": "COP",
+      "note": "a cop is a police officer"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COP",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Calling for police reinforcements when a party ends.",
+     "walkthrough": "'Back up' suggests police reinforcements, but it is the computing sense of saving a duplicate.",
+     "definitionFit": "To back up a file is to make a duplicate of it, which is to copy it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1157,57 @@
     "text": "With which to encourage growth of company with money at stake",
     "enumeration": "7"
    },
-   "solution": "COMPOST"
+   "solution": "COMPOST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMPOST",
+    "definitions": [
+     {
+      "text": "With which to encourage growth",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M stands for money in economics, as in M1"
+     },
+     {
+      "clueFragment": "stake",
+      "gives": "POST",
+      "note": "a post is a stake driven into the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "M",
+      "POST"
+     ]
+    },
+    "explanation": {
+     "surface": "A business growth plan in which capital is put at risk.",
+     "walkthrough": "The definition reads like business talk, but it means feeding plants; the 'with' after it joins company to money.",
+     "definitionFit": "Compost is decayed organic matter dug into soil to help plants grow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "growth"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1221,58 @@
     "text": "Conspire with country invading ally",
     "enumeration": "9"
    },
-   "solution": "MACHINATE"
+   "solution": "MACHINATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MACHINATE",
+    "definitions": [
+     {
+      "text": "Conspire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invading",
+      "for": "container",
+      "note": "an invader goes into territory, so one piece moves inside the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ally",
+      "gives": "MATE",
+      "note": "a mate is a friend or ally"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "CHINA",
+      "note": "China is a country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "CHINA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation plotting together with another nation that then invades its ally.",
+     "walkthrough": "'Ally' sounds political in this surface, but it is just a friend.",
+     "definitionFit": "To machinate is to scheme or plot secretly, which is what conspirators do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1286,65 @@
     "text": "Live at home after sunless short vacations with artist",
     "enumeration": "7"
    },
-   "solution": "HOLBEIN"
+   "solution": "HOLBEIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HOLBEIN",
+    "definitions": [
+     {
+      "text": "artist",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sunless",
+      "for": "deletion",
+      "note": "less of the sun means the letter standing for sun is taken out"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short vacations",
+      "gives": "HOLS",
+      "note": "hols is British shorthand for holidays"
+     },
+     {
+      "clueFragment": "Live",
+      "gives": "BE",
+      "note": "to be is to exist or live"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "in means at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOL",
+      "BE",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter happy to stay home after holidays with no sunshine.",
+     "walkthrough": "S stands for sun, so 'sunless' drops that letter. Hols is everyday British for holidays.",
+     "definitionFit": "Hans Holbein the Younger was a German-Swiss painter at Henry VIII's court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Live"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1358,58 @@
     "text": "Fool secures three points for matching tops",
     "enumeration": "7"
    },
-   "solution": "TWINSET"
+   "solution": "TWINSET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TWINSET",
+    "definitions": [
+     {
+      "text": "matching tops",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secures",
+      "for": "container",
+      "note": "securing something means holding it fast inside, so one piece is enclosed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "TWIT",
+      "note": "a twit is a fool"
+     },
+     {
+      "clueFragment": "three points",
+      "gives": "NSE",
+      "note": "N, S and E are three compass points"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWI",
+      "NSE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A clown scoring three points in a contest for coordinated shirts.",
+     "walkthrough": "The points are compass points, not a score.",
+     "definitionFit": "A twinset is a woman's matching cardigan and jumper worn together, two coordinated garments for the upper body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1423,69 @@
     "text": "Where to pray for hospital in troubled place",
     "enumeration": "6"
    },
-   "solution": "CHAPEL"
+   "solution": "CHAPEL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CHAPEL",
+    "definitions": [
+     {
+      "text": "Where to pray",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "troubled",
+      "for": "anagram",
+      "note": "something troubled is disturbed, so its letters are thrown into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map symbol for hospital"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "PLACE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "H",
+      "APEL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PLACE",
+       "gives": "CAPEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seeking somewhere to pray for a hospital in a strife-torn region.",
+     "definitionFit": "A chapel is a small building or room set aside for Christian worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "troubled"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1499,58 @@
     "text": "Asphyxiate without oxygen; it's easier!",
     "enumeration": "8"
    },
-   "solution": "SMOOTHER"
+   "solution": "SMOOTHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SMOOTHER",
+    "definitions": [
+     {
+      "text": "easier",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "here without means outside, so the first word wraps around the next piece"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Asphyxiate",
+      "gives": "SMOTHER",
+      "note": "to smother is to suffocate"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMO",
+      "O",
+      "THER"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim observation that suffocating someone is simpler without oxygen.",
+     "walkthrough": "'Without' seems to mean lacking oxygen, but its old sense is outside: SMOTHER wraps around O.",
+     "definitionFit": "Smoother can mean less difficult, so a smoother path is an easier one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1564,65 @@
     "text": "Setter beginning to look after fast pulse",
     "enumeration": "6"
    },
-   "solution": "LENTIL"
+   "solution": "LENTIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LENTIL",
+    "definitions": [
+     {
+      "text": "pulse",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fast",
+      "gives": "LENT",
+      "note": "Lent is the Christian period of fasting"
+     },
+     {
+      "clueFragment": "Setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of look"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LENT",
+      "I",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter starting to take care of someone who is fasting.",
+     "walkthrough": "'After' puts I and L after LENT. 'Pulse' is not the heartbeat but an edible seed.",
+     "definitionFit": "A pulse is the edible seed of a legume, and a lentil is one such seed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pulse"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1636,72 @@
     "text": "Founder of prize given by head for Edward's top first in languages",
     "enumeration": "5"
    },
-   "solution": "NOBEL"
+   "solution": "NOBEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NOBEL",
+    "definitions": [
+     {
+      "text": "Founder of prize",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "the top of a word in a down clue is its opening letter"
+     },
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "the first in a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "given by",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head",
+      "gives": "NOB",
+      "note": "nob is slang for the head"
+     },
+     {
+      "clueFragment": "Edward's",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of Edward"
+     },
+     {
+      "clueFragment": "languages",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of languages"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOB",
+      "E",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A prize for languages awarded to Edward, presented by the headteacher.",
+     "walkthrough": "'Head' looks like a headteacher; it is the slang word nob.",
+     "definitionFit": "Alfred Nobel endowed the Nobel Prizes in his will, so he founded them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1715,70 @@
     "text": "Culture welcoming doctored photo of hygiene product?",
     "enumeration": "10"
    },
-   "solution": "TOOTHPASTE"
+   "solution": "TOOTHPASTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TOOTHPASTE",
+    "definitions": [
+     {
+      "text": "hygiene product?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doctored",
+      "for": "anagram",
+      "note": "something doctored has been tampered with, so its letters are rearranged"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome a guest is to take them inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Culture",
+      "gives": "TASTE",
+      "note": "taste means cultural refinement"
+     },
+     {
+      "clueFragment": "photo",
+      "gives": "PHOTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OOTHP",
+      "ASTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PHOTO",
+       "gives": "OOTHP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cultural world that embraces a retouched photo in an advert for a hygiene product.",
+     "walkthrough": "The shuffled letters sit inside the culture word just after its first letter.",
+     "definitionFit": "Toothpaste is used to clean teeth, a dental hygiene product; the question mark marks it as an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Culture"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1792,48 @@
     "text": "Heard singer's bottom?",
     "enumeration": "4"
    },
-   "solution": "BASE"
+   "solution": "BASE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BASE",
+    "definitions": [
+     {
+      "text": "bottom",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heard",
+      "for": "homophone",
+      "note": "heard means the word is caught by ear rather than read on the page"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer",
+      "gives": "BASE",
+      "soundsLike": "BASS",
+      "note": "a bass is a singer with the lowest voice, pronounced like the foundation word"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheeky question about a singer's backside being overheard.",
+     "walkthrough": "The surface invites a rude reading of 'bottom'; it means the lowest part.",
+     "definitionFit": "The base of something is its lowest part or foundation, its bottom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1847,76 @@
     "text": "Animal let loose after period of sexual excitement's over",
     "enumeration": "6"
    },
-   "solution": "TURTLE"
+   "solution": "TURTLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "TURTLE",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s over",
+      "for": "reversal",
+      "note": "turning something over flips it end to end, so the word reads backwards"
+     },
+     {
+      "text": "loose",
+      "for": "anagram",
+      "note": "letting letters loose frees them to fall into a new order"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "period of sexual excitement",
+      "gives": "RUT",
+      "note": "the rut is the mating season of deer and similar animals"
+     },
+     {
+      "clueFragment": "let",
+      "gives": "LET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUR",
+      "TLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LET",
+       "gives": "TLE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "RUT",
+       "to": "TUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal released once the mating season has finished.",
+     "walkthrough": "'Over' reads as finished in the surface, but it signals turning the word round.",
+     "definitionFit": "A turtle is a reptile with a shell, an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1930,61 @@
     "text": "A new monarch's permitted to exhibit ornamental chain",
     "enumeration": "6"
    },
-   "solution": "ANKLET"
+   "solution": "ANKLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANKLET",
+    "definitions": [
+     {
+      "text": "ornamental chain",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "to exhibit"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "monarch's",
+      "gives": "K",
+      "note": "K is short for king, a monarch"
+     },
+     {
+      "clueFragment": "permitted",
+      "gives": "LET",
+      "note": "let means allowed or permitted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "K",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly crowned ruler being allowed to show off some jewellery.",
+     "definitionFit": "An anklet is a decorative band or chain worn around the ankle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "monarch's"
+    }
+   }
   }
  ]
 }
