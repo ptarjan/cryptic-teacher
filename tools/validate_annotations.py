@@ -486,11 +486,53 @@ def check_link_word_is_not_inside_a_block(tag, ann, clue, errors):
         return any(fits(k + 1, taken + [s]) for s in link_hits[k] if clear(s, taken))
 
     if not fits(0, []):
+        fix = "; ".join(link_in_block_hints(ann, links)) or "drop it from one list"
         errors.append(
             f"{tag}: linkWords {links} have no copy in the clue clear of the block "
             f"fragments {frags}, so a word is counted twice: once as a "
             f"link adding no letters, once as wordplay. Each clue word is either link "
-            f"or wordplay; drop it from one list")
+            f"or wordplay: {fix}")
+
+
+def link_adds_nothing(frag, lw, gives):
+    """True when a block's `gives` is drawn from its fragment's own letters
+    (anagram, hidden or selected fodder) and the fragment without `lw` still
+    holds every one of them: the link word gives the block nothing ("met with
+    fatal" giving METFATAL), so it is no fodder."""
+    want, have = collections.Counter(letters(gives)), collections.Counter(letters(frag))
+    if not want or want - have:
+        return False
+    return not want - collections.Counter(letters(frag.replace(lw, " ", 1)))
+
+
+def link_in_block_hints(ann, links):
+    """The edit to make for each link word sitting inside a block fragment, said
+    in the clue's own words, so the fix takes one turn and not a guess."""
+    out = []
+    for lw in links:
+        for b in ann.get("blocks") or []:
+            frag = b.get("clueFragment") if isinstance(b, dict) else None
+            if not isinstance(frag, str) or lw not in frag:
+                continue
+            gives = b.get("gives")
+            if frag == lw:
+                out.append(f"the block {frag!r} is the link word itself: if it gives "
+                           f"{letters(gives) or 'no letters'}, take {lw!r} out of linkWords, "
+                           f"else drop the block")
+            elif link_adds_nothing(frag, lw, gives):
+                left, _, right = frag.partition(lw)
+                parts = [x.strip(" ,;:") for x in (left, right) if x.strip(" ,;:")]
+                out.append(f"{lw!r} gives none of {letters(gives)}, so it is not fodder: "
+                           + (f"cut the block {frag!r} to {parts[0]!r}" if len(parts) == 1 else
+                              f"split the block {frag!r} into {' and '.join(map(repr, parts))}"))
+            elif frag.startswith(lw) or frag.endswith(lw):
+                rest = (frag[len(lw):] if frag.startswith(lw) else frag[:-len(lw)]).strip(" ,;:")
+                out.append(f"if {lw!r} only links, the block is {rest!r}; if the block "
+                           f"uses its letters, take {lw!r} out of linkWords")
+            else:
+                out.append(f"{lw!r} is inside the block {frag!r}: if the block uses its "
+                           f"letters, take it out of linkWords")
+    return out
 
 
 def place_fragments(ann, clue):

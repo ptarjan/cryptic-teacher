@@ -2035,6 +2035,11 @@ tools/test_blocks_link_word.sh                when a clue's blocks are short by 
                                               letters of a word filed under linkWords, that
                                               word is fodder, and the warning says the edit to
                                               make
+tools/test_link_word_untangle.sh              does annotate_check take a link word out of the
+                                              block it sits in only when exactly one edit (drop
+                                              it from linkWords, trim the fragment, drop the
+                                              block) clears it cleanly, and does the error name
+                                              the edit when none does?
 tools/test_blocks_surplus.sh                  when a clue's blocks give too many letters and
                                               none too few, the warning names the single-block
                                               edits that take exactly the surplus away
