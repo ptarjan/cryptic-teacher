@@ -909,6 +909,31 @@ check("a count read with its brackets ('isi' for (5))", True, oc.number_read(("i
 check("mirror: a word is no count", False, oc.number_read(("silly",), "5", "end"))
 check("mirror: a short word is no count ('money in it', not '(7)')", False, oc.number_read(("it",), "7", "end"))
 
+# Times 1974-03-21 (13642) 13A and 1977-09 "said the1 Rev Trimmer": a figure
+# run onto a word (the clue's number, a speck) that no reading prints.
+isl = ["#", "Island", "is", "also", "without", "a", "carrier", "#"]
+check("a clue number run onto the first word goes (times-13642 13A)",
+      "Island is also without a carrier", oc.agree("3Island is also without a carrier", [isl, isl])[0])
+rev = ["#", "Kings", "divinely", "so", ",", "sald", "the", "Rev", "Trimmer", "#"]
+check("a figure run onto a word's end no reading prints goes",
+      "Kings divinely so, said the Rev Trimmer", oc.agree("Kings divinely so, said the1 Rev Trimmer", [rev, rev, rev])[0])
+check("mirror: a figure another reading reads there stays",
+      "Kings divinely so, said the1 Rev Trimmer",
+      oc.agree("Kings divinely so, said the1 Rev Trimmer", [rev, rev[:7] + ["#"] + rev[7:]])[0])
+cry = ["#", "Alarming", "cry", "comes", "back", "tide", "is", "rising", "#"]
+check("mirror: a word only one reading prints as voted keeps its figure (held)",
+      "Alarming cry1 comes back tide is rising",
+      oc.agree("Alarming crj1 comes back tide is rising", [cry, cry[:2] + ["csy"] + cry[3:]])[0])
+mway = ["#", "M", "motorway", "jam", "#"]
+check("mirror: a figure after a capital is the print's ('M1')", "M1 motorway jam", oc.agree("M1 motorway jam", [mway, mway])[0])
+check("mirror: a figure before a capital is the print's ('4WD')", "4WD vehicle",
+      oc.agree("4WD vehicle", [["#", "WD", "vehicle", "#"]] * 2)[0])
+gentle = ["#", "Can", "be", "gentle", "as", "birds", "#"]
+check("mirror: a clue with other specks keeps its figure (held)", "Can be8 gentle. 'as birds",
+      oc.agree("Can be8 gentle. 'as birds", [gentle, gentle])[0])
+check("mirror: a clue with other figures keeps a lead one (a run-on)", "8Ruth's beer 151",
+      oc.agree("8Ruth's beer 151", [["#", "Ruth's", "beer", "#"]] * 2)[0])
+
 print(f"FAILS {fails}")
 EOF
 )
