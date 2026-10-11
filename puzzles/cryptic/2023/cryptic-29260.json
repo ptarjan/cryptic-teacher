@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,73 @@
     "text": "Name for hill in Rome in a Latin exam, initially -- under pressure",
     "enumeration": "8"
    },
-   "solution": "PALATINE"
+   "solution": "PALATINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PALATINE",
+    "definitions": [
+     {
+      "text": "Name for hill in Rome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word just before it"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, under places the rest of the wordplay below the abbreviation for pressure"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the physics symbol for pressure"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "LATIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "exam",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of exam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "LATIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A student must name one of Rome's hills in a pressured Latin exam.",
+     "walkthrough": "In this down clue P sits on top, with A LATIN E beneath it.",
+     "definitionFit": "The Palatine is one of the seven hills on which ancient Rome was built."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "under"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +116,49 @@
     "text": "Fateful day in Senate that is ending early",
     "enumeration": "4"
    },
-   "solution": "IDES"
+   "solution": "IDES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IDES",
+    "definitions": [
+     {
+      "text": "Fateful day in Senate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending early",
+      "for": "deletion",
+      "note": "ending early means the phrase stops one letter short of its proper finish"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IDEST",
+      "note": "id est is the Latin for that is, abbreviated i.e."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDES"
+     ]
+    },
+    "explanation": {
+     "surface": "A historical note on the day in the Senate that ended a ruler's life early.",
+     "walkthrough": "Lop the last letter off id est to leave IDES.",
+     "definitionFit": "The Ides of March was the day Julius Caesar was stabbed at a meeting of the Roman Senate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ending"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +172,42 @@
     "text": "Measures section of totem, possibly",
     "enumeration": "6"
    },
-   "solution": "TEMPOS"
+   "solution": "TEMPOS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TEMPOS",
+    "definitions": [
+     {
+      "text": "Measures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "section of",
+      "for": "hidden_word",
+      "note": "a section is a slice cut out of a longer run of text"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "totem, possibly",
+      "gives": "TEMPOS",
+      "note": "the letters run across the end of totem and the start of possibly"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sizes up part of what may be a totem pole.",
+     "definitionFit": "Tempos are the rates or speeds at which music is played, measures of its pace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Measures"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +221,54 @@
     "text": "Destruction of Capitol that's newsworthy",
     "enumeration": "7"
    },
-   "solution": "TOPICAL"
+   "solution": "TOPICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOPICAL",
+    "definitions": [
+     {
+      "text": "newsworthy",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Destruction of",
+      "for": "anagram",
+      "note": "a building's destruction leaves its parts scattered, so the letters are rebuilt in a new order"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capitol",
+      "gives": "CAPITOL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAPITOL",
+       "gives": "TOPICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wrecking the Capitol building would certainly make the news.",
+     "walkthrough": "The Capitol is the US Congress building in Washington, and also the temple of Jupiter on Rome's Capitoline Hill.",
+     "definitionFit": "Something topical concerns current affairs, so it is of interest to the news."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Destruction"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +282,82 @@
     "text": "Leader in Congress introducing a law about cigarette problem in fall",
     "enumeration": "8"
    },
-   "solution": "CATARACT"
+   "solution": "CATARACT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "CATARACT",
+    "definitions": [
+     {
+      "text": "fall",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leader in",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     },
+     {
+      "text": "introducing",
+      "for": "charade",
+      "note": "the first piece introduces what follows, coming before it"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the law phrase wraps around the cigarette substance"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Congress",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of Congress"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cigarette problem",
+      "gives": "TAR",
+      "note": "tar is the harmful residue in cigarette smoke"
+     },
+     {
+      "clueFragment": "law",
+      "gives": "ACT",
+      "note": "an act is a law passed by a legislature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "TAR",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A congressional leader brings in a law on the problem of smoking, which then fails.",
+     "walkthrough": "'Problem' tempts as the eye-disease definition, but it belongs to the cigarette; the definition is 'fall', as in waterfall.",
+     "definitionFit": "A cataract is a large, steep waterfall, so a fall of water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fall"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +371,62 @@
     "text": "Like some senators, protest 50% of Arctic being taken over",
     "enumeration": "10"
    },
-   "solution": "DEMOCRATIC"
+   "solution": "DEMOCRATIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEMOCRATIC",
+    "definitions": [
+     {
+      "text": "Like some senators",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being taken over",
+      "for": "reversal",
+      "note": "in a down clue, taken over means flipped upside down, so the stated half reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protest",
+      "gives": "DEMO",
+      "note": "a demo is a demonstration, a public protest"
+     },
+     {
+      "clueFragment": "50% of Arctic",
+      "gives": "ARCTIC",
+      "note": "the word whose first half, three letters of six, is turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMO",
+      "CRA",
+      "TIC"
+     ],
+     "reversals": [
+      {
+       "from": "ARC",
+       "to": "CRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Senators protest about part of the Arctic being taken over.",
+     "walkthrough": "Only the first half of Arctic is turned; the second half stays as it is.",
+     "definitionFit": "Democratic senators are members of the US Democratic Party, one of the two big parties in the Senate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "protest"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +440,46 @@
     "text": "Bottle used as weapon by Clint Eastwood",
     "enumeration": "6"
    },
-   "solution": "MAGNUM"
+   "solution": "MAGNUM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAGNUM",
+    "definitions": [
+     {
+      "text": "Bottle",
+      "at": 0
+     },
+     {
+      "text": "weapon by Clint Eastwood",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "used as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bottle",
+      "note": "first meaning: a wine bottle holding twice the standard amount"
+     },
+     {
+      "clueFragment": "weapon by Clint Eastwood",
+      "note": "second meaning: the .44 revolver carried by Eastwood's Dirty Harry"
+     }
+    ],
+    "explanation": {
+     "surface": "In a bar brawl a bottle becomes a weapon in Clint Eastwood's hands.",
+     "definitionFit": "The word names both an oversized wine bottle and a powerful handgun cartridge or revolver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bottle"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +499,58 @@
      }
     ]
    },
-   "solution": "SANDIEGO"
+   "solution": "SANDIEGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAN DIEGO",
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "follows puts the setter's self-reference after the word for polish"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Polish",
+      "gives": "SAND",
+      "note": "to sand is to smooth or polish"
+     },
+     {
+      "clueFragment": "bilingual Brendan",
+      "gives": "IEGO",
+      "note": "Brendan is the setter, who names himself twice: I in English and EGO in Latin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAND",
+      "IEGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A Polish speaker with two languages, named Brendan, lives in an American city.",
+     "walkthrough": "'Polish' reads as the nationality, but it is the verb meaning to smooth. Ego is Latin for I.",
+     "definitionFit": "San Diego is a large city in southern California."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +564,57 @@
     "text": "Name in hood for stadium",
     "enumeration": "5"
    },
-   "solution": "ARENA"
+   "solution": "ARENA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARENA",
+    "definitions": [
+     {
+      "text": "stadium",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item inside the neighbourhood word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hood",
+      "gives": "AREA",
+      "note": "hood is slang for neighbourhood, a local area"
+     },
+     {
+      "clueFragment": "Name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARE",
+      "N",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A gang names its neighbourhood after the local stadium.",
+     "definitionFit": "An arena is an enclosed venue for sport or shows, much like a stadium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hood"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +628,47 @@
     "text": "God is object of American missions",
     "enumeration": "4"
    },
-   "solution": "MARS"
+   "solution": "MARS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MARS",
+    "definitions": [
+     {
+      "text": "God",
+      "at": 0
+     },
+     {
+      "text": "object of American missions",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God",
+      "note": "first meaning: the Roman god of war"
+     },
+     {
+      "clueFragment": "object of American missions",
+      "note": "second meaning: the planet NASA sends rovers and orbiters to"
+     }
+    ],
+    "explanation": {
+     "surface": "Missionaries from America set out to spread the word of God.",
+     "walkthrough": "'Missions' suggests religious missionaries, which the word God encourages; the missions are space flights.",
+     "definitionFit": "The red planet is named after the Roman war god and has been explored by many US space probes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "missions"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +688,58 @@
      }
     ]
    },
-   "solution": "PRIMADONNA"
+   "solution": "PRIMADONNA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PRIMA DONNA",
+    "definitions": [
+     {
+      "text": "Diva",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sharing male",
+      "for": "deletion",
+      "note": "sharing means the two words overlap on one letter for male instead of each having its own copy"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demure",
+      "gives": "PRIM",
+      "note": "prim means demure or proper"
+     },
+     {
+      "clueFragment": "megastar",
+      "gives": "MADONNA",
+      "note": "Madonna is the pop megastar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRI",
+      "MADONNA"
+     ]
+    },
+    "explanation": {
+     "surface": "A diva and a modest superstar share the same leading man.",
+     "walkthrough": "The M ending one word starts the other, so it is written once; M is the abbreviation for male.",
+     "definitionFit": "A prima donna is the leading female singer in an opera, the classic diva."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sharing"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +753,57 @@
     "text": "Place for events in Rome, mainly about America",
     "enumeration": "6"
    },
-   "solution": "CIRCUS"
+   "solution": "CIRCUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CIRCUS",
+    "definitions": [
+     {
+      "text": "Place for events in Rome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means most but not all, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "CIRCA",
+      "note": "circa is Latin for about, used with dates"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CIRC",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Where Rome's events were held, approximately like America's venues.",
+     "definitionFit": "A Roman circus, like the Circus Maximus, was an arena for chariot races and public games."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +817,67 @@
     "text": "Crazy outing in Rome or New York, say, in touching relationship",
     "enumeration": "10"
    },
-   "solution": "CONTIGUITY"
+   "solution": "CONTIGUITY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CONTIGUITY",
+    "definitions": [
+     {
+      "text": "touching relationship",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Crazy",
+      "for": "anagram",
+      "note": "crazy means disordered, so the letters are scrambled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the scrambled trip inside the metropolis"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outing",
+      "gives": "OUTING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Rome or New York, say",
+      "gives": "CITY",
+      "note": "Rome and New York are examples of a city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ONTIGU",
+      "ITY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OUTING",
+       "gives": "ONTIGU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild excursion in Rome or New York leads to a close relationship.",
+     "walkthrough": "The jumbled trip goes between the first letter of CITY and the rest.",
+     "definitionFit": "Contiguity is the state of being in contact or adjoining, things that touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touching"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +891,40 @@
     "text": "Lone answer for New Orleans, more for Rome, for instance?",
     "enumeration": "8"
    },
-   "solution": "ANAGRAMS"
+   "solution": "ANAGRAMS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANAGRAMS",
+    "definitions": [
+     {
+      "text": "Lone answer for New Orleans, more for Rome, for instance?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lone answer for New Orleans",
+      "note": "surface reading: someone gives a single reply in place of a city"
+     },
+     {
+      "clueFragment": "more for Rome, for instance?",
+      "note": "setter's reading: the letters of lone answer rearrange to New Orleans, and the letters of more rearrange to Rome; these are examples of letter swaps"
+     }
+    ],
+    "explanation": {
+     "surface": "One reply stands for New Orleans and a bigger one for Rome.",
+     "walkthrough": "Count the letters: 'lone answer' and 'New Orleans' use the same ten, 'more' and 'Rome' the same four.",
+     "definitionFit": "Each pair consists of words made by rearranging the same letters, which is exactly the device being named."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "answer"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +938,47 @@
     "text": "One bishop of Rome, like all associated with pride",
     "enumeration": "7"
    },
-   "solution": "LEONINE"
+   "solution": "LEONINE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEONINE",
+    "definitions": [
+     {
+      "text": "One bishop of Rome",
+      "at": 0
+     },
+     {
+      "text": "like all associated with pride",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One bishop of Rome",
+      "note": "first meaning: Pope Leo IX, read out as the answer"
+     },
+     {
+      "clueFragment": "like all associated with pride",
+      "note": "second meaning: lion-like, since a group of lions is a pride"
+     }
+    ],
+    "explanation": {
+     "surface": "A proud bishop of Rome resembles everyone linked with pride.",
+     "walkthrough": "Popes are bishops of Rome; the Roman numeral IX is spoken as nine.",
+     "definitionFit": "Leonine means of or like a lion, and a pride is the collective noun for lions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pride"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +998,44 @@
      }
     ]
    },
-   "solution": "NOTABENE"
+   "solution": "NOTABENE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOTA BENE",
+    "definitions": [
+     {
+      "text": "Closely observe",
+      "at": 0
+     },
+     {
+      "text": "what's cut in middle of Corn Belt",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Closely observe",
+      "note": "first meaning: the Latin instruction to note well"
+     },
+     {
+      "clueFragment": "what's cut in middle of Corn Belt",
+      "note": "second meaning: the full phrase whose shortened form NB stands in the middle of corN Belt"
+     }
+    ],
+    "explanation": {
+     "surface": "Pay attention to what gets harvested in the heart of the Corn Belt.",
+     "walkthrough": "'Cut' suggests harvesting corn, but it means abbreviated; the cut-down form sits in the centre of the two words. The Corn Belt is the US Midwest farming region.",
+     "definitionFit": "Nota bene is Latin for note well, used in writing to tell the reader to pay close attention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1049,58 @@
     "text": "Something created by senators, say, covering half of Utah",
     "enumeration": "7"
    },
-   "solution": "STATUTE"
+   "solution": "STATUTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STATUTE",
+    "definitions": [
+     {
+      "text": "Something created by senators",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping round, so the speech verb surrounds the state fragment"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "STATE",
+      "note": "to state is to say"
+     },
+     {
+      "clueFragment": "half of Utah",
+      "gives": "UT",
+      "note": "the first two of Utah's four letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAT",
+      "UT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Senators, for instance, draft laws covering part of Utah.",
+     "walkthrough": "'say' looks like the 'for example' marker after senators, but it is the verb to state.",
+     "definitionFit": "A statute is a written law passed by a legislature such as a senate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1114,65 @@
     "text": "Dulles or JFK, for example, spoke for forum, finally, in broken Latin",
     "enumeration": "8"
    },
-   "solution": "TERMINAL"
+   "solution": "TERMINAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TERMINAL",
+    "definitions": [
+     {
+      "text": "Dulles or JFK, for example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally picks the closing letter of each of the three words before it"
+     },
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed into pieces that can be put back in another order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spoke for forum",
+      "gives": "ERM",
+      "select": "last",
+      "note": "the last letters of spoke, for and forum"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "LATIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ERMLATIN",
+       "gives": "TERMINAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a US airport addresses a forum in poor Latin.",
+     "definitionFit": "Dulles and JFK are airports, and a terminal is the building where flights arrive and depart, so by extension the airport itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spoke"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1186,55 @@
     "text": "Sam, for example, a Republican? That's iffy",
     "enumeration": "7"
    },
-   "solution": "UNCLEAR"
+   "solution": "UNCLEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNCLEAR",
+    "definitions": [
+     {
+      "text": "iffy",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sam, for example",
+      "gives": "UNCLE",
+      "note": "Uncle Sam personifies the US"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNCLE",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Is Uncle Sam a Republican? Hard to say.",
+     "definitionFit": "Something iffy is doubtful or uncertain, not clear-cut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sam"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1248,64 @@
     "text": "Musical politician in Latin home, mostly rebuilt",
     "enumeration": "8"
    },
-   "solution": "HAMILTON"
+   "solution": "HAMILTON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HAMILTON",
+    "definitions": [
+     {
+      "text": "Musical politician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means all but a little, so the last letter goes"
+     },
+     {
+      "text": "rebuilt",
+      "for": "anagram",
+      "note": "rebuilt means put together again in a different form"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Latin",
+      "gives": "LATIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "HOME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LATINHOM",
+       "gives": "HAMILTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician fond of musicals rebuilds his Latin-style house.",
+     "definitionFit": "Alexander Hamilton was a US Founding Father whose life became a hit stage musical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Musical"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1319,64 @@
     "text": "Helps a number of Romans over troubles also engulfing part of US",
     "enumeration": "6"
    },
-   "solution": "AVAILS"
+   "solution": "AVAILS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVAILS",
+    "definitions": [
+     {
+      "text": "Helps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, over places the Roman number on top of the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "number of Romans",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     },
+     {
+      "clueFragment": "troubles",
+      "gives": "AILS",
+      "note": "ails means troubles or afflicts"
+     },
+     {
+      "clueFragment": "also engulfing part of US",
+      "note": "a second, parallel route: troubles also wrap round VA, the abbreviation for Virginia; it adds no further letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "AILS"
+     ]
+    },
+    "explanation": {
+     "surface": "Romans help America with its problems.",
+     "walkthrough": "Brendan gives two routes to one answer: A V over the word for troubles, or that same word wrapped round Virginia's state abbreviation.",
+     "definitionFit": "To avail is to be of use or help, so avails means helps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Romans"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1390,64 @@
     "text": "Slangily eliminate Republican in company, a noted speaker",
     "enumeration": "6"
    },
-   "solution": "CICERO"
+   "solution": "CICERO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CICERO",
+    "definitions": [
+     {
+      "text": "a noted speaker",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the killing and party pieces inside the word for company"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "Slangily eliminate",
+      "gives": "ICE",
+      "note": "to ice is slang for to kill"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ICE",
+      "R",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A gangster in the firm bumps off a Republican orator.",
+     "definitionFit": "Cicero was the great orator of ancient Rome, famous for his speeches in the Senate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eliminate"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1461,64 @@
     "text": "Grieves about middle of Louisiana and perilous times",
     "enumeration": "6"
    },
-   "solution": "CRISES"
+   "solution": "CRISES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CRISES",
+    "definitions": [
+     {
+      "text": "perilous times",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "middle of picks the single central letter of a nine-letter word"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the weeping verb goes round the chosen letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grieves",
+      "gives": "CRIES",
+      "note": "to cry is to grieve or weep"
+     },
+     {
+      "clueFragment": "Louisiana",
+      "gives": "S",
+      "select": "middle",
+      "note": "the fifth of the nine letters of Louisiana"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRI",
+      "S",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mourns over Louisiana's hard times, perhaps after a hurricane.",
+     "definitionFit": "Crises are times of intense danger or difficulty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grieves"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1538,88 @@
      }
     ]
    },
-   "solution": "CASUSBELLI"
+   "solution": "CASUSBELLI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram"
+    ],
+    "answer": "CASUS BELLI",
+    "definitions": [
+     {
+      "text": "what produces it",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     },
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disarranged"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the shuffled phrase at the end, behind the other pieces"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conflict",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of conflict"
+     },
+     {
+      "clueFragment": "since",
+      "gives": "AS",
+      "note": "as means since, as in because"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the United States"
+     },
+     {
+      "clueFragment": "I'll be",
+      "gives": "ILLBE",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AS",
+      "US",
+      "BELLI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ILLBE",
+       "gives": "BELLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vows to be upset once a conflict starts, since America is behind it.",
+     "walkthrough": "The 'it' of the definition is the conflict already named in the clue.",
+     "definitionFit": "A casus belli, Latin for occasion of war, is the act or event that justifies or provokes a war."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1633,49 @@
     "text": "Part of Star Wars character with little time for final notice",
     "enumeration": "4"
    },
-   "solution": "OBIT"
+   "solution": "OBIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBIT",
+    "definitions": [
+     {
+      "text": "final notice",
+      "at": 49
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of Star Wars character",
+      "gives": "OBI",
+      "note": "the first part of Obi-Wan Kenobi's name"
+     },
+     {
+      "clueFragment": "little time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A Star Wars character's brief screen time earns a last mention.",
+     "definitionFit": "An obit, short for obituary, is the newspaper notice published after a death."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "notice"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1689,71 @@
     "text": "Sex in party set up for poet",
     "enumeration": "4"
    },
-   "solution": "OVID"
+   "solution": "OVID",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "OVID",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the party word"
+     },
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, set up means raised so it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "Sex",
+      "gives": "VI",
+      "note": "sex is Latin for six, VI in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VI",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "DO",
+       "to": "OD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party is arranged around sex for a racy poet.",
+     "walkthrough": "'Sex' looks like the racy surface but is Latin for six, so it is a Roman numeral.",
+     "definitionFit": "Ovid was a Roman poet, author of the Metamorphoses and the Art of Love."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sex"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1777,51 @@
    "group": [
     "25-across",
     "26-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LATIN AMERICAN",
+    "definitions": [
+     {
+      "text": "one found in Peru, say",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reconstructed",
+      "for": "anagram",
+      "note": "reconstructed means built again in a different shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Incan material",
+      "gives": "INCANMATERIAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INCANMATERIAL",
+       "gives": "LATINAMERICAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rebuilt Inca remains are found in Peru, for example.",
+     "walkthrough": "The Incas built their empire in Peru, so the surface ties together nicely.",
+     "definitionFit": "Peru is a country of South America, so someone from there is a Latin American."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 26,
