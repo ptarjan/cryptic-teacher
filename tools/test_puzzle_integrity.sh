@@ -677,5 +677,59 @@ died "$out10" "the bare-count fixture"
 same "text of nothing but a count is flagged" "$(field BARE "$out10")" "1"
 same "missing with no text is not" "$(field MISSING "$out10")" "0"
 
+# DATE at write time (2026-10-11): the FT full pass re-filed ftcryptic-8021
+# (first printed 5 December 1992) off the 12 December scan that prints it
+# again, and filed second puzzles under the dates of archive.org items that
+# bind another issue's pages in; the checkpoint's pre-push then refused.
+out11=$(PYTHONPATH="$REPO/tools" SCRATCH="$scratch/date" python3 - <<'PY'
+import copy, json, os, shutil
+from pathlib import Path
+import puzzle_integrity as pi
+import puzzle_paths
+
+real = {n: pi.read_puzzle_file(puzzle_paths.find(f"ftcryptic-{n}")) for n in (8021, 8029, 8034)}
+puzzle_paths.PUZZLE_DIR = Path(os.environ["SCRATCH"]) / "puzzles"
+for p in real.values():
+    dest = puzzle_paths.file_for(p)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(json.dumps(p))
+
+
+def refused(p, old=None):
+    try:
+        pi.refuse_misdated_write(p, old)
+        return "allowed"
+    except pi.RefusedWrite as e:
+        return "refused" if all(k == "DATE" for k, _, _ in e.flags) else f"other {e}"
+
+
+def numbered(n, day, url="https://archive.org/details/x"):
+    p = copy.deepcopy(real[8021])
+    p["id"], p["number"], p["date"] = f"ftcryptic-{n}", n, day
+    p["source"] = {**p["source"], "url": url}
+    return p
+
+
+print("IN_ORDER", refused(numbered(8022, "1992-12-07")))
+print("BEFORE_BELOW", refused(numbered(8022, "1992-12-04")))
+print("AFTER_ABOVE", refused(numbered(8030, "1992-12-22")))
+print("SAME_AS_ABOVE", refused(numbered(8027, "1992-12-15")))
+later = copy.deepcopy(real[8021])
+later["date"] = "1992-12-12"
+later["source"] = {**later["source"], "url": later["source"]["url"].replace("Dec%2005", "Dec%2012")}
+print("LATER_REPRINT", refused(later, real[8021]))
+print("REWRITE_SAME_DAY", refused(copy.deepcopy(real[8021]), real[8021]))
+print("NEIGHBOURS", [x and x[0] for x in pi.filed_neighbours(numbered(8030, "1992-12-16"))])
+PY
+)
+died "$out11" "the write-time DATE fixture"
+same "a date between its filed neighbours is written" "$(field IN_ORDER "$out11")" "allowed"
+same "a date on or before the puzzle numbered below is refused" "$(field BEFORE_BELOW "$out11")" "refused"
+same "a date on or after the puzzle numbered above is refused" "$(field AFTER_ABOVE "$out11")" "refused"
+same "a second puzzle on the next one's day is refused" "$(field SAME_AS_ABOVE "$out11")" "refused"
+same "a filed puzzle moved to a later scan's date is refused" "$(field LATER_REPRINT "$out11")" "refused"
+same "a rewrite keeping the filed date is untouched" "$(field REWRITE_SAME_DAY "$out11")" "allowed"
+check "$out11" "NEIGHBOURS [8029, 8034]" "neighbours are the nearest filed numbers either side"
+
 [ "$fails" = 0 ] && echo "puzzle_integrity: all checks passed" || echo "puzzle_integrity: $fails FAILED"
 exit $((fails > 0))
