@@ -199,7 +199,7 @@ ITEM = re.compile(r"NewsUK(19\d\d)UKEnglish$")
 #: The Gale page images tools/gale_inbox.py lays out as Times editions of the
 #: same shape (GaleTimes<year>UKEnglish/<date>), read as a paper of their own
 #: (GALE).
-GALE_ITEM = re.compile(r"GaleTimes(19\d\d)UKEnglish$")
+GALE_ITEM = re.compile(r"GaleTimes((?:19|20)\d\d)UKEnglish$")
 #: {edition} is "<item>/<file base name>", quoted: an item holds a whole year
 #: of editions, and archive.org opens one's scan only at the path naming its
 #: file ("May 28 1974, The Times, #59100, UK (en)"); the item alone opens

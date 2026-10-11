@@ -797,8 +797,8 @@ check("a saved solution is marked", True, "solution saved" in page)
 bare = g.checklist(rows, Path(sys.argv[1]) / "nostore", Path(sys.argv[1]) / "none", arrivals=[])
 check("a session link, then a Listener search on each puzzle still to save, in next up and its year", (True, 4),
       (g.gi.SESSION.format("LSNR") in bare, bare.count("prodId=LSNR")))
-check("next up lists them with the ordering rule, refilling itself (no Next batch)", (True, False),
-      ('<table id="next">' in bare and g.ORDER in bare and '<table id="done">' in bare, "nextBatch" in bare))
+check("next up lists them with the ordering rule, rows never moving (no Next batch, no Clicked table)", (True, False),
+      ('<table id="next">' in bare and g.ORDER in bare and '<table id="done">' not in bare, "nextBatch" in bare))
 check("nothing on the page asks for a rename", False, "Rename it" in page)
 check("years collapsed", True, "<details><summary><b>1930</b>" in bare)
 check("no search link once a puzzle is saved or filed", 0, page.count("prodId=LSNR"))

@@ -229,12 +229,13 @@ def verdict_class(row, by_number):
     return "read-not-filed"
 
 
-def unfiled(paper, today, scanned=True):
+def unfiled(paper, today, scanned=True, scans_as=None):
     """(date, class, edition) of each printed date of `paper` through
     `today`, in date order: class None for a filed date, else its CLASSES
     key; edition the archive.org "<item>/<slug>" or None. `scanned` False
     leaves out the unfiled dates archive.org holds a scan of: classing
-    those reads the ledgers and stats each edition's dir."""
+    those reads the ledgers and stats each edition's dir; with `scans_as`,
+    they are given that class instead, unread."""
     series = paper.series
     by_date, by_number = corpus(series)
     listing, listed = scans(paper)
@@ -249,7 +250,9 @@ def unfiled(paper, today, scanned=True):
         elif not ed:
             cls = ("canberra-reprint" if date in reprinted else "no-scan") if listed.get(y, True) else "no-listing"
         elif not scanned:
-            continue
+            if scans_as is None:
+                continue
+            cls = scans_as
         elif ed in rows:
             cls = verdict_class(rows[ed], by_number)
         elif ed in failed:

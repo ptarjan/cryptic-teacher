@@ -101,7 +101,7 @@ check("no link for a miss", None, gd.link("TTDA", days[3], gd.load(cache)))
 docs = {"TTDA/1988-01-12": gd.entry("TTDA", times, 17563)}
 row = next(r for r in gi.checklist([(day, "no-scan"), (D(1988, 1, 13), "no-scan")], tmp / "cache", tmp / "un.json",
                                    docs=docs).split("\n") if 'data-k="1988-01-12"' in r)
-check("Times row has Download", True, ">Download</a>" in row and "callisto/BulkPDF" in row)
+check("Times row has Download, saying what it fetches", True, ">Download Times 1988-01-12 (No " in row and "callisto/BulkPDF" in row)
 check("its Download is the row's click, and marks it", True,
       'class="dl"' in row and "onclick=\"mark('1988-01-12')\">Download" in row)
 check("and still Open in Gale", True, "Open in Gale" in row)
