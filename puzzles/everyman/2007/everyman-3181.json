@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,72 @@
     "text": "Require last of wine in study to be brought over",
     "enumeration": "4"
    },
-   "solution": "NEED"
+   "solution": "NEED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "NEED",
+    "definitions": [
+     {
+      "text": "Require",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another is enclosed by it"
+     },
+     {
+      "text": "to be brought over",
+      "for": "reversal",
+      "note": "bringing something over flips it, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private study room"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "E",
+      "select": "last",
+      "note": "'last of' keeps the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEED"
+     ],
+     "reversals": [
+      {
+       "from": "DEEN",
+       "to": "NEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone needs the dregs of their wine fetched to the study.",
+     "walkthrough": "The wine's last letter goes inside DEN to make DEEN, and then the whole thing is read backwards.",
+     "definitionFit": "To need something is to require it; the two verbs are plain synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +115,47 @@
     "text": "Now for the first time, left IOW town",
     "enumeration": "7"
    },
-   "solution": "NEWPORT"
+   "solution": "NEWPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEWPORT",
+    "definitions": [
+     {
+      "text": "IOW town",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Now for the first time",
+      "gives": "NEW",
+      "note": "something new is happening now for the first time"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has just now left a town on the Isle of Wight.",
+     "walkthrough": "IOW is the Isle of Wight, an island off England's south coast; port is the nautical word for left.",
+     "definitionFit": "Newport is the county town of the Isle of Wight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +169,42 @@
     "text": "Painter from southern state",
     "enumeration": "5"
    },
-   "solution": "ERNST"
+   "solution": "ERNST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERNST",
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "letters taken from the words that follow are lifted out of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "southern state",
+      "gives": "ERNST",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An artist comes from a southern state.",
+     "definitionFit": "Max Ernst was a German-born Surrealist and Dada painter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "southern"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +224,50 @@
      }
     ]
    },
-   "solution": "TURNTAIL"
+   "solution": "TURNTAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TURN TAIL",
+    "definitions": [
+     {
+      "text": "Run away",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cycle",
+      "gives": "TURN",
+      "note": "a turn is one cycle or rotation"
+     },
+     {
+      "clueFragment": "stalker",
+      "gives": "TAIL",
+      "note": "someone who tails a person follows them secretly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURN",
+      "TAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flees on a bicycle from a person stalking them.",
+     "walkthrough": "In an across clue 'on' places the stalker piece after the cycle piece.",
+     "definitionFit": "To turn tail is an idiom for fleeing, as an animal shows its tail when it bolts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycle"
+    }
+   }
   },
   {
    "number": 3,
@@ -101,7 +287,48 @@
      }
     ]
    },
-   "solution": "TOPBANANA"
+   "solution": "TOPBANANA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOP BANANA",
+    "definitions": [
+     {
+      "text": "most important person",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finest",
+      "gives": "TOP",
+      "note": "the top one is the finest"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "BANANA",
+      "note": "a banana is a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOP",
+      "BANANA"
+     ]
+    },
+    "explanation": {
+     "surface": "The best fruit is reserved for the VIP.",
+     "definitionFit": "Top banana is informal slang, from American vaudeville, for the leader or boss."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +342,59 @@
     "text": "Come back with extremely rare dog",
     "enumeration": "5"
    },
-   "solution": "RECUR"
+   "solution": "RECUR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RECUR",
+    "definitions": [
+     {
+      "text": "Come back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its outermost letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rare",
+      "gives": "RE",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone returns with a very unusual dog.",
+     "walkthrough": "'Extremely rare' looks like 'very rare' but asks for the word's ends.",
+     "definitionFit": "To recur is to happen again, to come back after an interval."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 5,
@@ -135,7 +414,53 @@
      }
     ]
    },
-   "solution": "TREASURETROVE"
+   "solution": "TREASURETROVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TREASURE TROVE",
+    "definitions": [
+     {
+      "text": "a valuable discovery",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow says the letters are rearranged in some unspecified way"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A reserve tutor",
+      "gives": "ARESERVETUTOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARESERVETUTOR",
+       "gives": "TREASURETROVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stand-in teacher stumbles on something precious.",
+     "definitionFit": "Treasure trove is buried treasure found by chance, hence any valuable find."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reserve"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +474,47 @@
     "text": "Put in, batting, played for time",
     "enumeration": "9"
    },
-   "solution": "INSTALLED"
+   "solution": "INSTALLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSTALLED",
+    "definitions": [
+     {
+      "text": "Put in",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "batting",
+      "gives": "IN",
+      "note": "a cricketer batting is in"
+     },
+     {
+      "clueFragment": "played for time",
+      "gives": "STALLED",
+      "note": "to stall is to delay in order to gain time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STALLED"
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman who came in deliberately slowed the game.",
+     "walkthrough": "In cricket the side batting is 'in'.",
+     "definitionFit": "Equipment that has been installed has been put in place and fitted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "batting"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +534,46 @@
      }
     ]
    },
-   "solution": "WINKLEPICKERS"
+   "solution": "WINKLEPICKERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WINKLE-PICKERS",
+    "definitions": [
+     {
+      "text": "Old shoes",
+      "at": 0
+     },
+     {
+      "text": "those collecting shellfish",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old shoes",
+      "note": "first meaning: pointed-toed shoes fashionable in the 1950s and 60s"
+     },
+     {
+      "clueFragment": "those collecting shellfish",
+      "note": "second meaning, read literally: people who gather small sea snails"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A winkle is a small edible sea snail, so its gatherers are literally winkle pickers; the shoes were named for their sharp points, like the pin used to eat winkles.",
+     "definitionFit": "The name is a set term for the long-pointed shoes and also a literal description of gatherers of periwinkles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shellfish"
+    }
+   }
   },
   {
    "number": 8,
@@ -189,7 +593,71 @@
      }
     ]
    },
-   "solution": "LAVENDERWATER"
+   "solution": "LAVENDERWATER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LAVENDER WATER",
+    "definitions": [
+     {
+      "text": "perfume",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terribly",
+      "for": "anagram",
+      "note": "done terribly means done badly, out of proper order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "letters placed about something surround it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relevant",
+      "gives": "RELEVANT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "read",
+      "gives": "READ",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "women's",
+      "gives": "W",
+      "note": "W is the abbreviation for women's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAVENDER",
+      "W",
+      "ATER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RELEVANTREAD",
+       "gives": "LAVENDERATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reads up, most pertinently, on women's scent.",
+     "definitionFit": "Lavender water is a light fragrance distilled from lavender flowers, a classic scent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "read"
+    }
+   }
   },
   {
    "number": 9,
@@ -203,7 +671,50 @@
     "text": "Wager over a Greek character",
     "enumeration": "4"
    },
-   "solution": "BETA"
+   "solution": "BETA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETA",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wager",
+      "gives": "BET",
+      "note": "a bet is a wager"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BET",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A bet is placed on someone from Greece.",
+     "walkthrough": "In a down clue 'over' places the first piece above the second.",
+     "definitionFit": "Beta is the second letter of the Greek alphabet, and a letter is a character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 10,
@@ -217,7 +728,64 @@
     "text": "Antony's wife in new coat, by the way",
     "enumeration": "7"
    },
-   "solution": "OCTAVIA"
+   "solution": "OCTAVIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OCTAVIA",
+    "definitions": [
+     {
+      "text": "Antony's wife",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something made new is refashioned, so these letters take a fresh order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coat",
+      "gives": "COAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "by the way",
+      "gives": "VIA",
+      "note": "via means by way of"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCTA",
+      "VIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COAT",
+       "gives": "OCTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Antony's wife, in a new coat, mentioned as an aside.",
+     "walkthrough": "'By the way' looks like a throwaway aside but supplies the Latin-derived word for 'by way of'.",
+     "definitionFit": "Octavia, sister of Octavian, was Mark Antony's wife, as in Shakespeare's Antony and Cleopatra."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 11,
@@ -231,7 +799,61 @@
     "text": "Excessively optimistic, girl at conclusion of programme",
     "enumeration": "7"
    },
-   "solution": "ROSEATE"
+   "solution": "ROSEATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ROSEATE",
+    "definitions": [
+     {
+      "text": "Excessively optimistic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conclusion of",
+      "for": "letter_selection",
+      "note": "the conclusion of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "ROSE",
+      "note": "Rose is a girl's name"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "programme",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSE",
+      "AT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl is overly hopeful at the end of a TV show.",
+     "definitionFit": "Rose-tinted, rosy views are unrealistically hopeful, a figurative sense of the colour word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "programme"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +867,60 @@
     "text": "Teach painting back home",
     "enumeration": "5"
    },
-   "solution": "TRAIN"
+   "solution": "TRAIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRAIN",
+    "definitions": [
+     {
+      "text": "Teach",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means reading from the end to the start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "painting",
+      "gives": "ART",
+      "note": "painting is a form of art"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "IN"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone returns home to teach painting.",
+     "definitionFit": "To train someone is to instruct or coach them in a skill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +934,79 @@
     "text": "A second page on pheasant eating a vegetable",
     "enumeration": "9"
    },
-   "solution": "ASPARAGUS"
+   "solution": "ASPARAGUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASPARAGUS",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one piece on another sits above it, so the opening letters come before the bird"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating another takes it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "pheasant",
+      "gives": "ARGUS",
+      "note": "the argus is a large Asian pheasant"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "P",
+      "AR",
+      "A",
+      "GUS"
+     ]
+    },
+    "explanation": {
+     "surface": "On page two, a pheasant is shown eating vegetables.",
+     "walkthrough": "The argus pheasant, with eyespots on its feathers, is named after the many-eyed giant of Greek myth.",
+     "definitionFit": "Asparagus is a vegetable whose young shoots are eaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pheasant"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1020,65 @@
     "text": "A pound in one country or another",
     "enumeration": "9"
    },
-   "solution": "AUSTRALIA"
+   "solution": "AUSTRALIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AUSTRALIA",
+    "definitions": [
+     {
+      "text": "another",
+      "at": 26,
+      "note": "stands for 'another country'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in something means enclosed by it"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L, from Latin libra, is the pound sign"
+     },
+     {
+      "clueFragment": "one country",
+      "gives": "AUSTRIA",
+      "note": "Austria is a European country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSTR",
+      "A",
+      "L",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "A pound coin is spent in some country or other.",
+     "walkthrough": "'One country or another' reads as a vague phrase; split it, the first country is the container and 'another' the definition.",
+     "definitionFit": "Australia is a different nation from Austria, so it is 'another' country beside the first one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 15,
@@ -297,7 +1102,50 @@
      }
     ]
    },
-   "solution": "SAYNOMORE"
+   "solution": "SAYNOMORE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAY NO MORE",
+    "definitions": [
+     {
+      "text": "It speaks for itself",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in difficulty",
+      "for": "anagram",
+      "note": "letters in difficulty are in disorder, knocked out of place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one mayor's",
+      "gives": "ONEMAYORS",
+      "note": "taken as written, the apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONEMAYORS",
+       "gives": "SAYNOMORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mayor in trouble says the situation is self-evident.",
+     "definitionFit": "The phrase is used to signal that something is understood without further explanation, as a thing that is obvious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "speaks"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1159,71 @@
     "text": "County type pair confused crossing river",
     "enumeration": "9"
    },
-   "solution": "TIPPERARY"
+   "solution": "TIPPERARY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TIPPERARY",
+    "definitions": [
+     {
+      "text": "County",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused letters are jumbled out of their order"
+     },
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "letters crossing something straddle it, sitting on either side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "type",
+      "gives": "TYPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pair",
+      "gives": "PAIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIPPE",
+      "R",
+      "ARY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TYPEPAIR",
+       "gives": "TIPPEARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A muddled couple cross a river somewhere in the county.",
+     "definitionFit": "Tipperary is a county in Ireland, famous from the wartime song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 16,
@@ -325,7 +1237,46 @@
     "text": "Characters in class",
     "enumeration": "4"
    },
-   "solution": "TYPE"
+   "solution": "TYPE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TYPE",
+    "definitions": [
+     {
+      "text": "Characters",
+      "at": 0
+     },
+     {
+      "text": "class",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Characters",
+      "note": "first meaning: printed letters, as in typeface"
+     },
+     {
+      "clueFragment": "class",
+      "note": "second meaning: a category or kind"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like people in a classroom; the two words are separate senses of one word.",
+     "definitionFit": "The word covers both printing characters collectively and a sort or class of thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Characters"
+    }
+   }
   },
   {
    "number": 17,
@@ -339,7 +1290,67 @@
     "text": "Organised tour round duke' house",
     "enumeration": "5"
    },
-   "solution": "TUDOR"
+   "solution": "TUDOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TUDOR",
+    "definitions": [
+     {
+      "text": "house",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Organised",
+      "for": "anagram",
+      "note": "organised letters are rearranged into a new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encloses it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tour",
+      "gives": "TOUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "D",
+      "OR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOUR",
+       "gives": "TUOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A guided tour takes visitors round a duke's stately home.",
+     "walkthrough": "'House' here means a royal dynasty, not a building, despite the stately-home tour.",
+     "definitionFit": "The Tudors were the English royal dynasty from Henry VII to Elizabeth I, a royal house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 18,
@@ -353,7 +1364,61 @@
     "text": "Deep regret about son breaking in again",
     "enumeration": "7"
    },
-   "solution": "REMORSE"
+   "solution": "REMORSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REMORSE",
+    "definitions": [
+     {
+      "text": "Deep regret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking in",
+      "for": "container",
+      "note": "breaking in means forcing a way inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "again",
+      "gives": "MORE",
+      "note": "more, as in 'once more', means again"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MOR",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent deeply regrets their son burgling again.",
+     "definitionFit": "Remorse is the guilt-laden sorrow felt over a wrong one has done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "again"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1432,71 @@
     "text": "Doctor receiving one cable about a peruke",
     "enumeration": "7"
    },
-   "solution": "PERIWIG"
+   "solution": "PERIWIG",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "reversal"
+    ],
+    "answer": "PERIWIG",
+    "definitions": [
+     {
+      "text": "a peruke",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "something receiving others takes them inside itself"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "GP",
+      "note": "a GP is a general practitioner"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "cable",
+      "gives": "WIRE",
+      "note": "a cable is a wire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERIWIG"
+     ],
+     "reversals": [
+      {
+       "from": "GIWIREP",
+       "to": "PERIWIG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor gets a telegram about a wig.",
+     "walkthrough": "'About' looks like 'concerning' but turns the whole assembled string round; GP is the British term for a family doctor.",
+     "definitionFit": "A peruke and a periwig are both old words for the long wig worn in the 17th and 18th centuries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cable"
+    }
+   }
   },
   {
    "number": 20,
@@ -387,7 +1516,42 @@
      }
     ]
    },
-   "solution": "GETON"
+   "solution": "GETON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GET ON",
+    "definitions": [
+     {
+      "text": "Agree",
+      "at": 0
+     },
+     {
+      "text": "fare",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agree",
+      "note": "first meaning: to be on friendly terms"
+     },
+     {
+      "clueFragment": "fare",
+      "note": "second meaning: to do or manage, as in 'how are you getting on?'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fare' looks like a ticket price but is the verb meaning to get along.",
+     "definitionFit": "The phrasal verb means both to have a good relationship with someone and to progress or manage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fare"
+    }
+   }
   },
   {
    "number": 21,
@@ -401,7 +1565,62 @@
     "text": "Type of marsupial — very large number seen across Italian river",
     "enumeration": "7"
    },
-   "solution": "OPOSSUM"
+   "solution": "OPOSSUM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OPOSSUM",
+    "definitions": [
+     {
+      "text": "Type of marsupial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen across",
+      "for": "container",
+      "note": "letters seen across something stretch from one side of it to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very large",
+      "gives": "OS",
+      "note": "OS stands for outsize"
+     },
+     {
+      "clueFragment": "Italian river",
+      "gives": "PO",
+      "note": "the Po is Italy's longest river"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "SUM",
+      "note": "a sum is a number arrived at by adding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PO",
+      "S",
+      "SUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A vast number of marsupials have been spotted across an Italian river.",
+     "walkthrough": "'Very large number' reads as one phrase but splits: 'very large' gives one piece and 'number' another.",
+     "definitionFit": "The opossum is a North and South American pouched mammal, so it is one kind of marsupial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 22,
@@ -415,7 +1634,66 @@
     "text": "Form of address used in India has upset one bishop",
     "enumeration": "5"
    },
-   "solution": "SAHIB"
+   "solution": "SAHIB",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SAHIB",
+    "definitions": [
+     {
+      "text": "Form of address used in India",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAH",
+      "I",
+      "B"
+     ],
+     "reversals": [
+      {
+       "from": "HAS",
+       "to": "SAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A colonial-era form of address has annoyed a bishop.",
+     "definitionFit": "Sahib was the respectful term used in India for a man, especially a European, meaning master or sir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 23,
@@ -439,7 +1717,58 @@
      }
     ]
    },
-   "solution": "GETITTOGETHER"
+   "solution": "GETITTOGETHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GET IT TOGETHER",
+    "definitions": [
+     {
+      "text": "Achieve one's full potential",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in something means set inside it"
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "meeting",
+      "gives": "GETTOGETHER",
+      "note": "a get-together is an informal meeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GET",
+      "IT",
+      "TOGETHER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reaches their best by putting IT to work in meetings.",
+     "walkthrough": "The small word goes between the first word of the meeting phrase and the rest.",
+     "definitionFit": "To get it together is an informal idiom for getting organised and fulfilling one's abilities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "using"
+    }
+   }
   },
   {
    "number": 24,
@@ -453,7 +1782,50 @@
     "text": "Alienate corrupt sergeant",
     "enumeration": "8"
    },
-   "solution": "ESTRANGE"
+   "solution": "ESTRANGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESTRANGE",
+    "definitions": [
+     {
+      "text": "Alienate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "corrupted letters are spoiled from their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sergeant",
+      "gives": "SERGEANT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SERGEANT",
+       "gives": "ESTRANGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked sergeant drives others away.",
+     "definitionFit": "To estrange people is to make them unfriendly or distant, a close synonym of alienate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "corrupt"
+    }
+   }
   },
   {
    "number": 25,
@@ -467,7 +1839,47 @@
     "text": "Initially one blows on each instrument",
     "enumeration": "4"
    },
-   "solution": "OBOE"
+   "solution": "OBOE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OBOE",
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one blows on each",
+      "gives": "OBOE",
+      "select": "first",
+      "note": "first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBOE"
+     ]
+    },
+    "explanation": {
+     "surface": "At the start, a player blows on every wind instrument.",
+     "definitionFit": "The oboe is a double-reed woodwind instrument, and indeed one that is blown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
