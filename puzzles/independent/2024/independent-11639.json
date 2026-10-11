@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,59 @@
     "text": "Lead poisoning primarily leads to backache",
     "enumeration": "8"
    },
-   "solution": "PLUMBAGO"
+   "solution": "PLUMBAGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PLUMBAGO",
+    "definitions": [
+     {
+      "text": "Lead",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of the word before it is used"
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poisoning",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of poisoning"
+     },
+     {
+      "clueFragment": "backache",
+      "gives": "LUMBAGO",
+      "note": "lumbago is pain in the lower back"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LUMBAGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical warning that lead poisoning first shows itself as back pain.",
+     "walkthrough": "'Lead poisoning' reads as one phrase, but Lead alone is the definition and 'leads to' only joins the wordplay to it.",
+     "definitionFit": "Plumbago is an old name for graphite, the black lead of pencils, and also for the metal itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lead"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +102,45 @@
     "text": "Robert Lindsay?",
     "enumeration": "6"
    },
-   "solution": "WAGNER"
+   "solution": "WAGNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WAGNER",
+    "definitions": [
+     {
+      "text": "Robert",
+      "at": 0,
+      "note": "a first name standing for the actor's surname"
+     },
+     {
+      "text": "Lindsay",
+      "at": 7,
+      "note": "a first name standing for the actress's surname"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Robert",
+      "note": "first meaning: the surname of the American actor Robert ..."
+     },
+     {
+      "clueFragment": "Lindsay",
+      "note": "second meaning: the surname of the actress Lindsay ..., the Bionic Woman"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Robert Lindsay is a British actor, so the clue looks like it wants him; split the name and each half is the first name of a different star sharing one surname.",
+     "definitionFit": "Both the Hart to Hart actor Robert and the Bionic Woman actress Lindsay carry the surname Wagner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lindsay"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +154,59 @@
     "text": "Woman's nether regions bitten by rodents",
     "enumeration": "8"
    },
-   "solution": "MICHELLE"
+   "solution": "MICHELLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MICHELLE",
+    "definitions": [
+     {
+      "text": "Woman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bitten by",
+      "for": "container",
+      "note": "something bitten is held in the jaws of the biter, so one part sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rodents",
+      "gives": "MICE",
+      "note": "mice are small rodents"
+     },
+     {
+      "clueFragment": "nether regions",
+      "gives": "HELL",
+      "note": "the nether regions are the underworld, hell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIC",
+      "HELL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A slightly risqué image of a woman's lower body being nibbled by vermin.",
+     "walkthrough": "Nether regions sounds anatomical, but here it means the underworld, the place below.",
+     "definitionFit": "Michelle is a woman's first name, and the title of a Beatles song like several answers here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "regions"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +220,58 @@
     "text": "Function in which one's inducted into religious group",
     "enumeration": "6"
    },
-   "solution": "SECANT"
+   "solution": "SECANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SECANT",
+    "definitions": [
+     {
+      "text": "Function",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inducted into",
+      "for": "container",
+      "note": "to be inducted into something is to be admitted inside it, so one part goes within another"
+     }
+    ],
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "religious group",
+      "gives": "SECT",
+      "note": "a sect is a religious group"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "AN",
+      "note": "an is the indefinite article, meaning one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEC",
+      "AN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A ceremony in which a new member is admitted to a religious body.",
+     "walkthrough": "Function sounds like an event or ceremony, matching the induction picture, but it is the mathematical sense; the 's after one is 'is'.",
+     "definitionFit": "The secant is a trigonometric function, the reciprocal of the cosine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Function"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +285,40 @@
     "text": "Start of second half of year given a miss",
     "enumeration": "5"
    },
-   "solution": "JULIA"
+   "solution": "JULIA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "JULIA",
+    "definitions": [
+     {
+      "text": "Start of second half of year given a miss",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Start of second half of year given a miss",
+      "note": "surface reading: the month that opens the second half of the year is skipped"
+     },
+     {
+      "clueFragment": "given a miss",
+      "note": "setter's reading: that month, named after Julius Caesar, is given a female form, made into a girl's name"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone decides to skip July altogether.",
+     "walkthrough": "'Given a miss' means skipped, but read it as 'made into a miss': the month named after Julius becomes the feminine name of the Julian family.",
+     "definitionFit": "The feminine of Julius is a girl's name, as July is the masculine month named for Julius Caesar; it is also a Beatles song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "miss"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +332,78 @@
     "text": "Girl played a banjo topless? Not initially",
     "enumeration": "6"
    },
-   "solution": "JOANNA"
+   "solution": "JOANNA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "JOANNA",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "topless means with the top taken off, and in a down clue the top is the first letter"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of the word it follows is used"
+     },
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "a tune that is played can be improvised freely, suggesting letters rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "banjo",
+      "gives": "BANJO",
+      "note": "the instrument, taken as written before its top letter is removed"
+     },
+     {
+      "clueFragment": "Not",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JOANNA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AANJON",
+       "gives": "JOANNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl strumming a banjo with no top on, apparently not at first.",
+     "walkthrough": "Drop the B from BANJO, add the N, and rearrange with A; amusingly, joanna is also rhyming slang for piano.",
+     "definitionFit": "Joanna is a girl's first name; in Cockney rhyming slang it also means a piano."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +417,54 @@
     "text": "A killjoy like Harpagon getting left out",
     "enumeration": "6"
    },
-   "solution": "MISERY"
+   "solution": "MISERY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MISERY",
+    "definitions": [
+     {
+      "text": "A killjoy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting left out",
+      "for": "deletion",
+      "note": "left out means omitted, and left also names the letter to drop"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like Harpagon",
+      "gives": "MISERLY",
+      "note": "Harpagon is the miser in Molière's comedy L'Avare"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISE",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A wet blanket compared to the stingy hero of a classic French comedy who gets excluded.",
+     "walkthrough": "Harpagon, Molière's tight-fisted old man, is miserly; take out its L.",
+     "definitionFit": "A misery is a gloomy person who spoils others' fun, a killjoy; it is also an early Beatles song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +478,68 @@
     "text": "A new government installed in that old Asian city",
     "enumeration": "6"
    },
-   "solution": "YANGON"
+   "solution": "YANGON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "YANGON",
+    "definitions": [
+     {
+      "text": "Asian city",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "installed in",
+      "for": "container",
+      "note": "something installed in a place is fitted inside it, so these letters go within another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that old",
+      "gives": "YON",
+      "note": "yon is an archaic word for that"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is a standard abbreviation for government"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "A",
+      "N",
+      "G",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh regime takes power in a historic city of Asia.",
+     "walkthrough": "'Old' looks like it describes the city, but 'that old' is the archaic word yon, which takes A, N and G inside.",
+     "definitionFit": "Yangon, formerly Rangoon, is the largest city of Myanmar and was its capital until 2006."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +553,81 @@
     "text": "Source of 21 data in much of volume 1, curiously safe outside",
     "enumeration": "11"
    },
-   "solution": "PLUVIOMETER"
+   "solution": "PLUVIOMETER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "PLUVIOMETER",
+    "definitions": [
+     {
+      "text": "Source of 21 data",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "much of",
+      "for": "deletion",
+      "note": "much of a thing is most but not all of it, so the word loses its last letter"
+     },
+     {
+      "text": "curiously",
+      "for": "anagram",
+      "note": "curiously means in an odd way, so the letters come out in an odd order"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means surrounding, so this word wraps around the other letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "volume",
+      "gives": "VOLUM",
+      "note": "volume without its last letter"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "the numeral one is the letter I"
+     },
+     {
+      "clueFragment": "safe",
+      "gives": "PETER",
+      "note": "peter is old criminal slang for a safe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LUVIOM",
+      "ETER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VOLUMI",
+       "gives": "LUVIOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling reference to data held in a book volume and a safe.",
+     "walkthrough": "21 is RAIN, so the definition is a source of rainfall figures; '1' reads as a cross-reference to 1 Down but is just the letter I.",
+     "definitionFit": "A pluviometer is a rain gauge, the instrument that records how much rain has fallen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "1"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +641,47 @@
     "text": "Government official put burden on staff",
     "enumeration": "6"
    },
-   "solution": "TAXMAN"
+   "solution": "TAXMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAXMAN",
+    "definitions": [
+     {
+      "text": "Government official",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put burden on",
+      "gives": "TAX",
+      "note": "to tax is to put a burden or strain on"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "MAN",
+      "note": "to man is to staff, as in manning a desk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAX",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A civil servant loads extra work on to employees.",
+     "walkthrough": "Staff looks like a noun for employees, but it is the verb meaning to provide workers.",
+     "definitionFit": "The taxman is the official who collects tax for the state; Taxman is also a Beatles song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +695,62 @@
     "text": "The French king and queen once snubbed a singer of 2",
     "enumeration": "7"
    },
-   "solution": "LEHMANN"
+   "solution": "LEHMANN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LEHMANN",
+    "definitions": [
+     {
+      "text": "a singer of 2",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snubbed",
+      "for": "deletion",
+      "note": "snubbed suggests a nose cut short, so the word loses its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "HM",
+      "note": "HM, His Majesty, is how a king is styled"
+     },
+     {
+      "clueFragment": "queen once",
+      "gives": "ANNE",
+      "note": "Queen Anne reigned 1702 to 1714"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "HM",
+      "ANN"
+     ]
+    },
+    "explanation": {
+     "surface": "French royals once cold-shouldered a performer of operatic music.",
+     "walkthrough": "2 is WAGNER, so the definition means a singer of Wagner's music; snubbed here means cut short, not ignored.",
+     "definitionFit": "Lotte Lehmann was a celebrated German soprano, famous above all for Wagner roles such as Sieglinde."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "snubbed"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +764,44 @@
     "text": "Indian national eating stale Indian bread",
     "enumeration": "4"
    },
-   "solution": "ANNA"
+   "solution": "ANNA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANNA",
+    "definitions": [
+     {
+      "text": "stale Indian bread",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "hidden_word",
+      "note": "something eating another holds it inside, so the words before it contain the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indian national",
+      "gives": "ANNA",
+      "note": "found across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A citizen of India munching on old naan.",
+     "walkthrough": "Indian bread looks like naan, but bread is slang for money and stale means out of date: an obsolete coin.",
+     "definitionFit": "The anna was a former Indian coin worth one sixteenth of a rupee, so it is money no longer current."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +815,52 @@
     "text": "Result of our violent rioting?",
     "enumeration": "10"
    },
-   "solution": "REVOLUTION"
+   "solution": "REVOLUTION",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "REVOLUTION",
+    "definitions": [
+     {
+      "text": "Result of our violent rioting?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rioting",
+      "for": "anagram",
+      "note": "rioting suggests wild disorder, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our violent",
+      "gives": "OURVIOLENT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OURVIOLENT",
+       "gives": "REVOLUTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "What happens when we take to the streets in violent unrest.",
+     "walkthrough": "The whole clue does double duty: the wordplay rearranges two words, and the full sentence describes what such rioting brings about.",
+     "definitionFit": "A revolution is the overthrow of a government, the outcome of a violent popular uprising; Revolution is also a Beatles song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rioting"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +880,65 @@
      }
     ]
    },
-   "solution": "PORTMORESBY"
+   "solution": "PORTMORESBY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PORT MORESBY",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 46
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     },
+     {
+      "clueFragment": "additional",
+      "gives": "MORE",
+      "note": "more means additional"
+     },
+     {
+      "clueFragment": "bit of silver",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of silver"
+     },
+     {
+      "clueFragment": "in reserve",
+      "gives": "BY",
+      "note": "by means aside, in reserve, as in 'put by'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "MORE",
+      "S",
+      "BY"
+     ]
+    },
+    "explanation": {
+     "surface": "Something left behind with an extra piece of silver kept back.",
+     "walkthrough": "'Reserve capital' sounds like money set aside; capital is the definition and 'in reserve' gives BY, as in putting money by.",
+     "definitionFit": "Port Moresby is the capital city of Papua New Guinea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +958,66 @@
      }
     ]
    },
-   "solution": "TOPQUARK"
+   "solution": "TOPQUARK",
+   "annotation": {
+    "type": [
+     "substitution",
+     "anagram"
+    ],
+    "answer": "TOP QUARK",
+    "definitions": [
+     {
+      "text": "a little bit",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I must go out for",
+      "for": "substitution",
+      "note": "going out for something means making way in exchange for it, so one letter is swapped for another"
+     },
+     {
+      "text": "Harry",
+      "for": "anagram",
+      "note": "to harry is to harass and disturb, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quit pork",
+      "gives": "QUITPORK",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, to replace the I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOPQUARK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "QUATPORK",
+       "gives": "TOPQUARK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Prince Harry giving up bacon, and someone must step aside for a moment.",
+     "walkthrough": "Harry looks like a person giving up pork, but it is a verb; the 'a' that replaces the I also starts the definition, which describes a tiny particle.",
+     "definitionFit": "The top quark is a subatomic particle, an extremely small piece of matter, so a 'little bit' in the most literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Harry"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1031,70 @@
     "text": "By securing a third off, there's reason to celebrate",
     "enumeration": "8"
    },
-   "solution": "BIRTHDAY"
+   "solution": "BIRTHDAY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BIRTHDAY",
+    "definitions": [
+     {
+      "text": "reason to celebrate",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong or out of order, so the letters are rearranged"
+     },
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing means holding fast, so this word grips the other letters within it"
+     }
+    ],
+    "linkWords": [
+     "there's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "By",
+      "gives": "BY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a third",
+      "gives": "ATHIRD",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "IRTHDA",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATHIRD",
+       "gives": "IRTHDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting a third knocked off a price gives cause for celebration.",
+     "walkthrough": "'A third off' reads as a discount, but off is the signal to rearrange A THIRD inside BY.",
+     "definitionFit": "A birthday is the yearly anniversary of one's birth, a standard occasion for celebration; Birthday is also a Beatles song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1108,45 @@
     "text": "During audition, Mark traps instrument",
     "enumeration": "6"
    },
-   "solution": "CYMBAL"
+   "solution": "CYMBAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CYMBAL",
+    "definitions": [
+     {
+      "text": "traps instrument",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "During audition",
+      "for": "homophone",
+      "note": "an audition is a hearing, so the word is judged by how it is heard rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "gives": "CYMBAL",
+      "soundsLike": "SYMBOL",
+      "note": "a symbol is a mark or sign"
+     }
+    ],
+    "explanation": {
+     "surface": "At a tryout, a musician called Mark catches out an instrument.",
+     "walkthrough": "Traps looks like a verb, but it is jazz slang for a drum kit, so the definition is an instrument from the drum set.",
+     "definitionFit": "A cymbal is the brass plate struck in a drum kit, which drummers call the traps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "traps"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1160,59 @@
     "text": "Bug used by US intelligence to catch blighter",
     "enumeration": "6"
    },
-   "solution": "CICADA"
+   "solution": "CICADA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CICADA",
+    "definitions": [
+     {
+      "text": "Bug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to catch",
+      "for": "container",
+      "note": "to catch something is to hold it, so the other letters go within"
+     }
+    ],
+    "linkWords": [
+     "used by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US intelligence",
+      "gives": "CIA",
+      "note": "the CIA is the US Central Intelligence Agency"
+     },
+     {
+      "clueFragment": "blighter",
+      "gives": "CAD",
+      "note": "a cad, like a blighter, is a contemptible man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CI",
+      "CAD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "The CIA plants a listening device to trap a scoundrel.",
+     "walkthrough": "Bug sounds like a spy's listening device, which fits US intelligence, but here it is the insect.",
+     "definitionFit": "The cicada is a loud chirping insect, and bug is a general word for an insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bug"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1226,91 @@
     "text": "Mike discovered the old writer residing in backward town producing made-up stories",
     "enumeration": "10"
    },
-   "solution": "MYTHOPOEIC"
+   "solution": "MYTHOPOEIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "MYTHOPOEIC",
+    "definitions": [
+     {
+      "text": "producing made-up stories",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "letter_selection",
+      "note": "discovered means uncovered, with its covering taken off, so the outer letters are removed"
+     },
+     {
+      "text": "backward",
+      "for": "reversal",
+      "note": "backward means facing the other way, so the word is read from end to start"
+     },
+     {
+      "text": "residing in",
+      "for": "container",
+      "note": "residing in a place means living inside it, so these letters go within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is M in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "H",
+      "select": "middle",
+      "note": "the word with its first and last letters removed"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "POE",
+      "note": "Edgar Allan Poe, the American writer"
+     },
+     {
+      "clueFragment": "town",
+      "gives": "CITY",
+      "note": "a city is a large town"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "YT",
+      "HOPOE",
+      "IC"
+     ],
+     "reversals": [
+      {
+       "from": "CITY",
+       "to": "YTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cryptic tale of a man called Mike tracking down an elderly author living in a sleepy town.",
+     "walkthrough": "Discovered seems to mean found, but it means stripped of its cover, so only the middle letter of 'the' survives.",
+     "definitionFit": "Mythopoeic means myth-making, giving rise to myths and invented stories."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1324,54 @@
     "text": "Queen of the witches can't stand going round the City",
     "enumeration": "6"
    },
-   "solution": "HECATE"
+   "solution": "HECATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HECATE",
+    "definitions": [
+     {
+      "text": "Queen of the witches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something means encircling it, so this word wraps the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can't stand",
+      "gives": "HATE",
+      "note": "to hate is to be unable to stand something"
+     },
+     {
+      "clueFragment": "the City",
+      "gives": "EC",
+      "note": "EC is the postcode area of the City of London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EC",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A witch queen who detests London's financial district.",
+     "walkthrough": "The City is London's financial district, whose postal district is EC (East Central).",
+     "definitionFit": "Hecate is the Greek goddess of magic and witchcraft, appearing as queen of the witches in Macbeth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1385,56 @@
     "text": "Charles invests in bonds",
     "enumeration": "6"
    },
-   "solution": "CHAINS"
+   "solution": "CHAINS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHAINS",
+    "definitions": [
+     {
+      "text": "bonds",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invests",
+      "for": "container",
+      "note": "to invest literally means to clothe or wrap, so this word surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charles",
+      "gives": "CHAS",
+      "note": "Chas is the short form of Charles"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "IN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Charles puts his money into bonds.",
+     "walkthrough": "Invests and bonds suggest finance, but invests means wraps round, and bonds are physical restraints.",
+     "definitionFit": "Chains are fetters or restraints, things that bind, so they are bonds; Chains is also an early Beatles cover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "invests"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1476,53 @@
     "text": "A quiet crowd meditate here?",
     "enumeration": "6"
    },
-   "solution": "ASHRAM"
+   "solution": "ASHRAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHRAM",
+    "definitions": [
+     {
+      "text": "meditate here?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     },
+     {
+      "clueFragment": "crowd",
+      "gives": "RAM",
+      "note": "to ram is to cram or crowd in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SH",
+      "RAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A hushed throng gathers, perhaps to meditate.",
+     "walkthrough": "Crowd reads as a noun for a gathering, but it is the verb meaning to pack in.",
+     "definitionFit": "An ashram is a Hindu religious retreat where people go to meditate; the Beatles famously stayed at one in Rishikesh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "crowd"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1536,55 @@
     "text": "American volumes in Irish mostly",
     "enumeration": "6"
    },
-   "solution": "LITERS"
+   "solution": "LITERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LITERS",
+    "definitions": [
+     {
+      "text": "American volumes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "LIT",
+      "note": "a fire that is in is lit, still burning"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "ERSE",
+      "note": "Erse is the Irish Gaelic language"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Measures of liquid in an Irish setting, according to Americans.",
+     "walkthrough": "In looks like a link word, but it means alight, as a fire is 'still in'; American signals the US spelling.",
+     "definitionFit": "Liters, the US spelling of litres, are metric units of volume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1598,56 @@
     "text": "Horny type from New York state getting half-cut",
     "enumeration": "5"
    },
-   "solution": "NYALA"
+   "solution": "NYALA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NYALA",
+    "definitions": [
+     {
+      "text": "Horny type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting half-cut",
+      "for": "deletion",
+      "note": "half-cut means with half cut away, so only the first half of the word remains"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "NY is the abbreviation for New York"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "ALASKA",
+      "note": "Alaska is a US state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NY",
+      "ALA"
+     ]
+    },
+    "explanation": {
+     "surface": "A randy New Yorker getting drunk, half-cut being British slang for tipsy.",
+     "walkthrough": "Horny suggests lust and half-cut drunkenness, but the horns are literal and half-cut chops a word in two.",
+     "definitionFit": "The nyala is a southern African antelope whose males have long spiralled horns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Horny"
+    }
+   }
   }
  ]
 }
