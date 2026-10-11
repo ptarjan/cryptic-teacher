@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,65 @@
     "text": "Gather outside front of restaurant for meal",
     "enumeration": "6"
    },
-   "solution": "BRUNCH"
+   "solution": "BRUNCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BRUNCH",
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the gathering verb sits outside, wrapping around the selected letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gather",
+      "gives": "BUNCH",
+      "note": "to bunch is to gather together"
+     },
+     {
+      "clueFragment": "restaurant",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter of restaurant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "UNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Diners assemble outside a restaurant before going in to eat.",
+     "walkthrough": "R goes inside BUNCH after its first letter, giving BRUNCH.",
+     "definitionFit": "Brunch is a late-morning meal combining breakfast and lunch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gather"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +107,54 @@
     "text": "HQ receiving short message from Asian island",
     "enumeration": "8"
    },
-   "solution": "BALINESE"
+   "solution": "BALINESE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BALINESE",
+    "definitions": [
+     {
+      "text": "from Asian island",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "something receiving another takes it in, so it surrounds it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "HQ",
+      "gives": "BASE",
+      "note": "headquarters is a base of operations"
+     },
+     {
+      "clueFragment": "short message",
+      "gives": "LINE",
+      "note": "a line is a brief note, as in 'drop me a line'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "LINE",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Headquarters gets a brief note sent from an island in Asia.",
+     "definitionFit": "Balinese describes people or things from Bali, an Indonesian island."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +168,46 @@
     "text": "Like diamonds, initially, or a complete pack of cards",
     "enumeration": "5"
    },
-   "solution": "UNCUT"
+   "solution": "UNCUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNCUT",
+    "definitions": [
+     {
+      "text": "Like diamonds, initially",
+      "at": 0
+     },
+     {
+      "text": "a complete pack of cards",
+      "at": 29,
+      "note": "describes the pack rather than naming it"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like diamonds, initially",
+      "note": "first meaning: rough stones before cutting"
+     },
+     {
+      "clueFragment": "a complete pack of cards",
+      "note": "second meaning: a deck that has not been divided for dealing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Initially' does not pick first letters here; it means in their original state.",
+     "definitionFit": "Gems start out unshaped, and a deck is whole before anyone splits it, both in the untouched state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +221,56 @@
     "text": "Part of our capital otherwise invested in tea",
     "enumeration": "7"
    },
-   "solution": "CHELSEA"
+   "solution": "CHELSEA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHELSEA",
+    "definitions": [
+     {
+      "text": "Part of our capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in something is put into it, so this word goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha (or char) is British slang for tea"
+     },
+     {
+      "clueFragment": "otherwise",
+      "gives": "ELSE",
+      "note": "else means otherwise, as in 'or else'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "ELSE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Some of London's money is otherwise put into tea.",
+     "walkthrough": "'Capital' and 'invested' paint finance, but capital is the city, London.",
+     "definitionFit": "Chelsea is a district of London, the capital of this British paper's readers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +284,50 @@
     "text": "Composer getting constant offer of a lift",
     "enumeration": "6"
    },
-   "solution": "CHOPIN"
+   "solution": "CHOPIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHOPIN",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "c is the scientific symbol for a constant, such as the speed of light"
+     },
+     {
+      "clueFragment": "offer of a lift",
+      "gives": "HOPIN",
+      "note": "'hop in!' is what a driver says when offering someone a ride"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HOPIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer is regularly offered car rides.",
+     "definitionFit": "Frédéric Chopin was a Polish Romantic composer famous for his piano works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +341,51 @@
     "text": "Catch bit of PM's address and cheer up",
     "enumeration": "7"
    },
-   "solution": "HEARTEN"
+   "solution": "HEARTEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEARTEN",
+    "definitions": [
+     {
+      "text": "cheer up",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catch",
+      "gives": "HEAR",
+      "note": "to catch what someone says is to hear it"
+     },
+     {
+      "clueFragment": "bit of PM's address",
+      "gives": "TEN",
+      "note": "the British Prime Minister lives at 10 Downing Street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAR",
+      "TEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Listening to part of the Prime Minister's speech lifts the spirits.",
+     "walkthrough": "'Address' suggests a speech, but it is the PM's street address, Number 10 Downing Street.",
+     "definitionFit": "To hearten someone is to encourage them and lift their spirits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "address"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +399,53 @@
     "text": "Be pro, toil frantically to produce this lucrative work",
     "enumeration": "9"
    },
-   "solution": "POTBOILER"
+   "solution": "POTBOILER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POTBOILER",
+    "definitions": [
+     {
+      "text": "lucrative work",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frantically",
+      "for": "anagram",
+      "note": "working frantically is wild and disorderly, so these letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "to produce this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be pro, toil",
+      "gives": "BEPROTOIL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEPROTOIL",
+       "gives": "POTBOILER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to be professional and graft hard to write a money-spinner.",
+     "definitionFit": "A potboiler is a book or artwork churned out mainly to earn money, keeping the pot boiling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pro"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +459,43 @@
     "text": "Slightly damaged stole",
     "enumeration": "6"
    },
-   "solution": "NICKED"
+   "solution": "NICKED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NICKED",
+    "definitions": [
+     {
+      "text": "Slightly damaged",
+      "at": 0
+     },
+     {
+      "text": "stole",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slightly damaged",
+      "note": "first meaning: having a small cut or chip"
+     },
+     {
+      "clueFragment": "stole",
+      "note": "second meaning: British slang for took without permission"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Stole' looks like the noun for a shawl that might be damaged, but it is the past tense of steal.",
+     "definitionFit": "A nick is a small chip, and to nick is informal British for to steal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stole"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +509,54 @@
     "text": "Most tragic thing missing in defeat",
     "enumeration": "8"
    },
-   "solution": "BLACKEST"
+   "solution": "BLACKEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLACKEST",
+    "definitions": [
+     {
+      "text": "Most tragic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word placed in another means it sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defeat",
+      "gives": "BEST",
+      "note": "to best someone is to defeat them"
+     },
+     {
+      "clueFragment": "thing missing",
+      "gives": "LACK",
+      "note": "a lack is something missing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LACK",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "The worst part of losing is what was absent from the team.",
+     "definitionFit": "Black can mean gloomy or disastrous, as in a black day, so the superlative is most tragic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "defeat"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +576,53 @@
      }
     ]
    },
-   "solution": "TENNISELBOW"
+   "solution": "TENNISELBOW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TENNIS ELBOW",
+    "definitions": [
+     {
+      "text": "Sporting injury",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "something done unusually departs from the normal order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "resulting from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intense blow",
+      "gives": "INTENSEBLOW",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTENSEBLOW",
+       "gives": "TENNISELBOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete is hurt by a particularly hard knock.",
+     "definitionFit": "Tennis elbow is a painful strain of the forearm tendons, classically from racket sports."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unusually"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +636,46 @@
     "text": "Engaged in change of course at sea in storm",
     "enumeration": "6"
    },
-   "solution": "ATTACK"
+   "solution": "ATTACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTACK",
+    "definitions": [
+     {
+      "text": "storm",
+      "at": 38
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Engaged in",
+      "gives": "AT",
+      "note": "to be at something is to be engaged in it, as in 'at work'"
+     },
+     {
+      "clueFragment": "change of course at sea",
+      "gives": "TACK",
+      "note": "a tack is a sailing ship's change of direction into the wind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailing crew busy altering direction during a storm.",
+     "definitionFit": "To storm a position is to attack it, a direct verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "storm"
+    }
+   }
   },
   {
    "number": 11,
@@ -192,7 +689,48 @@
     "text": "Difficulty or complexity that's not pronounced",
     "enumeration": "4"
    },
-   "solution": "KNOT"
+   "solution": "KNOT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KNOT",
+    "definitions": [
+     {
+      "text": "Difficulty or complexity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pronounced",
+      "for": "homophone",
+      "note": "a word that is pronounced is heard as speech, so its sound counts rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "KNOT",
+      "soundsLike": "NOT",
+      "note": "the silent K makes this word sound the same as the negative"
+     }
+    ],
+    "explanation": {
+     "surface": "A tricky point that is never quite spelt out.",
+     "walkthrough": "'Not pronounced' reads like 'unspoken', but it means the word not, said out loud; and the answer's own K is the letter not pronounced.",
+     "definitionFit": "A knot is a tangle, so figuratively a problem or intricate complication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +744,45 @@
     "text": "Imposed punishment of a kind that's permitted",
     "enumeration": "10"
    },
-   "solution": "SANCTIONED"
+   "solution": "SANCTIONED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SANCTIONED",
+    "definitions": [
+     {
+      "text": "Imposed punishment",
+      "at": 0
+     },
+     {
+      "text": "permitted",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "of a kind that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Imposed punishment",
+      "note": "first meaning: penalised with sanctions"
+     },
+     {
+      "clueFragment": "permitted",
+      "note": "second meaning: officially approved"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The word is famously its own opposite: a sanction can be a penalty or an authorisation.",
+     "definitionFit": "To be sanctioned is both to be penalised and to be officially authorised, contrary senses of one verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "permitted"
+    }
+   }
   },
   {
    "number": 13,
@@ -220,7 +796,56 @@
     "text": "Relating to hope, since religious and sensible",
     "enumeration": "12"
    },
-   "solution": "ASPIRATIONAL"
+   "solution": "ASPIRATIONAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASPIRATIONAL",
+    "definitions": [
+     {
+      "text": "Relating to hope",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "since",
+      "gives": "AS",
+      "note": "as can mean since, as in 'as it rained'"
+     },
+     {
+      "clueFragment": "religious",
+      "gives": "PI",
+      "note": "pi is short for pious, an old informal word for religious"
+     },
+     {
+      "clueFragment": "sensible",
+      "gives": "RATIONAL",
+      "note": "rational means reasonable or sensible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "PI",
+      "RATIONAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Hope is described as both faithful and reasonable.",
+     "walkthrough": "PI for pious or religious is a common crossword abbreviation.",
+     "definitionFit": "An aspiration is a hope or ambition, so aspirational means concerned with such ambitions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "since"
+    }
+   }
   },
   {
    "number": 14,
@@ -234,7 +859,68 @@
     "text": "Something added in court about people being put inside",
     "enumeration": "9"
    },
-   "solution": "INCREMENT"
+   "solution": "INCREMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INCREMENT",
+    "definitions": [
+     {
+      "text": "Something added",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being put inside",
+      "for": "container",
+      "note": "people being put inside are enclosed, so these go within the court abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "Ct is the abbreviation for court"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men are people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "C",
+      "REMEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "In court, something extra is mentioned about defendants being jailed.",
+     "walkthrough": "'Put inside' suggests prison, but it only means placed within the court abbreviation.",
+     "definitionFit": "An increment is an increase or addition, such as a step up in salary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 15,
@@ -248,7 +934,64 @@
     "text": "One drink in middle of exam makes us creative",
     "enumeration": "8"
    },
-   "solution": "ORIGINAL"
+   "solution": "ORIGINAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ORIGINAL",
+    "definitions": [
+     {
+      "text": "creative",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in middle of",
+      "for": "container",
+      "note": "placed in the middle of a word, these letters sit inside it"
+     }
+    ],
+    "linkWords": [
+     "makes us"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exam",
+      "gives": "ORAL",
+      "note": "an oral is a spoken examination"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "GIN",
+      "note": "gin is a drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "IGIN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A drink mid-exam boosts the candidates' inventiveness.",
+     "definitionFit": "Original work is new and inventive, so an original mind is a creative one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 16,
@@ -262,7 +1005,70 @@
     "text": "Peer's perverse, penning funny poem",
     "enumeration": "12"
    },
-   "solution": "CONTEMPORARY"
+   "solution": "CONTEMPORARY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CONTEMPORARY",
+    "definitions": [
+     {
+      "text": "Peer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "something funny is odd or peculiar, so these letters come out in an odd order"
+     },
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "to pen something is to enclose it, as a sheep pen does"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perverse",
+      "gives": "CONTRARY",
+      "note": "contrary means wilfully awkward or perverse"
+     },
+     {
+      "clueFragment": "poem",
+      "gives": "EMPO",
+      "note": "the word poem with its letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONT",
+      "EMPO",
+      "RARY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POEM",
+       "gives": "EMPO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman behaves contrarily while writing comic verse.",
+     "walkthrough": "'Peer' suggests a lord, but it is used in its other sense of an equal; 'Peer's' is 'Peer is'.",
+     "definitionFit": "A peer is someone of the same age or standing, which is what a contemporary is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Peer's"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1088,44 @@
      }
     ]
    },
-   "solution": "NOTHALF"
+   "solution": "NOTHALF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOT HALF",
+    "definitions": [
+     {
+      "text": "Very much",
+      "at": 0
+     },
+     {
+      "text": "like number of Down clues here",
+      "at": 10,
+      "note": "a cryptic description rather than a synonym"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very much",
+      "note": "first meaning: British informal intensifier"
+     },
+     {
+      "clueFragment": "like number of Down clues here",
+      "note": "second meaning: the puzzle has 13 Down clues out of 25, which is not a half"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Count the clues: 13 of the 25 are Downs, so their number is literally not half the total.",
+     "definitionFit": "'Not half' is a British idiom meaning extremely or very much, and here also a literal fraction comment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +1139,54 @@
     "text": "Happen before red tape changed or tapered off",
     "enumeration": "7"
    },
-   "solution": "PREDATE"
+   "solution": "PREDATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PREDATE",
+    "definitions": [
+     {
+      "text": "Happen before",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "something changed has been altered, so these letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "or tapered off"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red tape",
+      "gives": "REDTAPE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDTAPE",
+       "gives": "PREDATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bureaucracy that was reformed or dwindled away happened earlier.",
+     "walkthrough": "The clue gives two routes: 'red tape changed' and 'tapered off', with off as a second shuffle signal; both use the same seven letters.",
+     "definitionFit": "To predate something is to come before it in time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tapered"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1200,69 @@
     "text": "In eastern parts of desert terrain, claim watering-hole",
     "enumeration": "6"
    },
-   "solution": "TAVERN"
+   "solution": "TAVERN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TAVERN",
+    "definitions": [
+     {
+      "text": "watering-hole",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eastern parts of",
+      "for": "letter_selection",
+      "note": "on a map east is the right-hand side, so the last letter of each word is kept"
+     },
+     {
+      "text": "In",
+      "for": "container",
+      "note": "one word put in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desert",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of desert"
+     },
+     {
+      "clueFragment": "claim",
+      "gives": "AVER",
+      "note": "to aver is to assert or claim"
+     },
+     {
+      "clueFragment": "terrain",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of terrain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AVER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a desert claims to have found an oasis.",
+     "walkthrough": "In a down answer the eastern end of a word is its last letter.",
+     "definitionFit": "A watering hole is informal for a pub or bar, which is what a tavern is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "watering-hole"
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1276,55 @@
     "text": "Weak new piece of furniture, very bad",
     "enumeration": "10"
    },
-   "solution": "LAMENTABLE"
+   "solution": "LAMENTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAMENTABLE",
+    "definitions": [
+     {
+      "text": "very bad",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weak",
+      "gives": "LAME",
+      "note": "a lame excuse is a weak one"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "piece of furniture",
+      "gives": "TABLE",
+      "note": "a table is an item of furniture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAME",
+      "N",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that a freshly bought piece of furniture is flimsy and awful.",
+     "definitionFit": "Lamentable means deplorable or regrettably poor, a synonym for very bad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +1338,51 @@
     "text": "Audible expression of sadness, in a sense, cut short",
     "enumeration": "4"
    },
-   "solution": "SIGH"
+   "solution": "SIGH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SIGH",
+    "definitions": [
+     {
+      "text": "Audible expression of sadness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "a word cut short loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a sense",
+      "gives": "SIGHT",
+      "note": "sight is one of the five senses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIGH"
+     ]
+    },
+    "explanation": {
+     "surface": "A sad sound, sensibly kept brief.",
+     "walkthrough": "Dropping the last letter T from SIGHT leaves SIGH.",
+     "definitionFit": "A sigh is a long audible breath that often shows sorrow or weariness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sense"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1396,57 @@
     "text": "Like an old picture showing Greek character in Aegean, say",
     "enumeration": "5"
    },
-   "solution": "SEPIA"
+   "solution": "SEPIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEPIA",
+    "definitions": [
+     {
+      "text": "Like an old picture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aegean, say",
+      "gives": "SEA",
+      "note": "the Aegean is an example of a sea, hinted by 'say'"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "PI",
+      "note": "pi is a letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "PI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An old photograph shows a Greek person on the Aegean.",
+     "definitionFit": "Sepia is the reddish-brown tint typical of early photographs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1460,50 @@
     "text": "Taxonomic groups in Information Age",
     "enumeration": "6"
    },
-   "solution": "GENERA"
+   "solution": "GENERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENERA",
+    "definitions": [
+     {
+      "text": "Taxonomic groups",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "Age",
+      "gives": "ERA",
+      "note": "an era is an age or period"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "ERA"
+     ]
+    },
+    "explanation": {
+     "surface": "Biological classifications in the digital Information Age.",
+     "walkthrough": "GEN for information is informal British usage, as in 'get the gen on something'.",
+     "definitionFit": "Genera, the plural of genus, are the taxonomic ranks above species."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Information"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1517,55 @@
     "text": "Providing cover for present ringleader in East End area",
     "enumeration": "8"
    },
-   "solution": "WRAPPING"
+   "solution": "WRAPPING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WRAPPING",
+    "definitions": [
+     {
+      "text": "Providing cover for present",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one part placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "East End area",
+      "gives": "WAPPING",
+      "note": "Wapping is a district of London's East End, beside the Thames"
+     },
+     {
+      "clueFragment": "ringleader",
+      "gives": "R",
+      "note": "the leader of ring, its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "R",
+      "APPING"
+     ]
+    },
+    "explanation": {
+     "surface": "Gift wrapping in a London district.",
+     "walkthrough": "'Ringleader' reads as a gang boss but splits as the leader of ring. 'Present' looks like the current time; it is a gift.",
+     "definitionFit": "Wrapping a present means giving it a covering of paper before it is given."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ringleader"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1579,56 @@
     "text": "Inform somebody else finally, being extremely selective",
     "enumeration": "6"
    },
-   "solution": "NOTIFY"
+   "solution": "NOTIFY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NOTIFY",
+    "definitions": [
+     {
+      "text": "Inform",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being extremely selective",
+      "for": "letter_selection",
+      "note": "selecting the extremes of a word keeps only its outermost letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "somebody else",
+      "gives": "NOTI",
+      "note": "someone else is 'not I'"
+     },
+     {
+      "clueFragment": "finally",
+      "gives": "FY",
+      "select": "outer",
+      "note": "first and last letters of finally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTI",
+      "FY"
+     ]
+    },
+    "explanation": {
+     "surface": "Telling someone else at last, choosing carefully whom.",
+     "walkthrough": "'Finally' reads as 'at last' but is the word whose ends are picked.",
+     "definitionFit": "To notify someone is to inform them formally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finally"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1642,53 @@
     "text": "Lament, i.e. bawl, when upset",
     "enumeration": "6"
    },
-   "solution": "BEWAIL"
+   "solution": "BEWAIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BEWAIL",
+    "definitions": [
+     {
+      "text": "Lament",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "i.e. bawl",
+      "gives": "IEBAWL",
+      "note": "the letters of these words to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IEBAWL",
+       "gives": "BEWAIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mourning means crying loudly when distressed.",
+     "definitionFit": "To bewail is to express great sorrow over something, a direct synonym of lament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   }
  ]
 }
