@@ -39,6 +39,8 @@ PACE = 2.0
 #: older one are looked up again.
 MATCHER = 2
 REPORT_WEEKS = 5
+#: Seconds a lookup started before resolve's `until` may run past it.
+LOOKUP_GRACE = 120
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/128 Safari/537.36"
@@ -52,8 +54,11 @@ DVI = re.compile(r"var dviResponse = (\{.*?\});\s*\n")
 class Gale:
     """One portal session per product, asked one thing at a time."""
 
-    def __init__(self, pace=PACE):
+    def __init__(self, pace=PACE, deadline=None):
+        """`deadline`: the monotonic time past which no request is sent and
+        none waits longer, so one slow lookup cannot outlast its tick."""
         self.pace, self.last, self.openers, self.months = pace, 0.0, {}, {}
+        self.deadline = deadline
 
     def get(self, prod, url, xhr=False):
         if prod not in self.openers:
@@ -64,9 +69,12 @@ class Gale:
             self.get(prod, f"{PORTAL}/collections")
             self.get(prod, f"{PORTAL}/actions/auth.php?db={PRODUCTS[prod][0]}")
         time.sleep(max(0.0, self.last + self.pace - time.time()))
+        wait = 90 if self.deadline is None else min(90, self.deadline - time.monotonic())
+        if wait <= 0:
+            raise TimeoutError("out of time mid-lookup; asked again next tick")
         try:
             req = urllib.request.Request(url, headers={"X-Requested-With": "XMLHttpRequest"} if xhr else {})
-            with self.openers[prod].open(req, timeout=90) as r:
+            with self.openers[prod].open(req, timeout=wait) as r:
                 return r.read().decode("utf-8", "replace")
         finally:
             self.last = time.time()
@@ -75,9 +83,10 @@ class Gale:
         """Gale's issues of `day`: [{mcode, date, issueNumber, volume}]."""
         key = (prod, day.year, day.month)
         if key not in self.months:
+            # A month the archive holds no issue of comes back empty, not {}.
             self.months[key] = json.loads(self.get(
                 prod, f"{GALE}/browseByDate/issuesForMonth?monthYear=1{day:%Y%m}&prodId={prod}&u=alberta_portal",
-                xhr=True))
+                xhr=True) or "{}")
         return self.months[key].get(f"1{day:%Y%m%d}", [])
 
     def issue(self, prod, i):
@@ -233,7 +242,7 @@ def resolve(prod, rows, out=sys.stdout, gale=None, cache=CACHE, limit=PER_TICK, 
         if until is not None and time.monotonic() > until:
             print(f"gale_docs: out of time; the rest next tick", file=out)
             break
-        gale = gale or Gale()
+        gale = gale or Gale(deadline=None if until is None else until + LOOKUP_GRACE)
         try:
             e = how(prod, day, gale, number)
         except (urllib.error.URLError, http.client.HTTPException, OSError, ValueError, KeyError) as ex:
