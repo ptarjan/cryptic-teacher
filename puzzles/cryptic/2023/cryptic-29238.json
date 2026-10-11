@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "It's dope? Somehow get payment",
     "enumeration": "7"
    },
-   "solution": "DEPOSIT"
+   "solution": "DEPOSIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEPOSIT",
+    "definitions": [
+     {
+      "text": "payment",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somehow",
+      "for": "anagram",
+      "note": "somehow means in some unspecified way, so the letters are put together in another order"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's dope",
+      "gives": "ITSDOPE",
+      "note": "the letters of these words, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITSDOPE",
+       "gives": "DEPOSIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone queries whether a dodgy substance is any good, then asks to be paid.",
+     "definitionFit": "A deposit is a sum handed over in advance, a part payment securing a purchase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +96,58 @@
     "text": "Bed heaving with lice making a bit of noise",
     "enumeration": "7"
    },
-   "solution": "DECIBEL"
+   "solution": "DECIBEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECIBEL",
+    "definitions": [
+     {
+      "text": "a bit of noise",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heaving",
+      "for": "anagram",
+      "note": "heaving means moving in heavy surges, so the letters are tossed into another order"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bed",
+      "gives": "BED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lice",
+      "gives": "LICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEDLICE",
+       "gives": "DECIBEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bed seething with lice makes a little rustling sound.",
+     "definitionFit": "A decibel is a unit of loudness, so it is a measured bit of noise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "heaving"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +161,55 @@
     "text": "Shore up an exit and circulate",
     "enumeration": "9"
    },
-   "solution": "PROPAGATE"
+   "solution": "PROPAGATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROPAGATE",
+    "definitions": [
+     {
+      "text": "circulate",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shore up",
+      "gives": "PROP",
+      "note": "to prop is to support or shore up"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "exit",
+      "gives": "GATE",
+      "note": "a gate is a way out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROP",
+      "A",
+      "GATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Builders brace a doorway and then spread out.",
+     "definitionFit": "To propagate news is to spread or circulate it widely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exit"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +223,68 @@
     "text": "Heartless Harry's up for wine",
     "enumeration": "5"
    },
-   "solution": "SYRAH"
+   "solution": "SYRAH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "SYRAH",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heartless",
+      "for": "deletion",
+      "note": "with its heart removed, the word loses its central letter"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from the bottom, so backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harry",
+      "gives": "HARRY",
+      "note": "taken as written before losing its middle"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the possessive ending"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYRAH"
+     ],
+     "reversals": [
+      {
+       "from": "HARYS",
+       "to": "SYRAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A callous man named Harry is keen on some wine.",
+     "definitionFit": "Syrah is a red grape variety and the wine made from it, also called Shiraz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heartless"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +304,52 @@
      }
     ]
    },
-   "solution": "TALKRADIO"
+   "solution": "TALKRADIO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TALK RADIO",
+    "definitions": [
+     {
+      "text": "chatty broadcaster",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is sitting inside the run of words that follows"
+     },
+     {
+      "text": "Back",
+      "for": "reversal",
+      "note": "back means in the opposite direction, so the letters are read right to left"
+     }
+    ],
+    "linkWords": [
+     "with a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hanoi, dark latte",
+      "gives": "OIDARKLAT",
+      "note": "the letters running from the end of the first word into the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A traveller returns to Hanoi with a dark latte and a talkative presenter.",
+     "walkthrough": "Read backwards from the T of latte to the O of Hanoi.",
+     "definitionFit": "Talk radio is a broadcasting format built on phone-ins and discussion, so a chatty one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +363,70 @@
     "text": "State finding dodgy dealer has captured Charlie",
     "enumeration": "7"
    },
-   "solution": "DECLARE"
+   "solution": "DECLARE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DECLARE",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "something dodgy is not straight, so these letters are not in their proper order"
+     },
+     {
+      "text": "has captured",
+      "for": "container",
+      "note": "to have captured something is to hold it inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dealer",
+      "gives": "DEALER",
+      "note": "the word to be rearranged"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "C",
+      "LARE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEALER",
+       "gives": "DELARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady trader has been caught with a man named Charlie, and the state finds out.",
+     "walkthrough": "'State' looks like a noun for a country but is the verb.",
+     "definitionFit": "To state and to declare are synonyms: both mean to announce something formally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +440,68 @@
     "text": "As St Paul's finally said: march up",
     "enumeration": "5"
    },
-   "solution": "DOMED"
+   "solution": "DOMED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DOMED",
+    "definitions": [
+     {
+      "text": "As St Paul's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so only the last letter of the word is used"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from the bottom, so backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "said",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of this word"
+     },
+     {
+      "clueFragment": "march",
+      "gives": "DEMO",
+      "note": "a demo is a protest march"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "OMED"
+     ],
+     "reversals": [
+      {
+       "from": "DEMO",
+       "to": "OMED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Protesters were told at last to march up to St Paul's Cathedral.",
+     "walkthrough": "St Paul's is the London cathedral famous for its great dome.",
+     "definitionFit": "St Paul's Cathedral has a dome, so it is domed; the definition describes it by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "march"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +515,57 @@
     "text": "Fainted as a result of error in viral illness",
     "enumeration": "9"
    },
-   "solution": "COLLAPSED"
+   "solution": "COLLAPSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COLLAPSED",
+    "definitions": [
+     {
+      "text": "Fainted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "as a result of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "viral illness",
+      "gives": "COLD",
+      "note": "the common cold is caused by a virus"
+     },
+     {
+      "clueFragment": "error",
+      "gives": "LAPSE",
+      "note": "a lapse is a slip or mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COL",
+      "LAPSE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone passed out because of a mistake made while ill with a virus.",
+     "definitionFit": "To collapse is to fall down suddenly, as when someone faints."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "error"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +579,39 @@
     "text": "Rearrange lunch, there's a dear!",
     "enumeration": "5"
    },
-   "solution": "ANGEL"
+   "solution": "ANGEL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANGEL",
+    "definitions": [
+     {
+      "text": "a dear",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "there's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rearrange lunch",
+      "gives": "ANGEL",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone thanks a friend sweetly for moving their lunch date.",
+     "walkthrough": "'Rearrange' looks like an anagram signal, but the letters are hidden in order across the two words, with no indicator.",
+     "definitionFit": "Calling someone an angel or a dear are both affectionate ways of praising a kind person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rearrange"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +625,46 @@
     "text": "Properties of cars",
     "enumeration": "7"
    },
-   "solution": "ESTATES"
+   "solution": "ESTATES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ESTATES",
+    "definitions": [
+     {
+      "text": "Properties",
+      "at": 0
+     },
+     {
+      "text": "cars",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Properties",
+      "note": "first meaning: large landed holdings"
+     },
+     {
+      "clueFragment": "cars",
+      "note": "second meaning: estate cars, the British name for station wagons"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "An estate car is the British term for a station wagon.",
+     "definitionFit": "The word means both large country properties and a kind of long-backed car."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Properties"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +678,44 @@
     "text": "Singing group many papers reported",
     "enumeration": "5"
    },
-   "solution": "CHOIR"
+   "solution": "CHOIR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHOIR",
+    "definitions": [
+     {
+      "text": "Singing group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "reported means passed on by word of mouth, so we want the sound of the word rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many papers",
+      "gives": "CHOIR",
+      "soundsLike": "QUIRE",
+      "note": "a quire is a set of 24 or 25 sheets of paper"
+     }
+    ],
+    "explanation": {
+     "surface": "A singing group was covered by many newspapers.",
+     "walkthrough": "'Papers' suggests newspapers, but a quire is a stack of writing paper.",
+     "definitionFit": "A choir is an organised body of singers, such as one in a church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +729,50 @@
     "text": "Fruit getting fair public attention",
     "enumeration": "9"
    },
-   "solution": "LIMELIGHT"
+   "solution": "LIMELIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIMELIGHT",
+    "definitions": [
+     {
+      "text": "public attention",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fruit",
+      "gives": "LIME",
+      "note": "a citrus fruit"
+     },
+     {
+      "clueFragment": "fair",
+      "gives": "LIGHT",
+      "note": "fair as in pale-coloured, like fair hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIME",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Some fruit wins fair attention from the public, perhaps at a show.",
+     "walkthrough": "'Fair' reads as just, but here it means pale.",
+     "definitionFit": "To be in the limelight is to be the focus of public notice, named after old theatre stage lighting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +786,57 @@
     "text": "Made a lot of noise about article and talked nonsense",
     "enumeration": "9"
    },
-   "solution": "BLATHERED"
+   "solution": "BLATHERED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLATHERED",
+    "definitions": [
+     {
+      "text": "talked nonsense",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece is wrapped round the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Made a lot of noise",
+      "gives": "BLARED",
+      "note": "blared means sounded loudly"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLA",
+      "THE",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shouted about a piece of writing and spoke rubbish.",
+     "definitionFit": "To blather is to chatter foolishly at length, so its past tense means talked nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +850,43 @@
     "text": "Give much to the audience",
     "enumeration": "5"
    },
-   "solution": "ALLOT"
+   "solution": "ALLOT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ALLOT",
+    "definitions": [
+     {
+      "text": "Give",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the audience",
+      "for": "homophone",
+      "note": "what is given to an audience is heard, so the sound of the phrase counts, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "much",
+      "gives": "ALLOT",
+      "soundsLike": "A LOT",
+      "note": "much means a great deal"
+     }
+    ],
+    "explanation": {
+     "surface": "A performer is urged to give plenty to the people watching.",
+     "definitionFit": "To allot is to assign or hand out a share, so it means give."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +900,65 @@
     "text": "South American's back in a shopping centre",
     "enumeration": "5"
    },
-   "solution": "LLAMA"
+   "solution": "LLAMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LLAMA",
+    "definitions": [
+     {
+      "text": "South American",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going the opposite way, so the letters are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shopping centre",
+      "gives": "MALL",
+      "note": "a mall is a shopping centre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LLAM",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AMALL",
+       "to": "LLAMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A South American person has returned to a shopping centre.",
+     "walkthrough": "'South American' sounds like a person, but it is an animal of the Andes.",
+     "definitionFit": "The llama is a domesticated pack animal native to South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "South"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +978,51 @@
      }
     ]
    },
-   "solution": "AFTERTHAT"
+   "solution": "AFTERTHAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AFTER THAT",
+    "definitions": [
+     {
+      "text": "Then",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracked up",
+      "for": "anagram",
+      "note": "something cracked up is broken into pieces, so the letters are reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at the fart",
+      "gives": "ATTHEFART",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATTHEFART",
+       "gives": "AFTERTHAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone then burst out laughing at a flatulent noise.",
+     "definitionFit": "Then and after that both mean next in sequence, subsequently."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cracked"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1036,49 @@
     "text": "Disadvantages of feather edges",
     "enumeration": "9"
    },
-   "solution": "DOWNSIDES"
+   "solution": "DOWNSIDES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWNSIDES",
+    "definitions": [
+     {
+      "text": "Disadvantages",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feather",
+      "gives": "DOWN",
+      "note": "down is fine soft feathers"
+     },
+     {
+      "clueFragment": "edges",
+      "gives": "SIDES",
+      "note": "the sides of something are its edges"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "SIDES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lists the drawbacks of a feather's edges.",
+     "definitionFit": "Downsides are the negative aspects or drawbacks of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "feather"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1102,50 @@
      }
     ]
    },
-   "solution": "WENTTOSEA"
+   "solution": "WENTTOSEA",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "WENT TO SEA",
+    "definitions": [
+     {
+      "text": "like the owl and the pussycat did",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Spooner swapped the opening sounds of words, so we do the same here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dispatched for a tinkle",
+      "gives": "WENTTOSEA",
+      "soundsLike": "SENT TO WEE",
+      "note": "dispatched is sent, for is to, and a tinkle is a wee; swapping the opening sounds of the first and last words gives the spoken form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WENTTOSEA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was sent off to relieve themselves, as the famous owl and pussycat did.",
+     "walkthrough": "Swapping the S and W sounds of the three-word phrase gives the answer. Edward Lear's nonsense poem begins 'The Owl and the Pussy-cat went to sea'.",
+     "definitionFit": "In Lear's poem the owl and the pussycat set sail in a pea-green boat, so they went to sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "tinkle"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1159,50 @@
     "text": "Cube by artist who can manage food",
     "enumeration": "9"
    },
-   "solution": "DIETITIAN"
+   "solution": "DIETITIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIETITIAN",
+    "definitions": [
+     {
+      "text": "who can manage food",
+      "at": 15,
+      "note": "a relative clause standing for 'one who', so the noun is implied"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cube",
+      "gives": "DIE",
+      "note": "a die is a cube used in games"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "TITIAN",
+      "note": "Titian was a Venetian Renaissance painter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIE",
+      "TITIAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cube was made by an artist who also knows about food.",
+     "definitionFit": "A dietitian is a health professional who plans and regulates what people eat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cube"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1216,66 @@
     "text": "Deride eating awfully twee vegan food",
     "enumeration": "9"
    },
-   "solution": "SWEETCORN"
+   "solution": "SWEETCORN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SWEETCORN",
+    "definitions": [
+     {
+      "text": "vegan food",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "awfully means badly, so the letters are in a poor, jumbled order"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating something else takes it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deride",
+      "gives": "SCORN",
+      "note": "to scorn is to deride"
+     },
+     {
+      "clueFragment": "twee",
+      "gives": "TWEE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEET",
+      "CORN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TWEE",
+       "gives": "WEET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneers at a prissy vegan dish while eating it.",
+     "definitionFit": "Sweetcorn is a vegetable, maize, so it is a food suitable for vegans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1289,68 @@
     "text": "Where balls are to cast up in rugby formation",
     "enumeration": "7"
    },
-   "solution": "SCROTUM"
+   "solution": "SCROTUM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SCROTUM",
+    "definitions": [
+     {
+      "text": "Where balls are",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast up",
+      "for": "reversal",
+      "note": "cast up means thrown upwards, which in a down clue turns a word backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rugby formation",
+      "gives": "SCRUM",
+      "note": "a scrum is a set formation of players in rugby"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCR",
+      "OT",
+      "UM"
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby player explains where the ball goes in the scrum.",
+     "walkthrough": "'Balls' suggests the oval rugby ball; the definition means testicles.",
+     "definitionFit": "The scrotum is the pouch of skin holding the testicles, so it is where balls are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "balls"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1364,61 @@
     "text": "In double bed initially, diminutive nerd",
     "enumeration": "5"
    },
-   "solution": "DWEEB"
+   "solution": "DWEEB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DWEEB",
+    "definitions": [
+     {
+      "text": "nerd",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of each word is used"
+     },
+     {
+      "text": "In",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "double bed",
+      "gives": "DB",
+      "select": "first",
+      "note": "first letters of these two words"
+     },
+     {
+      "clueFragment": "diminutive",
+      "gives": "WEE",
+      "note": "wee means small, chiefly in Scottish use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WEE",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A small, nerdy person lies in a large double bed.",
+     "definitionFit": "Dweeb is American slang for a boring, socially awkward or studious person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1438,71 @@
      }
     ]
    },
-   "solution": "BEERGUT"
+   "solution": "BEERGUT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BEER GUT",
+    "definitions": [
+     {
+      "text": "Corporation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncontrolled",
+      "for": "anagram",
+      "note": "something uncontrolled runs wild, so the letters are scattered into another order"
+     },
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "to enter is to go inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speculation",
+      "gives": "BET",
+      "note": "a bet is a speculation, a wager"
+     },
+     {
+      "clueFragment": "urge",
+      "gives": "URGE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "ERGU",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "URGE",
+       "gives": "ERGU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company has an unchecked impulse to get into speculative investment.",
+     "walkthrough": "'Corporation' looks like a company; in older British slang it is a big belly.",
+     "definitionFit": "Corporation is jocular British slang for a paunch, and a beer gut is a belly swollen by drinking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Corporation"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1516,47 @@
     "text": "One way or another, give a citation",
     "enumeration": "5"
    },
-   "solution": "REFER"
+   "solution": "REFER",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "REFER",
+    "definitions": [
+     {
+      "text": "give a citation",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "One way or another",
+      "for": "palindrome",
+      "note": "whichever direction you read in, the word comes out the same"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "give a citation",
+      "gives": "REFER",
+      "note": "to point a reader to a source"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REFER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to cite a source by whatever means.",
+     "definitionFit": "To refer to a work is to cite it as a source or authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1570,47 @@
     "text": "F-feeble fire",
     "enumeration": "5"
    },
-   "solution": "FLAME"
+   "solution": "FLAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAME",
+    "definitions": [
+     {
+      "text": "fire",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "F-",
+      "gives": "F",
+      "note": "the stammered first letter"
+     },
+     {
+      "clueFragment": "feeble",
+      "gives": "LAME",
+      "note": "lame means weak, as in a lame excuse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAME"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stammers that a fire is weak.",
+     "walkthrough": "The stutter repeats an opening letter, and that letter is the first piece.",
+     "definitionFit": "A flame is the burning, glowing gas of a fire, so it stands for fire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "feeble"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1624,50 @@
     "text": "Find Matilda's a police officer",
     "enumeration": "9"
    },
-   "solution": "DETECTIVE"
+   "solution": "DETECTIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DETECTIVE",
+    "definitions": [
+     {
+      "text": "police officer",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Find",
+      "gives": "DETECT",
+      "note": "to detect is to find or discover"
+     },
+     {
+      "clueFragment": "Matilda's",
+      "gives": "IVE",
+      "note": "Matilda is the setter, so from her viewpoint this is I've, I have"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETECT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A setter called Matilda discovers that she is a police officer.",
+     "walkthrough": "Setters often refer to themselves by name; Matilda's stands for 'Matilda has', so I've.",
+     "definitionFit": "A detective is a police officer whose job is investigating crimes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Matilda's"
+    }
+   }
   },
   {
    "number": 23,
@@ -425,7 +1681,48 @@
     "text": "Nightclub 50% discounted",
     "enumeration": "5"
    },
-   "solution": "DISCO"
+   "solution": "DISCO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DISCO",
+    "definitions": [
+     {
+      "text": "Nightclub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "50%",
+      "for": "deletion",
+      "note": "fifty per cent is half, so only half of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "discounted",
+      "gives": "DISCOUNTED",
+      "note": "taken as written before halving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISCO"
+     ]
+    },
+    "explanation": {
+     "surface": "A nightclub offers half-price entry.",
+     "walkthrough": "'50% discounted' looks like a sale; it means keep only the first half of the word.",
+     "definitionFit": "A disco is a club or party where people dance to recorded pop music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discounted"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1736,42 @@
     "text": "Country tableware",
     "enumeration": "5"
    },
-   "solution": "CHINA"
+   "solution": "CHINA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHINA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     },
+     {
+      "text": "tableware",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "note": "first meaning: the nation in East Asia"
+     },
+     {
+      "clueFragment": "tableware",
+      "note": "second meaning: fine porcelain plates and cups"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together, the two words suggest rustic crockery; they are separate meanings.",
+     "definitionFit": "The same word names the Asian nation and porcelain dishes, originally imported from there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 25,
@@ -459,7 +1791,50 @@
      }
     ]
    },
-   "solution": "TEACHESTS"
+   "solution": "TEACHESTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEA-CHESTS",
+    "definitions": [
+     {
+      "text": "boxes",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instructs",
+      "gives": "TEACHES",
+      "note": "to instruct is to teach"
+     },
+     {
+      "clueFragment": "Eliot",
+      "gives": "TS",
+      "note": "the poet T. S. Eliot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEACHES",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tutors a pupil called Eliot so as to acquire some boxes.",
+     "walkthrough": "Eliot is the poet T. S. Eliot, so his initials are the second piece.",
+     "definitionFit": "Tea chests are large wooden crates for shipping tea, often reused for moving house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Eliot"
+    }
+   }
   },
   {
    "number": 26,
@@ -473,7 +1848,58 @@
     "text": "Here in Paris nobody goes for starters of some cake",
     "enumeration": "5"
    },
-   "solution": "ICING"
+   "solution": "ICING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ICING",
+    "definitions": [
+     {
+      "text": "some cake",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters are what come first, so only the opening letter of each word is taken"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Here in Paris",
+      "gives": "ICI",
+      "note": "ici is French for here"
+     },
+     {
+      "clueFragment": "nobody goes",
+      "gives": "NG",
+      "select": "first",
+      "note": "first letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICI",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "In Paris, no one is allowed to try some cake first.",
+     "definitionFit": "Icing is the sugary coating on a cake, so it is a part of one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starters"
+    }
+   }
   },
   {
    "number": 27,
@@ -487,7 +1913,87 @@
     "text": "Mostly metal or otherwise covering tip of superconductor",
     "enumeration": "7"
    },
-   "solution": "MAESTRO"
+   "solution": "MAESTRO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container",
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "MAESTRO",
+    "definitions": [
+     {
+      "text": "Mostly metal or otherwise covering tip of superconductor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means not all of it, so the last letter is dropped"
+     },
+     {
+      "text": "otherwise",
+      "for": "anagram",
+      "note": "otherwise means in a different way, so the letters take another order"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a covering goes around something, so one piece wraps the other"
+     },
+     {
+      "text": "tip of",
+      "for": "letter_selection",
+      "note": "the tip of a word is its very end, here its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "metal",
+      "gives": "METAL",
+      "note": "taken as written before shortening"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "superconductor",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAE",
+      "S",
+      "TRO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "METAOR",
+       "gives": "MAETRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A materials scientist describes the composition of a superconductor.",
+     "walkthrough": "The whole clue doubles as the definition: superconductor read as super conductor, a brilliant leader of an orchestra.",
+     "definitionFit": "A maestro is a distinguished conductor of music, so a superconductor in a playful sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "superconductor"
+    }
+   }
   },
   {
    "number": 28,
@@ -501,7 +2007,62 @@
     "text": "Not in favour of a profit split after vacation",
     "enumeration": "7"
    },
-   "solution": "AGAINST"
+   "solution": "AGAINST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AGAINST",
+    "definitions": [
+     {
+      "text": "Not in favour of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after vacation",
+      "for": "letter_selection",
+      "note": "a vacated place has been emptied, so only the outside letters of the word remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "profit",
+      "gives": "GAIN",
+      "note": "a gain is a profit"
+     },
+     {
+      "clueFragment": "split",
+      "gives": "ST",
+      "select": "outer",
+      "note": "the first and last letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAIN",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone opposes dividing up the profits once the holiday is over.",
+     "walkthrough": "'Vacation' suggests a holiday but means emptying a word of its middle.",
+     "definitionFit": "To be against something is to oppose it, not to be in favour of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   }
  ]
 }
