@@ -3,9 +3,10 @@
 
     git diff --cached --name-status -M -- puzzles | python3 tools/commit_subject.py "<job>"
 
-prints e.g. "File times-17317 +4; renumber times-18318 as times-17318 (full
-pass)": what changed comes first, one id per verb and a count of the rest,
-then the job. With no puzzle staged it prints the job alone.
+prints e.g. "File times-17317 +4; renumber times-18318 as times-17318", one id
+per verb and a count of the rest, so a filing reads like "Annotate times-17317";
+the job goes in the body ("Job: full pass"). With no puzzle staged it prints the
+job alone.
 """
 import sys
 from pathlib import PurePosixPath
@@ -35,7 +36,7 @@ def subject(lines, job):
     if not parts:
         return job
     head = "; ".join(parts)
-    return f"{head[0].upper()}{head[1:]} ({job})"
+    return f"{head[0].upper()}{head[1:]}\n\nJob: {job}"
 
 
 if __name__ == "__main__":
