@@ -24,6 +24,9 @@
   "date": "2024-03-04",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,46 @@
     "text": "Charge one type of vehicle",
     "enumeration": "4"
    },
-   "solution": "TAXI"
+   "solution": "TAXI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAXI",
+    "definitions": [
+     {
+      "text": "type of vehicle",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charge",
+      "gives": "TAX",
+      "note": "a tax is a charge levied by the state"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAX",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A query about the fee for one kind of vehicle.",
+     "definitionFit": "A taxi is a hired car, one particular kind of road vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charge"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +93,67 @@
     "text": "Memory loss means I somehow start to ad-lib",
     "enumeration": "7"
    },
-   "solution": "AMNESIA"
+   "solution": "AMNESIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AMNESIA",
+    "definitions": [
+     {
+      "text": "Memory loss",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow says the letters get there in some unspecified way, rearranged"
+     },
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening character"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "means I",
+      "gives": "MEANSI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ad-lib",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of ad-lib"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMNESI",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEANSI",
+       "gives": "AMNESI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor who forgets lines has to improvise.",
+     "definitionFit": "Amnesia is the medical term for loss of memory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "means"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +167,49 @@
     "text": "Popular place for data loaded to a computer",
     "enumeration": "5"
    },
-   "solution": "INPUT"
+   "solution": "INPUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INPUT",
+    "definitions": [
+     {
+      "text": "data loaded to a computer",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "what is in is popular"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "PUT",
+      "note": "to put is to place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "PUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy venue for entering data into a computer.",
+     "definitionFit": "Input is the information fed into a computer system for processing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +229,55 @@
      }
     ]
    },
-   "solution": "WEARDOWN"
+   "solution": "WEARDOWN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WEAR DOWN",
+    "definitions": [
+     {
+      "text": "gradually overcome resistance",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Struggling",
+      "for": "anagram",
+      "note": "letters that are struggling are writhing about and out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "onward",
+      "gives": "ONWARD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONWARDWE",
+       "gives": "WEARDOWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team plodding forward until the opposition finally gives way.",
+     "definitionFit": "To wear down is the idiom for slowly exhausting an opponent's opposition until it gives way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Struggling"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +291,58 @@
     "text": "You and I decided — in the end — to get married",
     "enumeration": "3"
    },
-   "solution": "WED"
+   "solution": "WED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WED",
+    "definitions": [
+     {
+      "text": "get married",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its closing character"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You and I",
+      "gives": "WE",
+      "note": "you and I together are we"
+     },
+     {
+      "clueFragment": "decided",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter of decided"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple finally resolving to tie the knot.",
+     "definitionFit": "To wed is to marry, the formal verb for entering a marriage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +356,63 @@
     "text": "Drama set around middle of Flemish city",
     "enumeration": "9"
    },
-   "solution": "AMSTERDAM"
+   "solution": "AMSTERDAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "AMSTERDAM",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a seven-letter word is its fourth character"
+     },
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "letters moved around are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drama set",
+      "gives": "DRAMASET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Flemish",
+      "gives": "M",
+      "select": "middle",
+      "note": "central letter of Flemish"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRAMASETM",
+       "gives": "AMSTERDAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A play staged in a Belgian town.",
+     "walkthrough": "'Flemish city' looks like the definition, but Amsterdam is Dutch; 'Flemish' only supplies its middle letter.",
+     "definitionFit": "Amsterdam is the capital city of the Netherlands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flemish"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +426,54 @@
     "text": "Sons featuring in proper family tree",
     "enumeration": "7"
    },
-   "solution": "DESCENT"
+   "solution": "DESCENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DESCENT",
+    "definitions": [
+     {
+      "text": "family tree",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featuring in",
+      "for": "container",
+      "note": "something featuring in another appears within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "proper",
+      "gives": "DECENT",
+      "note": "decent means proper, respectable"
+     },
+     {
+      "clueFragment": "Sons",
+      "gives": "S",
+      "note": "S is the abbreviation for son or sons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "S",
+      "CENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Male heirs appearing on a respectable genealogy.",
+     "definitionFit": "Descent is ancestry or lineage, what a family tree records."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "proper"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +487,46 @@
     "text": "Make circular motions with part of foot",
     "enumeration": "5"
    },
-   "solution": "WHEEL"
+   "solution": "WHEEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHEEL",
+    "definitions": [
+     {
+      "text": "Make circular motions",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "part of foot",
+      "gives": "HEEL",
+      "note": "the heel is the back part of the foot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HEEL"
+     ]
+    },
+    "explanation": {
+     "surface": "An exercise instruction to rotate the heel.",
+     "definitionFit": "To wheel is to turn or circle, as birds wheel overhead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +546,47 @@
      }
     ]
    },
-   "solution": "INSPADES"
+   "solution": "INSPADES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN SPADES",
+    "definitions": [
+     {
+      "text": "Extravagantly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "what is in is fashionable"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "SPADES",
+      "note": "spades is one of the four suits in a pack of cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SPADES"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a lavishly stylish outfit.",
+     "definitionFit": "The idiom 'in spades' means in great abundance, to an extreme degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +600,53 @@
     "text": "Stage favourites making a comeback",
     "enumeration": "4"
    },
-   "solution": "STEP"
+   "solution": "STEP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STEP",
+    "definitions": [
+     {
+      "text": "Stage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making a comeback",
+      "for": "reversal",
+      "note": "a comeback is a return, so the word is read going back the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favourites",
+      "gives": "PETS",
+      "note": "a teacher's pets are their favourites"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEP"
+     ],
+     "reversals": [
+      {
+       "from": "PETS",
+       "to": "STEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Popular performers returning to the theatre.",
+     "definitionFit": "A step is a stage in a process, one phase of a progression."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stage"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +660,49 @@
     "text": "Those heading up promotions should sell things over here!",
     "enumeration": "4"
    },
-   "solution": "PSST"
+   "solution": "PSST",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "PSST",
+    "definitions": [
+     {
+      "text": "over here!",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Those heading up",
+      "for": "letter_selection",
+      "note": "the words at the head are the starting ones, so only their leading characters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promotions should sell things",
+      "gives": "PSST",
+      "select": "first",
+      "note": "the opening letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PSST"
+     ]
+    },
+    "explanation": {
+     "surface": "A sales manager insisting that the promotions team shift stock here.",
+     "walkthrough": "The whole clue also reads as a street seller's furtive call to passers-by.",
+     "definitionFit": "Psst is the hissed interjection used to attract someone's attention quietly, like calling 'over here!'"
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +716,70 @@
     "text": "In shrewd fashion, clubs and bar finally pool money",
     "enumeration": "8"
    },
-   "solution": "CLEVERLY"
+   "solution": "CLEVERLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLEVERLY",
+    "definitions": [
+     {
+      "text": "In shrewd fashion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the closing character of the word it follows"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the abbreviation for clubs in cards"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "LEVER",
+      "note": "a lever is a bar used to prise or lift"
+     },
+     {
+      "clueFragment": "pool",
+      "gives": "L",
+      "select": "last",
+      "note": "last letter of pool"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "Y",
+      "note": "Y stands for yen, Japanese money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEVER",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shrewdly gathering cash from golf clubs and a bar into a shared kitty.",
+     "definitionFit": "Cleverly means astutely or smartly, which is acting in a shrewd way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pool"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +793,73 @@
     "text": "After cloudiness at first, Fair Isle otherwise clears up",
     "enumeration": "9"
    },
-   "solution": "CLARIFIES"
+   "solution": "CLARIFIES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CLARIFIES",
+    "definitions": [
+     {
+      "text": "clears up",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening character of the preceding word"
+     },
+     {
+      "text": "otherwise",
+      "for": "anagram",
+      "note": "otherwise means in a different way, so the letters are rearranged"
+     },
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after places the following pieces behind the first one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cloudiness",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of cloudiness"
+     },
+     {
+      "clueFragment": "Fair Isle",
+      "gives": "FAIRISLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LARIFIES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FAIRISLE",
+       "gives": "LARIFIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weather report: after early cloud, the sky over Fair Isle brightens.",
+     "walkthrough": "Fair Isle is a remote Scottish island, also a shipping-forecast style place name.",
+     "definitionFit": "To clarify is to make clear, so something that clarifies clears up a matter or liquid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "otherwise"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +873,59 @@
     "text": "Strategy mostly pursued by a country in Africa",
     "enumeration": "6"
    },
-   "solution": "GAMBIA"
+   "solution": "GAMBIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GAMBIA",
+    "definitions": [
+     {
+      "text": "country in Africa",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final character is dropped"
+     },
+     {
+      "text": "pursued by",
+      "for": "charade",
+      "note": "something pursued by another has that other following behind it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strategy",
+      "gives": "GAMBI",
+      "note": "a gambit is an opening strategy, here without its last letter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAMBI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A plan mainly carried out by an African nation.",
+     "definitionFit": "The Gambia is a small West African country along the Gambia river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pursued"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +939,49 @@
     "text": "Minor route, I hesitate to say, is more expansive",
     "enumeration": "7"
    },
-   "solution": "BROADER"
+   "solution": "BROADER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROADER",
+    "definitions": [
+     {
+      "text": "more expansive",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minor route",
+      "gives": "BROAD",
+      "note": "in Britain a B-road is a minor road, below an A-road"
+     },
+     {
+      "clueFragment": "I hesitate to say",
+      "gives": "ER",
+      "note": "er is the sound of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROAD",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hesitantly claiming a back road is wider.",
+     "definitionFit": "Broader means wider, so covering a greater expanse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Minor"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +995,58 @@
     "text": "Hate engendered by extremely divisive experiment",
     "enumeration": "6"
    },
-   "solution": "DETEST"
+   "solution": "DETEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DETEST",
+    "definitions": [
+     {
+      "text": "Hate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely refers to the extremes, the two end letters of the word"
+     }
+    ],
+    "linkWords": [
+     "engendered by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "divisive",
+      "gives": "DE",
+      "select": "outer",
+      "note": "first and last letters of divisive"
+     },
+     {
+      "clueFragment": "experiment",
+      "gives": "TEST",
+      "note": "a test is an experiment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "TEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Bitter loathing stirred up by a very controversial trial.",
+     "definitionFit": "To detest is to loathe intensely, a strong synonym of the verb hate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1060,52 @@
     "text": "Payment of small gratuity on completion",
     "enumeration": "7"
    },
-   "solution": "STIPEND"
+   "solution": "STIPEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STIPEND",
+    "definitions": [
+     {
+      "text": "Payment",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "gratuity",
+      "gives": "TIP",
+      "note": "a tip is a gratuity"
+     },
+     {
+      "clueFragment": "on completion",
+      "gives": "END",
+      "note": "the end is the completion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TIP",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A modest tip paid when a job is finished.",
+     "definitionFit": "A stipend is a fixed regular payment, such as a salary or allowance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1119,66 @@
     "text": "Nothing found in ghastly premium shop",
     "enumeration": "8"
    },
-   "solution": "EMPORIUM"
+   "solution": "EMPORIUM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EMPORIUM",
+    "definitions": [
+     {
+      "text": "shop",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ghastly",
+      "for": "anagram",
+      "note": "a ghastly version is a horribly mangled one, so the letters are jumbled"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "one thing found in another is sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "premium",
+      "gives": "PREMIUM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMP",
+      "O",
+      "RIUM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PREMIUM",
+       "gives": "EMPRIUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Complaining that there is nothing worth buying in an awful upmarket store.",
+     "definitionFit": "An emporium is a large store or shop, often selling a wide range of goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "premium"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1192,50 @@
     "text": "Mass requests for protective equipment",
     "enumeration": "5"
    },
-   "solution": "MASKS"
+   "solution": "MASKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASKS",
+    "definitions": [
+     {
+      "text": "protective equipment",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mass",
+      "gives": "M",
+      "note": "M is the symbol for mass in physics"
+     },
+     {
+      "clueFragment": "requests",
+      "gives": "ASKS",
+      "note": "asks means requests"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A flood of demands for PPE.",
+     "walkthrough": "'Mass' reads as an adjective, many requests, but it is the abbreviation M.",
+     "definitionFit": "Masks cover the face to protect against infection or dust, a kind of protective kit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mass"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1249,54 @@
     "text": "King boarding large sailing vessel",
     "enumeration": "4"
    },
-   "solution": "BRIG"
+   "solution": "BRIG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRIG",
+    "definitions": [
+     {
+      "text": "sailing vessel",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boarding",
+      "for": "container",
+      "note": "someone boarding a vessel goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "BIG",
+      "note": "big means large"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "IG"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch climbing aboard a great sailing ship.",
+     "definitionFit": "A brig is a two-masted square-rigged sailing ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1310,49 @@
     "text": "Publisher's description of obscure book",
     "enumeration": "5"
    },
-   "solution": "BLURB"
+   "solution": "BLURB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLURB",
+    "definitions": [
+     {
+      "text": "Publisher's description",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obscure",
+      "gives": "BLUR",
+      "note": "to blur is to obscure"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUR",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A publisher's summary of a little-known book.",
+     "definitionFit": "A blurb is the promotional summary printed on a book's cover by its publisher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "obscure"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1366,50 @@
     "text": "Senior journalist from America given employment",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USED",
+    "definitions": [
+     {
+      "text": "given employment",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "abbreviation for the United States"
+     },
+     {
+      "clueFragment": "Senior journalist",
+      "gives": "ED",
+      "note": "ED is short for editor, a senior journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An American editor landing a job.",
+     "walkthrough": "The pieces go in reverse clue order: the American comes first, then the journalist.",
+     "definitionFit": "Something used has been put to work, i.e. given employment in the sense of being employed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "employment"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1423,61 @@
     "text": "Dignitary occasionally interrupted by discourteous gatecrasher",
     "enumeration": "8"
    },
-   "solution": "INTRUDER"
+   "solution": "INTRUDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INTRUDER",
+    "definitions": [
+     {
+      "text": "gatecrasher",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means every so often, so only every other character is taken"
+     },
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "something interrupted by another has that other breaking into its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dignitary",
+      "gives": "INTR",
+      "select": "alternate",
+      "note": "second, fourth, sixth and eighth letters of dignitary"
+     },
+     {
+      "clueFragment": "discourteous",
+      "gives": "RUDE",
+      "note": "rude means discourteous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INT",
+      "RUDE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A VIP sometimes interrupted by an ill-mannered party crasher.",
+     "definitionFit": "An intruder enters where not invited, just as a gatecrasher turns up uninvited to a party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dignitary"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1491,44 @@
     "text": "Couple also outspoken",
     "enumeration": "3"
    },
-   "solution": "TWO"
+   "solution": "TWO",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TWO",
+    "definitions": [
+     {
+      "text": "Couple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outspoken",
+      "for": "homophone",
+      "note": "outspoken means spoken out, so the word is heard rather than seen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also",
+      "gives": "TWO",
+      "soundsLike": "TOO",
+      "note": "too means also"
+     }
+    ],
+    "explanation": {
+     "surface": "A pair who are both blunt-talking.",
+     "definitionFit": "A couple is a pair, the number two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "outspoken"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1542,79 @@
     "text": "Strong drink reporters love after the ends of some shifts",
     "enumeration": "8"
    },
-   "solution": "ESPRESSO"
+   "solution": "ESPRESSO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ESPRESSO",
+    "definitions": [
+     {
+      "text": "Strong drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the ends of",
+      "for": "letter_selection",
+      "note": "the ends of a word are its first and last characters"
+     },
+     {
+      "text": "shifts",
+      "for": "reversal",
+      "note": "the two end letters shift places, swapping their order"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the following pieces come behind the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some",
+      "gives": "SE",
+      "select": "outer",
+      "note": "first and last letters of some"
+     },
+     {
+      "clueFragment": "reporters",
+      "gives": "PRESS",
+      "note": "the press are reporters collectively"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, written O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "PRESS",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "SE",
+       "to": "ES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Journalists coming off the night shift who love a powerful drink.",
+     "walkthrough": "'Shifts' looks like work shifts, but it tells you to swap the two end letters.",
+     "definitionFit": "Espresso is a concentrated coffee, a strong drink in the caffeine sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shifts"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1628,49 @@
     "text": "People in funks do bounce back",
     "enumeration": "4"
    },
-   "solution": "BODS"
+   "solution": "BODS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BODS",
+    "definitions": [
+     {
+      "text": "People",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the run of words that follows"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funks do bounce",
+      "gives": "SDOB",
+      "note": "the letters straddling the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "People who are depressed manage to recover.",
+     "walkthrough": "A funk is a low mood; 'bounce back' reads as recovery but only 'back' is the signal.",
+     "definitionFit": "Bods is British slang for people or persons, as in 'a few odd bods'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bounce"
+    }
+   }
   }
  ]
 }
