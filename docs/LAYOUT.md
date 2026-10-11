@@ -1886,6 +1886,22 @@ tools/gale_docs.py                            Gale's PDF Download link for each 
                                               document and page records, misses too, in
                                               ~/.cache/gale_inbox/docs.json; Paul allowed this
                                               on 2026-10-07
+tools/gale_fetch.py                           downloads the Times checklist's linked rows
+                                              itself, in next-up order, at a hand's pace (8-22
+                                              s apart, at most 15 in 3 minutes, a 30-60 min
+                                              rest every 400), into the Mac's Times inbox as
+                                              GALE_<doc>.pdf for the sync to file; stops and
+                                              wakes the room at a login page, captcha, non-PDF
+                                              or repeated errors; skips what it or anyone
+                                              already got (Paul, 2026-10-11, retiring the
+                                              Claude-in-browser)
+tools/gale_fetch.sh                           gale_fetch.py's long run from its own worktree,
+                                              launched through track-job --restart
+tools/test_gale_fetch.sh                      on a fake clock: does gale_fetch keep its pace,
+                                              window cap and session rests, stop at a login
+                                              page, captcha, HTML, short PDF or repeated errors
+                                              (riding out one), skip what was got, and wait for
+                                              links a bounded number of times?
 tools/test_gale_docs.sh                       with Gale stood in: is the day's crossword found
                                               in an issue's contents (not the Concise or a
                                               competition), its Download link's citation one
