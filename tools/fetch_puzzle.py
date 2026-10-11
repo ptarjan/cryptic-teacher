@@ -2665,13 +2665,18 @@ def clue_coverage(puzzle):
 
 
 def cold_solvable(row):
-    """Whether a model can solve an index row's puzzle cold: it can read the
-    clues of a majority of the entries (a row without `clues` has them all).
+    """Whether a model may solve an index row's puzzle cold: its answer key is
+    not a blog's write-up (`writeupKeyed`, provenance.writeup_keyed: a blank
+    there is a parser miss, and apply_solution.py refuses the fill), and it can
+    read the clues of a majority of the entries (a row without `clues` has
+    them all).
 
     A majority, not "any clue at all": unclued entries come out of the
     crossings, and apply_solution.py's crossing check cannot tell an invented
     fill that happens to interlock from a solved one. A gap or two the rest of
     the grid pins down is fine; past that the model is writing the puzzle."""
+    if row.get("writeupKeyed"):
+        return False
     coverage = row.get("clues")
     return not coverage or coverage["present"] * 2 > coverage["total"]
 
@@ -2728,7 +2733,11 @@ def index_row(path):
         # blog's name, which it is badged "hints via" instead of "answers
         # only". Per puzzle, because nothing ties a series to one blog.
         **({"blog": blog} if blog else {}),
-        "hasSolutions": all(e.get("solution") for e in p["entries"]),
+        "hasSolutions": (solved := all(e.get("solution") for e in p["entries"])),
+        # Written only where a light is blank and the answer key is a blog's
+        # write-up (provenance.writeup_keyed): the solve queues never offer it
+        # (cold_solvable), since no model fill of it can be written.
+        **({"writeupKeyed": True} if not solved and provenance.writeup_keyed(p) else {}),
         # Written only where the puzzle needs a preamble it does not hold
         # (puzzle_integrity.awaits_preamble): the annotation pickers leave it out.
         **({"awaitsPreamble": True} if puzzle_integrity.awaits_preamble(p) else {}),
