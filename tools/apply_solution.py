@@ -237,7 +237,7 @@ def check_writeup(puzzle):
     write-up is the answer key, so a light it left blank is one its parser
     could not read, and a model's fill there would turn every answer the blog
     printed into "unverified". The parser is what gets mended."""
-    if "blog" not in provenance.solution_detail(puzzle):
+    if not provenance.writeup_keyed(puzzle):
         return []
     blank = [entry_id(e) for e in puzzle["entries"] if not (e.get("solution") or "").strip()]
     url = (puzzle.get("solutions") or {}).get("url")

@@ -2043,5 +2043,7 @@ tools/track_prereset.sh                       register the pre-reset burn as a s
                                               the lane's text is the last line of
                                               .prereset.log, which states the mode, never a
                                               label typed here
+tools/test_writeup_keyed.sh                   a blank light on a puzzle whose answer key is a
+                                              blog's write-up is never offered for a solve
 ```
 <!-- LAYOUT-END -->

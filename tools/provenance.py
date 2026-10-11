@@ -514,6 +514,18 @@ def solution_detail(puzzle):
     return {k: solutions[k] for k in SOLUTION_DETAIL if k in solutions}
 
 
+def writeup_keyed(puzzle):
+    """Whether the puzzle's answer key is a blog's write-up: read off a blog
+    (source.retrievedFrom) or answered from one (solutions.blog). A model never
+    solves such a grid: a light the write-up left blank is a parser miss to
+    mend, or stays blank, and a model fill would badge every answer unverified.
+    The solve gate (apply_solution.check_writeup), this module's check() and
+    the solve queues (fetch_puzzle.cold_solvable, via the index row) all ask
+    this."""
+    return ("blog" in solution_detail(puzzle)
+            or (puzzle.get("source") or {}).get("retrievedFrom") == "blog")
+
+
 def printed_answers(puzzle):
     """Entry id -> the answer its source printed. Unless a model solved the
     grid, every answer in it is the source's (the paper's, or a write-up's);
@@ -814,7 +826,7 @@ def check(puzzle):
                         f"model solve")
     if "blog" in detail and "model" in detail:
         findings.append("solutions names both a blog and a model")
-    if source.get("retrievedFrom") == "blog" and origin == "model":
+    if writeup_keyed(puzzle) and origin == "model":
         findings.append(
             "solutions.origin is 'model' on a puzzle retrieved from a blog, whose "
             "write-up is the answer key: a light it left blank is a parser miss to "

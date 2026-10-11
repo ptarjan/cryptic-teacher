@@ -1183,19 +1183,22 @@ unsolved_ids = {p["id"] for p in idx["puzzles"] if not p.get("hasSolutions")}
 # The line is fetch_puzzle.cold_solvable, which the burn's queue shares.
 from fetch_puzzle import cold_solvable
 readable = {}  # id -> (present, total), only for puzzles the index flags
-unreadable = set()
+unsolvable = set()
+# A puzzle whose answer key is a blog's write-up is not queued either, and not
+# reported: its blank light is the blog parser's to mend (cold_solvable says no).
 for p in idx["puzzles"]:
     if p["id"] in unsolved_ids and not cold_solvable(p):
-        readable[p["id"]] = (p["clues"]["present"], p["clues"]["total"])
-        unreadable.add(p["id"])
-if unreadable:
+        unsolvable.add(p["id"])
+        if not p.get("writeupKeyed"):
+            readable[p["id"]] = (p["clues"]["present"], p["clues"]["total"])
+if readable:
     print("not queued for a cold solve, too little clue text to read: "
           + ", ".join(f"{i} ({readable[i][0]}/{readable[i][1]} clues)"
-                      for i in sorted(unreadable)), file=sys.stderr)
+                      for i in sorted(readable)), file=sys.stderr)
 # A series' first puzzle goes ahead of the newest-first order.
 todo = sorted(((is_first_issue(p["id"]), puzzle_day(p) or datetime.date.min, p["id"])
                for p in idx["puzzles"]
-               if p["id"] in unsolved_ids and p["id"] not in unreadable
+               if p["id"] in unsolved_ids and p["id"] not in unsolvable
                and not p.get("awaitsPreamble")
                and p["id"] not in tried), reverse=True)
 # Puzzles held as their clues alone (tools/clues_only.py) are solved here too,

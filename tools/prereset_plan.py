@@ -893,6 +893,11 @@ BACKLOG_CASES = [
     # a puzzle whose clue says "see preamble" with no preamble is never queued
     ([_row("times-29600", "2026-09-01"), _row("times-29602", "2026-09-03", awaitsPreamble=True)],
      (), (), (), ["times-29600"]),
+    # a blank light on a puzzle whose answer key is a blog's write-up is a parser
+    # miss, never a solve (apply_solution.check_writeup refuses it): not queued
+    ([_row("times-29600", "2026-09-01"),
+      _row("times-29345", "2025-09-26", solved=False, writeupKeyed=True)],
+     (), (), (), ["times-29600"]),
     # a clues-only puzzle (clues_only_rows) is queued in its series' lane, here
     # book's ahead of times' (neither is in BY_DEMAND); a failed solve holds it
     # out like any other
