@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,73 @@
     "text": "First of various aromas swirling round boiler",
     "enumeration": "7"
    },
-   "solution": "SAMOVAR"
+   "solution": "SAMOVAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "SAMOVAR",
+    "definitions": [
+     {
+      "text": "boiler",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First of",
+      "for": "letter_selection",
+      "note": "first of tells us to keep only the opening letter of the next word"
+     },
+     {
+      "text": "swirling",
+      "for": "anagram",
+      "note": "something swirling is stirred about, so the letters of the word beside it are mixed up"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the shuffled letters go round, enclosing the single kept letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aromas",
+      "gives": "AROMAS",
+      "note": "taken as written, then shuffled"
+     },
+     {
+      "clueFragment": "various",
+      "gives": "V",
+      "select": "first",
+      "note": "opening letter of various"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAMO",
+      "V",
+      "AR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AROMAS",
+       "gives": "SAMOAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pleasant smells curling up around a hot-water boiler in the kitchen.",
+     "definitionFit": "A samovar is a Russian urn that heats water for tea, so it is literally a kind of boiler."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boiler"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +116,54 @@
     "text": "Shoot? November is not part of the season",
     "enumeration": "5"
    },
-   "solution": "SPRIG"
+   "solution": "SPRIG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SPRIG",
+    "definitions": [
+     {
+      "text": "Shoot?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is not part of",
+      "for": "deletion",
+      "note": "if a letter is not part of a word, we take it away from that word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the season",
+      "gives": "SPRING",
+      "note": "one of the four seasons"
+     },
+     {
+      "clueFragment": "November",
+      "gives": "N",
+      "note": "N is November in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPRIG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether to shoot, noting November falls outside the shooting season.",
+     "walkthrough": "Removing the N from SPRING leaves SPRIG; the question mark flags that 'Shoot' is a plant shoot, not gunfire.",
+     "definitionFit": "A sprig is a small stem or twig of a plant, which is a young shoot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Shoot"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +177,56 @@
     "text": "Graduate engages someone to promote book: The Color Purple",
     "enumeration": "7"
    },
-   "solution": "MAGENTA"
+   "solution": "MAGENTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAGENTA",
+    "definitions": [
+     {
+      "text": "The Color Purple",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engages",
+      "for": "container",
+      "note": "to engage is to take on or hold, so the first piece holds the second within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Graduate",
+      "gives": "MA",
+      "note": "Master of Arts, a graduate degree"
+     },
+     {
+      "clueFragment": "someone to promote book",
+      "gives": "AGENT",
+      "note": "a literary agent promotes an author's book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AGENT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate hires a literary agent to sell Alice Walker's novel The Color Purple.",
+     "walkthrough": "The novel's title is redeployed as a plain description: the colour purple.",
+     "definitionFit": "Magenta is a purplish-red shade, so it is a colour in the purple family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Purple"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +240,54 @@
     "text": "Watch TV that is fitted inside car",
     "enumeration": "4"
    },
-   "solution": "VIEW"
+   "solution": "VIEW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VIEW",
+    "definitions": [
+     {
+      "text": "Watch TV",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fitted inside",
+      "for": "container",
+      "note": "something fitted inside another thing sits within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "VW",
+      "note": "a Volkswagen, abbreviated VW"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "IE",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A television that has been installed inside a car for watching.",
+     "definitionFit": "To view is what a television audience does; viewers are the people who watch programmes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "car"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +315,70 @@
      }
     ]
    },
-   "solution": "REARITSUGLYHEAD"
+   "solution": "REARITSUGLYHEAD",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "REAR ITS UGLY HEAD",
+    "definitions": [
+     {
+      "text": "make unwelcome appearance",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "first places this piece at the front, ahead of the rearranged letters"
+     },
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests something bent or crooked, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "From",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bum",
+      "gives": "REAR",
+      "note": "bum is slang for backside"
+     },
+     {
+      "clueFragment": "Hades, guilty",
+      "gives": "HADESGUILTY",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAR",
+      "ITSUGLYHEAD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HADESGUILTY",
+       "gives": "ITSUGLYHEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A guilty villain bursts up from the underworld, backside first.",
+     "definitionFit": "To rear its ugly head is an idiom for an unpleasant thing turning up again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bum"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +392,48 @@
     "text": "Professor on board joined dive",
     "enumeration": "7"
    },
-   "solution": "PLUMMET"
+   "solution": "PLUMMET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLUMMET",
+    "definitions": [
+     {
+      "text": "dive",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Professor on board",
+      "gives": "PLUM",
+      "note": "Professor Plum is a suspect in the board game Cluedo"
+     },
+     {
+      "clueFragment": "joined",
+      "gives": "MET",
+      "note": "people who have met have come together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLUM",
+      "MET"
+     ]
+    },
+    "explanation": {
+     "surface": "An academic who sat on a board also took a plunge.",
+     "walkthrough": "'On board' sounds like a committee seat, but the board is the Cluedo board.",
+     "definitionFit": "To plummet is to fall steeply, a sudden dive downward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 5,
@@ -137,7 +453,56 @@
      }
     ]
    },
-   "solution": "PLEASUREGROUNDS"
+   "solution": "PLEASUREGROUNDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLEASURE GROUNDS",
+    "definitions": [
+     {
+      "text": "amusement park",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down entry, what supports sits underneath, so this piece comes after the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appeal",
+      "gives": "PLEA",
+      "note": "a plea is an appeal"
+     },
+     {
+      "clueFragment": "Firm reasons",
+      "gives": "SUREGROUNDS",
+      "note": "firm means sure, and reasons are grounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLEA",
+      "SUREGROUNDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Solid arguments are offered to back an appeal for a theme park's planning permission.",
+     "definitionFit": "Pleasure grounds are gardens or parks laid out for public recreation and amusement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 6,
@@ -151,7 +516,43 @@
     "text": "Emphasise being no more than 19",
     "enumeration": "10"
    },
-   "solution": "UNDERSCORE"
+   "solution": "UNDERSCORE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNDERSCORE",
+    "definitions": [
+     {
+      "text": "Emphasise",
+      "at": 0
+     },
+     {
+      "text": "being no more than 19",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Emphasise",
+      "note": "first meaning: to stress, as with a line drawn beneath"
+     },
+     {
+      "clueFragment": "being no more than 19",
+      "note": "second meaning: below twenty, read as two words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A score is twenty, so anything up to 19 is UNDER SCORE when the word is split.",
+     "definitionFit": "To underscore is to underline, hence to stress or highlight a point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "19"
+    }
+   }
   },
   {
    "number": 7,
@@ -165,7 +566,75 @@
     "text": "Am about to train extraordinary tennis player",
     "enumeration": "7"
    },
-   "solution": "MARTINA"
+   "solution": "MARTINA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MARTINA",
+    "definitions": [
+     {
+      "text": "tennis player",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the word before it runs backwards"
+     },
+     {
+      "text": "extraordinary",
+      "for": "anagram",
+      "note": "extraordinary means out of the usual order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Am",
+      "gives": "AM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "train",
+      "gives": "TRAIN",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "RTINA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRAIN",
+       "gives": "RTINA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "AM",
+       "to": "MA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports star declares she is about to do some extraordinary training.",
+     "definitionFit": "Martina Navratilova and Martina Hingis are famous champions in tennis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 8,
@@ -179,7 +648,60 @@
     "text": "Gardener returning to turn over part of the earth",
     "enumeration": "7"
    },
-   "solution": "TERRENE"
+   "solution": "TERRENE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TERRENE",
+    "definitions": [
+     {
+      "text": "of the earth",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part",
+      "for": "hidden_word",
+      "note": "part says the letters are a portion of the clue's own words"
+     },
+     {
+      "text": "turn over",
+      "for": "reversal",
+      "note": "to turn something over is to flip it, so the letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gardener returning",
+      "gives": "ENERRET",
+      "note": "the letters run across these two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ENERRET",
+       "to": "TERRENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener comes back to dig over a patch of soil.",
+     "walkthrough": "'Returning' looks like the reversal signal but is just the second word holding the letters; 'turn over' does the turning.",
+     "definitionFit": "Terrene is an adjective meaning earthly or relating to land, from Latin terra."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +721,60 @@
      }
     ]
    },
-   "solution": "ROGUEMALE"
+   "solution": "ROGUEMALE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROGUE MALE",
+    "definitions": [
+     {
+      "text": "Household work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "managed",
+      "for": "anagram",
+      "note": "managed suggests handled or arranged, so the letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our Ma",
+      "gives": "OURMA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "glee",
+      "gives": "GLEE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OURMAGLEE",
+       "gives": "ROGUEMALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mum cheerfully got through the housework.",
+     "walkthrough": "Household is not housework: Geoffrey Household wrote the 1939 thriller Rogue Male.",
+     "definitionFit": "Rogue Male is the best-known novel by the author Geoffrey Household, so it is his work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Household"
+    }
+   }
   },
   {
    "number": 10,
@@ -213,7 +788,62 @@
     "text": "Order court put out: resistance is much worse",
     "enumeration": "5"
    },
-   "solution": "DIRER"
+   "solution": "DIRER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DIRER",
+    "definitions": [
+     {
+      "text": "much worse",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put out",
+      "for": "deletion",
+      "note": "put out means thrown out, so these letters are removed"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Order",
+      "gives": "DIRECT",
+      "note": "to direct is to order"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIRE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge orders the court cleared because resistance has become far worse.",
+     "definitionFit": "Dire means dreadful, so direr is the comparative: more dreadful, much worse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +857,57 @@
     "text": "Band's number received in silence",
     "enumeration": "4"
    },
-   "solution": "GANG"
+   "solution": "GANG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GANG",
+    "definitions": [
+     {
+      "text": "Band",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "received in",
+      "for": "container",
+      "note": "received in means taken inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silence",
+      "gives": "GAG",
+      "note": "to gag is to silence"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N stands for number in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "N",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A pop group's song is met with silence by the audience.",
+     "definitionFit": "A gang is a band of people acting together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 12,
@@ -247,7 +927,65 @@
      }
     ]
    },
-   "solution": "LIPSERVICE"
+   "solution": "LIPSERVICE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LIP SERVICE",
+    "definitions": [
+     {
+      "text": "token support",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "to offer"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mouthy pair",
+      "gives": "LIPS",
+      "note": "the pair of features around the mouth"
+     },
+     {
+      "clueFragment": "heard",
+      "gives": "ER",
+      "select": "alternate",
+      "note": "second and fourth letters of heard"
+     },
+     {
+      "clueFragment": "failing",
+      "gives": "VICE",
+      "note": "a vice is a failing or flaw"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIPS",
+      "ER",
+      "VICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A loudmouthed couple are said to be failing to back anyone properly.",
+     "walkthrough": "'Mouthy' looks like cheeky, but it is just describing the pair as belonging to the mouth.",
+     "definitionFit": "Lip service is support expressed in words only, without sincere action behind it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mouthy"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +999,54 @@
     "text": "In base, part of chest covered in decorations",
     "enumeration": "10"
    },
-   "solution": "BERIBBONED"
+   "solution": "BERIBBONED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BERIBBONED",
+    "definitions": [
+     {
+      "text": "covered in decorations",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "In tells us one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "base",
+      "gives": "BED",
+      "note": "a bed is a base, as a foundation layer"
+     },
+     {
+      "clueFragment": "part of chest",
+      "gives": "RIBBONE",
+      "note": "a rib bone forms part of the chest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "RIBBONE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "At an army base, a soldier's chest is covered in medals.",
+     "definitionFit": "Beribboned means adorned with ribbons, which are decorations such as medal ribbons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +1060,60 @@
     "text": "Without transport, left out a touch",
     "enumeration": "6"
    },
-   "solution": "CARESS"
+   "solution": "CARESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CARESS",
+    "definitions": [
+     {
+      "text": "a touch",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so this letter is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "transport",
+      "gives": "CAR",
+      "note": "a car is transport"
+     },
+     {
+      "clueFragment": "Without",
+      "gives": "LESS",
+      "note": "-less is the suffix meaning without"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Stranded without a car, someone was left a little out of touch.",
+     "walkthrough": "Without transport is CARLESS; taking out its L gives the answer.",
+     "definitionFit": "A caress is a gentle, affectionate stroke, which is a kind of touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touch"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +1127,44 @@
     "text": "In speech demolish feeble publicity",
     "enumeration": "7"
    },
-   "solution": "RECLAME"
+   "solution": "RECLAME",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RECLAME",
+    "definitions": [
+     {
+      "text": "publicity",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In speech",
+      "for": "homophone",
+      "note": "in speech means as spoken, so we want words that sound like the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demolish feeble",
+      "gives": "RECLAME",
+      "soundsLike": "WRECK LAME",
+      "note": "to wreck is to demolish, and lame means feeble"
+     }
+    ],
+    "explanation": {
+     "surface": "A speech that tears apart weak advertising.",
+     "walkthrough": "Réclame is a French loan word in English dictionaries for publicity or self-advertisement.",
+     "definitionFit": "Reclame means public attention or the art of getting it, so it is publicity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "speech"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1178,48 @@
     "text": "Transport chief hoping for donations from the passengers?",
     "enumeration": "7"
    },
-   "solution": "BUSKING"
+   "solution": "BUSKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUSKING",
+    "definitions": [
+     {
+      "text": "hoping for donations from the passengers?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Transport",
+      "gives": "BUS",
+      "note": "a bus is public transport"
+     },
+     {
+      "clueFragment": "chief",
+      "gives": "KING",
+      "note": "a king is a chief or ruler"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUS",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "A transport boss passes the hat round among travellers.",
+     "walkthrough": "Buskers play for coins from passers-by; the question mark admits the passers-by are here bus passengers.",
+     "definitionFit": "Busking is street performing in hope of money from people going by."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "passengers"
+    }
+   }
   },
   {
    "number": 16,
@@ -317,7 +1233,55 @@
     "text": "Denizens of forest run out of trousers",
     "enumeration": "7"
    },
-   "solution": "BEECHES"
+   "solution": "BEECHES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BEECHES",
+    "definitions": [
+     {
+      "text": "Denizens of forest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of means removed from, so the letter is taken from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trousers",
+      "gives": "BREECHES",
+      "note": "breeches are knee-length trousers"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is run in cricket scoring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EECHES"
+     ]
+    },
+    "explanation": {
+     "surface": "Woodland creatures run off with someone's trousers.",
+     "walkthrough": "'Denizens' suggests animals, but the inhabitants of a forest here are trees.",
+     "definitionFit": "Beeches are trees, and trees are the main dwellers of a forest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Denizens"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1295,62 @@
     "text": "Massage small gap, twisting bottom",
     "enumeration": "7"
    },
-   "solution": "SHIATSU"
+   "solution": "SHIATSU",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SHIATSU",
+    "definitions": [
+     {
+      "text": "Massage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twisting bottom",
+      "for": "reversal",
+      "note": "twisting the bottom turns round the last part of the word, swapping its final two letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "gap",
+      "gives": "HIATUS",
+      "note": "a hiatus is a gap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HIAT",
+      "SU"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A massage involving a little twist of the backside.",
+     "definitionFit": "Shiatsu is a Japanese form of massage using finger pressure on points of the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1364,64 @@
     "text": "Tasteless and more than a little vulgar, is Henry",
     "enumeration": "6"
    },
-   "solution": "GARISH"
+   "solution": "GARISH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GARISH",
+    "definitions": [
+     {
+      "text": "Tasteless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "more than a little",
+      "for": "letter_selection",
+      "note": "more than a little suggests a sizeable portion, here the back half of the word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vulgar",
+      "gives": "GAR",
+      "select": "last",
+      "note": "the final three letters of vulgar"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "H",
+      "note": "H is the symbol for the henry, the unit of inductance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAR",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Henry is judged tasteless and rather crude.",
+     "definitionFit": "Garish means gaudy and showy, which is lacking in good taste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Henry"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1435,46 @@
     "text": "Worked hard, stone split",
     "enumeration": "7"
    },
-   "solution": "STRIVEN"
+   "solution": "STRIVEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRIVEN",
+    "definitions": [
+     {
+      "text": "Worked hard",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "ST is the abbreviation for stone, the British weight of 14 pounds"
+     },
+     {
+      "clueFragment": "split",
+      "gives": "RIVEN",
+      "note": "riven is an old past participle meaning split"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RIVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A labourer toiled to break a stone in two.",
+     "definitionFit": "Striven is the past participle of strive, to make great effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1494,52 @@
      }
     ]
    },
-   "solution": "ENIDBLYTON"
+   "solution": "ENIDBLYTON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENID BLYTON",
+    "definitions": [
+     {
+      "text": "author",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Work",
+      "for": "anagram",
+      "note": "to work something is to knead or shape it, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by indolent",
+      "gives": "BYINDOLENT",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BYINDOLENT",
+       "gives": "ENIDBLYTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book written by a lazy novelist.",
+     "walkthrough": "'Work' looks like a noun for a book but is the verb that rearranges the letters.",
+     "definitionFit": "Enid Blyton was a prolific English writer of children's books such as the Famous Five."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1553,51 @@
     "text": "Stole whiskey — on charge",
     "enumeration": "4"
    },
-   "solution": "WRAP"
+   "solution": "WRAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WRAP",
+    "definitions": [
+     {
+      "text": "Stole",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "W is whiskey in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "RAP",
+      "note": "a rap is a criminal charge, as in rap sheet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "RAP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nicked whisky and now faces a charge.",
+     "walkthrough": "'Stole' reads as the verb steal, but it is the noun: a scarf worn over the shoulders.",
+     "definitionFit": "A stole is a long scarf or shawl, and a wrap is the same kind of garment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stole"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1611,53 @@
     "text": "Squeeze a measure of column at foot of page",
     "enumeration": "5"
    },
-   "solution": "PINCH"
+   "solution": "PINCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PINCH",
+    "definitions": [
+     {
+      "text": "Squeeze",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at foot of",
+      "for": "charade",
+      "note": "in a down entry, at the foot of means placed below, so this piece comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "a measure of column",
+      "gives": "INCH",
+      "note": "newspaper space is measured in column inches"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "INCH"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor trims a column at the bottom of a newspaper page.",
+     "definitionFit": "To pinch is to squeeze something tightly between finger and thumb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Squeeze"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1671,50 @@
     "text": "Second person's half-expressed ideas",
     "enumeration": "4"
    },
-   "solution": "THOU"
+   "solution": "THOU",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THOU",
+    "definitions": [
+     {
+      "text": "Second person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-expressed",
+      "for": "deletion",
+      "note": "only half said, so just the first half of the word survives"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ideas",
+      "gives": "THOUGHTS",
+      "note": "thoughts are ideas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOU"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone only half says what another person is thinking.",
+     "definitionFit": "Thou is the old singular second-person pronoun, the equivalent of you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 24,
@@ -441,7 +1734,59 @@
      }
     ]
    },
-   "solution": "HITON"
+   "solution": "HITON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HIT ON",
+    "definitions": [
+     {
+      "text": "Flirt with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding on to, so one piece holds the other within"
+     },
+     {
+      "text": "secret",
+      "for": "container",
+      "note": "what is kept secret is tucked away out of sight inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweetie",
+      "gives": "HON",
+      "note": "hon, short for honey, is a term of endearment"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "IT",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flirts with their darling but keeps the affair hidden.",
+     "definitionFit": "To hit on someone is a slang idiom for making romantic advances, flirting with them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweetie"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1800,39 @@
     "text": "Public service vehicle shortly makes the side of Dutch city",
     "enumeration": "9"
    },
-   "solution": "EINDHOVEN"
+   "solution": "EINDHOVEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EINDHOVEN",
+    "definitions": [
+     {
+      "text": "Dutch city",
+      "at": 49
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public service vehicle shortly makes the side",
+      "note": "surface reading: a bus, abbreviated, forms part of a street or route"
+     },
+     {
+      "clueFragment": "Public service vehicle shortly makes the side of Dutch city",
+      "note": "setter's reading: the abbreviation PSV names the football side of a Dutch city"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "PSV stands for public service vehicle, but PSV is also the football club of this city, so 'side' means a team.",
+     "definitionFit": "Eindhoven is a city in the southern Netherlands, home of Philips and its football club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +1846,48 @@
     "text": "Worked in school soundly, so covered in stars",
     "enumeration": "7"
    },
-   "solution": "STUDDED"
+   "solution": "STUDDED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STUDDED",
+    "definitions": [
+     {
+      "text": "covered in stars",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "soundly",
+      "for": "homophone",
+      "note": "soundly here means by sound, so a spoken word is matched"
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worked in school",
+      "gives": "STUDDED",
+      "soundsLike": "STUDIED",
+      "note": "studied means worked at lessons"
+     }
+    ],
+    "explanation": {
+     "surface": "A pupil worked well and so earned plenty of gold stars.",
+     "walkthrough": "'Soundly' looks like 'thoroughly'; it means 'when spoken', with STUDIED said quickly.",
+     "definitionFit": "Studded means dotted all over with points, as a sky or a dress may be with stars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "soundly"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +1901,55 @@
     "text": "Small arch, one of 5 in school",
     "enumeration": "7"
    },
-   "solution": "SQUINCH"
+   "solution": "SQUINCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SQUINCH",
+    "definitions": [
+     {
+      "text": "Small arch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is the abbreviation for school"
+     },
+     {
+      "clueFragment": "one of 5",
+      "gives": "QUIN",
+      "note": "a quin is one of quintuplets, five babies born together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "QUIN",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A little arch is one of five built in a school.",
+     "walkthrough": "The 5 looks like a cross-reference to another clue, but it is just the number five.",
+     "definitionFit": "A squinch is a small arch built across the inner corner of a square tower to carry a dome or spire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "5"
+    }
+   }
   }
  ]
 }
