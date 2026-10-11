@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Nearest neighbours exemplify tact, initially holding vote",
     "enumeration": "4"
    },
-   "solution": "NEXT"
+   "solution": "NEXT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NEXT",
+    "definitions": [
+     {
+      "text": "Nearest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the three preceding words"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means the letters taken keep something else inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neighbours exemplify tact",
+      "gives": "NET",
+      "select": "first",
+      "note": "the first letters of these three words"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "X",
+      "note": "a cross on a ballot paper is a vote"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "X",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "People living close by show tactfulness by first holding a ballot.",
+     "walkthrough": "'Nearest neighbours' reads as one phrase, but only 'Nearest' is the definition; the initials start with 'neighbours'.",
+     "definitionFit": "The next house is the closest one, so next is a synonym for nearest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "neighbours"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +105,60 @@
     "text": "Isolated group subject turns son into Conservative",
     "enumeration": "7"
    },
-   "solution": "ENCLAVE"
+   "solution": "ENCLAVE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ENCLAVE",
+    "definitions": [
+     {
+      "text": "Isolated group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns son into Conservative",
+      "for": "substitution",
+      "note": "turns one thing into another means one letter is swapped for a different one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "subject",
+      "gives": "ENSLAVE",
+      "note": "to subject a people is to enslave them"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "C",
+      "LAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cut-off community whose topic swings a boy into voting Tory.",
+     "walkthrough": "'Subject' looks like a noun (a topic), but it is the verb meaning to dominate.",
+     "definitionFit": "An enclave is a distinct community or territory surrounded by a different one, so a group set apart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "subject"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +172,55 @@
     "text": "Run into train track",
     "enumeration": "5"
    },
-   "solution": "TRAIL"
+   "solution": "TRAIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAIL",
+    "definitions": [
+     {
+      "text": "track",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means one piece is put inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "train",
+      "gives": "TAIL",
+      "note": "the train of a dress or comet is its tail"
+     },
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sprints onto a railway line in front of a train.",
+     "walkthrough": "The railway picture makes 'train' a locomotive; here it is the trailing part of a gown.",
+     "definitionFit": "A trail is a path or the marks left behind, the same as a track."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +234,80 @@
     "text": "Police deployed around pound arresting rogue for minor sin",
     "enumeration": "10"
    },
-   "solution": "PECCADILLO"
+   "solution": "PECCADILLO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PECCADILLO",
+    "definitions": [
+     {
+      "text": "minor sin",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deployed",
+      "for": "anagram",
+      "note": "deployed troops are spread out and rearranged, so the letters are reorganised"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the rearranged letters surround the next piece"
+     },
+     {
+      "text": "arresting",
+      "for": "container",
+      "note": "arresting means seizing and holding something inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Police",
+      "gives": "POLICE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L, from Latin libra, is the pound sign"
+     },
+     {
+      "clueFragment": "rogue",
+      "gives": "CAD",
+      "note": "a cad is a dishonourable man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEC",
+      "CAD",
+      "ILLO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POLICEL",
+       "gives": "PECILLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Officers sent out around town, pulling in a scoundrel, all for a trivial offence.",
+     "walkthrough": "Two containers stack here: the jumbled letters first take in the pound sign, and that result then takes in the rogue near its front.",
+     "definitionFit": "A peccadillo is a small fault or trivial offence, from the Spanish for little sin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deployed"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +321,58 @@
     "text": "Withdrawn hint is mine",
     "enumeration": "3"
    },
-   "solution": "PIT"
+   "solution": "PIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "PIT",
+    "definitions": [
+     {
+      "text": "mine",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Withdrawn",
+      "for": "reversal",
+      "note": "something withdrawn is pulled back, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hint",
+      "gives": "TIP",
+      "note": "a tip is a hint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIP",
+       "to": "PIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shy person claims a clue as their own.",
+     "walkthrough": "'Mine' looks like the possessive pronoun; it is the noun, a place where coal is dug.",
+     "definitionFit": "A pit is a coal mine, the usual British word for a colliery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +392,55 @@
      }
     ]
    },
-   "solution": "COMESTO"
+   "solution": "COMESTO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "COMES TO",
+    "definitions": [
+     {
+      "text": "Stirs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "just over half of",
+      "for": "deletion",
+      "note": "taking just over half of a word means a little less than its back half is cut away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "food",
+      "gives": "COMESTIBLE",
+      "note": "a comestible is an item of food"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "the letter O is round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMEST",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mixes a bit more than half a portion of food in a circle.",
+     "walkthrough": "Six of the ten letters of COMESTIBLE is just over half. 'Stirs' looks like mixing, but here it means waking.",
+     "definitionFit": "Someone who stirs after fainting or sleeping regains consciousness, which is what comes to means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stirs"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +454,51 @@
     "text": "Suppositions Maoists spun freely",
     "enumeration": "11"
    },
-   "solution": "ASSUMPTIONS"
+   "solution": "ASSUMPTIONS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASSUMPTIONS",
+    "definitions": [
+     {
+      "text": "Suppositions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spun freely",
+      "for": "anagram",
+      "note": "spun freely suggests letters whirled loose and landing in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maoists spun",
+      "gives": "MAOISTSSPUN",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAOISTSSPUN",
+       "gives": "ASSUMPTIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Guesses that Chinese communists put about without restraint.",
+     "walkthrough": "'spun' does double duty in the surface, but its letters are part of the fodder and 'spun freely' is the signal.",
+     "definitionFit": "A supposition is something taken for granted without proof, the same as an assumption."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "freely"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +512,46 @@
     "text": "Disorderly old tax collectors going as predicted?",
     "enumeration": "9"
    },
-   "solution": "IRREGULAR"
+   "solution": "IRREGULAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRREGULAR",
+    "definitions": [
+     {
+      "text": "Disorderly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old tax collectors",
+      "gives": "IR",
+      "note": "IR is Inland Revenue, the former UK tax authority"
+     },
+     {
+      "clueFragment": "going as predicted",
+      "gives": "REGULAR",
+      "note": "something regular keeps to a predictable pattern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IR",
+      "REGULAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Former taxmen behaving unpredictably while things go to plan.",
+     "walkthrough": "The Inland Revenue was merged into HMRC in 2005, hence 'old'.",
+     "definitionFit": "Irregular means not following order or rule, so disorderly is a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +565,60 @@
     "text": "Doris, say, arguably more \"out\" before end of evening",
     "enumeration": "7"
    },
-   "solution": "LESSING"
+   "solution": "LESSING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LESSING",
+    "definitions": [
+     {
+      "text": "Doris, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of picks out only the final letter of the following word"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arguably more \"out\"",
+      "gives": "LESSIN",
+      "note": "being less in can be argued to be being more out"
+     },
+     {
+      "clueFragment": "evening",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of evening"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LESSIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Doris, perhaps more openly gay, before the evening ends.",
+     "walkthrough": "Doris Lessing was the British Nobel-winning novelist; 'say' marks her as an example of someone with that surname.",
+     "definitionFit": "Doris Lessing, author of The Golden Notebook, is the famous bearer of this surname, so she is an instance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +632,55 @@
     "text": "One month besieging Brown Sector",
     "enumeration": "6"
    },
-   "solution": "OCTANT"
+   "solution": "OCTANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OCTANT",
+    "definitions": [
+     {
+      "text": "Sector",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "besieging",
+      "for": "container",
+      "note": "an army besieging a town surrounds it, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One month",
+      "gives": "OCT",
+      "note": "October, abbreviated, is a single month"
+     },
+     {
+      "clueFragment": "Brown",
+      "gives": "TAN",
+      "note": "tan is a brown colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OC",
+      "TAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "For a month a man called Brown lays siege to a district.",
+     "walkthrough": "'Brown' sits capitalised like a surname but is just the colour.",
+     "definitionFit": "An octant is an eighth part of a circle, a sector bounded by two radii at 45 degrees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brown"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +694,55 @@
     "text": "Bit on the side in Paris very inspired by escape",
     "enumeration": "8"
    },
-   "solution": "MISTRESS"
+   "solution": "MISTRESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MISTRESS",
+    "definitions": [
+     {
+      "text": "Bit on the side",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "something inspired is breathed in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "escape",
+      "gives": "MISS",
+      "note": "to escape something is to miss it"
+     },
+     {
+      "clueFragment": "in Paris very",
+      "gives": "TRES",
+      "note": "very in French"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIS",
+      "TRES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An affair in Paris that is very much prompted by a desire for escape.",
+     "walkthrough": "'in Paris' tells you to use French.",
+     "definitionFit": "A bit on the side is informal for a secret lover of a married person, which a mistress is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "escape"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +756,55 @@
     "text": "Docked in unusually still sea",
     "enumeration": "8"
    },
-   "solution": "TAILLESS"
+   "solution": "TAILLESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAILLESS",
+    "definitions": [
+     {
+      "text": "Docked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually means not in the normal way, so the letters take an unexpected order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still sea",
+      "gives": "STILLSEA",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STILLSEA",
+       "gives": "TAILLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship moored in waters that are oddly calm.",
+     "walkthrough": "The sea picture makes 'Docked' a ship in port; it means having had a tail cut short.",
+     "definitionFit": "A dog or horse whose tail has been docked has had it cut off, leaving it without one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Docked"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +818,67 @@
     "text": "Unbounded sport expertise starts to enrich new county town",
     "enumeration": "11"
    },
-   "solution": "ENNISKILLEN"
+   "solution": "ENNISKILLEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ENNISKILLEN",
+    "definitions": [
+     {
+      "text": "county town",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unbounded",
+      "for": "deletion",
+      "note": "without bounds means the outermost letters at each end are dropped"
+     },
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts to points to the opening letters of the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sport",
+      "gives": "TENNIS",
+      "note": "tennis is a sport"
+     },
+     {
+      "clueFragment": "expertise",
+      "gives": "SKILL",
+      "note": "skill is expertise"
+     },
+     {
+      "clueFragment": "enrich new",
+      "gives": "EN",
+      "select": "first",
+      "note": "the first letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENNI",
+      "SKILL",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Unlimited sporting talent first helps to boost a fresh town's fortunes.",
+     "walkthrough": "Enniskillen is the county town of Fermanagh in Northern Ireland.",
+     "definitionFit": "A county town is the administrative centre of a county, as Enniskillen is for Fermanagh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +892,56 @@
     "text": "Hoarder's minute silver dish",
     "enumeration": "6"
    },
-   "solution": "MAGPIE"
+   "solution": "MAGPIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAGPIE",
+    "definitions": [
+     {
+      "text": "Hoarder",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minute",
+      "gives": "M",
+      "note": "M is the abbreviation for minute"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "dish",
+      "gives": "PIE",
+      "note": "a pie is a dish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AG",
+      "PIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A collector's tiny silver plate.",
+     "walkthrough": "'minute' looks like the adjective tiny, but it is the unit of time. The 's stands for is.",
+     "definitionFit": "The magpie is famed for collecting shiny objects, so a person who hoards trinkets is called one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "minute"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +961,48 @@
      }
     ]
    },
-   "solution": "HELPINGOUT"
+   "solution": "HELPINGOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HELPING OUT",
+    "definitions": [
+     {
+      "text": "Sharing cost of",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "portion",
+      "gives": "HELPING",
+      "note": "a helping is a portion of food"
+     },
+     {
+      "clueFragment": "alfresco",
+      "gives": "OUT",
+      "note": "alfresco means in the open air, outdoors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HELPING",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Splitting the bill for a meal eaten outside.",
+     "walkthrough": "The question mark admits the charade reading is playful: a helping eaten out.",
+     "definitionFit": "To help out with a bill is to contribute to it, so someone sharing the cost is helping out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "portion"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1016,50 @@
     "text": "Old place name red-top rag reprinted",
     "enumeration": "9"
    },
-   "solution": "PETROGRAD"
+   "solution": "PETROGRAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PETROGRAD",
+    "definitions": [
+     {
+      "text": "Old place name",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reprinted",
+      "for": "anagram",
+      "note": "reprinted means set again, so the letters are reset in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red-top rag",
+      "gives": "REDTOPRAG",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDTOPRAG",
+       "gives": "PETROGRAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid newspaper rerun with an outdated city name.",
+     "walkthrough": "A red-top is a British tabloid, so called from its red masthead; a rag is a poor newspaper. Petrograd was St Petersburg's name from 1914 to 1924.",
+     "definitionFit": "Petrograd is the former name of St Petersburg, later Leningrad, so it is an old place name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1073,51 @@
     "text": "Sport gun Republican avoids",
     "enumeration": "4"
    },
-   "solution": "LUGE"
+   "solution": "LUGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LUGE",
+    "definitions": [
+     {
+      "text": "Sport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoids",
+      "for": "deletion",
+      "note": "avoids means keeps away from, so that letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gun",
+      "gives": "LUGER",
+      "note": "a Luger is a German pistol"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sport in which a political figure steers clear of firearms.",
+     "definitionFit": "The luge is a winter Olympic event racing a small sled feet first, so a sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1131,52 @@
     "text": "Contraction of insanity intermittently observed",
     "enumeration": "4"
    },
-   "solution": "ISNT"
+   "solution": "ISNT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ISNT",
+    "definitions": [
+     {
+      "text": "Contraction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intermittently observed",
+      "for": "letter_selection",
+      "note": "something seen only intermittently shows up every other moment, so alternate letters are kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insanity",
+      "gives": "ISNT",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ISNT"
+     ]
+    },
+    "explanation": {
+     "surface": "Signs of madness are noticed only now and then.",
+     "walkthrough": "'Contraction' sounds medical but means a shortened word with an apostrophe.",
+     "definitionFit": "Isn't is the shortened form of is not, the kind of word grammar calls a contraction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Contraction"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1190,57 @@
     "text": "Law takes time to block representation",
     "enumeration": "7"
    },
-   "solution": "STATUTE"
+   "solution": "STATUTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STATUTE",
+    "definitions": [
+     {
+      "text": "Law",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to block",
+      "for": "container",
+      "note": "blocking means sitting in the way, so one letter sits inside the other piece"
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "representation",
+      "gives": "STATUE",
+      "note": "a statue is a representation of a figure"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATU",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Legislation takes a while to get in the way of fair representation.",
+     "definitionFit": "A statute is a written law passed by a legislature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "representation"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1254,91 @@
     "text": "Toy hippos loosely stuffed with twisted rag -- that's about right",
     "enumeration": "10"
    },
-   "solution": "SPIROGRAPH"
+   "solution": "SPIROGRAPH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SPIROGRAPH",
+    "definitions": [
+     {
+      "text": "Toy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loosely",
+      "for": "anagram",
+      "note": "loosely means not held in order, so the letters are rearranged"
+     },
+     {
+      "text": "twisted",
+      "for": "anagram",
+      "note": "twisted means turned out of shape, so these letters too are jumbled"
+     },
+     {
+      "text": "stuffed with",
+      "for": "container",
+      "note": "stuffed with means filled, so one set of letters goes inside another"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means placed around, so everything else surrounds one letter"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hippos",
+      "gives": "HIPPOS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rag",
+      "gives": "RAG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPI",
+      "R",
+      "O",
+      "GRA",
+      "PH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HIPPOS",
+       "gives": "SPIOPH"
+      },
+      {
+       "fodder": "RAG",
+       "gives": "GRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stuffed hippo toy, loosely filled with an old cloth.",
+     "walkthrough": "Both the hippos and the rag are jumbled; the 'about' then wraps the whole lot round the abbreviation for right.",
+     "definitionFit": "Spirograph is a classic drawing toy of toothed plastic gears and rings that trace looping patterns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1352,56 @@
     "text": "Mike, flexible, fully promotes one prosthetic filler",
     "enumeration": "7"
    },
-   "solution": "IMPLANT"
+   "solution": "IMPLANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "IMPLANT",
+    "definitions": [
+     {
+      "text": "prosthetic filler",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fully promotes one",
+      "for": "cycling",
+      "note": "promoting something all the way sends it right to the top, so that letter moves to the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is M in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "flexible",
+      "gives": "PLIANT",
+      "note": "pliant means flexible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "PLANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A supple man called Mike wholeheartedly backs a single artificial part.",
+     "walkthrough": "'one' is the Roman numeral I already in PLIANT; in a down clue promotion means moving up, so that I climbs to the very top.",
+     "definitionFit": "An implant is an artificial device placed in the body, such as a dental or breast implant, filling a space."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "promotes"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1415,52 @@
     "text": "Sharp play on words chap supports",
     "enumeration": "7"
    },
-   "solution": "PUNGENT"
+   "solution": "PUNGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUNGENT",
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down entry a support sits underneath, so this word comes after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "play on words",
+      "gives": "PUN",
+      "note": "a pun is a play on words"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "GENT",
+      "note": "a gent is a chap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUN",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A man backs a cutting witticism.",
+     "definitionFit": "Pungent means sharply strong in smell or taste, or biting in remark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1474,44 @@
     "text": "Layman apolitically embraces a vision to die for?",
     "enumeration": "6"
    },
-   "solution": "NAPOLI"
+   "solution": "NAPOLI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NAPOLI",
+    "definitions": [
+     {
+      "text": "a vision to die for?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraces",
+      "for": "hidden_word",
+      "note": "embraces means holds within, so the letters sit inside the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Layman apolitically",
+      "gives": "NAPOLI",
+      "note": "inside layMAN APOLItically"
+     }
+    ],
+    "explanation": {
+     "surface": "An unaffiliated layperson takes in a heavenly sight.",
+     "walkthrough": "The definition plays on the saying 'See Naples and die'; Napoli is the Italian name for Naples.",
+     "definitionFit": "The proverb says one should see Naples and then die, since nothing afterwards could match the view."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "die"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1525,52 @@
     "text": "Put off after page 1",
     "enumeration": "8"
    },
-   "solution": "POSTPONE"
+   "solution": "POSTPONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POSTPONE",
+    "definitions": [
+     {
+      "text": "Put off",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "POST",
+      "note": "post means after, as in post-war"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "ONE",
+      "note": "the number written as a word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POST",
+      "P",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to defer until after the first page.",
+     "definitionFit": "To postpone is to delay something to a later time, which is what put off means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1584,51 @@
     "text": "Exercise strategy that goes up to 11?",
     "enumeration": "5"
    },
-   "solution": "PLANK"
+   "solution": "PLANK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLANK",
+    "definitions": [
+     {
+      "text": "Exercise",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strategy",
+      "gives": "PLAN",
+      "note": "a plan is a strategy"
+     },
+     {
+      "clueFragment": "goes up to 11",
+      "gives": "K",
+      "note": "the alphabet's eleventh letter, where counting A to K goes up to 11"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A workout plan whose intensity is turned up to eleven.",
+     "walkthrough": "'Goes up to 11' echoes the amplifier joke from the film This Is Spinal Tap.",
+     "definitionFit": "The plank is a core exercise in which the body is held straight and rigid, like a board."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "11"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1642,65 @@
     "text": "7 band member tipped 3 to cavort with 16",
     "enumeration": "8"
    },
-   "solution": "GUERILLA"
+   "solution": "GUERILLA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GUERILLA",
+    "definitions": [
+     {
+      "text": "7 band member",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tipped",
+      "for": "deletion",
+      "note": "tipped means having its tip taken off, so the first letter goes"
+     },
+     {
+      "text": "to cavort",
+      "for": "anagram",
+      "note": "cavorting means leaping about wildly, so the letters jump into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "3",
+      "gives": "TRAIL",
+      "note": "the answer to 3 down"
+     },
+     {
+      "clueFragment": "16",
+      "gives": "LUGE",
+      "note": "the answer to 16 across"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUERILLA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAILLUGE",
+       "gives": "GUERILLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band member, with track and sled entries, jumping about.",
+     "walkthrough": "The 7 refers to IRREGULAR, so the definition is a member of an irregular band of fighters.",
+     "definitionFit": "A guerilla fights in an irregular, unofficial force rather than a regular army."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 26,
@@ -409,7 +1714,53 @@
     "text": "Braggart turns out second hat",
     "enumeration": "6"
    },
-   "solution": "BOATER"
+   "solution": "BOATER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BOATER",
+    "definitions": [
+     {
+      "text": "hat",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns out",
+      "for": "deletion",
+      "note": "turns out means expels, so that letter is thrown out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Braggart",
+      "gives": "BOASTER",
+      "note": "a braggart is a boaster"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOATER"
+     ]
+    },
+    "explanation": {
+     "surface": "A show-off proves to be the runner-up hat.",
+     "walkthrough": "'turns out' reads as 'proves to be', but means ejects.",
+     "definitionFit": "A boater is a flat-topped straw hat, traditionally worn for punting and rowing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1774,52 @@
     "text": "Brother or sister pops up twice",
     "enumeration": "3"
    },
-   "solution": "BIS"
+   "solution": "BIS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "BIS",
+    "definitions": [
+     {
+      "text": "twice",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pops up",
+      "for": "reversal",
+      "note": "in a down entry popping up means rising, so the word is read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brother or sister",
+      "gives": "SIB",
+      "note": "sib is short for sibling, a brother or sister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIB",
+       "to": "BIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sibling appears for a second time.",
+     "definitionFit": "Bis is Latin for twice, used in music and addresses for repeat or encore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1833,54 @@
     "text": "Distention following injury causes tissue inflammation",
     "enumeration": "10"
    },
-   "solution": "TENDONITIS"
+   "solution": "TENDONITIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TENDONITIS",
+    "definitions": [
+     {
+      "text": "tissue inflammation",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following injury",
+      "for": "anagram",
+      "note": "after injury something is damaged and out of shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Distention",
+      "gives": "DISTENTION",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DISTENTION",
+       "gives": "TENDONITIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swelling after an injury leads to soreness in the body's tissues.",
+     "walkthrough": "The whole clue reads like a medical note, so 'following injury' passes as plain sequence.",
+     "definitionFit": "Tendonitis is the inflammation of a tendon, the fibrous tissue joining muscle to bone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 28,
@@ -451,7 +1894,51 @@
     "text": "Equipment located by English and Scottish corporation",
     "enumeration": "4"
    },
-   "solution": "KITE"
+   "solution": "KITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KITE",
+    "definitions": [
+     {
+      "text": "Scottish corporation",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "located by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Equipment",
+      "gives": "KIT",
+      "note": "kit is equipment"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Gear found by an English firm and a Scottish company.",
+     "walkthrough": "'corporation' looks like a company, but it is the old jocular word for a pot belly; kite is Scots for belly.",
+     "definitionFit": "In Scots dialect a kite is the belly or stomach, and corporation is an old humorous term for a paunch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corporation"
+    }
+   }
   }
  ]
 }
