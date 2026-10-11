@@ -24,6 +24,9 @@
   "date": "2023-10-30",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,71 @@
     "text": "I need a lift — problem with back of car after steep rise",
     "enumeration": "10"
    },
-   "solution": "HITCHHIKER"
+   "solution": "HITCHHIKER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HITCHHIKER",
+    "definitions": [
+     {
+      "text": "I need a lift",
+      "at": 0,
+      "note": "a cryptic, first-person definition: what the answer would say"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the second-named piece behind the first, fixing the order of the pieces"
+     },
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "'back of' keeps only the last letter of 'car'"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "problem",
+      "gives": "HITCH",
+      "note": "a hitch is a snag or problem"
+     },
+     {
+      "clueFragment": "steep rise",
+      "gives": "HIKE",
+      "note": "a hike is a sharp increase, as in a price hike"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HITCH",
+      "HIKE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A stranded motorist with car trouble on a steep hill asks for a ride.",
+     "walkthrough": "The definition is spoken by the answer itself: someone thumbing a ride needs a lift.",
+     "definitionFit": "A hitchhiker travels by begging free rides from passing drivers, so their constant plea is for a lift."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +118,57 @@
     "text": "Hardy hero holds up many-headed monster",
     "enumeration": "5"
    },
-   "solution": "HYDRA"
+   "solution": "HYDRA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "HYDRA",
+    "definitions": [
+     {
+      "text": "many-headed monster",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "hidden_word",
+      "note": "the phrase holds the letters inside it, spanning the two words"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the letters read from bottom to top, backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hardy hero",
+      "gives": "ARDYH",
+      "note": "the letters run across the two words, missing the outer H and ERO"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ARDYH",
+       "to": "HYDRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hero from a Thomas Hardy novel defies a mythical beast.",
+     "walkthrough": "The letters ARDYH sit inside Hardy hero; read upwards they give HYDRA.",
+     "definitionFit": "In Greek myth the Hydra was a serpent whose heads grew back twice over when cut off, slain by Heracles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "holds"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +182,62 @@
     "text": "Use European cash machine found in river",
     "enumeration": "9"
    },
-   "solution": "TREATMENT"
+   "solution": "TREATMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TREATMENT",
+    "definitions": [
+     {
+      "text": "Use",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place sits inside it, so these letters go within the river"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "cash machine",
+      "gives": "ATM",
+      "note": "an automated teller machine"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "TRENT",
+      "note": "the Trent is a major river in the English Midlands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "E",
+      "ATM",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cash machine has been dumped in a river by vandals.",
+     "walkthrough": "'Use' looks like a verb, but it is the noun sense, as in the way something is handled.",
+     "definitionFit": "The way something is used or handled is its treatment, as in rough use or rough treatment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Use"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +251,62 @@
     "text": "Detest accommodating ultimately needless urgency",
     "enumeration": "5"
    },
-   "solution": "HASTE"
+   "solution": "HASTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HASTE",
+    "definitions": [
+     {
+      "text": "urgency",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accommodating",
+      "for": "container",
+      "note": "to accommodate is to house something, so the first word wraps around the next piece"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the very end, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Detest",
+      "gives": "HATE",
+      "note": "to detest is to hate"
+     },
+     {
+      "clueFragment": "needless",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of needless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "S",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loathes being rushed when there is no need for it.",
+     "walkthrough": "'Ultimately' picks out just the tail of the next word, not the whole of it.",
+     "definitionFit": "Haste is excessive speed or hurry, which is the state of urgency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "needless"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +320,56 @@
     "text": "Without Jack, Jack's companion is sick",
     "enumeration": "3"
    },
-   "solution": "ILL"
+   "solution": "ILL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ILL",
+    "definitions": [
+     {
+      "text": "sick",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Without",
+      "for": "deletion",
+      "note": "without means lacking, so the named letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is the abbreviation for jack in a pack of cards"
+     },
+     {
+      "clueFragment": "Jack's companion",
+      "gives": "JILL",
+      "note": "Jack and Jill of the nursery rhyme"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Jill is poorly now that Jack has gone off without her.",
+     "walkthrough": "Drop the J from JILL. Jack and Jill went up the hill in the nursery rhyme.",
+     "definitionFit": "Ill and sick are everyday synonyms for being unwell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +383,57 @@
     "text": "More than enough to support old partner, for instance",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXAMPLE",
+    "definitions": [
+     {
+      "text": "instance",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down clue the supporting piece stands underneath, so it is written second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old partner",
+      "gives": "EX",
+      "note": "an ex is a former spouse or partner"
+     },
+     {
+      "clueFragment": "More than enough",
+      "gives": "AMPLE",
+      "note": "ample means plentiful, more than enough"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "AMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is paying more than enough maintenance to keep a former spouse.",
+     "walkthrough": "'For instance' reads as a single phrase, but 'for' is the link and 'instance' alone is the definition.",
+     "definitionFit": "An instance is a single case illustrating something, which is what an example is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +447,53 @@
     "text": "Toast put on? No, white wine!",
     "enumeration": "10"
    },
-   "solution": "CHARDONNAY"
+   "solution": "CHARDONNAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARDONNAY",
+    "definitions": [
+     {
+      "text": "white wine",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toast",
+      "gives": "CHAR",
+      "note": "to char is to scorch or toast"
+     },
+     {
+      "clueFragment": "put on",
+      "gives": "DON",
+      "note": "to don clothes is to put them on"
+     },
+     {
+      "clueFragment": "No",
+      "gives": "NAY",
+      "note": "nay is an old word for no"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "DON",
+      "NAY"
+     ]
+    },
+    "explanation": {
+     "surface": "At a party someone declines to raise a toast with red, insisting on white.",
+     "walkthrough": "'Toast' looks like a drinking salute but is the verb for browning bread.",
+     "definitionFit": "Chardonnay is a green grape variety and the dry white wine made from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Toast"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +507,41 @@
     "text": "Protect oneself against losing fence?",
     "enumeration": "5"
    },
-   "solution": "HEDGE"
+   "solution": "HEDGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HEDGE",
+    "definitions": [
+     {
+      "text": "Protect oneself against losing",
+      "at": 0
+     },
+     {
+      "text": "fence",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Protect oneself against losing",
+      "note": "first meaning: to ... one's bets, limiting possible loss"
+     },
+     {
+      "clueFragment": "fence",
+      "note": "second meaning: a row of bushes forming a boundary"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders whether a fence will stop them losing ground.",
+     "definitionFit": "To hedge is to offset a risk by a counter-bet, and a hedge is a living boundary of shrubs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +555,51 @@
     "text": "Aunt Sal cooked piece of dried fruit",
     "enumeration": "7"
    },
-   "solution": "SULTANA"
+   "solution": "SULTANA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SULTANA",
+    "definitions": [
+     {
+      "text": "piece of dried fruit",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked suggests ingredients mixed and changed, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aunt Sal",
+      "gives": "AUNTSAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AUNTSAL",
+       "gives": "SULTANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A relative bakes a fruit cake with raisins.",
+     "walkthrough": "Aunt Sally is a British pub game, but here the name is just letters to rearrange.",
+     "definitionFit": "A sultana is a seedless golden raisin, a single item of dried grape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Aunt"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +613,42 @@
     "text": "Unexpected note",
     "enumeration": "10"
    },
-   "solution": "ACCIDENTAL"
+   "solution": "ACCIDENTAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACCIDENTAL",
+    "definitions": [
+     {
+      "text": "Unexpected",
+      "at": 0
+     },
+     {
+      "text": "note",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unexpected",
+      "note": "first meaning: happening by chance"
+     },
+     {
+      "clueFragment": "note",
+      "note": "second meaning: in music, a sharp, flat or natural sign not in the key signature"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone receives a surprise message.",
+     "definitionFit": "Accidental means occurring by chance, and in music an accidental is a note altered from its key."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +668,55 @@
      }
     ]
    },
-   "solution": "ROASTBEEF"
+   "solution": "ROASTBEEF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROAST BEEF",
+    "definitions": [
+     {
+      "text": "option for Sunday lunch",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "weird",
+      "for": "anagram",
+      "note": "something weird is strange and out of shape, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boar's feet",
+      "gives": "BOARSFEET",
+      "note": "taken as written, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOARSFEET",
+       "gives": "ROASTBEEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pig's trotters would be an odd choice for the traditional weekend family meal.",
+     "walkthrough": "A Sunday roast is the classic British family lunch.",
+     "definitionFit": "Roast beef is the archetypal meat for a British Sunday lunch, so it is one choice of dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "weird"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +730,46 @@
     "text": "Fizzy drink's quirk is brilliant!",
     "enumeration": "9"
    },
-   "solution": "FANTASTIC"
+   "solution": "FANTASTIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FANTASTIC",
+    "definitions": [
+     {
+      "text": "brilliant",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fizzy drink's",
+      "gives": "FANTAS",
+      "note": "Fanta is a brand of fizzy orange drink, with the S of the possessive"
+     },
+     {
+      "clueFragment": "quirk",
+      "gives": "TIC",
+      "note": "a tic is a habitual quirk or twitch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FANTAS",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful advert praising a soft drink's odd feature.",
+     "definitionFit": "Fantastic is informal praise meaning excellent or wonderful, just as brilliant is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quirk"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +783,48 @@
     "text": "Skip first bit of very long film",
     "enumeration": "3"
    },
-   "solution": "PIC"
+   "solution": "PIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PIC",
+    "definitions": [
+     {
+      "text": "film",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Skip first bit of",
+      "for": "deletion",
+      "note": "skipping the first bit means leaving out the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very long",
+      "gives": "EPIC",
+      "note": "epic means very long and grand in scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to fast-forward the opening of a lengthy movie.",
+     "walkthrough": "'Very long film' reads as an epic, but only 'film' is the definition; 'very long' supplies the word to shorten.",
+     "definitionFit": "Pic is informal shorthand for a picture, meaning a movie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +838,42 @@
     "text": "Sample of boy's terrible seafood",
     "enumeration": "6"
    },
-   "solution": "OYSTER"
+   "solution": "OYSTER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OYSTER",
+    "definitions": [
+     {
+      "text": "seafood",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sample of",
+      "for": "hidden_word",
+      "note": "a sample is a small portion taken from within, so the letters lie inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy's terrible",
+      "gives": "OYSTER",
+      "note": "the letters span the two words, after the first B"
+     }
+    ],
+    "explanation": {
+     "surface": "A child tastes some seafood and finds it awful.",
+     "definitionFit": "The oyster is a shellfish eaten as seafood, often raw."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sample"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +887,54 @@
     "text": "Singer's rap soon going wrong",
     "enumeration": "7"
    },
-   "solution": "SOPRANO"
+   "solution": "SOPRANO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOPRANO",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going wrong",
+      "for": "anagram",
+      "note": "going wrong means turning out badly, so the letters fall out of order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rap soon",
+      "gives": "RAPSOON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAPSOON",
+       "gives": "SOPRANO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist's attempt at rap is quickly going badly.",
+     "walkthrough": "The 's is short for 'is', linking definition to wordplay.",
+     "definitionFit": "A soprano is a singer with the highest vocal range."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rap"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +948,52 @@
     "text": "Mean, in time, to finish",
     "enumeration": "6"
    },
-   "solution": "INTEND"
+   "solution": "INTEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTEND",
+    "definitions": [
+     {
+      "text": "Mean",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "to finish",
+      "gives": "END",
+      "note": "to finish is to end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "T",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone means to complete something in good time.",
+     "definitionFit": "To mean to do something is to intend or plan to do it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mean"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1007,48 @@
     "text": "Periodically unhappy? Rest for a bit",
     "enumeration": "3"
    },
-   "solution": "NAP"
+   "solution": "NAP",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NAP",
+    "definitions": [
+     {
+      "text": "Rest for a bit",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unhappy",
+      "gives": "NAP",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAP"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling down from time to time? Take a short break.",
+     "definitionFit": "A nap is a short sleep, a rest taken for a little while."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Periodically"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1068,51 @@
      }
     ]
    },
-   "solution": "TEAGARDEN"
+   "solution": "TEAGARDEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEA GARDEN",
+    "definitions": [
+     {
+      "text": "place for an outdoor cuppa",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "strange means odd or out of the usual order, so the letters are reshuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angered at",
+      "gives": "ANGEREDAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANGEREDAT",
+       "gives": "TEAGARDEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is cross to find themselves somewhere odd.",
+     "walkthrough": "A cuppa is British slang for a cup of tea.",
+     "definitionFit": "A tea garden is an open-air spot serving tea and refreshments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Angered"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1126,63 @@
     "text": "Snake is crazier without venom in the end",
     "enumeration": "5"
    },
-   "solution": "ADDER"
+   "solution": "ADDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "ADDER",
+    "definitions": [
+     {
+      "text": "Snake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the chosen letter is removed"
+     },
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "in the end points to the final letter of the word before"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crazier",
+      "gives": "MADDER",
+      "note": "madder means more mad, crazier"
+     },
+     {
+      "clueFragment": "venom",
+      "gives": "M",
+      "select": "last",
+      "note": "the final letter of venom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A snake whose poison has run out has gone even more mad.",
+     "walkthrough": "Removing the M from MADDER leaves the snake.",
+     "definitionFit": "The adder is Britain's only venomous snake, a kind of viper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "venom"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1196,62 @@
     "text": "Sketched sunrise around summit of ridge",
     "enumeration": "5"
    },
-   "solution": "DRAWN"
+   "solution": "DRAWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DRAWN",
+    "definitions": [
+     {
+      "text": "Sketched",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece is wrapped about the other"
+     },
+     {
+      "text": "summit of",
+      "for": "letter_selection",
+      "note": "the summit is the top, which in a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sunrise",
+      "gives": "DAWN",
+      "note": "dawn is sunrise"
+     },
+     {
+      "clueFragment": "ridge",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of ridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "AWN"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist drew the morning sun coming up over a mountain ridge.",
+     "walkthrough": "R goes inside DAWN, after the D.",
+     "definitionFit": "Drawn is the past participle of draw, meaning sketched with pencil or pen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "summit"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1265,51 @@
     "text": "Falsely deny ear ached",
     "enumeration": "7"
    },
-   "solution": "YEARNED"
+   "solution": "YEARNED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YEARNED",
+    "definitions": [
+     {
+      "text": "ached",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Falsely",
+      "for": "anagram",
+      "note": "falsely means wrongly or not truly, so the letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deny ear",
+      "gives": "DENYEAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DENYEAR",
+       "gives": "YEARNED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone untruthfully denies that their ear hurt.",
+     "walkthrough": "'Ached' looks like the ear's pain, but it is the definition in its longing sense.",
+     "definitionFit": "To ache for something is to long for it, which is what yearned means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ached"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1323,41 @@
     "text": "Acquire piece of fishing gear",
     "enumeration": "3"
    },
-   "solution": "NET"
+   "solution": "NET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NET",
+    "definitions": [
+     {
+      "text": "Acquire",
+      "at": 0
+     },
+     {
+      "text": "piece of fishing gear",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Acquire",
+      "note": "first meaning: to gain"
+     },
+     {
+      "clueFragment": "piece of fishing gear",
+      "note": "second meaning: a mesh for catching fish"
+     }
+    ],
+    "explanation": {
+     "surface": "An angler is told to buy some equipment.",
+     "definitionFit": "To net is to gain or obtain something, and a net is mesh used to catch fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1371,55 @@
     "text": "See you later, carrying one small crown",
     "enumeration": "5"
    },
-   "solution": "TIARA"
+   "solution": "TIARA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIARA",
+    "definitions": [
+     {
+      "text": "small crown",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See you later",
+      "gives": "TARA",
+      "note": "ta-ra is British informal for goodbye"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "ARA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaves with a parting farewell, bearing a little crown.",
+     "walkthrough": "I goes inside TARA after the T. Ta-ra is a northern English way of saying bye.",
+     "definitionFit": "A tiara is a jewelled ornamental band worn on the head, a small crown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1439,61 @@
      }
     ]
    },
-   "solution": "COSTARICAN"
+   "solution": "COSTARICAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COSTA RICAN",
+    "definitions": [
+     {
+      "text": "from Central America",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow actor",
+      "gives": "COSTAR",
+      "note": "a co-star shares top billing with another actor"
+     },
+     {
+      "clueFragment": "import",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of import"
+     },
+     {
+      "clueFragment": "tin",
+      "gives": "CAN",
+      "note": "a can is a tin container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COSTAR",
+      "I",
+      "CAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's colleague starts importing tin from Central America.",
+     "definitionFit": "Costa Rica is a Central American country, so something Costa Rican comes from there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "import"
+    }
+   }
   }
  ]
 }
