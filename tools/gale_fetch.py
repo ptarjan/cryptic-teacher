@@ -56,14 +56,12 @@ import argparse
 import collections
 import datetime
 import http.client
-import http.cookiejar
 import json
 import os
 import random
 import re
 import shlex
 import shutil
-import ssl
 import subprocess
 import sys
 import time
@@ -73,6 +71,7 @@ import urllib.request
 from pathlib import Path
 
 import gale_docs
+from gale_http import CHROME_HEADERS, Chrome, click_headers, fetch_site, unzip, verifies  # noqa: F401 (re-exported)
 
 #: Seconds between one download's end and the next request, drawn uniformly.
 GAP = (8.0, 22.0)
@@ -278,85 +277,6 @@ def pdf_of(fetch, url, day, doc, text_of=None):
     return body
 
 
-#: A current Chrome's headers for a click that loads a page (what
-#: curl_cffi's impersonate="chrome" sends), for the urllib stand-in.
-CHROME_HEADERS = {
-    "sec-ch-ua": '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": '"macOS"',
-    "Upgrade-Insecure-Requests": "1",
-    "User-Agent": gale_docs.UA,
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,"
-              "application/signed-exchange;v=b3;q=0.7",
-    "Sec-Fetch-Site": "none",
-    "Sec-Fetch-Mode": "navigate",
-    "Sec-Fetch-User": "?1",
-    "Sec-Fetch-Dest": "document",
-    "Accept-Encoding": "gzip, deflate",  # urllib cannot undo br or zstd
-    "Accept-Language": "en-US,en;q=0.9",
-    "Priority": "u=0, i",
-}
-
-
-class Chrome:
-    """GET as Chrome does: curl_cffi's impersonation (Chrome's TLS and HTTP/2
-    fingerprint and headers) when it is installed, else urllib with Chrome's
-    headers. One cookie jar. Called (url, extra headers, verify) ->
-    (status, body, final url)."""
-
-    def __init__(self, timeout):
-        self.timeout = timeout
-        try:
-            from curl_cffi import requests as cffi
-        except ImportError:
-            cffi = None
-        if cffi:
-            self.cffi = cffi.Session(impersonate="chrome")
-            return
-        self.cffi = None
-        jar = http.cookiejar.CookieJar()
-        self.ops = {}
-        for verify in (True, False):
-            ctx = ssl.create_default_context() if verify else ssl._create_unverified_context()
-            op = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar),
-                                             urllib.request.HTTPSHandler(context=ctx))
-            op.addheaders = []
-            self.ops[verify] = op
-
-    def __call__(self, url, headers, verify):
-        if self.cffi:
-            # curl_cffi's errors are OSErrors, so run() counts them as errors.
-            r = self.cffi.get(url, headers=headers, verify=verify, timeout=self.timeout)
-            return r.status_code, r.content, r.url
-        req = urllib.request.Request(url, headers={**CHROME_HEADERS, **headers})
-        try:
-            with self.ops[verify].open(req, timeout=self.timeout) as r:
-                return r.status, unzip(r.read(), r.headers.get("Content-Encoding")), r.geturl()
-        except urllib.error.HTTPError as e:
-            return e.code, unzip(e.read(), e.headers.get("Content-Encoding")), url
-
-
-def unzip(body, encoding):
-    import zlib
-    if encoding in ("gzip", "x-gzip"):
-        return zlib.decompress(body, 16 + zlib.MAX_WBITS)
-    if encoding == "deflate":
-        try:
-            return zlib.decompress(body)
-        except zlib.error:
-            return zlib.decompress(body, -zlib.MAX_WBITS)
-    return body
-
-
-def fetch_site(referer, url):
-    """Chrome's Sec-Fetch-Site for following a link on `referer` to `url`."""
-    a, b = urllib.parse.urlsplit(referer), urllib.parse.urlsplit(url)
-    if (a.scheme, a.netloc) == (b.scheme, b.netloc):
-        return "same-origin"
-    site = lambda host: ".".join((host or "").split(".")[-2:])  # noqa: E731 (gale.com, abresearchportal.ca)
-    return "same-site" if site(a.hostname) == site(b.hostname) else "cross-site"
-
-
 class Session:
     """One Alberta Research Portal session on Gale's Times archive, browsed
     as a person in Chrome does: the portal's collections page, its Times
@@ -381,11 +301,8 @@ class Session:
         """(body, final url) of `url`, clicked on page `referer` (default:
         the last page opened)."""
         referer = referer or self.referer
-        headers = {"Referer": referer, "Sec-Fetch-Site": fetch_site(referer, url)} if referer else {}
-        # The portal's certificate chain lacks its intermediate (Chrome
-        # fetches it; Python cannot), so only the portal goes unverified.
-        verify = urllib.parse.urlsplit(url).hostname != urllib.parse.urlsplit(gale_docs.PORTAL).hostname
-        status, body, final = self.get(url, headers, verify)
+        headers = click_headers(referer, url)
+        status, body, final = self.get(url, headers, verifies(url, gale_docs.PORTAL))
         if status in (401, 403, 429):
             raise Stop(f"Gale answered HTTP {status} for {url[:80]}", refused=True, status=status, head=body[:300])
         if status >= 400:
