@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,49 @@
     "text": "Get up in cold wing",
     "enumeration": "5"
    },
-   "solution": "CLIMB"
+   "solution": "CLIMB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLIMB",
+    "definitions": [
+     {
+      "text": "Get up",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the standard abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "wing",
+      "gives": "LIMB",
+      "note": "a wing is a bird's limb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIMB"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to rise and dress for a chilly part of a building.",
+     "definitionFit": "To climb is to ascend, which is a synonym of getting up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wing"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +92,60 @@
     "text": "Ring everybody after end of epic",
     "enumeration": "4"
    },
-   "solution": "CALL"
+   "solution": "CALL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CALL",
+    "definitions": [
+     {
+      "text": "Ring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, so only that one is kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something places it second, which fixes the order of the parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "epic",
+      "gives": "C",
+      "select": "last",
+      "note": "the final letter of epic"
+     },
+     {
+      "clueFragment": "everybody",
+      "gives": "ALL",
+      "note": "all means everybody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Phoning everyone once a long story has finished.",
+     "definitionFit": "To ring someone is to telephone them, a synonym of calling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,50 @@
     "text": "Paid no attention to grid, one printed incorrectly",
     "enumeration": "7"
    },
-   "solution": "IGNORED"
+   "solution": "IGNORED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IGNORED",
+    "definitions": [
+     {
+      "text": "Paid no attention to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "printed incorrectly",
+      "for": "anagram",
+      "note": "a misprint puts letters in the wrong places, so these are to be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grid, one",
+      "gives": "GRIDONE",
+      "note": "the two words supply the letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRIDONE",
+       "gives": "IGNORED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver who disregarded a crossword grid because one was misprinted.",
+     "definitionFit": "To ignore something is to pay it no heed, so the past tense matches paid no attention to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grid"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +222,49 @@
      }
     ]
    },
-   "solution": "BRANDYALEXANDER"
+   "solution": "BRANDYALEXANDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRANDY ALEXANDER",
+    "definitions": [
+     {
+      "text": "Cocktail",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made up by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "boys",
+      "gives": "RANDYALEXANDER",
+      "note": "two boys' names, Randy and Alexander"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RANDYALEXANDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A drink mixed by some young British lads.",
+     "definitionFit": "A Brandy Alexander is a creamy mixed drink of brandy, crème de cacao and cream, so it is an example of a cocktail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boys"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +284,51 @@
      }
     ]
    },
-   "solution": "TURKSHEAD"
+   "solution": "TURKSHEAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TURKS HEAD",
+    "definitions": [
+     {
+      "text": "knot",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spliced",
+      "for": "anagram",
+      "note": "rope that is spliced has its strands unwoven and interlaced again, so the letters are rewoven in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drake, thus",
+      "gives": "DRAKETHUS",
+      "note": "the two words supply the letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRAKETHUS",
+       "gives": "TURKSHEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sir Francis Drake, the sailor, splicing rope into a knot.",
+     "walkthrough": "Drake suggests the Elizabethan seafarer, which makes knots and splicing look natural, but his name is only letters to rearrange.",
+     "definitionFit": "A Turk's head is a decorative sailor's knot shaped like a turban, so it is an example of a knot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drake"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +342,60 @@
     "text": "Poke fun at head of eating-house following meals",
     "enumeration": "5"
    },
-   "solution": "TEASE"
+   "solution": "TEASE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TEASE",
+    "definitions": [
+     {
+      "text": "Poke fun at",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only that one is kept"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following something means coming after it, which sets the order of the two parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meals",
+      "gives": "TEAS",
+      "note": "tea is an afternoon or evening meal in Britain"
+     },
+     {
+      "clueFragment": "eating-house",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of eating-house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Mocking the owner of a café after dinner.",
+     "definitionFit": "To tease someone is to make fun of them playfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 5,
@@ -135,7 +415,55 @@
      }
     ]
    },
-   "solution": "REDENSIGN"
+   "solution": "REDENSIGN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RED ENSIGN",
+    "definitions": [
+     {
+      "text": "flag",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include something is to take it within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amend drawing",
+      "gives": "REDESIGN",
+      "note": "to amend a drawing is to redesign it"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDE",
+      "N",
+      "SIGN"
+     ]
+    },
+    "explanation": {
+     "surface": "Revising a sketch so that it shows a newly designed banner.",
+     "walkthrough": "The extra letter goes in after the fourth letter, splitting the word into a colour and a sign.",
+     "definitionFit": "The Red Ensign is the flag flown by British merchant ships, so it is an example of a flag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Amend"
+    }
+   }
   },
   {
    "number": 6,
@@ -155,7 +483,78 @@
      }
     ]
    },
-   "solution": "SARATOGASPRINGS"
+   "solution": "SARATOGASPRINGS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SARATOGA SPRINGS",
+    "definitions": [
+     {
+      "text": "racetrack here in New York",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mounts",
+      "for": "reversal",
+      "note": "in a down clue, mounting means climbing upward, so the word is read from bottom to top"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, one part over another sits above it, fixing the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "SARA",
+      "note": "Sara is a girl's name"
+     },
+     {
+      "clueFragment": "got",
+      "gives": "GOT",
+      "note": "taken as written before being turned upward"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jumps",
+      "gives": "SPRINGS",
+      "note": "springs means leaps or jumps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SARA",
+      "TOG",
+      "A",
+      "SPRINGS"
+     ],
+     "reversals": [
+      {
+       "from": "GOT",
+       "to": "TOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's horse clears the fences at a New York race meeting.",
+     "walkthrough": "Mounts and jumps suggest horse racing, fitting the surface, but one is a direction signal and the other a plain synonym.",
+     "definitionFit": "Saratoga Springs is a city in upstate New York famous for its historic thoroughbred racecourse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mounts"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +568,65 @@
     "text": "Descriptive phrase used by English PM about ambassador",
     "enumeration": "7"
    },
-   "solution": "EPITHET"
+   "solution": "EPITHET",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EPITHET",
+    "definitions": [
+     {
+      "text": "Descriptive phrase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece is placed around the other"
+     }
+    ],
+    "linkWords": [
+     "used by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "PM",
+      "gives": "PITT",
+      "note": "William Pitt the Younger, and his father, were British Prime Ministers"
+     },
+     {
+      "clueFragment": "ambassador",
+      "gives": "HE",
+      "note": "HE stands for His Excellency, the title of an ambassador"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PIT",
+      "HE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A characterising phrase that a British Prime Minister applied to a diplomat.",
+     "walkthrough": "The ambassador's title goes inside the Prime Minister's name, between the two Ts.",
+     "definitionFit": "An epithet is a word or phrase characterising a person, such as the Great in Alfred the Great."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "PM"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +640,66 @@
     "text": "After end of round, is hospital attendant confused?",
     "enumeration": "10"
    },
-   "solution": "DISORDERLY"
+   "solution": "DISORDERLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DISORDERLY",
+    "definitions": [
+     {
+      "text": "confused",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, so only that letter is kept"
+     },
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after places what follows behind the first part, giving the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of round"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital attendant",
+      "gives": "ORDERLY",
+      "note": "an orderly is a hospital attendant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "ORDERLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether a hospital porter is muddled after finishing his ward round.",
+     "definitionFit": "Disorderly means untidy and in disarray, a looser synonym of confused or muddled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 9,
@@ -207,7 +723,62 @@
      }
     ]
    },
-   "solution": "LENDAHAND"
+   "solution": "LENDAHAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEND A HAND",
+    "definitions": [
+     {
+      "text": "give assistance",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the word placed after another comes second, so this tells the order of the two parts"
+     }
+    ],
+    "linkWords": [
+     "is to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advance",
+      "gives": "LEND",
+      "note": "to advance money is to lend it"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEND",
+      "A",
+      "HAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A labourer, having received a loan, is expected to help out.",
+     "definitionFit": "To lend a hand is an idiom meaning to help someone with a task."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 10,
@@ -221,7 +792,44 @@
     "text": "Tracks secretive birds",
     "enumeration": "5"
    },
-   "solution": "RAILS"
+   "solution": "RAILS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RAILS",
+    "definitions": [
+     {
+      "text": "Tracks",
+      "at": 0
+     },
+     {
+      "text": "secretive birds",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tracks",
+      "note": "first meaning: the steel bars a train runs on"
+     },
+     {
+      "clueFragment": "secretive birds",
+      "note": "second meaning: shy marsh birds that hide in reeds"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone following the trail of shy birds.",
+     "walkthrough": "Tracks reads as a verb, following the birds, but it is a plural noun for one meaning.",
+     "definitionFit": "Railway lines are made of steel bars, and the same word names a family of skulking wetland birds such as the water rail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tracks"
+    }
+   }
   },
   {
    "number": 11,
@@ -241,7 +849,50 @@
      }
     ]
    },
-   "solution": "CRADLESNATCHER"
+   "solution": "CRADLESNATCHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CRADLE-SNATCHER",
+    "definitions": [
+     {
+      "text": "One having a relationship with a much younger partner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow says the letters arrive by some unspecified route, so they are to be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lends character",
+      "gives": "LENDSCHARACTER",
+      "note": "the two words supply the letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LENDSCHARACTER",
+       "gives": "CRADLESNATCHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A May-December romance supposedly gives a person a certain distinction.",
+     "definitionFit": "Cradle-snatcher is an informal, mocking label for someone who dates a person far younger than themselves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 12,
@@ -265,7 +916,50 @@
      }
     ]
    },
-   "solution": "ONTHEPROWL"
+   "solution": "ONTHEPROWL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON THE PROWL",
+    "definitions": [
+     {
+      "text": "Stealthily searching",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "a surprise is something unexpected, so the letters come out in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her plot now",
+      "gives": "HERPLOTNOW",
+      "note": "the three words supply the letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERPLOTNOW",
+       "gives": "ONTHEPROWL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener quietly looking over her allotment after an unexpected change.",
+     "definitionFit": "On the prowl is an idiom for moving about stealthily in search of prey or a target."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 13,
@@ -279,7 +973,53 @@
     "text": "Girl Irish boy recalled",
     "enumeration": "5"
    },
-   "solution": "NADIA"
+   "solution": "NADIA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NADIA",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "something recalled is called back, so the name is read in the backward direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish boy",
+      "gives": "AIDAN",
+      "note": "Aidan is a common Irish boy's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NADIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIDAN",
+       "to": "NADIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl remembering an Irish lad from her past.",
+     "definitionFit": "Nadia is a female first name, so it is an example of a girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 14,
@@ -307,7 +1047,43 @@
    "group": [
     "14-across",
     "15-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BRINGS THE HOUSE DOWN",
+    "definitions": [
+     {
+      "text": "Demolishes residence",
+      "at": 0
+     },
+     {
+      "text": "gets a standing ovation",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Demolishes residence",
+      "note": "first meaning, taken literally: knocks a home to the ground"
+     },
+     {
+      "clueFragment": "gets a standing ovation?",
+      "note": "second meaning: the idiom for a show that thrills the whole theatre"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the literal wrecking sense and the theatre idiom are the same phrase; here house also means a theatre audience.",
+     "definitionFit": "The idiom describes a performance so successful that the audience erupts in applause, while the literal words mean flattening a building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "residence"
+    }
+   }
   },
   {
    "number": 14,
@@ -331,7 +1107,68 @@
      }
     ]
    },
-   "solution": "BLOWAFUSE"
+   "solution": "BLOWAFUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOW A FUSE",
+    "definitions": [
+     {
+      "text": "Lose one's temper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before means coming ahead of, so it sets the order of the parts"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit",
+      "gives": "BLOW",
+      "note": "a blow is a hit"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "USE",
+      "note": "to work something is to use it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOW",
+      "A",
+      "F",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "A violent outburst described as an instruction to lash out at a woman before going to work.",
+     "definitionFit": "Blow a fuse is an idiom for suddenly becoming very angry, like an overloaded electrical circuit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 15,
@@ -364,7 +1201,69 @@
     "text": "Odd coin in vase depicting imaginary creature",
     "enumeration": "7"
    },
-   "solution": "UNICORN"
+   "solution": "UNICORN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UNICORN",
+    "definitions": [
+     {
+      "text": "imaginary creature",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd",
+      "for": "anagram",
+      "note": "something odd is irregular or strange, so the letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says one piece is placed inside another"
+     }
+    ],
+    "linkWords": [
+     "depicting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coin",
+      "gives": "COIN",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "vase",
+      "gives": "URN",
+      "note": "an urn is a vase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NICO",
+      "RN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COIN",
+       "gives": "NICO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange coin found inside a vase decorated with a mythical beast.",
+     "definitionFit": "A unicorn is a mythical horse with a single horn, so an example of a creature that does not exist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 17,
@@ -378,7 +1277,54 @@
     "text": "Individual going round eastern capital",
     "enumeration": "5"
    },
-   "solution": "SEOUL"
+   "solution": "SEOUL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEOUL",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something means surrounding it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Individual",
+      "gives": "SOUL",
+      "note": "a soul is a person, as in not a soul about"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "E",
+      "OUL"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone traveller touring a capital city in the East.",
+     "definitionFit": "Seoul is the capital city of South Korea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Individual"
+    }
+   }
   },
   {
    "number": 18,
@@ -392,7 +1338,42 @@
     "text": "A number of books in one vehicle",
     "enumeration": "7"
    },
-   "solution": "OMNIBUS"
+   "solution": "OMNIBUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OMNIBUS",
+    "definitions": [
+     {
+      "text": "A number of books in one",
+      "at": 0
+     },
+     {
+      "text": "vehicle",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A number of books in one",
+      "note": "first meaning: a single volume collecting several works"
+     },
+     {
+      "clueFragment": "vehicle",
+      "note": "second meaning: the old name for a bus"
+     }
+    ],
+    "explanation": {
+     "surface": "Several books piled into a single car.",
+     "definitionFit": "An omnibus edition gathers several books in one volume, and the word is also the full form of bus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 19,
@@ -412,7 +1393,84 @@
      }
     ]
    },
-   "solution": "PRIMABALLERINA"
+   "solution": "PRIMABALLERINA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PRIMA BALLERINA",
+    "definitions": [
+     {
+      "text": "Dancer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is the head letter of a word, so only its opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "attending",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demure",
+      "gives": "PRIM",
+      "note": "prim means demure and proper"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "masquerade",
+      "gives": "BALL",
+      "note": "a masquerade is a masked ball"
+     },
+     {
+      "clueFragment": "the Queen",
+      "gives": "ER",
+      "note": "ER stands for Elizabeth Regina"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Austria's",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of Austria"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIM",
+      "A",
+      "BALL",
+      "ER",
+      "IN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A modest dancer goes to a masked ball in Vienna with the Queen.",
+     "walkthrough": "Austria's capital tempts you towards Vienna, but here capital just means the first letter.",
+     "definitionFit": "A prima ballerina is the leading female dancer of a ballet company, so she is a particular kind of dancer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 20,
@@ -426,7 +1484,49 @@
     "text": "Departed on river afterwards",
     "enumeration": "5"
    },
-   "solution": "LATER"
+   "solution": "LATER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LATER",
+    "definitions": [
+     {
+      "text": "afterwards",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Departed",
+      "gives": "LATE",
+      "note": "late means dead, departed"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone set off on a river trip and did something afterwards.",
+     "definitionFit": "Later and afterwards are synonyms for at a subsequent time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Departed"
+    }
+   }
   },
   {
    "number": 21,
@@ -440,7 +1540,60 @@
     "text": "One was first to go round shop",
     "enumeration": "4"
    },
-   "solution": "DELI"
+   "solution": "DELI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DELI",
+    "definitions": [
+     {
+      "text": "shop",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go round",
+      "for": "reversal",
+      "note": "going round turns something about, so the combined letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "was first",
+      "gives": "LED",
+      "note": "to have led is to have been in front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEL",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "ILED",
+       "to": "DELI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shop that was the first to open in the area.",
+     "definitionFit": "A deli, short for delicatessen, is a shop selling cooked meats and cheeses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 22,
@@ -454,7 +1607,50 @@
     "text": "Like Humpty-Dumpty, round and vacant?",
     "enumeration": "5"
    },
-   "solution": "OVOID"
+   "solution": "OVOID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVOID",
+    "definitions": [
+     {
+      "text": "Like Humpty-Dumpty",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "the letter O is round in shape"
+     },
+     {
+      "clueFragment": "vacant?",
+      "gives": "VOID",
+      "note": "void means empty or vacant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VOID"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of the nursery-rhyme egg as round and empty-headed.",
+     "definitionFit": "Humpty-Dumpty is drawn as an egg, and ovoid means egg-shaped."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "vacant"
+    }
+   }
   },
   {
    "number": 23,
@@ -468,7 +1664,58 @@
     "text": "Not up to guarding 10? That's indefensible",
     "enumeration": "9"
    },
-   "solution": "UNTENABLE"
+   "solution": "UNTENABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNTENABLE",
+    "definitions": [
+     {
+      "text": "indefensible",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guarding",
+      "for": "container",
+      "note": "to guard something is to surround and protect it, so one piece holds the other"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not up to",
+      "gives": "UNABLE",
+      "note": "not up to a task means unable to do it"
+     },
+     {
+      "clueFragment": "10?",
+      "gives": "TEN",
+      "note": "the number written as a word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "TEN",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone incapable of defending a position: their case cannot be defended.",
+     "walkthrough": "10 looks like a cross-reference to the clue 10 across, but it is just the number.",
+     "definitionFit": "An untenable position cannot be held or defended, a synonym of indefensible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "10"
+    }
+   }
   },
   {
    "number": 24,
@@ -488,7 +1735,53 @@
      }
     ]
    },
-   "solution": "LUNARYEAR"
+   "solution": "LUNARYEAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LUNAR YEAR",
+    "definitions": [
+     {
+      "text": "about 354 days",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unfortunately",
+      "for": "anagram",
+      "note": "an unfortunate outcome is one that went wrong, so the letters are set out in a changed order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aryan rule",
+      "gives": "ARYANRULE",
+      "note": "the two words supply the letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARYANRULE",
+       "gives": "LUNARYEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark on an unhappy period of racial supremacy lasting under a year.",
+     "definitionFit": "Twelve cycles of the moon's phases add up to roughly 354 days, a period shorter than the solar calendar year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Aryan"
+    }
+   }
   },
   {
    "number": 25,
@@ -502,7 +1795,42 @@
     "text": "Group inside makes us high-class Japanese dish",
     "enumeration": "5"
    },
-   "solution": "SUSHI"
+   "solution": "SUSHI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SUSHI",
+    "definitions": [
+     {
+      "text": "Japanese dish",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Group inside",
+      "for": "hidden_word",
+      "note": "a group of letters sitting inside the words that follow is the thing to find"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "makes us high-class",
+      "gives": "SUSHI",
+      "note": "the run of letters spans the end of makes, all of us and the start of high"
+     }
+    ],
+    "explanation": {
+     "surface": "Eating in company supposedly lends refinement to a Japanese meal.",
+     "definitionFit": "Sushi is vinegared rice with raw fish, a famous dish from Japan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Group"
+    }
+   }
   }
  ]
 }
