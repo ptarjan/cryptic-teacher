@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,42 @@
     "text": "Violent end",
     "enumeration": "7"
    },
-   "solution": "EXTREME"
+   "solution": "EXTREME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXTREME",
+    "definitions": [
+     {
+      "text": "Violent",
+      "at": 0
+     },
+     {
+      "text": "end",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Violent",
+      "note": "first meaning: drastic or severe"
+     },
+     {
+      "clueFragment": "end",
+      "note": "second meaning: the furthest point"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words read as a grim phrase about a death, but each is a separate meaning of one word, first an adjective and then a noun.",
+     "definitionFit": "The word serves as an adjective for something severe or drastic and as a noun for the outermost limit of anything."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +85,46 @@
     "text": "The thing is, some spent it yesterday",
     "enumeration": "6"
    },
-   "solution": "ENTITY"
+   "solution": "ENTITY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTITY",
+    "definitions": [
+     {
+      "text": "The thing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the following letters are wanted, a run taken from inside the words that follow"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spent it yesterday",
+      "gives": "ENTITY",
+      "note": "the letters run across the end of spent, all of it, and the start of yesterday"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shrugs that a sum of money has already been spent, all of it yesterday.",
+     "walkthrough": "'The thing is' reads like a conversational opener, but 'The thing' is the definition and 'is' only joins.",
+     "definitionFit": "An entity is any existing object or being considered in its own right, a general word for a thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +138,65 @@
     "text": "Taking turn in vehicle leading to a stressful experience",
     "enumeration": "6"
    },
-   "solution": "TRAUMA"
+   "solution": "TRAUMA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TRAUMA",
+    "definitions": [
+     {
+      "text": "stressful experience",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Taking",
+      "for": "container",
+      "note": "a vehicle taking something in holds it, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "TRAM",
+      "note": "a tram is a vehicle on rails"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "U",
+      "note": "as in a U-turn"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "U",
+      "M",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A passenger whose bus swerves round a corner finds the ride nerve-racking.",
+     "walkthrough": "The U goes inside TRAM to make TRAUM, which then leads to A.",
+     "definitionFit": "Trauma is a deeply distressing or disturbing experience, or the emotional shock that follows one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +210,47 @@
     "text": "Explained complex day",
     "enumeration": "10"
    },
-   "solution": "ELABORATED"
+   "solution": "ELABORATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELABORATED",
+    "definitions": [
+     {
+      "text": "Explained",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "complex",
+      "gives": "ELABORATE",
+      "note": "elaborate means intricate or complicated"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELABORATE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recounts how the day was complicated to describe.",
+     "walkthrough": "'Complex day' looks like a noun phrase, but 'complex' is an adjective giving one piece and 'day' an abbreviation.",
+     "definitionFit": "To elaborate is to add detail to a statement, so having elaborated a point is having explained it more fully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "complex"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +264,52 @@
     "text": "Clubber lost his head in aftermath of fire",
     "enumeration": "5"
    },
-   "solution": "EMBER"
+   "solution": "EMBER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EMBER",
+    "definitions": [
+     {
+      "text": "aftermath of fire",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost his head",
+      "for": "deletion",
+      "note": "losing a head means the opening letter of the word is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clubber",
+      "gives": "MEMBER",
+      "note": "a clubber here is a member of a club, not a nightclub-goer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A clubgoer in a blaze suffers a gruesome fate amid the smouldering ruins.",
+     "walkthrough": "'Clubber' suggests a nightclub-goer or someone wielding a club; it means one who belongs to a club. Drop the M from MEMBER.",
+     "definitionFit": "An ember is a glowing fragment of coal or wood left smouldering once a fire has died down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Clubber"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +323,79 @@
     "text": "Old soldier in Japan knocks back rum in Asia, drunkenly",
     "enumeration": "7"
    },
-   "solution": "SAMURAI"
+   "solution": "SAMURAI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "SAMURAI",
+    "definitions": [
+     {
+      "text": "Old soldier in Japan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocks back",
+      "for": "reversal",
+      "note": "knocking back a drink suggests tipping it backwards, so the word is read from its end"
+     },
+     {
+      "text": "drunkenly",
+      "for": "anagram",
+      "note": "a drunk staggers about out of line, so these letters are jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed in the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rum",
+      "gives": "RUM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Asia",
+      "gives": "ASIA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "MUR",
+      "AI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASIA",
+       "gives": "SAAI"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "RUM",
+       "to": "MUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran warrior in Japan downs rum somewhere in Asia while staggering about.",
+     "walkthrough": "'Knocks back' reads as drinking the rum, which suits the surface, but it is the signal to turn the word round before it goes inside the jumbled continent.",
+     "definitionFit": "The samurai were the hereditary warrior class of feudal Japan, abolished in the nineteenth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knocks"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +415,39 @@
      }
     ]
    },
-   "solution": "STAGNIGHT"
+   "solution": "STAGNIGHT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STAG NIGHT",
+    "definitions": [
+     {
+      "text": "Pre-match ritual",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pre-match ritual",
+      "note": "surface reading: a team's warm-up or superstition before a football game"
+     },
+     {
+      "clueFragment": "Pre-match ritual",
+      "note": "setter's reading: the match is a marriage, and the ritual is the groom's party with his friends before the wedding"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Match' pulls toward sport, but a match is also a marriage. A stag night is the British name for a bachelor party.",
+     "definitionFit": "A stag night is a celebration held for a man by his male friends shortly before his wedding, a customary rite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +461,43 @@
     "text": "Fashion brand",
     "enumeration": "4"
    },
-   "solution": "MAKE"
+   "solution": "MAKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAKE",
+    "definitions": [
+     {
+      "text": "Fashion",
+      "at": 0
+     },
+     {
+      "text": "brand",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashion",
+      "note": "first meaning: to form or construct something, used as a verb"
+     },
+     {
+      "clueFragment": "brand",
+      "note": "second meaning: a manufacturer's label"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fashion brand' reads as a clothing label, but 'Fashion' is a verb and 'brand' a separate noun.",
+     "definitionFit": "The word works as a verb meaning to create or shape and as a noun for the manufacturer or trade name of a product."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fashion"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +511,53 @@
     "text": "Feedback after moving into care",
     "enumeration": "8"
    },
-   "solution": "REACTION"
+   "solution": "REACTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REACTION",
+    "definitions": [
+     {
+      "text": "Feedback",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "things that are moving shift position, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "into care",
+      "gives": "INTOCARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTOCARE",
+       "gives": "REACTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Comments received once an elderly relative has been settled in a care home.",
+     "definitionFit": "A reaction is a response to something, and feedback is the response people give to an action or product."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +571,61 @@
     "text": "Single out endless lack of activity",
     "enumeration": "8"
    },
-   "solution": "IDLENESS"
+   "solution": "IDLENESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IDLENESS",
+    "definitions": [
+     {
+      "text": "lack of activity",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters put out of place are disordered, so this word is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Single",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "endless",
+      "gives": "ENDLESS",
+      "note": "taken as written, not as an instruction to remove a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DLENESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENDLESS",
+       "gives": "DLENESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that one person is singled out for constant laziness.",
+     "walkthrough": "'Endless' looks like a deletion signal, but here it is the whole word to be rearranged.",
+     "definitionFit": "Idleness is the state of not working or doing anything, which is simply an absence of activity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +639,55 @@
     "text": "Woman without one piece of jewellery",
     "enumeration": "5"
    },
-   "solution": "TIARA"
+   "solution": "TIARA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIARA",
+    "definitions": [
+     {
+      "text": "piece of jewellery",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so one word sits around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "TARA",
+      "note": "a woman's first name"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "ARA"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who goes without a single item of jewellery.",
+     "walkthrough": "'Without' seems to mean lacking, but it is used in its old sense of outside.",
+     "definitionFit": "A tiara is a jewelled ornamental band worn on the head, especially by women on formal occasions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +701,64 @@
     "text": "Deficiency in second-class post amounts to a crime",
     "enumeration": "9"
    },
-   "solution": "BLACKMAIL"
+   "solution": "BLACKMAIL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BLACKMAIL",
+    "definitions": [
+     {
+      "text": "crime",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "amounts to a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second-class",
+      "gives": "B",
+      "note": "B grade is second class, after A"
+     },
+     {
+      "clueFragment": "Deficiency",
+      "gives": "LACK",
+      "note": "a lack is a shortage"
+     },
+     {
+      "clueFragment": "post",
+      "gives": "MAIL",
+      "note": "post and mail are both letters delivered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LACK",
+      "MAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Failings in the second-class postal service are so bad they amount to a criminal offence.",
+     "walkthrough": "'Second-class post' reads as one phrase, but 'second-class' gives a grade letter and 'post' a separate word.",
+     "definitionFit": "Blackmail is the offence of demanding money or favours by threatening to reveal damaging information."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +772,51 @@
     "text": "Miner about to play instrument",
     "enumeration": "10"
    },
-   "solution": "TAMBOURINE"
+   "solution": "TAMBOURINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAMBOURINE",
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to play",
+      "for": "anagram",
+      "note": "letters set to play move about freely, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Miner about",
+      "gives": "MINERABOUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MINERABOUT",
+       "gives": "TAMBOURINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coal miner is about to perform on a musical instrument.",
+     "walkthrough": "'About to' reads as 'on the point of', but 'about' belongs to the letters to be rearranged.",
+     "definitionFit": "A tambourine is a small hand drum with jingling metal discs set in its frame, a percussion instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +830,50 @@
     "text": "The way one casually has to impress?",
     "enumeration": "4"
    },
-   "solution": "STUN"
+   "solution": "STUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STUN",
+    "definitions": [
+     {
+      "text": "impress",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "has to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The way",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "one casually",
+      "gives": "UN",
+      "note": "'un is the informal spoken form of one, as in a good 'un"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "UN"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about how someone speaking casually must behave to make an impression.",
+     "walkthrough": "'One casually' signals the slangy 'un for one.",
+     "definitionFit": "To stun is to astonish or overwhelm someone, an intense way of impressing them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +887,69 @@
     "text": "Denial of outstanding charge one added on",
     "enumeration": "10"
    },
-   "solution": "STARVATION"
+   "solution": "STARVATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STARVATION",
+    "definitions": [
+     {
+      "text": "Denial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "added",
+      "for": "charade",
+      "note": "pieces added to one another are joined end to end"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outstanding",
+      "gives": "STAR",
+      "note": "a star performer is outstanding"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "VAT",
+      "note": "value added tax, a charge on goods in Britain"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "VAT",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to pay an unpaid bill with a surcharge added on top.",
+     "walkthrough": "'Outstanding charge' looks like an unpaid bill, but the words give separate pieces. VAT is value added tax, Britain's sales tax.",
+     "definitionFit": "Starvation is being deprived of food, so it is a denial of nourishment; the definition is loose but fair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +963,59 @@
     "text": "Claims a student put to embassies",
     "enumeration": "11"
    },
-   "solution": "ALLEGATIONS"
+   "solution": "ALLEGATIONS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALLEGATIONS",
+    "definitions": [
+     {
+      "text": "Claims",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put to",
+      "for": "charade",
+      "note": "one thing put to another is placed right up against it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, as on a learner driver's plate"
+     },
+     {
+      "clueFragment": "embassies",
+      "gives": "LEGATIONS",
+      "note": "a legation is a diplomatic mission, a minor embassy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "LEGATIONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Accusations a student makes to foreign embassies.",
+     "definitionFit": "Allegations are assertions made without proof, and claims are statements that something is so."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "student"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1029,39 @@
     "text": "Example of cutting-edge green technology",
     "enumeration": "9"
    },
-   "solution": "LAWNMOWER"
+   "solution": "LAWNMOWER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LAWNMOWER",
+    "definitions": [
+     {
+      "text": "Example of cutting-edge green technology",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Example of cutting-edge green technology",
+      "note": "surface reading: an advanced eco-friendly invention"
+     },
+     {
+      "clueFragment": "Example of cutting-edge green technology",
+      "note": "setter's reading: a machine with a literal cutting edge that is used on the green grass of a garden"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Cutting-edge' and 'green' suggest innovation and environmentalism; read literally, they describe blades and grass.",
+     "definitionFit": "A garden machine with rotating blades that trims grass, so it cuts and is used on green turf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1081,51 @@
      }
     ]
    },
-   "solution": "RIVERBED"
+   "solution": "RIVERBED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIVER BED",
+    "definitions": [
+     {
+      "text": "water's lowest point",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flower",
+      "gives": "RIVER",
+      "note": "a river is something that flows, a flow-er"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "BED",
+      "note": "a flower bed or border in a garden"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIVER",
+      "BED"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's flower border placed down by the water's edge.",
+     "walkthrough": "'Flower' means a thing that flows, not a bloom, a standard crossword trick.",
+     "definitionFit": "A riverbed is the channel floor over which a river runs, the bottom of the water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1139,66 @@
     "text": "Married off along with one's latest suitors",
     "enumeration": "8"
    },
-   "solution": "ADMIRERS"
+   "solution": "ADMIRERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ADMIRERS",
+    "definitions": [
+     {
+      "text": "suitors",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something gone off has gone wrong, so these letters are disturbed"
+     },
+     {
+      "text": "latest",
+      "for": "letter_selection",
+      "note": "the latest of a word is its very final letter"
+     }
+    ],
+    "linkWords": [
+     "along with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Married",
+      "gives": "MARRIED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "S",
+      "select": "last",
+      "note": "the closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARRIEDS",
+       "gives": "ADMIRERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once someone is married, the would-be partners all disappear.",
+     "walkthrough": "'Married off' reads as a phrase about a wedding, but 'off' is the instruction to rearrange.",
+     "definitionFit": "Suitors are people courting someone, and admirers likewise are those romantically attracted to a person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1222,53 @@
      }
     ]
    },
-   "solution": "INDEEPWATER"
+   "solution": "INDEEPWATER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN DEEP WATER",
+    "definitions": [
+     {
+      "text": "Beset by difficulty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "illegally",
+      "for": "anagram",
+      "note": "acting illegally means not by the rules, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "we detain rep",
+      "gives": "WEDETAINREP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WEDETAINREP",
+       "gives": "INDEEPWATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "We land in trouble after unlawfully holding a sales representative.",
+     "definitionFit": "To be in deep water is an idiom for being in serious trouble, as if out of one's depth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "illegally"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1282,48 @@
     "text": "Repeated prayer curtailed serious hazard",
     "enumeration": "6"
    },
-   "solution": "MANTRA"
+   "solution": "MANTRA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MANTRA",
+    "definitions": [
+     {
+      "text": "Repeated prayer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "to curtail is to cut short, so the tail end of the word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serious hazard",
+      "gives": "MANTRAP",
+      "note": "a man-trap is a hidden trap set to catch trespassers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANTRA"
+     ]
+    },
+    "explanation": {
+     "surface": "A prayer cut short because of some grave danger.",
+     "walkthrough": "'Curtailed' seems to describe the prayer, but it acts on the hazard that follows.",
+     "definitionFit": "A mantra is a word or phrase chanted again and again in meditation or worship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "curtailed"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1337,39 @@
     "text": "It's likely to carry one off in the end",
     "enumeration": "6"
    },
-   "solution": "HEARSE"
+   "solution": "HEARSE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HEARSE",
+    "definitions": [
+     {
+      "text": "It's likely to carry one off in the end",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's likely to carry one off in the end",
+      "note": "surface reading: something, such as a disease, that will eventually kill a person"
+     },
+     {
+      "clueFragment": "It's likely to carry one off in the end",
+      "note": "setter's reading: the vehicle that literally carries a person away at the end of life"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Carry off' usually means to cause death; here it is literal transport of a body.",
+     "definitionFit": "The funeral vehicle that conveys a coffin to the burial, carrying the deceased away for the last time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carry"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1383,54 @@
     "text": "Give out over time",
     "enumeration": "4"
    },
-   "solution": "EMIT"
+   "solution": "EMIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EMIT",
+    "definitions": [
+     {
+      "text": "Give out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over, so the word is read from back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "TIME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIME",
+       "to": "EMIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is handed out once the deadline has passed.",
+     "walkthrough": "'Over time' sounds like overtime or a period elapsing; 'over' is the signal to turn the following word around.",
+     "definitionFit": "To emit is to send out or discharge light, heat, sound or gas, so it means to give out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1444,86 @@
     "text": "Join drivers embracing very attractive switch to foreign team",
     "enumeration": "10"
    },
-   "solution": "AMALGAMATE"
+   "solution": "AMALGAMATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "AMALGAMATE",
+    "definitions": [
+     {
+      "text": "Join",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switch",
+      "for": "anagram",
+      "note": "to switch things is to change them round, so these letters are reordered"
+     },
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "something embracing another holds it within its arms"
+     },
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "foreign suggests something made strange, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drivers",
+      "gives": "AA",
+      "note": "the Automobile Association, the British motoring organisation for drivers"
+     },
+     {
+      "clueFragment": "very attractive",
+      "gives": "GLAM",
+      "note": "short for glamorous"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "TEAM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MALG",
+      "A",
+      "MATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GLAM",
+       "gives": "MALG"
+      },
+      {
+       "fodder": "TEAM",
+       "gives": "MATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer moves abroad, joining motorists who welcome the glamorous transfer to a foreign side.",
+     "walkthrough": "'Switch' and 'foreign' read as a football transfer, but each scrambles the word beside it. The AA is the Automobile Association, Britain's motoring breakdown club.",
+     "definitionFit": "To amalgamate is to combine or merge separate things into one, which is to join them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "switch"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1537,58 @@
     "text": "Faithful foreign ally gains nothing",
     "enumeration": "5"
    },
-   "solution": "LOYAL"
+   "solution": "LOYAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOYAL",
+    "definitions": [
+     {
+      "text": "Faithful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "foreign suggests something made strange, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "gains"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ally",
+      "gives": "ALLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALLYO",
+       "gives": "LOYAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dependable overseas partner gets nothing out of the arrangement.",
+     "definitionFit": "Loyal means steadfast in allegiance, which is what being faithful to a person or cause is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foreign"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1602,51 @@
     "text": "Ladies' fingers appear all right to painter",
     "enumeration": "4"
    },
-   "solution": "OKRA"
+   "solution": "OKRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OKRA",
+    "definitions": [
+     {
+      "text": "Ladies' fingers",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "appear",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all right",
+      "gives": "OK",
+      "note": "OK means all right"
+     },
+     {
+      "clueFragment": "painter",
+      "gives": "RA",
+      "note": "Royal Academician, a member of the Royal Academy of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OK",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A portrait painter is satisfied with how a woman's fingers look on canvas.",
+     "walkthrough": "'Ladies' fingers' sounds like hands; it is the British name for the vegetable. RA stands for Royal Academician, an artist.",
+     "definitionFit": "Okra pods are long, slender and tapering, which is why the vegetable is also called lady's fingers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fingers"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1660,50 @@
     "text": "Split after holiday abroad?",
     "enumeration": "9"
    },
-   "solution": "BREAKAWAY"
+   "solution": "BREAKAWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BREAKAWAY",
+    "definitions": [
+     {
+      "text": "Split",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holiday",
+      "gives": "BREAK",
+      "note": "a short holiday is a break"
+     },
+     {
+      "clueFragment": "abroad",
+      "gives": "AWAY",
+      "note": "being abroad is being away from home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREAK",
+      "AWAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple part ways after a trip overseas, the question mark admitting the clue is playful.",
+     "walkthrough": "'Split' reads as a break-up, which is the definition, not the Croatian city.",
+     "definitionFit": "A breakaway is a separation from a larger body, such as a faction that splits from a party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Split"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1717,39 @@
     "text": "Get one into a grave situation",
     "enumeration": "5"
    },
-   "solution": "INTER"
+   "solution": "INTER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INTER",
+    "definitions": [
+     {
+      "text": "Get one into a grave situation",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get one into a grave situation",
+      "note": "surface reading: to land someone in serious trouble"
+     },
+     {
+      "clueFragment": "Get one into a grave situation",
+      "note": "setter's reading: to lay a body literally inside a burial pit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Grave situation' means a crisis, but read literally it is a hole in a cemetery.",
+     "definitionFit": "To inter is to bury a corpse, placing the dead person in a tomb or burial plot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grave"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1763,56 @@
     "text": "Distress of man meeting couple",
     "enumeration": "7"
    },
-   "solution": "DESPAIR"
+   "solution": "DESPAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DESPAIR",
+    "definitions": [
+     {
+      "text": "Distress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "meeting",
+      "for": "charade",
+      "note": "one piece meeting another touches it end to end"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "DES",
+      "note": "Des, short for Desmond, a man's name"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "PAIR",
+      "note": "a couple is a pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DES",
+      "PAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "The anguish of a single man encountering a happy couple.",
+     "definitionFit": "Despair is the complete loss of hope, an acute form of mental suffering or anguish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "meeting"
+    }
+   }
   },
   {
    "number": 28,
@@ -461,7 +1826,56 @@
     "text": "Family occupation at the time",
     "enumeration": "7"
    },
-   "solution": "LINEAGE"
+   "solution": "LINEAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LINEAGE",
+    "definitions": [
+     {
+      "text": "Family",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at",
+      "for": "charade",
+      "note": "one piece at another sits right beside it"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "occupation",
+      "gives": "LINE",
+      "note": "one's line of work is one's occupation"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LINE",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A household's trade during the period in question.",
+     "definitionFit": "Lineage is a person's ancestry or line of descent, the family they come from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "occupation"
+    }
+   }
   }
  ]
 }
