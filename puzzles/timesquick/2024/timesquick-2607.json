@@ -24,6 +24,9 @@
   "date": "2024-02-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,46 @@
     "text": "Kitchen device, attractive item, thing familiar to plumbers",
     "enumeration": "10"
    },
-   "solution": "DISHWASHER"
+   "solution": "DISHWASHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISHWASHER",
+    "definitions": [
+     {
+      "text": "Kitchen device",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attractive item",
+      "gives": "DISH",
+      "note": "a dish is informal for a good-looking person or thing"
+     },
+     {
+      "clueFragment": "thing familiar to plumbers",
+      "gives": "WASHER",
+      "note": "the small ring fitted to taps and joints"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISH",
+      "WASHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of household objects, from the kitchen to the plumber's toolbox.",
+     "definitionFit": "A dishwasher is an appliance found in kitchens for cleaning crockery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attractive"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +93,55 @@
     "text": "Tasteless, if popular drink I had",
     "enumeration": "7"
    },
-   "solution": "INSIPID"
+   "solution": "INSIPID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSIPID",
+    "definitions": [
+     {
+      "text": "Tasteless",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "if"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in fashion, popular"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SIP",
+      "note": "a small drink"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd is the contraction of I had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SIP",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneers that a fashionable drink they tried had no flavour.",
+     "definitionFit": "Insipid means lacking flavour or interest, a synonym of tasteless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +155,54 @@
     "text": "Home Office careless, missing first scam",
     "enumeration": "4"
    },
-   "solution": "HOAX"
+   "solution": "HOAX",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "HOAX",
+    "definitions": [
+     {
+      "text": "scam",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing first",
+      "for": "deletion",
+      "note": "the word lacks its opening letter, so drop the front of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home Office",
+      "gives": "HO",
+      "note": "the standard abbreviation for the UK government department"
+     },
+     {
+      "clueFragment": "careless",
+      "gives": "LAX",
+      "note": "lax means careless or slack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "AX"
+     ]
+    },
+    "explanation": {
+     "surface": "A government department is criticised for sloppiness that let a fraud through.",
+     "definitionFit": "A hoax is a deception or trick, close in meaning to a scam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "careless"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +216,50 @@
     "text": "Snatch sailor on Tube",
     "enumeration": "6"
    },
-   "solution": "ABDUCT"
+   "solution": "ABDUCT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABDUCT",
+    "definitions": [
+     {
+      "text": "Snatch",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is the usual crossword sailor"
+     },
+     {
+      "clueFragment": "Tube",
+      "gives": "DUCT",
+      "note": "a duct is a tube or channel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "DUCT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor riding the London Underground grabs something.",
+     "walkthrough": "In a down clue, 'on' puts the sailor above the tube. The capital T suggests the London Underground, but it is just a pipe.",
+     "definitionFit": "To abduct is to seize and carry off a person, so it means to snatch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tube"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +273,43 @@
     "text": "Storing advertising spot?",
     "enumeration": "8"
    },
-   "solution": "HOARDING"
+   "solution": "HOARDING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOARDING",
+    "definitions": [
+     {
+      "text": "Storing",
+      "at": 0
+     },
+     {
+      "text": "advertising spot",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Storing",
+      "note": "first meaning: amassing and keeping things"
+     },
+     {
+      "clueFragment": "advertising spot",
+      "note": "second meaning: a large board for posters, a billboard"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the second sense is a noun while the first is a verb form.",
+     "definitionFit": "Hoarding is both the act of stockpiling and the British word for a billboard on which posters are pasted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +323,57 @@
     "text": "50 in 500 sheets identifying sphere of action",
     "enumeration": "5"
    },
-   "solution": "REALM"
+   "solution": "REALM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REALM",
+    "definitions": [
+     {
+      "text": "sphere of action",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item sits inside another, so place the number inside the paper quantity"
+     }
+    ],
+    "linkWords": [
+     "identifying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "500 sheets",
+      "gives": "REAM",
+      "note": "a ream is 500 sheets of paper"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for 50"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REA",
+      "L",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A stationery calculation about sheets of paper is said to reveal someone's area of responsibility.",
+     "definitionFit": "A realm is a domain or field in which someone operates, a sphere of activity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sheets"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +387,60 @@
     "text": "Bank reduced levies, avoiding initial easing",
     "enumeration": "10"
    },
-   "solution": "RELAXATION"
+   "solution": "RELAXATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RELAXATION",
+    "definitions": [
+     {
+      "text": "easing",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "made shorter, so the word loses its final letter"
+     },
+     {
+      "text": "avoiding initial",
+      "for": "deletion",
+      "note": "steering clear of the opening letter means it is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bank",
+      "gives": "RELY",
+      "note": "to bank on is to rely on"
+     },
+     {
+      "clueFragment": "levies",
+      "gives": "TAXATION",
+      "note": "taxation is the levying of charges"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REL",
+      "AXATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A central bank cuts taxes as a form of monetary easing.",
+     "walkthrough": "'Bank' looks like a financial institution, but it is the verb, as in to bank on someone.",
+     "definitionFit": "Relaxation of rules or tension is a loosening, the same as easing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bank"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +454,58 @@
     "text": "Partner's assistance in securing computer peripheral",
     "enumeration": "7"
    },
-   "solution": "HUSBAND"
+   "solution": "HUSBAND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HUSBAND",
+    "definitions": [
+     {
+      "text": "Partner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in securing",
+      "for": "container",
+      "note": "securing means holding firmly, so the first word wraps round the second"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "assistance",
+      "gives": "HAND",
+      "note": "to give a hand is to assist"
+     },
+     {
+      "clueFragment": "computer peripheral",
+      "gives": "USB",
+      "note": "a USB stick or device plugs into a computer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "USB",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's other half helps out with setting up a gadget for the computer.",
+     "walkthrough": "The 's is read as 'is', linking the definition to the wordplay.",
+     "definitionFit": "A husband is a married partner, so the word serves as one type of partner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "assistance"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +519,40 @@
     "text": "Nothing like this answer, and that's flat!",
     "enumeration": "10"
    },
-   "solution": "HORIZONTAL"
+   "solution": "HORIZONTAL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HORIZONTAL",
+    "definitions": [
+     {
+      "text": "flat",
+      "at": 37
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing like this answer",
+      "note": "surface reading: the solution is unlike its own description"
+     },
+     {
+      "clueFragment": "and that's flat!",
+      "note": "setter's reading: this entry runs down the grid, so it is the opposite of the level direction it names"
+     }
+    ],
+    "explanation": {
+     "surface": "An emphatic dismissal, as if someone says a thing is not so and that's final.",
+     "walkthrough": "'Flat' in 'and that's flat' sounds like 'definitely', but it is the definition; the joke is that this word sits vertically in the grid.",
+     "definitionFit": "Horizontal means level, lying flat, parallel to the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +566,53 @@
     "text": "A piano expert, playing allegro?",
     "enumeration": "5"
    },
-   "solution": "APACE"
+   "solution": "APACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APACE",
+    "definitions": [
+     {
+      "text": "playing allegro",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical marking for piano, softly"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A virtuoso pianist tackles a fast movement.",
+     "walkthrough": "The musical surface hides that allegro, a tempo marking meaning brisk, defines the answer.",
+     "definitionFit": "Apace means quickly, and playing allegro is performing at a fast tempo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +626,48 @@
     "text": "Mature, heading off complaint",
     "enumeration": "4"
    },
-   "solution": "RIPE"
+   "solution": "RIPE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIPE",
+    "definitions": [
+     {
+      "text": "Mature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its head taken off, the word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "complaint",
+      "gives": "GRIPE",
+      "note": "a gripe is a grumble or complaint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up response would be to forestall a grievance before it arises.",
+     "walkthrough": "'Heading off' reads as preventing, but it means removing the head letter.",
+     "definitionFit": "Ripe means fully developed, so it is a synonym for mature, as with fruit or cheese."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +681,69 @@
     "text": "Targeted area roughly recalled in intellectual sphere",
     "enumeration": "8"
    },
-   "solution": "ACADEMIA"
+   "solution": "ACADEMIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ACADEMIA",
+    "definitions": [
+     {
+      "text": "intellectual sphere",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "called back, so the string of words is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Targeted",
+      "gives": "AIMED",
+      "note": "to target is to aim at"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "roughly",
+      "gives": "CA",
+      "note": "ca, circa, means approximately"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "A",
+      "DEMIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIMEDACA",
+       "to": "ACADEMIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A specific region is vaguely remembered within the scholarly world.",
+     "definitionFit": "Academia is the world of universities and scholarship, the intellectual sphere of learning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +757,58 @@
     "text": "Soldiers on guard roar and sing horribly",
     "enumeration": "8"
    },
-   "solution": "GARRISON"
+   "solution": "GARRISON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GARRISON",
+    "definitions": [
+     {
+      "text": "Soldiers on guard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "horribly",
+      "for": "anagram",
+      "note": "something done horribly is botched and disordered, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roar",
+      "gives": "ROAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sing",
+      "gives": "SING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROARSING",
+       "gives": "GARRISON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops on watch make an awful racket, bellowing and singing badly.",
+     "definitionFit": "A garrison is a body of troops stationed to defend a place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "horribly"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +822,45 @@
     "text": "A number of signs to identify old Ford car",
     "enumeration": "6"
    },
-   "solution": "ZODIAC"
+   "solution": "ZODIAC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ZODIAC",
+    "definitions": [
+     {
+      "text": "A number of signs",
+      "at": 0
+     },
+     {
+      "text": "old Ford car",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "to identify"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A number of signs",
+      "note": "first meaning: the circle of twelve astrological signs"
+     },
+     {
+      "clueFragment": "old Ford car",
+      "note": "second meaning: a saloon model Ford made in the 1950s to 1970s"
+     }
+    ],
+    "explanation": {
+     "surface": "Some markings help someone recognise a vintage motor.",
+     "definitionFit": "The zodiac comprises the twelve star signs, and the Ford Zodiac was a classic British family car."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "signs"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +874,77 @@
     "text": "Mystery source of growth in a pit in recession",
     "enumeration": "6"
    },
-   "solution": "ENIGMA"
+   "solution": "ENIGMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "ENIGMA",
+    "definitions": [
+     {
+      "text": "Mystery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "the source is where something starts, so take only the opening letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item goes inside the other phrase"
+     },
+     {
+      "text": "in recession",
+      "for": "reversal",
+      "note": "receding means going backwards, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pit",
+      "gives": "MINE",
+      "note": "a pit is a coal mine"
+     },
+     {
+      "clueFragment": "growth",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENIGMA"
+     ],
+     "reversals": [
+      {
+       "from": "AMGINE",
+       "to": "ENIGMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is a puzzle how anything could grow in a coal pit during an economic slump.",
+     "walkthrough": "'In recession' sounds economic, but it signals reading backwards.",
+     "definitionFit": "An enigma is something puzzling or inexplicable, a synonym of mystery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recession"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +958,67 @@
     "text": "Rock inverted in filling fireplace",
     "enumeration": "7"
    },
-   "solution": "GRANITE"
+   "solution": "GRANITE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GRANITE",
+    "definitions": [
+     {
+      "text": "Rock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inverted",
+      "for": "reversal",
+      "note": "turned upside down, which in a down entry flips the order of letters"
+     },
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "a filling goes inside, so the short word is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fireplace",
+      "gives": "GRATE",
+      "note": "a grate is the frame holding fuel in a fireplace"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRA",
+      "NI",
+      "TE"
+     ],
+     "reversals": [
+      {
+       "from": "IN",
+       "to": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stone set upside down to fill in an old hearth.",
+     "walkthrough": "The little word 'in' is not an indicator here but the letters themselves.",
+     "definitionFit": "Granite is a hard igneous rock, an example of rock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1032,47 @@
     "text": "Rush small Indian meal?",
     "enumeration": "6"
    },
-   "solution": "SCURRY"
+   "solution": "SCURRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCURRY",
+    "definitions": [
+     {
+      "text": "Rush",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "Indian meal",
+      "gives": "CURRY",
+      "note": "a curry is a spiced dish associated with India"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CURRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurries off to grab a quick takeaway.",
+     "walkthrough": "The question mark admits that curry is a dish rather than a whole meal.",
+     "definitionFit": "To scurry is to move hurriedly with short quick steps, so it means to rush."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1086,63 @@
     "text": "Mathematical skill in new University getting me animated",
     "enumeration": "8"
    },
-   "solution": "NUMERACY"
+   "solution": "NUMERACY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUMERACY",
+    "definitions": [
+     {
+      "text": "Mathematical skill",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "animated",
+      "gives": "RACY",
+      "note": "racy means lively or spirited"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "U",
+      "ME",
+      "RACY"
+     ]
+    },
+    "explanation": {
+     "surface": "A student gets excited about maths at a newly founded university.",
+     "walkthrough": "'Animated' tempts as an anagram signal, but it supplies a synonym.",
+     "definitionFit": "Numeracy is competence with numbers, the arithmetic counterpart of literacy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "animated"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1156,59 @@
     "text": "Computer device offering verse in minutes?",
     "enumeration": "5"
    },
-   "solution": "MODEM"
+   "solution": "MODEM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MODEM",
+    "definitions": [
+     {
+      "text": "Computer device",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item sits within the other, so wrap the outer abbreviation round"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minutes",
+      "gives": "MM",
+      "note": "m is minute, doubled for the plural"
+     },
+     {
+      "clueFragment": "verse",
+      "gives": "ODE",
+      "note": "an ode is a lyric poem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ODE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A computer gadget that writes poetry in record time.",
+     "walkthrough": "Doubling a letter to make a plural is a common convention, as in pp for pages.",
+     "definitionFit": "A modem is the hardware that connects a computer to a network, a device for computers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "verse"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1222,73 @@
     "text": "Indian garment is folded back around half of rear",
     "enumeration": "4"
    },
-   "solution": "SARI"
+   "solution": "SARI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SARI",
+    "definitions": [
+     {
+      "text": "Indian garment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "folded back",
+      "for": "reversal",
+      "note": "folding something back turns it to face the other way"
+     },
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "only part of the word is kept, its latter portion"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the first piece encircles the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rear",
+      "gives": "AR",
+      "select": "last",
+      "note": "the back two of its four letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AR",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sari is described being wrapped back round someone's behind.",
+     "definitionFit": "A sari is the long draped garment traditionally worn by women in South Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rear"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1302,63 @@
     "text": "Hard fruit served up with a fish",
     "enumeration": "4"
    },
-   "solution": "TUNA"
+   "solution": "TUNA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TUNA",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down entry, sending something up makes it read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard fruit",
+      "gives": "NUT",
+      "note": "a nut is a fruit with a hard shell"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUN",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "NUT",
+       "to": "TUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A menu pairs a tough piece of fruit with seafood.",
+     "definitionFit": "Tuna is a large ocean fish, so it is an example of a fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1372,42 @@
     "text": "Mountain range some can describe",
     "enumeration": "5"
    },
-   "solution": "ANDES"
+   "solution": "ANDES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANDES",
+    "definitions": [
+     {
+      "text": "Mountain range",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the following letters are wanted, a run within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can describe",
+      "gives": "ANDES",
+      "note": "spans the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A few people are able to give an account of a mountain chain.",
+     "definitionFit": "The Andes are the long chain of peaks along western South America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1421,45 @@
     "text": "Meeting again in French territory",
     "enumeration": "7"
    },
-   "solution": "REUNION"
+   "solution": "REUNION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REUNION",
+    "definitions": [
+     {
+      "text": "Meeting again",
+      "at": 0
+     },
+     {
+      "text": "French territory",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meeting again",
+      "note": "first meaning: a gathering of people after time apart"
+     },
+     {
+      "clueFragment": "French territory",
+      "note": "second meaning: the French island department in the Indian Ocean"
+     }
+    ],
+    "explanation": {
+     "surface": "Old friends gather once more somewhere in France.",
+     "definitionFit": "A reunion is a get-together of people previously parted, and Réunion is an overseas department of France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "territory"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1473,62 @@
     "text": "Profitable scheme developed my Mark One device, ultimately",
     "enumeration": "10"
    },
-   "solution": "MONEYMAKER"
+   "solution": "MONEYMAKER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MONEYMAKER",
+    "definitions": [
+     {
+      "text": "Profitable scheme",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "developing something changes its form, so the letters are rearranged"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "at the end, so take only the final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my Mark One",
+      "gives": "MYMARKONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "device",
+      "gives": "E",
+      "select": "last",
+      "note": "its closing letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MYMARKONEE",
+       "gives": "MONEYMAKER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inventor claims their first-generation gadget turned into a lucrative venture.",
+     "definitionFit": "A moneymaker is something that generates profit, such as a lucrative business scheme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "developed"
+    }
+   }
   }
  ]
 }
