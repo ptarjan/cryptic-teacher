@@ -1439,8 +1439,88 @@ def elsewhere_run(end, side, clues):
     return False
 
 
+#: How alike (SequenceMatcher on its words) the laid clue must be to the
+#: words another reading prints between two numbers for relay() to take
+#: them as that reading's print of it, and how far ahead of that reading's
+#: next likeliest clue.
+RELAY_LIKE = 0.7
+RELAY_AHEAD = 0.25
+
+
+def relay(clue, others):
+    """(text, k, words): the clue most `others` print between two numbers where
+    the laid `clue` is too garbled for them to print it word for word
+    ("Sionemc!'The`arbingcr'souiside" against "Stone me! The arbinger's
+    outside", "Yardous" for "Various"), as reading k prints it, k the one
+    alike to the most others, and how many of those readings print each
+    word there;
+    None unless each of more than half the
+    readings prints such a clue, alike to the others'."""
+    def flat(ws):
+        return " ".join(w.lower() for w in ws if w not in MARKS)
+    laid = flat(marked(clue))
+    found = {}  # k -> (its words, flat)
+    for k, theirs in enumerate(others):
+        parts = [list(g) for brk, g in itertools.groupby(theirs, lambda t: t == BREAK) if not brk]
+        scored = sorted(((SequenceMatcher(None, laid, flat(p)).ratio(), i) for i, p in enumerate(parts)
+                         if flat(p)), reverse=True)
+        if scored and scored[0][0] >= RELAY_LIKE and scored[0][0] - (scored[1][0] if len(scored) > 1 else 0) >= RELAY_AHEAD:
+            words = parts[scored[0][1]]
+            found[k] = (words, flat(words))
+    like = {(k, j): SequenceMatcher(None, found[k][1], found[j][1]).ratio() for k in found for j in found}
+    backers = {k: [j for j in found if like[k, j] >= PRINTS_SIMILAR] for k in found}
+    # The print alike to the most, and closest to them: one reading's
+    # slips ("saatcher" for "crownsnatcher") are the others' outliers.
+    best = max(backers, key=lambda k: (len(backers[k]), sum(like[k, j] for j in found)), default=None)
+    if best is None or len(backers[best]) < 2 or len(backers[best]) * 2 <= len(others):
+        return None
+    printed = collections.Counter(w for j in backers[best] for w in set(found[j][1].split()))
+    return re.sub(r" (?=[,;:!?.])", "", " ".join(found[best][0])), best, printed
+
+
 def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), number=None, count=None,
           counted=True):
+    """vote() of `clue` against `others`; when that holds and relay() finds
+    the clue most other readings print, that print put to the rest and to
+    this reading instead, when the vote keeps to their words. Not with
+    `keep_known`, whose words are no reading's misread."""
+    got = vote(clue, others, keep_known, families, rates, clues, number, count, counted)
+    if got[0] is not None or keep_known:
+        return got
+    if others and isinstance(others[0], str):
+        others = [others]
+    # Only a clue no other reading prints word for word: one they print
+    # held on words they differ on, which their prints share. Nor one with
+    # a hyphen in a word ("Couhter-infonnant"): a reading's words carry
+    # none, and the print would lose it.
+    if re.search(r"[A-Za-z]-[A-Za-z]", clue):
+        return got
+    low = [w.lower() for w in marked(clue, breaks=True)]
+    for theirs in others:
+        theirs = ends_joined(rejoin(unglued(theirs, low), low), low)
+        if prints(align(low, [w.lower() for w in theirs]), low, theirs):
+            return got
+    found = relay(clue, others)
+    if not found:
+        return got
+    text, k, printed = found
+    rest = others[:k] + others[k + 1:] + [marked(clue, breaks=True)]
+    order = families and [families[k + 1]] + families[1:k + 1] + families[k + 2:] + [families[0]]
+    again = vote(text, rest, keep_known, order, rates, clues, number, count, counted)
+    # A word fewer than two of those readings print there is the vote's
+    # own pick ("snatcher" for their "crownsnatcher") or one reading's
+    # speck ("DOWN", "PS" before the clue), which the print does not bear
+    # out; so is a small word no dictionary knows that all of them misread
+    # alike ("arbinger's" for "Harbinger's"). A text suspect() flags is no
+    # better than the hold.
+    if again[0] is None or suspect(again[0]) or any(
+            printed[w.lower()] < 2 or w.islower() and not (is_word(w) or formed(w.lower())) for w in tokens(again[0])):
+        return got
+    return again
+
+
+def vote(clue, others, keep_known=False, families=None, rates=None, clues=(), number=None, count=None,
+         counted=True):
     """(text or None, how) for one clue against the other readings' words
     and marks (`others`: one list per reading, or one list alone). Each word
     stands when another reading has it too; else it takes the spelling the
