@@ -23,6 +23,9 @@
   "date": "2023-04-22",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,60 @@
     "text": "Extract conclusion from judge, in accordance with law",
     "enumeration": "6"
    },
-   "solution": "ELICIT"
+   "solution": "ELICIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ELICIT",
+    "definitions": [
+     {
+      "text": "Extract",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conclusion",
+      "for": "charade",
+      "note": "a conclusion is the end of something, so only the closing letter of the next word is kept"
+     },
+     {
+      "text": "conclusion from",
+      "for": "letter_selection",
+      "note": "'conclusion from' keeps only the last letter of 'judge'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of judge"
+     },
+     {
+      "clueFragment": "in accordance with law",
+      "gives": "LICIT",
+      "note": "licit means lawful, permitted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LICIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Drawing a verdict out of a judge in proper legal fashion.",
+     "definitionFit": "To elicit is to draw out or obtain a response, a synonym of extract used as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conclusion"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +106,44 @@
     "text": "Slowly, in play, followed some of Polonius's advice?",
     "enumeration": "5"
    },
-   "solution": "LENTO"
+   "solution": "LENTO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LENTO",
+    "definitions": [
+     {
+      "text": "Slowly",
+      "at": 0
+     },
+     {
+      "text": "in play, followed some of Polonius's advice",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slowly",
+      "note": "first meaning: the musical direction for a slow tempo"
+     },
+     {
+      "clueFragment": "in play, followed some of Polonius's advice",
+      "note": "second meaning, read as two words: lent nothing, obeying the counsel to be no lender"
+     }
+    ],
+    "explanation": {
+     "surface": "Delivering, at a slow pace on stage, the old courtier's wise words.",
+     "walkthrough": "In Hamlet, Polonius tells his son 'Neither a borrower nor a lender be'; someone who lent 0 (nothing) followed half of that.",
+     "definitionFit": "Lento is the Italian tempo marking in music telling players to perform at a slow pace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +157,47 @@
     "text": "Winning campaign, something suitable for Royal Navy?",
     "enumeration": "9"
    },
-   "solution": "COURTSHIP"
+   "solution": "COURTSHIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COURTSHIP",
+    "definitions": [
+     {
+      "text": "Winning campaign",
+      "at": 0
+     },
+     {
+      "text": "something suitable for Royal Navy?",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Winning campaign",
+      "note": "first meaning: wooing, a campaign to win someone's heart"
+     },
+     {
+      "clueFragment": "something suitable for Royal Navy?",
+      "note": "second meaning, split in two: a vessel fit for the royal court"
+     }
+    ],
+    "explanation": {
+     "surface": "A victorious military operation with a vessel fit for the Royal Navy.",
+     "walkthrough": "'Winning' means winning someone over, not victorious; the question mark flags the whimsical split into court and ship.",
+     "definitionFit": "Courtship is the period of wooing a partner, a sustained effort to win their affection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Winning"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +211,61 @@
     "text": "River in children's game is one mentioned in Bible",
     "enumeration": "6"
    },
-   "solution": "TIGRIS"
+   "solution": "TIGRIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TIGRIS",
+    "definitions": [
+     {
+      "text": "one mentioned in Bible",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in the following words means set inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "children's game",
+      "gives": "TIG",
+      "note": "tig is the playground chasing game also called tag"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "River",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIG",
+      "R",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A river features in a children's game, and one is named in scripture.",
+     "walkthrough": "'River' looks like the definition but supplies only one letter; the definition is the final phrase.",
+     "definitionFit": "The Tigris is one of the four rivers of Eden in Genesis, so it is a river named in scripture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "River"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +279,44 @@
     "text": "Get out into open sea? It helps to keep net in position",
     "enumeration": "8"
    },
-   "solution": "CROSSBAR"
+   "solution": "CROSSBAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CROSSBAR",
+    "definitions": [
+     {
+      "text": "Get out into open sea",
+      "at": 0
+     },
+     {
+      "text": "It helps to keep net in position",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get out into open sea",
+      "note": "first meaning: to cross the bar, the sandbank across a harbour mouth, is to reach open water"
+     },
+     {
+      "clueFragment": "It helps to keep net in position",
+      "note": "second meaning: the horizontal top bar of a goal, which holds up the net"
+     }
+    ],
+    "explanation": {
+     "surface": "A nautical departure paired with a piece of fishing or sports equipment.",
+     "walkthrough": "Read as two words it is the sailing phrase (as in Tennyson's poem 'Crossing the Bar'); read as one it is part of a football goal.",
+     "definitionFit": "The crossbar is the beam joining the goalposts, and the net hangs from it, so it keeps the netting in place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "net"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +330,54 @@
     "text": "On a computer one's wrong and right at the same time",
     "enumeration": "15"
    },
-   "solution": "CONTEMPORANEOUS"
+   "solution": "CONTEMPORANEOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONTEMPORANEOUS",
+    "definitions": [
+     {
+      "text": "right at the same time",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "letters gone wrong are out of their proper order and must be rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On a computer one's",
+      "gives": "ONACOMPUTERONES",
+      "note": "the fifteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONACOMPUTERONES",
+       "gives": "CONTEMPORANEOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On a computer, a bit can be wrong and right at once.",
+     "walkthrough": "'Right' belongs to the definition, meaning exactly, as in 'right at the start'.",
+     "definitionFit": "Contemporaneous means occurring during the same period, existing or happening simultaneously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "computer"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +391,65 @@
     "text": "Something irrational in male saint that's rejected top deity",
     "enumeration": "8"
    },
-   "solution": "OLYMPIAN"
+   "solution": "OLYMPIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "OLYMPIAN",
+    "definitions": [
+     {
+      "text": "deity",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected top",
+      "for": "deletion",
+      "note": "the top of the phrase is thrown out, so its opening letter is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something placed in another piece is set inside it"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male saint",
+      "gives": "HOLYMAN",
+      "note": "a saint is a holy man"
+     },
+     {
+      "clueFragment": "Something irrational",
+      "gives": "PI",
+      "note": "pi is an irrational number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLYM",
+      "PI",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An irrational act by a male saint who has turned his back on the chief god.",
+     "walkthrough": "'Top deity' reads as one phrase, but 'top' is the letter that holy man loses.",
+     "definitionFit": "An Olympian is one of the twelve chief Greek gods who lived on Mount Olympus, so a deity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "irrational"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +463,58 @@
     "text": "Lots of liquid rising in vessel",
     "enumeration": "5"
    },
-   "solution": "SLOOP"
+   "solution": "SLOOP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SLOOP",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means reading from bottom to top, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lots of liquid",
+      "gives": "POOLS",
+      "note": "pools are bodies of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLOOP"
+     ],
+     "reversals": [
+      {
+       "from": "POOLS",
+       "to": "SLOOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Water level climbing inside a container.",
+     "walkthrough": "'Vessel' looks like a jug for liquid; it is a boat.",
+     "definitionFit": "A sloop is a single-masted sailing boat, an example of a vessel in the seafaring sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +528,65 @@
     "text": "Sudden fall of snow disrupted a mostly calm haven",
     "enumeration": "9"
    },
-   "solution": "AVALANCHE"
+   "solution": "AVALANCHE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "AVALANCHE",
+    "definitions": [
+     {
+      "text": "Sudden fall of snow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disrupted",
+      "for": "anagram",
+      "note": "something disrupted is thrown into disorder, so the letters are scrambled"
+     },
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not entirely, so the word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "calm",
+      "gives": "CAL",
+      "note": "calm without its final letter"
+     },
+     {
+      "clueFragment": "haven",
+      "gives": "HAVEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACALHAVEN",
+       "gives": "AVALANCHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snowslide wrecks a tranquil mountain refuge.",
+     "definitionFit": "An avalanche is a mass of snow sliding suddenly down a mountainside, exactly a sudden snowfall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +600,57 @@
     "text": "One couple holding hands with reason not to delay rising",
     "enumeration": "10"
    },
-   "solution": "INSURGENCY"
+   "solution": "INSURGENCY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSURGENCY",
+    "definitions": [
+     {
+      "text": "rising",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "couple holding hands",
+      "gives": "NS",
+      "note": "North and South are a bridge partnership, a pair holding hands of cards"
+     },
+     {
+      "clueFragment": "reason not to delay",
+      "gives": "URGENCY",
+      "note": "urgency is pressing need, a reason to act at once"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NS",
+      "URGENCY"
+     ]
+    },
+    "explanation": {
+     "surface": "Two lovers holding hands and hurrying along for some pressing reason.",
+     "walkthrough": "In bridge the four players are North, South, East and West, and North-South are partners; a 'hand' is a player's set of cards.",
+     "definitionFit": "A rising is a revolt or uprising, which is what an insurgency is: a rebellion against authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +664,40 @@
     "text": "Country that splits the difference between male and female adults?",
     "enumeration": "4"
    },
-   "solution": "OMAN"
+   "solution": "OMAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OMAN",
+    "definitions": [
+     {
+      "text": "Country that splits the difference between male and female adults?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country that splits the difference between male and female adults?",
+      "note": "surface reading: a nation sitting halfway between men and women in some way"
+     },
+     {
+      "clueFragment": "splits the difference",
+      "note": "setter's reading: the female word has two extra letters at its front; halve that difference and keep one of them before the male word"
+     }
+    ],
+    "explanation": {
+     "surface": "A country that compromises between men and women.",
+     "walkthrough": "WOMAN differs from MAN by WO; keep half of that difference, O, and you get OMAN, a country on the Arabian Peninsula.",
+     "definitionFit": "Oman is a sultanate in south-east Arabia, a real country, which is what the clue's opening word asks for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "splits"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +711,46 @@
     "text": "Counterargument overused? Sorry",
     "enumeration": "8"
    },
-   "solution": "CONTRITE"
+   "solution": "CONTRITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONTRITE",
+    "definitions": [
+     {
+      "text": "Sorry",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Counterargument",
+      "gives": "CON",
+      "note": "as in pros and cons, an argument against"
+     },
+     {
+      "clueFragment": "overused",
+      "gives": "TRITE",
+      "note": "trite means hackneyed, worn out by overuse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TRITE"
+     ]
+    },
+    "explanation": {
+     "surface": "Apologising for wheeling out a stale objection.",
+     "definitionFit": "Contrite means feeling remorse, the adjectival sense of sorry, as in sorry for one's sins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sorry"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +764,57 @@
     "text": "Like some bears hiding quietly in tree",
     "enumeration": "6"
    },
-   "solution": "POPLAR"
+   "solution": "POPLAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POPLAR",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "to hide something is to keep it inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like some bears",
+      "gives": "POLAR",
+      "note": "polar bears live in the Arctic"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p, piano, is the musical direction for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "P",
+      "LAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Bears lying low and keeping quiet up a tree.",
+     "definitionFit": "The poplar is a tall, fast-growing deciduous tree of the willow family, an example of the defining word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quietly"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +828,49 @@
     "text": "Near time for retirement? Not quite",
     "enumeration": "4"
    },
-   "solution": "NIGH"
+   "solution": "NIGH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NIGH",
+    "definitions": [
+     {
+      "text": "Near",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite all of the word is used, so its final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time for retirement",
+      "gives": "NIGHT",
+      "note": "night is when one retires to bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGH"
+     ]
+    },
+    "explanation": {
+     "surface": "Is the age for retiring from work close? Almost.",
+     "walkthrough": "'Retirement' suggests leaving work, but here it is going to bed.",
+     "definitionFit": "Nigh is an old word meaning close by, a direct synonym of near as adjective or adverb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +884,66 @@
     "text": "Short-tempered monarch caught in ridiculously basic lie",
     "enumeration": "9"
    },
-   "solution": "IRASCIBLE"
+   "solution": "IRASCIBLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IRASCIBLE",
+    "definitions": [
+     {
+      "text": "Short-tempered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ridiculously",
+      "for": "anagram",
+      "note": "something done ridiculously is absurdly arranged, so the letters are jumbled"
+     },
+     {
+      "text": "caught in",
+      "for": "container",
+      "note": "caught in something means trapped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "basic lie",
+      "gives": "BASICLIE",
+      "note": "the eight letters to be rearranged"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "R",
+      "note": "R, rex or regina, stands for a king or queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "R",
+      "ASCIBLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BASICLIE",
+       "gives": "IASCIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A testy king caught out in an absurdly simple lie.",
+     "definitionFit": "Irascible describes someone easily angered, prone to losing their temper quickly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +957,56 @@
     "text": "Ill during fast? Go here for medicine",
     "enumeration": "8"
    },
-   "solution": "PHARMACY"
+   "solution": "PHARMACY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PHARMACY",
+    "definitions": [
+     {
+      "text": "Go here for medicine",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during a period sits within it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fast",
+      "gives": "PACY",
+      "note": "pacy means quick, fast-moving"
+     },
+     {
+      "clueFragment": "Ill",
+      "gives": "HARM",
+      "note": "ill as a noun means harm or damage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HARM",
+      "ACY"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling unwell while fasting? Visit the chemist.",
+     "walkthrough": "'Fast' looks like a period without food; it is the adjective for speedy.",
+     "definitionFit": "A pharmacy is a chemist's shop that dispenses drugs, the place a patient visits to collect prescriptions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +1020,71 @@
     "text": "Computer company's splitting most of capital in large structure",
     "enumeration": "9"
    },
-   "solution": "MACROCOSM"
+   "solution": "MACROCOSM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "MACROCOSM",
+    "definitions": [
+     {
+      "text": "large structure",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "splitting",
+      "for": "container",
+      "note": "something splitting another forces itself inside it"
+     },
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word means all but its last letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Computer",
+      "gives": "MAC",
+      "note": "a Mac is an Apple computer"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "ROM",
+      "note": "Rome without its last letter"
+     },
+     {
+      "clueFragment": "company's",
+      "gives": "COS",
+      "note": "co is the abbreviation for company, plus the 's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAC",
+      "RO",
+      "COS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A tech firm's expansion into a capital city on a grand scale.",
+     "walkthrough": "'Computer company' reads as one firm, but the two words do separate jobs: one comes first, the other, with its 's, splits the shortened city.",
+     "definitionFit": "A macrocosm is a whole complex system, the universe as one vast structure, opposite to a microcosm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "company's"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1098,60 @@
     "text": "Old actors embracing enclosure like mine that lacks depth",
     "enumeration": "8"
    },
-   "solution": "OPENCAST"
+   "solution": "OPENCAST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OPENCAST",
+    "definitions": [
+     {
+      "text": "like mine that lacks depth",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to hold in one's arms, so the outer pieces go around the inner"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "actors",
+      "gives": "CAST",
+      "note": "the cast is the company of actors in a production"
+     },
+     {
+      "clueFragment": "enclosure",
+      "gives": "PEN",
+      "note": "a pen is an enclosure for animals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PEN",
+      "CAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Veteran performers hugging a fence round a shallow mine.",
+     "definitionFit": "Opencast mining digs from the surface rather than sinking deep shafts, so the pit is shallow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "embracing"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1165,77 @@
     "text": "Doctor that is securing piano in pub for Scottish musician",
     "enumeration": "8"
    },
-   "solution": "BAGPIPER"
+   "solution": "BAGPIPER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BAGPIPER",
+    "definitions": [
+     {
+      "text": "Scottish musician",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "to secure something is to hold it fast within, so the keyboard letter goes inside"
+     },
+     {
+      "text": "in",
+      "for": "charade",
+      "note": "placed in a place means set inside it, so the earlier pieces sit within the bar"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     },
+     {
+      "clueFragment": "Doctor",
+      "gives": "GP",
+      "note": "a GP is a general practitioner, a family doctor"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e., id est, Latin for that is"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "GP",
+      "I",
+      "P",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor booking a piano for a pub gig by a Scottish musician.",
+     "walkthrough": "Two layers of nesting: the keyboard letter sits inside 'that is', and that with the doctor sits inside the pub.",
+     "definitionFit": "A bagpiper plays the bagpipes, the instrument most associated with Scotland, so is a Scottish musician by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1249,48 @@
     "text": "Prepare to swallow cold chop",
     "enumeration": "4"
    },
-   "solution": "CHEW"
+   "solution": "CHEW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHEW",
+    "definitions": [
+     {
+      "text": "Prepare to swallow",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "chop",
+      "gives": "HEW",
+      "note": "to hew is to chop with an axe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HEW"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting ready to eat a cold pork chop.",
+     "walkthrough": "'Chop' looks like a cut of meat to eat; it is the verb for cutting.",
+     "definitionFit": "Chewing grinds food in the mouth before it goes down, so it is the step that readies food for swallowing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chop"
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +1304,55 @@
     "text": "Some pieces of sculpture European has left standing",
     "enumeration": "6"
    },
-   "solution": "STATUS"
+   "solution": "STATUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STATUS",
+    "definitions": [
+     {
+      "text": "standing",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has left",
+      "for": "deletion",
+      "note": "a letter that has left is gone from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some pieces of sculpture",
+      "gives": "STATUES",
+      "note": "statues are sculpted figures"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A European sculptor has abandoned some upright statues.",
+     "walkthrough": "'Standing' looks like a description of the statues; it is the definition, a noun.",
+     "definitionFit": "Status is one's position or rank in society, the noun sense of standing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "standing"
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1366,44 @@
     "text": "Show for all to see or hide from prying eyes",
     "enumeration": "6"
    },
-   "solution": "SCREEN"
+   "solution": "SCREEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCREEN",
+    "definitions": [
+     {
+      "text": "Show for all to see",
+      "at": 0
+     },
+     {
+      "text": "hide from prying eyes",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show for all to see",
+      "note": "first meaning: to broadcast or exhibit"
+     },
+     {
+      "clueFragment": "hide from prying eyes",
+      "note": "second meaning: to shield from view behind a partition"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The same verb has two opposite senses, displaying and concealing.",
+     "definitionFit": "One can screen a film to an audience, or screen a bath off with a curtain to keep it private, contrary verbal senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -344,7 +1417,43 @@
     "text": "Tree much more mature than those in nursery?",
     "enumeration": "5"
    },
-   "solution": "ELDER"
+   "solution": "ELDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ELDER",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     },
+     {
+      "text": "much more mature than those in nursery?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tree",
+      "note": "first meaning: a small tree bearing elderflowers and berries"
+     },
+     {
+      "clueFragment": "much more mature than those in nursery?",
+      "note": "second meaning: older, senior in age"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Nursery' suggests a plant nursery full of young trees, fitting the first sense, but the second refers to children.",
+     "definitionFit": "Elder means older, and someone grown-up is senior in age to small children in a nursery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nursery"
+    }
+   }
   },
   {
    "number": 23,
@@ -358,7 +1467,70 @@
     "text": "One element or another returned with info",
     "enumeration": "8"
    },
-   "solution": "NITROGEN"
+   "solution": "NITROGEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NITROGEN",
+    "definitions": [
+     {
+      "text": "One element",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so these letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "TIN",
+      "note": "another element: tin, a metal"
+     },
+     {
+      "clueFragment": "info",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIT",
+      "RO",
+      "GEN"
+     ],
+     "reversals": [
+      {
+       "from": "ORTIN",
+       "to": "NITRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Picking one chemical element or another and sending it back with the details.",
+     "walkthrough": "'Another' means another element, here tin; 'gen' is everyday British slang for the facts.",
+     "definitionFit": "Nitrogen is a chemical element, the gas making up most of the air, so it is one example of an element."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 24,
@@ -372,7 +1544,47 @@
     "text": "Spirit of things indicated, putting last first",
     "enumeration": "5"
    },
-   "solution": "ETHOS"
+   "solution": "ETHOS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ETHOS",
+    "definitions": [
+     {
+      "text": "Spirit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting last first",
+      "for": "cycling",
+      "note": "moving the final letter to the front shifts the word round by one place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "things indicated",
+      "gives": "THOSE",
+      "note": "those is the word for pointing out things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "THOS"
+     ]
+    },
+    "explanation": {
+     "surface": "The spirit of what has been pointed out, reordered.",
+     "definitionFit": "Ethos is the characteristic spirit or guiding beliefs of a community, synonymous with its spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -386,7 +1598,47 @@
     "text": "So-called president died — like this, not in theatre",
     "enumeration": "4"
    },
-   "solution": "ABED"
+   "solution": "ABED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABED",
+    "definitions": [
+     {
+      "text": "like this, not in theatre",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "So-called president",
+      "gives": "ABE",
+      "note": "Abe is what Abraham Lincoln was called"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d is the abbreviation for died, as in family trees"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Lincoln, nicknamed Abe, died in bed rather than in the theatre.",
+     "walkthrough": "Lincoln was shot at Ford's Theatre but died the next morning in a bed in the house across the street, so the whole clue describes him.",
+     "definitionFit": "Abed means lying in bed, which is how Lincoln died, in a lodging-house room rather than at the playhouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 26,
@@ -400,7 +1652,55 @@
     "text": "Perhaps too haphazardly, it may be misplaced by shopkeeper?",
     "enumeration": "10"
    },
-   "solution": "APOSTROPHE"
+   "solution": "APOSTROPHE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APOSTROPHE",
+    "definitions": [
+     {
+      "text": "it may be misplaced by shopkeeper?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "haphazardly",
+      "for": "anagram",
+      "note": "done haphazardly means done at random, so the letters land in no set order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps too",
+      "gives": "PERHAPSTOO",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERHAPSTOO",
+       "gives": "APOSTROPHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps a shop sign put up too carelessly gets something in the wrong place.",
+     "walkthrough": "The 'greengrocer's apostrophe', as in 'potato's for sale', is a well-known shop-sign error.",
+     "definitionFit": "Shopkeepers famously insert an apostrophe before a plural s on signs, misplacing the punctuation mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Perhaps"
+    }
+   }
   },
   {
    "number": 27,
@@ -414,7 +1714,51 @@
     "text": "Convert I trusted remains of no value",
     "enumeration": "8"
    },
-   "solution": "DETRITUS"
+   "solution": "DETRITUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DETRITUS",
+    "definitions": [
+     {
+      "text": "remains of no value",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Convert",
+      "for": "anagram",
+      "note": "to convert is to change something into a new form, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I trusted",
+      "gives": "ITRUSTED",
+      "note": "the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITRUSTED",
+       "gives": "DETRITUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A convert's faith in something trusted is now worthless rubble.",
+     "walkthrough": "'Convert' looks like a noun, a person who changed faith, but it is the imperative verb.",
+     "definitionFit": "Detritus is debris or waste left over, worthless leftovers, matching remains with no value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Convert"
+    }
+   }
   },
   {
    "number": 28,
@@ -428,7 +1772,54 @@
     "text": "Pacific islands importing Southern fried food",
     "enumeration": "6"
    },
-   "solution": "SAMOSA"
+   "solution": "SAMOSA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAMOSA",
+    "definitions": [
+     {
+      "text": "fried food",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "importing",
+      "for": "container",
+      "note": "a country importing goods brings them inside its borders, so one letter goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pacific islands",
+      "gives": "SAMOA",
+      "note": "Samoa is an island group in the South Pacific"
+     },
+     {
+      "clueFragment": "Southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAMO",
+      "S",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Islanders in the Pacific bringing in fried food from the American South.",
+     "definitionFit": "A samosa is a triangular pastry with a spiced filling, deep-fried, a South Asian snack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Southern"
+    }
+   }
   }
  ]
 }
