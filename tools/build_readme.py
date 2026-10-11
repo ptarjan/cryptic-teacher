@@ -582,7 +582,7 @@ LAYOUT = [
     ("fetching", "tools/test_hidden_message.js", "a solved clue shows its hidden letter, and the message fills in under the grid"),
     ("fetching", "tools/test_blocks_link_word.sh", "when a clue's blocks are short by exactly the letters of a word filed under linkWords, that word is fodder, and the warning says the edit to make"),
     ("fetching", "tools/test_blocks_surplus.sh", "when a clue's blocks give too many letters and none too few, the warning names the single-block edits that take exactly the surplus away"),
-    ("fetching", "tools/test_reprints.js", "a paper that reprints another's puzzle is listed, and every way in opens the original"),
+    ("fetching", "tools/test_reprints.js", "a paper that reprints another's puzzle is listed, and every way in opens the original; a book puzzle renamed to the newspaper puzzle it reprints stays listed and counted in its book at its own number and year"),
     ("fetching", "tools/gale_arrived.py", "mark a Gale download arrived on the checklists within seconds of it landing"),
     ("fetching", "tools/deleted_paths.py", "the commit that last deleted a path, read from a cache"),
     ("fetching", "tools/test_deleted_paths.sh", "does deleted_paths.last_deletion() give what `git log -1 --diff-filter=D -- <path>` gives, as HEAD moves forward, back, sideways and is rewritten?"),

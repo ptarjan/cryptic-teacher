@@ -137,6 +137,22 @@ def current(renamed, live):
     return out
 
 
+def reprinted_in_books(renamed, live):
+    """{old id: the live id now} for each book puzzle renamed to a puzzle of
+    another series: the book reprints that puzzle, so the book still lists it
+    and counts it at its own number (fetch_puzzle.renamed_book_rows,
+    coverage.held_numbers). A rename within a series, or out of one that is no
+    book, is a correction and is not in it."""
+    import series as series_meta
+    out = {}
+    for old, now in current(renamed, live).items():
+        book = series_meta.parse_id(old)[0]
+        if (book in series_meta.SERIES and series_meta.is_book(book)
+                and series_meta.parse_id(now)[0] != book):
+            out[old] = now
+    return out
+
+
 def main(argv):
     if argv == ["--write"]:
         renamed = dict(from_history())   # a later rename of an id wins

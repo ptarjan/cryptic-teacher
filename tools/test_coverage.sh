@@ -93,6 +93,7 @@ broot = tmp / "books"
 (broot / "tools" / "data").mkdir(parents=True)
 (broot / "puzzles" / "book" / "2000").mkdir(parents=True)
 (broot / "clues_only" / "book").mkdir(parents=True)
+(broot / "tools" / "data" / "renamed_ids.json").write_text("{}")
 (broot / "tools" / "data" / "books.json").write_text(json.dumps({"books": [
     {"book_index": 1, "identifier": "fresh"}, {"book_index": 2, "identifier": "old-text"},
     {"book_index": 3, "identifier": "lost"}, {"book_index": 4, "identifier": "never"},

@@ -231,7 +231,10 @@ def jsonl(path):
 
 def held_numbers(series):
     """The numbers of `series` filed in puzzles/ or held clues-only, read off
-    the file names."""
+    the file names, and those of a book's puzzles renamed to the newspaper
+    puzzle the book reprints (renamed_ids.reprinted_in_books): one puzzle,
+    filed in both, so a rename out of the book is no loss."""
+    import renamed_ids
     out = set()
     for p in [*(ROOT / "puzzles" / series).glob(f"*/{series}-*.json"),
               *(ROOT / "clues_only" / series).glob(f"{series}-*.json")]:
@@ -239,6 +242,13 @@ def held_numbers(series):
             out.add(int(p.stem.rsplit("-", 1)[1]))
         except ValueError:
             pass
+    if series_meta.is_book(series):
+        live = {p.stem for p in [*(ROOT / "puzzles").glob("*/*/*.json"),
+                                 *(ROOT / "clues_only").glob("*/*.json")]}
+        renamed = renamed_ids.read(ROOT / "tools" / "data" / "renamed_ids.json")
+        out |= {series_meta.parse_id(old)[1]
+                for old in renamed_ids.reprinted_in_books(renamed, live)
+                if series_meta.parse_id(old)[0] == series}
     return out
 
 
