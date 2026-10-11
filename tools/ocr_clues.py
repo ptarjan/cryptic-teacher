@@ -1355,6 +1355,16 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
         k = at + len(t)
     while mine and mine[0] == BREAK:
         mine, spans = mine[1:], spans[1:]
+    # A number run onto the clue's first word ("8Ruth's", "3Island") is
+    # its clue number or a speck: cut when two readings print that word
+    # (glued_digits). Not before capitals ("4WD"),
+    # nor in a clue with other figures (a run-on: "0Over 60.96 cm ... 151.")
+    # or other specks (a quote at a word's edge, a stop before more words:
+    # "Canbe8 genle. 'as birds"), which the vote would file as they stand.
+    lone_figure = len(re.findall(r"\d+", clue)) == 1 and not re.search(
+        r"(?<![A-Za-z])['\u2018\u2019\"\u201c\u201d]|['\u2018\u2019\"\u201c\u201d](?![A-Za-z])|\.(?=\s*\w)", clue)
+    lead_cut = spans[0][0] if lone_figure and spans and re.fullmatch(r"\s*\d+", clue[:spans[0][0]]) and not (
+        spans[0][1].isupper() or COUNTED.fullmatch(clue[:spans[0][0]].strip() + spans[0][1])) else None
     while mine and mine[-1] == BREAK:
         mine, spans = mine[:-1], spans[:-1]
     # A word with a speck against it ("i»" for "is") is no sure reading.
@@ -1485,6 +1495,12 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
             if top and marks.count(top) * 2 > len(others):
                 fixes[i] = top
                 how = "settled by the readings"
+            elif lone_figure and printing >= 2 and glued_digits(i, low, seen, extra, fixes):
+                # Run onto a word's end ("the1", "Result0f"), where a
+                # reading has the word and none a number: a speck or a
+                # letter misread, gone. Beside other figures it may be a
+                # count's ("Spirit1 ... pine 151"): held.
+                drop.add(i)
             continue
         if w in MARKS:
             if others and w not in seen[i].values():
@@ -1701,14 +1717,17 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
         if spelt[pick] != w:
             fixes[i] = spelt[pick]
     adds = {g: ws for g, ws in adds.items() if len(ws) == 1}
+    if lead_cut is not None and (0 in adds or printing < 2 or not glued_digits(0, low, seen, extra, fixes, before=True)):
+        lead_cut = None
     if mine and mine[-1] == "?" and adds.get(len(mine), [""])[0].endswith("?"):
         # Words lost from the clue's end are put in with its "?" after them.
         drop.add(len(mine) - 1)
-    if not fixes and not drop and not adds and count_cut is None and not (others and JUNK_MARK.search(clue)):
+    if not fixes and not drop and not adds and count_cut is None and lead_cut is None and not (
+            others and JUNK_MARK.search(clue)):
         return clue, how
     # Specks between the words go: the other readings saw nothing there.
     speckless = (lambda gap: JUNK_MARK.sub("", gap)) if others else (lambda gap: gap)
-    text, k, out = clue, 0, ""
+    text, k, out = clue, lead_cut or 0, ""
     for i, (at, old) in enumerate(spans):
         if count_cut is not None and at >= count_cut:
             k = len(text)
@@ -1739,6 +1758,27 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     if (drop or count_cut is not None) and how == "agree":
         how = "settled by the readings"
     return re.sub(r"\s+([" + MARKS + "])", r"\1", re.sub(r"  +", " ", out)).strip(), how
+
+
+def glued_digits(i, low, seen, extra, fixes, before=False):
+    """Whether the figures `mine[i]` run onto a word (before it with
+    `before`, the clue's first word; else after the word before) are no
+    number the print has: two readings, this one counting, print that
+    word as voted letter for letter ("0Ne" voted "One"; a "crj1" voted
+    "cry" one reading prints stays held), of two letters or more and not
+    in capitals ("M1", "B52"), and none reads anything in their place (a
+    word: "th3Z" is "that") nor a number or a mark beside them
+    ("eccentric3" is a "?" misread). Before the first
+    word only the word counts: the readings' own clue numbers stand there."""
+    word = 0 if before else i - 1
+    voted = (fixes.get(word) or low[word]).lower()
+    if len(voted) < 2 or (fixes.get(word) or low[word]).isupper() or (
+            (low[word] == voted) + sum(v.lower() == voted for v in seen[word].values()) < 2):
+        return False
+    if before:
+        return True
+    return not seen[i] and not any(v == BREAK or v in MARKS or any(c.isdigit() for c in v)
+                                   for v in [*extra[i], *extra[i + 1]])
 
 
 def count_misread(i, w, low, seen, leads, trails, printing, second, bracketed):
