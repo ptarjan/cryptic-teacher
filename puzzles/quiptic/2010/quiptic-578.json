@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "You will surely get trouble, if mice get cooked with fish",
     "enumeration": "8"
    },
-   "solution": "MISCHIEF"
+   "solution": "MISCHIEF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISCHIEF",
+    "definitions": [
+     {
+      "text": "trouble",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "get cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the letters are mixed into something new"
+     }
+    ],
+    "linkWords": [
+     "You will surely get",
+     "if",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mice",
+      "gives": "MICE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "FISH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MICEFISH",
+       "gives": "MISCHIEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen warning: cook mice together with fish and you are asking for trouble.",
+     "definitionFit": "Mischief is playful misbehaviour that causes bother, so it is a mild synonym for trouble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +104,44 @@
     "text": "Particular romantic couple",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ITEM",
+    "definitions": [
+     {
+      "text": "Particular",
+      "at": 0
+     },
+     {
+      "text": "romantic couple",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Particular",
+      "note": "first meaning: a single detail or article in a list"
+     },
+     {
+      "clueFragment": "romantic couple",
+      "note": "second meaning: two people known to be going out together"
+     }
+    ],
+    "explanation": {
+     "surface": "A fussy pair of lovers.",
+     "walkthrough": "'Particular' looks like an adjective for the couple, but it is a separate meaning as a noun: an individual entry in a list.",
+     "definitionFit": "A list's separate entries are each called this, and gossip columns use the same word for a pair who are dating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Particular"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +155,57 @@
     "text": "Irritable secret agent about to sleep",
     "enumeration": "6"
    },
-   "solution": "SNAPPY"
+   "solution": "SNAPPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SNAPPY",
+    "definitions": [
+     {
+      "text": "Irritable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret agent",
+      "gives": "SPY",
+      "note": "a secret agent is a spy"
+     },
+     {
+      "clueFragment": "sleep",
+      "gives": "NAP",
+      "note": "a nap is a short sleep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NAP",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired, short-tempered spy is about to doze off.",
+     "definitionFit": "Someone snappy speaks sharply and impatiently, which is what being irritable looks like."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +219,65 @@
     "text": "Toned up Mr Miliband, as indicated?",
     "enumeration": "7"
    },
-   "solution": "DENOTED"
+   "solution": "DENOTED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DENOTED",
+    "definitions": [
+     {
+      "text": "indicated",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from the bottom to the top"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toned",
+      "gives": "TONED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mr Miliband",
+      "gives": "ED",
+      "note": "Ed Miliband, the former Labour Party leader"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DENOT",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "TONED",
+       "to": "DENOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether Ed Miliband got fitter, as had been signalled.",
+     "walkthrough": "Ed Miliband led Britain's Labour Party from 2010 to 2015.",
+     "definitionFit": "To denote something is to signify or point it out, so denoted means signified or indicated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Toned"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +291,56 @@
     "text": "Being naked, moved quickly round the drive",
     "enumeration": "8"
    },
-   "solution": "STRIPPED"
+   "solution": "STRIPPED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STRIPPED",
+    "definitions": [
+     {
+      "text": "Being naked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encloses it, so one word surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moved quickly",
+      "gives": "SPED",
+      "note": "to speed is to move quickly"
+     },
+     {
+      "clueFragment": "the drive",
+      "gives": "TRIP",
+      "note": "a drive in a car is a short journey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRIP",
+      "PED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dashing naked round a driveway, a streaker's moment.",
+     "walkthrough": "The definition is loose: 'Being naked' is a state, and the answer means having no clothes on.",
+     "definitionFit": "Stripped means with all clothes taken off, which is the state of being bare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +354,50 @@
     "text": "Offend against one roughly",
     "enumeration": "10"
    },
-   "solution": "ANTAGONISE"
+   "solution": "ANTAGONISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTAGONISE",
+    "definitions": [
+     {
+      "text": "Offend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "roughly",
+      "for": "anagram",
+      "note": "roughly means not in exact order, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against one",
+      "gives": "AGAINSTONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGAINSTONE",
+       "gives": "ANTAGONISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "To cause offence by treating one person harshly.",
+     "definitionFit": "To antagonise someone is to make them hostile, close to offending or provoking them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roughly"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +411,64 @@
     "text": "This footwear makes Lew sit up and rest",
     "enumeration": "6"
    },
-   "solution": "WELLIE"
+   "solution": "WELLIE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "WELLIE",
+    "definitions": [
+     {
+      "text": "This footwear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sit up",
+      "for": "reversal",
+      "note": "in a down clue, sitting up means the word is read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lew",
+      "gives": "LEW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "and rest",
+      "gives": "LIE",
+      "note": "to lie is to rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEL",
+      "LIE"
+     ],
+     "reversals": [
+      {
+       "from": "LEW",
+       "to": "WEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boot so comfortable that Lew can sit up and relax.",
+     "walkthrough": "A wellie is a wellington, a British name for a rubber boot.",
+     "definitionFit": "A wellie is a waterproof rubber boot, a kind of footwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sit"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +482,63 @@
     "text": "I'd better reverse my attitude to show aloofness",
     "enumeration": "8"
    },
-   "solution": "DISTANCE"
+   "solution": "DISTANCE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DISTANCE",
+    "definitions": [
+     {
+      "text": "aloofness",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "better reverse",
+      "for": "reversal",
+      "note": "read as an instruction, 'I'd better reverse' tells the solver to turn those two letters round"
+     }
+    ],
+    "linkWords": [
+     "to show"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'd",
+      "gives": "ID",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "my attitude",
+      "gives": "STANCE",
+      "note": "a stance is an attitude or position taken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "STANCE"
+     ],
+     "reversals": [
+      {
+       "from": "ID",
+       "to": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resolving to change their outlook so they seem more reserved.",
+     "definitionFit": "Keeping your distance means staying emotionally remote, which is aloofness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +552,44 @@
     "text": "Romantic present",
     "enumeration": "6"
    },
-   "solution": "TENDER"
+   "solution": "TENDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TENDER",
+    "definitions": [
+     {
+      "text": "Romantic",
+      "at": 0
+     },
+     {
+      "text": "present",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romantic",
+      "note": "first meaning: gentle and loving"
+     },
+     {
+      "clueFragment": "present",
+      "note": "second meaning: to offer formally, as a resignation or a bid"
+     }
+    ],
+    "explanation": {
+     "surface": "A gift given in love.",
+     "walkthrough": "'present' looks like a noun for a gift, but it is the verb meaning to offer.",
+     "definitionFit": "The word is both an adjective for affectionate feeling and a verb for formally offering something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +603,51 @@
     "text": "A trick not long enough to occupy a scamp",
     "enumeration": "4"
    },
-   "solution": "SCAM"
+   "solution": "SCAM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SCAM",
+    "definitions": [
+     {
+      "text": "A trick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not long enough",
+      "for": "deletion",
+      "note": "falling short means the word is cut off before its end"
+     }
+    ],
+    "linkWords": [
+     "to occupy a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scamp",
+      "gives": "SCAMP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A prank too short to keep a young rascal busy.",
+     "walkthrough": "The last letter of the fodder is dropped; the answer also sits visibly inside it.",
+     "definitionFit": "A scam is a dishonest scheme, a trick to cheat someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "occupy"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +661,52 @@
     "text": "Moneymaking professor, one with a plan",
     "enumeration": "10"
    },
-   "solution": "PROFITABLE"
+   "solution": "PROFITABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROFITABLE",
+    "definitions": [
+     {
+      "text": "Moneymaking",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "professor",
+      "gives": "PROF",
+      "note": "the usual short form"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "with a plan",
+      "gives": "TABLE",
+      "note": "a table is a chart or schedule, a plan set out in rows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROF",
+      "I",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An academic with a business scheme for getting rich.",
+     "definitionFit": "A profitable venture brings in more than it costs, so it is moneymaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plan"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +720,40 @@
     "text": "How do you find a pen in this filthy mess?",
     "enumeration": "6"
    },
-   "solution": "PIGSTY"
+   "solution": "PIGSTY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PIGSTY",
+    "definitions": [
+     {
+      "text": "How do you find a pen in this filthy mess?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How do you find a pen in this filthy mess?",
+      "note": "surface reading: someone has lost a writing pen in a cluttered room"
+     },
+     {
+      "clueFragment": "pen",
+      "note": "setter's reading: a pen is an animal enclosure, here one for pigs, and the filthy mess is what such a place is proverbially"
+     }
+    ],
+    "explanation": {
+     "surface": "Searching for a lost biro in a chaotic, dirty room.",
+     "walkthrough": "'pen' means an enclosure for farm animals, not a writing tool.",
+     "definitionFit": "The word names a farm enclosure for swine and, figuratively, any very dirty, untidy room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +767,64 @@
     "text": "Apes climbing up to get food for leave-taking",
     "enumeration": "10"
    },
-   "solution": "SEPARATION"
+   "solution": "SEPARATION",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SEPARATION",
+    "definitions": [
+     {
+      "text": "leave-taking",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing up",
+      "for": "reversal",
+      "note": "in a down clue, climbing up means the word is read from the bottom to the top"
+     }
+    ],
+    "linkWords": [
+     "to get",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apes",
+      "gives": "APES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "RATION",
+      "note": "a ration is an allowance of food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEPA",
+      "RATION"
+     ],
+     "reversals": [
+      {
+       "from": "APES",
+       "to": "SEPA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Zoo apes scaling something to reach their food before the keeper goes.",
+     "definitionFit": "Separation is parting from someone, which is what leave-taking describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +838,64 @@
     "text": "Used to manoeuvre in the eastern Mediterranean",
     "enumeration": "8"
    },
-   "solution": "EMPLOYED"
+   "solution": "EMPLOYED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMPLOYED",
+    "definitions": [
+     {
+      "text": "Used",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "Mediterranean",
+      "gives": "MED",
+      "note": "the usual short name for the Mediterranean"
+     },
+     {
+      "clueFragment": "manoeuvre",
+      "gives": "PLOY",
+      "note": "a ploy is a cunning manoeuvre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "M",
+      "PLOY",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Naval history: a fleet once employed to manoeuvre in the eastern Mediterranean.",
+     "walkthrough": "'Used to' looks like 'formerly did'; here 'Used' alone is the definition.",
+     "definitionFit": "Employed means put to use, so it is a synonym of used."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Used"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +915,52 @@
      }
     ]
    },
-   "solution": "OFFPEAK"
+   "solution": "OFFPEAK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFF-PEAK",
+    "definitions": [
+     {
+      "text": "cheaper fare",
+      "at": 22,
+      "note": "a noun phrase for an adjective; the answer describes such a fare"
+     }
+    ],
+    "linkWords": [
+     "so may be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rotten",
+      "gives": "OFF",
+      "note": "food that is off has gone rotten"
+     },
+     {
+      "clueFragment": "top",
+      "gives": "PEAK",
+      "note": "a peak is the top of a mountain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "PEAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A spoiled cap means a discount on the food served?",
+     "walkthrough": "'fare' sounds like food, but it is the price of a ticket; off-peak travel avoids rush hours.",
+     "definitionFit": "Tickets for quieter travel times outside rush hour are sold at lower prices, which is what this describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fare"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +974,60 @@
     "text": "A siren spilled gin — how distressing!",
     "enumeration": "8"
    },
-   "solution": "ALARMING"
+   "solution": "ALARMING",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ALARMING",
+    "definitions": [
+     {
+      "text": "how distressing!",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spilled",
+      "for": "anagram",
+      "note": "something spilled lands in disorder, so the letters are scattered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A siren",
+      "gives": "ALARM",
+      "note": "a siren is an alarm"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "GIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALARM",
+      "ING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GIN",
+       "gives": "ING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A siren sounds as gin is spilled: what a worrying scene!",
+     "definitionFit": "Something alarming causes worry or fear, so it is distressing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "siren"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1041,57 @@
     "text": "Loved to count trouble within",
     "enumeration": "7"
    },
-   "solution": "ADMIRED"
+   "solution": "ADMIRED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADMIRED",
+    "definitions": [
+     {
+      "text": "Loved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within puts one word inside the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "count",
+      "gives": "ADD",
+      "note": "to add up is to count"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "MIRE",
+      "note": "to be in the mire is to be in trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "MIRE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cherished because they count the trouble inside.",
+     "definitionFit": "Admired means held in high regard, close to being loved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "count"
+    }
+   }
   },
   {
    "number": 18,
@@ -277,7 +1105,60 @@
     "text": "Expand another case behind schedule",
     "enumeration": "8"
    },
-   "solution": "ESCALATE"
+   "solution": "ESCALATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ESCALATE",
+    "definitions": [
+     {
+      "text": "Expand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "another",
+      "for": "anagram",
+      "note": "another version of a word is a different arrangement of its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "case",
+      "gives": "CASE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "behind schedule",
+      "gives": "LATE",
+      "note": "behind schedule means late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESCA",
+      "LATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASE",
+       "gives": "ESCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer told to take on another case though already running late.",
+     "definitionFit": "To escalate is to grow or increase in scale, so it means expand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 19,
@@ -291,7 +1172,64 @@
     "text": "Girl with strange title goes to church",
     "enumeration": "7"
    },
-   "solution": "LETTICE"
+   "solution": "LETTICE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LETTICE",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "something strange is out of the ordinary, so the letters fall into an unusual order"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "goes to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "title",
+      "gives": "TITLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LETTI",
+      "CE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TITLE",
+       "gives": "LETTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman with an odd title attends church.",
+     "definitionFit": "Lettice is an old-fashioned female first name, so it fits a girl's name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "title"
+    }
+   }
   },
   {
    "number": 20,
@@ -305,7 +1243,59 @@
     "text": "Mrs Pooter wants silver in this coach",
     "enumeration": "8"
    },
-   "solution": "CARRIAGE"
+   "solution": "CARRIAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CARRIAGE",
+    "definitions": [
+     {
+      "text": "coach",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the other"
+     }
+    ],
+    "linkWords": [
+     "wants",
+     "this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mrs Pooter",
+      "gives": "CARRIE",
+      "note": "Carrie Pooter is the wife in 'The Diary of a Nobody'"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARRI",
+      "AG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Victorian wife demanding silver trimmings in her coach.",
+     "walkthrough": "'The Diary of a Nobody' is a comic Victorian novel about Charles Pooter and his wife Carrie.",
+     "definitionFit": "A carriage is a horse-drawn passenger vehicle, also a railway coach."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pooter"
+    }
+   }
   },
   {
    "number": 21,
@@ -319,7 +1309,48 @@
     "text": "Sailor takes route overseas",
     "enumeration": "6"
    },
-   "solution": "ABROAD"
+   "solution": "ABROAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABROAD",
+    "definitions": [
+     {
+      "text": "overseas",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB is an able-bodied seaman"
+     },
+     {
+      "clueFragment": "route",
+      "gives": "ROAD",
+      "note": "a road is a route"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "ROAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman picks a route to travel to foreign parts.",
+     "definitionFit": "Being abroad means being in a foreign country, which is overseas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -333,7 +1364,47 @@
     "text": "Little brother, one of two, put in a hole",
     "enumeration": "6"
    },
-   "solution": "BREACH"
+   "solution": "BREACH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BREACH",
+    "definitions": [
+     {
+      "text": "put in a hole",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little brother",
+      "gives": "BR",
+      "note": "BR is the short form of brother"
+     },
+     {
+      "clueFragment": "one of two",
+      "gives": "EACH",
+      "note": "each refers to every one of a group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "EACH"
+     ]
+    },
+    "explanation": {
+     "surface": "A younger brother, a twin, gets thrown into a pit.",
+     "walkthrough": "'Little brother' suggests a younger sibling, but it means the word shortened.",
+     "definitionFit": "To breach a wall is to break through it, putting a hole or gap in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Little"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1418,64 @@
     "text": "Old film star turns up in taxi with everything",
     "enumeration": "6"
    },
-   "solution": "BACALL"
+   "solution": "BACALL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BACALL",
+    "definitions": [
+     {
+      "text": "Old film star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means reading the word from the bottom to the top"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAC",
+      "ALL"
+     ],
+     "reversals": [
+      {
+       "from": "CAB",
+       "to": "BAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran actor arrives by taxi with all their luggage.",
+     "definitionFit": "Lauren Bacall was a Hollywood actress of the 1940s and 50s, famous opposite Humphrey Bogart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1489,53 @@
     "text": "Imperfect time chart I used in calculations of numbers",
     "enumeration": "10"
    },
-   "solution": "ARITHMETIC"
+   "solution": "ARITHMETIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARITHMETIC",
+    "definitions": [
+     {
+      "text": "calculations of numbers",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Imperfect",
+      "for": "anagram",
+      "note": "something imperfect is flawed, so the letters are not in their proper order"
+     }
+    ],
+    "linkWords": [
+     "used in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time chart I",
+      "gives": "TIMECHARTI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIMECHARTI",
+       "gives": "ARITHMETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A faulty timetable used in some sums.",
+     "definitionFit": "Arithmetic is the branch of mathematics dealing with adding, subtracting and other operations on numbers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Imperfect"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1549,48 @@
     "text": "Galleons, half visible, animosity",
     "enumeration": "4"
    },
-   "solution": "GALL"
+   "solution": "GALL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GALL",
+    "definitions": [
+     {
+      "text": "animosity",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half visible",
+      "for": "deletion",
+      "note": "only half of the word can be seen, so the rest is cut away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Galleons",
+      "gives": "GALLEONS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Ships half-glimpsed in the mist, and hostility in the air.",
+     "walkthrough": "The first four of the eight letters are kept.",
+     "definitionFit": "Gall can mean bitterness or rancour, a form of animosity, as well as cheek."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Galleons"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1604,42 @@
     "text": "Spirited birds",
     "enumeration": "4"
    },
-   "solution": "GAME"
+   "solution": "GAME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GAME",
+    "definitions": [
+     {
+      "text": "Spirited",
+      "at": 0
+     },
+     {
+      "text": "birds",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spirited",
+      "note": "first meaning: willing and plucky"
+     },
+     {
+      "clueFragment": "birds",
+      "note": "second meaning: wild fowl hunted for sport and food"
+     }
+    ],
+    "explanation": {
+     "surface": "Lively birds.",
+     "definitionFit": "Being up for anything is being plucky, and the same word covers wild animals shot for sport, such as pheasant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "birds"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1653,50 @@
     "text": "Go on past Los Angeles to reach water",
     "enumeration": "6"
    },
-   "solution": "LAGOON"
+   "solution": "LAGOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAGOON",
+    "definitions": [
+     {
+      "text": "water",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "past",
+     "to reach"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Los Angeles",
+      "gives": "LA",
+      "note": "LA is the usual short form"
+     },
+     {
+      "clueFragment": "Go on",
+      "gives": "GOON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "GOON"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller told to keep driving beyond Los Angeles to reach the sea.",
+     "walkthrough": "'past' places the second piece after the first.",
+     "definitionFit": "A lagoon is a stretch of salt water cut off from the sea by a reef or sandbank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1710,67 @@
     "text": "Disaster: a tailless lamb lost in the Big Smoke",
     "enumeration": "8"
    },
-   "solution": "CALAMITY"
+   "solution": "CALAMITY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CALAMITY",
+    "definitions": [
+     {
+      "text": "Disaster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "without a tail means the word loses its final letter"
+     },
+     {
+      "text": "lost in",
+      "for": "container",
+      "note": "something lost in a place is swallowed up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lamb",
+      "gives": "LAMB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the Big Smoke",
+      "gives": "CITY",
+      "note": "the Big Smoke is a nickname for London, the city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "LAM",
+      "ITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A lamb missing its tail wanders lost in London: a disaster.",
+     "walkthrough": "The Big Smoke is a British nickname for London, here standing for a city.",
+     "definitionFit": "A calamity is a sudden event causing great damage, a synonym for disaster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Smoke"
+    }
+   }
   }
  ]
 }
