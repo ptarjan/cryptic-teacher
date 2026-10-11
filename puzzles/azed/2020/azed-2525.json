@@ -32,8 +32,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-11",
+  "check": "36 entries, 90 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -46,6 +52,65 @@
    "clue": {
     "text": "System of poetic correspondence I extracted from bobbing dinghy dance",
     "enumeration": "10"
+   },
+   "solution": "CYNGHANEDD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CYNGHANEDD",
+    "definitions": [
+     {
+      "text": "System of poetic correspondence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracted from",
+      "for": "deletion",
+      "note": "something extracted from a word is pulled out of it, so one letter is taken away from the phrase that follows"
+     },
+     {
+      "text": "bobbing",
+      "for": "anagram",
+      "note": "a bobbing boat jiggles about, so the letters that remain are jumbled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dinghy dance",
+      "gives": "DINGHYDANCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter itself, which comes out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CYNGHANEDD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DNGHYDANCE",
+       "gives": "CYNGHANEDD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dance in a bobbing dinghy is somehow turned into a system of rhyme and echo.",
+     "walkthrough": "Take the I out of DINGHY DANCE and rearrange the ten letters left to get CYNGHANEDD.",
+     "definitionFit": "Cynghanedd is the Welsh poetic system of sound-chiming, in which consonants and rhymes within a line answer one another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bobbing"
+    }
    }
   },
   {
@@ -59,6 +124,56 @@
    "clue": {
     "text": "Carp, last in fishery — bother",
     "enumeration": "4"
+   },
+   "solution": "YIRK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "YIRK",
+    "definitions": [
+     {
+      "text": "Carp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last in",
+      "for": "letter_selection",
+      "note": "the last letter in a word is its final one, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fishery",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of fishery"
+     },
+     {
+      "clueFragment": "bother",
+      "gives": "IRK",
+      "note": "to irk someone is to bother or annoy them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "IRK"
+     ]
+    },
+    "explanation": {
+     "surface": "A carp is the last fish left in the fishery, which is a nuisance.",
+     "walkthrough": "'Carp' looks like the fish, but it is the verb, to complain. The parse fixes the letters; no dictionary was at hand to confirm this dialect word's sense.",
+     "definitionFit": "Taken as a dialect verb meaning to grumble or find fault, a variant of yerk; this sense is unverified."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Carp"
+    }
    }
   },
   {
@@ -72,6 +187,77 @@
    "clue": {
     "text": "About last of Scotch, neat gin's drunk? It means nowt to Jock",
     "enumeration": "8"
+   },
+   "solution": "NAETHING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "NAETHING",
+    "definitions": [
+     {
+      "text": "It means nowt to Jock",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "About",
+      "for": "container",
+      "note": "the rearranged letters go about the single letter, surrounding it"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, the only one kept"
+     },
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk thing is unsteady and muddled, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neat gin",
+      "gives": "NEATGIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Scotch",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of Scotch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAET",
+      "H",
+      "ING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEATGIN",
+       "gives": "NAETING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scotsman, offered neat gin instead of whisky, is unimpressed: it means nothing to him.",
+     "walkthrough": "Jumble NEAT GIN round H. Nowt is northern English for nothing, and Jock is a nickname for a Scot, so the answer is the Scots form of the word.",
+     "definitionFit": "Naething is the Scots spelling of 'nothing', so it is what nowt is called north of the border."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Scotch"
+    }
    }
   },
   {
@@ -85,6 +271,65 @@
    "clue": {
     "text": "Bird arranged twig to tidy up nesting",
     "enumeration": "6"
+   },
+   "solution": "GODWIT",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "GODWIT",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nesting",
+      "for": "container",
+      "note": "a word nesting in another settles inside it, so the short piece goes within the longer"
+     },
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "letters arranged are put into a fresh order rather than the one given"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "twig",
+      "gives": "TWIG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tidy up",
+      "gives": "DO",
+      "note": "to do a room is to tidy it up"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TWIGDO",
+       "gives": "GODWIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird arranges a twig so as to keep its nest neat.",
+     "walkthrough": "DO nests in TWIG and the six letters are then rearranged.",
+     "definitionFit": "The godwit is a long-legged wading bird with a long, slightly upturned bill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nesting"
+    }
    }
   },
   {
@@ -98,6 +343,55 @@
    "clue": {
     "text": "Lord Mayor occupying lofty perch, safe",
     "enumeration": "6"
+   },
+   "solution": "ALMERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALMERY",
+    "definitions": [
+     {
+      "text": "safe",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "someone occupying a place is inside it, so the abbreviation goes within the word for the perch"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lofty perch",
+      "gives": "AERY",
+      "note": "aery is a variant spelling of eyrie, an eagle's high nest"
+     },
+     {
+      "clueFragment": "Lord Mayor",
+      "gives": "LM",
+      "note": "LM is the abbreviation for Lord Mayor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LM",
+      "ERY"
+     ]
+    },
+    "explanation": {
+     "surface": "The Lord Mayor sits safely on a high perch.",
+     "walkthrough": "'Safe' looks like an adjective, but it is the noun, a storage cupboard.",
+     "definitionFit": "An almery, also aumbry, is a cupboard or locker, like a meat safe used for storing food or church vessels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "safe"
+    }
    }
   },
   {
@@ -111,6 +405,68 @@
    "clue": {
     "text": "Drains on each side going into hospital that's erected",
     "enumeration": "6"
+   },
+   "solution": "NALLAS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "NALLAS",
+    "definitions": [
+     {
+      "text": "Drains",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going into",
+      "for": "container",
+      "note": "a piece going into another enters it, so it ends up inside"
+     },
+     {
+      "text": "erected",
+      "for": "reversal",
+      "note": "in a down clue something erected is stood upright, so the word reads from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "SAN",
+      "note": "san is short for sanatorium"
+     },
+     {
+      "clueFragment": "on each side",
+      "gives": "ALL",
+      "note": "a level score such as two all has the same on each side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NALLAS"
+     ],
+     "reversals": [
+      {
+       "from": "SALLAN",
+       "to": "NALLAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drains on both sides run into a hospital that has been put up.",
+     "walkthrough": "The inserted letters go in after the first letter; in a down clue 'erected' means the whole is read from the bottom.",
+     "definitionFit": "A nalla, or nullah, is an Indian watercourse or ravine, and the word also covers a channel or drain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
    }
   },
   {
@@ -123,6 +479,70 @@
    "length": 5,
    "clue": {
     "text": "Environmental ills half disposed of when reversing bacterial species (5, two words)"
+   },
+   "solution": "ECOLI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ECOLI",
+    "definitions": [
+     {
+      "text": "bacterial species",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half disposed of",
+      "for": "deletion",
+      "note": "with half of a four-letter word thrown away, only two letters are left"
+     },
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "reversing means going backwards, so the two letters swap order"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Environmental",
+      "gives": "ECO",
+      "note": "eco- is the prefix for environmental"
+     },
+     {
+      "clueFragment": "ills",
+      "gives": "ILLS",
+      "note": "taken as written; its back half goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECO",
+      "LI"
+     ],
+     "reversals": [
+      {
+       "from": "IL",
+       "to": "LI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Environmental problems are half dealt with when a bacterium's spread is turned back.",
+     "walkthrough": "'Environmental ills' reads as one phrase, but the two words do separate jobs.",
+     "definitionFit": "Escherichia coli is a gut bacterium, written E. coli, and some strains cause food poisoning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ills"
+    }
    }
   },
   {
@@ -136,6 +556,54 @@
    "clue": {
     "text": "Glen, David or Jonathan dropping by?",
     "enumeration": "6"
+   },
+   "solution": "DIMBLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DIMBLE",
+    "definitions": [
+     {
+      "text": "Glen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping something means letting it go, so the word that follows is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "David or Jonathan",
+      "gives": "DIMBLEBY",
+      "note": "David and Jonathan Dimbleby are brothers and well-known British broadcasters"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written, the letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIMBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of first names, Glen, David or Jonathan, with someone calling in.",
+     "walkthrough": "'Glen' hides among the first names as if it were another man, but it is the definition, a small valley.",
+     "definitionFit": "A dimble is a dialect word for a dell or dingle, a small wooded hollow like a glen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Glen"
+    }
    }
   },
   {
@@ -149,6 +617,67 @@
    "clue": {
     "text": "Projection in lute that's off-key — making it so?",
     "enumeration": "7"
+   },
+   "solution": "TUNABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TUNABLE",
+    "definitions": [
+     {
+      "text": "making it so?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the projection is set in the other word, so it goes inside"
+     },
+     {
+      "text": "that's off-key",
+      "for": "anagram",
+      "note": "an off-key instrument is out of order, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lute",
+      "gives": "LUTE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Projection",
+      "gives": "NAB",
+      "note": "a nab is a projecting point, such as a jutting rock or headland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "NAB",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LUTE",
+       "gives": "TULE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A part sticking out of an out-of-tune lute, which is what makes it sound wrong.",
+     "walkthrough": "The definition looks back at the clue: an off-key lute can be put right only if it is the kind of thing that can be tuned.",
+     "definitionFit": "Tunable means capable of being brought into tune, the quality an off-key instrument must have to be put right."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Projection"
+    }
    }
   },
   {
@@ -162,6 +691,55 @@
    "clue": {
     "text": "Smash witnessed — hassle separating parts",
     "enumeration": "10"
+   },
+   "solution": "SMITHEREEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SMITHEREEN",
+    "definitions": [
+     {
+      "text": "Smash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "separating parts",
+      "for": "container",
+      "note": "the second word splits the first into two parts by sitting between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "witnessed",
+      "gives": "SEEN",
+      "note": "witnessed means seen"
+     },
+     {
+      "clueFragment": "hassle",
+      "gives": "MITHER",
+      "note": "mither is northern English dialect for to pester or hassle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MITHER",
+      "EEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saw a smash-up, and the hassle of it kept them apart.",
+     "walkthrough": "Mither is a dialect word from the north of England, rarely met elsewhere.",
+     "definitionFit": "To smithereen something is to break it into tiny fragments, a verb formed from the noun smithereens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Smash"
+    }
    }
   },
   {
@@ -175,6 +753,65 @@
    "clue": {
     "text": "Greeting that's international, accepted in company",
     "enumeration": "4"
+   },
+   "solution": "CIAO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CIAO",
+    "definitions": [
+     {
+      "text": "Greeting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something accepted in a company sits inside it, so the two letters go within the word for a firm"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the standard abbreviation for international"
+     },
+     {
+      "clueFragment": "accepted",
+      "gives": "A",
+      "note": "A is the abbreviation for accepted, as marked on a bill of exchange"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co. is the usual abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "I",
+      "A",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A greeting so universal that everyone in the firm uses it.",
+     "walkthrough": "I and A go inside CO to give CIAO. A for 'accepted' is a commercial abbreviation the solver may not know.",
+     "definitionFit": "Ciao is the Italian salutation used for both hello and goodbye, now widely borrowed into English."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accepted"
+    }
    }
   },
   {
@@ -188,6 +825,38 @@
    "clue": {
     "text": "Court decision",
     "enumeration": "8"
+   },
+   "solution": "PLACITUM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PLACITUM",
+    "definitions": [
+     {
+      "text": "Court decision",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Court decision",
+      "note": "surface reading: a judge's ruling, which suggests a familiar English word such as verdict or judgment"
+     },
+     {
+      "clueFragment": "Court decision",
+      "note": "setter's reading: the Latin term from old legal and assembly records for such a ruling"
+     }
+    ],
+    "explanation": {
+     "surface": "A ruling handed down by a court.",
+     "walkthrough": "The two words are as plain as they look; the difficulty is that the answer is the Latin word, with plural placita, used in historical law.",
+     "definitionFit": "A placitum is a decision of a court or assembly, the term found in medieval legal records."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -201,6 +870,62 @@
    "clue": {
     "text": "Old seaman's cleared for action, heading for dhow in distress",
     "enumeration": "5"
+   },
+   "solution": "PREDY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PREDY",
+    "definitions": [
+     {
+      "text": "Old seaman's cleared for action",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its front, so only its opening letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something that is in a state of distress sits inside it, so one letter goes within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "distress",
+      "gives": "PREY",
+      "note": "to prey on someone, or on their mind, is to distress them"
+     },
+     {
+      "clueFragment": "dhow",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of dhow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "D",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An old sailor's ship is cleared for battle, while a dhow nearby is in trouble.",
+     "walkthrough": "D goes inside PREY to give PREDY. 'Old seaman's' marks the answer as an obsolete nautical word, with 's standing for 'is'.",
+     "definitionFit": "Predy is an archaic naval term for a ship made ready, its decks cleared for battle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "distress"
+    }
    }
   },
   {
@@ -213,6 +938,75 @@
    "length": 10,
    "clue": {
     "text": "Newspapers on ER getting out of herself, uplifted, to meet the people (10, two words)"
+   },
+   "solution": "PRESSFLESH",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "PRESSFLESH",
+    "definitions": [
+     {
+      "text": "to meet the people",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting out of",
+      "for": "deletion",
+      "note": "letters getting out of a word leave it, so they are removed"
+     },
+     {
+      "text": "uplifted",
+      "for": "reversal",
+      "note": "in a down clue something uplifted is raised, so it reads from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newspapers",
+      "gives": "PRESS",
+      "note": "the press is the newspapers collectively"
+     },
+     {
+      "clueFragment": "herself",
+      "gives": "HERSELF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ER",
+      "gives": "ER",
+      "note": "taken as written, the letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESS",
+      "FLESH"
+     ],
+     "reversals": [
+      {
+       "from": "HSELF",
+       "to": "FLESH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The papers report that the Queen, Elizabeth Regina, is in high spirits and off to meet the public.",
+     "walkthrough": "ER, Elizabeth Regina, makes the clue sound like a royal walkabout; 'uplifted' reads as her mood but tells you to read the leftover letters upwards.",
+     "definitionFit": "To press the flesh is to shake hands and mingle with crowds, as politicians and royals do on walkabouts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ER"
+    }
    }
   },
   {
@@ -226,6 +1020,54 @@
    "clue": {
     "text": "Citizen of sultanate, returning very soon?",
     "enumeration": "5"
+   },
+   "solution": "OMANI",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "OMANI",
+    "definitions": [
+     {
+      "text": "Citizen of sultanate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "something returning goes back the way it came, so the phrase is read from its end to its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very soon",
+      "gives": "INAMO",
+      "note": "'in a mo' is colloquial for very soon, a moment from now"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OMANI"
+     ],
+     "reversals": [
+      {
+       "from": "INAMO",
+       "to": "OMANI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A citizen of a sultanate is expected home any minute.",
+     "walkthrough": "IN A MO, read backwards, gives OMANI.",
+     "definitionFit": "Oman is a sultanate on the Arabian peninsula, and an Omani is one of its nationals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
    }
   },
   {
@@ -238,6 +1080,61 @@
    "length": 8,
    "clue": {
     "text": "It can keep catch alive, swimming at length below (8, two words)"
+   },
+   "solution": "WELLBOAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WELLBOAT",
+    "definitions": [
+     {
+      "text": "It can keep catch alive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "things swimming move about freely, so these letters drift into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "length",
+      "gives": "L",
+      "note": "L is the standard abbreviation for length"
+     },
+     {
+      "clueFragment": "below",
+      "gives": "BELOW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATLBELOW",
+       "gives": "WELLBOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something that keeps a catch alive, with fish swimming at length down below.",
+     "walkthrough": "'Swimming' looks like part of the fishing picture, but it is the signal to rearrange AT, L and BELOW into WELL BOAT.",
+     "definitionFit": "A well boat is a fishing vessel with a flooded tank in its hold, in which caught fish are kept alive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "swimming"
+    }
    }
   },
   {
@@ -251,6 +1148,89 @@
    "clue": {
     "text": "Marine invertebrates chippy's half rejected in a foreign street, sent back",
     "enumeration": "7"
+   },
+   "solution": "ECHIURA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "ECHIURA",
+    "definitions": [
+     {
+      "text": "Marine invertebrates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "letter_selection",
+      "note": "half of a six-letter word is three letters, and here the opening three are kept"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so these three letters are turned round"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the turned chunk sits in the street, so it goes inside the French word"
+     },
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "the whole assembled string is sent back, read from its last letter to its first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "foreign street",
+      "gives": "RUE",
+      "note": "rue is French for street"
+     },
+     {
+      "clueFragment": "chippy's",
+      "gives": "CHI",
+      "select": "first",
+      "note": "the first half of chippy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "CHI",
+      "URA"
+     ],
+     "reversals": [
+      {
+       "from": "CHI",
+       "to": "IHC"
+      },
+      {
+       "from": "ARUIHCE",
+       "to": "ECHIURA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish-and-chip shop's discarded half-portion of sea creatures ends up returned in a foreign street.",
+     "walkthrough": "There are two turnarounds: the half of chippy is flipped before it goes into the street, and then everything is flipped again. A chippy is British slang for a fish-and-chip shop.",
+     "definitionFit": "Echiura is the phylum of spoon worms, unsegmented burrowing worms found in sea-floor mud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chippy's"
+    }
    }
   },
   {
@@ -264,6 +1244,64 @@
    "clue": {
     "text": "Like a flower part one's planted in favourite row",
     "enumeration": "8"
+   },
+   "solution": "PETALINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PETALINE",
+    "definitions": [
+     {
+      "text": "Like a flower part",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "planted in",
+      "for": "container",
+      "note": "something planted in a row is set inside it, so the single letter goes in"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a pet is a favourite, as in teacher's pet"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one, as in 'a pound'"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "LINE",
+      "note": "a line is a row"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PET",
+      "A",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's favourite row has a single bloom planted in it.",
+     "walkthrough": "A goes into PETLINE, at the join of PET and LINE.",
+     "definitionFit": "Petaline means relating to or resembling a petal, one of the parts of a flower's corolla."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one's"
+    }
    }
   },
   {
@@ -277,6 +1315,67 @@
    "clue": {
     "text": "Forge myths concocted with minimum of ingenuity",
     "enumeration": "6"
+   },
+   "solution": "SMITHY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SMITHY",
+    "definitions": [
+     {
+      "text": "Forge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "minimum of",
+      "for": "letter_selection",
+      "note": "the least you can take of a word is its first letter alone"
+     },
+     {
+      "text": "concocted",
+      "for": "anagram",
+      "note": "something concocted is cooked up from its ingredients, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "myths",
+      "gives": "MYTHS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ingenuity",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of ingenuity"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MYTHSI",
+       "gives": "SMITHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to fake some legends without much cleverness.",
+     "walkthrough": "'Forge' reads as a verb meaning to fake, but it is the noun: a blacksmith's workshop.",
+     "definitionFit": "A smithy is a blacksmith's workshop, which houses the furnace or forge where metal is heated and worked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Forge"
+    }
    }
   },
   {
@@ -290,6 +1389,52 @@
    "clue": {
     "text": "I'm served in the manner of the bargeman's wife, mustily dressed",
     "enumeration": "7"
+   },
+   "solution": "MYTILUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MYTILUS",
+    "definitions": [
+     {
+      "text": "I'm served in the manner of the bargeman's wife",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressed",
+      "for": "anagram",
+      "note": "dressing something prepares and arranges it, so the letters are set out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mustily",
+      "gives": "MUSTILY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUSTILY",
+       "gives": "MYTILUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dish speaks for itself: it is served in a bargeman's wife's style, dressed with a musty air.",
+     "walkthrough": "French marinier means bargeman, so à la marinière, the bargeman's wife's way, is how moules marinière are cooked: the answer is the mussel genus.",
+     "definitionFit": "Mytilus is the genus of the common mussel, the shellfish served as moules marinière."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dressed"
+    }
    }
   },
   {
@@ -303,6 +1448,58 @@
    "clue": {
     "text": "English engraved in tablet for Irish-born writer",
     "enumeration": "6"
+   },
+   "solution": "STEELE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STEELE",
+    "definitions": [
+     {
+      "text": "Irish-born writer",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engraved in",
+      "for": "container",
+      "note": "letters engraved in a stone are cut into it, so the single letter goes inside the word for the slab"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tablet",
+      "gives": "STELE",
+      "note": "a stele is an upright stone slab bearing an inscription"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "E",
+      "ELE"
+     ]
+    },
+    "explanation": {
+     "surface": "An English inscription is carved on a memorial stone for an Irish author.",
+     "walkthrough": "E goes inside STELE to give STEELE.",
+     "definitionFit": "Sir Richard Steele, essayist and co-founder of The Spectator, was born in Dublin in 1672."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tablet"
+    }
    }
   },
   {
@@ -316,6 +1513,77 @@
    "clue": {
     "text": "See this satellite go adrift round edge of space in cosmogeny?",
     "enumeration": "6"
+   },
+   "solution": "SYNCOM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SYNCOM",
+    "definitions": [
+     {
+      "text": "See this satellite",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adrift",
+      "for": "deletion",
+      "note": "letters gone adrift have floated away, so they leave the long word that follows"
+     },
+     {
+      "text": "edge of",
+      "for": "letter_selection",
+      "note": "the edge of a word is one of its ends, here the closing letter"
+     },
+     {
+      "text": "round",
+      "for": "anagram",
+      "note": "letters sent round are turned about, so what is left is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cosmogeny",
+      "gives": "COSMOGENY",
+      "note": "taken as written; it is a variant spelling of cosmogony, the origin of the universe"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "GO",
+      "note": "taken as written, letters to remove"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of space, also to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYNCOM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COSMNY",
+       "gives": "SYNCOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watch this satellite drift off course somewhere out at the edge of the cosmos.",
+     "walkthrough": "From COSMOGENY take away G, O and E, and rearrange the six letters left.",
+     "definitionFit": "Syncom was the series of early NASA communications satellites, the first in geosynchronous orbit in 1963."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
    }
   },
   {
@@ -329,6 +1597,67 @@
    "clue": {
     "text": "Like a chunky shoe maybe, French one secured by knotted lace",
     "enumeration": "6"
+   },
+   "solution": "CUNEAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CUNEAL",
+    "definitions": [
+     {
+      "text": "Like a chunky shoe maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "something secured by a lace is held within it, so the French word goes inside"
+     },
+     {
+      "text": "knotted",
+      "for": "anagram",
+      "note": "a knotted lace is twisted out of shape, so its letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lace",
+      "gives": "LACE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "French one",
+      "gives": "UN",
+      "note": "un is French for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "UN",
+      "EAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LACE",
+       "gives": "CEAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chunky French shoe tied up with a knotted lace.",
+     "walkthrough": "A chunky shoe with a wedge heel is wedge-shaped, hence the 'maybe'.",
+     "definitionFit": "Cuneal means wedge-shaped, from Latin cuneus, and a wedge is a chunky style of shoe heel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "chunky"
+    }
    }
   },
   {
@@ -342,6 +1671,58 @@
    "clue": {
     "text": "Keep quiet about debt settlement in historical bailment",
     "enumeration": "6"
+   },
+   "solution": "MUTUUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MUTUUM",
+    "definitions": [
+     {
+      "text": "historical bailment",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "a word placed about another goes round it, so the second sits inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep quiet",
+      "gives": "MUM",
+      "note": "to keep mum is to stay silent"
+     },
+     {
+      "clueFragment": "debt settlement",
+      "gives": "UTU",
+      "note": "utu is a Maori word for recompense or the settling of a debt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "UTU",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "Say nothing about a debt being settled in an old legal arrangement.",
+     "walkthrough": "Utu is a Maori word used in New Zealand English, rarely met outside crosswords elsewhere.",
+     "definitionFit": "In Roman and old civil law, a mutuum was a loan of goods to be consumed and returned in kind, a form of bailment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Keep"
+    }
    }
   },
   {
@@ -355,6 +1736,40 @@
    "clue": {
     "text": "Street trader requiring accountant, might one assume?",
     "enumeration": "6"
+   },
+   "solution": "COSTER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "COSTER",
+    "definitions": [
+     {
+      "text": "Street trader",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Street trader",
+      "note": "the plain definition: a seller of fruit or vegetables from a barrow"
+     },
+     {
+      "clueFragment": "requiring accountant, might one assume?",
+      "note": "the setter's joke: the word looks like an agent noun from cost, someone who works out costs, which sounds like a job for an accountant"
+     }
+    ],
+    "explanation": {
+     "surface": "A barrow-seller who, from the name, ought to need someone to do the books.",
+     "walkthrough": "The question mark flags the joke: read literally, the short name suggests one who costs things.",
+     "definitionFit": "Coster is short for costermonger, a London street hawker of fruit and vegetables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "accountant"
+    }
    }
   },
   {
@@ -368,6 +1783,63 @@
    "clue": {
     "text": "Ride bicycle when damaged: dicey and thus punctured",
     "enumeration": "6"
+   },
+   "solution": "CRIBLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CRIBLE",
+    "definitions": [
+     {
+      "text": "punctured",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when damaged",
+      "for": "anagram",
+      "note": "a damaged bicycle is knocked out of shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and thus"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ride bicycle",
+      "gives": "RIDEBICYCLE",
+      "note": "taken as written, the whole letter pool"
+     },
+     {
+      "clueFragment": "dicey",
+      "gives": "DICEY",
+      "note": "taken as written, the part of the pool already accounted for"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRIBLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIBCLE",
+       "gives": "CRIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Riding a damaged bike is risky, and so it gets a flat tyre.",
+     "walkthrough": "A composite anagram: RIDE BICYCLE rearranged makes DICEY plus the answer, so the answer is what is left after taking DICEY's letters out of RIDE BICYCLE.",
+     "definitionFit": "Criblé describes an engraving or metal ground covered in small dots or holes, like a surface pricked all over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dicey"
+    }
    }
   },
   {
@@ -381,6 +1853,58 @@
    "clue": {
     "text": "One keeps a tally, increasingly irritated when about 100",
     "enumeration": "6"
+   },
+   "solution": "SCORER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCORER",
+    "definitions": [
+     {
+      "text": "One keeps a tally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the word placed about the numeral goes round it, so that letter sits inside"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "increasingly irritated",
+      "gives": "SORER",
+      "note": "sorer is the comparative of sore, irritated"
+     },
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for 100"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "ORER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket scorekeeper grows more and more annoyed as a batsman nears a century.",
+     "walkthrough": "C goes inside SORER, after its S.",
+     "definitionFit": "A scorer keeps the official tally of runs or points in a game such as cricket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "100"
+    }
    }
   },
   {
@@ -394,6 +1918,46 @@
    "clue": {
     "text": "Appearing in pink in dance that's a bit informal",
     "enumeration": "5"
+   },
+   "solution": "KINDA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KINDA",
+    "definitions": [
+     {
+      "text": "a bit informal",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Appearing in",
+      "for": "hidden_word",
+      "note": "something appearing in a phrase is visible inside it, sitting across its words"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pink in dance",
+      "gives": "KINDA",
+      "note": "the run of letters across the end of pink, the whole of in, and the start of dance"
+     }
+    ],
+    "explanation": {
+     "surface": "Wearing pink to a dance is somewhat casual.",
+     "walkthrough": "The definition is 'a bit', with 'informal' saying the answer is a slangy form.",
+     "definitionFit": "Kinda is a casual spelling of 'kind of', meaning somewhat or to some extent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "informal"
+    }
    }
   },
   {
@@ -407,6 +1971,63 @@
    "clue": {
     "text": "Enzyme in time extracted from nettles, eastern",
     "enumeration": "7"
+   },
+   "solution": "URICASE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "URICASE",
+    "definitions": [
+     {
+      "text": "Enzyme",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracted from",
+      "for": "deletion",
+      "note": "something extracted from a word is drawn out of it, so that letter disappears from the plant name"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time, the letter to remove"
+     },
+     {
+      "clueFragment": "nettles",
+      "gives": "URTICAS",
+      "note": "Urtica is the nettle genus, so nettles are urticas"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the standard abbreviation for eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URICAS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An enzyme made from nettles of the East, given time to extract it.",
+     "walkthrough": "Remove T from URTICAS and add E.",
+     "definitionFit": "Uricase is the enzyme that breaks down uric acid in most mammals, though humans lack it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
    }
   },
   {
@@ -420,6 +2041,68 @@
    "clue": {
     "text": "Form of tiling, I see, between vegetable and mineral?",
     "enumeration": "8"
+   },
+   "solution": "LIGNITIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LIGNITIC",
+    "definitions": [
+     {
+      "text": "between vegetable and mineral?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Form of",
+      "for": "anagram",
+      "note": "a form of something is a version of it, so these letters are reshaped into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiling",
+      "gives": "TILING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "C",
+      "note": "C stands for see, as in text-speak, by its sound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGNIT",
+      "I",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TILING",
+       "gives": "LIGNIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiling pattern that strikes the speaker as something halfway between plant and stone.",
+     "walkthrough": "The definition plays on the game 'animal, vegetable or mineral': lignite is wood partly turned to coal, so it sits between the two.",
+     "definitionFit": "Lignitic means of lignite, brown coal still showing woody structure, so the material is halfway from plant matter to rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tiling"
+    }
    }
   },
   {
@@ -433,6 +2116,47 @@
    "clue": {
     "text": "Loud greeting preferred in 'yoofspeak'",
     "enumeration": "4"
+   },
+   "solution": "FAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAVE",
+    "definitions": [
+     {
+      "text": "preferred in 'yoofspeak'",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loud",
+      "gives": "F",
+      "note": "F is forte, the musical direction for loud"
+     },
+     {
+      "clueFragment": "greeting",
+      "gives": "AVE",
+      "note": "ave is Latin for hail, a greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A loud hello is the favoured way young people greet each other.",
+     "walkthrough": "'Yoofspeak' is a jokey spelling of youth-speak, slang associated with young people.",
+     "definitionFit": "Fave is informal shortening of favourite, meaning the one liked best."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Loud"
+    }
    }
   },
   {
@@ -446,6 +2170,58 @@
    "clue": {
     "text": "Distraught, being left in flat",
     "enumeration": "5"
+   },
+   "solution": "ELVEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ELVEN",
+    "definitions": [
+     {
+      "text": "Distraught",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the letter being in the other word means it goes inside it"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "flat",
+      "gives": "EVEN",
+      "note": "a flat surface is an even one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "L",
+      "VEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is in despair at being abandoned in an apartment.",
+     "walkthrough": "L goes inside EVEN to give ELVEN. 'Flat' looks like an apartment but is the adjective meaning level.",
+     "definitionFit": "The parse fixes these letters, but no dictionary was at hand to confirm the sense of distress claimed here; treat this definition as unverified."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flat"
+    }
    }
   },
   {
@@ -459,6 +2235,47 @@
    "clue": {
     "text": "Song name: 'Born when it's springtime in Britain'",
     "enumeration": "5"
+   },
+   "solution": "ARIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARIAN",
+    "definitions": [
+     {
+      "text": "Born when it's springtime in Britain",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Song",
+      "gives": "ARIA",
+      "note": "an aria is a solo song in an opera"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the standard abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARIA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A song's title celebrating a spring birthday in Britain.",
+     "walkthrough": "'In Britain' matters because the season is northern-hemisphere spring; in Australia the same dates fall in autumn.",
+     "definitionFit": "An Arian is someone born under Aries, the star sign covering late March to mid-April."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "name"
+    }
    }
   },
   {
@@ -472,6 +2289,75 @@
    "clue": {
     "text": "Lad excited with bust shown round for all to see, not quite fully developed",
     "enumeration": "8"
+   },
+   "solution": "SUBADULT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SUBADULT",
+    "definitions": [
+     {
+      "text": "not quite fully developed",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "an excited thing is stirred up, so these letters are thrown into a new order"
+     },
+     {
+      "text": "shown round",
+      "for": "container",
+      "note": "the jumbled letters are placed round the next piece, so it ends up inside them"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lad",
+      "gives": "LAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bust",
+      "gives": "BUST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "for all to see",
+      "gives": "U",
+      "note": "U is the British film certificate for a universal audience, suitable for everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUBAD",
+      "U",
+      "LT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LADBUST",
+       "gives": "SUBADLT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teenage boy gets excited at a picture of a bust shown publicly, being not quite grown up himself.",
+     "walkthrough": "'For all to see' sounds like part of the scene, but it is the film certificate letter.",
+     "definitionFit": "A subadult animal or person is near maturity but not yet fully adult."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bust"
+    }
    }
   },
   {
@@ -485,6 +2371,65 @@
    "clue": {
     "text": "XI gutted with victory likewise treated as grudge?",
     "enumeration": "4"
+   },
+   "solution": "ENVY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENVY",
+    "definitions": [
+     {
+      "text": "grudge",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gutted",
+      "for": "letter_selection",
+      "note": "a gutted fish has had its insides removed, so only the outside letters of the word stay"
+     },
+     {
+      "text": "likewise treated",
+      "for": "letter_selection",
+      "note": "treated in the same way means this word is also emptied, keeping only its ends"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "XI",
+      "gives": "EN",
+      "select": "outer",
+      "note": "XI is eleven in Roman numerals; the outer letters of eleven"
+     },
+     {
+      "clueFragment": "victory",
+      "gives": "VY",
+      "select": "outer",
+      "note": "the outer letters of victory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "VY"
+     ]
+    },
+    "explanation": {
+     "surface": "A football eleven, beaten and won against, nurses a resentment.",
+     "walkthrough": "XI must first become the word ELEVEN before it is gutted. 'Grudge' is the verb: to begrudge someone.",
+     "definitionFit": "To envy someone something is to resent their having it, which is what begrudging means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "XI"
+    }
    }
   },
   {
@@ -498,6 +2443,67 @@
    "clue": {
     "text": "Buteas of a kind? Leaf's unusually round measure",
     "enumeration": "10"
+   },
+   "solution": "FLAMETREES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FLAMETREES",
+    "definitions": [
+     {
+      "text": "Buteas of a kind?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "arranged unusually means not in the normal order, so the letters are reshuffled"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the reshuffled letters go round the next piece, so it sits inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leaf's",
+      "gives": "LEAFS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "measure",
+      "gives": "METRE",
+      "note": "a metre is a unit of length"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLA",
+      "METRE",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEAFS",
+       "gives": "FLAES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a type of Butea tree known by its leaf's odd circular size?",
+     "walkthrough": "The question mark warns that flame tree names several trees, of which Butea is only one.",
+     "definitionFit": "Butea monosperma, the flame of the forest, is one of several tropical trees called flame trees for their red flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "measure"
+    }
    }
   }
  ]
