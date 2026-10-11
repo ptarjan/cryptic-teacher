@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,81 @@
      }
     ]
    },
-   "solution": "DOMESDAYBOOK"
+   "solution": "DOMESDAYBOOK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "DOMESDAY BOOK",
+    "definitions": [
+     {
+      "text": "Survey",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the letters before it are rearranged"
+     },
+     {
+      "text": "cover from",
+      "for": "letter_selection",
+      "note": "the cover of a word is its outside, so only the first and last letters of the next word are kept"
+     },
+     {
+      "text": "goes after",
+      "for": "charade",
+      "note": "tells the solver that the first-named piece is placed after the rearranged letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my dad's",
+      "gives": "MYDADS",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "Ordnance",
+      "gives": "OE",
+      "select": "outer",
+      "note": "the first and last letters of Ordnance"
+     },
+     {
+      "clueFragment": "Perhaps atlas",
+      "gives": "BOOK",
+      "note": "an atlas is one example of a book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOMESDAY",
+      "BOOK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MYDADSOE",
+       "gives": "DOMESDAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child is cross about a map, though help comes from the national mapping agency.",
+     "walkthrough": "The Ordnance Survey is Britain's mapping agency, which makes 'Ordnance Survey' look like one unit; in fact only the outside of Ordnance is used and Survey is the definition.",
+     "definitionFit": "The Domesday Book of 1086 was William the Conqueror's great survey of English land and property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Survey"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +130,69 @@
     "text": "Diminish terms for quad bike race including group of motorists",
     "enumeration": "7"
    },
-   "solution": "DETRACT"
+   "solution": "DETRACT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "DETRACT",
+    "definitions": [
+     {
+      "text": "Diminish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terms for",
+      "for": "letter_selection",
+      "note": "terms are ends, so only the final letter of each of the next two words is kept"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "one piece includes another, so the motoring group sits inside the race"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quad bike",
+      "gives": "DE",
+      "select": "last",
+      "note": "the last letters of quad and bike"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "TT",
+      "note": "the TT (Tourist Trophy) is the Isle of Man motorbike race"
+     },
+     {
+      "clueFragment": "group of motorists",
+      "gives": "RAC",
+      "note": "the Royal Automobile Club, a British motoring organisation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "T",
+      "RAC",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone belittles the language used about an off-road quad race that a motoring club joins.",
+     "walkthrough": "The Isle of Man TT is a famous motorbike road race; the motoring club goes between its two letters.",
+     "definitionFit": "To detract is to take away from or lessen the value of something, so it is a synonym for diminish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terms"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +206,66 @@
     "text": "West maybe assuming Asian country exporting atomic powered device",
     "enumeration": "7"
    },
-   "solution": "MACHINE"
+   "solution": "MACHINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MACHINE",
+    "definitions": [
+     {
+      "text": "powered device",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exporting",
+      "for": "deletion",
+      "note": "a country that exports something sends it out, so that letter leaves the word"
+     },
+     {
+      "text": "assuming",
+      "for": "container",
+      "note": "to assume is to take on, so the first name takes the country into itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "West maybe",
+      "gives": "MAE",
+      "note": "Mae West, the Hollywood actress, is one West"
+     },
+     {
+      "clueFragment": "Asian country",
+      "gives": "CHINA",
+      "note": "a country in Asia"
+     },
+     {
+      "clueFragment": "atomic",
+      "gives": "A",
+      "note": "A is the abbreviation for atomic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "CHIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The West takes on an Asian nation that sells nuclear-powered equipment abroad.",
+     "walkthrough": "'West' looks like a compass point, but it names an actress whose first name is needed.",
+     "definitionFit": "A machine is an apparatus that runs on applied power to do work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "West"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +279,70 @@
     "text": "Complaint of one from France following introduction to Sooty & Sweep",
     "enumeration": "9"
    },
-   "solution": "SUNSTROKE"
+   "solution": "SUNSTROKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SUNSTROKE",
+    "definitions": [
+     {
+      "text": "Complaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction to",
+      "for": "letter_selection",
+      "note": "an introduction is the start, so only the opening letter of the next word is kept"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "says that the French word is placed after the opening letter"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sooty",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Sooty"
+     },
+     {
+      "clueFragment": "one from France",
+      "gives": "UN",
+      "note": "un is French for one"
+     },
+     {
+      "clueFragment": "Sweep",
+      "gives": "STROKE",
+      "note": "a sweep is a stroke, as of an oar or a cricket bat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "UN",
+      "STROKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A French visitor grumbles about the British children's puppet show Sooty and Sweep.",
+     "walkthrough": "Sooty and Sweep are a glove puppet bear and dog from long-running British children's TV, which makes the pair look like one unit.",
+     "definitionFit": "Sunstroke is an illness brought on by too much sun, and complaint is a common word for an ailment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweep"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +356,55 @@
     "text": "Right also about this writer",
     "enumeration": "5"
    },
-   "solution": "AMEND"
+   "solution": "AMEND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMEND",
+    "definitions": [
+     {
+      "text": "Right",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the word for also is placed around the writer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also",
+      "gives": "AND",
+      "note": "and is a synonym for also"
+     },
+     {
+      "clueFragment": "this writer",
+      "gives": "ME",
+      "note": "the setter refers to themself"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ME",
+      "ND"
+     ]
+    },
+    "explanation": {
+     "surface": "The writer is also correct about themself.",
+     "walkthrough": "'Right' looks like an adjective, but it is the verb meaning to put right.",
+     "definitionFit": "To right a wrong is to correct it, and to amend something is likewise to correct it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Right"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +418,59 @@
     "text": "Skin of beautiful snake in waste container",
     "enumeration": "7"
    },
-   "solution": "BLADDER"
+   "solution": "BLADDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BLADDER",
+    "definitions": [
+     {
+      "text": "waste container",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Skin of",
+      "for": "letter_selection",
+      "note": "the skin is the outside, so only the outer letters of the next word are kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beautiful",
+      "gives": "BL",
+      "select": "outer",
+      "note": "the first and last letters of beautiful"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "ADDER",
+      "note": "the adder is Britain's venomous snake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BL",
+      "ADDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A gorgeous snakeskin turns up in a rubbish bin.",
+     "definitionFit": "The bladder is the organ that holds urine, the body's liquid waste, until it is passed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +494,71 @@
      }
     ]
    },
-   "solution": "ONTHEGO"
+   "solution": "ONTHEGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ON THE GO",
+    "definitions": [
+     {
+      "text": "Very active",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the 1st of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that is taken"
+     },
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not means without, so that letter is taken away"
+     },
+     {
+      "text": "needed",
+      "for": "charade",
+      "note": "the second word is needed alongside the first, so it is added after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "April for example",
+      "gives": "MONTH",
+      "note": "April is one month of the year"
+     },
+     {
+      "clueFragment": "May",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of May"
+     },
+     {
+      "clueFragment": "self-confidence",
+      "gives": "EGO",
+      "note": "ego is one's sense of self-worth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONTH",
+      "EGO"
+     ]
+    },
+    "explanation": {
+     "surface": "Being busy in spring, without the confidence boost of May, calls for belief in yourself.",
+     "definitionFit": "Someone on the go is constantly busy and moving about, the idiom for being very active."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "May"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +578,68 @@
      }
     ]
    },
-   "solution": "EVERYBODYOUT"
+   "solution": "EVERYBODYOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVERYBODY OUT",
+    "definitions": [
+     {
+      "text": "call to strike",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down clue a support sits underneath, so this piece comes at the bottom"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Day before",
+      "gives": "EVE",
+      "note": "the eve is the day before an event"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is an abbreviation for railway"
+     },
+     {
+      "clueFragment": "union say",
+      "gives": "BODY",
+      "note": "a union is one kind of organised body"
+     },
+     {
+      "clueFragment": "public",
+      "gives": "OUT",
+      "note": "something out is known or made public"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE",
+      "RY",
+      "BODY",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "The day before, a rail union announces that the public backs its call for industrial action.",
+     "definitionFit": "Everybody out is the traditional shout from a shop steward calling the workforce to walk off the job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supports"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +653,61 @@
     "text": "In Rome, see a jerk breaking into vehicle",
     "enumeration": "7"
    },
-   "solution": "VATICAN"
+   "solution": "VATICAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VATICAN",
+    "definitions": [
+     {
+      "text": "In Rome, see",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking into",
+      "for": "container",
+      "note": "a burglar breaking into somewhere goes inside it, so these letters go inside the vehicle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jerk",
+      "gives": "TIC",
+      "note": "a tic is an involuntary jerk of a muscle"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "VAN",
+      "note": "a van is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ATIC",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist in Rome watches a thug break into a van.",
+     "walkthrough": "'See' looks like a verb of sightseeing, but it is the noun: a bishop's seat, here the Holy See.",
+     "definitionFit": "The Vatican is the Holy See, the Pope's seat of authority, located within the city of Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +721,61 @@
     "text": "Delighted former journalist holds key",
     "enumeration": "7"
    },
-   "solution": "EXALTED"
+   "solution": "EXALTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXALTED",
+    "definitions": [
+     {
+      "text": "Delighted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "something that holds another keeps it inside, so the key goes within the former journalist"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "an ex is a former partner, so ex means former"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "ALT",
+      "note": "Alt is a key on a computer keyboard"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ALT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A retired reporter is thrilled to have kept hold of a key.",
+     "walkthrough": "'Former journalist' looks like one person, but it splits into two pieces with the key between them.",
+     "definitionFit": "Exalted can mean jubilant or elated, in a state of high joy, close to delighted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +795,64 @@
      }
     ]
    },
-   "solution": "DONKEYSYEARS"
+   "solution": "DONKEYSYEARS",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DONKEY'S YEARS",
+    "definitions": [
+     {
+      "text": "for ages",
+      "at": 68,
+      "note": "an idiom for a long time; the answer usually follows for"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with 50 per cent off at first",
+      "for": "substitution",
+      "note": "halving applies to the opening letter read as a Roman numeral, so it is swapped for the numeral worth half"
+     },
+     {
+      "text": "oddly discounted",
+      "for": "letter_selection",
+      "note": "discounting the odd letters throws away the first, third, fifth and so on, keeping the even ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "£500",
+      "gives": "MONKEY",
+      "note": "a monkey is British slang for five hundred pounds"
+     },
+     {
+      "clueFragment": "as my repair is",
+      "gives": "SYEARS",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on of these words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ONKEY",
+      "SYEARS"
+     ]
+    },
+    "explanation": {
+     "surface": "A builder charges five hundred pounds, half price at first, though a repair keeps getting knocked down over a long time.",
+     "walkthrough": "MONKEY starts with M, Roman 1000; taking 50 per cent off makes it D, Roman 500, giving DONKEY.",
+     "definitionFit": "Donkey's years is an informal British idiom for a very long time, matching the sense of for ages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "£500"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +866,59 @@
     "text": "Person who says things as they are extremely rude and very famous",
     "enumeration": "7"
    },
-   "solution": "REALIST"
+   "solution": "REALIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REALIST",
+    "definitions": [
+     {
+      "text": "Person who says things as they are",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its first and last letters are kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rude",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the first and last letters of rude"
+     },
+     {
+      "clueFragment": "very famous",
+      "gives": "ALIST",
+      "note": "the A-list is the top tier of celebrities"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ALIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A blunt-speaking celebrity is both very rude and very well known.",
+     "walkthrough": "'Extremely' reads as an intensifier for rude; it actually keeps only the ends of that word.",
+     "definitionFit": "A realist faces facts and describes the world plainly, without idealising it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +932,87 @@
     "text": "Man ringing conclusively wrong number back creates resentment",
     "enumeration": "7"
    },
-   "solution": "DUDGEON"
+   "solution": "DUDGEON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "DUDGEON",
+    "definitions": [
+     {
+      "text": "resentment",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conclusively",
+      "for": "letter_selection",
+      "note": "conclusively points to the conclusion of the word, so only its last letter is kept"
+     },
+     {
+      "text": "ringing",
+      "for": "container",
+      "note": "a ring goes round something, so the man encircles the letter"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means reading the abbreviation from right to left"
+     },
+     {
+      "text": "creates",
+      "for": "charade",
+      "note": "the assembled pieces together make up the result"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "DUDE",
+      "note": "dude is slang for a man"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of wrong"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "NO",
+      "note": "NO is the abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUD",
+      "G",
+      "E",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NO",
+       "to": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who keeps dialling a wrong number finally causes ill feeling.",
+     "walkthrough": "'Ringing' suggests a telephone call, but it means the man surrounds a letter.",
+     "definitionFit": "Dudgeon is a feeling of offence or deep resentment, mostly heard in 'in high dudgeon'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ringing"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +1036,80 @@
    "group": [
     "13-across",
     "19-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution",
+     "charade"
+    ],
+    "answer": "BETTE DAVIS",
+    "definitions": [
+     {
+      "text": "Film star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter of the next words is kept"
+     },
+     {
+      "text": "changing",
+      "for": "substitution",
+      "note": "changing one thing to another means swapping out the named letters for new ones"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the end, so only the last letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "objects to",
+      "gives": "BETT",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters of objects to"
+     },
+     {
+      "clueFragment": "Elvis",
+      "gives": "ELVIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "EL",
+      "note": "the El is the elevated railway line in Chicago"
+     },
+     {
+      "clueFragment": "bed Priscilla",
+      "gives": "DA",
+      "select": "last",
+      "note": "the last letters of bed and Priscilla"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BETT",
+      "E",
+      "DA",
+      "VIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A gossip piece about Elvis Presley changing his ways to finally sleep with Priscilla, whom he married.",
+     "walkthrough": "Only the line in Elvis is changed; his first letter stays and completes the first name of the star.",
+     "definitionFit": "Bette Davis was a Hollywood screen actress, double Oscar winner and one of the great stars of classic cinema."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1129,74 @@
      }
     ]
    },
-   "solution": "ONPURPOSE"
+   "solution": "ONPURPOSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ON PURPOSE",
+    "definitions": [
+     {
+      "text": "deliberately",
+      "at": 72
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Taking just seconds",
+      "for": "letter_selection",
+      "note": "only the second letter of each of the next words is taken"
+     },
+     {
+      "text": "to infiltrate",
+      "for": "container",
+      "note": "to infiltrate is to get inside, so the abbreviation goes inside the money word"
+     },
+     {
+      "text": "enables",
+      "for": "charade",
+      "note": "here it sits in the surface while the two pieces are joined in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horizon enables",
+      "gives": "ON",
+      "select": 2,
+      "note": "the second letters of Horizon and enables"
+     },
+     {
+      "clueFragment": "finances",
+      "gives": "PURSE",
+      "note": "a purse is a fund of money, one's finances"
+     },
+     {
+      "clueFragment": "Post Office",
+      "gives": "PO",
+      "note": "PO is the abbreviation for Post Office"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "PUR",
+      "PO",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Horizon, the faulty accounting system, let the Post Office raid sub-postmasters' money on purpose.",
+     "walkthrough": "Horizon is the flawed Post Office computer system behind the UK's sub-postmaster prosecution scandal.",
+     "definitionFit": "Doing something on purpose means doing it intentionally, which is a synonym for deliberately."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Horizon"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1210,54 @@
     "text": "Metal and plastic suits a mop",
     "enumeration": "9"
    },
-   "solution": "POTASSIUM"
+   "solution": "POTASSIUM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POTASSIUM",
+    "definitions": [
+     {
+      "text": "Metal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plastic",
+      "for": "anagram",
+      "note": "plastic material can be moulded into any shape, so the letters are remoulded"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suits a mop",
+      "gives": "SUITSAMOP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SUITSAMOP",
+       "gives": "POTASSIUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner chooses a mop made of metal and plastic.",
+     "walkthrough": "'Metal and plastic' reads like a list of materials; plastic is the anagram signal.",
+     "definitionFit": "Potassium is a soft, reactive alkali metal, element K."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plastic"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1271,68 @@
     "text": "Damage done on dropping wine over skirt",
     "enumeration": "9"
    },
-   "solution": "DETRIMENT"
+   "solution": "DETRIMENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "DETRIMENT",
+    "definitions": [
+     {
+      "text": "Damage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on dropping",
+      "for": "deletion",
+      "note": "dropping the word on means it is removed from the word before"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "the wine goes over the other word, covering it on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "done",
+      "gives": "DONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "TENT",
+      "note": "tent is a deep red Spanish wine, an old crossword favourite"
+     },
+     {
+      "clueFragment": "skirt",
+      "gives": "RIM",
+      "note": "a skirt can be an edging or border, as a rim is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "T",
+      "RIM",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Spilling wine over a skirt has done harm.",
+     "walkthrough": "'Skirt' suggests clothing, but it is the edge of something; 'over' wraps the wine around it.",
+     "definitionFit": "Detriment is harm or loss suffered, so it serves as a noun synonym for damage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skirt"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1352,71 @@
      }
     ]
    },
-   "solution": "TALLYHO"
+   "solution": "TALLYHO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TALLY-HO",
+    "definitions": [
+     {
+      "text": "Sporting cry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the friend inside the surrounding letters"
+     },
+     {
+      "text": "basement of",
+      "for": "letter_selection",
+      "note": "the basement is the bottom, and in a down clue that is the last letter"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frat",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of frat"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is an abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALLY",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend calls out from the cellar of a college fraternity house.",
+     "walkthrough": "T and HO together surround ALLY.",
+     "definitionFit": "Tally-ho is the hunting cry raised on sighting a fox, and fox-hunting counts as a sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "basement"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1436,67 @@
      }
     ]
    },
-   "solution": "ICECOLD"
+   "solution": "ICECOLD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ICE-COLD",
+    "definitions": [
+     {
+      "text": "freezing",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Supply",
+      "for": "anagram",
+      "note": "read as the adverb of supple, it says the letters bend into a new shape"
+     },
+     {
+      "text": "unwrapped",
+      "for": "letter_selection",
+      "note": "unwrapping removes the outer layer, so the first and last letters go"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cod",
+      "gives": "COD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "slices",
+      "gives": "LICE",
+      "select": "middle",
+      "note": "slices without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CODLICE",
+       "gives": "ICECOLD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fishmonger provides cod fillets out of their packaging for the freezer.",
+     "walkthrough": "'Supply' looks like the verb to provide, but it is the adverb from supple, meaning flexibly.",
+     "definitionFit": "Ice-cold describes something extremely chilly, as cold as ice, so it matches freezing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Supply"
+    }
+   }
   },
   {
    "number": 19,
@@ -368,7 +1523,72 @@
     "text": "Mounted policeman discovered rhino is strong swimmer",
     "enumeration": "7"
    },
-   "solution": "DOLPHIN"
+   "solution": "DOLPHIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DOLPHIN",
+    "definitions": [
+     {
+      "text": "strong swimmer",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mounted",
+      "for": "reversal",
+      "note": "in a down clue, mounted means going upwards, so the word is read bottom to top"
+     },
+     {
+      "text": "discovered",
+      "for": "letter_selection",
+      "note": "dis-covered means with its cover taken off, so the outer letters go"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "policeman",
+      "gives": "PLOD",
+      "note": "plod is British slang for a police officer"
+     },
+     {
+      "clueFragment": "rhino",
+      "gives": "HIN",
+      "select": "middle",
+      "note": "rhino without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOLP",
+      "HIN"
+     ],
+     "reversals": [
+      {
+       "from": "PLOD",
+       "to": "DOLP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mounted officer has found that the rhinoceros is a powerful swimmer.",
+     "walkthrough": "'Mounted policeman' looks like an officer on horseback; mounted is a reversal signal and discovered strips the rhino.",
+     "definitionFit": "The dolphin is a marine mammal famous for swimming fast and powerfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Mounted"
+    }
+   }
   },
   {
    "number": 20,
@@ -382,7 +1602,60 @@
     "text": "Most importantly nurse replaces it in a way that's bent?",
     "enumeration": "7"
    },
-   "solution": "VENALLY"
+   "solution": "VENALLY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "VENALLY",
+    "definitions": [
+     {
+      "text": "in a way that's bent",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaces",
+      "for": "substitution",
+      "note": "one thing replacing another takes its place, so the nurse goes where the pronoun was"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most importantly",
+      "gives": "VITALLY",
+      "note": "vitally means crucially, most importantly"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "EN",
+      "note": "EN is an enrolled nurse"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "EN",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Above all, a nurse who swaps things over may be acting corruptly.",
+     "walkthrough": "Bent is British slang for corrupt, as in a bent copper.",
+     "definitionFit": "Venally means in a corrupt, bribable way, and bent is informal for dishonest or corrupt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bent"
+    }
+   }
   },
   {
    "number": 21,
@@ -402,7 +1675,43 @@
      }
     ]
    },
-   "solution": "OILWELL"
+   "solution": "OILWELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OIL WELL",
+    "definitions": [
+     {
+      "text": "Boring",
+      "at": 0
+     },
+     {
+      "text": "advice to maintain moving parts?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boring",
+      "note": "first meaning: a drilled hole, here one sunk for petroleum"
+     },
+     {
+      "clueFragment": "advice to maintain moving parts?",
+      "note": "second meaning: read as a two-word instruction to lubricate thoroughly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Boring' reads as dull, but here it is the noun for a drilled hole; the question mark flags the playful second reading.",
+     "definitionFit": "An oil well is a bore sunk to extract petroleum, and the phrase also reads as an instruction to lubricate generously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boring"
+    }
+   }
   },
   {
    "number": 22,
@@ -416,7 +1725,42 @@
     "text": "Full portion of salade niçoise",
     "enumeration": "5"
    },
-   "solution": "LADEN"
+   "solution": "LADEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LADEN",
+    "definitions": [
+     {
+      "text": "Full",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "portion of",
+      "for": "hidden_word",
+      "note": "a portion is only part of the dish, so the letters are a run taken from within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salade niçoise",
+      "gives": "LADEN",
+      "note": "the run of letters across the two words, cedilla ignored"
+     }
+    ],
+    "explanation": {
+     "surface": "A generous helping of the classic tuna and egg salad from Nice.",
+     "definitionFit": "Laden means heavily loaded or filled, a synonym for full."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Full"
+    }
+   }
   },
   {
    "number": 23,
@@ -430,7 +1774,65 @@
     "text": "Old silver coin by piano swapped for pound – it's supposed to be golden",
     "enumeration": "7"
    },
-   "solution": "SILENCE"
+   "solution": "SILENCE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SILENCE",
+    "definitions": [
+     {
+      "text": "it's supposed to be golden",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swapped for",
+      "for": "substitution",
+      "note": "swapped for means taken out and replaced, so two letters make way for one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old silver coin",
+      "gives": "SIXPENCE",
+      "note": "the sixpence was a pre-decimal British coin, originally of silver"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "X",
+      "note": "X is the multiplication sign, read as by"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, softly"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L is the abbreviation for pound, from Latin libra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "L",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "An old silver coin left beside a piano is exchanged for a pound coin, as if gold.",
+     "walkthrough": "In SIXPENCE the adjacent X and P give way to L. The definition draws on the proverb 'speech is silver, silence is golden'.",
+     "definitionFit": "The proverb holds that silence is golden, so it is the thing supposed to be golden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 24,
@@ -444,7 +1846,69 @@
     "text": "Doctor – do I try squeezing tip of lymph gland?",
     "enumeration": "7"
    },
-   "solution": "THYROID"
+   "solution": "THYROID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "THYROID",
+    "definitions": [
+     {
+      "text": "gland",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tip of",
+      "for": "letter_selection",
+      "note": "a tip is an extremity, here the far end, so only the last letter is kept"
+     },
+     {
+      "text": "squeezing",
+      "for": "container",
+      "note": "squeezing something in holds it inside, so the letter goes within the words"
+     },
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor is to tamper with, so the letters are altered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "do I try",
+      "gives": "DOITRY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lymph",
+      "gives": "H",
+      "select": "last",
+      "note": "the last letter of lymph"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOITRHY",
+       "gives": "THYROID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient asks a doctor whether to try pressing on a lymph node.",
+     "walkthrough": "'Doctor' looks like a form of address, but it is the anagram signal.",
+     "definitionFit": "The thyroid is an endocrine gland in the neck that regulates metabolism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 25,
@@ -458,7 +1922,75 @@
     "text": "Breather in hotel bar at last – drinking beer",
     "enumeration": "7"
    },
-   "solution": "INHALER"
+   "solution": "INHALER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "INHALER",
+    "definitions": [
+     {
+      "text": "Breather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word before"
+     },
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "something drinking takes it in, so the beer goes inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a type of beer"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "H",
+      "ALE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resting in a hotel bar near closing time has a pint.",
+     "walkthrough": "The beer is drunk by the letters either side of it, so it sits just before the end of bar.",
+     "definitionFit": "An inhaler is a device for breathing in medicine, or literally one who breathes in, hence a breather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Breather"
+    }
+   }
   },
   {
    "number": 26,
@@ -478,7 +2010,50 @@
      }
     ]
    },
-   "solution": "FOLDINGMONEY"
+   "solution": "FOLDINGMONEY",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "FOLDING MONEY",
+    "definitions": [
+     {
+      "text": "notes",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to Spooner's",
+      "for": "spoonerism",
+      "note": "Reverend Spooner swapped the opening sounds of words, so the starts of the two words trade places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Casting comic",
+      "gives": "FOLDING MONEY",
+      "soundsLike": "MOULDING FUNNY",
+      "note": "casting is moulding and comic is funny; swap their first sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOLDINGMONEY"
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing actors for a comedy, as the famously muddled Reverend Spooner might describe it.",
+     "walkthrough": "'Casting' suggests choosing actors, but it means moulding, as in casting metal.",
+     "definitionFit": "Folding money is paper currency, banknotes as opposed to coins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Casting"
+    }
+   }
   }
  ]
 }
