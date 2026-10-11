@@ -71,7 +71,8 @@ with tempfile.TemporaryDirectory() as scratch:
 
     # The same clues under a second id, by the same process: the index the
     # first write entered refuses it, whichever filer asks.
-    copy = {**puzzle, "id": "authored-2", "number": 2}
+    copy = {**puzzle, "id": "authored-2", "number": 2,
+            "date": (datetime.date.fromisoformat(puzzle["date"]) + datetime.timedelta(1)).isoformat()}
     try:
         write_puzzle_file(puzzle_paths.file_for(copy), copy,
                           generator="tools/build_authored_puzzle.py")
