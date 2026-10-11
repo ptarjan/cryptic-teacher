@@ -412,4 +412,21 @@ Path.read_bytes = real
 ix.put_join("a", "null"); ix.put_join("b", "{}"); ix.prune(["a"])
 print(json.dumps([first == again == (hashlib.sha256(post.read_bytes()).hexdigest(), "Times 1"), len(reads) == 1, moved == first, ix.join("a"), ix.join("b")]))' 2>/dev/null)"
 
+# bigdave44 records are read by byte offset long after bigdave_records() lists
+# them, while a blog fetch may rewrite parsed.jsonl: the offsets must still
+# land on the records listed.
+check "bigdave records survive parsed.jsonl being rewritten mid-run" '[[["1-across", "Cloth sample", "SARI"]], [["2-down", "Remote", "HAM"]]]' \
+  "$(TMP="$(mktemp -d)" REPO="$REPO" python3 -c '
+import json, os, sys
+from pathlib import Path
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import blog_facts as bf
+d = Path(os.environ["TMP"]); parsed = d / "parsed.jsonl"
+bf.BLOGS["bigdave44"] = (d, "Big Dave")
+rec = lambda n, eid, clue, ans: json.dumps({"series": "dt", "number": n, "entries": [{"number": int(eid.split("-")[0]), "direction": eid.split("-")[1], "clue": clue, "answer": ans}]}) + "\n"
+parsed.write_text(rec(1, "1-across", "Cloth sample (4)", "SARI") + rec(2, "2-down", "Remote (3)", "HAM"))
+recs = bf.bigdave_records()
+parsed.write_text("{\"series\": \"dt\", \"number\": 0, \"entries\": []}\n" + rec(9, "9-across", "Other (5)", "OTHER"))
+print(json.dumps([bf.entries_of(r[2]) for r in recs]))' 2>&1)"
+
 [ "$fails" -eq 0 ] && echo "all blog_facts checks passed" || { echo "$fails failed"; exit 1; }
