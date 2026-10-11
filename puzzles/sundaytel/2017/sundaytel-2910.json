@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,62 @@
     "text": "Noon temperature fifty-five, in short",
     "enumeration": "6"
    },
-   "solution": "TWELVE"
+   "solution": "TWELVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TWELVE",
+    "definitions": [
+     {
+      "text": "Noon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the standard abbreviation for temperature"
+     },
+     {
+      "clueFragment": "short",
+      "gives": "WEE",
+      "note": "wee is a Scots word for small or short"
+     },
+     {
+      "clueFragment": "fifty-five",
+      "gives": "LV",
+      "note": "L is fifty and V is five in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WE",
+      "LV",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A weather report giving the midday reading as fifty-five degrees, abbreviated.",
+     "walkthrough": "'In short' reads as 'briefly' but splits: 'in' is the container signal and 'short' is a Scots word for small.",
+     "definitionFit": "Noon is twelve o'clock, so the number names the time of midday."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +104,46 @@
     "text": "Piece of mural art records attempt",
     "enumeration": "8"
    },
-   "solution": "TAPESTRY"
+   "solution": "TAPESTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAPESTRY",
+    "definitions": [
+     {
+      "text": "Piece of mural art",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "records",
+      "gives": "TAPES",
+      "note": "tapes are recordings"
+     },
+     {
+      "clueFragment": "attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAPES",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A wall painting documenting an attempt at something.",
+     "definitionFit": "A tapestry is a woven picture hung on a wall, a textile kind of wall art."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "records"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +157,65 @@
     "text": "Maiden taken in by corrupt dealer is kind of green",
     "enumeration": "7"
    },
-   "solution": "EMERALD"
+   "solution": "EMERALD",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "EMERALD",
+    "definitions": [
+     {
+      "text": "kind of green",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "something taken in by another is absorbed inside it"
+     },
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "corrupt means spoiled or perverted from its proper form, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maiden",
+      "gives": "M",
+      "note": "M is the cricket abbreviation for a maiden over"
+     },
+     {
+      "clueFragment": "dealer",
+      "gives": "DEALER",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEALERM",
+       "gives": "EMERALD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman caught up by a crooked trader is naive and inexperienced.",
+     "walkthrough": "Being green means naive, which the surface invites; here it is literally a colour.",
+     "definitionFit": "Emerald is a bright green, named after the gemstone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +229,53 @@
     "text": "Stupidly leaving it for unofficial policeman",
     "enumeration": "9"
    },
-   "solution": "VIGILANTE"
+   "solution": "VIGILANTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VIGILANTE",
+    "definitions": [
+     {
+      "text": "unofficial policeman",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stupidly",
+      "for": "anagram",
+      "note": "doing something stupidly means doing it in a muddled way, so the letters come out jumbled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leaving it",
+      "gives": "LEAVINGIT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEAVINGIT",
+       "gives": "VIGILANTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Foolishly handing the job over to a self-appointed crime fighter.",
+     "definitionFit": "A vigilante is a citizen who takes on law enforcement without any legal authority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaving"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +289,43 @@
     "text": "In dunce's cap, is maybe avoiding reality",
     "enumeration": "8"
    },
-   "solution": "ESCAPISM"
+   "solution": "ESCAPISM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ESCAPISM",
+    "definitions": [
+     {
+      "text": "avoiding reality",
+      "at": 25,
+      "note": "a phrase describing the activity, standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the answer sits in the run of letters that follows, spanning the word breaks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dunce's cap, is maybe",
+      "gives": "ESCAPISM",
+      "note": "read straight through the end of dunce's, cap, is and the start of maybe"
+     }
+    ],
+    "explanation": {
+     "surface": "A pupil made to wear the dunce's cap may be retreating into a daydream.",
+     "definitionFit": "Escapism is the habit of retreating into fantasy instead of facing the facts of life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maybe"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +339,71 @@
     "text": "Half-hearted meal, a roll before trip — that's more than enough",
     "enumeration": "14"
    },
-   "solution": "SUPERABUNDANCE"
+   "solution": "SUPERABUNDANCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SUPERABUNDANCE",
+    "definitions": [
+     {
+      "text": "more than enough",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Half-hearted",
+      "for": "deletion",
+      "note": "with half its heart gone, the word loses one of its two middle letters"
+     }
+    ],
+    "linkWords": [
+     "before",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meal",
+      "gives": "SUPPER",
+      "note": "supper is an evening meal"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "roll",
+      "gives": "BUN",
+      "note": "a bun is a bread roll"
+     },
+     {
+      "clueFragment": "trip",
+      "gives": "DANCE",
+      "note": "to trip is to dance lightly, as in trip the light fantastic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPER",
+      "A",
+      "BUN",
+      "DANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dinner without enthusiasm, with a bread roll before a journey, is ample.",
+     "walkthrough": "SUPPER has a double P at its heart; losing one leaves SUPER. 'Trip' suggests a journey but means a light step.",
+     "definitionFit": "Superabundance is a great excess, a supply far beyond what is needed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +417,61 @@
     "text": "A no-win situation upset Oscar, for one",
     "enumeration": "5"
    },
-   "solution": "AWARD"
+   "solution": "AWARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AWARD",
+    "definitions": [
+     {
+      "text": "Oscar, for one",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset turns the word upside down so it reads from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "no-win situation",
+      "gives": "DRAW",
+      "note": "a draw is a result where nobody wins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WARD"
+     ],
+     "reversals": [
+      {
+       "from": "DRAW",
+       "to": "WARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unwinnable situation threw Oscar into turmoil.",
+     "walkthrough": "'Oscar' looks like a person; it is the film statuette.",
+     "definitionFit": "An Oscar is an example of an award, the Academy Award for film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +485,48 @@
     "text": "Disrespectful mischief-maker promises to settle scores",
     "enumeration": "7"
    },
-   "solution": "IMPIOUS"
+   "solution": "IMPIOUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPIOUS",
+    "definitions": [
+     {
+      "text": "Disrespectful",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mischief-maker",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child or sprite"
+     },
+     {
+      "clueFragment": "promises to settle scores",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to pay debts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A rude troublemaker vows to get even with enemies.",
+     "walkthrough": "'Settle scores' suggests revenge; here scores are debts, promised in IOUs.",
+     "definitionFit": "Impious means lacking reverence, especially toward God, hence irreverent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scores"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +540,44 @@
     "text": "Very little said otherwise for short time",
     "enumeration": "6"
    },
-   "solution": "MINUTE"
+   "solution": "MINUTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MINUTE",
+    "definitions": [
+     {
+      "text": "Very little",
+      "at": 0
+     },
+     {
+      "text": "short time",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "said otherwise for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very little",
+      "note": "first meaning: tiny, said with the stress on its second syllable"
+     },
+     {
+      "clueFragment": "short time",
+      "note": "second meaning: a sixty-second span, or a moment, stressed on the first syllable"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Said otherwise' notes the two meanings are spelt alike but pronounced differently, my-NEWT and MIN-it.",
+     "definitionFit": "The adjective means extremely small; the noun is a brief moment or sixty seconds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +597,39 @@
      }
     ]
    },
-   "solution": "FORTUNETELLING"
+   "solution": "FORTUNETELLING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FORTUNE-TELLING",
+    "definitions": [
+     {
+      "text": "What may be done with tea and cookies that reveals a lot?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What may be done with tea and cookies",
+      "note": "surface reading: an afternoon snack, tea served with biscuits"
+     },
+     {
+      "clueFragment": "reveals a lot",
+      "note": "setter's reading: tea leaves are read and cookies carry slips, both predicting a person's lot or destiny"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Tea leaves are read in the bottom of a cup and fortune cookies hold printed predictions; 'a lot' is one's lot in life.",
+     "definitionFit": "Reading tea leaves and fortune cookies both claim to foretell a person's future."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +649,65 @@
      }
     ]
    },
-   "solution": "PEERGROUP"
+   "solution": "PEERGROUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PEER GROUP",
+    "definitions": [
+     {
+      "text": "People similar to one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "something that enters goes inside the other word"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noble",
+      "gives": "PEER",
+      "note": "a peer is a member of the nobility"
+     },
+     {
+      "clueFragment": "rise",
+      "gives": "GOUP",
+      "note": "to rise is to go up"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for Rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEER",
+      "G",
+      "R",
+      "OUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman stands up as the monarch comes into the room.",
+     "walkthrough": "The definition is 'People similar to one'; R goes into GO UP after PEER.",
+     "definitionFit": "Your peer group is the set of people of your own age, status or background."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +721,54 @@
     "text": "A second writer leaves producer",
     "enumeration": "5"
    },
-   "solution": "ASPEN"
+   "solution": "ASPEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASPEN",
+    "definitions": [
+     {
+      "text": "leaves producer",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "PEN"
+     ]
+    },
+    "explanation": {
+     "surface": "An assistant writer quits working for a film producer.",
+     "walkthrough": "'Leaves' looks like a verb about the writer quitting; it is the noun, foliage, and the producer of leaves is a tree.",
+     "definitionFit": "The aspen is a poplar tree, famous for trembling foliage, so it produces leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +782,63 @@
     "text": "Aspiring actress delivering line with energy in debut",
     "enumeration": "7"
    },
-   "solution": "STARLET"
+   "solution": "STARLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STARLET",
+    "definitions": [
+     {
+      "text": "Aspiring actress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "what is in something is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "delivering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debut",
+      "gives": "START",
+      "note": "a debut is the start of a career"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "LE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A young actress makes her first appearance, saying her line with real energy.",
+     "definitionFit": "A starlet is a young actress hoping to become a star."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delivering"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +852,44 @@
     "text": "Old soldier's part of hunting outfit",
     "enumeration": "7"
    },
-   "solution": "REDCOAT"
+   "solution": "REDCOAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REDCOAT",
+    "definitions": [
+     {
+      "text": "Old soldier",
+      "at": 0
+     },
+     {
+      "text": "part of hunting outfit",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old soldier",
+      "note": "first meaning: a British soldier of past centuries in a scarlet tunic"
+     },
+     {
+      "clueFragment": "part of hunting outfit",
+      "note": "second meaning: the scarlet jacket worn when foxhunting"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 's reads as a possessive but stands for 'is'.",
+     "definitionFit": "The scarlet tunic gave British infantry its nickname, and huntsmen ride in a scarlet jacket too."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +903,50 @@
     "text": "Staff at home for French master",
     "enumeration": "5"
    },
-   "solution": "RODIN"
+   "solution": "RODIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RODIN",
+    "definitions": [
+     {
+      "text": "French master",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staff",
+      "gives": "ROD",
+      "note": "a rod is a staff or stick"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROD",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Household employees available for a French schoolteacher.",
+     "walkthrough": "'Staff' looks like employees and 'master' like a teacher; the master is the sculptor.",
+     "definitionFit": "Auguste Rodin, sculptor of The Thinker, was a French master of his art."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +960,56 @@
     "text": "Name honour, and record recipient of big one",
     "enumeration": "8"
    },
-   "solution": "NOBELIST"
+   "solution": "NOBELIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOBELIST",
+    "definitions": [
+     {
+      "text": "recipient of big one",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "honour",
+      "gives": "OBE",
+      "note": "the OBE (Order of the British Empire) is a British honour"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LIST",
+      "note": "a list is a written record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OBE",
+      "LIST"
+     ]
+    },
+    "explanation": {
+     "surface": "Naming someone for an award and noting who receives a major prize.",
+     "walkthrough": "'Big one' points back to 'honour': the biggest honour of all, the Nobel Prize.",
+     "definitionFit": "A Nobelist is a winner of a Nobel Prize, about the most prestigious award there is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "big"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1023,55 @@
     "text": "Farmer, perhaps, left before an upsetting experience",
     "enumeration": "9"
    },
-   "solution": "LANDOWNER"
+   "solution": "LANDOWNER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LANDOWNER",
+    "definitions": [
+     {
+      "text": "Farmer, perhaps",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "upsetting experience",
+      "gives": "DOWNER",
+      "note": "a downer is something depressing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AN",
+      "DOWNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer quit just before something went badly for him.",
+     "definitionFit": "A farmer is one example of someone who owns land, hence the 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upsetting"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1085,58 @@
     "text": "Mainly do well covering court scene",
     "enumeration": "8"
    },
-   "solution": "PROSPECT"
+   "solution": "PROSPECT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PROSPECT",
+    "definitions": [
+     {
+      "text": "scene",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mainly",
+      "for": "deletion",
+      "note": "mainly means the greater part only, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "covering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "do well",
+      "gives": "PROSPER",
+      "note": "to prosper is to thrive"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROSPE",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "Mostly doing well while reporting on a courtroom drama.",
+     "walkthrough": "In a down answer, one piece covering another sits above it in the grid.",
+     "definitionFit": "A prospect is an extensive view, a vista or scene spread out before you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +1150,65 @@
     "text": "Menace from Teheran dissipated after time",
     "enumeration": "8"
    },
-   "solution": "THREATEN"
+   "solution": "THREATEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "THREATEN",
+    "definitions": [
+     {
+      "text": "Menace",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dissipated",
+      "for": "anagram",
+      "note": "something dissipated is scattered about, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Teheran",
+      "gives": "TEHERAN",
+      "note": "the letters of the city name, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HREATEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEHERAN",
+       "gives": "HREATEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A threat issued by Iran's capital fades away over time.",
+     "walkthrough": "Teheran is an older spelling of Tehran; 'after time' puts T first.",
+     "definitionFit": "To menace someone is to threaten them, a straight verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Menace"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1222,50 @@
     "text": "Badly trashed, like last clue solved?",
     "enumeration": "7"
    },
-   "solution": "HARDEST"
+   "solution": "HARDEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARDEST",
+    "definitions": [
+     {
+      "text": "like last clue solved?",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Badly",
+      "for": "anagram",
+      "note": "badly treated letters are knocked out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trashed",
+      "gives": "TRASHED",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRASHED",
+       "gives": "HARDEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver frustrated by the final clue, which has wrecked the grid.",
+     "definitionFit": "The clue a solver finishes on is usually the one that proved toughest, so it is the most difficult."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "trashed"
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1279,63 @@
     "text": "African country taking one area finally from another",
     "enumeration": "5"
    },
-   "solution": "NIGER"
+   "solution": "NIGER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NIGER",
+    "definitions": [
+     {
+      "text": "African country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "deletion",
+      "note": "taking something from a word removes it"
+     },
+     {
+      "text": "finally",
+      "for": "deletion",
+      "note": "finally places the removal at the very end of the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "NIGERIA",
+      "note": "another African country, its neighbour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGER"
+     ]
+    },
+    "explanation": {
+     "surface": "One African nation annexing territory at last from a neighbour.",
+     "walkthrough": "'Finally' says the I and A come off the end: NIGERIA loses IA to leave NIGER.",
+     "definitionFit": "Niger is a landlocked West African state, bordering Nigeria to the south."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "area"
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +1349,56 @@
     "text": "Good learner, outstanding and bright",
     "enumeration": "7"
    },
-   "solution": "GLOWING"
+   "solution": "GLOWING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GLOWING",
+    "definitions": [
+     {
+      "text": "bright",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L for learner, from the L-plates on a learner driver's car"
+     },
+     {
+      "clueFragment": "outstanding",
+      "gives": "OWING",
+      "note": "money outstanding is still owing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "L",
+      "OWING"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a pupil who is excellent and clever.",
+     "walkthrough": "'Outstanding' reads as excellent but means unpaid.",
+     "definitionFit": "Glowing means shining brightly with light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1412,64 @@
     "text": "Has raised Bedouin, say, mostly in desert",
     "enumeration": "6"
    },
-   "solution": "SAHARA"
+   "solution": "SAHARA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "SAHARA",
+    "definitions": [
+     {
+      "text": "desert",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raised means lifted to read from the bottom upward"
+     },
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means all but a bit, so the final letter goes"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Has",
+      "gives": "SAH",
+      "note": "the word has read upwards"
+     },
+     {
+      "clueFragment": "Bedouin, say",
+      "gives": "ARAB",
+      "note": "the Bedouin are an Arab people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAH",
+      "ARA"
+     ]
+    },
+    "explanation": {
+     "surface": "A nomad has grown up somewhere in the dunes.",
+     "walkthrough": "'Raised' suggests bringing up a child; it turns 'has' upside down, and ARAB then loses its B.",
+     "definitionFit": "The Sahara is the vast desert of North Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 23,
@@ -366,7 +1483,62 @@
     "text": "Coming first in race, getting inside an opponent",
     "enumeration": "7"
    },
-   "solution": "ARRIVAL"
+   "solution": "ARRIVAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ARRIVAL",
+    "definitions": [
+     {
+      "text": "Coming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "the first letter in a word is its initial"
+     },
+     {
+      "text": "getting inside",
+      "for": "container",
+      "note": "getting inside something means being placed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an opponent",
+      "gives": "ARIVAL",
+      "note": "an becomes A and an opponent is a RIVAL"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of race"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "RIVAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner finishing first in the race after squeezing past a rival.",
+     "walkthrough": "'Coming first' looks like winning; 'Coming' alone is the definition, and 'first in race' gives R.",
+     "definitionFit": "An arrival is a coming, someone or something reaching a place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 24,
@@ -380,7 +1552,39 @@
     "text": "One of those trying to provide seat for person standing",
     "enumeration": "5"
    },
-   "solution": "VOTER"
+   "solution": "VOTER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "VOTER",
+    "definitions": [
+     {
+      "text": "One of those trying to provide seat for person standing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "provide seat for person standing",
+      "note": "surface reading: someone offering a chair to a passenger left on their feet"
+     },
+     {
+      "clueFragment": "One of those trying",
+      "note": "setter's reading: an elector backing a candidate who is standing for a parliamentary seat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "To stand is to be a candidate in an election and a seat is a place in Parliament; an elector helps put the candidate there.",
+     "definitionFit": "Each person casting a ballot is trying to win a constituency for the candidate they back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "standing"
+    }
+   }
   },
   {
    "number": 25,
@@ -394,7 +1598,64 @@
     "text": "Endlessly get excited about doctor that's romantic",
     "enumeration": "7"
    },
-   "solution": "AMOROUS"
+   "solution": "AMOROUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "AMOROUS",
+    "definitions": [
+     {
+      "text": "romantic",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "without its end, the word loses its final letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes round the other"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get excited",
+      "gives": "AROUSE",
+      "note": "to arouse is to excite"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MO",
+      "note": "MO is a medical officer, a doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MO",
+      "ROUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting worked up over a physician who is romantically inclined.",
+     "walkthrough": "AROUSE loses its final E, and AROUS goes about MO.",
+     "definitionFit": "Amorous means inclined to love or showing romantic desire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 26,
@@ -408,7 +1669,48 @@
     "text": "Skilled person in a section of large store, briefly",
     "enumeration": "5"
    },
-   "solution": "ADEPT"
+   "solution": "ADEPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADEPT",
+    "definitions": [
+     {
+      "text": "Skilled person",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "section of large store, briefly",
+      "gives": "DEPT",
+      "note": "DEPT is the short form of department, a section of a department store"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DEPT"
+     ]
+    },
+    "explanation": {
+     "surface": "An expert working in one department of a big shop.",
+     "definitionFit": "An adept is an expert, someone highly proficient at something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -422,7 +1724,60 @@
     "text": "Motivation I have, following popular change in US",
     "enumeration": "9"
    },
-   "solution": "INCENTIVE"
+   "solution": "INCENTIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCENTIVE",
+    "definitions": [
+     {
+      "text": "Motivation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the first-named piece is sent to the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "what is in is fashionable or popular"
+     },
+     {
+      "clueFragment": "change in US",
+      "gives": "CENT",
+      "note": "a cent is a coin of small change in the United States"
+     },
+     {
+      "clueFragment": "I have",
+      "gives": "IVE",
+      "note": "I've is the short form of I have"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CENT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains their urge to follow a popular shift in America.",
+     "walkthrough": "'Following' puts the contraction of 'I have' last; 'change' means coins here, not alteration.",
+     "definitionFit": "An incentive is something that motivates a person to act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 28,
@@ -442,7 +1797,45 @@
      }
     ]
    },
-   "solution": "ALTEREGO"
+   "solution": "ALTEREGO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALTER EGO",
+    "definitions": [
+     {
+      "text": "Something psychoanalyst might try to do",
+      "at": 0
+     },
+     {
+      "text": "close friend",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something psychoanalyst might try to do",
+      "note": "first meaning, read as two words: change the patient's sense of self"
+     },
+     {
+      "clueFragment": "close friend",
+      "note": "second meaning: a trusted other self, an intimate companion"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first meaning is the phrase read literally as a verb and object, the Freudian self that analysis might change.",
+     "definitionFit": "An alter ego, literally 'other self', is a very close and trusted friend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 29,
@@ -456,7 +1849,56 @@
     "text": "What could make us run in battle?",
     "enumeration": "6"
    },
-   "solution": "FRIGHT"
+   "solution": "FRIGHT",
+   "annotation": {
+    "type": [
+     "container",
+     "and_lit"
+    ],
+    "answer": "FRIGHT",
+    "definitions": [
+     {
+      "text": "What could make us run in battle?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "what is in something is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "battle",
+      "gives": "FIGHT",
+      "note": "a fight is a battle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what would make soldiers flee in the middle of combat.",
+     "walkthrough": "The whole clue is both the definition and the wordplay: R goes in FIGHT.",
+     "definitionFit": "Fright, sudden fear, is exactly what makes troops turn and run in battle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "run"
+    }
+   }
   }
  ]
 }
