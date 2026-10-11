@@ -1584,7 +1584,7 @@ and lays it out for the reader, which files its puzzle. Updated {now:%a %d %b %H
 <tr><th>Not on Gale</th><td>{len(gone):,}</td></tr>
 <tr><th>Downloaded by the script</th><td>{len(got):,} ({today:,} today)</td></tr>
 <tr><th>Gale refusals</th><td>{len(refusals)}{
-        f" (last {e(refusals[-1]['at'])}, after {refusals[-1]['since_rest']} since a rest)" if refusals else ""}{
+        f" (last {e(refusals[-1]['at'])}, after {refusals[-1]['in_window']} in its window)" if refusals else ""}{
         f"; worked again after {recoveries[-1]['waited'] / 60:.0f} min" if recoveries else ""}</td></tr></table>
 <p>{e(ORDER)}</p>"""]
     if got:

@@ -1890,22 +1890,29 @@ tools/gale_fetch.py                           downloads every wanted Times editi
                                               next-up order, at a hand's pace (8-22 s apart, at
                                               most 15 in 3 minutes) and lays each out at once
                                               as its date's edition (no inbox, match or
-                                              set-aside), the PDF kept on the Mac; records each
-                                              Gale refusal and how long until a download works
-                                              again (~/.cache/gale_inbox/limits.json) and
-                                              learns its session cap and rest from them; stops
-                                              and wakes the room at a captcha, a wrong PDF, a
-                                              refusal no probe gets past, or repeated errors
-                                              (Paul, 2026-10-11)
+                                              set-aside), the PDF kept on the Mac; counts
+                                              downloads per window across sessions (seeded at
+                                              450, the browser's included), retries a
+                                              logged-out session at once, records each Gale
+                                              refusal with its count and pace and probes every
+                                              30 min to time the reset
+                                              (~/.cache/gale_inbox/limits.json), learning the
+                                              cap and window from them; stops and wakes the
+                                              room at a captcha, a wrong PDF, a refusal no
+                                              probe gets past, or repeated errors (Paul,
+                                              2026-10-11)
 tools/gale_fetch.sh                           gale_fetch.py's long run from its own worktree,
                                               launched through track-job --restart
 tools/test_gale_fetch.sh                      on a fake clock: does gale_fetch keep its pace,
-                                              window cap and learned session rests, record a
-                                              refusal (login page, HTML, non-PDF, 429) and the
-                                              wait until a probe works, stop at a captcha,
-                                              short PDF, a refusal no probe gets past or
-                                              repeated errors (riding out one), skip what was
-                                              got, and wait a bounded number of times?
+                                              wait out the window at its cap (counting
+                                              downloads made elsewhere), take a page a fresh
+                                              session gets past for a logout, record a refusal
+                                              (login page, HTML, non-PDF, 429, in a fresh
+                                              session too) and the 30-min probes until one
+                                              works, stop at a captcha, short PDF, a refusal no
+                                              probe gets past or repeated errors (riding out
+                                              one), skip what was got, and wait a bounded
+                                              number of times?
 tools/test_gale_docs.sh                       with Gale stood in: is the day's crossword found
                                               in an issue's contents (not the Concise or a
                                               competition), its Download link's citation one
