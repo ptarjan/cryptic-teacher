@@ -1022,6 +1022,15 @@ check("mirror: no edge specks pass in a clue with figures of its own (times 1978
                [terp, terp] + [["#"] + terp[2:]] * 2)[0])
 check("mirror: a lost word is no figure, a clean reading or not (times 1983-12-20)", None,
       oc.agree("This house is surrounded", [trees, trees] + [["#", "This", "house", "is", "surrounded", "#"]] * 2)[0])
+# Times 1977-11-24 "Equip musicians with brassards": figure specks no word
+# ("fS" for its count) in one reading and words in one other are no end lost,
+# as words in one reading of four alone are none; "is" may be a word lost.
+brass = ["#", "Equip", "musicians", "with", "brassards"]
+check("figure specks no word don't count as words seen at the edge (times 1977-11-24)",
+      "Equip musicians with brassards",
+      oc.agree("Equip musicians with brassards", [brass + ["fS", "#"], brass + ["#"], brass + ["surds", "#"], brass + ["#"]])[0])
+check("mirror: specks that are a word ('is') count as words seen at the edge", None,
+      oc.agree("Equip musicians with brassards", [brass + ["is", "#"], brass + ["#"], brass + ["surds", "#"], brass + ["#"]])[0])
 check("a heading and the number ('DOWN 1') read as letters", True, oc.number_read(("down", "i"), "1", "start"))
 check("a count read with its brackets ('isi' for (5))", True, oc.number_read(("isi",), "5", "end"))
 check("mirror: a word is no count", False, oc.number_read(("silly",), "5", "end"))
