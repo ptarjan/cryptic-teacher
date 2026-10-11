@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,67 @@
     "text": "Court of justice backed main point in legal action",
     "enumeration": "8"
    },
-   "solution": "TRIBUNAL"
+   "solution": "TRIBUNAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TRIBUNAL",
+    "definitions": [
+     {
+      "text": "Court of justice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "something backed is run in reverse, so the word for the main point is read from its end"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the reversed piece inside the word for a legal action"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legal action",
+      "gives": "TRIAL",
+      "note": "a trial is an action heard in court"
+     },
+     {
+      "clueFragment": "main point",
+      "gives": "NUB",
+      "note": "the nub is the central point of a matter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "BUN",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "NUB",
+       "to": "BUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A court backs the central point argued in a lawsuit.",
+     "walkthrough": "'Backed' suggests support, but here it means read backwards.",
+     "definitionFit": "A tribunal is a body appointed to adjudicate disputes, a kind of court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +109,55 @@
     "text": "Share with a learner capable of logical thought",
     "enumeration": "8"
    },
-   "solution": "RATIONAL"
+   "solution": "RATIONAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RATIONAL",
+    "definitions": [
+     {
+      "text": "capable of logical thought",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Share",
+      "gives": "RATION",
+      "note": "a ration is a fixed share"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner plate on a British learner driver's car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATION",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Splitting something with a student who can reason things out.",
+     "definitionFit": "Rational describes a mind able to reason soundly, that is, to think logically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Share"
+    }
+   }
   },
   {
    "number": 3,
@@ -66,7 +177,40 @@
      }
     ]
    },
-   "solution": "BIRTHDAYSUIT"
+   "solution": "BIRTHDAYSUIT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BIRTHDAY SUIT",
+    "definitions": [
+     {
+      "text": "Original outfit barely appropriate for annual celebration?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Original outfit barely appropriate for annual celebration?",
+      "note": "surface reading: some clothing suited to a yearly party"
+     },
+     {
+      "clueFragment": "Original outfit barely appropriate",
+      "note": "setter's reading: the 'outfit' you were born in is your bare skin, and its name links to the annual celebration of your birth"
+     }
+    ],
+    "explanation": {
+     "surface": "Choosing something to wear for a yearly party.",
+     "walkthrough": "'Barely' is the giveaway: the original outfit is the bare skin you were born in, named after the day you celebrate each year.",
+     "definitionFit": "A birthday suit is the humorous idiom for being naked, the state everyone is born in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "outfit"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +224,65 @@
     "text": "Most recent points top couple kept short",
     "enumeration": "6"
    },
-   "solution": "NEWEST"
+   "solution": "NEWEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEWEST",
+    "definitions": [
+     {
+      "text": "Most recent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "charade",
+      "note": "in a down clue top means placed above, so the compass letters come first"
+     },
+     {
+      "text": "short",
+      "for": "charade",
+      "note": "short tells you the word meaning kept is used in a clipped form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "points",
+      "gives": "NE",
+      "note": "north and east, two compass points"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "WE",
+      "note": "a couple speaks of themselves as we"
+     },
+     {
+      "clueFragment": "kept",
+      "gives": "ST",
+      "note": "stet, the proofreader's mark meaning keep the text, cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "WE",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "The latest scores leave the leading pair cut short.",
+     "walkthrough": "In a down clue 'top' means placed above, so the points sit over the couple. The ending seems to rest on STET (keep it) clipped, a loose step.",
+     "definitionFit": "Newest is the superlative of new, meaning the most recently made or arrived."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +296,59 @@
     "text": "Odd bits of foliage arranged — or just one",
     "enumeration": "4"
    },
-   "solution": "LEAF"
+   "solution": "LEAF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "LEAF",
+    "definitions": [
+     {
+      "text": "Odd bits of foliage arranged — or just one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd bits",
+      "for": "letter_selection",
+      "note": "odd bits means the letters in the odd positions, first, third and so on"
+     },
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "letters arranged are put into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foliage",
+      "gives": "FLAE",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters of foliage"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLAE",
+       "gives": "LEAF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bits of greenery put in a vase, or maybe just a single piece.",
+     "walkthrough": "The whole clue is the definition too: one piece of foliage is exactly a LEAF.",
+     "definitionFit": "Foliage is the mass of leaves on a plant, so a single unit of it is a leaf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +362,66 @@
     "text": "European objects about Cubist's first works of art",
     "enumeration": "8"
    },
-   "solution": "ETCHINGS"
+   "solution": "ETCHINGS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ETCHINGS",
+    "definitions": [
+     {
+      "text": "works of art",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the word for objects wraps the next letter"
+     },
+     {
+      "text": "first",
+      "for": "container",
+      "note": "first picks out only the opening letter of the artist's word, which then goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "objects",
+      "gives": "THINGS",
+      "note": "things are objects"
+     },
+     {
+      "clueFragment": "Cubist's",
+      "gives": "C",
+      "select": "first",
+      "note": "the initial of Cubist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "TCHINGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A European collection gathered around a Cubist painter's early pieces.",
+     "definitionFit": "Etchings are prints made from engraved plates, a standard form of artwork."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "objects"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +435,48 @@
     "text": "Something circular round setting that's square",
     "enumeration": "4"
    },
-   "solution": "RING"
+   "solution": "RING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RING",
+    "definitions": [
+     {
+      "text": "Something circular",
+      "at": 0
+     },
+     {
+      "text": "round",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something circular",
+      "note": "first meaning: a band or circle"
+     },
+     {
+      "clueFragment": "round",
+      "note": "second meaning: to encircle"
+     },
+     {
+      "clueFragment": "setting that's square",
+      "note": "a third nudge: a boxing ..., the arena, is actually square"
+     }
+    ],
+    "explanation": {
+     "surface": "A round thing put in a square setting, like a jewel in a mount.",
+     "walkthrough": "The joke is that the boxing ring, though so named, is square.",
+     "definitionFit": "A ring is a circular band, and to ring something is to surround it, as a circle does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "setting"
+    }
+   }
   },
   {
    "number": 8,
@@ -136,7 +490,50 @@
     "text": "Popular attitude, for example",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSTANCE",
+    "definitions": [
+     {
+      "text": "example",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "something popular is in"
+     },
+     {
+      "clueFragment": "attitude",
+      "gives": "STANCE",
+      "note": "a stance is an attitude or position"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A widely held view offered as an illustration.",
+     "walkthrough": "'For example' reads as one phrase, but 'for' merely links; it also nods to 'for instance'.",
+     "definitionFit": "An instance is a single case cited as an example or illustration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Popular"
+    }
+   }
   },
   {
    "number": 9,
@@ -150,7 +547,57 @@
     "text": "European from North or South hugged by schoolboy",
     "enumeration": "8"
    },
-   "solution": "ESTONIAN"
+   "solution": "ESTONIAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ESTONIAN",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugged by",
+      "for": "container",
+      "note": "something hugged is held inside another's arms, so one letter goes inside the pupil's word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "schoolboy",
+      "gives": "ETONIAN",
+      "note": "an Etonian is a pupil at Eton College, the English public school"
+     },
+     {
+      "clueFragment": "North or South",
+      "gives": "S",
+      "note": "choose the second option, S for South"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "S",
+      "TONIAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A visitor from either end of the country befriended by a schoolboy.",
+     "definitionFit": "An Estonian comes from Estonia, a Baltic country in northern Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hugged"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +611,46 @@
     "text": "Do some manual work in kitchen in prison",
     "enumeration": "4"
    },
-   "solution": "STIR"
+   "solution": "STIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STIR",
+    "definitions": [
+     {
+      "text": "Do some manual work in kitchen",
+      "at": 0
+     },
+     {
+      "text": "prison",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do some manual work in kitchen",
+      "note": "first meaning: to mix a pot with a spoon"
+     },
+     {
+      "clueFragment": "prison",
+      "note": "second meaning: British slang for jail"
+     }
+    ],
+    "explanation": {
+     "surface": "A prisoner put to work in the jail kitchen.",
+     "walkthrough": "The surface pictures kitchen duty inside a jail, joining the two meanings. Stir is old British slang for prison.",
+     "definitionFit": "To stir is to move a spoon round a pot; separately, stir is slang for a jail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "manual"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +670,60 @@
      }
     ]
    },
-   "solution": "TWELFTHNIGHT"
+   "solution": "TWELFTHNIGHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TWELFTH NIGHT",
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "different",
+      "for": "anagram",
+      "note": "different signals that the next word's letters must be made into something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after eleven",
+      "gives": "TWELFTH",
+      "note": "the ordinal that follows eleventh"
+     },
+     {
+      "clueFragment": "thing",
+      "gives": "THING",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWELFTH",
+      "NIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THING",
+       "gives": "NIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After eleven o'clock, a show offers something new.",
+     "definitionFit": "Twelfth Night is Shakespeare's comedy of mistaken identity, a well-known play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eleven"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +737,63 @@
     "text": "Bad image city changed in state without authorisation",
     "enumeration": "12"
    },
-   "solution": "ILLEGITIMACY"
+   "solution": "ILLEGITIMACY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ILLEGITIMACY",
+    "definitions": [
+     {
+      "text": "state without authorisation",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed means the following letters are altered into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bad",
+      "gives": "ILL",
+      "note": "ill can mean bad, as in ill effects"
+     },
+     {
+      "clueFragment": "image city",
+      "gives": "IMAGECITY",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "EGITIMACY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IMAGECITY",
+       "gives": "EGITIMACY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town's tarnished reputation altered by unauthorised work.",
+     "definitionFit": "Illegitimacy is the condition of lacking lawful sanction or proper permission."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bad"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +807,55 @@
     "text": "One includes copy of subsequent two letters, as originally written",
     "enumeration": "8"
    },
-   "solution": "UNEDITED"
+   "solution": "UNEDITED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNEDITED",
+    "definitions": [
+     {
+      "text": "as originally written",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "includes means one word takes another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "UNITED",
+      "note": "people who are united act as one"
+     },
+     {
+      "clueFragment": "copy of subsequent two letters",
+      "gives": "ED",
+      "note": "a duplicate of the pair of letters that follow the insertion point at the end of the outer word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "ED",
+      "ITED"
+     ]
+    },
+    "explanation": {
+     "surface": "A text copied out with the next pair of letters, kept faithful to the original.",
+     "walkthrough": "'One' as a description means joined together; the inserted pair duplicates the letters that end the outer word.",
+     "definitionFit": "Unedited text has not been revised, so it stands exactly as first written."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +869,53 @@
     "text": "Turn up valuable instrument that's played in pub",
     "enumeration": "5"
    },
-   "solution": "DARTS"
+   "solution": "DARTS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DARTS",
+    "definitions": [
+     {
+      "text": "that's played in pub",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turn up",
+      "for": "reversal",
+      "note": "in a down clue turning up means the word runs bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "valuable instrument",
+      "gives": "STRAD",
+      "note": "a Strad is a Stradivarius violin, worth a fortune"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DARTS"
+     ],
+     "reversals": [
+      {
+       "from": "STRAD",
+       "to": "DARTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priceless violin produced and played in a pub.",
+     "definitionFit": "Darts is the game of throwing small arrows at a board, a fixture of British pubs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +929,58 @@
     "text": "Naval commander in eastern part of Channel's aboard",
     "enumeration": "6"
    },
-   "solution": "NELSON"
+   "solution": "NELSON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NELSON",
+    "definitions": [
+     {
+      "text": "Naval commander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eastern part of",
+      "for": "letter_selection",
+      "note": "the eastern part of an across word is its right-hand end, so only its closing letters are kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Channel's",
+      "gives": "NELS",
+      "select": "last",
+      "note": "the last four letters of the possessive"
+     },
+     {
+      "clueFragment": "aboard",
+      "gives": "ON",
+      "note": "on board means aboard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NELS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "An admiral sailing in the eastern English Channel.",
+     "definitionFit": "Horatio Nelson was the British admiral who won at Trafalgar, the archetypal naval commander."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eastern"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +994,57 @@
     "text": "Capital I extracted from Scottish island to make a killing",
     "enumeration": "4"
    },
-   "solution": "SLAY"
+   "solution": "SLAY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SLAY",
+    "definitions": [
+     {
+      "text": "make a killing",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracted from",
+      "for": "deletion",
+      "note": "extracted from means the named letter is pulled out of the island's name"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capital I",
+      "gives": "I",
+      "note": "the capital letter I"
+     },
+     {
+      "clueFragment": "Scottish island",
+      "gives": "ISLAY",
+      "note": "Islay is an island of the Inner Hebrides, famous for whisky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Hebridean distillery's profits extracted to make a fortune.",
+     "walkthrough": "'Make a killing' suggests profit, but here it is meant literally.",
+     "definitionFit": "To slay is to kill, so to make a killing in the literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "killing"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1058,72 @@
     "text": "Old fighter with power in fist exploded with anger",
     "enumeration": "8"
    },
-   "solution": "SPITFIRE"
+   "solution": "SPITFIRE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SPITFIRE",
+    "definitions": [
+     {
+      "text": "Old fighter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the abbreviation for power inside the word for a clenched hand"
+     },
+     {
+      "text": "exploded",
+      "for": "anagram",
+      "note": "exploded means blown apart and scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fist",
+      "gives": "FIST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "IRE",
+      "note": "ire is anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPITF",
+      "IRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FPIST",
+       "gives": "SPITF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran boxer whose punch blew up in a fit of rage.",
+     "walkthrough": "'Old fighter' suggests a boxer, but it is a Second World War aircraft.",
+     "definitionFit": "The Spitfire was the RAF fighter aircraft of the Second World War."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fighter"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1137,51 @@
     "text": "Responsibility of minister cut in foreign capital",
     "enumeration": "5"
    },
-   "solution": "PARIS"
+   "solution": "PARIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PARIS",
+    "definitions": [
+     {
+      "text": "foreign capital",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means the word is trimmed, losing its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Responsibility of minister",
+      "gives": "PARISH",
+      "note": "a minister has charge of a parish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A government minister's brief reduced while abroad.",
+     "walkthrough": "'Minister' suggests government, but it is a member of the clergy.",
+     "definitionFit": "Paris is the capital of France, foreign from the British setter's viewpoint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "minister"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1195,48 @@
     "text": "Continuously feed speaker port",
     "enumeration": "8"
    },
-   "solution": "PLYMOUTH"
+   "solution": "PLYMOUTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLYMOUTH",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Continuously feed",
+      "gives": "PLY",
+      "note": "to ply someone with food or drink is to keep supplying it"
+     },
+     {
+      "clueFragment": "speaker",
+      "gives": "MOUTH",
+      "note": "the mouth is what speaks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLY",
+      "MOUTH"
+     ]
+    },
+    "explanation": {
+     "surface": "Keep topping up an orator's glass of port.",
+     "walkthrough": "'Port' reads as the fortified wine; it is Plymouth, the Devon naval city.",
+     "definitionFit": "Plymouth is a major port city on the south coast of Devon, England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1250,45 @@
     "text": "Part of set for chess, say",
     "enumeration": "4"
    },
-   "solution": "GAME"
+   "solution": "GAME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GAME",
+    "definitions": [
+     {
+      "text": "Part of set",
+      "at": 0
+     },
+     {
+      "text": "chess, say",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of set",
+      "note": "first meaning: in tennis a set is made up of ..."
+     },
+     {
+      "clueFragment": "chess, say",
+      "note": "second meaning: chess is an example of a pastime with rules"
+     }
+    ],
+    "explanation": {
+     "surface": "One piece from a chess set.",
+     "definitionFit": "A tennis set is won game by game, and chess is a classic board game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1302,69 @@
     "text": "Travel with oilman at sea around part of Asia",
     "enumeration": "8"
    },
-   "solution": "MONGOLIA"
+   "solution": "MONGOLIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MONGOLIA",
+    "definitions": [
+     {
+      "text": "part of Asia",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused and all over the place, so the letters are jumbled"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the jumbled letters enclose the word for travel"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oilman",
+      "gives": "OILMAN",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "Travel",
+      "gives": "GO",
+      "note": "to go is to travel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MON",
+      "GO",
+      "LIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OILMAN",
+       "gives": "MONLIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trip with an oil worker on a boat somewhere in Asia.",
+     "definitionFit": "Mongolia is a country in East Asia, between Russia and China."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oilman"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1378,47 @@
     "text": "Damage part of dozen filling box",
     "enumeration": "6"
    },
-   "solution": "INJURY"
+   "solution": "INJURY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INJURY",
+    "definitions": [
+     {
+      "text": "Damage",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of",
+      "gives": "IN",
+      "note": "to be in something is to be part of it"
+     },
+     {
+      "clueFragment": "dozen filling box",
+      "gives": "JURY",
+      "note": "the twelve jurors who fill the jury box in court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "JURY"
+     ]
+    },
+    "explanation": {
+     "surface": "Harm done to a crate stuffed with twelve items.",
+     "walkthrough": "'Box' looks like a container to fill, but it is the jury box, where the dozen sit.",
+     "definitionFit": "An injury is harm or damage done to a body or to someone's interests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1432,47 @@
     "text": "Loudly proclaiming appeal for peace before trip",
     "enumeration": "8"
    },
-   "solution": "SHOUTING"
+   "solution": "SHOUTING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHOUTING",
+    "definitions": [
+     {
+      "text": "Loudly proclaiming",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appeal for peace",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     },
+     {
+      "clueFragment": "trip",
+      "gives": "OUTING",
+      "note": "an outing is an excursion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "OUTING"
+     ]
+    },
+    "explanation": {
+     "surface": "A campaigner calls for peace before setting off on a journey.",
+     "walkthrough": "'Peace' here means quiet, not the end of war.",
+     "definitionFit": "Shouting is calling out at full voice, so proclaiming something loudly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "peace"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1486,51 @@
     "text": "Worrying signs, with characters regularly disappearing for start",
     "enumeration": "6"
    },
-   "solution": "ORIGIN"
+   "solution": "ORIGIN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ORIGIN",
+    "definitions": [
+     {
+      "text": "start",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "characters regularly disappearing",
+      "for": "letter_selection",
+      "note": "every other letter vanishing leaves only the alternate ones behind"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worrying signs",
+      "gives": "ORIGIN",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORIGIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Alarming portents as letters keep fading away at the outset.",
+     "definitionFit": "An origin is the point where something begins, its start."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Worrying"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1544,66 @@
     "text": "Battle in recast film as result of in-fighting",
     "enumeration": "12"
    },
-   "solution": "FACTIONALISM"
+   "solution": "FACTIONALISM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FACTIONALISM",
+    "definitions": [
+     {
+      "text": "result of in-fighting",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the word for battle inside the rearranged letters"
+     },
+     {
+      "text": "recast",
+      "for": "anagram",
+      "note": "recast means cast again in a new shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film as",
+      "gives": "FILMAS",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "Battle",
+      "gives": "ACTION",
+      "note": "action is combat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ACTION",
+      "ALISM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FILMAS",
+       "gives": "FALISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A war film remade because of squabbling on set.",
+     "definitionFit": "Factionalism is division into rival cliques, the outcome of a group fighting within itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1617,59 @@
     "text": "A politician supporting Conservative party",
     "enumeration": "4"
    },
-   "solution": "CAMP"
+   "solution": "CAMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAMP",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue supporting means sitting underneath, so the following part comes after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "A backbencher backing the Tories.",
+     "definitionFit": "A camp is a faction or side holding shared views, like a party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1683,43 @@
     "text": "Slice of Cheddar cheese that's curved in shape",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARCH",
+    "definitions": [
+     {
+      "text": "that's curved in shape",
+      "at": 24,
+      "note": "noun sense: a thing that has a curved shape"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Slice of",
+      "for": "hidden_word",
+      "note": "a slice of something is a piece cut out, so the letters come from within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheddar cheese",
+      "gives": "ARCH",
+      "note": "taken from the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A wedge of Cheddar that has curled up.",
+     "definitionFit": "An arch is a curved structure spanning an opening, something with a bowed form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slice"
+    }
+   }
   },
   {
    "number": 26,
@@ -422,7 +1733,59 @@
     "text": "Band together and completely finish off enemy",
     "enumeration": "4"
    },
-   "solution": "ALLY"
+   "solution": "ALLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALLY",
+    "definitions": [
+     {
+      "text": "Band together",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finish off",
+      "for": "letter_selection",
+      "note": "the finish of a word is its last letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "completely",
+      "gives": "ALL",
+      "note": "all can mean completely, as in all alone"
+     },
+     {
+      "clueFragment": "enemy",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Join forces and wipe out the foe.",
+     "walkthrough": "'Finish off' sounds murderous but only picks a last letter.",
+     "definitionFit": "To ally is to unite with others for a shared purpose, joining together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finish"
+    }
+   }
   },
   {
    "number": 27,
@@ -436,7 +1799,56 @@
     "text": "Act with minor, possibly, as Juliet was",
     "enumeration": "8"
    },
-   "solution": "ROMANTIC"
+   "solution": "ROMANTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROMANTIC",
+    "definitions": [
+     {
+      "text": "as Juliet was",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one possible arrangement of the given letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Act",
+      "gives": "ACT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "minor",
+      "gives": "MINOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTMINOR",
+       "gives": "ROMANTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Playing with an underage girl, which Juliet was.",
+     "walkthrough": "Juliet, of Romeo and Juliet, was also famously young, which the surface plays on.",
+     "definitionFit": "Juliet is the archetypal lover, so romantic describes her nature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "minor"
+    }
+   }
   },
   {
    "number": 28,
@@ -450,7 +1862,67 @@
     "text": "Chap who fixes things in hospital also doctored many",
     "enumeration": "8"
    },
-   "solution": "HANDYMAN"
+   "solution": "HANDYMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HANDYMAN",
+    "definitions": [
+     {
+      "text": "Chap who fixes things",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doctored",
+      "for": "anagram",
+      "note": "doctored means tampered with, so the letters are altered in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map sign for a hospital"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "AND",
+      "note": "and adds something too"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "MANY",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AND",
+      "YMAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MANY",
+       "gives": "YMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A repairman in a hospital who also treated plenty of patients.",
+     "walkthrough": "'Doctored' fits the hospital scene, but it is the anagram signal.",
+     "definitionFit": "A handyman is someone employed for odd jobs and household repairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctored"
+    }
+   }
   }
  ]
 }
