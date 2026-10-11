@@ -377,10 +377,14 @@ def flagged_requests():
 #: seventh join_split()'s word broken at a comma that one other reading also
 #: broke, or into two words, which most readings print whole; the eighth
 #: agree()'s figure run onto a word that no reading prints ("3Island",
-#: "said the1 Rev"), refused as a digit inside a word; the last agree()'s
+#: "said the1 Rev"), refused as a digit inside a word; the ninth agree()'s
 #: stop or middle dot glued between two words ("visionary.lose.his", "for
 #: .concealed"), refused as a stray mark inside a word, and the Times
-#: filer's word every reading spells alike ("ignis"), refused as no word.
+#: filer's word every reading spells alike ("ignis"), refused as no word;
+#: the last parted()'s misread most readings print whole as a known word
+#: ("reorgauized", once "re orgau ized") and agree()'s halves of a word
+#: joined once the next word is parted off ("orig inallyby"), refused as
+#: no word.
 VOTE_MENDED = (
     ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
                                    "start is lost: other readings have")),
@@ -392,6 +396,7 @@ VOTE_MENDED = (
     ("2026-10-10T20:00:00+00:00", ("readings differ", "not a word")),
     ("2026-10-11T01:50:00+00:00", ("a digit inside a word",)),
     ("2026-10-11T02:31:00+00:00", ("a stray mark inside a word", "not a word")),
+    ("2026-10-11T02:50:00+00:00", ("not a word",)),
 )
 
 
