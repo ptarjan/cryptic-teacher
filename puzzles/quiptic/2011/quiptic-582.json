@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Have sheriff's helpers emptied saloons?",
     "enumeration": "7"
    },
-   "solution": "POSSESS"
+   "solution": "POSSESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "POSSESS",
+    "definitions": [
+     {
+      "text": "Have",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "a word that has been emptied loses its insides, leaving only its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheriff's helpers",
+      "gives": "POSSE",
+      "note": "a posse is the band of men a Wild West sheriff gathers to help him"
+     },
+     {
+      "clueFragment": "saloons",
+      "gives": "SS",
+      "select": "outer",
+      "note": "the outside letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POSSE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Western scene: the sheriff's deputies have cleared everyone out of the bars.",
+     "walkthrough": "'Have' looks like the start of a question but is the definition; the question mark covers the odd phrasing.",
+     "definitionFit": "To possess something is to own or hold it, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Have"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,43 @@
     "text": "Question that baffles model?",
     "enumeration": "5"
    },
-   "solution": "POSER"
+   "solution": "POSER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POSER",
+    "definitions": [
+     {
+      "text": "Question that baffles",
+      "at": 0
+     },
+     {
+      "text": "model",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Question that baffles",
+      "note": "first meaning: a puzzling problem"
+     },
+     {
+      "clueFragment": "model",
+      "note": "second meaning: someone who strikes a pose for an artist or camera"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether some fashion model is a puzzling one.",
+     "definitionFit": "The word means both a difficult puzzle and a person who poses, as a model does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +149,51 @@
     "text": "Rum making saint wander",
     "enumeration": "7"
    },
-   "solution": "STRANGE"
+   "solution": "STRANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRANGE",
+    "definitions": [
+     {
+      "text": "Rum",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "wander",
+      "gives": "RANGE",
+      "note": "to range is to roam freely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A spirit so strong it makes even a holy man stray.",
+     "walkthrough": "'Rum' looks like the drink; in British slang it is an adjective meaning odd.",
+     "definitionFit": "Rum is an old-fashioned British word for odd or peculiar, a synonym of strange."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rum"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +207,43 @@
     "text": "Middlesex possibly is holding trade fair",
     "enumeration": "4"
    },
-   "solution": "EXPO"
+   "solution": "EXPO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EXPO",
+    "definitions": [
+     {
+      "text": "trade fair",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is holding",
+      "for": "hidden_word",
+      "note": "the words hold the letters within them, so they are found inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Middlesex possibly",
+      "gives": "EXPO",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "The old English county of Middlesex may be hosting a trade show.",
+     "walkthrough": "Middlesex is a historic county now largely absorbed into Greater London.",
+     "definitionFit": "An expo, short for exposition, is a large exhibition such as a trade fair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Middlesex"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +263,40 @@
      }
     ]
    },
-   "solution": "SHRINKINGVIOLET"
+   "solution": "SHRINKINGVIOLET",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SHRINKING VIOLET",
+    "definitions": [
+     {
+      "text": "Saying Vi is one who's shy?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saying Vi",
+      "note": "surface reading: a person who calls herself by a nickname"
+     },
+     {
+      "clueFragment": "is one who's shy?",
+      "note": "setter's reading: a full female name cut down to its two-letter short form is a name that has got smaller, and a timid person is known by that phrase"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman who goes by a pet name is perhaps a bashful person.",
+     "walkthrough": "Vi is short for a flower name, so saying Vi is that name contracting; the resulting phrase is the idiom for a very shy person.",
+     "definitionFit": "The idiom names a timid, retiring person, likening them to a modest flower hiding in the undergrowth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Saying"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +310,54 @@
     "text": "Making fast call after beastly sound",
     "enumeration": "7"
    },
-   "solution": "MOORING"
+   "solution": "MOORING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOORING",
+    "definitions": [
+     {
+      "text": "Making fast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the call second, behind the animal noise that follows it in the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beastly sound",
+      "gives": "MOO",
+      "note": "the noise a cow makes"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "RING",
+      "note": "to ring someone is to phone them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOO",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quickly phones back after hearing an animal noise.",
+     "walkthrough": "'After' puts the call second, behind the animal noise. 'Making fast' means securing, not hurrying.",
+     "definitionFit": "Mooring a boat means tying it securely to a post or buoy, and to make fast is to tie securely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +381,52 @@
      }
     ]
    },
-   "solution": "MINISTEROFSTATE"
+   "solution": "MINISTEROFSTATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MINISTER OF STATE",
+    "definitions": [
+     {
+      "text": "Politician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "applying spin to",
+      "for": "anagram",
+      "note": "spinning something whirls it about, mixing up the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trite manifestos",
+      "gives": "TRITEMANIFESTOS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRITEMANIFESTOS",
+       "gives": "MINISTEROFSTATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician putting a gloss on hackneyed party manifestos.",
+     "walkthrough": "'Spin' plays on political spin-doctoring. In Britain this rank is a junior government minister below a secretary of state.",
+     "definitionFit": "This is a ministerial post in the UK government, held by a politician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spin"
+    }
+   }
   },
   {
    "number": 6,
@@ -157,7 +450,42 @@
      }
     ]
    },
-   "solution": "OUTOFORDER"
+   "solution": "OUTOFORDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUT OF ORDER",
+    "definitions": [
+     {
+      "text": "Not working",
+      "at": 0
+     },
+     {
+      "text": "as an anagram?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not working",
+      "note": "first meaning: broken, as a machine with a sign on it"
+     },
+     {
+      "clueFragment": "as an anagram?",
+      "note": "second meaning: letters muddled, not in their original sequence"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asking whether a broken device is a puzzle of jumbled letters.",
+     "definitionFit": "The phrase describes broken equipment and, literally, letters no longer in sequence, as in a rearrangement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -171,7 +499,50 @@
     "text": "Wrong grid one disregarded",
     "enumeration": "7"
    },
-   "solution": "IGNORED"
+   "solution": "IGNORED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IGNORED",
+    "definitions": [
+     {
+      "text": "disregarded",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wrong",
+      "for": "anagram",
+      "note": "something wrong is in an incorrect state, so these letters need putting right"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grid one",
+      "gives": "GRIDONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRIDONE",
+       "gives": "IGNORED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver's incorrect crossword grid gets thrown aside.",
+     "definitionFit": "Something ignored has been paid no attention, the same as disregarded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grid"
+    }
+   }
   },
   {
    "number": 8,
@@ -185,7 +556,63 @@
     "text": "Going without Oscar, bad actor needed material",
     "enumeration": "7"
    },
-   "solution": "GINGHAM"
+   "solution": "GINGHAM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GINGHAM",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Going",
+      "gives": "GOING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "O is Oscar in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "bad actor",
+      "gives": "HAM",
+      "note": "a ham is an overacting performer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GING",
+      "HAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A poor actor, missing out on an Oscar, needed some fabric for a costume.",
+     "walkthrough": "'Oscar' suggests the film award, but it is the letter from the phonetic alphabet, removed from the first word.",
+     "definitionFit": "Gingham is a checked cotton fabric, so it is a material in the cloth sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 9,
@@ -205,7 +632,50 @@
      }
     ]
    },
-   "solution": "SCRAPIRON"
+   "solution": "SCRAPIRON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCRAP IRON",
+    "definitions": [
+     {
+      "text": "that may be recycled",
+      "at": 16,
+      "note": "a descriptive phrase standing for a noun: material that may be recycled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fight",
+      "gives": "SCRAP",
+      "note": "a scrap is a brief fight"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "IRON",
+      "note": "an iron is a type of golf club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRAP",
+      "IRON"
+     ]
+    },
+    "explanation": {
+     "surface": "A brawl involving a golf club, with the weapon then sent for recycling.",
+     "definitionFit": "Scrap iron is discarded metal collected so it can be melted down and reused."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 10,
@@ -219,7 +689,55 @@
     "text": "Part of joint backing music group",
     "enumeration": "5"
    },
-   "solution": "TENON"
+   "solution": "TENON",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TENON",
+    "definitions": [
+     {
+      "text": "Part of joint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "moving backwards, so the word is read from its end to its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "music group",
+      "gives": "NONET",
+      "note": "a group of nine musicians"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENON"
+     ],
+     "reversals": [
+      {
+       "from": "NONET",
+       "to": "TENON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of a nightclub venue with a band providing backing music.",
+     "walkthrough": "'Joint' suggests a nightclub and 'backing' a backing band, but this is carpentry.",
+     "definitionFit": "A tenon is the projecting tongue in a mortise-and-tenon woodwork joint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 11,
@@ -233,7 +751,51 @@
     "text": "Turn out this little piggy",
     "enumeration": "4"
    },
-   "solution": "RUNT"
+   "solution": "RUNT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RUNT",
+    "definitions": [
+     {
+      "text": "this little piggy",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "turned out means rearranged into a different form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn",
+      "gives": "TURN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TURN",
+       "gives": "RUNT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to evict the small pig, echoing the nursery rhyme.",
+     "walkthrough": "'Turn out' reads as one phrasal verb, but the first word is the letters and the second the signal.",
+     "definitionFit": "The runt is the smallest, weakest animal in a litter, typically a little piglet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 12,
@@ -257,7 +819,42 @@
      }
     ]
    },
-   "solution": "ANDSOFORTH"
+   "solution": "ANDSOFORTH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AND SO FORTH",
+    "definitions": [
+     {
+      "text": "etc",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the letters sit inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hands of orthopaedist",
+      "gives": "ANDSOFORTH",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Patients placed in the care of a bone specialist, and so on.",
+     "definitionFit": "Etc abbreviates et cetera, which in plain English means and the rest, and similar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 13,
@@ -271,7 +868,58 @@
     "text": "\"This is ludicrous\", I snarled",
     "enumeration": "10"
    },
-   "solution": "RIDICULOUS"
+   "solution": "RIDICULOUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "RIDICULOUS",
+    "definitions": [
+     {
+      "text": "\"This is ludicrous\", I snarled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snarled",
+      "for": "anagram",
+      "note": "snarled means tangled up, so the letters are knotted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ludicrous",
+      "gives": "LUDICROUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LUDICROUSI",
+       "gives": "RIDICULOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angry person growling a protest about something absurd.",
+     "walkthrough": "'Snarled' reads as growled angrily; it means tangled. The whole outburst also defines the answer, a protest that something is absurd.",
+     "definitionFit": "Ludicrous and ridiculous are close synonyms, both meaning absurd enough to invite mockery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "snarled"
+    }
+   }
   },
   {
    "number": 14,
@@ -285,7 +933,61 @@
     "text": "Twins, for example, reversing car",
     "enumeration": "6"
    },
-   "solution": "GEMINI"
+   "solution": "GEMINI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GEMINI",
+    "definitions": [
+     {
+      "text": "Twins",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "going backwards, so the abbreviation just before it is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "the usual abbreviation, exempli gratia"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "MINI",
+      "note": "the Mini is a small British car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "MINI"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two identical siblings backing a car out of a driveway.",
+     "walkthrough": "'For example' looks like it qualifies Twins, but it is wordplay; only the abbreviation turns round, not the car.",
+     "definitionFit": "Gemini is the zodiac sign and constellation represented by the twins Castor and Pollux."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "example"
+    }
+   }
   },
   {
    "number": 15,
@@ -299,7 +1001,51 @@
     "text": "What may make me a lord",
     "enumeration": "7"
    },
-   "solution": "EARLDOM"
+   "solution": "EARLDOM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "EARLDOM",
+    "definitions": [
+     {
+      "text": "What may make me a lord",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "may make",
+      "for": "anagram",
+      "note": "making something from material implies building it anew in a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me a lord",
+      "gives": "MEALORD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEALORD",
+       "gives": "EARLDOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wondering what title might ennoble them.",
+     "walkthrough": "The whole clue is both definition and wordplay: the letters of the last three words rearrange into the answer, which is indeed what would make someone a lord.",
+     "definitionFit": "Being granted an earldom, the rank of earl, makes a person a peer and hence a lord."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1059,50 @@
     "text": "Fool taking heather to be small tree",
     "enumeration": "7"
    },
-   "solution": "SAPLING"
+   "solution": "SAPLING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAPLING",
+    "definitions": [
+     {
+      "text": "small tree",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "SAP",
+      "note": "a sap is a gullible person"
+     },
+     {
+      "clueFragment": "heather",
+      "gives": "LING",
+      "note": "ling is the common heather plant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAP",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A silly gardener mistakes a heather plant for a little tree.",
+     "definitionFit": "A sapling is a young tree, still slender and short."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heather"
+    }
+   }
   },
   {
    "number": 16,
@@ -327,7 +1116,51 @@
     "text": "Editor's designer drug",
     "enumeration": "7"
    },
-   "solution": "STEROID"
+   "solution": "STEROID",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEROID",
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designer",
+      "for": "anagram",
+      "note": "a designer drug is chemically re-engineered, so these letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Editor's",
+      "gives": "EDITORS",
+      "note": "taken as written, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EDITORS",
+       "gives": "STEROID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper editor's fashionable illicit drug.",
+     "walkthrough": "'Designer drug' reads as a phrase; 'designer' is the signal and 'drug' alone the definition.",
+     "definitionFit": "Steroids are a class of drugs, often abused by athletes to build muscle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "designer"
+    }
+   }
   },
   {
    "number": 17,
@@ -347,7 +1180,47 @@
      }
     ]
    },
-   "solution": "PITSTOP"
+   "solution": "PITSTOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIT STOP",
+    "definitions": [
+     {
+      "text": "when mechanics have to work fast",
+      "at": 13,
+      "note": "a descriptive phrase for a noun: an occasion when mechanics must work fast"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mine",
+      "gives": "PIT",
+      "note": "a pit is a coal mine"
+     },
+     {
+      "clueFragment": "closure",
+      "gives": "STOP",
+      "note": "a stop is a halt or shutting down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIT",
+      "STOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A colliery shutting down, with workers rushing to finish.",
+     "definitionFit": "In motor racing a pit stop is the brief halt when the crew refuels and changes tyres at speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Mine"
+    }
+   }
   },
   {
    "number": 18,
@@ -361,7 +1234,55 @@
     "text": "Just outside gym for all to see",
     "enumeration": "6"
    },
-   "solution": "OPENLY"
+   "solution": "OPENLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPENLY",
+    "definitions": [
+     {
+      "text": "for all to see",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one word goes around the other, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just",
+      "gives": "ONLY",
+      "note": "just in the sense of merely"
+     },
+     {
+      "clueFragment": "gym",
+      "gives": "PE",
+      "note": "physical education, the school gym lesson"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PE",
+      "NLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Something happening just outside the gym, in full public view.",
+     "walkthrough": "'Just outside' reads as a location, but 'Just' is the outer word.",
+     "definitionFit": "Doing something openly means doing it publicly, with nothing hidden from onlookers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 19,
@@ -381,7 +1302,50 @@
      }
     ]
    },
-   "solution": "LONGAGO"
+   "solution": "LONGAGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LONG AGO",
+    "definitions": [
+     {
+      "text": "It's many years since",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s been given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pine",
+      "gives": "LONG",
+      "note": "to pine is to yearn"
+     },
+     {
+      "clueFragment": "a try",
+      "gives": "AGO",
+      "note": "a go is an attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LONG",
+      "AGO"
+     ]
+    },
+    "explanation": {
+     "surface": "It has been ages since a pine tree was tried out.",
+     "walkthrough": "'Pine' looks like the tree; it is the verb, to yearn.",
+     "definitionFit": "Long ago means in the distant past, so it is many years since then."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pine"
+    }
+   }
   },
   {
    "number": 20,
@@ -395,7 +1359,55 @@
     "text": "Hit tunes as recollected by fan",
     "enumeration": "10"
    },
-   "solution": "ENTHUSIAST"
+   "solution": "ENTHUSIAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENTHUSIAST",
+    "definitions": [
+     {
+      "text": "fan",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recollected",
+      "for": "anagram",
+      "note": "re-collected means gathered up again, so the letters are reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit tunes as",
+      "gives": "HITTUNESAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HITTUNESAS",
+       "gives": "ENTHUSIAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A devoted fan remembers the chart hits.",
+     "walkthrough": "'Recollected' reads as remembered; split as re-collected it signals a rearrangement.",
+     "definitionFit": "A fan is a keen supporter or devotee, which is what an enthusiast is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "recollected"
+    }
+   }
   },
   {
    "number": 21,
@@ -409,7 +1421,44 @@
     "text": "I have the same photo!",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SNAP",
+    "definitions": [
+     {
+      "text": "I have the same",
+      "at": 0
+     },
+     {
+      "text": "photo",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I have the same",
+      "note": "first meaning: the call in the card game when two matching cards turn up"
+     },
+     {
+      "clueFragment": "photo",
+      "note": "second meaning: a casual photograph, a snapshot"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone spots that a friend has an identical picture to theirs.",
+     "walkthrough": "The card game is the children's game in which players shout the word on seeing two matching cards.",
+     "definitionFit": "The word is both the exclamation in the matching card game and an informal noun for a snapshot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "same"
+    }
+   }
   },
   {
    "number": 22,
@@ -423,7 +1472,43 @@
     "text": "Thrash with stick",
     "enumeration": "5"
    },
-   "solution": "PASTE"
+   "solution": "PASTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PASTE",
+    "definitions": [
+     {
+      "text": "Thrash",
+      "at": 0
+     },
+     {
+      "text": "stick",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thrash",
+      "note": "first meaning: to beat soundly, as in a heavy defeat"
+     },
+     {
+      "clueFragment": "stick",
+      "note": "second meaning: to glue something in place"
+     }
+    ],
+    "explanation": {
+     "surface": "Beating someone with a cane.",
+     "definitionFit": "The verb means both to beat heavily, informally, and to fix in place with adhesive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 23,
@@ -437,7 +1522,43 @@
     "text": "Part of procedure — one of 39?",
     "enumeration": "4"
    },
-   "solution": "STEP"
+   "solution": "STEP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEP",
+    "definitions": [
+     {
+      "text": "Part of procedure",
+      "at": 0
+     },
+     {
+      "text": "one of 39?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of procedure",
+      "note": "first meaning: one stage in a process"
+     },
+     {
+      "clueFragment": "one of 39?",
+      "note": "second meaning: from John Buchan's thriller The Thirty-Nine ..."
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether a stage of a process is one of thirty-nine.",
+     "walkthrough": "39 looks like a cross-reference to another clue, but no such entry exists; it points to Buchan's novel.",
+     "definitionFit": "A step is one stage of a procedure, and Buchan's spy novel is titled after thirty-nine of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1572,51 @@
     "text": "Cap or old hat found before party",
     "enumeration": "5"
    },
-   "solution": "OUTDO"
+   "solution": "OUTDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTDO",
+    "definitions": [
+     {
+      "text": "Cap",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old hat",
+      "gives": "OUT",
+      "note": "out of fashion"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a social gathering"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A cap or an old-fashioned hat turns up before a party.",
+     "walkthrough": "'Cap' and 'hat' pretend to be headgear; 'Cap' is a verb, and 'old hat' means unfashionable.",
+     "definitionFit": "To cap something is to better or top it, which is to surpass it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cap"
+    }
+   }
   },
   {
    "number": 25,
@@ -465,7 +1630,44 @@
     "text": "Not major roads, anyhow",
     "enumeration": "9"
    },
-   "solution": "LEASTWAYS"
+   "solution": "LEASTWAYS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEASTWAYS",
+    "definitions": [
+     {
+      "text": "Not major roads",
+      "at": 0
+     },
+     {
+      "text": "anyhow",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not major roads",
+      "note": "first meaning, read as two words: the smallest routes"
+     },
+     {
+      "clueFragment": "anyhow",
+      "note": "second meaning: at any rate, at least"
+     }
+    ],
+    "explanation": {
+     "surface": "A traveller noting the routes are minor ones, at any rate.",
+     "walkthrough": "The first meaning splits the answer into two words, the lowest-ranking of the ways.",
+     "definitionFit": "The word is an informal adverb meaning at least or in any case, the sense of anyhow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "anyhow"
+    }
+   }
   },
   {
    "number": 26,
@@ -479,7 +1681,68 @@
     "text": "Plant is put back in store",
     "enumeration": "7"
    },
-   "solution": "DEPOSIT"
+   "solution": "DEPOSIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DEPOSIT",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the short word is read from right to left"
+     },
+     {
+      "text": "put",
+      "for": "container",
+      "note": "putting one thing in another places it inside, enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "store",
+      "gives": "DEPOT",
+      "note": "a depot is a warehouse or storehouse"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEPO",
+      "SI",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A factory is relocated back into storage.",
+     "walkthrough": "'Plant' looks like a noun for a factory or a flower; it is the verb, to set down. The reversed word goes inside the storehouse.",
+     "definitionFit": "To plant something is to set or lay it down somewhere, which is to deposit it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 27,
@@ -493,7 +1756,58 @@
     "text": "Be unable to contain one's rage — push policeman into river!",
     "enumeration": "7"
    },
-   "solution": "EXPLODE"
+   "solution": "EXPLODE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXPLODE",
+    "definitions": [
+     {
+      "text": "Be unable to contain one's rage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "pushing something into another thing places it inside"
+     }
+    ],
+    "linkWords": [
+     "push"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "EXE",
+      "note": "the Exe is a river in Devon"
+     },
+     {
+      "clueFragment": "policeman",
+      "gives": "PLOD",
+      "note": "Plod is British slang for a police officer, from Mr Plod in the Noddy books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PLOD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A furious person feels like shoving a constable into the water.",
+     "walkthrough": "The Exe flows through Exeter in south-west England; Plod is a mocking nickname for the police.",
+     "definitionFit": "To explode is to lose one's temper violently, being unable to hold anger in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
+   }
   }
  ]
 }
