@@ -942,6 +942,16 @@ SPECKS = "\u00b7\u2022"
 #: second word ("The .beggar").
 SPECK_JOIN = re.compile(r"(?<![\w.'\u2019])([A-Za-z]+(?:'[A-Za-z]+)?)"
                         r"( ?[.:\u00b7\u2022]{1,2}|[,;:!?][\u00b7\u2022]| ?\.(?=[a-z]))([A-Za-z]+)\b(?![.'\u2019]?[A-Za-z])")
+#: A mark glued between two words with no space: a lone ,;!? or double
+#: quote, or a run of two or three hyphens; a quote may stand before a
+#: bracket ("king"(Richard").
+GLUED_MARK = re.compile(r"(?<![\w.'\u2019-])([A-Za-z]+(?:'[A-Za-z]+)?)([,;!?\"\u201c\u201d]|-{2,3})"
+                        r"(\(?[A-Za-z]+)\b(?![.'\u2019]?[A-Za-z])")
+#: Words no sentence ends on: a stop after one is a speck.
+NO_SENTENCE_END = {"a", "an", "the", "of", "by", "for", "to", "in", "into", "on", "at", "with", "from", "and", "or"}
+#: Recognisers' East Asian reading of a dash ("\u4e00", the figure one)
+#: or a speck (an ideographic comma, a trade mark sign).
+CJK_SPECK = re.compile("[\u4e00\u3001\u2122]")
 #: How often the corpus's clues must print two words side by side for a
 #: speck between them to part them when no other reading does ("of.the").
 SPECK_PAIRS = 20
@@ -955,7 +965,7 @@ def parted(clue, others):
     two words it ran together over a stop ("to.poison", "Anag.of") parted."""
     # Words run together over a stop are one run here: "walls.from" is
     # longer than any word of No 17 16D.
-    runs = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)*", re.sub(r"(?<=[A-Za-z])(?: ?[.:\u00b7\u2022]{1,2}|[,;:!?][\u00b7\u2022])(?=[A-Za-z])", "", clue))
+    runs = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)*", re.sub(r"(?<=[A-Za-z])(?: ?[.:\u00b7\u2022]{1,2}|[,;:!?][\u00b7\u2022]|[\"\u201c\u201d]\(?|-{2,3})(?=[A-Za-z])", "", clue))
     longest = max((len(w) for w in runs), default=0)
     apart = {}
     for theirs in others:
@@ -1025,7 +1035,11 @@ def parted(clue, others):
         if sp.strip(SPECKS) == "" or sp[0] in ",;!?":
             pass  # a speck no clue prints, or a mark and one
         elif not b[0].islower() or len(b) < 2:
-            return m.group()
+            # Before a capital a stop ends a sentence ("John Bull.The"),
+            # unless no sentence ends on the word before it: parted where a
+            # reading prints the two side by side ("by.Churchill").
+            if not (sp == "." and len(b) > 1 and joined in apart and a.lower() in NO_SENTENCE_END):
+                return m.group()
         if is_word(joined):
             return m.group()  # a word with a speck in it ("Snar.es")
         said = joined in apart or joined in marked_apart
@@ -1046,6 +1060,34 @@ def parted(clue, others):
         if (a + b).lower() not in apart or known(m.group().lower()):
             return m.group()
         return f"{a}' {b}" if a[-1] in "sS" else f"{a} '{b}"
+    def glued(m):
+        # A mark glued between two words (GLUED_MARK). A mark a reading
+        # prints there gets the space after it ("Snakes!One", "Utter,a").
+        # A double quote closing one the clue opened gets it too
+        # ("docet"is", "king"(Richard"); one that pairs with nothing before a
+        # small letter is a speck, made the words' space ("grow"in"), where
+        # a reading prints them side by side or the corpus's clues print
+        # them as a pair SPECK_PAIRS times. Hyphens run between two words
+        # are the dash ("up---least").
+        a, sp, b = m.group(1), m.group(2), m.group(3)
+        w = b.lstrip("(")
+        joined = (a + w).lower()
+        if sp[0] == "-":
+            return f"{a} \u2014 {b}" if known(a.lower()) and known(w.lower()) else m.group()
+        if sp in ",;!?":
+            return f"{a}{sp} {b}" if sp in marked_apart.get(joined, ()) else m.group()
+        words_both = is_word(a.lower()) and is_word(w.lower())
+        if not (len(a) > 1 or a in "aAI") or not (joined in apart or (
+                words_both and pairs.get(f"{a.lower()} {w.lower()}", 0) >= SPECK_PAIRS)):
+            return m.group()
+        if len(re.findall("[\"\u201c\u201d]", clue[:m.start(2)])) % 2:
+            return f"{a}{sp} {b}"
+        return f"{a} {b}" if b[0].islower() and words_both else m.group()
+    unspeck = CJK_SPECK.sub(lambda m: " \u2014 " if m.group() == "\u4e00" else "", clue)
+    unspeck = re.sub("  +", " ", unspeck).strip() if unspeck != clue else clue
+    if unspeck[:1].islower() and CJK_SPECK.match(clue):
+        unspeck = unspeck[0].upper() + unspeck[1:]  # a speck read before the clue's capital
+    clue = GLUED_MARK.sub(glued, unspeck)
     clue = SPECK_JOIN.sub(stop, clue)
     # An abbreviation's last letter run into the next word ("E.g.sights",
     # "i.e.fleshless"), which SPECK_JOIN's word may not follow a stop into.
