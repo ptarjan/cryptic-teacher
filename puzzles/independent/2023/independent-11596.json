@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Long Island seafront has iron fence for those who work there?",
     "enumeration": "10"
    },
-   "solution": "LIFEGUARDS"
+   "solution": "LIFEGUARDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LIFEGUARDS",
+    "definitions": [
+     {
+      "text": "those who work there",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "has",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Long Island",
+      "gives": "LI",
+      "note": "LI is the standard abbreviation for Long Island"
+     },
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "fence",
+      "gives": "GUARD",
+      "note": "a guard is a protective barrier, like a fence"
+     },
+     {
+      "clueFragment": "seafront",
+      "gives": "S",
+      "select": "first",
+      "note": "the front of the word sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "FE",
+      "GUARD",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A fence with iron in it has been put along the beach front on Long Island, presumably for the staff.",
+     "walkthrough": "The sea's front letter goes at the very end of the answer, after the iron fence. 'There' points back to the seafront, which is where these people work.",
+     "definitionFit": "Lifeguards are the staff who patrol a beach and swimming area, so they are the people working on a seafront."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "seafront"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,56 @@
     "text": "Chance of bravery when losing power",
     "enumeration": "4"
    },
-   "solution": "LUCK"
+   "solution": "LUCK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LUCK",
+    "definitions": [
+     {
+      "text": "Chance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when losing",
+      "for": "deletion",
+      "note": "losing something means it is dropped, so a letter standing for the following word is removed"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bravery",
+      "gives": "PLUCK",
+      "note": "pluck is courage"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the abbreviation for power in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUCK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's prospects of showing courage fade as they lose their strength.",
+     "walkthrough": "PLUCK without its P leaves LUCK.",
+     "definitionFit": "Luck and chance are synonyms: both name the fortune that decides outcomes without design."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +171,47 @@
     "text": "Weary following delay",
     "enumeration": "4"
    },
-   "solution": "FLAG"
+   "solution": "FLAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAG",
+    "definitions": [
+     {
+      "text": "Weary",
+      "at": 0,
+      "note": "a verb here: to grow tired"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f. is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "delay",
+      "gives": "LAG",
+      "note": "a lag is a delay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is tired after being held up, a familiar travel complaint.",
+     "definitionFit": "To flag is to tire or lose energy, which is what weary means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +231,53 @@
      }
     ]
    },
-   "solution": "GRAINALCOHOL"
+   "solution": "GRAINALCOHOL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRAIN ALCOHOL",
+    "definitions": [
+     {
+      "text": "whisky, for example",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "settled",
+      "for": "anagram",
+      "note": "settled suggests things being put in order or arranged, so the preceding letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loan oligarch",
+      "gives": "LOANOLIGARCH",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOANOLIGARCH",
+       "gives": "GRAINALCOHOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loan to a rich Russian magnate was paid off in whisky.",
+     "definitionFit": "Whisky is distilled from fermented grain, so it is one example of grain alcohol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "settled"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +291,51 @@
     "text": "Pays attention when the evening news is shown on a handheld console",
     "enumeration": "7"
    },
-   "solution": "ATTENDS"
+   "solution": "ATTENDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTENDS",
+    "definitions": [
+     {
+      "text": "Pays attention",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "when",
+     "is shown on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the evening news",
+      "gives": "ATTEN",
+      "note": "News at Ten is the long-running ITV evening bulletin, so the news's own label is AT TEN"
+     },
+     {
+      "clueFragment": "a handheld console",
+      "gives": "DS",
+      "note": "the Nintendo DS is a handheld games console"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTEN",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone only follows the news when they can watch it on a games device.",
+     "walkthrough": "News at Ten is a British TV news programme; in a down clue 'on' puts AT TEN above DS.",
+     "definitionFit": "To attend to something is to pay attention to it, so attends is a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "news"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +355,44 @@
      }
     ]
    },
-   "solution": "DARKWEB"
+   "solution": "DARKWEB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DARK WEB",
+    "definitions": [
+     {
+      "text": "Black Widow might make this",
+      "at": 0
+     },
+     {
+      "text": "a place for criminal activity",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Black Widow might make this",
+      "note": "first meaning: a black widow is a dark spider"
+     },
+     {
+      "clueFragment": "a place for criminal activity",
+      "note": "second meaning: the hidden part of the internet where illegal trade goes on"
+     }
+    ],
+    "explanation": {
+     "surface": "Capitalised, Black Widow reads as the Marvel superhero or a femme fatale, a natural figure to link with crime.",
+     "walkthrough": "The capitals mislead: here it is just the venomous black spider.",
+     "definitionFit": "The dark web is the encrypted, unindexed part of the internet known for drug and data markets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Widow"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +406,65 @@
     "text": "Bird watching, foolishly ignoring wing",
     "enumeration": "4"
    },
-   "solution": "CHAT"
+   "solution": "CHAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CHAT",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring means leaving out, so the letters of the word after it are removed"
+     },
+     {
+      "text": "foolishly",
+      "for": "anagram",
+      "note": "doing something foolishly means doing it wildly and without order, so the remaining letters get jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "watching",
+      "gives": "WATCHING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wing",
+      "gives": "WING",
+      "note": "these four letters are taken out one by one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATCH",
+       "gives": "CHAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird-watcher behaves foolishly by paying no attention to a bird's wing.",
+     "walkthrough": "'Bird watching' looks like one phrase, but Bird is the definition. Remove W, I, N and G from WATCHING to leave ATCH.",
+     "definitionFit": "A chat is a small songbird, as in stonechat or whinchat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "watching"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +484,52 @@
      }
     ]
    },
-   "solution": "HASHBROWNS"
+   "solution": "HASHBROWNS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HASH BROWNS",
+    "definitions": [
+     {
+      "text": "a bit of breakfast",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "joins",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bungle",
+      "gives": "HASH",
+      "note": "to make a hash of something is to bungle it"
+     },
+     {
+      "clueFragment": "Paddington's family",
+      "gives": "BROWNS",
+      "note": "Paddington Bear lives with the Brown family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HASH",
+      "BROWNS"
+     ]
+    },
+    "explanation": {
+     "surface": "Bungle, the bear from the children's show Rainbow, joins Paddington Bear's household for breakfast.",
+     "walkthrough": "Bungle is the bear from the British children's TV show Rainbow, which makes the surface a bear party; here it is a verb.",
+     "definitionFit": "Hash browns are fried grated potato cakes served as part of a cooked breakfast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bungle"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +543,61 @@
     "text": "Last bit of pine inserted into the joist later",
     "enumeration": "10"
    },
-   "solution": "THEREAFTER"
+   "solution": "THEREAFTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "THEREAFTER",
+    "definitions": [
+     {
+      "text": "later",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last bit of",
+      "for": "letter_selection",
+      "note": "the last bit of a word is its final letter, so only the end of the next word is kept"
+     },
+     {
+      "text": "inserted into",
+      "for": "container",
+      "note": "something inserted into a thing is placed inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the joist",
+      "gives": "THERAFTER",
+      "note": "the stays as THE, and a joist is a rafter"
+     },
+     {
+      "clueFragment": "pine",
+      "gives": "E",
+      "select": "last",
+      "note": "the last bit of the word pine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THER",
+      "E",
+      "AFTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A carpenter fits the end of a pine piece into a joist afterwards.",
+     "definitionFit": "Thereafter means after that time, a formal synonym for later."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pine"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +611,51 @@
     "text": "Recast arch-villainous dramatis personae",
     "enumeration": "10"
    },
-   "solution": "CHARACTERS"
+   "solution": "CHARACTERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHARACTERS",
+    "definitions": [
+     {
+      "text": "dramatis personae",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "villainous",
+      "for": "anagram",
+      "note": "villainous means wicked and corrupt, so the preceding letters are corrupted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recast arch",
+      "gives": "RECASTARCH",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RECASTARCH",
+       "gives": "CHARACTERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A play's cast list has been recast with an arch-villain in it.",
+     "walkthrough": "'Recast' looks like the anagram signal, and 'arch-villainous' like one word; in fact 'Recast arch' is the fodder and 'villainous' the signal.",
+     "definitionFit": "Dramatis personae is Latin for the persons of the drama, the list of characters in a play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Recast"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +669,45 @@
     "text": "Angel will reportedly land surrounded by water",
     "enumeration": "4"
    },
-   "solution": "ISLE"
+   "solution": "ISLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ISLE",
+    "definitions": [
+     {
+      "text": "land surrounded by water",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as said by others, so what counts is how the words are spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angel will",
+      "gives": "ISLE",
+      "soundsLike": "I'LL",
+      "note": "Angel is the setter, so the setter will is I will, contracted to I'll"
+     }
+    ],
+    "explanation": {
+     "surface": "The setter promises, through a spokesperson, to touch down on an island.",
+     "walkthrough": "Setters often refer to themselves by their pen name; Angel set this puzzle, so 'Angel will' is 'I will'.",
+     "definitionFit": "An isle is an island, a piece of land with water all around it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Angel"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +727,44 @@
      }
     ]
    },
-   "solution": "BROKENHEARTS"
+   "solution": "BROKENHEARTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BROKEN HEARTS",
+    "definitions": [
+     {
+      "text": "Cryptic haters",
+      "at": 0
+     },
+     {
+      "text": "Agony for lovers",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cryptic haters",
+      "note": "first meaning, read in crossword style: the word hearts broken up and reordered spells haters"
+     },
+     {
+      "clueFragment": "Agony for lovers",
+      "note": "second meaning: the grief of a failed romance"
+     }
+    ],
+    "explanation": {
+     "surface": "A cryptic note on those who hate, followed by an outburst about the pain of love.",
+     "walkthrough": "The first half describes the answer as a crossword device: broken is a rearranging signal and hearts is its fodder, which gives haters. 'Cryptic' flags that reading.",
+     "definitionFit": "A broken heart is the overwhelming sorrow after love is lost or rejected, so lovers suffer it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "haters"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +778,71 @@
     "text": "Following UN Article, rebel saw Assembly as impossible to argue against",
     "enumeration": "12"
    },
-   "solution": "UNANSWERABLE"
+   "solution": "UNANSWERABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "UNANSWERABLE",
+    "definitions": [
+     {
+      "text": "impossible to argue against",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Assembly",
+      "for": "anagram",
+      "note": "assembly is putting parts together, so the preceding letters are built into a new order"
+     }
+    ],
+    "linkWords": [
+     "Following",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "UN",
+      "gives": "UN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "rebel saw",
+      "gives": "REBELSAW",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "AN",
+      "SWERABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REBELSAW",
+       "gives": "SWERABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel, citing a UN article, found the General Assembly's case watertight.",
+     "walkthrough": "'Assembly' with its capital looks like the UN General Assembly, but it is the signal to rearrange 'rebel saw'.",
+     "definitionFit": "An unanswerable point is one nobody can refute, which is exactly what impossible to argue against means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Assembly"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +856,69 @@
     "text": "Dreamed of cool siesta at sea on date",
     "enumeration": "10"
    },
-   "solution": "FANTASISED"
+   "solution": "FANTASISED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FANTASISED",
+    "definitions": [
+     {
+      "text": "Dreamed of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "being at sea means being confused and adrift, so the preceding letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cool",
+      "gives": "FAN",
+      "note": "a fan is something that cools you"
+     },
+     {
+      "clueFragment": "siesta",
+      "gives": "SIESTA",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "D",
+      "note": "d is the abbreviation for date"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAN",
+      "TASISE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SIESTA",
+       "gives": "TASISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone imagined a nice cool nap on a boat on a particular day.",
+     "definitionFit": "To fantasise about something is to daydream about it, so fantasised matches dreamed of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cool"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +932,54 @@
     "text": "Chalk-based treatment for skin complaint",
     "enumeration": "10"
    },
-   "solution": "BLACKHEADS"
+   "solution": "BLACKHEADS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLACKHEADS",
+    "definitions": [
+     {
+      "text": "skin complaint",
+      "at": 26,
+      "note": "the answer is plural while the definition is singular, read as the condition"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treatment",
+      "for": "anagram",
+      "note": "a treatment processes or works on something, so the preceding letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chalk-based",
+      "gives": "CHALKBASED",
+      "note": "the letters to rearrange, ignoring the hyphen"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHALKBASED",
+       "gives": "BLACKHEADS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chalky remedy is offered for a skin problem.",
+     "definitionFit": "Blackheads are small dark plugs in skin pores, a common form of acne and so a skin complaint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +993,69 @@
     "text": "Basic building blocks found in Spain, Luxembourg and El Salvador, after all",
     "enumeration": "7"
    },
-   "solution": "ALLELES"
+   "solution": "ALLELES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALLELES",
+    "definitions": [
+     {
+      "text": "Basic building blocks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the country letters behind the final word, which therefore comes first"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all",
+      "gives": "ALL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain, from España"
+     },
+     {
+      "clueFragment": "Luxembourg",
+      "gives": "L",
+      "note": "L is the international vehicle code for Luxembourg"
+     },
+     {
+      "clueFragment": "El Salvador",
+      "gives": "ES",
+      "note": "ES is the international vehicle code for El Salvador"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "E",
+      "L",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Fundamental components turn up in three countries after all, like a trade or science report.",
+     "walkthrough": "'after all' sounds like a throwaway phrase, but it puts ALL at the front.",
+     "definitionFit": "Alleles are variant forms of a gene, the basic units of inheritance in genetics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "all"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1075,51 @@
      }
     ]
    },
-   "solution": "BAKEOFF"
+   "solution": "BAKEOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BAKE-OFF",
+    "definitions": [
+     {
+      "text": "this competition",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "but required for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brownie",
+      "gives": "BAKE",
+      "note": "a brownie is a bake, a baked item"
+     },
+     {
+      "clueFragment": "unavailable",
+      "gives": "OFF",
+      "note": "a dish that is off is no longer on the menu"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAKE",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "The brownie is sold out, yet it is exactly what the baking contest demands.",
+     "walkthrough": "The Great British Bake Off is a hugely popular TV baking contest; 'Brownie' could also be a young Girl Guide.",
+     "definitionFit": "A bake-off is a baking competition, the kind of event where a brownie would be entered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brownie"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1139,42 @@
      }
     ]
    },
-   "solution": "TICKOFF"
+   "solution": "TICKOFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TICK OFF",
+    "definitions": [
+     {
+      "text": "Confirm complete",
+      "at": 0
+     },
+     {
+      "text": "reprimand",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Confirm complete",
+      "note": "first meaning: to mark an item on a list as done"
+     },
+     {
+      "clueFragment": "reprimand",
+      "note": "second meaning: to scold someone, in British slang"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Complete' looks like an adjective on reprimand (a full telling-off), but it belongs with 'Confirm'.",
+     "definitionFit": "The phrasal verb means both to check off a finished task and, informally in Britain, to scold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "complete"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1188,44 @@
     "text": "Sondheim's work in ruins?",
     "enumeration": "7"
    },
-   "solution": "FOLLIES"
+   "solution": "FOLLIES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FOLLIES",
+    "definitions": [
+     {
+      "text": "Sondheim's work",
+      "at": 0
+     },
+     {
+      "text": "ruins",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sondheim's work",
+      "note": "first meaning: the 1971 Stephen Sondheim musical"
+     },
+     {
+      "clueFragment": "ruins",
+      "note": "second meaning: ornamental buildings, often built as fake ruins on country estates"
+     }
+    ],
+    "explanation": {
+     "surface": "Is a Sondheim show set among ruins, or is it a ruin itself?",
+     "walkthrough": "A folly is a decorative structure on an English estate, often a sham ruined tower or temple.",
+     "definitionFit": "The musical is called Follies, and garden follies were frequently built as deliberate ruins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ruins"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1239,61 @@
     "text": "Back flipper twirled cane",
     "enumeration": "7"
    },
-   "solution": "FINANCE"
+   "solution": "FINANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FINANCE",
+    "definitions": [
+     {
+      "text": "Back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twirled",
+      "for": "anagram",
+      "note": "something twirled is spun round, so the following letters are turned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flipper",
+      "gives": "FIN",
+      "note": "a fin is a flipper"
+     },
+     {
+      "clueFragment": "cane",
+      "gives": "CANE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIN",
+      "ANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANE",
+       "gives": "ANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gymnast does a back flip while someone twirls a cane, a music-hall act.",
+     "walkthrough": "'Back flipper' reads as a gymnast, but Back is the definition, a verb.",
+     "definitionFit": "To back a venture is to fund it, which is what finance means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1307,54 @@
     "text": "Flimsy paper kept in folder",
     "enumeration": "7"
    },
-   "solution": "FRAGILE"
+   "solution": "FRAGILE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRAGILE",
+    "definitions": [
+     {
+      "text": "Flimsy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "something kept in a holder sits inside it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "folder",
+      "gives": "FILE",
+      "note": "a file is a folder for documents"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "RAG",
+      "note": "a rag is a disparaging name for a newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RAG",
+      "ILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Thin paper is stored in a folder.",
+     "definitionFit": "Fragile describes something easily broken or delicate, a close synonym of flimsy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1374,54 @@
      }
     ]
    },
-   "solution": "SCHOOLLEAVER"
+   "solution": "SCHOOLLEAVER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCHOOL LEAVER",
+    "definitions": [
+     {
+      "text": "one who's just turned 18, perhaps",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Recklessly",
+      "for": "anagram",
+      "note": "acting recklessly means acting wildly and carelessly, so the following letters are scattered into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serve alcohol",
+      "gives": "SERVEALCOHOL",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SERVEALCOHOL",
+       "gives": "SCHOOLLEAVER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barman carelessly sells drink to someone barely of legal drinking age.",
+     "walkthrough": "In Britain 18 is both the legal drinking age and the usual age for finishing school.",
+     "definitionFit": "A school leaver is a pupil finishing secondary education, typically at about 18 in the UK."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Recklessly"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1435,49 @@
     "text": "Call for quiet time",
     "enumeration": "4"
    },
-   "solution": "PAGE"
+   "solution": "PAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAGE",
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for quiet"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for a moment of silence.",
+     "definitionFit": "To page someone is to summon them, by loudspeaker or pager, so it means to call."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Call"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1491,62 @@
     "text": "In sex, empty seduction does not exist",
     "enumeration": "4"
    },
-   "solution": "ISNT"
+   "solution": "ISNT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ISN'T",
+    "definitions": [
+     {
+      "text": "does not exist",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in places one piece inside the following word"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has had its contents removed, so only its outside letters survive"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "it is a coy word for sex, as in sex appeal"
+     },
+     {
+      "clueFragment": "seduction",
+      "gives": "SN",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Hollow seduction means there is no real sex at all.",
+     "walkthrough": "It meaning sex appeal is a crossword favourite from the 1920s 'It girl'.",
+     "definitionFit": "To say something isn't, as in 'there isn't any', is to say it does not exist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1560,42 @@
     "text": "Make a big noise when closing poetry event",
     "enumeration": "4"
    },
-   "solution": "SLAM"
+   "solution": "SLAM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLAM",
+    "definitions": [
+     {
+      "text": "Make a big noise when closing",
+      "at": 0
+     },
+     {
+      "text": "poetry event",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make a big noise when closing",
+      "note": "first meaning: to shut a door loudly"
+     },
+     {
+      "clueFragment": "poetry event",
+      "note": "second meaning: a competitive live poetry performance"
+     }
+    ],
+    "explanation": {
+     "surface": "A performer makes a loud finish to end a poetry reading.",
+     "definitionFit": "Slamming a door shuts it with a bang, and a poetry slam is a performance contest for poets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "closing"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1609,51 @@
     "text": "Trips, and skirt splits",
     "enumeration": "10"
    },
-   "solution": "MINIBREAKS"
+   "solution": "MINIBREAKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINIBREAKS",
+    "definitions": [
+     {
+      "text": "Trips",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skirt",
+      "gives": "MINI",
+      "note": "a mini is a short skirt"
+     },
+     {
+      "clueFragment": "splits",
+      "gives": "BREAKS",
+      "note": "breaks is a synonym for splits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINI",
+      "BREAKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stumbles and their skirt rips.",
+     "walkthrough": "'Trips' reads as a verb for stumbling, but it is the plural noun for journeys.",
+     "definitionFit": "Minibreaks are short holidays, usually a weekend away, so they are trips."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Trips"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1667,43 @@
     "text": "Table divides kitchen section",
     "enumeration": "4"
    },
-   "solution": "DESK"
+   "solution": "DESK",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DESK",
+    "definitions": [
+     {
+      "text": "Table",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "section",
+      "for": "hidden_word",
+      "note": "a section is a slice cut from something larger, so the letters are found inside the neighbouring words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "divides kitchen",
+      "gives": "DESK",
+      "note": "runs across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A worktop splits a kitchen into areas.",
+     "walkthrough": "'kitchen section' looks like a single phrase; section is the signal, and the answer straddles 'divides kitchen'.",
+     "definitionFit": "A desk is a table used for writing or office work, so table serves as a near-synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "section"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1717,61 @@
     "text": "Test fools men caught by virtuous woman",
     "enumeration": "10"
    },
-   "solution": "ASSESSMENT"
+   "solution": "ASSESSMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASSESSMENT",
+    "definitions": [
+     {
+      "text": "Test",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught by another is held within its grasp, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fools",
+      "gives": "ASSES",
+      "note": "asses are fools"
+     },
+     {
+      "clueFragment": "virtuous woman",
+      "gives": "ST",
+      "note": "a saint, abbreviated ST, is a virtuous person"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSES",
+      "S",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A trial in which foolish men are caught out by a virtuous woman.",
+     "definitionFit": "An assessment is an evaluation such as an exam, so it is a test."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "virtuous"
+    }
+   }
   }
  ]
 }
