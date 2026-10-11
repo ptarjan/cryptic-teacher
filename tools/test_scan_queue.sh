@@ -185,7 +185,9 @@ aread()
 check("archive.org: an edition read without the VLM is read again once it answers", ["v1"] * 4,
       [json.loads(l).get("vlm") for l in aledger.read_text().splitlines()])
 f.vlm.version = lambda: "v2"
-check("archive.org: a new VLM model alone makes nothing due", [], aread())
+aread()
+check("archive.org: a new VLM model reads every edition again (the whole-corpus rank: run() reads all that is due)",
+      ["v2"] * 4, [json.loads(l).get("vlm") for l in aledger.read_text().splitlines()])
 
 # The VLM goes down mid-run: the editions read after it failed carry no
 # "vlm", a pass while it is still down leaves them, and the first pass once
