@@ -1932,10 +1932,18 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
 // filtering narrows, and matches setters as well as numbers
 {
   const target = allPuzzles.find((p) => p.annotated && p.setter);
+  // A digits term matches where a number starts, so it narrows as you type:
+  // 1911 lists 19,117 too. Every row's number starts with the digits typed,
+  // and the puzzle with exactly that number is among them.
   typeInPicker(String(target.number));
-  assert(drainPicker().length && pickerRows().every((li) =>
-    rowHasNumber(li.children[0].innerHTML, target.number)),
-    "filtering by number finds the puzzles carrying that number and nothing else");
+  const numRows = drainPicker().map((li) =>
+    (li.children[0].innerHTML.match(/data-number="(\d+)"/) || [])[1] || "");
+  const offNumber = numRows.filter((n) => !n.startsWith(String(target.number)));
+  assert(numRows.length && !offNumber.length,
+    "filtering by number finds the puzzles whose number starts with it and nothing else: "
+    + target.number + " listed " + offNumber.slice(0, 5).join(", "));
+  assert(numRows.includes(String(target.number)),
+    "filtering by number lists the puzzle carrying exactly that number: " + target.id);
   // The number narrows; the number and the series together identify. A number
   // shared by two series has to come back as two rows there and one row here.
   pickerSearchFor(target.id);
