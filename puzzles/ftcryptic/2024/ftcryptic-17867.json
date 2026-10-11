@@ -24,6 +24,9 @@
   "date": "2024-10-14",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,58 @@
     "text": "Policy position example not popular at first",
     "enumeration": "6"
    },
-   "solution": "STANCE"
+   "solution": "STANCE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STANCE",
+    "definitions": [
+     {
+      "text": "Policy position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not says a word is to be left out of what precedes"
+     },
+     {
+      "text": "at first",
+      "for": "deletion",
+      "note": "the dropped word must come off the front, the place a first part sits"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "example",
+      "gives": "INSTANCE",
+      "note": "an instance is an example"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means popular, fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A political stance is illustrated by an example that was unpopular at first.",
+     "walkthrough": "Remove IN from the start of INSTANCE.",
+     "definitionFit": "A stance is the attitude or line a person or party takes on an issue, a synonym for a policy position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +105,51 @@
     "text": "Ray's small jab",
     "enumeration": "5"
    },
-   "solution": "SPOKE"
+   "solution": "SPOKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPOKE",
+    "definitions": [
+     {
+      "text": "Ray",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "jab",
+      "gives": "POKE",
+      "note": "to poke is to jab"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "POKE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Ray throws a little jab.",
+     "walkthrough": "Ray looks like a boxer's name, but it is the definition: a ray is a line radiating from a centre, like a wheel's spoke.",
+     "definitionFit": "The radiating rods of a wheel are spokes, and a ray is any line radiating from a hub."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ray"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +163,47 @@
     "text": "Company broadcast row",
     "enumeration": "7"
    },
-   "solution": "AIRLINE"
+   "solution": "AIRLINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRLINE",
+    "definitions": [
+     {
+      "text": "Company",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "LINE",
+      "note": "a line is a row"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm gets into a public argument that is broadcast.",
+     "walkthrough": "Row suggests a quarrel, but it means a line of things.",
+     "definitionFit": "An airline is a business operating flights, so it is a kind of company."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +217,74 @@
     "text": "Grasping anger finally, unexpectedly concedes noise at its peak",
     "enumeration": "9"
    },
-   "solution": "CRESCENDO"
+   "solution": "CRESCENDO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "CRESCENDO",
+    "definitions": [
+     {
+      "text": "noise at its peak",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the preceding word"
+     },
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "something happening unexpectedly comes out in a surprising form, so the letters are rearranged"
+     },
+     {
+      "text": "Grasping",
+      "for": "container",
+      "note": "to grasp is to hold within, so one part closes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concedes",
+      "gives": "CONCEDES",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "ESCENDO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CONCEDES",
+       "gives": "CESCENDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone yields to growing anger as the din rises to a climax.",
+     "walkthrough": "Rearrange CONCEDES as CESCENDO and slip R in after the first C.",
+     "definitionFit": "A crescendo is the climax of a gradual increase in volume, the loudest point of the sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concedes"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +298,66 @@
     "text": "Rest of snooker player's team absorbing pressure? Right",
     "enumeration": "6"
    },
-   "solution": "SPIDER"
+   "solution": "SPIDER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPIDER",
+    "definitions": [
+     {
+      "text": "Rest of snooker player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "something absorbing a thing takes it inside itself"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a team"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "IDE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "The rest of a snooker player's team seems to be taking the strain, and rightly.",
+     "walkthrough": "Rest is not the remainder but the cue rest; in snooker a spider is a rest with a raised head for bridging over balls.",
+     "definitionFit": "In snooker, a spider is a cue rest with tall legs used to reach over intervening balls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rest"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +371,48 @@
     "text": "From time to time pained, try devotion?",
     "enumeration": "5"
    },
-   "solution": "PIETY"
+   "solution": "PIETY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "PIETY",
+    "definitions": [
+     {
+      "text": "devotion",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "From time to time",
+      "for": "letter_selection",
+      "note": "from time to time means occasionally, so only every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pained, try",
+      "gives": "PIETY",
+      "select": "alternate",
+      "note": "the first, third, fifth, seventh and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIETY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether occasionally trying while in pain counts as devotion.",
+     "definitionFit": "Piety is religious devoutness, reverence shown to God through worship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pained"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +426,61 @@
     "text": "Academic accepting old record and greeting swimmer",
     "enumeration": "7"
    },
-   "solution": "DOLPHIN"
+   "solution": "DOLPHIN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DOLPHIN",
+    "definitions": [
+     {
+      "text": "swimmer",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "one who accepts something takes it in, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Academic",
+      "gives": "DON",
+      "note": "a don is a university teacher"
+     },
+     {
+      "clueFragment": "old record",
+      "gives": "LP",
+      "note": "an LP is a long-playing vinyl record, an old format"
+     },
+     {
+      "clueFragment": "greeting",
+      "gives": "HI",
+      "note": "hi is a greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "LPHI",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A lecturer takes an old record and says hello to someone swimming.",
+     "walkthrough": "A don is a British university lecturer, especially at Oxford or Cambridge; 'old' qualifies the record rather than giving O.",
+     "definitionFit": "A dolphin is a marine mammal famed for swimming, so it is aptly called a swimmer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +494,58 @@
     "text": "Tough, having to take exam again — about right!",
     "enumeration": "9"
    },
-   "solution": "RESILIENT"
+   "solution": "RESILIENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESILIENT",
+    "definitions": [
+     {
+      "text": "Tough",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word goes round the other"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to take exam again",
+      "gives": "RESIT",
+      "note": "to resit is to take an exam again"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "LIEN",
+      "note": "a lien is a legal right to hold property until a debt is paid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESI",
+      "LIEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "It is tough to have to retake an exam, and that is fair enough.",
+     "walkthrough": "A lien is the legal right to keep someone's property until they pay what they owe.",
+     "definitionFit": "Resilient means hardy and able to recover from setbacks, the sense of tough as durable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +559,64 @@
     "text": "Good time for tea? Not at first, but came across foodie",
     "enumeration": "7"
    },
-   "solution": "GOURMET"
+   "solution": "GOURMET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GOURMET",
+    "definitions": [
+     {
+      "text": "foodie",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not at first",
+      "for": "deletion",
+      "note": "not at first says the opening letter is missing"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "time for tea",
+      "gives": "FOUR",
+      "note": "four o'clock is the traditional teatime"
+     },
+     {
+      "clueFragment": "came across",
+      "gives": "MET",
+      "note": "to meet is to come across"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OUR",
+      "MET"
+     ]
+    },
+    "explanation": {
+     "surface": "A food lover turns up at tea, though not at the start of it.",
+     "walkthrough": "Afternoon tea is traditionally at four o'clock; drop its F.",
+     "definitionFit": "A gourmet is a connoisseur of good food, which is what a foodie is too."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tea"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +630,46 @@
     "text": "Madrid team first — I'm not making it up!",
     "enumeration": "7"
    },
-   "solution": "REALIST"
+   "solution": "REALIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REALIST",
+    "definitions": [
+     {
+      "text": "I'm not making it up!",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Madrid team",
+      "gives": "REAL",
+      "note": "Real Madrid is the Spanish football club"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "1st written with I for the figure one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan insists that Real Madrid top the table, honestly.",
+     "definitionFit": "A realist deals in facts rather than fantasy, so might say of their claims that nothing is invented."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +683,63 @@
     "text": "Not agreeing, Democrat insisted changes needed",
     "enumeration": "9"
    },
-   "solution": "DISSIDENT"
+   "solution": "DISSIDENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DISSIDENT",
+    "definitions": [
+     {
+      "text": "Not agreeing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "when something changes it takes a new form, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     },
+     {
+      "clueFragment": "insisted",
+      "gives": "INSISTED",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ISSIDENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INSISTED",
+       "gives": "ISSIDENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Democrat who disagrees insists that changes are required.",
+     "definitionFit": "A dissident opinion is one that departs from the official line, that is, dissenting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +753,64 @@
     "text": "CEO, timid, extremely ropy, maybe this?",
     "enumeration": "10"
    },
-   "solution": "MEDIOCRITY"
+   "solution": "MEDIOCRITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "MEDIOCRITY",
+    "definitions": [
+     {
+      "text": "CEO, timid, extremely ropy, maybe this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the outermost letters, the extremes of the word"
+     },
+     {
+      "text": "maybe",
+      "for": "anagram",
+      "note": "maybe hints at a possible version, so the letters may be arranged otherwise"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "CEO, timid,",
+      "gives": "CEOTIMID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ropy",
+      "gives": "RY",
+      "select": "outer",
+      "note": "the first and last letters of ropy"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CEOTIMIDRY",
+       "gives": "MEDIOCRITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss who is timid and thoroughly poor might be the very picture of second-rate.",
+     "walkthrough": "The whole clue also describes the answer: a timid, ropy chief executive is an example of it. Ropy is British slang for poor quality.",
+     "definitionFit": "Mediocrity is the state of being only ordinary or second-rate, and a weak CEO exemplifies it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "maybe"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +824,49 @@
     "text": "Hear about latest offer — first of all ring",
     "enumeration": "4"
    },
-   "solution": "HALO"
+   "solution": "HALO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "HALO",
+    "definitions": [
+     {
+      "text": "ring",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of all",
+      "for": "letter_selection",
+      "note": "first of all asks for the opening letter of each word in turn"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hear about latest offer",
+      "gives": "HALO",
+      "select": "first",
+      "note": "the initial letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HALO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to listen to news of a new deal before ringing.",
+     "walkthrough": "The dash makes the first four words read as news to hear, but their initials supply the letters.",
+     "definitionFit": "A halo is a circle of light around a saint's head or the moon, so it is a ring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +880,46 @@
     "text": "Back settled in Ulster now",
     "enumeration": "5"
    },
-   "solution": "STERN"
+   "solution": "STERN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STERN",
+    "definitions": [
+     {
+      "text": "Back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the following words"
+     }
+    ],
+    "linkWords": [
+     "settled"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ulster now",
+      "gives": "STERN",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone has come back and settled in Northern Ireland for good.",
+     "walkthrough": "Ulster is the northern province of Ireland.",
+     "definitionFit": "The stern is the rear part of a ship, its back end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +933,55 @@
     "text": "One's a fall guy as a pact goes awry",
     "enumeration": "9"
    },
-   "solution": "SCAPEGOAT"
+   "solution": "SCAPEGOAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCAPEGOAT",
+    "definitions": [
+     {
+      "text": "fall guy",
+      "at": 8
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes awry",
+      "for": "anagram",
+      "note": "when things go awry they go wrong and out of order, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "One's a",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a pact goes",
+      "gives": "APACTGOES",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APACTGOES",
+       "gives": "SCAPEGOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "When a deal collapses, somebody ends up carrying the blame.",
+     "walkthrough": "The word goes is part of the fodder as well as the indicator: rearrange A PACT GOES.",
+     "definitionFit": "A scapegoat is someone made to take the blame for others, which is a fall guy in idiom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "goes"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +995,49 @@
     "text": "Short time, I hesitate to say, for one providing support",
     "enumeration": "8"
    },
-   "solution": "SECONDER"
+   "solution": "SECONDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SECONDER",
+    "definitions": [
+     {
+      "text": "one providing support",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short time",
+      "gives": "SECOND",
+      "note": "a second is a short span of time"
+     },
+     {
+      "clueFragment": "I hesitate to say",
+      "gives": "ER",
+      "note": "er is the sound of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SECOND",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pauses awkwardly for a moment before admitting they will back a proposal.",
+     "definitionFit": "A seconder formally supports a motion in a meeting after it has been proposed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hesitate"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1051,61 @@
     "text": "Accountant's part bringing in southeastern dish",
     "enumeration": "9"
    },
-   "solution": "CASSEROLE"
+   "solution": "CASSEROLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CASSEROLE",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bringing in",
+      "for": "container",
+      "note": "bringing in means taking something inside, so it sits within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accountant's",
+      "gives": "CAS",
+      "note": "CA is chartered accountant, plus the possessive S"
+     },
+     {
+      "clueFragment": "southeastern",
+      "gives": "SE",
+      "note": "SE is the abbreviation for southeastern"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "ROLE",
+      "note": "a role is a part in a play"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAS",
+      "SE",
+      "ROLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An accountant's role involves introducing a dish from the southeast.",
+     "walkthrough": "CA stands for chartered accountant, the British professional qualification.",
+     "definitionFit": "A casserole is a stew slowly cooked in the oven, served as a dish, and named after its pot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1119,47 @@
     "text": "Dad's blade that may help to gain entry",
     "enumeration": "8"
    },
-   "solution": "PASSWORD"
+   "solution": "PASSWORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASSWORD",
+    "definitions": [
+     {
+      "text": "that may help to gain entry",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad's",
+      "gives": "PAS",
+      "note": "pa is dad, plus the possessive S"
+     },
+     {
+      "clueFragment": "blade",
+      "gives": "SWORD",
+      "note": "a sword is a blade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAS",
+      "SWORD"
+     ]
+    },
+    "explanation": {
+     "surface": "Father's sword might be used to force a way inside.",
+     "walkthrough": "The definition reads as part of a description of the blade.",
+     "definitionFit": "A password is a secret word that grants access to a computer or guarded place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "blade"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1173,67 @@
     "text": "Politician, guy from Spain, welcoming a Tory's introduction",
     "enumeration": "7"
    },
-   "solution": "SENATOR"
+   "solution": "SENATOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SENATOR",
+    "definitions": [
+     {
+      "text": "Politician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so the following letters go inside"
+     },
+     {
+      "text": "introduction",
+      "for": "letter_selection",
+      "note": "an introduction comes at the start, so the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guy from Spain",
+      "gives": "SENOR",
+      "note": "señor is Spanish for a man"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Tory's",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Tory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEN",
+      "AT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish politician welcomes a Conservative.",
+     "walkthrough": "Tory is the everyday name for a member of Britain's Conservative Party.",
+     "definitionFit": "A senator is a member of a senate, an elected or appointed politician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "guy"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1247,57 @@
     "text": "Very little in way — that's gratifying",
     "enumeration": "5"
    },
-   "solution": "SWEET"
+   "solution": "SWEET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWEET",
+    "definitions": [
+     {
+      "text": "gratifying",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the second"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very little",
+      "gives": "WEE",
+      "note": "wee is Scottish for small"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "ST is street, a way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Something small but pleasing happens, and it is satisfying.",
+     "definitionFit": "Sweet in the sense of pleasing or delightful, as in sweet success, is a synonym for gratifying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1311,64 @@
     "text": "Important place, oligarch's content to leave to be rebuilt",
     "enumeration": "7"
    },
-   "solution": "EPOCHAL"
+   "solution": "EPOCHAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EPOCHAL",
+    "definitions": [
+     {
+      "text": "Important",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "content to leave",
+      "for": "letter_selection",
+      "note": "if the inside letters depart only the two ends remain"
+     },
+     {
+      "text": "to be rebuilt",
+      "for": "anagram",
+      "note": "rebuilding puts the same parts together in a new shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "PLACE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "oligarch's",
+      "gives": "OH",
+      "select": "outer",
+      "note": "the first and last letters of oligarch"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLACEOH",
+       "gives": "EPOCHAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tycoon is happy to let an important building be redeveloped.",
+     "walkthrough": "Content looks like happy, but it means the inside of the word.",
+     "definitionFit": "Epochal means significant enough to mark an epoch, a momentous or important event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1382,45 @@
     "text": "Incline to be short of fat",
     "enumeration": "4"
    },
-   "solution": "LEAN"
+   "solution": "LEAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAN",
+    "definitions": [
+     {
+      "text": "Incline",
+      "at": 0
+     },
+     {
+      "text": "short of fat",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Incline",
+      "note": "first meaning: to tilt or slope"
+     },
+     {
+      "clueFragment": "short of fat",
+      "note": "second meaning: of meat, without much fat"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tends towards being slim.",
+     "definitionFit": "The word is a verb for slanting or tilting, and an adjective for meat or bodies having little fat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Incline"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1434,62 @@
     "text": "From now on fellow attending Northern church by river",
     "enumeration": "10"
    },
-   "solution": "HENCEFORTH"
+   "solution": "HENCEFORTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HENCEFORTH",
+    "definitions": [
+     {
+      "text": "From now on",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "attending",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "HE",
+      "note": "he refers to a male fellow"
+     },
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "FORTH",
+      "note": "the Forth is a Scottish river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "N",
+      "CE",
+      "FORTH"
+     ]
+    },
+    "explanation": {
+     "surface": "From today a man will go to a northern church beside a river.",
+     "definitionFit": "Henceforth is a formal adverb meaning from this time onwards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "attending"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1503,47 @@
     "text": "Large group in store, they say",
     "enumeration": "5"
    },
-   "solution": "HORDE"
+   "solution": "HORDE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HORDE",
+    "definitions": [
+     {
+      "text": "Large group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "they say",
+      "for": "homophone",
+      "note": "they say points to how a word is spoken rather than written"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "store",
+      "gives": "HORDE",
+      "soundsLike": "HOARD",
+      "note": "a hoard is a stored stockpile"
+     }
+    ],
+    "explanation": {
+     "surface": "A big crowd is in a shop, so people report.",
+     "walkthrough": "Store looks like a shop but is a stockpile.",
+     "definitionFit": "A horde is a large crowd or throng of people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "store"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1557,66 @@
     "text": "Delay attempt to admit artist on the rise",
     "enumeration": "5"
    },
-   "solution": "TARRY"
+   "solution": "TARRY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TARRY",
+    "definitions": [
+     {
+      "text": "Delay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to admit",
+      "for": "container",
+      "note": "admitting someone lets them in, so the next part goes inside"
+     },
+     {
+      "text": "on the rise",
+      "for": "reversal",
+      "note": "in a down clue rising means reading upwards, from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AR",
+      "RY"
+     ],
+     "reversals": [
+      {
+       "from": "RA",
+       "to": "AR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rising artist is held back by an attempt to get them accepted.",
+     "definitionFit": "To tarry is to linger or dawdle, so to be slow in going, which is to delay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1630,61 @@
     "text": "Large water creature ultimately slippery that's hard to predict",
     "enumeration": "7"
    },
-   "solution": "LOTTERY"
+   "solution": "LOTTERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LOTTERY",
+    "definitions": [
+     {
+      "text": "that's hard to predict",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "water creature",
+      "gives": "OTTER",
+      "note": "an otter is an aquatic mammal"
+     },
+     {
+      "clueFragment": "slippery",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of slippery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OTTER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A big aquatic animal is ultimately slippery and impossible to forecast.",
+     "definitionFit": "A lottery is any matter of pure chance, so its outcome cannot be foreseen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "slippery"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1698,52 @@
     "text": "Place of obscurity new hero could emerge from?",
     "enumeration": "7"
    },
-   "solution": "NOWHERE"
+   "solution": "NOWHERE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "NOWHERE",
+    "definitions": [
+     {
+      "text": "Place of obscurity new hero could emerge from?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could emerge from",
+      "for": "anagram",
+      "note": "something emerging from material is made out of it in a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new hero",
+      "gives": "NEWHERO",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEWHERO",
+       "gives": "NOWHERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unknown hero could come out of obscurity, as new stars often do.",
+     "walkthrough": "The whole clue doubles as the definition: a new hero often seems to come from nowhere.",
+     "definitionFit": "Nowhere means a state of obscurity, as in coming from nowhere to fame."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1757,63 @@
     "text": "After despicable person rebuffed, understand objective",
     "enumeration": "6"
    },
-   "solution": "TARGET"
+   "solution": "TARGET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TARGET",
+    "definitions": [
+     {
+      "text": "objective",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rebuffed",
+      "for": "reversal",
+      "note": "something rebuffed is pushed back, so the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "despicable person",
+      "gives": "RAT",
+      "note": "a rat is a despicable person"
+     },
+     {
+      "clueFragment": "understand",
+      "gives": "GET",
+      "note": "to get something is to understand it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "GET"
+     ],
+     "reversals": [
+      {
+       "from": "RAT",
+       "to": "TAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once a nasty person is rejected, you can grasp the goal.",
+     "definitionFit": "A target is an aim or goal, which is what an objective is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rebuffed"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1827,69 @@
     "text": "Shout back briefly after sea race",
     "enumeration": "6"
    },
-   "solution": "MEDLEY"
+   "solution": "MEDLEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "MEDLEY",
+    "definitions": [
+     {
+      "text": "race",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means read in the opposite direction"
+     },
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly says the word is cut short by a letter"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "MED",
+      "note": "the Med is the Mediterranean Sea"
+     },
+     {
+      "clueFragment": "Shout",
+      "gives": "YELL",
+      "note": "to yell is to shout"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MED",
+      "LEY"
+     ],
+     "reversals": [
+      {
+       "from": "YEL",
+       "to": "LEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer shouts back quickly after a race at sea.",
+     "definitionFit": "A medley is a swimming race in which each length or leg uses a different stroke."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "race"
+    }
+   }
   }
  ]
 }
