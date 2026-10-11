@@ -93,8 +93,12 @@ def fetch_site(referer, url):
     a, b = urllib.parse.urlsplit(referer), urllib.parse.urlsplit(url)
     if (a.scheme, a.netloc) == (b.scheme, b.netloc):
         return "same-origin"
-    site = lambda host: ".".join((host or "").split(".")[-2:])  # noqa: E731 (gale.com, abresearchportal.ca)
-    return "same-site" if site(a.hostname) == site(b.hostname) else "cross-site"
+    return "same-site" if _site(a.hostname) == _site(b.hostname) else "cross-site"
+
+
+def _site(host):
+    """The registrable part of `host`: gale.com, abresearchportal.ca."""
+    return ".".join((host or "").split(".")[-2:])
 
 
 def verifies(url, portal):

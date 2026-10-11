@@ -230,7 +230,7 @@ assert set(json.loads(kw["fetched"].read_text())) == {rows(3)[i][1]["doc"] for i
 #    landing on Gale, then each document's page before its Download, every
 #    request with the Referer of the page it was clicked on; only the
 #    portal's certificate goes unverified; 401/403/429 is a refusal.
-import gale_docs
+import gale_docs, gale_http
 START = "https://go.gale.com/ps/start.do?p=TTDA&u=alberta_portal&sid=geolinks"
 sent = []
 
@@ -259,8 +259,8 @@ assert sent[0][1] == {} and sent[1][1]["Referer"] == f"{gale_docs.PORTAL}/collec
 assert sent[1][1]["Sec-Fetch-Site"] == "same-origin"
 assert sent[2][1] == {"Referer": START, "Sec-Fetch-Site": "same-origin"}, sent[2]
 assert sent[3][1] == {"Referer": page, "Sec-Fetch-Site": "same-origin"}, sent[3]
-assert gf.fetch_site(f"{gale_docs.PORTAL}/collections", START) == "cross-site"
-assert gf.fetch_site("https://link.gale.com/apps/x", START) == "same-site"
+assert gale_http.fetch_site(f"{gale_docs.PORTAL}/collections", START) == "cross-site"
+assert gale_http.fetch_site("https://link.gale.com/apps/x", START) == "same-site"
 sent.clear()
 s = gf.Session(transport=transport(lambda u: (403, b"<html>blocked", u) if "BulkPDF" in u else (200, b"<html>", u)))
 try:
