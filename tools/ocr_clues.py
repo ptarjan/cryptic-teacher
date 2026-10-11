@@ -1513,9 +1513,6 @@ def despecked(words, laid):
 OPENS, CLOSES = "(\"\u201c", ")\"\u201d"
 
 
-#: Words too common to be a speck: one the laid clue has that the vote
-#: lacks inside the clue is lost ("what pace" for "what a pace").
-SMALL_WORDS = {"a", "an", "the", "of", "to", "in", "on", "and", "is", "it", "by", "for", "as", "at"}
 #: Words no compound holds: a hyphen beside one is a speck ("when-the").
 ARTICLES = {"a", "an", "the"}
 
@@ -1598,12 +1595,10 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     if others and isinstance(others[0], str):
         others = [others]
     # Only a clue no other reading prints word for word: one they print
-    # held on words they differ on, which their prints share.
+    # held on marks or a word they differ on, which a re-lay would not mend.
     low = [w.lower() for w in marked(clue, breaks=True)]
-    for theirs in others:
-        theirs = ends_joined(rejoin(unglued(theirs, low), low), low)
-        if prints(align(low, [w.lower() for w in theirs]), low, theirs):
-            return got
+    if any(word_for_word(low, ends_joined(rejoin(unglued(theirs, low), low), low)) for theirs in others):
+        return got
     found = relay(clue, others)
     if not found:
         return got
@@ -1615,6 +1610,25 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
         return got
     out = remarked(clue, again[0])
     return got if relay_doubt(clue, text, out, printed) else (out, again[1])
+
+
+#: What a laid token carries at its ends that is no letter of its word.
+STRIP = ",;:!?.'\"()\u201c\u201d-"
+
+
+def word_for_word(low, theirs):
+    """Whether the other reading `theirs` prints every word of the clue
+    `low` (its lower-case words and marks) in a row between two of its
+    numbers: marks aside, the same words in the same order, none misread,
+    lost or added between them ("She junkets" does not print "she eats
+    junkets"; "eatsjunkets" does, once unglued)."""
+    words = [w for w in low if w not in MARKS and w != BREAK]
+    n = len(words)
+    for brk, run in itertools.groupby(theirs, lambda t: t == BREAK):
+        run = [t.lower() for t in run if t not in MARKS]
+        if n and not brk and any(run[i:i + n] == words for i in range(len(run) - n + 1)):
+            return True
+    return False
 
 
 def relay_doubt(clue, text, out, printed):
@@ -1629,10 +1643,14 @@ def relay_doubt(clue, text, out, printed):
     next ("war wartime"); a word the laid clue splits off a lone letter
     ("l ac's" for lilac's); a dictionary word in place of a like one the
     laid clue or the print has, the one no clue uses ("Lugings" for
-    "Lo'dgings"); a ";" or ":" the print lacks; the laid clue's full
+    "Lo'dgings"); a ";" or ":" the print or the laid clue lacks; a
+    comma of the laid clue lost; two words the laid clue ran together
+    that clues print hyphenated ("heavyhanided" for "heavy handed": the
+    print's hyphen is no reading's word); the laid clue's full
     stop before a capital lost ("Luok. In die"); a lower-case start the
-    laid clue lacks; a small word of the laid clue lost inside it ("what
-    pace" for "what a pace"); or a word of the laid clue lost past either
+    laid clue lacks; a dictionary word of the laid clue, of any length,
+    lost inside it ("what pace" for "what a pace", "She junkets" for "She
+    eats junkets"); or a word of the laid clue lost past either
     end, short of a figure (No 1's "Check front part of the" for "Check
     front part of die ship"; "(7) the dock page 8" is the page's)."""
     if suspect(out):
@@ -1669,14 +1687,25 @@ def relay_doubt(clue, text, out, printed):
             return "in place of " + theirs
     if any(out.count(m) > text.count(m) for m in ";:"):
         return "a mark the print lacks"
+    if any(out.count(m) > bare.count(m) for m in ";:"):
+        return "a mark the laid clue lacks"
+    if out.count(",") < bare.count(","):
+        return "a comma lost"
+    for t in laid:
+        for a, b in itertools.pairwise(out.split()):
+            if "-" not in t and not keys & {key_letters(a), key_letters(b)} \
+                    and similar(key_letters(a + b), key_letters(t)) >= PRINTS_SIMILAR \
+                    and compound(a.strip(STRIP), b.strip(STRIP))[0]:
+                return "parted " + a + " " + b
     if re.search(r"[a-z]\. +[A-Z]", clue) and not re.search(r"\. +[A-Z]", out):
         return "a full stop lost"
     if words and out[0].islower() and laid and key_letters(laid[0]) != words[0]:
         return "starts lower-case"
-    sm = SequenceMatcher(None, [key_letters(t) for t in laid], [key_letters(w) for w in out.split()], autojunk=False)
+    keyed = [key_letters(w) for w in out.split()]
+    sm = SequenceMatcher(None, [key_letters(t) for t in laid], keyed, autojunk=False)
     for op, i1, i2, _, _ in sm.get_opcodes():
         if op == "delete" and 0 < i1 and i2 < len(laid) and any(
-                t.lower() in SMALL_WORDS and t.lower() not in words for t in laid[i1:i2]):
+                is_word(t.strip(STRIP)) and key_letters(t) not in keyed for t in laid[i1:i2]):
             return "lost " + " ".join(laid[i1:i2])
     hit = [i for i, t in enumerate(laid) if key_letters(t) in words or len(key_letters(t)) > 2 and any(
         similar(key_letters(t), w) >= 0.5 or len(w) > 2 and w.replace("'", "") in key_letters(t) for w in words)]
