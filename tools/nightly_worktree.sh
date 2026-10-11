@@ -376,14 +376,16 @@ push_or_raced() {
 
 push_race_retry() {
   local fn="$1" attempt out rc
-  for attempt in 1 2 3 4 5; do
+  # 12 attempts, jittered: the burn and the filers push every few seconds, and
+  # five fixed-step tries lost that race (blog-facts, 10-11).
+  for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
     out=$("$fn" 2>&1)
     rc=$?
     [ -n "$out" ] && printf '%s\n' "$out" >&2
     [ "$rc" -eq 0 ] && return 0
     [ "$rc" -eq "$PUSH_RACED" ] || printf '%s' "$out" | grep -q "cannot lock ref" || return "$rc"
     echo "push race: origin/master moved under us (attempt $attempt) — retrying" >&2
-    sleep "$attempt"
+    sleep "$(( (attempt < 4 ? attempt : 4) + RANDOM % 3 ))"
   done
   return "$rc"
 }
