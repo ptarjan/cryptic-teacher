@@ -114,6 +114,8 @@ LAYOUT = [
     ("fetching", "tools/quotes_cases.json", "the one table of curl cases that quotes.js and tools/quotes.py are both run over"),
     ("fetching", "tools/punctuation.py", "the marks no clue's print breaks (\"by.clever\", \"''\" for a double quote, \",.\", \"word , word\"): faults() for the OCR write gate, the vote and edition_commit.strayed; mend() makes the certain mends, offsets moved"),
     ("fetching", "tools/test_quotes.js", "a clue stored with straight quotes shows curled ones, apostrophes and leading elisions included"),
+    ("fetching", "tools/dashes.py", "clue text spells a dash between words \" \u2014 \" and an ellipsis \"\u2026\": normalises every write with its offsets moved, converts held files"),
+    ("fetching", "tools/test_dashes.sh", "every spelling of a dash between words becomes \" \u2014 \" and of an ellipsis \"\u2026\"; hyphens, blanks and leaders stay; offsets move with the text; DASH refuses the rest"),
     ("fetching", "tools/test_puzzle_integrity.sh", "proves the two LENGTH exception tables match by nothing looser than the exact sentence they’re keyed on, and that baselining one finding never silences the rest of its puzzle"),
     ("fetching", "tools/test_puzzle_invariants.sh", "proves every puzzle write refuses what the corpus sweep would report"),
     ("fetching", "tools/fetch_ia_book.py", "borrows a lending-restricted archive.org book, saves its OCR text outside the repo, returns the loan, and hands back on startup any loan a killed run left out \u2014 a finally clause does not run when the process is killed by a signal"),

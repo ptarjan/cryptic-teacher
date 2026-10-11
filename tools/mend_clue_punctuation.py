@@ -10,7 +10,7 @@ those editions due, and file_archive_org_puzzles mends them in place there.
 Publisher feeds are the setter's text and stay as served.
 
 Only the clue's text changes, with its italics and its annotation's offsets
-moved (punctuation.mend_entry, enumeration.edit_entry); the file is written
+moved (punctuation.mend_entry, enumeration.rewrite_entry); the file is written
 back in the corpus's own format (collapse_clue_spaces.migrate).
 
     python3 tools/mend_clue_punctuation.py [--dry-run]

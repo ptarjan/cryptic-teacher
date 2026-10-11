@@ -1357,12 +1357,12 @@ check("mirror: a typeset en space is the setter's and stays",
       "\u2002\u2002 9", en.collapse_spaces("\u2002\u2002 9")[0])
 check("enumeration.clue builds the clue with one space",
       "wrong Elvis? Dead right!", en.clue("wrong Elvis?  Dead right! (3,6)")["text"])
-spaced_e = {"clue": {"text": "Toe  so it"}, "annotation": {"definitions": [{"text": "Toe  so", "at": 0}, {"text": "so it", "at": 5}], "hiddenLetter": 8}}
+spaced_e = {"clue": {"text": "Toe  so it"}, "annotation": {"definitions": [{"text": "Toe  so", "at": 0}, {"text": "so it", "at": 5}], "hiddenLetter": {"kind": "clue", "letter": "i", "at": 8}}}
 en.collapse_entry_spaces(spaced_e)
 check("an annotated clue's quoted phrases, definition offsets and hiddenLetter follow its spaces",
       ("Toe so it", "Toe so", 4, 7), (spaced_e["clue"]["text"], spaced_e["annotation"]["definitions"][0]["text"],
                             spaced_e["annotation"]["definitions"][1]["at"],
-                            spaced_e["annotation"]["hiddenLetter"]))
+                            spaced_e["annotation"]["hiddenLetter"]["at"]))
 check("corrects() takes a re-read that only cuts a run of spaces", True, fa.corrects("Toe  so it", "Toe so it"))
 check("mirror: nor one that changes marks besides", False, fa.corrects("Toe  so it", "Toe, so it"))
 import edition_commit as ec

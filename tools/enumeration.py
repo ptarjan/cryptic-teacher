@@ -170,54 +170,73 @@ def collapse_spaces(text, italics=()):
     return text_now, [r for r in moved if r["length"] > 0]
 
 
-def _strings_cut(value, cut):
-    """`value` (an annotation) with `cut` applied to each string in it."""
-    if isinstance(value, str):
-        return cut(value)
-    if isinstance(value, dict):
-        return {k: _strings_cut(v, cut) for k, v in value.items()}
-    if isinstance(value, list):
-        return [_strings_cut(v, cut) for v in value]
-    return value
+def _quoted_strings(entry):
+    """(holder, key) of each annotation string that quotes `entry`'s clue
+    word for word: definitions, indicators, link words, block fragments, the
+    misdirected word and an anagram's fodder (quotes._clue_strings)."""
+    import quotes
+    return quotes._clue_strings(entry)[1:]
 
 
-def edit_entry(entry, mapped, cut):
-    """Rewrite `entry`'s clue text as `mapped(text)` gives it ((new text,
-    [new offset of each old offset 0..len(text)])), in place, moving what
-    points into the text with it: italics, and its annotation's definition
-    offsets and hiddenLetter; each string of the annotation goes through
-    `cut` (the phrases it quotes are the clue's words, written as the clue
-    now is: fetch_puzzle.drop_stale_annotations drops an annotation quoting
-    words its clue lacks). Whether anything changed."""
+def rewrite_entry(entry, mapper):
+    """Rewrite `entry`'s clue text in place through `mapper` (text -> (new
+    text, [new offset of each old offset 0..len(text)])) and move everything
+    that points into the text with it: italics, its annotation's definition
+    offsets and hiddenLetter, and each phrase the annotation quotes, which
+    becomes the new clue's own words where the old clue held it, else that
+    phrase put through `mapper` alone. Whether anything changed."""
     clue = entry.get("clue") if isinstance(entry.get("clue"), dict) else None
     text = (clue or {}).get("text")
-    if not text:
+    if not isinstance(text, str) or not text:
         return False
-    now, at = mapped(text)
-    if now == text:
+    new, at = mapper(text)
+    if new == text:
         return False
-
     def to(i):
         return at[max(0, min(i, len(text)))]
-    clue["text"] = now
-    if "italics" in clue:
-        moved = [{**r, "at": to(r["at"]), "length": to(r["at"] + r["length"]) - to(r["at"])} for r in clue["italics"]]
+    holders = _quoted_strings(entry)
+    clue["text"] = new
+    if clue.get("italics"):
+        moved = [{**r, "at": to(r["at"]), "length": to(r["at"] + r["length"]) - to(r["at"])}
+                 for r in clue["italics"]]
         clue["italics"] = [r for r in moved if r["length"] > 0]
+        if not clue["italics"]:
+            del clue["italics"]
+    if clue.get("asPrinted"):
+        tokens = set(new.split())
+        printed = [t for p in clue["asPrinted"] for t in mapper(p)[0].split()
+                   if t in tokens and any(c.isalnum() for c in t)]
+        clue["asPrinted"] = list(dict.fromkeys(printed))
+        if not clue["asPrinted"]:
+            del clue["asPrinted"]
     note = entry.get("annotation") if isinstance(entry.get("annotation"), dict) else None
-    if note:
-        entry["annotation"] = note = _strings_cut(note, cut)
-        for d in note.get("definitions") or ():
-            if isinstance(d, dict) and isinstance(d.get("at"), int):
-                d["at"] = to(d["at"])
-        if isinstance(note.get("hiddenLetter"), int):
-            note["hiddenLetter"] = to(note["hiddenLetter"])
+    if not note:
+        return True
+    for holder, key in holders:
+        phrase = holder[key]
+        start = holder.get("at") if isinstance(holder, dict) and isinstance(holder.get("at"), int) else None
+        if start is None or text[start:start + len(phrase)] != phrase:
+            start = text.find(phrase) if phrase else -1
+        if start < 0:
+            holder[key] = mapper(phrase)[0]
+            continue
+        holder[key] = new[to(start):to(start + len(phrase))]
+        if isinstance(holder, dict) and isinstance(holder.get("at"), int):
+            holder["at"] = to(start)
+    hidden = note.get("hiddenLetter")
+    if isinstance(hidden, dict) and isinstance(hidden.get("at"), int):
+        hidden["at"] = to(hidden["at"])
     return True
 
 
 def collapse_entry_spaces(entry):
-    """Cut each run of spaces in `entry`'s clue text to one, in place
-    (edit_entry). Whether anything changed."""
-    return edit_entry(entry, _space_map, lambda s: _space_map(s)[0] if "  " in s else s)
+    """Cut each run of spaces in `entry`'s clue text to one, in place, and
+    move what points into the text with it (rewrite_entry). Whether
+    anything changed."""
+    text = ((entry.get("clue") if isinstance(entry.get("clue"), dict) else None) or {}).get("text")
+    if not isinstance(text, str) or "  " not in text:
+        return False
+    return rewrite_entry(entry, _space_map)
 
 
 def clue(printed, **keys):
