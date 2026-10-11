@@ -906,5 +906,19 @@ check "prose ahead of an answer in capitals, but not wordplay ahead of its fodde
             "The colourful work (6,4)|The YELLOW BOOK was a periodical running from 1894-7" \
             "Toast spoilt (5)|An anagram of TOAST" | paste -sd' ')"
 
+# An answer typed short ("HE – HE MP" under (4)) is read off the capitals that
+# spell it out, and one with a letter slipped into lower case ("RESEMBLiNG")
+# off its enumeration; capitals that spell too little or too much stay blank.
+slips='<table><tr><td colspan="2"><strong>Across</strong></td></tr>
+<tr><td>13</td><td><span>Fibre of male politician (4)</span></td></tr>
+<tr><td></td><td><b>HE</b> &#8211; HE MP</td></tr>
+<tr><td>14</td><td><span>Fibre of male politician (4)</span></td></tr>
+<tr><td></td><td><b>HE</b> &#8211; HE MP and MEN</td></tr>
+<tr><td>15</td><td><span>Like men, gerbils will stray (10)</span></td></tr>
+<tr><td></td><td><b>RESEMBLiNG</b> (men, gerbils)*</td></tr></table>'
+check "short and case-slipped answers" \
+  "13|across|HEMP|4|Fibre of male politician (4) 14|across||4|Fibre of male politician (4) 15|across|RESEMBLING|10|Like men, gerbils will stray (10)" \
+  "$(run "$slips" | paste -sd' ')"
+
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"
