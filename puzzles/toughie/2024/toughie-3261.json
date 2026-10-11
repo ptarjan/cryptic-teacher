@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Platform from which to speak: make that soft?",
     "enumeration": "6"
    },
-   "solution": "PULPIT"
+   "solution": "PULPIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PULPIT",
+    "definitions": [
+     {
+      "text": "Platform from which to speak",
+      "at": 0
+     },
+     {
+      "text": "make that soft?",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Platform from which to speak",
+      "note": "first meaning: the raised stand a preacher addresses a church from"
+     },
+     {
+      "clueFragment": "make that soft?",
+      "note": "second meaning, read cryptically as an instruction: reduce it to a mushy mass, written (4,2)"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is a whimsical definition by phrase: to turn something soft you would mash it to a pulp, and the two-word instruction runs together into the answer.",
+     "definitionFit": "A pulpit is the elevated enclosed stand in a church from which sermons are delivered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +86,42 @@
     "text": "Unqualified dropout terrified, to some extent",
     "enumeration": "5"
    },
-   "solution": "UTTER"
+   "solution": "UTTER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UTTER",
+    "definitions": [
+     {
+      "text": "Unqualified",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "only part of the following words is used, so the letters sit inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dropout terrified",
+      "gives": "UTTER",
+      "note": "the run of letters spanning the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A college dropout who is somewhat scared about having no qualifications.",
+     "definitionFit": "Both words mean absolute or complete, as in an utter fool or an unqualified success."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Unqualified"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +135,54 @@
     "text": "Knotting of a rope isn't frequent",
     "enumeration": "9"
    },
-   "solution": "PATRONISE"
+   "solution": "PATRONISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PATRONISE",
+    "definitions": [
+     {
+      "text": "frequent",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Knotting",
+      "for": "anagram",
+      "note": "tying something in knots twists it out of its original shape, so the letters get rearranged"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a rope isn't",
+      "gives": "AROPEISNT",
+      "note": "the fodder, all nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AROPEISNT",
+       "gives": "PATRONISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor's observation that tying knots in a rope does not happen often.",
+     "walkthrough": "'Frequent' looks like the adjective meaning common, but here it is the verb: to visit a place often.",
+     "definitionFit": "To patronise a shop or restaurant is to be a regular customer of it, i.e. to visit it habitually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "frequent"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +196,58 @@
     "text": "Person behind the counter in Scope after a tip?",
     "enumeration": "5"
    },
-   "solution": "TIMER"
+   "solution": "TIMER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TIMER",
+    "definitions": [
+     {
+      "text": "Person behind the counter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after a tip",
+      "for": "reversal",
+      "note": "something tipped over ends up upside down, so in a down entry the word is flipped end to end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scope",
+      "gives": "REMIT",
+      "note": "remit is the range of matters someone deals with, their scope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIMER"
+     ],
+     "reversals": [
+      {
+       "from": "REMIT",
+       "to": "TIMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A volunteer behind the till in a Scope charity shop after receiving a gratuity.",
+     "walkthrough": "Scope is a British disability charity with high-street shops, which steers you to a shop assistant; the definition actually means someone who keeps time, with the counter being a clock.",
+     "definitionFit": "A timer can be a person who measures elapsed time, a timekeeper standing behind the clock that counts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +261,68 @@
     "text": "Jazz pianist reversed interminable key change",
     "enumeration": "6"
    },
-   "solution": "MUTATE"
+   "solution": "MUTATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MUTATE",
+    "definitions": [
+     {
+      "text": "change",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "turned the other way round, so the musician's name is read from right to left"
+     },
+     {
+      "text": "interminable",
+      "for": "letter_selection",
+      "note": "without terminals, meaning both end letters of the following word are lost and only the middle kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jazz pianist",
+      "gives": "TATUM",
+      "note": "Art Tatum, the virtuoso American jazz pianist"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of the word once both ends are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUTAT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "TATUM",
+       "to": "MUTAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jazz pianist playing a key change backwards that seems to go on for ever.",
+     "walkthrough": "'Key change' reads as a musical modulation, but key is fodder and change alone is the definition, a verb.",
+     "definitionFit": "To mutate is to change form or nature, as genes or organisms alter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +342,54 @@
      }
     ]
    },
-   "solution": "MIDDLEEAR"
+   "solution": "MIDDLEEAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MIDDLE EAR",
+    "definitions": [
+     {
+      "text": "Location of small hammer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smashed",
+      "for": "anagram",
+      "note": "something smashed is broken into pieces, so the letters are scattered and reassembled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emerald I'd",
+      "gives": "EMERALDID",
+      "note": "the fodder, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EMERALDID",
+       "gives": "MIDDLEEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little hammer has been used to break an emerald, and the speaker admits it.",
+     "walkthrough": "The small hammer is the malleus, one of the tiny bones of hearing, not a jeweller's tool.",
+     "definitionFit": "The malleus, Latin for hammer, is one of three ossicles housed in the cavity behind the eardrum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hammer"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +403,66 @@
     "text": "Hooker in heap protecting ball, essentially?",
     "enumeration": "5"
    },
-   "solution": "TALON"
+   "solution": "TALON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TALON",
+    "definitions": [
+     {
+      "text": "Hooker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only its central letters are kept"
+     },
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "the heap guards what it surrounds, so one word wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heap",
+      "gives": "TON",
+      "note": "a ton, informally a large quantity or heap"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "AL",
+      "select": "middle",
+      "note": "the two middle letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AL",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby hooker in a scrum, shielding the ball at the bottom of a pile of bodies.",
+     "walkthrough": "Hooker suggests the rugby position the surface paints, but it means anything that hooks, here a bird's claw.",
+     "definitionFit": "A talon is the curved claw of a bird of prey, used to hook and grip its victim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hooker"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +476,58 @@
     "text": "Skirt wrapped in canopy for a period of three months",
     "enumeration": "9"
    },
-   "solution": "TRIMESTER"
+   "solution": "TRIMESTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRIMESTER",
+    "definitions": [
+     {
+      "text": "period of three months",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapped in",
+      "for": "container",
+      "note": "something wrapped in another thing is enclosed by it, so one word goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "canopy",
+      "gives": "TESTER",
+      "note": "a tester is the canopy over a four-poster bed"
+     },
+     {
+      "clueFragment": "Skirt",
+      "gives": "RIM",
+      "note": "to skirt is to edge; a rim is an edge or skirt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RIM",
+      "ESTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A skirt draped over a bed canopy for a whole season.",
+     "walkthrough": "A tester is the old word for a bed canopy, chiefly British.",
+     "definitionFit": "A trimester is a span of about three months, as in the stages of pregnancy or an academic term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Skirt"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +541,64 @@
     "text": "Raising of lower bunk, slow",
     "enumeration": "6"
    },
-   "solution": "TORPID"
+   "solution": "TORPID",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TORPID",
+    "definitions": [
+     {
+      "text": "slow",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Raising",
+      "for": "reversal",
+      "note": "lifting something up in a down entry turns it bottom to top, so the letters read in reverse"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lower",
+      "gives": "DIP",
+      "note": "to dip is to lower briefly"
+     },
+     {
+      "clueFragment": "bunk",
+      "gives": "ROT",
+      "note": "bunk and rot both mean nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOR",
+      "PID"
+     ],
+     "reversals": [
+      {
+       "from": "DIPROT",
+       "to": "TORPID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Climbing slowly out of the bottom bunk of a bunk bed.",
+     "walkthrough": "'Lower bunk' reads as a bed; bunk is the slang for nonsense.",
+     "definitionFit": "Torpid describes something sluggish and inactive, moving slowly as if numb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bunk"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +612,60 @@
     "text": "Offer coloured bag up",
     "enumeration": "6"
    },
-   "solution": "TENDER"
+   "solution": "TENDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TENDER",
+    "definitions": [
+     {
+      "text": "Offer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry going up means reading from bottom to top, the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coloured",
+      "gives": "RED",
+      "note": "red is a colour, so coloured red"
+     },
+     {
+      "clueFragment": "bag",
+      "gives": "NET",
+      "note": "to net is to bag or catch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "DER"
+     ],
+     "reversals": [
+      {
+       "from": "REDNET",
+       "to": "TENDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone offers a dyed sack, held up for inspection.",
+     "definitionFit": "A tender is a formal offer, such as a bid to supply goods or do a job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coloured"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +679,77 @@
     "text": "Vocalist's last, and the rest love backing group",
     "enumeration": "5"
    },
-   "solution": "OCTET"
+   "solution": "OCTET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "OCTET",
+    "definitions": [
+     {
+      "text": "group",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the singer's final letter is the only one taken from that word"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "moving backwards means the assembled string is read from its end to its start"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vocalist's",
+      "gives": "T",
+      "select": "last",
+      "note": "final letter of the word"
+     },
+     {
+      "clueFragment": "the rest",
+      "gives": "ETC",
+      "note": "etcetera means and the rest"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like the letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CTE",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TETCO",
+       "to": "OCTET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lead singer and the others in the band love having a backing group.",
+     "walkthrough": "'Backing group' looks like one musical phrase, but backing is the reversal signal and group alone is the definition.",
+     "definitionFit": "An octet is a group of eight, especially eight musicians performing together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +763,66 @@
     "text": "Cake scored? Knife finally cutting into it",
     "enumeration": "9"
    },
-   "solution": "MADELEINE"
+   "solution": "MADELEINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MADELEINE",
+    "definitions": [
+     {
+      "text": "Cake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "at the end, so only the closing letter of the blade word is used"
+     },
+     {
+      "text": "cutting into",
+      "for": "container",
+      "note": "a knife cutting into something goes inside it, so one letter is placed within the other phrase"
+     }
+    ],
+    "linkWords": [
+     "it"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scored?",
+      "gives": "MADELINE",
+      "note": "scored, as in rugby, read as made line: got across the try line, written (4,4)"
+     },
+     {
+      "clueFragment": "Knife",
+      "gives": "E",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MADEL",
+      "E",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cake has been scored with a knife, which then cuts into it.",
+     "walkthrough": "Scoring a cake suggests marking its top with a knife; the question mark flags a looser reading, crossing the line to score a try.",
+     "definitionFit": "A madeleine is a small shell-shaped French sponge cake, famous from Proust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scored"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +836,47 @@
     "text": "Standard cloud over commercial premises",
     "enumeration": "7"
    },
-   "solution": "PARLOUR"
+   "solution": "PARLOUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARLOUR",
+    "definitions": [
+     {
+      "text": "commercial premises",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Standard",
+      "gives": "PAR",
+      "note": "par is the standard or norm"
+     },
+     {
+      "clueFragment": "cloud over",
+      "gives": "LOUR",
+      "note": "to lour is to grow dark and threatening, as a sky clouds over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "LOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Ordinary cloud cover hanging above a business property.",
+     "walkthrough": "Lour (also lower) is an old verb for the sky turning dark and gloomy.",
+     "definitionFit": "A parlour is a shop or business room, such as an ice-cream parlour or a funeral parlour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cloud"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +890,57 @@
     "text": "Source of oil, spot circled by Swedish Nightingale",
     "enumeration": "7"
    },
-   "solution": "LINSEED"
+   "solution": "LINSEED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LINSEED",
+    "definitions": [
+     {
+      "text": "Source of oil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circled by",
+      "for": "container",
+      "note": "something circled is ringed all round, so the singer's name surrounds the other word"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swedish Nightingale",
+      "gives": "LIND",
+      "note": "Jenny Lind, the 19th-century soprano nicknamed the Swedish Nightingale"
+     },
+     {
+      "clueFragment": "spot",
+      "gives": "SEE",
+      "note": "to see is to spot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIN",
+      "SEE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An oil source spotted with a Swedish songbird hovering around it.",
+     "definitionFit": "Linseed is flax seed, which is pressed to make linseed oil for paints and wood finishes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nightingale"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +954,55 @@
     "text": "Everything I invested in fling, romantic affair",
     "enumeration": "9"
    },
-   "solution": "DALLIANCE"
+   "solution": "DALLIANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DALLIANCE",
+    "definitions": [
+     {
+      "text": "romantic affair",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in something is put inside it, so these words are placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fling",
+      "gives": "DANCE",
+      "note": "a fling is a lively dance, as in the Highland fling"
+     },
+     {
+      "clueFragment": "Everything I",
+      "gives": "ALLI",
+      "note": "everything is ALL, plus I taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ALLI",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who put their all into a brief fling that became a love affair.",
+     "walkthrough": "'Fling' reads as a short romance, the same idea as the definition; here it is a dance.",
+     "definitionFit": "A dalliance is a casual or brief love affair, a flirtation not taken seriously."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fling"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1016,59 @@
     "text": "Stop trading at the eleventh hour, with very little money banked?",
     "enumeration": "9"
    },
-   "solution": "LIQUIDATE"
+   "solution": "LIQUIDATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LIQUIDATE",
+    "definitions": [
+     {
+      "text": "Stop trading",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banked",
+      "for": "container",
+      "note": "money banked is placed inside a bank, so these letters go within the other word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at the eleventh hour",
+      "gives": "LATE",
+      "note": "at the last moment, i.e. late"
+     },
+     {
+      "clueFragment": "very little money",
+      "gives": "IQUID",
+      "note": "one pound: I for one plus QUID, slang for a pound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IQUID",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A business going under at the last minute with almost no cash in the bank.",
+     "walkthrough": "A quid is British slang for a pound sterling.",
+     "definitionFit": "A company that liquidates winds up its affairs and sells its assets, ceasing to do business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "banked"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1088,42 @@
      }
     ]
    },
-   "solution": "NUMBERONE"
+   "solution": "NUMBERONE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUMBER ONE",
+    "definitions": [
+     {
+      "text": "Hit",
+      "at": 0
+     },
+     {
+      "text": "yours truly",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit",
+      "note": "first meaning: a chart-topping record"
+     },
+     {
+      "clueFragment": "yours truly",
+      "note": "second meaning: oneself, as in looking after yourself first"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Hit seems to be a verb with yours truly as its object; both are noun phrases instead.",
+     "definitionFit": "The phrase means both the top single in the charts and, informally, oneself, the person who matters most."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hit"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1137,58 @@
     "text": "Country where a sailor has joined queue, reportedly?",
     "enumeration": "5"
    },
-   "solution": "QATAR"
+   "solution": "QATAR",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "QATAR",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "as reported in speech, so it is the pronunciation of the word that counts"
+     }
+    ],
+    "linkWords": [
+     "where",
+     "has joined"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "queue",
+      "gives": "Q",
+      "soundsLike": "QUEUE",
+      "note": "the letter's name sounds the same as the word for a line of people"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "a tar is a sailor"
+     }
+    ],
+    "explanation": {
+     "surface": "Describing a country where a seaman has stood in line.",
+     "definitionFit": "Qatar is a small Gulf state on a peninsula in the Persian Gulf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "queue"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1202,46 @@
     "text": "Bright green alkali",
     "enumeration": "9"
    },
-   "solution": "QUICKLIME"
+   "solution": "QUICKLIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "QUICKLIME",
+    "definitions": [
+     {
+      "text": "alkali",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bright",
+      "gives": "QUICK",
+      "note": "bright in the sense of clever, quick-witted"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "LIME",
+      "note": "lime is a shade of green"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUICK",
+      "LIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A vivid green chemical in the lab.",
+     "definitionFit": "Quicklime is calcium oxide, a strongly alkaline substance made by heating limestone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bright"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1255,47 @@
     "text": "Animosity in dog when picked up?",
     "enumeration": "5"
    },
-   "solution": "PIQUE"
+   "solution": "PIQUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PIQUE",
+    "definitions": [
+     {
+      "text": "Animosity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when picked up",
+      "for": "homophone",
+      "note": "picking something up by ear means hearing it, so the sound matters rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "PIQUE",
+      "soundsLike": "PEKE",
+      "note": "a peke is a Pekingese dog"
+     }
+    ],
+    "explanation": {
+     "surface": "Bad feeling shown by a dog when it is lifted off the ground.",
+     "definitionFit": "Pique is resentment or irritation from wounded pride, a form of ill will."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1309,50 @@
     "text": "Belly with time for soup",
     "enumeration": "6"
    },
-   "solution": "POTAGE"
+   "solution": "POTAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POTAGE",
+    "definitions": [
+     {
+      "text": "soup",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belly",
+      "gives": "POT",
+      "note": "a pot, as in pot belly"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POT",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rumbling stomach ready for a bowl of soup.",
+     "definitionFit": "Potage is a thick French-style soup."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Belly"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1372,61 @@
      }
     ]
    },
-   "solution": "MARDIGRAS"
+   "solution": "MARDIGRAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MARDI GRAS",
+    "definitions": [
+     {
+      "text": "celebration",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dividing",
+      "for": "container",
+      "note": "something that divides splits another word in two, sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spoils",
+      "gives": "MARS",
+      "note": "to mar is to spoil, so spoils is mars"
+     },
+     {
+      "clueFragment": "Like",
+      "gives": "DIG",
+      "note": "dig is slang for like or appreciate"
+     },
+     {
+      "clueFragment": "artillery",
+      "gives": "RA",
+      "note": "RA is the Royal Artillery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "DIGRA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Like big guns sharing out the plunder in a victory party.",
+     "walkthrough": "'Spoils' looks like a noun meaning booty; it is the verb, ruins.",
+     "definitionFit": "Mardi Gras, Shrove Tuesday, is a carnival festival of feasting before Lent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spoils"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1440,56 @@
     "text": "Gnome always feeding troll in the past?",
     "enumeration": "6"
    },
-   "solution": "SAYING"
+   "solution": "SAYING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAYING",
+    "definitions": [
+     {
+      "text": "Gnome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "feeding",
+      "for": "container",
+      "note": "food goes into a mouth, so this word is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "troll in the past?",
+      "gives": "SING",
+      "note": "troll is an archaic word for to sing, especially in a carefree way or in a round"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "AY",
+      "note": "ay, an old word for always or ever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AY",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A garden gnome forever bringing food to a troll from folklore.",
+     "walkthrough": "Gnome and troll look like a pair of fairytale creatures; a gnome is also a maxim, and troll an old verb.",
+     "definitionFit": "A gnome in the literary sense is a short pithy maxim or proverb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gnome"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1503,56 @@
     "text": "Prickly thing, article pulled from the book I'm reading?",
     "enumeration": "7"
    },
-   "solution": "THISTLE"
+   "solution": "THISTLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THISTLE",
+    "definitions": [
+     {
+      "text": "Prickly thing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulled from",
+      "for": "deletion",
+      "note": "something pulled out of a phrase is removed, so it no longer appears"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "the book I'm reading?",
+      "gives": "THISTALE",
+      "note": "the story in your hands now: this tale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIST",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describing their current book as a thorny read after a chapter was cut.",
+     "definitionFit": "A thistle is a plant with spiny leaves and stems, Scotland's emblem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1566,44 @@
     "text": "House teacher speaking with American accent?",
     "enumeration": "5"
    },
-   "solution": "TUDOR"
+   "solution": "TUDOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TUDOR",
+    "definitions": [
+     {
+      "text": "House",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "speaking with American accent?",
+      "for": "homophone",
+      "note": "spoken in an American way, the middle consonant softens, so we go by how it sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teacher",
+      "gives": "TUDOR",
+      "soundsLike": "TUTOR",
+      "note": "a tutor is a teacher; in American speech the middle T is flapped to a D sound"
+     }
+    ],
+    "explanation": {
+     "surface": "A schoolhouse teacher talking with an American twang.",
+     "walkthrough": "House suggests a school house, but it is a royal dynasty.",
+     "definitionFit": "The Tudors were the English royal house from Henry VII to Elizabeth I."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1623,63 @@
      }
     ]
    },
-   "solution": "MAKEWAY"
+   "solution": "MAKEWAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MAKE WAY",
+    "definitions": [
+     {
+      "text": "clear a path",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing set within another, so these words go inside the blossom word"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloom",
+      "gives": "MAY",
+      "note": "may is hawthorn blossom"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "place with gardens",
+      "gives": "KEW",
+      "note": "Kew in west London, home of the Royal Botanic Gardens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AKEW",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "A spot with gardens in flower where you must step aside.",
+     "definitionFit": "To make way is to move aside so that someone or something can pass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bloom"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1693,65 @@
     "text": "Crosses from New York team Thierry, in the centre, put away",
     "enumeration": "5"
    },
-   "solution": "MEETS"
+   "solution": "MEETS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MEETS",
+    "definitions": [
+     {
+      "text": "Crosses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the centre",
+      "for": "letter_selection",
+      "note": "the centre of the name is its single middle letter, which is all we keep"
+     },
+     {
+      "text": "put away",
+      "for": "container",
+      "note": "something put away is stored inside, so it goes within the team name"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York team",
+      "gives": "METS",
+      "note": "the New York Mets baseball team"
+     },
+     {
+      "clueFragment": "Thierry",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of the seven-letter name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "E",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Crosses from a New York side with Thierry Henry in the middle, scored.",
+     "walkthrough": "Crosses suggests football passes, given the footballer; it is a verb meaning comes together.",
+     "definitionFit": "Lines or roads that cross each other meet at a point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crosses"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1765,51 @@
     "text": "One should be like this when older wires replaced",
     "enumeration": "5"
    },
-   "solution": "WISER"
+   "solution": "WISER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "WISER",
+    "definitions": [
+     {
+      "text": "One should be like this when older",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaced",
+      "for": "anagram",
+      "note": "things replaced are put back in a different arrangement, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wires",
+      "gives": "WIRES",
+      "note": "the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WIRES",
+       "gives": "WISER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An electrician's advice that old wiring should be renewed.",
+     "definitionFit": "Age is supposed to bring greater wisdom, so one ought to be more sagacious when older."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wires"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1823,66 @@
     "text": "August the first on road in San Diego on tour?",
     "enumeration": "9"
    },
-   "solution": "GRANDIOSE"
+   "solution": "GRANDIOSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "GRANDIOSE",
+    "definitions": [
+     {
+      "text": "August",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the first",
+      "for": "letter_selection",
+      "note": "only the opening letter of the next word is used"
+     },
+     {
+      "text": "on tour",
+      "for": "anagram",
+      "note": "a tour wanders about, so the letters travel into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "San Diego",
+      "gives": "SANDIEGO",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RSANDIEGO",
+       "gives": "GRANDIOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A road trip through San Diego on the first of August.",
+     "walkthrough": "August with a capital looks like the month, but it is the adjective meaning imposing; the capital is only because it opens the clue.",
+     "definitionFit": "August means majestic and imposing, close to grand and impressive in style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "August"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1896,59 @@
     "text": "Playwright children's author virtually rejected",
     "enumeration": "5"
    },
-   "solution": "IBSEN"
+   "solution": "IBSEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "IBSEN",
+    "definitions": [
+     {
+      "text": "Playwright",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "virtually",
+      "for": "deletion",
+      "note": "almost all of it, so the last letter is dropped"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "turned back, so what remains is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "children's author",
+      "gives": "NESBIT",
+      "note": "E. Nesbit, author of The Railway Children"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IBSEN"
+     ],
+     "reversals": [
+      {
+       "from": "NESBI",
+       "to": "IBSEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dramatist turned down a writer of children's books, more or less.",
+     "definitionFit": "Henrik Ibsen was the Norwegian dramatist who wrote A Doll's House and Hedda Gabler."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +1962,65 @@
     "text": "Package's back after month on order",
     "enumeration": "6"
    },
-   "solution": "DECREE"
+   "solution": "DECREE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DECREE",
+    "definitions": [
+     {
+      "text": "order",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of the word is its rear end, so only its final letter is taken"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "month",
+      "gives": "DEC",
+      "note": "abbreviation for December"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "Package's",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "RE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A parcel coming back after a month spent waiting on an order.",
+     "walkthrough": "'After' places the package's last letter after the month and its partner, not straight after the month.",
+     "definitionFit": "A decree is an official order issued by a ruler or court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Package's"
+    }
+   }
   },
   {
    "number": 28,
@@ -491,7 +2034,57 @@
     "text": "Cap has been replaced on fruit drink",
     "enumeration": "6"
    },
-   "solution": "SHERRY"
+   "solution": "SHERRY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SHERRY",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cap has been replaced",
+      "for": "substitution",
+      "note": "the cap of a word is its top letter, and swapping that out puts something else at the front"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has",
+      "gives": "S",
+      "note": "has contracts to 's, as in she's"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "CHERRY",
+      "note": "a cherry is a fruit; its first letter is the one swapped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HERRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A bottle top was put back on a cherry-flavoured drink.",
+     "walkthrough": "'Has' reads as an auxiliary verb, but it is the contraction 's, which takes the place of the fruit's first letter.",
+     "definitionFit": "Sherry is a fortified wine from southern Spain, served as an aperitif."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "has"
+    }
+   }
   }
  ]
 }
