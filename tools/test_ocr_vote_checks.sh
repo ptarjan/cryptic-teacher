@@ -1223,6 +1223,20 @@ check("mirror: a word after the count that a reading has is no cut",
       "A requisite one's incorporated in cake flavouring (7). doefla",
       oc.agree("A requisite one's incorporated in cake flavouring (7). doefla", [fl, fl, fd])[0])
 
+# A laid clue too garbled for any reading to print it word for word is
+# laid again from the clue most readings print between two numbers alike
+# to it ("Yardous leaders of decad- caccin1 poeuy'", Times 1980s).
+yv = [oc.marked(t, breaks=True) for t in (
+    "4 Brain case is about scroop: drink, if one goes Into It 5 Various leaders of decadence in poetry 6 Head to tail",
+    "4 Brala case is about strong drink, if one goes into it 5 Varlous leaders of decadence in I poetry 6 Head to tail",
+    "4 Bralo case is about strong drink, if one goes into It 5 Various leaders of decad, ence in poetry 6 Head to tail")]
+check("a garbled laid clue no reading prints is laid from the clue most print ('Yardous', Times)",
+      "Various leaders of decadence in poetry", oc.agree("Yardous leaders of decad- caccin1 poeuy'", yv)[0])
+check("mirror: a laid clue the readings print keeps its own words",
+      "Various leaders of decadence in poetry", oc.agree("Various leaders of decadence in poetry", yv)[0])
+check("mirror: one reading alone printing a like clue lays nothing",
+      None, oc.agree("Yardous leaders of decad- caccin1 poeuy'", [yv[0], oc.marked("4 Head to tail 5 Brought forward", breaks=True)])[0])
+
 print(f"FAILS {fails}")
 EOF
 )
