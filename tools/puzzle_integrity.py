@@ -1707,29 +1707,43 @@ def _fingerprint():
     return h.hexdigest()
 
 
+def cache_path(fp):
+    return CACHE.with_name(f"{CACHE.stem}-{fp[:16]}{CACHE.suffix}")
+
+
+def _prune(keep, days=3):
+    """Drop cache files of other fingerprints untouched for `days`, and the
+    old single-file cache."""
+    cutoff = time.time() - days * 86400
+    for old in [CACHE, *CACHE.parent.glob(f"{CACHE.stem}-*{CACHE.suffix}*")]:
+        if old.name.startswith(keep.name):
+            continue
+        try:
+            if old == CACHE or old.stat().st_mtime < cutoff:
+                old.unlink()
+        except OSError:
+            pass
+
+
 def _open_cache():
     """The sqlite cache of cross-puzzle facts, keyed by git blob sha so that it
     holds across checkouts and worktrees: one row per distinct file content
     (id, digest, number of clue keys, the dated row) and one (clue key, row)
     pair per clue key, indexed by key so a single puzzle's neighbours are an
     index lookup instead of a 50 MB load."""
-    CACHE.parent.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(CACHE, timeout=60)
-    conn.execute("PRAGMA synchronous=OFF")
     fp = _fingerprint()
-    try:
-        ok = conn.execute("SELECT v FROM meta WHERE k='fp'").fetchone()
-    except sqlite3.OperationalError:
-        ok = None
-    if not ok or ok[0] != fp:
-        with conn:
-            conn.executescript(
-                "DROP TABLE IF EXISTS meta; DROP TABLE IF EXISTS rows; DROP TABLE IF EXISTS clues;"
-                "CREATE TABLE meta(k TEXT PRIMARY KEY, v TEXT);"
-                "CREATE TABLE rows(id INTEGER PRIMARY KEY, blob TEXT UNIQUE, pid TEXT, digest TEXT,"
-                " nkeys INTEGER, held BLOB);"
-                "CREATE TABLE clues(key TEXT, id INTEGER, PRIMARY KEY(key, id)) WITHOUT ROWID;")
-            conn.execute("INSERT INTO meta VALUES('fp', ?)", (fp,))
+    CACHE.parent.mkdir(parents=True, exist_ok=True)
+    path = cache_path(fp)
+    conn = sqlite3.connect(path, timeout=60)
+    conn.execute("PRAGMA synchronous=OFF")
+    # One file per source fingerprint: a worktree with different source never
+    # touches this file, so nothing is ever dropped under a running audit.
+    with conn:
+        conn.executescript(
+            "CREATE TABLE IF NOT EXISTS rows(id INTEGER PRIMARY KEY, blob TEXT UNIQUE, pid TEXT, digest TEXT,"
+            " nkeys INTEGER, held BLOB);"
+            "CREATE TABLE IF NOT EXISTS clues(key TEXT, id INTEGER, PRIMARY KEY(key, id)) WITHOUT ROWID;")
+    _prune(path)
     return conn
 
 

@@ -734,5 +734,31 @@ same "a filed puzzle moved to a later scan's date is refused" "$(field LATER_REP
 same "a rewrite keeping the filed date is untouched" "$(field REWRITE_SAME_DAY "$out11")" "allowed"
 check "$out11" "NEIGHBOURS [8029, 8034]" "neighbours are the nearest filed numbers either side"
 
+out12=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import tempfile, time, os
+from pathlib import Path
+import puzzle_integrity as pi
+d = Path(tempfile.mkdtemp())
+pi.CACHE = d / "integrity-rows.sqlite"
+pi.CACHE.write_text("legacy")
+a = pi.cache_path("a" * 40)
+b = pi.cache_path("b" * 40)
+old = pi.cache_path("c" * 40)
+old.write_text("x"); os.utime(old, (1, 1))
+conn = pi._open_cache()
+conn.execute("INSERT INTO rows(blob, pid, digest, nkeys, held) VALUES('x','p','d',0,x'00')"); conn.commit()
+conn.close()
+pi._fingerprint = lambda: "b" * 40
+pi._open_cache().close()
+print("SEPARATE", pi.cache_path(pi._fingerprint()) == b and b.exists())
+print("LEGACY_GONE", not pi.CACHE.exists())
+print("STALE_PRUNED", not old.exists())
+PY
+)
+died "$out12" "the cache-per-fingerprint fixture"
+check "$out12" "SEPARATE True" "a different source fingerprint opens its own cache file"
+check "$out12" "LEGACY_GONE True" "the old shared single-file cache is removed"
+check "$out12" "STALE_PRUNED True" "stale caches of other fingerprints are pruned"
+
 [ "$fails" = 0 ] && echo "puzzle_integrity: all checks passed" || echo "puzzle_integrity: $fails FAILED"
 exit $((fails > 0))
