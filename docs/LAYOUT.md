@@ -2158,5 +2158,7 @@ tools/test_leading_quote.sh                   an OCR'd clue opens with a quote o
                                               text, a publisher's clue is never touched, both
                                               OCR readers finish a clue through it, and the
                                               write gate refuses what it would still mend
+tools/gale_http.py                            the Chrome-like browsing of Gale and its portal,
+                                              shared by gale_fetch.py
 ```
 <!-- LAYOUT-END -->
