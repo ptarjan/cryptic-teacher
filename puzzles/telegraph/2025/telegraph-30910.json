@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,61 @@
     "text": "Took over in the guise of editor, penning entirety",
     "enumeration": "7"
    },
-   "solution": "ASSUMED"
+   "solution": "ASSUMED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASSUMED",
+    "definitions": [
+     {
+      "text": "Took over",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "to pen something is to shut it in an enclosure, so the earlier letters wrap around what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the guise of",
+      "gives": "AS",
+      "note": "'as' means in the role or guise of"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "standard abbreviation for editor"
+     },
+     {
+      "clueFragment": "entirety",
+      "gives": "SUM",
+      "note": "the sum is the whole amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SUM",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone seized control of a publication while posing as its editor and writing every page.",
+     "walkthrough": "AS and ED together form the pen that holds SUM.",
+     "definitionFit": "To assume a role or duty is to take it on or take it over; this is the past tense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "penning"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +103,55 @@
     "text": "20 briefly row at sea",
     "enumeration": "6"
    },
-   "solution": "ADRIFT"
+   "solution": "ADRIFT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ADRIFT",
+    "definitions": [
+     {
+      "text": "at sea",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so only an abbreviated form of the referenced answer is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "20",
+      "gives": "AD",
+      "note": "the answer to 20 down, a commercial, shortened to its short form"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "RIFT",
+      "note": "a row is a quarrel, causing a rift"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "RIFT"
+     ]
+    },
+    "explanation": {
+     "surface": "A short commercial shows people rowing out on the ocean.",
+     "walkthrough": "'Row' looks like using oars; it is a quarrel, pronounced to rhyme with cow.",
+     "definitionFit": "At sea means drifting without direction, literally or figuratively lost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +165,59 @@
     "text": "In Spanish sir, 'numero uno' will be first",
     "enumeration": "6"
    },
-   "solution": "SENIOR"
+   "solution": "SENIOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SENIOR",
+    "definitions": [
+     {
+      "text": "first",
+      "at": 37,
+      "note": "adjective of rank: higher-ranking"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "the item placed in the other word goes inside it"
+     }
+    ],
+    "linkWords": [
+     "will be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spanish sir",
+      "gives": "SENOR",
+      "note": "the Spanish title for a gentleman, without its tilde"
+     },
+     {
+      "clueFragment": "'numero uno'",
+      "gives": "I",
+      "note": "number one as a Roman numeral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEN",
+      "I",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish gentleman is told he will be the top person.",
+     "walkthrough": "'Numero uno' is Spanish-flavoured slang for number one, here the numeral I.",
+     "definitionFit": "Senior means higher in rank or status, so the senior person comes first."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uno"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +231,51 @@
     "text": "Their focus is royal romance - his is in rebellion",
     "enumeration": "10"
    },
-   "solution": "MONARCHIES"
+   "solution": "MONARCHIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MONARCHIES",
+    "definitions": [
+     {
+      "text": "Their focus is royal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is in rebellion",
+      "for": "anagram",
+      "note": "a rebellion overturns order, so these letters are thrown out of their arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "romance - his",
+      "gives": "ROMANCEHIS",
+      "note": "the letters of both words together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROMANCEHIS",
+       "gives": "MONARCHIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal love affair causes a scandal: his heart rebels.",
+     "walkthrough": "The definition is cryptic: states whose centre of attention is a king or queen.",
+     "definitionFit": "Kingdoms are states centred on a crowned head, so their focus is royal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "romance"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +289,64 @@
     "text": "Coach said do skipping regularly, spinning and dance",
     "enumeration": "5"
    },
-   "solution": "DISCO"
+   "solution": "DISCO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "DISCO",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skipping regularly",
+      "for": "letter_selection",
+      "note": "skipping at regular intervals keeps every other letter"
+     },
+     {
+      "text": "spinning",
+      "for": "reversal",
+      "note": "spinning turns something round, so the kept letters are read the other way"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coach said do",
+      "gives": "OCSID",
+      "select": "alternate",
+      "note": "second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISCO"
+     ],
+     "reversals": [
+      {
+       "from": "OCSID",
+       "to": "DISCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coach tells someone to do skipping and spinning as part of a dance routine.",
+     "walkthrough": "'Coach' looks like the speaker, but it is part of the letter source.",
+     "definitionFit": "Disco is a style of dancing to pop music in a nightclub, and also the event itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Coach"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +360,51 @@
     "text": "Book substitute - keep cool!",
     "enumeration": "7"
    },
-   "solution": "RESERVE"
+   "solution": "RESERVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESERVE",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     },
+     {
+      "text": "substitute",
+      "at": 5
+     },
+     {
+      "text": "keep cool",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "note": "first meaning: arrange in advance, as with a table"
+     },
+     {
+      "clueFragment": "substitute",
+      "note": "second meaning: a replacement player on the bench"
+     },
+     {
+      "clueFragment": "keep cool",
+      "note": "third meaning: hold back and stay restrained, as in keeping one's distance"
+     }
+    ],
+    "explanation": {
+     "surface": "A frazzled librarian's advice: find a replacement book and stay calm.",
+     "walkthrough": "Three meanings of one word: a verb for booking, a noun for a substitute, and the restraint of someone cool and aloof.",
+     "definitionFit": "The word covers booking ahead, a back-up player, and holding back one's feelings with restraint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +418,64 @@
     "text": "Football official with hubris fixed do up",
     "enumeration": "9"
    },
-   "solution": "REFURBISH"
+   "solution": "REFURBISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "REFURBISH",
+    "definitions": [
+     {
+      "text": "do up",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fixed",
+      "for": "anagram",
+      "note": "something fixed has been rearranged or rigged, so these letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Football official",
+      "gives": "REF",
+      "note": "short for referee"
+     },
+     {
+      "clueFragment": "hubris",
+      "gives": "URBISH",
+      "note": "rearranged letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REF",
+      "URBISH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HUBRIS",
+       "gives": "URBISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An arrogant referee's match was rigged.",
+     "walkthrough": "'Fixed' suggests a rigged match, which is the anagram signal.",
+     "definitionFit": "To do up a house is to renovate it, a synonym for restore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fixed"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +489,59 @@
     "text": "Capital community centres in Kosovo and Lahore",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "Capital community",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centres in",
+      "for": "letter_selection",
+      "note": "the centres of words are their middle letters, here two from each"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kosovo",
+      "gives": "SO",
+      "select": "middle",
+      "note": "the two central letters of the six-letter name"
+     },
+     {
+      "clueFragment": "Lahore",
+      "gives": "HO",
+      "select": "middle",
+      "note": "the two central letters of the six-letter city name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "Community centres in the Balkans and Pakistan.",
+     "walkthrough": "Soho is a district of central London known for nightlife.",
+     "definitionFit": "A neighbourhood in London, the capital, is a community within that city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +555,40 @@
     "text": "Game in Monaco where note gets recycled?",
     "enumeration": "8"
    },
-   "solution": "ROULETTE"
+   "solution": "ROULETTE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROULETTE",
+    "definitions": [
+     {
+      "text": "Game in Monaco where note gets recycled?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game in Monaco where note gets recycled?",
+      "note": "surface reading: an eco-friendly game where scrap paper is reused"
+     },
+     {
+      "clueFragment": "Game in Monaco where note gets recycled?",
+      "note": "setter's reading: a casino game in Monte Carlo where banknotes staked go round and round a spinning wheel"
+     }
+    ],
+    "explanation": {
+     "surface": "A green-minded pastime on the Riviera where paper is reused.",
+     "walkthrough": "The note is money, and being recycled means it keeps circling on the spinning wheel and between gamblers.",
+     "definitionFit": "The casino wheel game played in Monte Carlo, where cash staked literally goes round."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "recycled"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +602,40 @@
     "text": "They use X to try to change the government",
     "enumeration": "8"
    },
-   "solution": "ELECTORS"
+   "solution": "ELECTORS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ELECTORS",
+    "definitions": [
+     {
+      "text": "They use X to try to change the government",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They use X to try to change the government",
+      "note": "surface reading: plotters using a mysterious X, or a social media site, to topple rulers"
+     },
+     {
+      "clueFragment": "They use X to try to change the government",
+      "note": "setter's reading: people marking a cross on a ballot paper at an election"
+     }
+    ],
+    "explanation": {
+     "surface": "Activists use the platform X in an attempt to bring down the regime.",
+     "walkthrough": "X is the cross marked on a ballot paper.",
+     "definitionFit": "Voters mark a cross by their chosen candidate, hoping to vote in a new administration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "X"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +655,49 @@
      }
     ]
    },
-   "solution": "RUNIN"
+   "solution": "RUNIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUN-IN",
+    "definitions": [
+     {
+      "text": "Clash",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perform",
+      "gives": "RUN",
+      "note": "to run a show or machine is to operate or perform it"
+     },
+     {
+      "clueFragment": "fashionable following",
+      "gives": "IN",
+      "note": "'in' means fashionable, and 'following' puts it after"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUN",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer competes against a trendy crowd of fans.",
+     "definitionFit": "A run-in is an argument or confrontation, a synonym for a clash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "perform"
+    }
+   }
   },
   {
    "number": 10,
@@ -198,7 +717,62 @@
      }
     ]
    },
-   "solution": "SAFEHOUSE"
+   "solution": "SAFEHOUSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SAFE HOUSE",
+    "definitions": [
+     {
+      "text": "home for extra security",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "required in",
+      "for": "container",
+      "note": "something required in a place must go inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "SAFE",
+      "note": "safe means cautious, avoiding risk"
+     },
+     {
+      "clueFragment": "tube",
+      "gives": "HOSE",
+      "note": "a hose is a flexible tube"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is uniform in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAFE",
+      "HO",
+      "U",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory dress code is enforced on the Underground for added protection.",
+     "walkthrough": "'Conservative' and 'tube' suggest the Tories and the London Underground; here they are just cautious and a pipe.",
+     "definitionFit": "A safe house is a secret dwelling where people can hide in security, as spies and witnesses do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tube"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +786,64 @@
     "text": "Female toilet meeting resistance by committee? It's a walkover!",
     "enumeration": "10"
    },
-   "solution": "FLOORBOARD"
+   "solution": "FLOORBOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLOORBOARD",
+    "definitions": [
+     {
+      "text": "It's a walkover!",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "meeting",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "toilet",
+      "gives": "LOO",
+      "note": "loo is British slang for toilet"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     },
+     {
+      "clueFragment": "committee",
+      "gives": "BOARD",
+      "note": "a board is a governing committee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOO",
+      "R",
+      "BOARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A committee decides who gets the women's washroom, with the outcome a foregone conclusion.",
+     "walkthrough": "'Walkover' usually means an easy win; here it is literal, something people walk over.",
+     "definitionFit": "A plank in a floor is something one literally walks over, punning on an easy victory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "walkover"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +857,69 @@
     "text": "The red plot for overthrowing Taiwan's capital",
     "enumeration": "4"
    },
-   "solution": "DEBT"
+   "solution": "DEBT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DEBT",
+    "definitions": [
+     {
+      "text": "The red",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for overthrowing",
+      "for": "reversal",
+      "note": "overthrowing turns something upside down, which in an across answer means reading it backwards"
+     },
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is the opening capital letter of a word, so only its first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plot",
+      "gives": "BED",
+      "note": "a plot of ground in a garden is a bed"
+     },
+     {
+      "clueFragment": "Taiwan's",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of the island's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEB",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "BED",
+       "to": "DEB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Communists scheme to topple the government in Taipei.",
+     "walkthrough": "'The red' looks like communists, but being in the red means owing money.",
+     "definitionFit": "Accounts in the red show a deficit, so the red stands for money owed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +933,65 @@
     "text": "Area welcomes housing guys offering contracts",
     "enumeration": "10"
    },
-   "solution": "AGREEMENTS"
+   "solution": "AGREEMENTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AGREEMENTS",
+    "definitions": [
+     {
+      "text": "contracts",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "container",
+      "note": "housing something means giving it a home inside, so the next piece goes within"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Area",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "welcomes",
+      "gives": "GREETS",
+      "note": "to greet is to welcome"
+     },
+     {
+      "clueFragment": "guys",
+      "gives": "MEN",
+      "note": "guys are men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GREE",
+      "MEN",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "A district welcomes a hostel for men offering contracts.",
+     "walkthrough": "'Area welcomes' reads as a sentence; area is just A.",
+     "definitionFit": "Contracts are formal deals between parties, a synonym in the plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +1011,70 @@
      }
     ]
    },
-   "solution": "SHOOTINGSTAR"
+   "solution": "SHOOTINGSTAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SHOOTING STAR",
+    "definitions": [
+     {
+      "text": "streaker",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to arrest",
+      "for": "container",
+      "note": "arresting means seizing and holding, so one piece is held inside another"
+     },
+     {
+      "text": "middle-of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letter alone"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get out",
+      "gives": "SHOO",
+      "note": "shoo is said to drive someone away"
+     },
+     {
+      "clueFragment": "sheriff's badge",
+      "gives": "TINSTAR",
+      "note": "a tin star is the badge of a Wild West lawman"
+     },
+     {
+      "clueFragment": "night",
+      "gives": "G",
+      "select": "middle",
+      "note": "central letter of the five-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOO",
+      "TIN",
+      "G",
+      "STAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawman tells someone to clear off and pins on his badge to catch a midnight streaker.",
+     "walkthrough": "The streaker sounds like a naked runner, but it is something streaking across the sky.",
+     "definitionFit": "A meteor leaves a bright streak as it crosses the night sky, so it is literally a streaker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "streaker"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +1094,54 @@
      }
     ]
    },
-   "solution": "OYSTERBED"
+   "solution": "OYSTERBED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OYSTER-BED",
+    "definitions": [
+     {
+      "text": "home underwater?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In a storm",
+      "for": "anagram",
+      "note": "a storm throws things about, so these letters are tossed into a new order"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "do bees try",
+      "gives": "DOBEESTRY",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOBEESTRY",
+       "gives": "OYSTERBED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A whimsical question about whether bees seek shelter beneath the waves in bad weather.",
+     "definitionFit": "Shellfish live on the seabed in colonies, so the place they grow is a home underwater."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "bees"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1155,48 @@
     "text": "2-bit boxer's ploy",
     "enumeration": "8"
    },
-   "solution": "UPPERCUT"
+   "solution": "UPPERCUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPPERCUT",
+    "definitions": [
+     {
+      "text": "boxer's ploy",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "2",
+      "gives": "UPPER",
+      "note": "the answer to 2 down means higher in rank, as does upper"
+     },
+     {
+      "clueFragment": "bit",
+      "gives": "CUT",
+      "note": "a cut is a share or bit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPPER",
+      "CUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A minor fighter's tactic.",
+     "walkthrough": "'2-bit' looks like cheap or minor; it is a cross-reference plus a separate word.",
+     "definitionFit": "An upward punch to the chin is a classic move in a fighter's repertoire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 17,
@@ -314,7 +1216,43 @@
      }
     ]
    },
-   "solution": "STANDFOR"
+   "solution": "STANDFOR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STAND FOR",
+    "definitions": [
+     {
+      "text": "Represent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "constituents from",
+      "for": "hidden_word",
+      "note": "constituents are component parts, so the letters are a part taken from the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belfast and Forfar",
+      "gives": "STANDFOR",
+      "note": "letters running from the end of Belfast through to the start of Forfar"
+     }
+    ],
+    "explanation": {
+     "surface": "An MP speaks for voters from Belfast and the Scottish town of Forfar.",
+     "walkthrough": "'Constituents' suggests voters, but it signals component letters. Forfar is a town in Scotland.",
+     "definitionFit": "To stand for something is to symbolise or signify it, a synonym for represent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "constituents"
+    }
+   }
   },
   {
    "number": 18,
@@ -334,7 +1272,44 @@
      }
     ]
    },
-   "solution": "POTTERSWHEEL"
+   "solution": "POTTERSWHEEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POTTERS WHEEL",
+    "definitions": [
+     {
+      "text": "Plate's passed round this",
+      "at": 0
+     },
+     {
+      "text": "wizard's circle?",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plate's passed round this",
+      "note": "first meaning: the spinning disc on which clay plates are turned and shaped"
+     },
+     {
+      "clueFragment": "wizard's circle?",
+      "note": "second meaning, whimsical: a round object belonging to Harry, the boy wizard of the novels"
+     }
+    ],
+    "explanation": {
+     "surface": "A collection plate goes round a gathering of magicians.",
+     "walkthrough": "'Passed round' suggests a collection; here the plate spins on the wheel as it is thrown. The question mark flags the pun on the boy wizard's surname.",
+     "definitionFit": "The rotating disc a ceramicist uses to form pots and plates, punned as the boy wizard's circular object."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "passed"
+    }
+   }
   },
   {
    "number": 19,
@@ -348,7 +1323,72 @@
     "text": "Kind of Blue - improvised at first, then doing changes",
     "enumeration": "6"
    },
-   "solution": "INDIGO"
+   "solution": "INDIGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram"
+    ],
+    "answer": "INDIGO",
+    "definitions": [
+     {
+      "text": "Kind of Blue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the preceding word"
+     },
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "the word changes means its letters undergo rearrangement"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "improvised",
+      "gives": "I",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "doing",
+      "gives": "NDIGO",
+      "note": "rearranged letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NDIGO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOING",
+       "gives": "NDIGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Miles Davis's album Kind of Blue was improvised at first, then rearranged.",
+     "walkthrough": "Kind of Blue is a famous jazz album built on improvisation, but here the phrase is read literally.",
+     "definitionFit": "Indigo is a deep violet-tinged shade, one variety of blue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blue"
+    }
+   }
   },
   {
    "number": 20,
@@ -362,7 +1402,72 @@
     "text": "One's screened nowadays on telly, carrying on in rotation",
     "enumeration": "6"
    },
-   "solution": "ADVERT"
+   "solution": "ADVERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "reversal"
+    ],
+    "answer": "ADVERT",
+    "definitions": [
+     {
+      "text": "One's screened",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying something means holding it within, so one piece sits inside another"
+     },
+     {
+      "text": "in rotation",
+      "for": "reversal",
+      "note": "rotation turns the combined piece round, so in a down answer it reads upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nowadays",
+      "gives": "AD",
+      "note": "Anno Domini, the present era"
+     },
+     {
+      "clueFragment": "telly",
+      "gives": "TV",
+      "note": "telly is British slang for television"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VERT"
+     ],
+     "reversals": [
+      {
+       "from": "TREV",
+       "to": "VERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something shown on today's television keeps being repeated in rotation.",
+     "walkthrough": "'In rotation' sounds like scheduled repeats on air, but it turns the telly-plus-on piece round; AD for Anno Domini stands for the present era.",
+     "definitionFit": "A commercial is a thing shown on a screen, so one is screened."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rotation"
+    }
+   }
   },
   {
    "number": 21,
@@ -376,7 +1481,78 @@
     "text": "It's ground-breaking in Italy and in France, and without Germany's backing",
     "enumeration": "4"
    },
-   "solution": "ETNA"
+   "solution": "ETNA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "ETNA",
+    "definitions": [
+     {
+      "text": "It's ground-breaking in Italy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in France",
+      "for": "charade",
+      "note": "the next word is to be put into French rather than taken as English"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the country's letter is taken away"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so what remains is read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and",
+      "gives": "ET",
+      "note": "the French word for and"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "the second 'and' taken as written"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "D is the international vehicle code for Germany"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "NA"
+     ],
+     "reversals": [
+      {
+       "from": "AN",
+       "to": "NA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something revolutionary happens in Italy and France, lacking German support.",
+     "walkthrough": "The clue uses 'and' twice: once translated into French, once taken literally minus D and then turned round.",
+     "definitionFit": "Etna is the Sicilian volcano, whose eruptions literally break open the ground in Italy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ground-breaking"
+    }
+   }
   },
   {
    "number": 22,
@@ -390,7 +1566,43 @@
     "text": "Take some crude term in editorial out",
     "enumeration": "10"
    },
-   "solution": "DETERMINED"
+   "solution": "DETERMINED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DETERMINED",
+    "definitions": [
+     {
+      "text": "out",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Take some",
+      "for": "hidden_word",
+      "note": "taking only some of a phrase means the letters come from a run inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crude term in editorial",
+      "gives": "DETERMINED",
+      "note": "the letters run across four words, from the end of crude to the start of editorial"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to remove a vulgar word from a newspaper's opinion piece.",
+     "walkthrough": "'Out' looks like an instruction to remove; as the definition it means intent, as in 'out to win'.",
+     "definitionFit": "To be out to do something is to be resolved and set on it, so out can mean resolute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 23,
@@ -404,7 +1616,66 @@
     "text": "Learning to climb holding new sign up",
     "enumeration": "5"
    },
-   "solution": "ENROL"
+   "solution": "ENROL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ENROL",
+    "definitions": [
+     {
+      "text": "sign up",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to climb",
+      "for": "reversal",
+      "note": "climbing goes upward, which in a down answer means reading from bottom to top"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding something means keeping it inside, so one letter goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learning",
+      "gives": "LORE",
+      "note": "lore is accumulated knowledge or learning"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "ROL"
+     ],
+     "reversals": [
+      {
+       "from": "LORE",
+       "to": "EROL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student studies to climb up and earn a new sign.",
+     "definitionFit": "To enrol is to register on a course or list, a synonym for sign up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climb"
+    }
+   }
   },
   {
    "number": 24,
@@ -418,7 +1689,51 @@
     "text": "Network showing not a word in support of this writer",
     "enumeration": "4"
    },
-   "solution": "MESH"
+   "solution": "MESH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MESH",
+    "definitions": [
+     {
+      "text": "Network",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "showing",
+     "in support of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this writer",
+      "gives": "ME",
+      "note": "the writer refers to themself as me"
+     },
+     {
+      "clueFragment": "not a word",
+      "gives": "SH",
+      "note": "sh asks for silence, not a word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "A network that doesn't say a word to back up the writer.",
+     "walkthrough": "In a down answer, 'in support of' puts the second piece beneath the first.",
+     "definitionFit": "A mesh is a net-like structure of interlinked strands, a synonym for network."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1753,60 @@
      }
     ]
    },
-   "solution": "COFFEEBAR"
+   "solution": "COFFEEBAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "COFFEE BAR",
+    "definitions": [
+     {
+      "text": "Company very loud, getting double shot of energy and cake here?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "very loud",
+      "gives": "FF",
+      "note": "fortissimo in music notation"
+     },
+     {
+      "clueFragment": "double shot of energy",
+      "gives": "EE",
+      "note": "E for energy, twice"
+     },
+     {
+      "clueFragment": "cake",
+      "gives": "BAR",
+      "note": "a cake of soap is a bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "FF",
+      "EE",
+      "BAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy group buys a double espresso and a slice of cake at a café.",
+     "walkthrough": "The whole clue describes the place too: a loud crowd, a double shot of caffeine and cake.",
+     "definitionFit": "A café serving espresso drinks and snacks is a typical place for that rowdy, caffeinated scene."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 26,
@@ -452,7 +1820,56 @@
     "text": "No one's confronting European racket",
     "enumeration": "5"
    },
-   "solution": "NOISE"
+   "solution": "NOISE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOISE",
+    "definitions": [
+     {
+      "text": "racket",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "confronting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, with the 's as 'is'"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Nobody stands up to the European swindle.",
+     "walkthrough": "'Racket' suggests a scam, but it is a din; 'confronting' puts the first pieces in front.",
+     "definitionFit": "A racket is a loud disturbing sound, a synonym for a din."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "racket"
+    }
+   }
   },
   {
    "number": 27,
@@ -466,7 +1883,70 @@
     "text": "Cold cuts spiced up red hot and burnt",
     "enumeration": "7"
    },
-   "solution": "TORCHED"
+   "solution": "TORCHED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TORCHED",
+    "definitions": [
+     {
+      "text": "burnt",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spiced up",
+      "for": "anagram",
+      "note": "spicing something up livens and changes it, so these letters are rearranged"
+     },
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "cutting into something means entering it, so one letter goes inside the rest"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red hot",
+      "gives": "TORHED",
+      "note": "rearranged letters of these two words"
+     },
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOR",
+      "C",
+      "HED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REDHOT",
+       "gives": "TORHED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chilled sliced meats, spiced until fiery, ended up charred.",
+     "walkthrough": "'Cold cuts' reads as sliced meat, but it is a single letter cutting into the jumble.",
+     "definitionFit": "Torched means set on fire, so it is a synonym for burnt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 28,
@@ -486,7 +1966,42 @@
      }
     ]
    },
-   "solution": "LASHOUT"
+   "solution": "LASHOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LASH OUT",
+    "definitions": [
+     {
+      "text": "Attack",
+      "at": 0
+     },
+     {
+      "text": "what big spenders do",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attack",
+      "note": "first meaning: strike out violently or verbally"
+     },
+     {
+      "clueFragment": "what big spenders do",
+      "note": "second meaning: spend money freely and extravagantly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrasal verb has a violent sense and a British informal sense of splurging cash.",
+     "definitionFit": "The phrase means both to hit out at someone and to splash out lavishly on purchases."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spenders"
+    }
+   }
   }
  ]
 }
