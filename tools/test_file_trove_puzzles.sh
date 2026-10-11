@@ -152,6 +152,19 @@ print(repr(text()), v.get('wrote'), v.get('mended', {}).get('12-across'))")
 check "a held stray clue the vote leaves unread goes blank; a clean one stands (mirror)" "'Gallery of church buildings' None
 '' True " "$got"
 
+# A count read after the clue's last word, its brackets lost, goes at filing
+# when it fills the light; a reference to a light ("See 3") stays.
+got=$(cd "$REPO/tools" && python3 -c "
+import datetime, file_trove_puzzles as F
+F._LONDON = {}
+p = F.build(1, {}, '', ['...', '.#.', '...'], 'image',
+            {'1-across': ('Wait - with black looks? 3', '3', None), '1-down': ('Proverbial legislation? 13', '3', None),
+             '2-down': ('See 3', '3', None), '3-across': ('Mercenary backing Channel 3', '3', None)},
+            datetime.date(1972, 3, 3))
+print('|'.join(e['clue'].get('text', '') for e in p['entries']))")
+check "a count stuck after the last word goes at filing; a reference stays (mirror)" \
+  "Wait - with black looks?|Proverbial legislation?|See 3|Mercenary backing Channel 3" "$got"
+
 # No picture at all: the clues alone still file it, the grid rebuilt from
 # them and marked so; the rebuild is the grid the picture shows.
 mkdir -p "$tmp/nogrid/102024288" "$tmp/out2"
