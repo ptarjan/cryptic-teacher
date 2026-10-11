@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,49 @@
     "text": "Company support for office machine",
     "enumeration": "6"
    },
-   "solution": "COPIER"
+   "solution": "COPIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COPIER",
+    "definitions": [
+     {
+      "text": "office machine",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "CO is the standard abbreviation for company"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "PIER",
+      "note": "a pier is a column supporting a bridge or arch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "PIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm is backing the purchase of some new equipment for its office.",
+     "definitionFit": "A photocopier, usually just called a copier, is a standard piece of office equipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +91,55 @@
     "text": "Runs into kind of driver liable to have road rage?",
     "enumeration": "6"
    },
-   "solution": "CRABBY"
+   "solution": "CRABBY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRABBY",
+    "definitions": [
+     {
+      "text": "liable to have road rage?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kind of driver",
+      "gives": "CABBY",
+      "note": "a cabby is a taxi driver"
+     },
+     {
+      "clueFragment": "Runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "ABBY"
+     ]
+    },
+    "explanation": {
+     "surface": "A cab driver prone to road rage crashes into others.",
+     "walkthrough": "'Kind of driver' looks like part of the definition, but it is the wordplay; the question mark flags a definition by example.",
+     "definitionFit": "Crabby means irritable and bad-tempered, the sort of person who might fly off the handle in traffic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Runs"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +153,76 @@
     "text": "Under pressure, infer changes in goal for foreign correspondent?",
     "enumeration": "9"
    },
-   "solution": "PENFRIEND"
+   "solution": "PENFRIEND",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PENFRIEND",
+    "definitions": [
+     {
+      "text": "foreign correspondent?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Under",
+      "for": "charade",
+      "note": "in a down entry, the rest sits under the first letter, so the pieces stack in order"
+     },
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "changes means the letters are altered into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     },
+     {
+      "clueFragment": "infer",
+      "gives": "ENFRI",
+      "note": "the letters of this word, shuffled"
+     },
+     {
+      "clueFragment": "goal",
+      "gives": "END",
+      "note": "an end is a goal or aim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ENFRI",
+      "END"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INFER",
+       "gives": "ENFRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goalkeeper under pressure draws conclusions about a reporter abroad.",
+     "walkthrough": "'Foreign correspondent' suggests a journalist overseas; the question mark signals a letter-writer in another country.",
+     "definitionFit": "A pen pal writes letters to someone, often in another country, so is literally a correspondent from abroad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "correspondent"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +236,58 @@
     "text": "Going without info that's urgent",
     "enumeration": "7"
    },
-   "solution": "EXIGENT"
+   "solution": "EXIGENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXIGENT",
+    "definitions": [
+     {
+      "text": "urgent",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without here means outside, so one word wraps round another"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Going",
+      "gives": "EXIT",
+      "note": "an exit is a going out, a departure"
+     },
+     {
+      "clueFragment": "info",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXI",
+      "GEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Leaving without information on something pressing.",
+     "walkthrough": "'Without' looks like lacking, but here it has its old sense of outside.",
+     "definitionFit": "Exigent describes something pressing that demands immediate attention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +301,65 @@
     "text": "Secure with cable and pull back, producing mess on warship",
     "enumeration": "8"
    },
-   "solution": "WARDROOM"
+   "solution": "WARDROOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WARDROOM",
+    "definitions": [
+     {
+      "text": "mess on warship",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the words are read from the end towards the start"
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secure with cable",
+      "gives": "MOOR",
+      "note": "to moor a boat is to tie it up with a rope or cable"
+     },
+     {
+      "clueFragment": "pull",
+      "gives": "DRAW",
+      "note": "to draw is to pull"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WARD",
+      "ROOM"
+     ],
+     "reversals": [
+      {
+       "from": "MOORDRAW",
+       "to": "WARDROOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors tie up the ship and haul in lines, causing a mess on deck.",
+     "walkthrough": "'Mess' looks like disorder after the work, but it is a naval dining room.",
+     "definitionFit": "The wardroom is the officers' dining and living quarters on a naval vessel, their mess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mess"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +373,84 @@
     "text": "Adjusted rent over a time within existing option",
     "enumeration": "11"
    },
-   "solution": "ALTERNATIVE"
+   "solution": "ALTERNATIVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "ALTERNATIVE",
+    "definitions": [
+     {
+      "text": "option",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Adjusted",
+      "for": "anagram",
+      "note": "adjusted means altered, so the letters are rearranged"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, a piece over another simply comes first"
+     },
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within puts the pieces inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "existing",
+      "gives": "ALIVE",
+      "note": "something alive is existing"
+     },
+     {
+      "clueFragment": "rent",
+      "gives": "TERN",
+      "note": "the letters of this word, shuffled"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "TERN",
+      "A",
+      "T",
+      "IVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RENT",
+       "gives": "TERN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord's revised rent is offered as the current choice.",
+     "definitionFit": "An alternative is another possibility to choose, an option."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "existing"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +464,67 @@
     "text": "Sea-creature in hold moving around quietly",
     "enumeration": "7"
    },
-   "solution": "DOLPHIN"
+   "solution": "DOLPHIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DOLPHIN",
+    "definitions": [
+     {
+      "text": "Sea-creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "moving means the letters are shifted around into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the jumbled letters enclose another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in hold",
+      "gives": "INHOLD",
+      "note": "taken as written, for the shuffle"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p, piano, is the musical direction for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOL",
+      "P",
+      "HIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INHOLD",
+       "gives": "DOLHIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal in a ship's hold creeps about silently.",
+     "walkthrough": "'In' looks like a link word but belongs to the anagram fodder.",
+     "definitionFit": "A dolphin is a marine mammal, a creature of the sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +538,61 @@
     "text": "Hatred in speaker's position after losing power at the top",
     "enumeration": "5"
    },
-   "solution": "ODIUM"
+   "solution": "ODIUM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ODIUM",
+    "definitions": [
+     {
+      "text": "Hatred",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing means something is taken away from the word"
+     },
+     {
+      "text": "at the top",
+      "for": "deletion",
+      "note": "at the top in a down entry points to the first letter as the one dropped"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speaker's position",
+      "gives": "PODIUM",
+      "note": "a speaker stands on a podium"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the abbreviation for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODIUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Loathing directed at a speaker who has lost authority.",
+     "definitionFit": "Odium is general or widespread hatred and disgust directed at someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +606,73 @@
     "text": "Popular newcomer turned up within my smaller group",
     "enumeration": "8"
    },
-   "solution": "MINORITY"
+   "solution": "MINORITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "MINORITY",
+    "definitions": [
+     {
+      "text": "smaller group",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "turned up in a down entry means read from the bottom, so the letters run backwards"
+     },
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within puts these pieces inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my",
+      "gives": "MY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "something in is fashionable, popular"
+     },
+     {
+      "clueFragment": "newcomer",
+      "gives": "TIRO",
+      "note": "a tiro is a beginner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IN",
+      "ORIT",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "TIRO",
+       "to": "ORIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-liked new arrival appears among my small band.",
+     "definitionFit": "A minority is the smaller part of a group, outnumbered by the rest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Popular"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +686,48 @@
     "text": "A loose woman in family",
     "enumeration": "6"
    },
-   "solution": "AUNTIE"
+   "solution": "AUNTIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUNTIE",
+    "definitions": [
+     {
+      "text": "woman in family",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "loose",
+      "gives": "UNTIE",
+      "note": "to loose is to untie or set free"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "UNTIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A promiscuous woman lurks within someone's household.",
+     "walkthrough": "'Loose woman' reads as one phrase, but 'loose' is a verb here, and the definition starts at 'woman'.",
+     "definitionFit": "An auntie, an affectionate form of aunt, is a female relative: a parent's sister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "loose"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +741,55 @@
     "text": "Part of stable with one working horse",
     "enumeration": "8"
    },
-   "solution": "STALLION"
+   "solution": "STALLION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STALLION",
+    "definitions": [
+     {
+      "text": "horse",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of stable",
+      "gives": "STALL",
+      "note": "a stall is one compartment of a stable"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STALL",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "In a stable compartment stands a single horse put to work.",
+     "definitionFit": "A stallion is an uncastrated adult male horse, kept for breeding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +803,56 @@
     "text": "Who needs skill to break up drunken rampage?",
     "enumeration": "9"
    },
-   "solution": "BARTENDER"
+   "solution": "BARTENDER",
+   "annotation": {
+    "type": [
+     "container",
+     "and_lit"
+    ],
+    "answer": "BARTENDER",
+    "definitions": [
+     {
+      "text": "Who needs skill to break up drunken rampage?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to break up",
+      "for": "container",
+      "note": "breaking up something splits it open, so another piece goes into the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunken rampage",
+      "gives": "BENDER",
+      "note": "a bender is a drinking spree"
+     },
+     {
+      "clueFragment": "skill",
+      "gives": "ART",
+      "note": "art is skill, as in the art of persuasion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ART",
+      "ENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone must step in skilfully to stop a riot of drunks.",
+     "walkthrough": "The whole clue also defines: the person behind the bar needs tact to stop a drinking session getting out of hand. A bender is slang for a drinking binge.",
+     "definitionFit": "The person serving drinks in a pub is often the first to deal with drunken customers getting out of hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +866,55 @@
     "text": "People on board created riot at sea",
     "enumeration": "11"
    },
-   "solution": "DIRECTORATE"
+   "solution": "DIRECTORATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIRECTORATE",
+    "definitions": [
+     {
+      "text": "People on board",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "being at sea means confused, so the letters are in disarray"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "created riot",
+      "gives": "CREATEDRIOT",
+      "note": "taken as written, for the shuffle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIRECTORATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CREATEDRIOT",
+       "gives": "DIRECTORATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Passengers on a ship cause a riot out on the ocean.",
+     "walkthrough": "'On board' and 'at sea' suggest a ship; the board is a company's board of directors.",
+     "definitionFit": "A directorate is a company's board of directors, the people who sit on the board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +928,44 @@
     "text": "All-round sporting achievement for an American poet of old",
     "enumeration": "5"
    },
-   "solution": "HOMER"
+   "solution": "HOMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOMER",
+    "definitions": [
+     {
+      "text": "All-round sporting achievement",
+      "at": 0
+     },
+     {
+      "text": "an American poet of old",
+      "at": 35,
+      "note": "the poet is Greek; 'an American' belongs to the first meaning"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All-round sporting achievement",
+      "note": "first meaning: in American baseball, a home run, where the batter runs all the way round the bases"
+     },
+     {
+      "clueFragment": "poet of old",
+      "note": "second meaning: the ancient Greek poet of the Iliad and the Odyssey"
+     }
+    ],
+    "explanation": {
+     "surface": "An ancient poet is credited with an all-round sporting feat in America.",
+     "walkthrough": "'For an American' attaches to the sporting meaning: homer is American slang for a home run in baseball.",
+     "definitionFit": "Homer is the epic poet of ancient Greece, and in baseball a homer is a home run."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +979,74 @@
     "text": "Prepare to watch circus, including bizarre main show",
     "enumeration": "13"
    },
-   "solution": "ENTERTAINMENT"
+   "solution": "ENTERTAINMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "ENTERTAINMENT",
+    "definitions": [
+     {
+      "text": "show",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bizarre",
+      "for": "anagram",
+      "note": "something bizarre is strange and out of shape, so these letters are jumbled"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means the circus word holds the jumbled letters inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prepare to watch",
+      "gives": "ENTER",
+      "note": "you enter the theatre or arena when you are about to watch"
+     },
+     {
+      "clueFragment": "circus",
+      "gives": "TENT",
+      "note": "a circus performs under a big tent"
+     },
+     {
+      "clueFragment": "main",
+      "gives": "AINM",
+      "note": "the letters of this word, shuffled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTER",
+      "T",
+      "AINM",
+      "ENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAIN",
+       "gives": "AINM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting ready to see a circus whose main act is strange.",
+     "walkthrough": "The jumbled word sits between the T and the ENT of the tent.",
+     "definitionFit": "A show is a performance put on to amuse an audience, which is what entertainment is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circus"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +1060,74 @@
     "text": "For instance, repeatedly ringing king with evidence of debts — shocking",
     "enumeration": "9"
    },
-   "solution": "EGREGIOUS"
+   "solution": "EGREGIOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EGREGIOUS",
+    "definitions": [
+     {
+      "text": "shocking",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repeatedly",
+      "for": "charade",
+      "note": "repeatedly tells you to use the same short piece twice in a row"
+     },
+     {
+      "text": "ringing",
+      "for": "container",
+      "note": "ringing means encircling another piece"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For instance",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for 'for example'"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R, rex, is Latin for king"
+     },
+     {
+      "clueFragment": "For instance",
+      "gives": "EG",
+      "note": "the same abbreviation again, as told"
+     },
+     {
+      "clueFragment": "evidence of debts",
+      "gives": "IOUS",
+      "note": "IOUs are written acknowledgements of debts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "R",
+      "EG",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A king's repeated debts are scandalous.",
+     "definitionFit": "Egregious means outstandingly bad, shocking in its awfulness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ringing"
+    }
+   }
   },
   {
    "number": 16,
@@ -262,7 +1147,54 @@
      }
     ]
    },
-   "solution": "JUNKSHOP"
+   "solution": "JUNKSHOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JUNK SHOP",
+    "definitions": [
+     {
+      "text": "it carries second-hand stuff",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Asian vessel",
+      "gives": "JUNK",
+      "note": "a junk is a Chinese sailing ship"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "short journey",
+      "gives": "HOP",
+      "note": "a hop is a short trip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUNK",
+      "S",
+      "HOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A Chinese ship's brief voyage carrying used goods.",
+     "walkthrough": "'Carries' suggests a ship's cargo; a shop carries stock.",
+     "definitionFit": "A junk shop stocks cheap used goods and bric-a-brac for sale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carries"
+    }
+   }
   },
   {
    "number": 17,
@@ -276,7 +1208,68 @@
     "text": "Hear I've tangled with dunce? Right, he could do better",
     "enumeration": "13"
    },
-   "solution": "UNDERACHIEVER"
+   "solution": "UNDERACHIEVER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNDERACHIEVER",
+    "definitions": [
+     {
+      "text": "he could do better",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tangled",
+      "for": "anagram",
+      "note": "tangled things are twisted out of order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hear I've",
+      "gives": "HEARIVE",
+      "note": "taken as written, for the shuffle"
+     },
+     {
+      "clueFragment": "dunce",
+      "gives": "DUNCE",
+      "note": "taken as written, for the shuffle"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDERACHIEVER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEARIVEDUNCER",
+       "gives": "UNDERACHIEVER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher overhears a muddled dunce and concludes the pupil could do better.",
+     "walkthrough": "The R from 'Right' joins the anagram fodder too.",
+     "definitionFit": "'Could do better' is the classic school report comment on a pupil who is not working to their potential."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Right"
+    }
+   }
   },
   {
    "number": 18,
@@ -290,7 +1283,44 @@
     "text": "Literary event for English university town",
     "enumeration": "7"
    },
-   "solution": "READING"
+   "solution": "READING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "READING",
+    "definitions": [
+     {
+      "text": "Literary event",
+      "at": 0
+     },
+     {
+      "text": "English university town",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Literary event",
+      "note": "first meaning: an event where an author reads aloud from their work"
+     },
+     {
+      "clueFragment": "English university town",
+      "note": "second meaning: a town in Berkshire with a university"
+     }
+    ],
+    "explanation": {
+     "surface": "A book event is staged in an English college town.",
+     "definitionFit": "Reading is a large town west of London with a university, and a reading is a public literary recital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -304,7 +1334,47 @@
     "text": "Part in Chekhov — is it originally for one in company?",
     "enumeration": "7"
    },
-   "solution": "VISITOR"
+   "solution": "VISITOR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VISITOR",
+    "definitions": [
+     {
+      "text": "one in company",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part in",
+      "for": "hidden_word",
+      "note": "part in means the letters are a piece lying inside the words that follow"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chekhov — is it originally",
+      "gives": "VISITOR",
+      "note": "letters running across the word boundaries"
+     }
+    ],
+    "explanation": {
+     "surface": "An actor asks whether a role in a Chekhov play was first meant for one in the troupe.",
+     "walkthrough": "'Part' and 'company' suggest a theatre role and troupe; company here means guests.",
+     "definitionFit": "Having company means having guests, so a visitor is one member of that company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 20,
@@ -318,7 +1388,61 @@
     "text": "Spread the rumour, initially, in all directions",
     "enumeration": "6"
    },
-   "solution": "STREWN"
+   "solution": "STREWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STREWN",
+    "definitions": [
+     {
+      "text": "Spread",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letters of the words"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places those letters inside another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all directions",
+      "gives": "SEWN",
+      "note": "S, E, W and N are the four compass points"
+     },
+     {
+      "clueFragment": "the rumour",
+      "gives": "TR",
+      "select": "first",
+      "note": "the opening letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TR",
+      "EWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip is broadcast far and wide.",
+     "definitionFit": "Strewn means scattered, spread untidily over an area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spread"
+    }
+   }
   },
   {
    "number": 21,
@@ -332,7 +1456,62 @@
     "text": "Critical article covering North African country",
     "enumeration": "5"
    },
-   "solution": "KENYA"
+   "solution": "KENYA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "KENYA",
+    "definitions": [
+     {
+      "text": "African country",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means one word lies over and around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Critical",
+      "gives": "KEY",
+      "note": "a key factor is a critical one"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the abbreviation for North"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "A is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KE",
+      "N",
+      "Y",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A harsh newspaper article on a country in North Africa.",
+     "walkthrough": "'North African country' reads as one phrase, but North is just the letter N; the country is in East Africa.",
+     "definitionFit": "Kenya is a nation in East Africa, with Nairobi as its capital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "North"
+    }
+   }
   },
   {
    "number": 22,
@@ -346,7 +1525,64 @@
     "text": "Cautiously proceeded to signal agreement about state's borders",
     "enumeration": "5"
    },
-   "solution": "NOSED"
+   "solution": "NOSED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NOSED",
+    "definitions": [
+     {
+      "text": "Cautiously proceeded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "borders",
+      "for": "letter_selection",
+      "note": "borders are edges, so only the outside letters are kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around another piece"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "signal agreement",
+      "gives": "NOD",
+      "note": "a nod signals agreement"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the first and last letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "SE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomat moved carefully to approve a deal over a nation's frontiers.",
+     "definitionFit": "To nose forward is to move ahead slowly and carefully, as a car noses out of a junction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "borders"
+    }
+   }
   },
   {
    "number": 23,
@@ -360,7 +1596,57 @@
     "text": "Express sadness in public for error",
     "enumeration": "9"
    },
-   "solution": "OVERSIGHT"
+   "solution": "OVERSIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OVERSIGHT",
+    "definitions": [
+     {
+      "text": "error",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Express sadness",
+      "gives": "SIGH",
+      "note": "a sigh expresses sadness"
+     },
+     {
+      "clueFragment": "public",
+      "gives": "OVERT",
+      "note": "overt means open, done in public"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "SIGH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Showing grief openly is a mistake.",
+     "definitionFit": "An oversight is a mistake made through failing to notice something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "public"
+    }
+   }
   },
   {
    "number": 24,
@@ -374,7 +1660,67 @@
     "text": "Doctor has plot outside current medical facility",
     "enumeration": "8"
    },
-   "solution": "HOSPITAL"
+   "solution": "HOSPITAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HOSPITAL",
+    "definitions": [
+     {
+      "text": "medical facility",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are altered"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means the jumbled letters go around another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has plot",
+      "gives": "HASPLOT",
+      "note": "taken as written, for the shuffle"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOSP",
+      "I",
+      "TAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HASPLOT",
+       "gives": "HOSPTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician owns land beside the present clinic.",
+     "walkthrough": "'Doctor' fits the medical surface so well that it hides its job as the anagram signal.",
+     "definitionFit": "A hospital is an institution where the sick and injured are treated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 25,
@@ -394,7 +1740,53 @@
      }
     ]
    },
-   "solution": "ATHOME"
+   "solution": "ATHOME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AT HOME",
+    "definitions": [
+     {
+      "text": "comfortable and relaxed",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbed in",
+      "for": "container",
+      "note": "something absorbed in another is taken inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a big book",
+      "gives": "ATOME",
+      "note": "a tome is a big, heavy book"
+     },
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "H",
+      "OME"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband is engrossed in a hefty book, comfortable and at ease.",
+     "definitionFit": "To feel at home is to be at ease, as relaxed as in your own house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -408,7 +1800,64 @@
     "text": "Taunt taken to heart by French father with English lineage",
     "enumeration": "8"
    },
-   "solution": "PEDIGREE"
+   "solution": "PEDIGREE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PEDIGREE",
+    "definitions": [
+     {
+      "text": "lineage",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken to heart by",
+      "for": "container",
+      "note": "taken to heart puts one word into the centre of another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French father",
+      "gives": "PERE",
+      "note": "père is French for father"
+     },
+     {
+      "clueFragment": "Taunt",
+      "gives": "DIG",
+      "note": "a dig is a taunting remark"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "DIG",
+      "RE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman takes an insult to heart from someone of English descent.",
+     "definitionFit": "A pedigree is a recorded line of ancestry, a lineage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 27,
@@ -422,7 +1871,57 @@
     "text": "Publicity material is about to create stir",
     "enumeration": "6"
    },
-   "solution": "PRISON"
+   "solution": "PRISON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRISON",
+    "definitions": [
+     {
+      "text": "stir",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "to create"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Publicity material",
+      "gives": "PR",
+      "note": "PR, public relations, is publicity"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "IS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A press release is meant to cause a commotion.",
+     "walkthrough": "'Stir' suggests a fuss; it is slang for jail.",
+     "definitionFit": "Stir is old slang for jail, so it is a synonym of the penal institution meant here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stir"
+    }
+   }
   }
  ]
 }
