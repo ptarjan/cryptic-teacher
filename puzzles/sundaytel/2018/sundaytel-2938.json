@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,49 @@
     "text": "Prepare to discharge mine in scene of conflict",
     "enumeration": "7"
    },
-   "solution": "COCKPIT"
+   "solution": "COCKPIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCKPIT",
+    "definitions": [
+     {
+      "text": "scene of conflict",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prepare to discharge",
+      "gives": "COCK",
+      "note": "to cock a gun is to make it ready to fire"
+     },
+     {
+      "clueFragment": "mine",
+      "gives": "PIT",
+      "note": "a coal mine is a pit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCK",
+      "PIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone readies explosives at a mine on a battlefield.",
+     "definitionFit": "A cockpit was an arena for cock fights, so by extension any place where battles are fought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +91,63 @@
     "text": "Method of payment providing firm's first capital",
     "enumeration": "7"
    },
-   "solution": "CARDIFF"
+   "solution": "CARDIFF",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CARDIFF",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter alone of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Method of payment",
+      "gives": "CARD",
+      "note": "paying by card"
+     },
+     {
+      "clueFragment": "providing",
+      "gives": "IF",
+      "note": "providing means on condition that, if"
+     },
+     {
+      "clueFragment": "firm's",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of firm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARD",
+      "IF",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "A company is asked about payment methods to raise start-up capital.",
+     "walkthrough": "'Capital' looks like money, tying in with payment and firm; it is a capital city.",
+     "definitionFit": "Cardiff is the capital city of Wales."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +161,58 @@
     "text": "Make more vulgar, getting a censor agitated",
     "enumeration": "7"
    },
-   "solution": "COARSEN"
+   "solution": "COARSEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COARSEN",
+    "definitions": [
+     {
+      "text": "Make more vulgar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "agitated",
+      "for": "anagram",
+      "note": "agitated means shaken up, so the letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "censor",
+      "gives": "CENSOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACENSOR",
+       "gives": "COARSEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer cheapens the content, upsetting a censor.",
+     "definitionFit": "To coarsen is to make rougher or cruder, so less refined and more vulgar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "agitated"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +226,43 @@
     "text": "Said group of wild animals had a curious look",
     "enumeration": "5"
    },
-   "solution": "PRIED"
+   "solution": "PRIED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PRIED",
+    "definitions": [
+     {
+      "text": "had a curious look",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Said",
+      "for": "homophone",
+      "note": "said points to how the following words sound when spoken, not how they are written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group of wild animals",
+      "gives": "PRIED",
+      "soundsLike": "PRIDE",
+      "note": "a pride is a group of lions"
+     }
+    ],
+    "explanation": {
+     "surface": "A pack of wild beasts peered inquisitively at something.",
+     "definitionFit": "To pry is to look or inquire nosily, and pried is its past tense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "curious"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +276,65 @@
     "text": "Asian philosopher has little time to put in as superficial decorator",
     "enumeration": "9"
    },
-   "solution": "TATTOOIST"
+   "solution": "TATTOOIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TATTOOIST",
+    "definitions": [
+     {
+      "text": "superficial decorator",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has",
+      "for": "container",
+      "note": "has means holds within, so the philosopher contains the words put in"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Asian philosopher",
+      "gives": "TAOIST",
+      "note": "a Taoist follows the Chinese philosophy of Tao"
+     },
+     {
+      "clueFragment": "little time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "to put in",
+      "gives": "TO",
+      "note": "to is taken as written; put in signals it goes inside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "T",
+      "TO",
+      "OIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A busy Eastern sage has little time for shallow decorating.",
+     "walkthrough": "A Taoist follows the Chinese philosophy of Tao. 'Superficial' sounds like a sneer; here it means on the surface of the skin.",
+     "definitionFit": "A tattooist decorates people's skin, literally on the surface, hence superficial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "superficial"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +348,48 @@
     "text": "Got to grips with change — of course, provided with guidance",
     "enumeration": "7"
    },
-   "solution": "TACKLED"
+   "solution": "TACKLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TACKLED",
+    "definitions": [
+     {
+      "text": "Got to grips with",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "change — of course",
+      "gives": "TACK",
+      "note": "in sailing, to tack is to change course"
+     },
+     {
+      "clueFragment": "provided with guidance",
+      "gives": "LED",
+      "note": "led means guided"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TACK",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dealt with a change of plan, naturally after being guided.",
+     "walkthrough": "The dash makes 'of course' look like 'naturally'; it actually completes the sailing phrase change of course.",
+     "definitionFit": "To tackle a problem is to engage with it in earnest, the same idiom as getting to grips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +403,53 @@
     "text": "Understood how attic might be reconstructed",
     "enumeration": "5"
    },
-   "solution": "TACIT"
+   "solution": "TACIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TACIT",
+    "definitions": [
+     {
+      "text": "Understood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "might be reconstructed",
+      "for": "anagram",
+      "note": "reconstruction rebuilds something in a new form, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "how"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attic",
+      "gives": "ATTIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATTIC",
+       "gives": "TACIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A builder grasps how the loft could be redone.",
+     "definitionFit": "Tacit agreement is implied rather than stated, so it is understood without words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Understood"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +463,47 @@
     "text": "Artist carefully studies figures systematically arranged",
     "enumeration": "9"
    },
-   "solution": "CONSTABLE"
+   "solution": "CONSTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSTABLE",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carefully studies",
+      "gives": "CONS",
+      "note": "to con is to study or learn carefully"
+     },
+     {
+      "clueFragment": "figures systematically arranged",
+      "gives": "TABLE",
+      "note": "a table sets out numbers in ordered rows and columns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONS",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter carefully studies figures arranged in his composition.",
+     "walkthrough": "'Systematically arranged' looks like an anagram signal, but it describes a table of figures.",
+     "definitionFit": "John Constable was the English landscape painter of The Hay Wain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "figures"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +517,46 @@
     "text": "Apprentice left lucrative job",
     "enumeration": "7"
    },
-   "solution": "LEARNER"
+   "solution": "LEARNER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEARNER",
+    "definitions": [
+     {
+      "text": "Apprentice",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "lucrative job",
+      "gives": "EARNER",
+      "note": "a nice earner is a job that pays well"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EARNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee quit a well-paid position.",
+     "definitionFit": "An apprentice is someone still learning a trade, hence a beginner or trainee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +570,58 @@
     "text": "Sped off with painting as plunder",
     "enumeration": "7"
    },
-   "solution": "DESPOIL"
+   "solution": "DESPOIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESPOIL",
+    "definitions": [
+     {
+      "text": "plunder",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or wrong, so the letters are spoiled into a new order"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sped",
+      "gives": "SPED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "painting",
+      "gives": "OIL",
+      "note": "an oil is an oil painting"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPEDOIL",
+       "gives": "DESPOIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thieves raced away with a canvas as loot.",
+     "definitionFit": "To despoil is to strip of valuables, the verb sense of plundering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +635,52 @@
     "text": "One who's pragmatic about a problem for vessel",
     "enumeration": "7"
    },
-   "solution": "REALIST"
+   "solution": "REALIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REALIST",
+    "definitions": [
+     {
+      "text": "One who's pragmatic",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "problem for vessel",
+      "gives": "LIST",
+      "note": "a ship in trouble lists, leaning to one side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "A",
+      "LIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A practical person deals with some difficulty affecting a ship.",
+     "definitionFit": "A realist accepts things as they are and acts practically, a synonym for a pragmatic person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "problem"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +694,49 @@
     "text": "Sails south in attempt to raise political support",
     "enumeration": "7"
    },
-   "solution": "CANVASS"
+   "solution": "CANVASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANVASS",
+    "definitions": [
+     {
+      "text": "attempt to raise political support",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sails",
+      "gives": "CANVAS",
+      "note": "sails are made of canvas, which stands for them"
+     },
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANVAS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A yacht heads south in some campaign to win votes.",
+     "definitionFit": "To canvass is to go door to door seeking votes, an attempt to win backing for a party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sails"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +756,60 @@
      }
     ]
    },
-   "solution": "INSIDEOUT"
+   "solution": "INSIDEOUT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INSIDE OUT",
+    "definitions": [
+     {
+      "text": "very thoroughly",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "the two words on either side wrap around and enclose what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At home",
+      "gives": "IN",
+      "note": "in means at home"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a team"
+     },
+     {
+      "clueFragment": "and away",
+      "gives": "OUT",
+      "note": "out means away from home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SIDE",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter covers a football team's home and away matches in detail.",
+     "walkthrough": "IN and OUT go either side of SIDE.",
+     "definitionFit": "To know something inside out is an idiom for knowing it completely and in every detail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +823,58 @@
     "text": "Dance music is what ends concert heard on radio",
     "enumeration": "5"
    },
-   "solution": "TANGO"
+   "solution": "TANGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "TANGO",
+    "definitions": [
+     {
+      "text": "Dance music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "what ends",
+      "for": "letter_selection",
+      "note": "what ends a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "heard on radio",
+      "for": "substitution",
+      "note": "radio operators speak letters as codewords, so the kept letter is swapped for its spoken code name"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concert",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of concert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A listener notes which dance tune closes a concert broadcast on the radio.",
+     "walkthrough": "In the NATO phonetic alphabet used on radio, T is spoken as Tango.",
+     "definitionFit": "The tango is a Latin American dance, and the word also names the music written for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "radio"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +888,43 @@
     "text": "Closing section of shelf in a library",
     "enumeration": "5"
    },
-   "solution": "FINAL"
+   "solution": "FINAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FINAL",
+    "definitions": [
+     {
+      "text": "Closing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "section of",
+      "for": "hidden_word",
+      "note": "a section is only a part, so the letters lie within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shelf in a library",
+      "gives": "FINAL",
+      "note": "letters running across shelf, in, a and library"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone describes the last section of shelving in a library.",
+     "walkthrough": "'Closing section' reads as one phrase, but Closing alone is the definition.",
+     "definitionFit": "Final and closing are synonyms, both meaning coming at the end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "section"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +938,52 @@
     "text": "City in which man's name is heard — he's seen when ice disappears",
     "enumeration": "9"
    },
-   "solution": "LEICESTER"
+   "solution": "LEICESTER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LEICESTER",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is heard",
+      "for": "homophone",
+      "note": "is heard means the sound matters rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man's name",
+      "gives": "LEICESTER",
+      "soundsLike": "LESTER",
+      "note": "Lester is a man's name"
+     },
+     {
+      "clueFragment": "he's seen when ice disappears",
+      "note": "a second, confirming route: take ice out of the city's spelling and the man's name is left"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzle about a city where a man's name rings out, and who appears when ice melts.",
+     "walkthrough": "The city is pronounced like Lester, a quirk of English place names; the dash adds a confirmation, since removing ICE from the city's spelling leaves LESTER.",
+     "definitionFit": "Leicester is a city in the English East Midlands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ice"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +997,68 @@
     "text": "Mean one-line defamatory text about artist",
     "enumeration": "9"
    },
-   "solution": "ILLIBERAL"
+   "solution": "ILLIBERAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ILLIBERAL",
+    "definitions": [
+     {
+      "text": "Mean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece is placed round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "defamatory text",
+      "gives": "LIBEL",
+      "note": "a libel is a written defamation"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician, is the usual crossword artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "L",
+      "LIBE",
+      "RA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A spiteful one-liner libels a painter.",
+     "walkthrough": "'Mean' looks like a verb or average, but here it is the adjective for ungenerous or narrow-minded.",
+     "definitionFit": "Illiberal can mean ungenerous or stingy, the sense of mean as tight with money or narrow-minded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mean"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1072,72 @@
     "text": "Secure Labour leader in faction gets decisive electoral result",
     "enumeration": "9"
    },
-   "solution": "LANDSLIDE"
+   "solution": "LANDSLIDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "LANDSLIDE",
+    "definitions": [
+     {
+      "text": "decisive electoral result",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader is at the front, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secure",
+      "gives": "LAND",
+      "note": "to land a deal is to secure it"
+     },
+     {
+      "clueFragment": "faction",
+      "gives": "SIDE",
+      "note": "a side is a faction"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of Labour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAND",
+      "S",
+      "L",
+      "IDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A party chief who holds the factions together wins big at the polls.",
+     "walkthrough": "'Labour leader' looks like a politician, but it is just the first letter of Labour.",
+     "definitionFit": "A landslide is an overwhelming election victory, by metaphor with a mass of earth sweeping all before it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1151,45 @@
     "text": "Another sport in place of equestrian events",
     "enumeration": "9"
    },
-   "solution": "BADMINTON"
+   "solution": "BADMINTON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BADMINTON",
+    "definitions": [
+     {
+      "text": "Another sport",
+      "at": 0
+     },
+     {
+      "text": "place of equestrian events",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Another sport",
+      "note": "first meaning: a racket game played with a shuttlecock"
+     },
+     {
+      "clueFragment": "place of equestrian events",
+      "note": "second meaning: the Gloucestershire estate that hosts famous horse trials"
+     }
+    ],
+    "explanation": {
+     "surface": "A different sport is played where the horse events usually take place.",
+     "walkthrough": "Badminton House in Gloucestershire, England, hosts the annual Badminton Horse Trials; the racket game is named after it.",
+     "definitionFit": "The shuttlecock game took its name from the ducal estate where horse trials are now held."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1203,62 @@
     "text": "Lying in sun, very hot without shade, initially",
     "enumeration": "7"
    },
-   "solution": "BASKING"
+   "solution": "BASKING",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "BASKING",
+    "definitions": [
+     {
+      "text": "Lying in sun",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so one piece goes around the other"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially keeps only the first letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very hot",
+      "gives": "BAKING",
+      "note": "baking means extremely hot"
+     },
+     {
+      "clueFragment": "shade",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of shade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "S",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "A sunbather lies out in fierce heat with no shade to start with.",
+     "walkthrough": "'Without' reads as lacking, but here it has its old sense of outside.",
+     "definitionFit": "To bask is to lie warming yourself, as a lizard does in sunshine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1272,58 @@
     "text": "Wrong done with gun in prison cell",
     "enumeration": "7"
    },
-   "solution": "DUNGEON"
+   "solution": "DUNGEON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DUNGEON",
+    "definitions": [
+     {
+      "text": "prison cell",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wrong",
+      "for": "anagram",
+      "note": "wrong means not as it should be, so the letters are put out of order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "done",
+      "gives": "DONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gun",
+      "gives": "GUN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DONEGUN",
+       "gives": "DUNGEON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crime committed with a firearm ends with a spell behind bars.",
+     "definitionFit": "A dungeon is an underground cell in a castle where prisoners were kept."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wrong"
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1337,46 @@
     "text": "Animal's lair or home for humans",
     "enumeration": "5"
    },
-   "solution": "EARTH"
+   "solution": "EARTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EARTH",
+    "definitions": [
+     {
+      "text": "Animal's lair",
+      "at": 0
+     },
+     {
+      "text": "home for humans",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animal's lair",
+      "note": "first meaning: a fox's or badger's burrow"
+     },
+     {
+      "clueFragment": "home for humans",
+      "note": "second meaning: our planet"
+     }
+    ],
+    "explanation": {
+     "surface": "A contrast between where a wild creature lives and where people live.",
+     "definitionFit": "A fox goes to earth in its burrow, and the planet we inhabit carries the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "humans"
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1396,50 @@
      }
     ]
    },
-   "solution": "RIOTACT"
+   "solution": "RIOTACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIOT ACT",
+    "definitions": [
+     {
+      "text": "Way to restore order once",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "supported by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "port",
+      "gives": "RIO",
+      "note": "Rio de Janeiro is a Brazilian port"
+     },
+     {
+      "clueFragment": "diplomacy",
+      "gives": "TACT",
+      "note": "tact is diplomacy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIO",
+      "TACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A port is kept calm by diplomacy once trouble breaks out.",
+     "walkthrough": "In a down clue, supported by puts the second piece below the first. 'Once in port' reads together, but once belongs to the definition.",
+     "definitionFit": "The Riot Act, an old British law, was read aloud to disperse unruly crowds, a historical means of keeping the peace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1453,61 @@
     "text": "Firm about a sort of Bible university in America",
     "enumeration": "7"
    },
-   "solution": "HARVARD"
+   "solution": "HARVARD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HARVARD",
+    "definitions": [
+     {
+      "text": "university in America",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece is wrapped round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "HARD",
+      "note": "hard means firm"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sort of Bible",
+      "gives": "RV",
+      "note": "RV is the Revised Version of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "A",
+      "RV",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A company deals with a particular edition of scripture for an American college.",
+     "walkthrough": "The Revised Version is an 1880s English revision of the King James Bible, abbreviated in two letters.",
+     "definitionFit": "Harvard is the Ivy League university in Cambridge, Massachusetts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1521,42 @@
     "text": "For example, taste part of chosen selection",
     "enumeration": "5"
    },
-   "solution": "SENSE"
+   "solution": "SENSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SENSE",
+    "definitions": [
+     {
+      "text": "For example, taste",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "only a part is wanted, so the letters are found within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chosen selection",
+      "gives": "SENSE",
+      "note": "letters spanning the end of chosen and start of selection"
+     }
+    ],
+    "explanation": {
+     "surface": "A wine taster samples part of a chosen selection.",
+     "definitionFit": "Taste is one of the five senses, so it is given as an example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "taste"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1570,53 @@
     "text": "Place for holding water as river rose disastrously",
     "enumeration": "9"
    },
-   "solution": "RESERVOIR"
+   "solution": "RESERVOIR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESERVOIR",
+    "definitions": [
+     {
+      "text": "Place for holding water",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disastrously",
+      "for": "anagram",
+      "note": "a disaster throws things into chaos, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river rose",
+      "gives": "RIVERROSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIVERROSE",
+       "gives": "RESERVOIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flood warning: a dam was needed because the river rose disastrously.",
+     "definitionFit": "A reservoir is an artificial lake that stores water for supply."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rose"
+    }
+   }
   },
   {
    "number": 23,
@@ -408,7 +1630,61 @@
     "text": "Turn up unlike clergy or VIP",
     "enumeration": "5"
    },
-   "solution": "ROYAL"
+   "solution": "ROYAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ROYAL",
+    "definitions": [
+     {
+      "text": "VIP",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turn up",
+      "for": "reversal",
+      "note": "in a down clue, turning up flips the letters so they read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unlike clergy",
+      "gives": "LAY",
+      "note": "lay people are those not ordained"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "YAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAYOR",
+       "to": "ROYAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a layman or an important guest to show up.",
+     "walkthrough": "A royal is a member of a royal family, used here loosely as a noun for a very important person.",
+     "definitionFit": "A royal, a member of a monarch's family, is the archetypal very important person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1698,62 @@
     "text": "Right above a diameter, two other lines in circle",
     "enumeration": "5"
    },
-   "solution": "RADII"
+   "solution": "RADII",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RADII",
+    "definitions": [
+     {
+      "text": "lines in circle",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "above"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "diameter",
+      "gives": "D",
+      "note": "D is the symbol for diameter"
+     },
+     {
+      "clueFragment": "two other",
+      "gives": "II",
+      "note": "two more, in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "D",
+      "II"
+     ]
+    },
+    "explanation": {
+     "surface": "Geometry: one line is drawn above a diameter, and two more inside a circle.",
+     "walkthrough": "In a down clue, above puts R before the rest.",
+     "definitionFit": "Radii are straight segments from the centre of a circle to its edge, each half a diameter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Right"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1767,55 @@
     "text": "I destroyed plenty with clumsy actions",
     "enumeration": "7"
    },
-   "solution": "INEPTLY"
+   "solution": "INEPTLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INEPTLY",
+    "definitions": [
+     {
+      "text": "with clumsy actions",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken apart, so these letters are rebuilt differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "plenty",
+      "gives": "PLENTY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IPLENTY",
+       "gives": "INEPTLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confession from someone who broke lots of things through carelessness.",
+     "definitionFit": "Ineptly means awkwardly or without skill, which describes clumsy behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "destroyed"
+    }
+   }
   },
   {
    "number": 26,
@@ -450,7 +1829,53 @@
     "text": "Land in East and North, a part of US",
     "enumeration": "7"
    },
-   "solution": "INDIANA"
+   "solution": "INDIANA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDIANA",
+    "definitions": [
+     {
+      "text": "part of US",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Land in East",
+      "gives": "INDIA",
+      "note": "India is a country in the East"
+     },
+     {
+      "clueFragment": "and North",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDIA",
+      "N",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tours lands to the east and north, then a region of America.",
+     "walkthrough": "'Land in East' looks like a container instruction, but it simply describes India.",
+     "definitionFit": "Indiana is one of the fifty states of the US, in the Midwest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 27,
@@ -464,7 +1889,53 @@
     "text": "Haphazard gleaner is not particular",
     "enumeration": "7"
    },
-   "solution": "GENERAL"
+   "solution": "GENERAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GENERAL",
+    "definitions": [
+     {
+      "text": "not particular",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Haphazard",
+      "for": "anagram",
+      "note": "haphazard means random and disorderly, so the letters fall in a random order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gleaner",
+      "gives": "GLEANER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GLEANER",
+       "gives": "GENERAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A field worker collecting leftover grain is careless about what is picked up.",
+     "definitionFit": "General means broad rather than specific, the opposite of particular."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "particular"
+    }
+   }
   },
   {
    "number": 28,
@@ -478,7 +1949,55 @@
     "text": "Was left embracing son",
     "enumeration": "7"
    },
-   "solution": "EXISTED"
+   "solution": "EXISTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXISTED",
+    "definitions": [
+     {
+      "text": "Was",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to hold in the arms, so one piece wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "EXITED",
+      "note": "exited means departed"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXI",
+      "S",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent departed while hugging their son.",
+     "walkthrough": "'Was left' reads as a passive verb, but Was alone is the definition.",
+     "definitionFit": "Was and existed both mean had being, the past of the verb to be in its sense of to exist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Was"
+    }
+   }
   }
  ]
 }
