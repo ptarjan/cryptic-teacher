@@ -313,17 +313,12 @@ def plan(got, skip=SKIP):
 
 
 def look_up(day, gale):
-    """The cache entry for `day` (gale_docs.lookup), kept in gale_docs.CACHE
-    under the sync's lock (the Listener's lookups write the same file)."""
-    import gale_inbox
+    """The cache entry for `day` (gale_docs.lookup), kept in gale_docs.CACHE."""
     e = gale_docs.lookup("TTDA", day, gale)
     e["at"] = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
     if "doc" not in e:
         e["matcher"] = gale_docs.MATCHER
-    with gale_inbox.locked():
-        kept = gale_docs.load()
-        kept[f"TTDA/{day.isoformat()}"] = e
-        gale_inbox.save_json(gale_docs.CACHE, kept)
+    gale_docs.keep(f"TTDA/{day.isoformat()}", e)
     return e
 
 
@@ -335,11 +330,11 @@ def put(body, name):
 
 
 def file_page(body, day, doc, e):
-    """Keep the PDF on the Mac and lay it out as `day`'s edition."""
+    """Keep the PDF on the Mac and lay it out as `day`'s edition (no lock:
+    a sync's stage never removes or re-lays a fetched edition)."""
     import gale_inbox
     put(body, f"GALE_{doc}.pdf")
-    with gale_inbox.locked():
-        gale_inbox.lay_out_fetched(day, doc, body, e)
+    gale_inbox.lay_out_fetched(day, doc, body, e)
 
 
 def alert(text, quiet=False):
