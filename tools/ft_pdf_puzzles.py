@@ -725,7 +725,7 @@ def blog_posts():
     claim is left out, since nothing says which is the puzzle."""
     cat = fsq.cached_categories()[ft_puzzles.CATEGORY]
     by, claims = {}, collections.Counter()
-    for f in fsq.POSTS.glob("*.json"):
+    for f in fsq.category_post_files(cat):
         post = json.loads(f.read_text(encoding="utf-8"))
         if cat not in post.get("categories", []):
             continue

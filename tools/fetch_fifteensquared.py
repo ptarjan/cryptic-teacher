@@ -42,6 +42,8 @@ import downloads
 CACHE = downloads.FIFTEENSQUARED
 POSTS = CACHE / "posts"
 COMMENTS = CACHE / "comments"
+# Post id -> categories, kept by post_categories().
+INDEX = CACHE / "post_categories.json"
 
 BASE = "https://fifteensquared.net/wp-json/wp/v2"
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -128,6 +130,36 @@ def cached_post_ids():
     return {int(p.stem) for p in POSTS.glob("*.json")}
 
 
+def post_categories():
+    """{post id: its categories} for every cached post, off INDEX.
+
+    The index is one file where the posts are 20k+, which over the container's
+    virtiofs mount is the difference between a second and a quarter of an hour.
+    It is topped up from a listing of POSTS, so a post stored by a run killed
+    before it rewrote the index is read once and joins it; a cached post is
+    never refetched, so an entry never goes stale."""
+    try:
+        index = {int(k): v for k, v in json.loads(INDEX.read_text(encoding="utf-8")).items()}
+    except FileNotFoundError:
+        index = {}
+    have = cached_post_ids()
+    missing, gone = have - index.keys(), index.keys() - have
+    for post_id in missing:
+        post = json.loads((POSTS / f"{post_id}.json").read_text(encoding="utf-8"))
+        index[post_id] = post.get("categories", [])
+    for post_id in gone:
+        del index[post_id]
+    if missing or gone:
+        store(CACHE, INDEX.stem, {str(k): v for k, v in sorted(index.items())})
+    return index
+
+
+def category_post_files(cat_id):
+    """The cached post files in category `cat_id`, in file-name order."""
+    return sorted(POSTS / f"{post_id}.json"
+                  for post_id, cats in post_categories().items() if cat_id in cats)
+
+
 def cached_comment_ids():
     return {int(p.stem) for p in COMMENTS.glob("*.json")}
 
@@ -150,8 +182,7 @@ def fetch_posts(cat_id, name, pages_max=None):
     pages_max is an explicit spot-check bound and is None for a real run: a
     default that caps pages truncates the archive without ever saying so."""
     have = cached_post_ids()
-    held = sum(cat_id in json.loads(p.read_text(encoding="utf-8")).get("categories", ())
-               for p in POSTS.glob("*.json"))
+    held = sum(cat_id in cats for cats in post_categories().values())
     new = 0
     page, pages = 1, 1
     while page <= pages and (pages_max is None or page <= pages_max):
@@ -168,6 +199,8 @@ def fetch_posts(cat_id, name, pages_max=None):
         page += 1
     if pages_max is not None and pages_max < pages:
         print(f"  {name}: STOPPED at --pages {pages_max} of {pages} pages", flush=True)
+    if new:
+        post_categories()
     return new
 
 
