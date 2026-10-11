@@ -225,5 +225,58 @@ assert len(starts) == 2, "a row with no crossword costs no download"
 
 # 7. Each download is written to the log.
 assert set(json.loads(kw["fetched"].read_text())) == {rows(3)[i][1]["doc"] for i in (0, 2)}
+
+# 8. The session is browsed as a person does: the portal, its Times link
+#    landing on Gale, then each document's page before its Download, every
+#    request with the Referer of the page it was clicked on; only the
+#    portal's certificate goes unverified; 401/403/429 is a refusal.
+import gale_docs
+START = "https://go.gale.com/ps/start.do?p=TTDA&u=alberta_portal&sid=geolinks"
+sent = []
+
+
+def transport(answers):
+    def get(url, headers, verify):
+        sent.append((url, headers, verify))
+        if url.endswith("/collections"):
+            return 200, b"<html>", url
+        if "auth.php" in url:
+            return 200, b"<html>", START
+        return answers(url)
+    return get
+
+
+day, e = rows(1)[0]
+url = gale_docs.download_url("TTDA", day, e)
+page = gale_docs.page_url("TTDA", e["doc"])
+assert "id=GALE%7CCS400000000" in page and page.startswith(gale_docs.GALE + "/i.do?"), page
+s = gf.Session(transport=transport(lambda u: (200, PDF if "BulkPDF" in u else b"<html>doc", u)))
+assert s.download(url) == PDF
+assert [u for u, _, _ in sent] == [f"{gale_docs.PORTAL}/collections", f"{gale_docs.PORTAL}/actions/auth.php?db=ttda",
+                                   page, url], sent
+assert [v for _, _, v in sent] == [False, False, True, True], sent
+assert sent[0][1] == {} and sent[1][1]["Referer"] == f"{gale_docs.PORTAL}/collections"
+assert sent[1][1]["Sec-Fetch-Site"] == "same-origin"
+assert sent[2][1] == {"Referer": START, "Sec-Fetch-Site": "same-origin"}, sent[2]
+assert sent[3][1] == {"Referer": page, "Sec-Fetch-Site": "same-origin"}, sent[3]
+assert gf.fetch_site(f"{gale_docs.PORTAL}/collections", START) == "cross-site"
+assert gf.fetch_site("https://link.gale.com/apps/x", START) == "same-site"
+sent.clear()
+s = gf.Session(transport=transport(lambda u: (403, b"<html>blocked", u) if "BulkPDF" in u else (200, b"<html>", u)))
+try:
+    s.download(url)
+    raise AssertionError("a 403 was not a refusal")
+except gf.Stop as stop:
+    assert stop.refused and stop.status == 403 and stop.head == b"<html>blocked", stop
+try:
+    gf.Session(transport=transport(lambda u: (500, b"", u))).download(url)
+    raise AssertionError("a 500 was not an error")
+except urllib.error.HTTPError as err:
+    assert err.code == 500
+try:
+    gf.Session(transport=lambda u, h, v: (200, b"<html>", "https://go.gale.com/ps/login.do"))
+    raise AssertionError("a login landing opened a session")
+except gf.Stop as stop:
+    assert not stop.refused and "did not open" in str(stop)
 print("test_gale_fetch: ok")
 PY

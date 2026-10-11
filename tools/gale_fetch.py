@@ -11,7 +11,10 @@ gale_docs.CACHE, which only this script writes for the Times). Each PDF is
 Gale's own Download (gale_docs.download_url) fetched in an Alberta Research
 Portal session (geo-IP: this runs on the home connection, in the container
 or on the Mac, same address) and checked to be a PDF whose citation names
-its document. The date is known, so nothing matches it: it is laid out
+its document. The session is browsed as Chrome (Session): Chrome's TLS,
+HTTP/2 and headers through curl_cffi when installed, each document's page
+opened before its Download, each request with the Referer of the page it
+was clicked on. The date is known, so nothing matches it: it is laid out
 straight away as that date's edition (gale_inbox.lay_out_fetched), which
 tools/gale_read.sh reads and files, and kept as FETCHED_DIR/GALE_<doc>.pdf
 on the Mac (out of the inbox, so no sweep, match or set-aside sees it).
@@ -65,6 +68,7 @@ import subprocess
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -274,30 +278,127 @@ def pdf_of(fetch, url, day, doc, text_of=None):
     return body
 
 
-class Session:
-    """One Alberta Research Portal session on Gale's Times archive."""
+#: A current Chrome's headers for a click that loads a page (what
+#: curl_cffi's impersonate="chrome" sends), for the urllib stand-in.
+CHROME_HEADERS = {
+    "sec-ch-ua": '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"macOS"',
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": gale_docs.UA,
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,"
+              "application/signed-exchange;v=b3;q=0.7",
+    "Sec-Fetch-Site": "none",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-User": "?1",
+    "Sec-Fetch-Dest": "document",
+    "Accept-Encoding": "gzip, deflate",  # urllib cannot undo br or zstd
+    "Accept-Language": "en-US,en;q=0.9",
+    "Priority": "u=0, i",
+}
 
-    def __init__(self, timeout=120):
+
+class Chrome:
+    """GET as Chrome does: curl_cffi's impersonation (Chrome's TLS and HTTP/2
+    fingerprint and headers) when it is installed, else urllib with Chrome's
+    headers. One cookie jar. Called (url, extra headers, verify) ->
+    (status, body, final url)."""
+
+    def __init__(self, timeout):
         self.timeout = timeout
-        self.op = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()),
-                                              urllib.request.HTTPSHandler(context=ssl._create_unverified_context()))
-        self.op.addheaders = [("User-Agent", gale_docs.UA)]
-        self.open(f"{gale_docs.PORTAL}/collections")
+        try:
+            from curl_cffi import requests as cffi
+        except ImportError:
+            cffi = None
+        if cffi:
+            self.cffi = cffi.Session(impersonate="chrome")
+            return
+        self.cffi = None
+        jar = http.cookiejar.CookieJar()
+        self.ops = {}
+        for verify in (True, False):
+            ctx = ssl.create_default_context() if verify else ssl._create_unverified_context()
+            op = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar),
+                                             urllib.request.HTTPSHandler(context=ctx))
+            op.addheaders = []
+            self.ops[verify] = op
+
+    def __call__(self, url, headers, verify):
+        if self.cffi:
+            # curl_cffi's errors are OSErrors, so run() counts them as errors.
+            r = self.cffi.get(url, headers=headers, verify=verify, timeout=self.timeout)
+            return r.status_code, r.content, r.url
+        req = urllib.request.Request(url, headers={**CHROME_HEADERS, **headers})
+        try:
+            with self.ops[verify].open(req, timeout=self.timeout) as r:
+                return r.status, unzip(r.read(), r.headers.get("Content-Encoding")), r.geturl()
+        except urllib.error.HTTPError as e:
+            return e.code, unzip(e.read(), e.headers.get("Content-Encoding")), url
+
+
+def unzip(body, encoding):
+    import zlib
+    if encoding in ("gzip", "x-gzip"):
+        return zlib.decompress(body, 16 + zlib.MAX_WBITS)
+    if encoding == "deflate":
+        try:
+            return zlib.decompress(body)
+        except zlib.error:
+            return zlib.decompress(body, -zlib.MAX_WBITS)
+    return body
+
+
+def fetch_site(referer, url):
+    """Chrome's Sec-Fetch-Site for following a link on `referer` to `url`."""
+    a, b = urllib.parse.urlsplit(referer), urllib.parse.urlsplit(url)
+    if (a.scheme, a.netloc) == (b.scheme, b.netloc):
+        return "same-origin"
+    site = lambda host: ".".join((host or "").split(".")[-2:])  # noqa: E731 (gale.com, abresearchportal.ca)
+    return "same-site" if site(a.hostname) == site(b.hostname) else "cross-site"
+
+
+class Session:
+    """One Alberta Research Portal session on Gale's Times archive, browsed
+    as a person in Chrome does: the portal's collections page, its Times
+    link (which lands on Gale), then for each download the document's page
+    and its Download, each sent with the Referer of the page it was clicked
+    on. `transport` (Chrome's call signature) stands in for the network in
+    the test."""
+
+    def __init__(self, timeout=120, transport=None):
+        self.get = transport or Chrome(timeout)
+        self.referer = None
+        _, page = self.open(f"{gale_docs.PORTAL}/collections")
+        self.referer = page
         _, url = self.open(f"{gale_docs.PORTAL}/actions/auth.php?db=ttda")
         # Gale's start page itself carries login forms (Okta), so only the
         # address it lands on is judged.
         if "gale.com/ps/" not in url or re.search(r"login|authenticat|password", url, re.IGNORECASE):
             raise Stop(f"the portal did not open a Gale session (landed on {url})")
+        self.referer = url
 
-    def open(self, url):
-        try:
-            with self.op.open(url, timeout=self.timeout) as r:
-                return r.read(), r.geturl()
-        except urllib.error.HTTPError as e:
-            if e.code in (401, 403, 429):
-                raise Stop(f"Gale answered HTTP {e.code} for {url[:80]}", refused=True, status=e.code,
-                           head=e.read()[:300]) from e
-            raise
+    def open(self, url, referer=None):
+        """(body, final url) of `url`, clicked on page `referer` (default:
+        the last page opened)."""
+        referer = referer or self.referer
+        headers = {"Referer": referer, "Sec-Fetch-Site": fetch_site(referer, url)} if referer else {}
+        # The portal's certificate chain lacks its intermediate (Chrome
+        # fetches it; Python cannot), so only the portal goes unverified.
+        verify = urllib.parse.urlsplit(url).hostname != urllib.parse.urlsplit(gale_docs.PORTAL).hostname
+        status, body, final = self.get(url, headers, verify)
+        if status in (401, 403, 429):
+            raise Stop(f"Gale answered HTTP {status} for {url[:80]}", refused=True, status=status, head=body[:300])
+        if status >= 400:
+            raise urllib.error.HTTPError(final, status, f"HTTP {status}", None, None)
+        return body, final
+
+    def download(self, url):
+        """The body of Download target `url` (gale_docs.download_url),
+        clicked on its document's page, opened first as a person would."""
+        q = urllib.parse.parse_qs(urllib.parse.urlsplit(url).query)
+        _, page = self.open(gale_docs.page_url(q["p"][0], q["dl"][0]))
+        self.referer = page
+        return self.open(url, referer=page)[0]
 
 
 def ssh(command, **kw):
@@ -411,7 +512,7 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
     def real_fetch(url):
         nonlocal session
         session = session or Session()
-        return session.open(url)[0]
+        return session.download(url)
 
     def fresh_session():
         nonlocal session

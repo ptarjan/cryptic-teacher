@@ -43,7 +43,9 @@ REPORT_WEEKS = 5
 LOOKUP_GRACE = 120
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
-UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/128 Safari/537.36"
+#: A current Chrome on a Mac (the one curl_cffi's impersonate="chrome" sends; tools/gale_fetch.py).
+UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) "
+      "Chrome/150.0.0.0 Safari/537.36")
 #: product: (the portal's db code, the citation's paper, the archive's name)
 PRODUCTS = {"TTDA": ("ttda", "Times", "The Times Digital Archive"),
             "LSNR": ("lsnr", "The Listener", "The Listener Historical Archive")}
@@ -186,6 +188,14 @@ def download_url(prod, day, e):
     q = urllib.parse.urlencode({"dl": e["doc"], "u": "alberta_portal", "p": prod, "recordIds": ",".join(e["records"]),
                                 "citationTextJson": urllib.parse.quote(cite, safe="")})
     return f"{GALE}/callisto/BulkPDF/UBER2?{q}"
+
+
+def page_url(prod, doc):
+    """Gale's page for document `doc` (its citation's link.gale.com address
+    lands here): the viewer a person reads it in and clicks Download from."""
+    q = urllib.parse.urlencode({"p": prod, "u": "alberta_portal", "id": f"GALE|{doc}", "v": "2.1", "it": "r",
+                                "sid": f"bookmark-{prod}"})
+    return f"{GALE}/i.do?{q}"
 
 
 def load(cache=CACHE):
