@@ -386,6 +386,28 @@ check("a speck between two words the corpus pairs is parted though no reading do
       "Bits of the cake", oc.agree("Bits of.the cake", [mark("2 Bits of.the cake (5). 3")])[0])
 check("a speck inside a misread word is no break (mirror)",
       "Snar.es", oc.parted("Snar.es", [mark("2 Snar.es (5). 3")]))
+# A mark glued between two words (GLUED_MARK).
+check("a double quote pairing nothing between small words is a speck",
+      "Small creature to grow in body", oc.agree('Small creature to grow"in body', [mark("2 Small creature to grow in body (5). 3")])[0])
+check("a double quote closing an opened one gets its space",
+      'Meaning "voice" of course', oc.agree('Meaning "voice"of course', [mark("2 Meaning voice of course (5). 3")])[0])
+check("a quote inside a non-word is no break (mirror)",
+      'by the counte"foil', oc.parted('by the counte"foil', [mark("2 by the counte foil (5). 3")]))
+check("a stop before a capital is a speck where a reading prints the words side by side",
+      "Superficial judge of Shakespeare", oc.agree("Superficial judge of.Shakespeare", [mark("2 Superficial judge of Shakespeare (5). 3")])[0])
+check("a stop before a capital after a word a sentence may end on stays (mirror)",
+      "He left.Then", oc.parted("He left.Then", [mark("2 He left Then (5). 3")]))
+check("a comma a reading prints gets its space",
+      "Utter, a rival's name", oc.agree("Utter,a rival's name", [mark("2 Utter , a rival's name (5). 3")])[0])
+check("a glued colon one reading prints is still a speck (mirror)",
+      "You won't recover from a bad one", oc.agree("You won't recover from a:bad one",
+                                                   [mark("# You won't recover from a : bad one #"), mark("# You won't recover from a bad one #")])[0])
+check("hyphens run between two words are the dash",
+      "riding up \u2014 least one", oc.agree("riding up---least one", [mark("2 riding up least one (5). 3")])[0])
+check("hyphens run into a non-word stay (mirror)",
+      "of Imprc--pianists", oc.parted("of Imprc--pianists", [mark("2 of Imprc pianists (5). 3")]))
+check("a recogniser's ideograph one is the dash",
+      "in chains \u2014 on the Bounty?", oc.agree("in chains \u4e00on the Bounty?", [mark("2 in chains on the Bounty ? (5). 3")])[0])
 check("initials' possessive is printed, no stray mark", [], oc.suspect("The P.M.'s house"))
 check("a dropped aitch is the setter's (times-21281 28A)", [],
       oc.suspect("'aving moved 'e 'astened 'ome 'ere? 'ow 'iggins at 'igher"))

@@ -410,6 +410,7 @@ VOTE_MENDED = (
     ("2026-10-11T04:12:00+00:00", ("not a word",)),
     ("2026-10-11T04:40:00+00:00", ("a digit inside a word",)),
     ("2026-10-11T05:00:00+00:00", ("a bracket never closed or opened",)),
+    ("2026-10-11T06:19:00+00:00", ("a stray mark inside a word",)),
 )
 
 
