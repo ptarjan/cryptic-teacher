@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "That woman follows traitor in preference",
     "enumeration": "6"
    },
-   "solution": "RATHER"
+   "solution": "RATHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RATHER",
+    "definitions": [
+     {
+      "text": "in preference",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "follows places the woman's pronoun behind the traitor word in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "traitor",
+      "gives": "RAT",
+      "note": "a rat is someone who betrays their side"
+     },
+     {
+      "clueFragment": "That woman",
+      "gives": "HER",
+      "note": "the pronoun for a woman already mentioned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman chosen ahead of a traitor in some ranking of preference.",
+     "definitionFit": "Rather is an adverb meaning sooner or by choice, as in 'I'd rather not'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "follows"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +96,54 @@
     "text": "Told socialist about deceased",
     "enumeration": "7"
    },
-   "solution": "RELATED"
+   "solution": "RELATED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RELATED",
+    "definitions": [
+     {
+      "text": "Told",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "socialist",
+      "gives": "RED",
+      "note": "red is the traditional colour of socialism"
+     },
+     {
+      "clueFragment": "deceased",
+      "gives": "LATE",
+      "note": "the late X means X who has died"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LATE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone informed a left-winger about a death.",
+     "definitionFit": "To relate a story is to tell it, so related is the past tense synonym of told."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Told"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +157,61 @@
     "text": "Half-hearted tantrum flipping papers",
     "enumeration": "5"
    },
-   "solution": "TEPID"
+   "solution": "TEPID",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TEPID",
+    "definitions": [
+     {
+      "text": "Half-hearted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the word for tantrum runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tantrum",
+      "gives": "PET",
+      "note": "a pet is a fit of sulky temper"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "identity papers, ID for short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEP",
+      "ID"
+     ],
+     "reversals": [
+      {
+       "from": "PET",
+       "to": "TEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lacklustre outburst over some documents, perhaps newspapers.",
+     "walkthrough": "'flipping' looks like a mild British expletive qualifying papers, but it turns the tantrum around. A pet here is a fit of pique.",
+     "definitionFit": "Tepid literally means lukewarm and figuratively means lacking enthusiasm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +225,60 @@
     "text": "Green promises after beginnings of exciting new vows",
     "enumeration": "7"
    },
-   "solution": "ENVIOUS"
+   "solution": "ENVIOUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENVIOUS",
+    "definitions": [
+     {
+      "text": "Green",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginnings of",
+      "for": "letter_selection",
+      "note": "beginnings asks for the opening letter of each of the following words"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the promises behind the selected letters in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exciting new vows",
+      "gives": "ENV",
+      "select": "first",
+      "note": "the first letters of these three words"
+     },
+     {
+      "clueFragment": "promises",
+      "gives": "IOUS",
+      "note": "an IOU is a written promise to pay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENV",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Wedding promises renewed with excitement, ahead of the main vows.",
+     "definitionFit": "Green with envy is the idiom; green alone means jealous or envious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +292,56 @@
     "text": "Regularly orders prompt salvage",
     "enumeration": "6"
    },
-   "solution": "RESCUE"
+   "solution": "RESCUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RESCUE",
+    "definitions": [
+     {
+      "text": "salvage",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orders",
+      "gives": "RES",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "prompt",
+      "gives": "CUE",
+      "note": "a cue prompts an actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "CUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions that repeatedly prompt a salvage operation.",
+     "walkthrough": "'prompt' reads as an adjective (quick salvage) but is the noun cue.",
+     "definitionFit": "To salvage something is to save it from loss, which is to rescue it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prompt"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +355,50 @@
     "text": "Itches to change moral values",
     "enumeration": "6"
    },
-   "solution": "ETHICS"
+   "solution": "ETHICS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ETHICS",
+    "definitions": [
+     {
+      "text": "moral values",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "the letters are told to change their order into a new word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Itches",
+      "gives": "ITCHES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITCHES",
+       "gives": "ETHICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restless urge to overhaul one's principles.",
+     "definitionFit": "Ethics are the principles of right and wrong that govern conduct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Itches"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +412,63 @@
     "text": "Coach and cleaner going to a bar by college",
     "enumeration": "9"
    },
-   "solution": "CHARABANC"
+   "solution": "CHARABANC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARABANC",
+    "definitions": [
+     {
+      "text": "Coach",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "going to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cleaner",
+      "gives": "CHAR",
+      "note": "a char, or charwoman, is a cleaning lady"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "BAN",
+      "note": "to bar is to ban"
+     },
+     {
+      "clueFragment": "by college",
+      "gives": "C",
+      "note": "C is a standard abbreviation for college; by just places it next"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "A",
+      "BAN",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A coach trip with the cleaner, heading to a college bar.",
+     "walkthrough": "A char is an old British word for a woman paid to clean houses.",
+     "definitionFit": "A charabanc is an old open motor coach used for day trips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +482,46 @@
     "text": "Carbuncle or stye?",
     "enumeration": "7"
    },
-   "solution": "EYESORE"
+   "solution": "EYESORE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EYESORE",
+    "definitions": [
+     {
+      "text": "Carbuncle",
+      "at": 0
+     },
+     {
+      "text": "stye",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carbuncle",
+      "note": "first meaning: an ugly building, as in Prince Charles's 'monstrous carbuncle'"
+     },
+     {
+      "clueFragment": "stye",
+      "note": "second meaning, split into two words: a sore on the eye"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both look like medical complaints, but a carbuncle is also an ugly building; the second meaning splits the answer into EYE SORE.",
+     "definitionFit": "An eyesore is something ugly to look at, and a stye is literally a sore on the eye."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Carbuncle"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +541,71 @@
      }
     ]
    },
-   "solution": "QUICKTEMPERED"
+   "solution": "QUICKTEMPERED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "QUICK-TEMPERED",
+    "definitions": [
+     {
+      "text": "easily riled",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter only of the word before it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clever",
+      "gives": "QUICK",
+      "note": "quick-witted, clever"
+     },
+     {
+      "clueFragment": "office worker",
+      "gives": "TEMP",
+      "note": "a temporary office worker"
+     },
+     {
+      "clueFragment": "Ed",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "embarrassed",
+      "gives": "RED",
+      "note": "red in the face"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUICK",
+      "TEMP",
+      "E",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "Ed, a sharp office temp who blushes, has a short fuse.",
+     "walkthrough": "'Ed' looks like a name to keep whole, but only its first letter is used.",
+     "definitionFit": "Someone quick-tempered loses their temper fast, so they are easily riled or angered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ed"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +619,54 @@
     "text": "Revolting friend's make-up",
     "enumeration": "4"
    },
-   "solution": "SLAP"
+   "solution": "SLAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SLAP",
+    "definitions": [
+     {
+      "text": "make-up",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolting",
+      "for": "reversal",
+      "note": "revolting here means turning back over, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend's",
+      "gives": "PALS",
+      "note": "a pal is a friend; friend's read as friend is gives the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLAP"
+     ],
+     "reversals": [
+      {
+       "from": "PALS",
+       "to": "SLAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend's make-up is disgusting.",
+     "walkthrough": "'Revolting' means disgusting on the surface but signals turning back; friend's stands for friend has, i.e. pals reads loosely as a plural.",
+     "definitionFit": "Slap is British slang for cosmetics, especially heavy theatrical make-up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolting"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +680,65 @@
     "text": "Head with focus changing after Victor condescended to accept",
     "enumeration": "10"
    },
-   "solution": "VOUCHSAFED"
+   "solution": "VOUCHSAFED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "VOUCHSAFED",
+    "definitions": [
+     {
+      "text": "condescended to accept",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing",
+      "for": "anagram",
+      "note": "the combined words are changing their letter order"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the rearranged letters behind the Victor letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "Victor is V in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Head with focus",
+      "gives": "HEADFOCUS",
+      "note": "both words taken as written, joined by with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "OUCHSAFED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEADFOCUS",
+       "gives": "OUCHSAFED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss whose priorities shift, following a winner who deigned to agree.",
+     "definitionFit": "To vouchsafe is to grant something graciously, as if from a superior position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +752,57 @@
     "text": "Hot man I love is a little flat",
     "enumeration": "6"
    },
-   "solution": "STUDIO"
+   "solution": "STUDIO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STUDIO",
+    "definitions": [
+     {
+      "text": "a little flat",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot man",
+      "gives": "STUD",
+      "note": "a stud is a sexually attractive man"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUD",
+      "I",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A lover's confession that the romance has gone a bit flat.",
+     "walkthrough": "'a little flat' sounds like mild disappointment, but it means a small apartment.",
+     "definitionFit": "A studio is a small one-room apartment, a flat in British usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +816,56 @@
     "text": "Taco cook prepared bird",
     "enumeration": "8"
    },
-   "solution": "COCKATOO"
+   "solution": "COCKATOO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COCKATOO",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "prepared food is worked over, so the letters are made into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taco",
+      "gives": "TACO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cook",
+      "gives": "COOK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TACOCOOK",
+       "gives": "COCKATOO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A taco chef has cooked up a bird for the filling.",
+     "definitionFit": "A cockatoo is a crested parrot from Australasia, so a kind of bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +879,65 @@
     "text": "Misfortune of model featuring in commercial so",
     "enumeration": "9"
    },
-   "solution": "ADVERSITY"
+   "solution": "ADVERSITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ADVERSITY",
+    "definitions": [
+     {
+      "text": "Misfortune",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featuring in",
+      "for": "container",
+      "note": "featuring in means appearing inside, so one word is put within another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "so",
+      "gives": "VERY",
+      "note": "so as in 'so good' means very"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "SIT",
+      "note": "to model for an artist is to sit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VER",
+      "SIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A model's bad luck in appearing in an advert.",
+     "walkthrough": "'so' is an intensifier here, as in 'so tired', standing for very; to model for a painter is to sit.",
+     "definitionFit": "Adversity is hardship or bad fortune."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "so"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +951,57 @@
     "text": "Heart as impressive, incomplete dish",
     "enumeration": "9"
    },
-   "solution": "EPICENTRE"
+   "solution": "EPICENTRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EPICENTRE",
+    "definitions": [
+     {
+      "text": "Heart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incomplete",
+      "for": "deletion",
+      "note": "incomplete means the word is missing its last letter"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impressive",
+      "gives": "EPIC",
+      "note": "epic means grand or impressive"
+     },
+     {
+      "clueFragment": "dish",
+      "gives": "ENTREE",
+      "note": "an entree is a dish in a meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPIC",
+      "ENTRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand dish left half-finished is the centrepiece of the meal.",
+     "definitionFit": "The epicentre is the central point of something, its heart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heart"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1015,49 @@
     "text": "Jack to copy joke",
     "enumeration": "4"
    },
-   "solution": "JAPE"
+   "solution": "JAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JAPE",
+    "definitions": [
+     {
+      "text": "joke",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is jack in a pack of cards"
+     },
+     {
+      "clueFragment": "copy",
+      "gives": "APE",
+      "note": "to ape is to imitate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "Jack copies a joke.",
+     "definitionFit": "A jape is a practical joke or prank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copy"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1071,48 @@
     "text": "Oddly missing sleazier den",
     "enumeration": "4"
    },
-   "solution": "LAIR"
+   "solution": "LAIR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LAIR",
+    "definitions": [
+     {
+      "text": "den",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly missing",
+      "for": "letter_selection",
+      "note": "with the odd-numbered letters missing, only the even-placed ones stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sleazier",
+      "gives": "LAIR",
+      "select": "alternate",
+      "note": "second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A seedy den that strangely vanished.",
+     "definitionFit": "A lair is an animal's den, or a hideout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oddly"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1132,62 @@
      }
     ]
    },
-   "solution": "LAYSOFF"
+   "solution": "LAYSOFF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LAYS OFF",
+    "definitions": [
+     {
+      "text": "Temporarily suspends",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "middle of asks for the central letters of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "covers",
+      "gives": "LAYS",
+      "note": "to lay a surface is to cover it"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for an over"
+     },
+     {
+      "clueFragment": "scaffold",
+      "gives": "FF",
+      "select": "middle",
+      "note": "the fourth and fifth of its eight letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAYS",
+      "O",
+      "FF"
+     ]
+    },
+    "explanation": {
+     "surface": "Building work halted while the scaffold is covered.",
+     "walkthrough": "In cricket an over is a set of six balls, recorded as O on scorecards.",
+     "definitionFit": "To lay off workers is to dismiss them temporarily for lack of work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1201,46 @@
     "text": "Claim: précis extract in part is inaccurate",
     "enumeration": "9"
    },
-   "solution": "IMPRECISE"
+   "solution": "IMPRECISE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IMPRECISE",
+    "definitions": [
+     {
+      "text": "inaccurate",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in part",
+      "for": "hidden_word",
+      "note": "in part means only a section of the words that come before is used"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Claim: précis extract",
+      "gives": "IMPRECISE",
+      "note": "runs from the end of claim through précis into extract"
+     }
+    ],
+    "explanation": {
+     "surface": "A complaint that a summarised quotation is partly wrong.",
+     "walkthrough": "'extract' looks like the selection signal, but it is part of the letter string.",
+     "definitionFit": "Imprecise means not exact, hence inaccurate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extract"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1254,73 @@
     "text": "Revolting whiff surrounds firm, dry cheese",
     "enumeration": "7"
    },
-   "solution": "RICOTTA"
+   "solution": "RICOTTA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RICOTTA",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolting",
+      "for": "reversal",
+      "note": "revolting here means turning over, so the word runs backwards"
+     },
+     {
+      "text": "surrounds",
+      "for": "container",
+      "note": "surrounds means wraps around the following pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whiff",
+      "gives": "AIR",
+      "note": "a whiff is a breath of air"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "Co. is short for company, a firm"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "TT",
+      "note": "TT, teetotal, means not drinking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "CO",
+      "TT",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheese with a revolting smell around a firm, dry rind.",
+     "walkthrough": "'firm' and 'dry' read as cheese textures; they are company and teetotal.",
+     "definitionFit": "Ricotta is a soft Italian whey cheese."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1334,56 @@
     "text": "Man promoted by one former queen",
     "enumeration": "7"
    },
-   "solution": "SOLDIER"
+   "solution": "SOLDIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOLDIER",
+    "definitions": [
+     {
+      "text": "Man",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promoted",
+      "gives": "SOLD",
+      "note": "to promote an idea is to sell it"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "former queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the late queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLD",
+      "I",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A man was promoted by a former queen.",
+     "walkthrough": "'Man' reads as a noun but is the verb: to soldier on, or to staff a post.",
+     "definitionFit": "To man a post and to soldier are both to serve as a member of a force."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1397,50 @@
     "text": "Bird by church provides tool",
     "enumeration": "6"
    },
-   "solution": "WRENCH"
+   "solution": "WRENCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WRENCH",
+    "definitions": [
+     {
+      "text": "tool",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "gives": "WREN",
+      "note": "a small songbird"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WREN",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird by a church supplies a tool.",
+     "walkthrough": "'by' just places the church after the bird.",
+     "definitionFit": "A wrench is a spanner, a tool for turning nuts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "provides"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1460,46 @@
      }
     ]
    },
-   "solution": "BYGEORGE"
+   "solution": "BYGEORGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BY GEORGE",
+    "definitions": [
+     {
+      "text": "Exclamation of surprise",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in relation to",
+      "gives": "BY",
+      "note": "by can mean in terms of, as in 'a doctor by profession'"
+     },
+     {
+      "clueFragment": "Prince",
+      "gives": "GEORGE",
+      "note": "Prince George of the British royal family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BY",
+      "GEORGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gasps about news concerning a prince.",
+     "definitionFit": "By George is an old-fashioned exclamation of astonishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relation"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1513,40 @@
     "text": "Support source",
     "enumeration": "6"
    },
-   "solution": "CRADLE"
+   "solution": "CRADLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRADLE",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     },
+     {
+      "text": "source",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "note": "first meaning: a frame that holds something, or to hold gently"
+     },
+     {
+      "clueFragment": "source",
+      "note": "second meaning: the place of origin"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A cradle holds a baby or phone, and figuratively names the birthplace or origin of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1560,63 @@
     "text": "Article by Time turned up in sports venue",
     "enumeration": "5"
    },
-   "solution": "ARENA"
+   "solution": "ARENA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ARENA",
+    "definitions": [
+     {
+      "text": "sports venue",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARE",
+      "NA"
+     ],
+     "reversals": [
+      {
+       "from": "ANERA",
+       "to": "ARENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news article on time spent at a stadium.",
+     "definitionFit": "An arena is an enclosed space for sport or spectacle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1630,52 @@
     "text": "Study metal man group",
     "enumeration": "10"
    },
-   "solution": "CONTINGENT"
+   "solution": "CONTINGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONTINGENT",
+    "definitions": [
+     {
+      "text": "group",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "CON",
+      "note": "to con is to study carefully"
+     },
+     {
+      "clueFragment": "metal",
+      "gives": "TIN",
+      "note": "a metal"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "GENT",
+      "note": "a gent is a gentleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TIN",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of things to examine: metal, man, group.",
+     "definitionFit": "A contingent is a party of people forming part of a larger body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1689,54 @@
     "text": "Leave film around eleven",
     "enumeration": "4"
    },
-   "solution": "EXIT"
+   "solution": "EXIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXIT",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling the number that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "E.T., Spielberg's film"
+     },
+     {
+      "clueFragment": "eleven",
+      "gives": "XI",
+      "note": "Roman numeral eleven, also a cricket or football team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "XI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Walk out of the cinema at about eleven o'clock.",
+     "definitionFit": "Exit as a verb is a plain synonym of depart, used in stage directions for an actor walking off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eleven"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1750,61 @@
     "text": "Plump pixie returning throw",
     "enumeration": "6"
    },
-   "solution": "FLESHY"
+   "solution": "FLESHY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "FLESHY",
+    "definitions": [
+     {
+      "text": "Plump",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the word runs in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pixie",
+      "gives": "ELF",
+      "note": "a pixie is a kind of elf"
+     },
+     {
+      "clueFragment": "throw",
+      "gives": "SHY",
+      "note": "to shy is to throw, as at a coconut shy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLE",
+      "SHY"
+     ],
+     "reversals": [
+      {
+       "from": "ELF",
+       "to": "FLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chubby pixie coming back to throw something.",
+     "walkthrough": "A coconut shy is a British fairground stall where you throw balls at coconuts.",
+     "definitionFit": "Fleshy describes a body with plenty of flesh, that is plump."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "throw"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1818,71 @@
     "text": "Graduate going to South Africa with revolutionary artist to find market",
     "enumeration": "6"
    },
-   "solution": "BAZAAR"
+   "solution": "BAZAAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BAZAAR",
+    "definitions": [
+     {
+      "text": "market",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "revolutionary means turned around, so the following word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "going to",
+     "with",
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Graduate",
+      "gives": "BA",
+      "note": "Bachelor of Arts"
+     },
+     {
+      "clueFragment": "South Africa",
+      "gives": "ZA",
+      "note": "ZA is South Africa's international code"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "a Royal Academician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "ZA",
+      "AR"
+     ],
+     "reversals": [
+      {
+       "from": "RA",
+       "to": "AR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate travels to South Africa with a radical painter to visit a market.",
+     "definitionFit": "A bazaar is an oriental market or a charity sale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   }
  ]
 }
