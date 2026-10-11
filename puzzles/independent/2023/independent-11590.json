@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "Comments as Seinfeld character recalled debut in sitcom",
     "enumeration": "7"
    },
-   "solution": "REMARKS"
+   "solution": "REMARKS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REMARKS",
+    "definitions": [
+     {
+      "text": "Comments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the character's name is read back to front"
+     },
+     {
+      "text": "debut in",
+      "for": "letter_selection",
+      "note": "a debut is a first appearance, so only the opening letter of the next word is used"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seinfeld character",
+      "gives": "KRAMER",
+      "note": "Cosmo Kramer, Jerry's eccentric neighbour in the US sitcom Seinfeld"
+     },
+     {
+      "clueFragment": "sitcom",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of sitcom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REMARK",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "KRAMER",
+       "to": "REMARK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic's comments about a Seinfeld character fondly remembered from the sitcom's opening episode.",
+     "definitionFit": "Remarks are spoken or written observations, a plain synonym for comments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +123,69 @@
    "group": [
     "1-down",
     "16-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RANDOM VARIABLE",
+    "definitions": [
+     {
+      "text": "Way to describe all possible outcomes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "both wanting leadership",
+      "for": "deletion",
+      "note": "each of the two words lacks its leader, meaning its first letter is dropped"
+     },
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "the remaining letters must change their order to form something new"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Braverman",
+      "gives": "BRAVERMAN",
+      "note": "Suella Braverman, the former UK Home Secretary; her surname is used as written"
+     },
+     {
+      "clueFragment": "tabloid",
+      "gives": "TABLOID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANDOMVARIABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAVERMANABLOID",
+       "gives": "RANDOMVARIABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid and a right-wing politician both clamouring for a change of party leader, with every outcome on the table.",
+     "walkthrough": "Drop the B of Braverman and the T of tabloid, then rearrange the fourteen letters left. Suella Braverman is a British Conservative politician.",
+     "definitionFit": "In statistics a random variable assigns a value to each possible result of an experiment, so it describes the whole set of outcomes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leadership"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +199,71 @@
     "text": "Tiny detail — from motorway, head on to A1 northbound",
     "enumeration": "7"
    },
-   "solution": "MINUTIA"
+   "solution": "MINUTIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MINUTIA",
+    "definitions": [
+     {
+      "text": "Tiny detail",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "northbound",
+      "for": "reversal",
+      "note": "in a down entry, travelling north means reading upward, so the road name runs backwards"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "on to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motorway",
+      "gives": "MI",
+      "note": "the M1, Britain's first motorway, written with I for 1"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NUT",
+      "note": "nut is slang for the head"
+     },
+     {
+      "clueFragment": "A1",
+      "gives": "AI",
+      "note": "A1 with the digit 1 read as the letter I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "NUT",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AI",
+       "to": "IA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traffic bulletin about joining the A1 heading north from a motorway, head on.",
+     "walkthrough": "Motorway is the M1 (London to Leeds), not just M; the A1 is the Great North Road, so northbound suits it.",
+     "definitionFit": "Minutia is the singular of minutiae, a small or trivial particular, so it is a tiny detail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 3,
@@ -91,7 +283,49 @@
      }
     ]
    },
-   "solution": "ROYALBLUE"
+   "solution": "ROYALBLUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROYAL BLUE",
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "to describe"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prince maybe",
+      "gives": "ROYAL",
+      "note": "a prince is an example of a royal"
+     },
+     {
+      "clueFragment": "offensive",
+      "gives": "BLUE",
+      "note": "blue means rude or obscene, as in a blue joke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROYAL",
+      "BLUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether Prince, the singer, might be offensive in how he describes a colour.",
+     "definitionFit": "Royal blue is a deep, vivid shade of the colour blue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Prince"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +339,67 @@
     "text": "Regretful after making case of rubber goods wet",
     "enumeration": "5"
    },
-   "solution": "SOGGY"
+   "solution": "SOGGY",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection"
+    ],
+    "answer": "SOGGY",
+    "definitions": [
+     {
+      "text": "wet",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after making",
+      "for": "substitution",
+      "note": "making one thing into another means replacing those letters with the new ones"
+     },
+     {
+      "text": "case of",
+      "for": "substitution",
+      "note": "a case is the outer covering, so only the first and last letters of the next word are meant"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regretful",
+      "gives": "SORRY",
+      "note": "sorry means feeling regret"
+     },
+     {
+      "clueFragment": "rubber",
+      "gives": "RR",
+      "select": "outer",
+      "note": "the outside letters of rubber"
+     },
+     {
+      "clueFragment": "goods",
+      "gives": "GG",
+      "note": "G is short for good, so two of them are goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "GG",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling sorry once a cargo of rubber goods has been soaked.",
+     "walkthrough": "In SORRY the two Rs, which are the case of rubber, become GG.",
+     "definitionFit": "Soggy means thoroughly soaked, so it describes something wet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rubber"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +413,58 @@
     "text": "Happy to run around ship",
     "enumeration": "7"
    },
-   "solution": "BLESSED"
+   "solution": "BLESSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLESSED",
+    "definitions": [
+     {
+      "text": "Happy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the verb's letters go on either side of the vessel's letters"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "BLEED",
+      "note": "colours run, or bleed, in the wash"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is short for steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLE",
+      "SS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone delighted at the chance to jog round a ship's deck.",
+     "walkthrough": "Run is the verb for dye spreading in the wash, not jogging.",
+     "definitionFit": "Blessed can mean fortunate and contented, a near synonym of happy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +478,68 @@
     "text": "Public essentially find cycling over the hill without being able to see …",
     "enumeration": "9"
    },
-   "solution": "BLINDFOLD"
+   "solution": "BLINDFOLD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "cycling",
+     "charade"
+    ],
+    "answer": "BLINDFOLD",
+    "definitions": [
+     {
+      "text": "without being able to see",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only its middle letters are taken"
+     },
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling round means the front letter is moved to the back of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public",
+      "gives": "BL",
+      "select": "middle",
+      "note": "the middle two letters of public"
+     },
+     {
+      "clueFragment": "find",
+      "gives": "INDF",
+      "note": "find with its first letter carried round to the end"
+     },
+     {
+      "clueFragment": "over the hill",
+      "gives": "OLD",
+      "note": "over the hill means past one's prime, old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BL",
+      "INDF",
+      "OLD"
+     ]
+    },
+    "explanation": {
+     "surface": "An ageing cyclist struggling over a hill, eyes shut, as the public rarely do.",
+     "walkthrough": "The ellipsis leads into the next clue but plays no part in the wordplay.",
+     "definitionFit": "To do something blindfold is to do it with the eyes covered, unable to see, as in playing chess blindfold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +553,48 @@
     "text": "… a source of inspiration — regularly see reaction",
     "enumeration": "5"
    },
-   "solution": "ERATO"
+   "solution": "ERATO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ERATO",
+    "definitions": [
+     {
+      "text": "a source of inspiration",
+      "at": 2
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter of the phrase is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "see reaction",
+      "gives": "ERATO",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERATO"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue, a blindfolded person finds inspiration by watching others' reactions.",
+     "definitionFit": "Erato is the Greek Muse of lyric and love poetry, and the Muses were the classical sources of artistic inspiration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +608,60 @@
     "text": "Patient in cast massaged with oil",
     "enumeration": "7"
    },
-   "solution": "STOICAL"
+   "solution": "STOICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STOICAL",
+    "definitions": [
+     {
+      "text": "Patient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "massaged",
+      "for": "anagram",
+      "note": "massaged means kneaded and worked over, so the letters are pushed into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cast",
+      "gives": "CAST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "oil",
+      "gives": "OIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CASTOIL",
+       "gives": "STOICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital patient with a limb in plaster being rubbed down with oil.",
+     "walkthrough": "Patient looks like a noun for a hospital case, but it is the adjective.",
+     "definitionFit": "Stoical means enduring hardship without complaint, much the same as patient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Patient"
+    }
+   }
   },
   {
    "number": 8,
@@ -185,7 +685,61 @@
    "group": [
     "8-down",
     "21-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DREAMING SPIRES",
+    "definitions": [
+     {
+      "text": "Feature of Oxford University",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for revision",
+      "for": "anagram",
+      "note": "a revision reworks text into a new version, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Press",
+      "gives": "PRESS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "reading",
+      "gives": "READING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRESSIMREADING",
+       "gives": "DREAMINGSPIRES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor at Oxford University Press reading a manuscript for revisions.",
+     "walkthrough": "Oxford University Press is a real publisher, so the eye reads it as one name; the split falls after University.",
+     "definitionFit": "Matthew Arnold called Oxford the city of dreaming spires, after the college towers and steeples on its skyline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Press"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +753,58 @@
     "text": "Mug from New York hotel is breaking",
     "enumeration": "5"
    },
-   "solution": "NINNY"
+   "solution": "NINNY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NINNY",
+    "definitions": [
+     {
+      "text": "Mug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is breaking",
+      "for": "container",
+      "note": "something breaking into a pair of letters splits them apart and sits between"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "NY is the standard abbreviation"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "INN",
+      "note": "an inn is a small hotel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "INN",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A souvenir mug from a New York hotel getting smashed.",
+     "definitionFit": "A mug is a gullible fool, and a ninny is a silly, foolish person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mug"
+    }
+   }
   },
   {
    "number": 10,
@@ -223,7 +828,65 @@
      }
     ]
    },
-   "solution": "GOITALONE"
+   "solution": "GOITALONE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GO IT ALONE",
+    "definitions": [
+     {
+      "text": "Act unaided",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to drink",
+      "for": "container",
+      "note": "drinking takes something inside, so the target word holds the other one"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aim",
+      "gives": "GOAL",
+      "note": "a goal is an aim"
+     },
+     {
+      "clueFragment": "vermouth",
+      "gives": "IT",
+      "note": "It is short for Italian vermouth, as in gin and It"
+     },
+     {
+      "clueFragment": "lunchtime",
+      "gives": "ONE",
+      "note": "one o'clock is lunchtime"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "IT",
+      "AL",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone deciding to drink vermouth alone before lunch.",
+     "walkthrough": "Before means this time comes after the rest, as the question mark warns: it is one o'clock that the drinking precedes.",
+     "definitionFit": "To go it alone is an idiom for doing something independently, without help."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lunchtime"
+    }
+   }
   },
   {
    "number": 11,
@@ -237,7 +900,55 @@
     "text": "Published work by journalist performed better",
     "enumeration": "9"
    },
-   "solution": "OUTPLAYED"
+   "solution": "OUTPLAYED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTPLAYED",
+    "definitions": [
+     {
+      "text": "performed better",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Published",
+      "gives": "OUT",
+      "note": "a book that is out has been published"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "PLAY",
+      "note": "a play is a dramatic work"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "PLAY",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist's published work outshines the competition.",
+     "definitionFit": "To outplay someone is to perform better than them in a game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 12,
@@ -251,7 +962,62 @@
     "text": "Philosopher backing computer company",
     "enumeration": "5"
    },
-   "solution": "OCCAM"
+   "solution": "OCCAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OCCAM",
+    "definitions": [
+     {
+      "text": "Philosopher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so the words are read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "computer",
+      "gives": "MAC",
+      "note": "a Mac is an Apple computer"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OC",
+      "CAM"
+     ],
+     "reversals": [
+      {
+       "from": "MACCO",
+       "to": "OCCAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A philosopher providing financial backing for a tech firm.",
+     "walkthrough": "Backing looks like investing, but it reverses the computer and the company together.",
+     "definitionFit": "William of Occam was the medieval English philosopher behind Occam's razor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 13,
@@ -265,7 +1031,78 @@
     "text": "Commotion as friend gets house during bingo on vacation",
     "enumeration": "8"
    },
-   "solution": "BALLYHOO"
+   "solution": "BALLYHOO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BALLYHOO",
+    "definitions": [
+     {
+      "text": "Commotion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "vacated means emptied, so the middle of the word is removed and its outside letters remain"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during places these within the span of what follows"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bingo",
+      "gives": "B",
+      "select": "first",
+      "note": "the first of bingo's outer letters"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is short for house"
+     },
+     {
+      "clueFragment": "bingo",
+      "gives": "O",
+      "select": "last",
+      "note": "the last of bingo's outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ALLY",
+      "H",
+      "O",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An uproar at a holiday bingo hall when a pal wins a full house.",
+     "walkthrough": "Full house is the winning call in bingo, which helps the surface.",
+     "definitionFit": "Ballyhoo is noisy fuss or sensational publicity, so it is a commotion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +1116,56 @@
     "text": "Really funny greeting — different opening is ten times bigger",
     "enumeration": "9"
    },
-   "solution": "HILARIOUS"
+   "solution": "HILARIOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "HILARIOUS",
+    "definitions": [
+     {
+      "text": "Really funny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening is ten times bigger",
+      "for": "substitution",
+      "note": "the first letter, read as a Roman numeral, is swapped for the numeral worth ten times as much"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greeting",
+      "gives": "HI",
+      "note": "hi is a greeting"
+     },
+     {
+      "clueFragment": "different",
+      "gives": "VARIOUS",
+      "note": "various means different, as in various kinds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HI",
+      "L",
+      "ARIOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A greeting card joke that gets ten times bigger with a different opening line.",
+     "walkthrough": "V is the Roman numeral 5 and L is 50, so V becomes L.",
+     "definitionFit": "Hilarious means extremely amusing, a stronger synonym of very funny."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 15,
@@ -293,7 +1179,55 @@
     "text": "Almost stumbled on crook",
     "enumeration": "5"
    },
-   "solution": "FELON"
+   "solution": "FELON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FELON",
+    "definitions": [
+     {
+      "text": "crook",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stumbled",
+      "gives": "FELL",
+      "note": "to stumble is to fall; past tense"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEL",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who nearly tripped over a criminal, or a shepherd's staff.",
+     "walkthrough": "Stumbled on looks like a phrasal verb, but on is a separate piece.",
+     "definitionFit": "A crook is a criminal, and a felon is someone who has committed a serious crime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stumbled"
+    }
+   }
   },
   {
    "number": 15,
@@ -307,7 +1241,78 @@
     "text": "Diet including brewed ales and hot pork pie",
     "enumeration": "9"
    },
-   "solution": "FALSEHOOD"
+   "solution": "FALSEHOOD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "FALSEHOOD",
+    "definitions": [
+     {
+      "text": "pork pie",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing stirs and ferments ingredients, so these letters are mixed up"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means holding within, so the diet word wraps round the rest"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diet",
+      "gives": "FOOD",
+      "note": "diet is the food one eats"
+     },
+     {
+      "clueFragment": "ales",
+      "gives": "ALES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H for hot, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ALSE",
+      "H",
+      "OOD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALES",
+       "gives": "ALSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diet that somehow allows beer and a hot pork pie.",
+     "walkthrough": "Pork pie is Cockney rhyming slang for lie, often cut to porky; it looks like part of the menu.",
+     "definitionFit": "A falsehood is an untrue statement, and pork pie is British rhyming slang for exactly that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pork"
+    }
+   }
   },
   {
    "number": 16,
@@ -334,7 +1339,62 @@
     "text": "Write copy about extremely philosophical computer company",
     "enumeration": "5"
    },
-   "solution": "APPLE"
+   "solution": "APPLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "APPLE",
+    "definitions": [
+     {
+      "text": "computer company",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only first and last letters are kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the copying word is wrapped round the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Write copy",
+      "gives": "APE",
+      "note": "to ape is to copy or imitate"
+     },
+     {
+      "clueFragment": "philosophical",
+      "gives": "PL",
+      "select": "outer",
+      "note": "the first and last letters of philosophical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "PL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to a writer to produce copy on a philosophical computer firm.",
+     "walkthrough": "Write seems to serve the surface only, as an instruction to produce copy. The clue pairs with 12-across, whose wordplay used the Mac.",
+     "definitionFit": "Apple is the American technology company that makes the Mac and the iPhone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copy"
+    }
+   }
   },
   {
    "number": 18,
@@ -348,7 +1408,84 @@
     "text": "School year's separating in games — daughter's excited",
     "enumeration": "7"
    },
-   "solution": "PSYCHED"
+   "solution": "PSYCHED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PSYCHED",
+    "definitions": [
+     {
+      "text": "excited",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "separating",
+      "for": "container",
+      "note": "something separating a word splits it and sits in the gap"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the combined piece inside the games word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "games",
+      "gives": "P",
+      "note": "the first half of PE, physical education, school games"
+     },
+     {
+      "clueFragment": "School",
+      "gives": "S",
+      "note": "the start of SCH, the abbreviation for school"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is short for year"
+     },
+     {
+      "clueFragment": "School",
+      "gives": "CH",
+      "note": "the end of SCH"
+     },
+     {
+      "clueFragment": "games",
+      "gives": "E",
+      "note": "the second half of PE"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is short for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "S",
+      "Y",
+      "CH",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter thrilled that her school year is being split up for games.",
+     "walkthrough": "Y splits SCH to give SYCH, which then goes inside PE.",
+     "definitionFit": "Psyched is informal for excited or mentally keyed up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "separating"
+    }
+   }
   },
   {
    "number": 19,
@@ -368,7 +1505,60 @@
      }
     ]
    },
-   "solution": "LADYLOVE"
+   "solution": "LADYLOVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LADY-LOVE",
+    "definitions": [
+     {
+      "text": "sweetheart",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Intermittently",
+      "for": "letter_selection",
+      "note": "intermittently means on and off, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clear day",
+      "gives": "LADY",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     },
+     {
+      "clueFragment": "nothing on",
+      "gives": "LOVE",
+      "note": "love is nothing in tennis scoring, placed on the end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LADY",
+      "LOVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Sunbathing naked with a partner on a day that keeps clearing up.",
+     "walkthrough": "With nothing on hints at nudity, but nothing is the zero score.",
+     "definitionFit": "A ladylove is an old-fashioned word for a woman who is someone's beloved, so a sweetheart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 20,
@@ -382,7 +1572,68 @@
     "text": "Desert — perhaps at speed it sounds like dessert after volume's adjusted initially",
     "enumeration": "7"
    },
-   "solution": "VAMOOSE"
+   "solution": "VAMOOSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "homophone",
+     "charade"
+    ],
+    "answer": "VAMOOSE",
+    "definitions": [
+     {
+      "text": "Desert — perhaps at speed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points at the first letter of the word before it"
+     },
+     {
+      "text": "it sounds like",
+      "for": "homophone",
+      "note": "sounds like says the piece is spelt as another word that is pronounced the same"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sends the sound-alike second, behind the volume and its companion letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "volume's",
+      "gives": "V",
+      "note": "V is short for volume"
+     },
+     {
+      "clueFragment": "adjusted",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of adjusted"
+     },
+     {
+      "clueFragment": "dessert",
+      "gives": "MOOSE",
+      "soundsLike": "MOUSSE",
+      "note": "a mousse is a dessert; a moose is the large deer said the same way"
+     }
+    ],
+    "explanation": {
+     "surface": "A pun about desert versus dessert, with the volume turned up.",
+     "walkthrough": "After puts the sound-alike after the two letters. Desert is the verb, abandon, not the sandy noun.",
+     "definitionFit": "Vamoose is slang for leave in a hurry, so it means to desert, especially quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Desert"
+    }
+   }
   },
   {
    "number": 21,
@@ -409,7 +1660,77 @@
     "text": "Ultimately celery has plastic Lidl wrapping that depicts simple rural scene",
     "enumeration": "5"
    },
-   "solution": "IDYLL"
+   "solution": "IDYLL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "IDYLL",
+    "definitions": [
+     {
+      "text": "simple rural scene",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so the final letter of the vegetable is taken"
+     },
+     {
+      "text": "plastic",
+      "for": "anagram",
+      "note": "plastic material can be moulded into any shape, so these letters are reshaped"
+     },
+     {
+      "text": "wrapping",
+      "for": "container",
+      "note": "wrapping goes round the outside, so the rearranged shop name encloses the other letter"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "that depicts"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celery",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of celery"
+     },
+     {
+      "clueFragment": "Lidl",
+      "gives": "LIDL",
+      "note": "taken as written; Lidl is a German discount supermarket chain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "Y",
+      "LL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIDL",
+       "gives": "IDLL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supermarket celery sold in plastic wrapping with a picture of a farm scene on it.",
+     "definitionFit": "An idyll is a picturesque, peaceful pastoral scene, or a poem describing one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plastic"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1744,45 @@
     "text": "Dictator's tax enlarged Bank of America?",
     "enumeration": "5"
    },
-   "solution": "LEVEE"
+   "solution": "LEVEE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LEVEE",
+    "definitions": [
+     {
+      "text": "enlarged Bank of America?",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dictator's",
+      "for": "homophone",
+      "note": "a dictator here is someone who dictates, speaking words aloud for another to write"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tax",
+      "gives": "LEVEE",
+      "soundsLike": "LEVY",
+      "note": "a levy is a tax"
+     }
+    ],
+    "explanation": {
+     "surface": "A tyrant imposes a tax increase on a big American bank.",
+     "walkthrough": "Dictator suggests a tyrant, but it means a person dictating. Bank of America is a real bank; here it is a riverbank, as the question mark signals.",
+     "definitionFit": "A levee is a raised embankment built along a river, a term used chiefly in the US, so a built-up American bank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dictator's"
+    }
+   }
   },
   {
    "number": 24,
@@ -443,7 +1802,57 @@
      }
     ]
    },
-   "solution": "RELIEFMAP"
+   "solution": "RELIEFMAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RELIEF MAP",
+    "definitions": [
+     {
+      "text": "an outstanding plan",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Help for the poor",
+      "gives": "RELIEF",
+      "note": "poor relief was historic aid to the needy"
+     },
+     {
+      "clueFragment": "old woman",
+      "gives": "MA",
+      "note": "old woman is slang for mother, ma"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P for parking, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELIEF",
+      "MA",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A welfare scheme for the poor and an elderly woman's parking: what a great plan.",
+     "walkthrough": "Outstanding looks like praise, but it means standing out, raised.",
+     "definitionFit": "A relief map shows the land's height with raised or shaded contours, so its features literally stand out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 25,
@@ -457,7 +1866,44 @@
     "text": "Burglar vanishes, hiding grub",
     "enumeration": "5"
    },
-   "solution": "LARVA"
+   "solution": "LARVA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LARVA",
+    "definitions": [
+     {
+      "text": "grub",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "hidden_word",
+      "note": "hiding means concealing inside, so the letters are tucked within the words before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Burglar vanishes",
+      "gives": "LARVA",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A burglar escapes, concealing some food on the way.",
+     "walkthrough": "Grub looks like food, the sense the burglar story suggests, but here it is the insect.",
+     "definitionFit": "A grub is the soft-bodied young stage of an insect, which is a larva."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grub"
+    }
+   }
   },
   {
    "number": 26,
@@ -471,7 +1917,70 @@
     "text": "Conduct review of unrestricted river harbour after docking",
     "enumeration": "9"
    },
-   "solution": "BEHAVIOUR"
+   "solution": "BEHAVIOUR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BEHAVIOUR",
+    "definitions": [
+     {
+      "text": "Conduct",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "review of",
+      "for": "anagram",
+      "note": "reviewing something means going over it afresh, so these letters are reorganised"
+     },
+     {
+      "text": "unrestricted",
+      "for": "deletion",
+      "note": "with its restricting boundaries gone, the word loses its first and last letters"
+     },
+     {
+      "text": "after docking",
+      "for": "deletion",
+      "note": "docking a tail cuts off its end, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "RIVER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "harbour",
+      "gives": "HARBOUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEHAVIOUR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IVEHARBOU",
+       "gives": "BEHAVIOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Conducting a survey of a free-flowing river and of a harbour once ships have docked.",
+     "walkthrough": "Conduct looks like a verb, but it is the noun.",
+     "definitionFit": "Behaviour is how someone acts, a direct synonym of conduct as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conduct"
+    }
+   }
   },
   {
    "number": 27,
@@ -485,7 +1994,73 @@
     "text": "Remote university holding party — get tip for beer pong",
     "enumeration": "5"
    },
-   "solution": "ODOUR"
+   "solution": "ODOUR",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ODOUR",
+    "definitions": [
+     {
+      "text": "pong",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means having it inside, so the university letters go round the party"
+     },
+     {
+      "text": "tip for",
+      "for": "letter_selection",
+      "note": "a tip is an end point, here the far end of the word"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remote university",
+      "gives": "OU",
+      "note": "the Open University, Britain's distance-learning university"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "DO",
+      "U",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Students at a university party getting tips for beer pong, the drinking game.",
+     "walkthrough": "Beer pong looks like one phrase, but pong is the definition: British slang for a bad smell.",
+     "definitionFit": "Pong is British slang for a stink, and an odour is a smell, usually an unpleasant one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pong"
+    }
+   }
   },
   {
    "number": 28,
@@ -499,7 +2074,42 @@
     "text": "Some attend lessons non-stop",
     "enumeration": "7"
    },
-   "solution": "ENDLESS"
+   "solution": "ENDLESS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENDLESS",
+    "definitions": [
+     {
+      "text": "non-stop",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion, so the letters are a part of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attend lessons",
+      "gives": "ENDLESS",
+      "note": "runs across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Pupils who attend lessons continuously.",
+     "definitionFit": "Endless means without end or pause, the same as non-stop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 29,
@@ -513,7 +2123,43 @@
     "text": "Speak to 10 Downing Street for example",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ADDRESS",
+    "definitions": [
+     {
+      "text": "Speak to",
+      "at": 0
+     },
+     {
+      "text": "10 Downing Street for example",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speak to",
+      "note": "first meaning: to talk to formally"
+     },
+     {
+      "clueFragment": "10 Downing Street for example",
+      "note": "second meaning: a postal location"
+     }
+    ],
+    "explanation": {
+     "surface": "Delivering a speech at the British Prime Minister's official residence.",
+     "walkthrough": "10 Downing Street is the London home of the British Prime Minister, and here it is just an example of where someone lives.",
+     "definitionFit": "To address someone is to speak to them, and an address is a street location such as Number 10."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Speak"
+    }
+   }
   }
  ]
 }
