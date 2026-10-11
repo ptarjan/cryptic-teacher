@@ -38,6 +38,9 @@
   "date": "2019-02-10",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,53 @@
     "text": "Latin-American in USA cutting his grass",
     "enumeration": "5"
    },
-   "solution": "PANIC"
+   "solution": "PANIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PANIC",
+    "definitions": [
+     {
+      "text": "grass",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "deletion",
+      "note": "cutting something out removes it, so the named word is taken away from the longer one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Latin-American in USA",
+      "gives": "HISPANIC",
+      "note": "the usual American term for someone of Latin-American descent"
+     },
+     {
+      "clueFragment": "his",
+      "gives": "HIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PANIC"
+     ]
+    },
+    "explanation": {
+     "surface": "An immigrant mowing an American employer's lawn.",
+     "walkthrough": "HISPANIC loses its opening HIS to leave PANIC.",
+     "definitionFit": "Panic grass is a genus of millet-like grasses, Panicum, often just called panic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +114,50 @@
     "text": "Patronise silly supporter of former South American president",
     "enumeration": "9"
    },
-   "solution": "PERONISTA"
+   "solution": "PERONISTA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERONISTA",
+    "definitions": [
+     {
+      "text": "supporter of former South American president",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "something silly is muddled and senseless, so the word before it is jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Patronise",
+      "gives": "PATRONISE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PATRONISE",
+       "gives": "PERONISTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A condescending, foolish follower of an old Latin-American leader.",
+     "definitionFit": "A Peronista is a follower of Juan Perón, the Argentine president, and of the political movement he founded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Patronise"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +171,61 @@
     "text": "Protein I had detected in a French wine",
     "enumeration": "6"
    },
-   "solution": "AVIDIN"
+   "solution": "AVIDIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AVIDIN",
+    "definitions": [
+     {
+      "text": "Protein",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detected in",
+      "for": "container",
+      "note": "something detected in a place is found inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "French wine",
+      "gives": "VIN",
+      "note": "vin is the French word for wine"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd is the contraction of I had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "ID",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A lab report: a protein turned up in a glass of French wine.",
+     "definitionFit": "Avidin is a protein found in raw egg white that binds the vitamin biotin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "detected"
+    }
+   }
   },
   {
    "number": 3,
@@ -99,7 +245,58 @@
      }
     ]
    },
-   "solution": "NORYET"
+   "solution": "NORYET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOR YET",
+    "definitions": [
+     {
+      "text": "And also not",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing to drink it",
+      "for": "container",
+      "note": "to drink something is to take it inside, and 'it' points back to the spirit just named"
+     }
+    ],
+    "linkWords": [
+     "wanting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "whisky",
+      "gives": "RYE",
+      "note": "rye is a whisky distilled from rye grain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "RYE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A teetotaller declining whisky without any craving for it.",
+     "walkthrough": "The surface pretends 'not' is denying the need; it is the word that does the drinking, splitting after its first two letters.",
+     "definitionFit": "Nor yet is an old-fashioned conjunction introducing a further negative, meaning roughly 'and also not'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 4,
@@ -113,7 +310,57 @@
     "text": "Strutting leader, idiot in that long garment",
     "enumeration": "7"
    },
-   "solution": "CASSOCK"
+   "solution": "CASSOCK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CASSOCK",
+    "definitions": [
+     {
+      "text": "long garment",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strutting leader",
+      "gives": "COCK",
+      "note": "the cock of the walk struts and leads the flock"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ASS",
+      "OCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A pompous chief who looks a fool in his flowing robe.",
+     "definitionFit": "A cassock is the long, close-fitting robe worn by clergy and choristers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Strutting"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +374,57 @@
     "text": "Chief servant of explorer down under keeping quiet",
     "enumeration": "7"
    },
-   "solution": "TAPSMAN"
+   "solution": "TAPSMAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TAPSMAN",
+    "definitions": [
+     {
+      "text": "Chief servant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something is holding it within, so one piece is held inside the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "explorer down under",
+      "gives": "TASMAN",
+      "note": "Abel Tasman, the Dutch explorer of Australasia, who gave his name to Tasmania"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical mark for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "P",
+      "SMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "The head steward on an antipodean expedition keeps his mouth shut.",
+     "definitionFit": "Tapsman is a Scots word for the principal servant of a household, the head man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "servant"
+    }
+   }
   },
   {
    "number": 5,
@@ -141,7 +438,57 @@
     "text": "The man wears casual shirt, making one chuckle",
     "enumeration": "5"
    },
-   "solution": "TEHEE"
+   "solution": "TEHEE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TEHEE",
+    "definitions": [
+     {
+      "text": "one chuckle",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wears",
+      "for": "container",
+      "note": "whoever wears a garment is inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "casual shirt",
+      "gives": "TEE",
+      "note": "a tee is a T-shirt"
+     },
+     {
+      "clueFragment": "The man",
+      "gives": "HE",
+      "note": "he is the pronoun for a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "HE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fellow in a scruffy T-shirt gets a laugh.",
+     "definitionFit": "Tehee (tee-hee) is a titter or snigger, a small suppressed laugh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wears"
+    }
+   }
   },
   {
    "number": 6,
@@ -155,7 +502,46 @@
     "text": "Like, for instance, a metallurgical test",
     "enumeration": "5"
    },
-   "solution": "ASSAY"
+   "solution": "ASSAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSAY",
+    "definitions": [
+     {
+      "text": "a metallurgical test",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like",
+      "gives": "AS",
+      "note": "as means in the manner of"
+     },
+     {
+      "clueFragment": "for instance",
+      "gives": "SAY",
+      "note": "say introduces an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a lecturer offering an example of a test on metals.",
+     "definitionFit": "An assay is an analysis of ore or metal to find its purity or composition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +555,60 @@
     "text": "Bristly clique of upper-class types, almost all bad",
     "enumeration": "8"
    },
-   "solution": "SETULOUS"
+   "solution": "SETULOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SETULOUS",
+    "definitions": [
+     {
+      "text": "Bristly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost all",
+      "for": "deletion",
+      "note": "almost all of a word means it stops one letter short of its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clique",
+      "gives": "SET",
+      "note": "a set is a social circle"
+     },
+     {
+      "clueFragment": "upper-class types",
+      "gives": "U",
+      "note": "U is the label for upper-class usage"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "LOUSY",
+      "note": "lousy means very bad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SET",
+      "U",
+      "LOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A snob dismisses a whole circle of toffs as rotten.",
+     "definitionFit": "Setulous means covered with setulae, small bristles, a botanical and zoological term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "almost"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +622,57 @@
     "text": "One sailor and another endlessly depressed",
     "enumeration": "6"
    },
-   "solution": "MATLOW"
+   "solution": "MATLOW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MATLOW",
+    "definitions": [
+     {
+      "text": "One sailor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another",
+      "gives": "MATE",
+      "note": "a mate is a ship's officer, so another seafarer"
+     },
+     {
+      "clueFragment": "depressed",
+      "gives": "LOW",
+      "note": "low means downcast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAT",
+      "LOW"
+     ]
+    },
+    "explanation": {
+     "surface": "Two seamen, one of them feeling gloomy.",
+     "definitionFit": "Matlow (or matelot) is British slang for a sailor in the navy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 9,
@@ -197,7 +686,54 @@
     "text": "Old-fashioned awards as special treats",
     "enumeration": "6"
    },
-   "solution": "ARETTS"
+   "solution": "ARETTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARETTS",
+    "definitions": [
+     {
+      "text": "Old-fashioned awards",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "special",
+      "for": "anagram",
+      "note": "a special version is a made-over one, so the following letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "treats",
+      "gives": "TREATS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TREATS",
+       "gives": "ARETTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Prizes once given out as particular rewards.",
+     "walkthrough": "'Awards' is a verb here, in the same form as the answer.",
+     "definitionFit": "Arett is an obsolete verb meaning to entrust or assign, so arets means bestows or allots."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awards"
+    }
+   }
   },
   {
    "number": 10,
@@ -211,7 +747,69 @@
     "text": "Element of sung Mass needs change — Latin omitted, American included",
     "enumeration": "6"
    },
-   "solution": "EVOVAE"
+   "solution": "EVOVAE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EVOVAE",
+    "definitions": [
+     {
+      "text": "Element of sung Mass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "omitted",
+      "for": "deletion",
+      "note": "something omitted is left out, so the named letter is removed"
+     },
+     {
+      "text": "included",
+      "for": "container",
+      "note": "something included is taken in, so the named letter is put inside"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "change",
+      "gives": "EVOLVE",
+      "note": "to evolve is to change gradually"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "L is the abbreviation for Latin"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVOV",
+      "A",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A liturgical reformer insists the Latin Mass must change and include Americans.",
+     "walkthrough": "EVOLVE drops its L and takes in A before its last letter.",
+     "definitionFit": "Evovae is the vowels of 'seculorum Amen', written under the music to mark the cadence at the end of a sung Gloria Patri."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +823,57 @@
     "text": "The weather, listener admitted, is frightening",
     "enumeration": "6"
    },
-   "solution": "SKEARY"
+   "solution": "SKEARY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKEARY",
+    "definitions": [
+     {
+      "text": "frightening",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted",
+      "for": "container",
+      "note": "someone admitted is let in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The weather",
+      "gives": "SKY",
+      "note": "sky can mean the weather or climate"
+     },
+     {
+      "clueFragment": "listener",
+      "gives": "EAR",
+      "note": "the ear is what listens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SK",
+      "EAR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A storm so bad that a radio listener finds the weather scary.",
+     "definitionFit": "Skeary is a dialect form of scary, meaning causing fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "listener"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +893,48 @@
      }
     ]
    },
-   "solution": "IRISHSETTER"
+   "solution": "IRISHSETTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRISH SETTER",
+    "definitions": [
+     {
+      "text": "A dog",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dublin's",
+      "gives": "IRISH",
+      "note": "Dublin is the capital of Ireland"
+     },
+     {
+      "clueFragment": "crossword compiler",
+      "gives": "SETTER",
+      "note": "a setter writes crosswords"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRISH",
+      "SETTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry question whether an Irish puzzle-maker is a cur.",
+     "walkthrough": "The exclamation marks the joke: a setter from Dublin is also a breed of gundog.",
+     "definitionFit": "The Irish setter is a red-coated breed of gundog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "compiler"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +948,55 @@
     "text": "Essay don constructed about epic poem",
     "enumeration": "8"
    },
-   "solution": "ODYSSEAN"
+   "solution": "ODYSSEAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ODYSSEAN",
+    "definitions": [
+     {
+      "text": "about epic poem",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "constructed",
+      "for": "anagram",
+      "note": "something constructed is assembled anew, so the letters are put together in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Essay",
+      "gives": "ESSAY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "don",
+      "gives": "DON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ESSAYDON",
+       "gives": "ODYSSEAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An academic writes an essay on an epic poem.",
+     "definitionFit": "Odyssean means relating to Homer's Odyssey, the great epic of wandering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "constructed"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1010,65 @@
     "text": "Antiseptic medic tries out, without sulphur content",
     "enumeration": "9"
    },
-   "solution": "CETRIMIDE"
+   "solution": "CETRIMIDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CETRIMIDE",
+    "definitions": [
+     {
+      "text": "Antiseptic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or disordered, so the letters are rearranged"
+     },
+     {
+      "text": "without sulphur content",
+      "for": "deletion",
+      "note": "without means a letter is removed, here the chemical symbol for that element"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medic tries",
+      "gives": "MEDICTRIES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sulphur",
+      "gives": "S",
+      "note": "S is the chemical symbol for sulphur"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CETRIMIDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEDICTRIE",
+       "gives": "CETRIMIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor tests a sulphur-free antiseptic.",
+     "walkthrough": "Remove the S from medic tries, then rearrange what is left.",
+     "definitionFit": "Cetrimide is a quaternary ammonium compound used as an antiseptic and detergent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tries"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1082,54 @@
     "text": "Fatty substance, as is evident in spiritual leader",
     "enumeration": "8"
    },
-   "solution": "CALIPASH"
+   "solution": "CALIPASH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CALIPASH",
+    "definitions": [
+     {
+      "text": "Fatty substance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is evident in",
+      "for": "container",
+      "note": "something evident in a thing is visible within it, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spiritual leader",
+      "gives": "CALIPH",
+      "note": "a caliph is a Muslim religious and civil ruler"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CALIP",
+      "AS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-fed religious leader shows signs of fat.",
+     "definitionFit": "Calipash is the greenish gelatinous fat next to a turtle's upper shell, prized for soup."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spiritual"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1143,54 @@
     "text": "Plant with burs left in shelter",
     "enumeration": "5"
    },
-   "solution": "CLOTE"
+   "solution": "CLOTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLOTE",
+    "definitions": [
+     {
+      "text": "Plant with burs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shelter",
+      "gives": "COTE",
+      "note": "a cote is a small shelter for doves or sheep"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "OTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A burdock left lying in a garden shed.",
+     "definitionFit": "Clote is an old name for the burdock, a plant whose seed heads are burs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1204,51 @@
     "text": "Whole performance attracting little interest at first",
     "enumeration": "6"
    },
-   "solution": "INTACT"
+   "solution": "INTACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTACT",
+    "definitions": [
+     {
+      "text": "Whole",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "attracting",
+     "at first"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little interest",
+      "gives": "INT",
+      "note": "int. is the short form of interest"
+     },
+     {
+      "clueFragment": "performance",
+      "gives": "ACT",
+      "note": "an act is a performance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INT",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A complete show that drew few people at the start.",
+     "walkthrough": "'At first' places the abbreviation in front of the performance.",
+     "definitionFit": "Intact means undamaged and complete, with nothing missing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "attracting"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1262,57 @@
     "text": "Women beset by coldness of manner and fustiness",
     "enumeration": "6"
    },
-   "solution": "FROWST"
+   "solution": "FROWST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FROWST",
+    "definitions": [
+     {
+      "text": "fustiness",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beset by",
+      "for": "container",
+      "note": "something beset is surrounded on all sides, so it goes inside the other piece"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coldness of manner",
+      "gives": "FROST",
+      "note": "frost is a cold, unfriendly attitude"
+     },
+     {
+      "clueFragment": "Women",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRO",
+      "W",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Women facing a chilly reception in a stuffy room.",
+     "definitionFit": "Frowst is a stale, warm, stuffy atmosphere, a close mustiness in a room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Women"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1326,60 @@
     "text": "Move to join another plane offering speed for carrying flyer",
     "enumeration": "7"
    },
-   "solution": "RABATTE"
+   "solution": "RABATTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RABATTE",
+    "definitions": [
+     {
+      "text": "Move to join another plane",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying something means holding it within, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "offering",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speed",
+      "gives": "RATE",
+      "note": "rate is speed"
+     },
+     {
+      "clueFragment": "flyer",
+      "gives": "BAT",
+      "note": "a bat is a flying mammal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "BAT",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "An aircraft manoeuvres alongside another, speeding to carry a pilot.",
+     "walkthrough": "'Plane' and 'flyer' suggest aviation, but the plane is geometrical and the flyer is an animal.",
+     "definitionFit": "Rabatte is a geometry term: to rotate a plane about its line of intersection until it coincides with another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1393,54 @@
     "text": "Idler to gossip, therefore kept on the outside",
     "enumeration": "6"
    },
-   "solution": "STALKO"
+   "solution": "STALKO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STALKO",
+    "definitions": [
+     {
+      "text": "Idler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept on the outside",
+      "for": "container",
+      "note": "a word kept on the outside wraps around the other, holding it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "therefore",
+      "gives": "SO",
+      "note": "so means therefore"
+     },
+     {
+      "clueFragment": "gossip",
+      "gives": "TALK",
+      "note": "talk is gossip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TALK",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A layabout who would rather chat, and so is left out.",
+     "definitionFit": "Stalko is an Anglo-Irish word for an idle gentleman without means or occupation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kept"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1454,54 @@
     "text": "Suppressing exclamation of surprise, capture a rare bird",
     "enumeration": "6"
    },
-   "solution": "TAKAHE"
+   "solution": "TAKAHE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TAKAHE",
+    "definitions": [
+     {
+      "text": "a rare bird",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Suppressing",
+      "for": "container",
+      "note": "suppressing something holds it down inside, so one piece is put within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "capture",
+      "gives": "TAKE",
+      "note": "to take is to capture"
+     },
+     {
+      "clueFragment": "exclamation of surprise",
+      "gives": "AH",
+      "note": "ah is a cry of surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAK",
+      "AH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher stifles a gasp while catching an unusual species.",
+     "definitionFit": "The takahe is a flightless New Zealand rail once thought extinct and still very rare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capture"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1515,57 @@
     "text": "Charm of a stubborn person taking time",
     "enumeration": "6"
    },
-   "solution": "AMULET"
+   "solution": "AMULET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMULET",
+    "definitions": [
+     {
+      "text": "Charm",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "stubborn person",
+      "gives": "MULE",
+      "note": "a mule is an obstinate person"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MULE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The appeal of a person who takes their time to come round.",
+     "walkthrough": "'Charm' looks like a quality of the stubborn person, but it is the definition.",
+     "definitionFit": "An amulet is a charm worn as protection against evil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charm"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1579,54 @@
     "text": "One contemplating acquiring a rifle",
     "enumeration": "6"
    },
-   "solution": "MAUSER"
+   "solution": "MAUSER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAUSER",
+    "definitions": [
+     {
+      "text": "rifle",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "acquiring",
+      "for": "container",
+      "note": "acquiring something means taking it in, so a letter goes inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One contemplating",
+      "gives": "MUSER",
+      "note": "a muser is someone who ponders"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "USER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thinking about buying a gun.",
+     "definitionFit": "The Mauser is a famous German make of bolt-action rifle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contemplating"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1640,75 @@
     "text": "Hopes possibly to pen ewe finally?",
     "enumeration": "6"
    },
-   "solution": "SHEEPO"
+   "solution": "SHEEPO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container",
+     "and_lit"
+    ],
+    "answer": "SHEEPO",
+    "definitions": [
+     {
+      "text": "Hopes possibly to pen ewe finally?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals that the word before it could be arranged another way"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     },
+     {
+      "text": "to pen",
+      "for": "container",
+      "note": "to pen an animal is to enclose it, so a letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hopes",
+      "gives": "HOPES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ewe",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of ewe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "E",
+      "PO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOPES",
+       "gives": "SHEPO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmhand wishing to get the last ewe into the fold.",
+     "walkthrough": "The whole clue doubles as the definition, as the question mark hints: penning ewes is exactly this worker's job.",
+     "definitionFit": "A sheepo is an Australian and New Zealand shed hand whose job is to pen sheep ready for the shearers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Hopes"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1722,64 @@
     "text": "A Parisian female upset and embarrassed must be toughened up",
     "enumeration": "6"
    },
-   "solution": "ENURED"
+   "solution": "ENURED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ENURED",
+    "definitions": [
+     {
+      "text": "toughened up",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, upset means turned upside down, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "must be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A Parisian female",
+      "gives": "UNE",
+      "note": "une is the French feminine form of a"
+     },
+     {
+      "clueFragment": "embarrassed",
+      "gives": "RED",
+      "note": "red-faced with embarrassment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENU",
+      "RED"
+     ],
+     "reversals": [
+      {
+       "from": "UNE",
+       "to": "ENU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French woman, flustered and blushing, needs to harden herself.",
+     "definitionFit": "Enured is a variant spelling of inured, meaning hardened or accustomed to hardship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1793,70 @@
     "text": "This writer's seen going around in brown fabric",
     "enumeration": "5"
    },
-   "solution": "TAMIN"
+   "solution": "TAMIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TAMIN",
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going around",
+      "for": "reversal",
+      "note": "going around means turning about, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "seen"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brown",
+      "gives": "TAN",
+      "note": "tan is a light brown"
+     },
+     {
+      "clueFragment": "This writer's",
+      "gives": "IM",
+      "note": "I'm, short for I am, is how the writer says 'this writer is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "MI",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "IM",
+       "to": "MI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The author describes walking about dressed in brown.",
+     "walkthrough": "'This writer' is the setter referring to himself, a common crossword convention for I or ME.",
+     "definitionFit": "Tamin (or tamine) is an old thin worsted cloth, highly glazed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writer's"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1870,50 @@
     "text": "Computer network used with little hesitation in physics unit",
     "enumeration": "5"
    },
-   "solution": "WEBER"
+   "solution": "WEBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WEBER",
+    "definitions": [
+     {
+      "text": "physics unit",
+      "at": 48
+     }
+    ],
+    "linkWords": [
+     "used with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Computer network",
+      "gives": "WEB",
+      "note": "the web is the worldwide computer network"
+     },
+     {
+      "clueFragment": "little hesitation",
+      "gives": "ER",
+      "note": "er is a short pause sound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEB",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A physicist goes online with only slight hesitation.",
+     "definitionFit": "The weber is the SI unit of magnetic flux, named after Wilhelm Weber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "network"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1927,47 @@
     "text": "Female to deteriorate a bit once",
     "enumeration": "5"
    },
-   "solution": "FRUST"
+   "solution": "FRUST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRUST",
+    "definitions": [
+     {
+      "text": "a bit once",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "to deteriorate",
+      "gives": "RUST",
+      "note": "to rust is to decay or degenerate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RUST"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is slowly going downhill.",
+     "walkthrough": "'Once' marks the answer as obsolete.",
+     "definitionFit": "Frust is an obsolete word for a fragment, a small piece, from Latin frustum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +1981,55 @@
     "text": "A supreme newly built temple",
     "enumeration": "8"
    },
-   "solution": "SERAPEUM"
+   "solution": "SERAPEUM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SERAPEUM",
+    "definitions": [
+     {
+      "text": "temple",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "newly built",
+      "for": "anagram",
+      "note": "something newly built is made fresh, so the letters are put together in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "supreme",
+      "gives": "SUPREME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASUPREME",
+       "gives": "SERAPEUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a magnificent new temple.",
+     "definitionFit": "A Serapeum is a temple to the Egyptian god Serapis, notably at Alexandria and Memphis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supreme"
+    }
+   }
   },
   {
    "number": 30,
@@ -503,7 +2049,63 @@
      }
     ]
    },
-   "solution": "GALAMBUTTER"
+   "solution": "GALAMBUTTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GALAM BUTTER",
+    "definitions": [
+     {
+      "text": "Greasy stuff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck in",
+      "for": "container",
+      "note": "something stuck in a place is wedged inside it"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "channel",
+      "gives": "GUTTER",
+      "note": "a gutter is a channel for water"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "young animal",
+      "gives": "LAMB",
+      "note": "a lamb is a young sheep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "A",
+      "LAMB",
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A lamb gets trapped in a muddy ditch.",
+     "definitionFit": "Galam butter is shea butter, a vegetable fat from the seeds of the West African shea tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuck"
+    }
+   }
   },
   {
    "number": 31,
@@ -517,7 +2119,47 @@
     "text": "Good Swiss writer — rough judgement being \"rarely read these days\"",
     "enumeration": "6"
    },
-   "solution": "GHESSE"
+   "solution": "GHESSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GHESSE",
+    "definitions": [
+     {
+      "text": "rough judgement being \"rarely read these days\"",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "Swiss writer",
+      "gives": "HESSE",
+      "note": "Hermann Hesse, the German-born novelist who became a Swiss citizen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "HESSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic's verdict that a fine Swiss author is little read now.",
+     "walkthrough": "The quoted phrase marks the answer as an archaic spelling; the surface makes it sound like a critic's view of the author.",
+     "definitionFit": "Ghesse is an obsolete spelling of guess, an estimate or approximate judgement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "judgement"
+    }
+   }
   },
   {
    "number": 32,
@@ -531,7 +2173,49 @@
     "text": "Silly person had briefly to be treated with medicated cloth once",
     "enumeration": "6"
    },
-   "solution": "STUPED"
+   "solution": "STUPED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STUPED",
+    "definitions": [
+     {
+      "text": "treated with medicated cloth once",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silly person",
+      "gives": "STUPE",
+      "note": "stupe is an old word for a stupid person"
+     },
+     {
+      "clueFragment": "had briefly",
+      "gives": "D",
+      "note": "'d is the contracted form of had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUPE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool was soon to be bandaged with a medicated dressing in the old way.",
+     "definitionFit": "To stupe is to foment with a stupe, a cloth soaked in hot medicated liquid, so stuped means so treated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Silly"
+    }
+   }
   },
   {
    "number": 33,
@@ -545,7 +2229,49 @@
     "text": "Black deer spotted in Scottish town",
     "enumeration": "7"
    },
-   "solution": "JETHART"
+   "solution": "JETHART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JETHART",
+    "definitions": [
+     {
+      "text": "Scottish town",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "spotted in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Black",
+      "gives": "JET",
+      "note": "jet is intensely black"
+     },
+     {
+      "clueFragment": "deer",
+      "gives": "HART",
+      "note": "a hart is a male red deer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JET",
+      "HART"
+     ]
+    },
+    "explanation": {
+     "surface": "A dark stag seen in a Scottish town.",
+     "definitionFit": "Jethart is the local Scots name for Jedburgh, a town in the Borders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 34,
@@ -559,7 +2285,66 @@
     "text": "Perform somersaults in river? A farce",
     "enumeration": "5"
    },
-   "solution": "EXODE"
+   "solution": "EXODE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EXODE",
+    "definitions": [
+     {
+      "text": "A farce",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somersaults",
+      "for": "reversal",
+      "note": "a somersault turns head over heels, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "EXE",
+      "note": "the Exe is a river in Devon, in south-west England"
+     },
+     {
+      "clueFragment": "Perform",
+      "gives": "DO",
+      "note": "to do is to perform"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "OD",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "DO",
+       "to": "OD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turning cartwheels in a river is a bit of a pantomime.",
+     "definitionFit": "An exode was a comic afterpiece or farce in ancient Roman drama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Perform"
+    }
+   }
   }
  ]
 }
