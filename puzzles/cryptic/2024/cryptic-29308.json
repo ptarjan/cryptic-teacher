@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Yours truly, a devil in disguise, very old",
     "enumeration": "8"
    },
-   "solution": "MEDIEVAL"
+   "solution": "MEDIEVAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MEDIEVAL",
+    "definitions": [
+     {
+      "text": "very old",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in disguise",
+      "for": "anagram",
+      "note": "something in disguise has had its appearance altered, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yours truly",
+      "gives": "ME",
+      "note": "the writer referring to themselves"
+     },
+     {
+      "clueFragment": "a devil",
+      "gives": "ADEVIL",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "DIEVAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ADEVIL",
+       "gives": "DIEVAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses to being an ancient devil masquerading in human form.",
+     "definitionFit": "The Middle Ages lie centuries back, so anything from that period is loosely described as very ancient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disguise"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +103,44 @@
     "text": "Gifts editor's received an indication of the value of good company",
     "enumeration": "4"
    },
-   "solution": "FTSE"
+   "solution": "FTSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FTSE",
+    "definitions": [
+     {
+      "text": "an indication of the value of good company",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "received",
+      "for": "hidden_word",
+      "note": "the phrase has taken in, or received, the letters that make up the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gifts editor's",
+      "gives": "FTSE",
+      "note": "the letters run across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A newspaper's gifts editor has been sent a guide to which companies make good presents.",
+     "walkthrough": "The FTSE 100 is the London stock market index of leading companies; 'good company' is a playful way of saying blue-chip firms.",
+     "definitionFit": "A share index measures the market worth of major listed firms, tracking how well they are doing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +154,51 @@
     "text": "Discovered seaside town's fine",
     "enumeration": "6"
    },
-   "solution": "RIGHTO"
+   "solution": "RIGHTO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIGHTO",
+    "definitions": [
+     {
+      "text": "fine",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Discovered",
+      "for": "deletion",
+      "note": "dis-covered means stripped of its covering, so the outside letters go"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seaside town",
+      "gives": "BRIGHTON",
+      "note": "the resort on England's south coast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A seaside resort has been found to be perfectly pleasant.",
+     "walkthrough": "Brighton is a seaside town on England's south coast; remove its first and last letters.",
+     "definitionFit": "Both are informal words of agreement, as in replying 'okay' to a suggestion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Discovered"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +212,70 @@
     "text": "Wobbling perhaps, finally offer a parting expression of affection",
     "enumeration": "7"
    },
-   "solution": "BRALESS"
+   "solution": "BRALESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BRALESS",
+    "definitions": [
+     {
+      "text": "Wobbling perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word that follows it"
+     },
+     {
+      "text": "parting",
+      "for": "container",
+      "note": "parting an expression splits it open so something can be placed in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "offer",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "expression of affection",
+      "gives": "BLESS",
+      "note": "as in 'bless him!', a fond exclamation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "A",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone, perhaps unsteadily, offers a fond farewell.",
+     "walkthrough": "The pair from 'finally offer a' go into the split expression of affection. The definition is cheeky: going without support may result in wobbling.",
+     "definitionFit": "Going without a bra leaves the bust unsupported, so wobbling is an example of what might be seen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wobbling"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +289,79 @@
     "text": "Sailor, head of college before Oxford, from Shimla initially, on the wagon",
     "enumeration": "8"
    },
-   "solution": "COXSWAIN"
+   "solution": "COXSWAIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COXSWAIN",
+    "definitions": [
+     {
+      "text": "Sailor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the town named before it"
+     }
+    ],
+    "linkWords": [
+     "before",
+     "from",
+     "on the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Oxford",
+      "gives": "OX",
+      "note": "standard abbreviation for the city"
+     },
+     {
+      "clueFragment": "Shimla",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "wagon",
+      "gives": "WAIN",
+      "note": "an old word for a farm wagon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OX",
+      "S",
+      "WAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor who went to an Oxford college and then India has given up drinking.",
+     "walkthrough": "'On the wagon' looks like the idiom for teetotal, but the wagon is simply WAIN.",
+     "definitionFit": "The cox who steers a ship's boat is a member of the crew, so a type of seaman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wagon"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +375,56 @@
     "text": "An elegant chest that is right to cover with transparent silk",
     "enumeration": "10"
    },
-   "solution": "CHIFFONIER"
+   "solution": "CHIFFONIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHIFFONIER",
+    "definitions": [
+     {
+      "text": "An elegant chest",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to cover with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "transparent silk",
+      "gives": "CHIFFON",
+      "note": "a sheer light fabric"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "abbreviation of id est"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIFFON",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to drape sheer silk over a fine piece of furniture.",
+     "walkthrough": "In a down entry the fabric sits on top of, covering, the abbreviations below it.",
+     "definitionFit": "A chiffonier is a tall ornamental cabinet or chest of drawers, a fine piece of furniture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +438,57 @@
     "text": "Go first on Stephenson's Rocket, say?",
     "enumeration": "6"
    },
-   "solution": "LEAVES"
+   "solution": "LEAVES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LEAVES",
+    "definitions": [
+     {
+      "text": "Rocket, say",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first on",
+      "for": "letter_selection",
+      "note": "the first on a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "LEAVE",
+      "note": "to go away"
+     },
+     {
+      "clueFragment": "Stephenson's",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAVE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about travelling first class on the famous early steam locomotive.",
+     "walkthrough": "Stephenson's Rocket was a pioneering steam engine, but rocket here is the peppery salad green.",
+     "definitionFit": "Rocket, also called arugula, is a salad plant eaten for its foliage, so it is an example of this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rocket"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +508,65 @@
      }
     ]
    },
-   "solution": "WESTPIER"
+   "solution": "WESTPIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "WEST PIER",
+    "definitions": [
+     {
+      "text": "It's behind Brighton Rock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd",
+      "for": "anagram",
+      "note": "odd means strange or out of order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "introducing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partners",
+      "gives": "WE",
+      "note": "you and I together, a pair of partners; also West and East at bridge"
+     },
+     {
+      "clueFragment": "stripe",
+      "gives": "STRIPE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "STPIER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STRIPE",
+       "gives": "STPIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something lies behind a stick of the famous seaside candy, with a couple bringing in an odd stripe.",
+     "walkthrough": "Brighton Rock is both a seaside sweet and a Graham Greene novel; the West Pier, now a ruin, stands on the Brighton seafront, behind the shops selling rock.",
+     "definitionFit": "The West Pier is a landmark of the Brighton seafront, the setting associated with the town's famous sweet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +580,81 @@
     "text": "Roe stripped, see her bouncing around for Hugh, reportedly?",
     "enumeration": "5"
    },
-   "solution": "OCHRE"
+   "solution": "OCHRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "homophone",
+     "anagram"
+    ],
+    "answer": "OCHRE",
+    "definitions": [
+     {
+      "text": "for Hugh, reportedly",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped",
+      "for": "letter_selection",
+      "note": "stripping a word removes its outer layer, keeping only the centre"
+     },
+     {
+      "text": "bouncing around",
+      "for": "anagram",
+      "note": "letters bouncing around are jumbled into a new order"
+     },
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly signals that the name is to be heard rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roe",
+      "gives": "O",
+      "select": "middle",
+      "note": "the central letter"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "C",
+      "soundsLike": "SEE",
+      "note": "the letter's name is pronounced like the verb"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "HRE",
+      "note": "the three letters jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "C",
+      "HRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HER",
+       "gives": "HRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook strips fish eggs and watches a woman leap about, apparently for someone called Hugh.",
+     "walkthrough": "The definition is itself a sound-alike: Hugh said out loud is 'hue', and the answer is a hue.",
+     "definitionFit": "Ochre is a yellowish-brown earth pigment and the colour named after it, so it is a shade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hugh"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +668,57 @@
     "text": "Radio device's error, dropping station",
     "enumeration": "4"
    },
-   "solution": "MIKE"
+   "solution": "MIKE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MIKE",
+    "definitions": [
+     {
+      "text": "Radio device",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping something lets it fall away, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "error",
+      "gives": "MISTAKE",
+      "note": "a synonym"
+     },
+     {
+      "clueFragment": "station",
+      "gives": "STA",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "KE"
+     ]
+    },
+    "explanation": {
+     "surface": "A radio has made a mistake and lost its station.",
+     "walkthrough": "Remove STA from the middle of the word for an error.",
+     "definitionFit": "Mike is short for microphone, the instrument broadcasters speak into on air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "station"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +742,73 @@
      }
     ]
    },
-   "solution": "HALLSOFIVY"
+   "solution": "HALLSOFIVY",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "HALLS OF IVY",
+    "definitions": [
+     {
+      "text": "academia",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "something all over the place is in disorder, so the letters are scrambled"
+     },
+     {
+      "text": "entertained",
+      "for": "container",
+      "note": "a host entertains guests inside, so these letters are taken in"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lavishly",
+      "gives": "LAVISHLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HALLSOFIVY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAVISHLYOF",
+       "gives": "HALLSOFIVY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly woman was lavishly entertained at a university.",
+     "walkthrough": "The two abbreviations join the adverb's letters before all are rearranged.",
+     "definitionFit": "Ivy-covered buildings symbolise old universities, so the phrase is a nickname for the scholarly world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertained"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +822,59 @@
     "text": "In position of authority, crossword supremo ultimately gets to excel",
     "enumeration": "6"
    },
-   "solution": "OVERDO"
+   "solution": "OVERDO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OVERDO",
+    "definitions": [
+     {
+      "text": "excel",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letters of the two words before it"
+     }
+    ],
+    "linkWords": [
+     "gets to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In position of authority",
+      "gives": "OVER",
+      "note": "in charge of, as in over the staff"
+     },
+     {
+      "clueFragment": "crossword supremo",
+      "gives": "DO",
+      "select": "last",
+      "note": "the last letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who rules the crossword world finally gets the chance to shine.",
+     "walkthrough": "Excel is used in its older sense of surpassing or going beyond.",
+     "definitionFit": "To excel in the archaic sense is to exceed, and to overdo is to go beyond what is needed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "excel"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +894,48 @@
      }
     ]
    },
-   "solution": "RIFLERANGE"
+   "solution": "RIFLERANGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "RIFLE RANGE",
+    "definitions": [
+     {
+      "text": "Winchester maybe with scope to get used here?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Winchester maybe",
+      "gives": "RIFLE",
+      "note": "a Winchester is a make of gun"
+     },
+     {
+      "clueFragment": "scope",
+      "gives": "RANGE",
+      "note": "extent or reach"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIFLE",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about where a telescopic-sighted Winchester gets practised with.",
+     "walkthrough": "Winchester looks like the English cathedral city, but it is the American gun maker; the whole clue also describes the place.",
+     "definitionFit": "A shooting range is the facility where marksmen practise firing guns, including Winchesters fitted with scopes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Winchester"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +955,61 @@
      }
     ]
    },
-   "solution": "SEACOAST"
+   "solution": "SEACOAST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SEA-COAST",
+    "definitions": [
+     {
+      "text": "beach",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unlikely",
+      "for": "anagram",
+      "note": "an unlikely version of a word is an improbable rearrangement of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "case",
+      "gives": "SEAC",
+      "note": "the four letters rearranged"
+     },
+     {
+      "clueFragment": "drier",
+      "gives": "OAST",
+      "note": "an oast is a kiln for drying hops"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEAC",
+      "OAST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASE",
+       "gives": "SEAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An improbable argument that a beach could be less damp.",
+     "walkthrough": "Oast houses, with their distinctive cowled roofs, are a feature of Kent's hop country.",
+     "definitionFit": "The shore where land meets the ocean is the seacoast, and a beach is part of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drier"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1023,56 @@
     "text": "Amid racket cancel Bristol City's suspension",
     "enumeration": "7"
    },
-   "solution": "CLIFTON"
+   "solution": "CLIFTON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLIFTON",
+    "definitions": [
+     {
+      "text": "Bristol City's suspension",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Amid",
+      "for": "container",
+      "note": "amid means in the middle of, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racket",
+      "gives": "CON",
+      "note": "a swindle"
+     },
+     {
+      "clueFragment": "cancel",
+      "gives": "LIFT",
+      "note": "as in lifting a ban"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIFT",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Amid controversy, a football club's player ban is overturned.",
+     "walkthrough": "Bristol City is a football club, so 'suspension' suggests a ban, but it is the Clifton Suspension Bridge over the Avon Gorge in Bristol.",
+     "definitionFit": "Clifton names the famous suspension bridge in the city of Bristol, so it identifies the city's suspension."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suspension"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1086,76 @@
     "text": "A glass, old boy, is to be raised to Diana shortly",
     "enumeration": "8"
    },
-   "solution": "OBSIDIAN"
+   "solution": "OBSIDIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "deletion"
+    ],
+    "answer": "OBSIDIAN",
+    "definitions": [
+     {
+      "text": "A glass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be raised",
+      "for": "reversal",
+      "note": "raising letters in a down entry reads them upwards, back to front"
+     },
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly means cut short, so the name loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Diana",
+      "gives": "DIANA",
+      "note": "the name as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "SI",
+      "DIAN"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old school pal proposes a toast to someone called Diana.",
+     "walkthrough": "'A glass' sounds like a drink to be raised in a toast; it is the definition.",
+     "definitionFit": "Obsidian is a dark natural glass formed when volcanic lava cools quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "glass"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1169,74 @@
     "text": "501 advanced into pub, heading for alcoholic state",
     "enumeration": "7"
    },
-   "solution": "INDIANA"
+   "solution": "INDIANA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "INDIANA",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means going inside, so the number goes within the pub"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "a synonym, split around the inserted letters"
+     },
+     {
+      "clueFragment": "501",
+      "gives": "DI",
+      "note": "Roman numerals D for 500 and I for 1"
+     },
+     {
+      "clueFragment": "advanced",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "alcoholic",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DIA",
+      "N",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone advanced into a bar heading for a drunken condition.",
+     "walkthrough": "'Alcoholic state' suggests drunkenness, but the state is a US one.",
+     "definitionFit": "Indiana is one of the fifty states of the USA, in the Midwest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1250,66 @@
     "text": "Bundles of joy in cheeky couple, wrinkly one on top",
     "enumeration": "8"
    },
-   "solution": "NEONATES"
+   "solution": "NEONATES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NEONATES",
+    "definitions": [
+     {
+      "text": "Bundles of joy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrinkly",
+      "for": "anagram",
+      "note": "something wrinkly is creased out of shape, so the word's letters are crumpled"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "on top"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "NEO",
+      "note": "the three letters rearranged"
+     },
+     {
+      "clueFragment": "cheeky couple",
+      "gives": "NATES",
+      "note": "the buttocks, a pair of cheeks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEO",
+      "NATES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONE",
+       "gives": "NEO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Babies in a couple's care, with an old person keeping watch over them.",
+     "walkthrough": "'Wrinkly' looks like a slang noun for an old person but is the anagram signal; in a down entry 'on top' puts the rearranged word first.",
+     "definitionFit": "Newborn babies are proverbially bundles of joy, and neonates is the medical word for newborns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wrinkly"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1323,76 @@
     "text": "Stage at which, sadly, Hugh's retirement starts – no chicken!",
     "enumeration": "7"
    },
-   "solution": "LEGHORN"
+   "solution": "LEGHORN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LEGHORN",
+    "definitions": [
+     {
+      "text": "chicken",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "starts points to the opening letters of the two words before it"
+     },
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly means badly, things going wrong, so the letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "at which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stage",
+      "gives": "LEG",
+      "note": "a stage of a journey or race"
+     },
+     {
+      "clueFragment": "Hugh's retirement",
+      "gives": "HR",
+      "select": "first",
+      "note": "first letter of each word"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "HORN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HRNO",
+       "gives": "HORN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter Hugo laments the moment of retirement when he is no longer young.",
+     "walkthrough": "'At which' only links the parts. 'No chicken' recalls 'no spring chicken', but the chicken is the definition.",
+     "definitionFit": "The Leghorn is a breed of domestic fowl, named after the Italian port also known as Livorno."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chicken"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1406,64 @@
     "text": "Film-maker entices strangely accommodating adult",
     "enumeration": "8"
    },
-   "solution": "CINEASTE"
+   "solution": "CINEASTE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "CINEASTE",
+    "definitions": [
+     {
+      "text": "Film-maker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means in an odd way, so the letters are arranged oddly"
+     },
+     {
+      "text": "accommodating",
+      "for": "container",
+      "note": "accommodating means housing a guest, so a letter is taken inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entices",
+      "gives": "ENTICES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "standard abbreviation, as in film certificates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CINEASTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENTICESA",
+       "gives": "CINEASTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A director lures a grown-up in a strange, obliging way.",
+     "definitionFit": "A cineaste is a devotee of cinema, a word also used for those who make films."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accommodating"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1477,54 @@
     "text": "A peddler of ecstasy was I, legendary lover of Ireland",
     "enumeration": "6"
    },
-   "solution": "ISOLDE"
+   "solution": "ISOLDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISOLDE",
+    "definitions": [
+     {
+      "text": "legendary lover of Ireland",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was I",
+      "gives": "I",
+      "note": "the speaker"
+     },
+     {
+      "clueFragment": "A peddler of",
+      "gives": "SOLD",
+      "note": "a peddler is someone who sold things"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "slang abbreviation for the drug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SOLD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A confession from someone who once dealt drugs.",
+     "walkthrough": "Read the confession as 'I sold E'.",
+     "definitionFit": "Isolde is the Irish princess in the Arthurian tale of Tristan and Isolde, famed for her tragic romance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "peddler"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1538,55 @@
     "text": "Busted singer in country performing following split",
     "enumeration": "6"
    },
-   "solution": "PARTON"
+   "solution": "PARTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARTON",
+    "definitions": [
+     {
+      "text": "Busted singer in country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the second piece named is placed first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split",
+      "gives": "PART",
+      "note": "to divide or separate"
+     },
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "on stage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer is arrested in some country while performing after a breakup.",
+     "walkthrough": "'Busted' suggests arrested; it means bosomy. Dolly Parton is a country music star.",
+     "definitionFit": "Dolly Parton is a famously buxom singer in country music, as she herself often jokes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Busted"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1600,64 @@
     "text": "Always centrally located, Hispanic canal's dramatic – here?",
     "enumeration": "6"
    },
-   "solution": "PANAMA"
+   "solution": "PANAMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "PANAMA",
+    "definitions": [
+     {
+      "text": "Always centrally located, Hispanic canal's dramatic – here?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Always centrally located",
+      "for": "letter_selection",
+      "note": "always tells you to apply the central rule to every following word, keeping the middle pair each time"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hispanic",
+      "gives": "PA",
+      "select": "middle",
+      "note": "the middle two letters"
+     },
+     {
+      "clueFragment": "canal's",
+      "gives": "NA",
+      "select": "middle",
+      "note": "the middle two letters, counting the s"
+     },
+     {
+      "clueFragment": "dramatic",
+      "gives": "MA",
+      "select": "middle",
+      "note": "the middle two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "NA",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about where a Latin American canal sits at the centre and makes an impact.",
+     "walkthrough": "The whole clue also describes the country: it is in the centre of the Americas, Spanish-speaking, and its canal is impressive.",
+     "definitionFit": "Panama is the Central American, Spanish-speaking country through which the famous canal is cut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Always"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1687,44 @@
      }
     ]
    },
-   "solution": "NOWANDTHEN"
+   "solution": "NOWANDTHEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOW AND THEN",
+    "definitions": [
+     {
+      "text": "What one might read about in History Today",
+      "at": 0
+     },
+     {
+      "text": "sometimes",
+      "at": 43
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What one might read about in History Today",
+      "note": "the setter's reading: history covers then, today covers now"
+     },
+     {
+      "clueFragment": "sometimes",
+      "note": "second meaning: occasionally"
+     }
+    ],
+    "explanation": {
+     "surface": "A reader of a history magazine finds some articles there occasionally.",
+     "walkthrough": "History Today is a British history magazine; split it into its two words for the two time periods.",
+     "definitionFit": "The phrase means occasionally, and literally pairs the present with the past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Today"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1738,43 @@
     "text": "In James, a uniquely hairy man",
     "enumeration": "4"
    },
-   "solution": "ESAU"
+   "solution": "ESAU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ESAU",
+    "definitions": [
+     {
+      "text": "hairy man",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "James, a uniquely",
+      "gives": "ESAU",
+      "note": "the letters run across the end of the name, the article and the start of the adverb"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone named James is described as exceptionally hirsute.",
+     "walkthrough": "In Genesis, Jacob's twin is described as a hairy man; James is a book of the Bible too, adding to the misdirection.",
+     "definitionFit": "Genesis calls the elder twin of Jacob a hairy man, contrasting him with his smooth brother."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "James"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1788,68 @@
     "text": "Pickle, just flip the lid up, girl!",
     "enumeration": "4"
    },
-   "solution": "EMMA"
+   "solution": "EMMA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "EMMA",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "up in a down entry means the word is read from bottom to top"
+     },
+     {
+      "text": "flip",
+      "for": "deletion",
+      "note": "flipping off the lid removes it from the top of the jar"
+     }
+    ],
+    "linkWords": [
+     "just"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pickle",
+      "gives": "DILEMMA",
+      "note": "a tricky situation, as in being in a pickle"
+     },
+     {
+      "clueFragment": "lid",
+      "gives": "LID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMMA"
+     ],
+     "reversals": [
+      {
+       "from": "LID",
+       "to": "DIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone urges a girl to just open a jar of pickle.",
+     "walkthrough": "'Pickle' looks like a jarred relish but means a predicament; the opening of that word matches the lid written upwards, so remove it.",
+     "definitionFit": "Emma is a common girl's name, and crosswords freely define first names this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pickle"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1863,52 @@
     "text": "Setter say needing master, and principles laid down",
     "enumeration": "5"
    },
-   "solution": "DOGMA"
+   "solution": "DOGMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOGMA",
+    "definitions": [
+     {
+      "text": "principles laid down",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "needing",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter say",
+      "gives": "DOG",
+      "note": "a setter is a breed of dog"
+     },
+     {
+      "clueFragment": "master",
+      "gives": "MA",
+      "note": "Master of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOG",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter needs an expert, and sets out the rules.",
+     "walkthrough": "Setter suggests the crossword compiler; here it is the gun dog.",
+     "definitionFit": "Dogma is a set of beliefs laid down by an authority as incontrovertibly true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Setter"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1922,57 @@
     "text": "Have a flashback of free unclothed Johnson",
     "enumeration": "8"
    },
-   "solution": "REMEMBER"
+   "solution": "REMEMBER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REMEMBER",
+    "definitions": [
+     {
+      "text": "Have a flashback of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unclothed",
+      "for": "letter_selection",
+      "note": "unclothed means stripped of its outer covering, leaving only the inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "RE",
+      "select": "middle",
+      "note": "the inside letters"
+     },
+     {
+      "clueFragment": "Johnson",
+      "gives": "MEMBER",
+      "note": "slang for the male organ, as is johnson"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MEMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls a naked politician named Johnson running free.",
+     "walkthrough": "'Johnson' suggests Boris or Samuel, but it is slang for a penis, as is member.",
+     "definitionFit": "To remember an event is to recall it, as a flashback brings a past scene back to mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Johnson"
+    }
+   }
   }
  ]
 }
