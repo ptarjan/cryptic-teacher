@@ -640,6 +640,16 @@ GLOSSED_PIECE = re.compile(r"\s*([A-Z][A-Z\u2019'.]*)(?=\s*[=,.\u2013\u2014]|\s+
 NEXT_PIECE = re.compile(r",(?=\s*[A-Z][A-Z\u2019'.]*(?:\s*[=,.]|\s*$))")
 
 
+#: An answer typed short, then its wordplay in capitals: "HE – HE MP" for
+#: HEMP (4). The printed letters, and what follows the dash.
+SHORT_ANSWER = re.compile(r"^\s*([A-Z][A-Z'\u2019 ]*?)\s*(?:[\u2013\u2014=:]|-\s)\s*(.+)$")
+#: A word in capitals, whole: not the capital that opens "Member".
+CAPS_PIECE = re.compile(r"(?<![A-Za-z'\u2019])[A-Z]+(?![a-z])")
+#: An answer with one letter slipped into lower case: "RESEMBLiNG (men,
+#: gerbils)*".
+CASE_SLIP = re.compile(r"[\s\-]*([A-Za-z][A-Za-z'\u2019]*)")
+
+
 def _by_enum(letters, enum):
     """Letters broken where the enumeration breaks: "GALLYCROW", "5-4" ->
     "GALLY-CROW"."""
@@ -716,6 +726,29 @@ def answer_read_harder(line, enum):
             pos += 1
         if len(got) > 1 and sum(map(len, got)) == total:
             return _by_enum("".join(got), enum)
+    # Typed with one letter in lower case, "RESEMBLiNG (men, gerbils)*": the
+    # words the enumeration counts, every letter but one a capital.
+    words, pos = [], 0
+    for n in counts:
+        m = CASE_SLIP.match(clean, pos)
+        if not m or len(re.sub(r"[^A-Za-z]", "", m.group(1))) != n:
+            break
+        words.append(m.group(1))
+        pos = m.end()
+    else:
+        typed = "".join(words)
+        if (sum(c.islower() for c in typed) == 1 and total >= 4
+                and not re.match(r"[A-Za-z]", clean[pos:pos + 1])):
+            return _by_enum(re.sub(r"[^A-Z]", "", typed.upper()), enum)
+    # Typed short, "HE – HE MP" under (4): every capitalised word after the
+    # dash, joined, counts the enumeration exactly and opens with what was
+    # typed. That is the wordplay spelling the answer out in order.
+    short = SHORT_ANSWER.match(clean)
+    if short:
+        typed = re.sub(r"[^A-Z]", "", short.group(1))
+        spelled = "".join(CAPS_PIECE.findall(short.group(2)))
+        if 0 < len(typed) < total == len(spelled) and spelled.startswith(typed):
+            return _by_enum(spelled, enum)
     return None
 
 
