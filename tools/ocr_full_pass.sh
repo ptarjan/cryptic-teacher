@@ -102,7 +102,7 @@ WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-09T23:18:55+00:00}"
 
 publish() {  # publish <what>: commit and push the puzzles filed so far
-  durable_checkpoint "full pass" || return 1
+  durable_checkpoint "OCR" || return 1
   durable_resync || true
 }
 
@@ -152,7 +152,7 @@ reexec_if_moved() {
 resync() {  # move the tree to origin/master, again while a handed-over unit keeps it changed
   local n
   for n in 1 2 3; do
-    durable_checkpoint "full pass" || echo "durable: checkpoint failed before the move"
+    durable_checkpoint "OCR" || echo "durable: checkpoint failed before the move"
     durable_resync && return 0
     sleep 20
   done
@@ -169,7 +169,7 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
     # own file: units it hands over still write to it, and it is followed
     # until they end.
     out=$(mktemp) || return 1
-    DURABLE_TEE="$out" durable_run "full pass" \
+    DURABLE_TEE="$out" durable_run "OCR" \
       timeout "$((CHUNK + GRACE))" nice -n 19 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait --handoff "$HANDOFF"
     rc=$?
     pids=$(handed_over | tr '\n' ' ')
