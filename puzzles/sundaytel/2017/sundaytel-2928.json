@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,60 @@
     "text": "Piece of text, perhaps ruined when one page is removed",
     "enumeration": "6"
    },
-   "solution": "PHRASE"
+   "solution": "PHRASE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PHRASE",
+    "definitions": [
+     {
+      "text": "Piece of text",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked out of its original shape, so the remaining letters are rearranged"
+     },
+     {
+      "text": "when one page is removed",
+      "for": "deletion",
+      "note": "page abbreviates to a single letter, and removing one copy of it shortens the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perhaps",
+      "gives": "PERHAPS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHRASE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ERHAPS",
+       "gives": "PHRASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor laments a passage spoilt once a page went missing.",
+     "walkthrough": "P is page; drop one of the two Ps in PERHAPS and rearrange ERHAPS into PHRASE.",
+     "definitionFit": "A phrase is a small group of words, a short stretch of written text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +102,55 @@
     "text": "Motivate one young woman that's extravagant?",
     "enumeration": "8"
    },
-   "solution": "PRODIGAL"
+   "solution": "PRODIGAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRODIGAL",
+    "definitions": [
+     {
+      "text": "extravagant",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Motivate",
+      "gives": "PROD",
+      "note": "to prod someone is to spur them into action"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "young woman",
+      "gives": "GAL",
+      "note": "informal word for a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROD",
+      "I",
+      "GAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether goading a spendthrift girl into action is wise.",
+     "definitionFit": "Prodigal means wastefully lavish with money, as in the parable of the prodigal son."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Motivate"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +164,44 @@
     "text": "Puttin' on academic wear? Hood, for instance",
     "enumeration": "5"
    },
-   "solution": "ROBIN"
+   "solution": "ROBIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROBIN",
+    "definitions": [
+     {
+      "text": "Puttin' on academic wear",
+      "at": 0
+     },
+     {
+      "text": "Hood, for instance",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puttin' on academic wear",
+      "note": "first meaning: robing with its final g dropped, just as puttin' drops it"
+     },
+     {
+      "clueFragment": "Hood, for instance",
+      "note": "second meaning: the outlaw of Sherwood Forest has this first name"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone donning a gown and wondering if the academic hood counts.",
+     "walkthrough": "The apostrophe in Puttin' signals that the answer also loses its g: robing becomes robin'. Hood pairs with the academic gown in the surface but is the outlaw.",
+     "definitionFit": "Robin is the given name of the legendary outlaw Hood, and robin' is a clipped form of dressing in a gown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hood"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +215,57 @@
     "text": "Everything in exhibition is superficial",
     "enumeration": "7"
    },
-   "solution": "SHALLOW"
+   "solution": "SHALLOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHALLOW",
+    "definitions": [
+     {
+      "text": "superficial",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word sits inside the other, enclosed by its letters"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exhibition",
+      "gives": "SHOW",
+      "note": "a show is a public display"
+     },
+     {
+      "clueFragment": "Everything",
+      "gives": "ALL",
+      "note": "synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "ALL",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic dismisses an entire exhibition as lacking depth.",
+     "definitionFit": "Shallow, meaning lacking depth of thought or feeling, is a synonym of superficial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exhibition"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +279,45 @@
     "text": "Sound level heard",
     "enumeration": "6"
    },
-   "solution": "STRAIT"
+   "solution": "STRAIT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STRAIT",
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "what is heard is judged by its pronunciation, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "level",
+      "gives": "STRAIT",
+      "soundsLike": "STRAIGHT",
+      "note": "level and straight both mean even, not crooked"
+     }
+    ],
+    "explanation": {
+     "surface": "A sound engineer checks that the volume level is audible.",
+     "walkthrough": "Sound looks like the noise word, but it is the geographical sense: a narrow sea channel.",
+     "definitionFit": "A sound and a strait are both narrow stretches of water linking two larger bodies of sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +331,46 @@
     "text": "Confidence, as reported, is bound to be restrained",
     "enumeration": "7"
    },
-   "solution": "TRUSSED"
+   "solution": "TRUSSED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TRUSSED",
+    "definitions": [
+     {
+      "text": "restrained",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as reported",
+      "for": "homophone",
+      "note": "a report passes something on by word of mouth, so the pronunciation counts"
+     }
+    ],
+    "linkWords": [
+     "is bound to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Confidence",
+      "gives": "TRUSSED",
+      "soundsLike": "TRUST",
+      "note": "trust is confidence placed in someone"
+     }
+    ],
+    "explanation": {
+     "surface": "A warning that secrets passed on in confidence will inevitably be held back.",
+     "definitionFit": "To be trussed is to be tied up tightly, so the person is restrained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +384,43 @@
     "text": "Pope, for example, or great king of old",
     "enumeration": "9"
    },
-   "solution": "ALEXANDER"
+   "solution": "ALEXANDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALEXANDER",
+    "definitions": [
+     {
+      "text": "Pope, for example",
+      "at": 0
+     },
+     {
+      "text": "great king of old",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pope, for example",
+      "note": "first meaning: the poet ... Pope bears this first name"
+     },
+     {
+      "clueFragment": "great king of old",
+      "note": "second meaning: the Macedonian conqueror known as the Great"
+     }
+    ],
+    "explanation": {
+     "surface": "A list of exalted rulers: a pontiff, or a famous ancient monarch.",
+     "walkthrough": "Pope suggests the head of the Catholic Church, but it is the 18th-century English poet.",
+     "definitionFit": "Alexander is the first name of the poet Pope and the name of the ancient Macedonian ruler called the Great."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pope"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +434,46 @@
     "text": "Articles I'm indicating, small pieces of academic writing",
     "enumeration": "6"
    },
-   "solution": "THESES"
+   "solution": "THESES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THESES",
+    "definitions": [
+     {
+      "text": "pieces of academic writing",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Articles I'm indicating",
+      "gives": "THESE",
+      "note": "the word used when pointing out several items"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THESE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A tutor points out short pieces of student writing.",
+     "definitionFit": "Theses is the plural of thesis, a dissertation written for a university degree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Articles"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +493,58 @@
      }
     ]
    },
-   "solution": "TOPBRASS"
+   "solution": "TOPBRASS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOP BRASS",
+    "definitions": [
+     {
+      "text": "those in authority",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "garments worn over others cover them, so one word wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Upper garments",
+      "gives": "TOPS",
+      "note": "tops are clothes for the upper body"
+     },
+     {
+      "clueFragment": "underwear",
+      "gives": "BRAS",
+      "note": "bras are items of women's underwear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOP",
+      "BRAS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion note about outerwear worn on top of lingerie, suited to the bosses.",
+     "walkthrough": "Over means covering here: the upper garments wrap around the underwear rather than sitting above it.",
+     "definitionFit": "Top brass is an idiom for the senior officers or highest-ranking people in an organisation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +558,51 @@
     "text": "Subscribe on my behalf should it be necessary? That's worth noting",
     "enumeration": "11"
    },
-   "solution": "SIGNIFICANT"
+   "solution": "SIGNIFICANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIGNIFICANT",
+    "definitions": [
+     {
+      "text": "worth noting",
+      "at": 54
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Subscribe",
+      "gives": "SIGN",
+      "note": "to subscribe a document is to sign it"
+     },
+     {
+      "clueFragment": "on my behalf should it be necessary?",
+      "gives": "IFICANT",
+      "note": "the request: someone else signs when I am unable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIGN",
+      "IFICANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A request for a proxy signature, then a remark that this deserves attention.",
+     "walkthrough": "The answer splits as SIGN IF I CAN'T, a request for someone to put their name down in your place.",
+     "definitionFit": "Something significant is important enough to be noticed or remarked upon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Subscribe"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +616,46 @@
     "text": "Irregular or inconsistent — and odd?",
     "enumeration": "6"
    },
-   "solution": "UNEVEN"
+   "solution": "UNEVEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNEVEN",
+    "definitions": [
+     {
+      "text": "Irregular or inconsistent",
+      "at": 0
+     },
+     {
+      "text": "odd",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irregular or inconsistent",
+      "note": "first meaning: not level or not consistent in quality"
+     },
+     {
+      "clueFragment": "odd",
+      "note": "second meaning: read as ..., a number that is not even"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful second reading: odd numbers are literally not even.",
+     "definitionFit": "Uneven describes surfaces or performances that vary, and an odd number is one that is not even."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 11,
@@ -192,7 +669,42 @@
     "text": "Legal right to retain property held by client",
     "enumeration": "4"
    },
-   "solution": "LIEN"
+   "solution": "LIEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LIEN",
+    "definitions": [
+     {
+      "text": "Legal right to retain property",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "hidden_word",
+      "note": "something held by a word is gripped inside it, so the answer sits among its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "client",
+      "gives": "LIEN",
+      "note": "the middle four letters of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A lawyer explains the right to keep property belonging to a client.",
+     "definitionFit": "A lien is a legal claim allowing a creditor to keep someone's property until a debt is paid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +718,50 @@
     "text": "Laid down law, it's alleged, improperly",
     "enumeration": "10"
    },
-   "solution": "LEGISLATED"
+   "solution": "LEGISLATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEGISLATED",
+    "definitions": [
+     {
+      "text": "Laid down law",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "improperly",
+      "for": "anagram",
+      "note": "done improperly means done in the wrong way, so the letters are out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it's alleged",
+      "gives": "ITSALLEGED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITSALLEGED",
+       "gives": "LEGISLATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An accusation that a lawmaker passed legislation through improper means.",
+     "definitionFit": "To legislate is to make laws, so legislated means having laid down the law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alleged"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +781,46 @@
      }
     ]
    },
-   "solution": "NARROWMINDED"
+   "solution": "NARROWMINDED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NARROW-MINDED",
+    "definitions": [
+     {
+      "text": "Intolerant",
+      "at": 0
+     },
+     {
+      "text": "not big-headed",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Intolerant",
+      "note": "first meaning: unwilling to accept other views"
+     },
+     {
+      "clueFragment": "not big-headed?",
+      "note": "second meaning, read literally: having a slim mind rather than a swollen head"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Big-headed usually means conceited; the question mark invites a literal opposite, a mind that is narrow rather than large.",
+     "definitionFit": "A narrow-minded person is bigoted and unwilling to tolerate opinions different from their own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "big-headed"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +834,62 @@
     "text": "Fix a part for spy chief in complex procedure",
     "enumeration": "9"
    },
-   "solution": "RIGMAROLE"
+   "solution": "RIGMAROLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIGMAROLE",
+    "definitions": [
+     {
+      "text": "complex procedure",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fix",
+      "gives": "RIG",
+      "note": "to rig a result is to fix it dishonestly"
+     },
+     {
+      "clueFragment": "spy chief",
+      "gives": "M",
+      "note": "M is the head of the secret service in the James Bond stories"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "ROLE",
+      "note": "an actor's part is a role"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIG",
+      "M",
+      "A",
+      "ROLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Arranging an acting role for the spymaster turns into a tangled business.",
+     "walkthrough": "The spy chief's letter goes in front of 'a part', as if the part were written for him; M is the head of the secret service in the James Bond stories.",
+     "definitionFit": "A rigmarole is a lengthy, complicated and often tiresome process."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fix"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +903,46 @@
     "text": "Duck and orange",
     "enumeration": "8"
    },
-   "solution": "MANDARIN"
+   "solution": "MANDARIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MANDARIN",
+    "definitions": [
+     {
+      "text": "Duck",
+      "at": 0
+     },
+     {
+      "text": "orange",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duck",
+      "note": "first meaning: a colourful East Asian species of duck"
+     },
+     {
+      "clueFragment": "orange",
+      "note": "second meaning: a small loose-skinned citrus fruit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests the classic dish duck à l'orange, but each word is a separate definition.",
+     "definitionFit": "Mandarin names both a brightly plumaged duck and a small orange-like citrus fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Duck"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +956,69 @@
     "text": "Like fierce arguments with youth in a trial — I go crazy",
     "enumeration": "12"
    },
-   "solution": "GLADIATORIAL"
+   "solution": "GLADIATORIAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GLADIATORIAL",
+    "definitions": [
+     {
+      "text": "Like fierce arguments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crazy",
+      "for": "anagram",
+      "note": "crazy suggests something deranged, so the letters lose their order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed within the others, enclosed by them"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a trial — I go",
+      "gives": "ATRIALIGO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "youth",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LAD",
+      "IATORIAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATRIALIGO",
+       "gives": "GIATORIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young defendant in court loses his temper amid heated exchanges.",
+     "definitionFit": "Gladiatorial describes combative contests fought fiercely, like the bouts of Roman arena fighters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trial"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1032,42 @@
     "text": "Form of alcohol split up in labs, in theory",
     "enumeration": "7"
    },
-   "solution": "ABSINTH"
+   "solution": "ABSINTH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ABSINTH",
+    "definitions": [
+     {
+      "text": "Form of alcohol",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "split up in",
+      "for": "hidden_word",
+      "note": "the answer lies inside the words, divided across the space between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "labs, in theory",
+      "gives": "ABSINTH",
+      "note": "spans the end of the first word, the whole second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Scientists theorise about breaking down a type of alcohol in their laboratories.",
+     "definitionFit": "Absinth, also spelt absinthe, is a strong green spirit flavoured with wormwood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +1081,59 @@
     "text": "Treatment is what's taken by fall guy on fourth of July",
     "enumeration": "7"
    },
-   "solution": "THERAPY"
+   "solution": "THERAPY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "THERAPY",
+    "definitions": [
+     {
+      "text": "Treatment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fourth of",
+      "for": "letter_selection",
+      "note": "the fourth of a word means only the letter in that position is kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what's taken by fall guy",
+      "gives": "THERAP",
+      "note": "a fall guy takes the rap, the blame for others"
+     },
+     {
+      "clueFragment": "July",
+      "gives": "Y",
+      "select": 4,
+      "note": "the fourth letter of the month"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THERAP",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A scapegoat's mistreatment on Independence Day.",
+     "walkthrough": "Fourth of July looks like the American holiday but just means its fourth letter.",
+     "definitionFit": "Therapy is treatment intended to heal or relieve a disorder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fourth"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1147,46 @@
     "text": "Puzzles, from what we hear, producing agony",
     "enumeration": "6"
    },
-   "solution": "THROES"
+   "solution": "THROES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "THROES",
+    "definitions": [
+     {
+      "text": "agony",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from what we hear",
+      "for": "homophone",
+      "note": "what we hear refers to pronunciation, so the spelling may differ"
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puzzles",
+      "gives": "THROES",
+      "soundsLike": "THROWS",
+      "note": "something that throws you baffles you"
+     }
+    ],
+    "explanation": {
+     "surface": "Rumour has it that puzzles cause great suffering, as solvers may attest.",
+     "definitionFit": "Throes are violent spasms of pain, as in death throes, so the word means agony."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Puzzles"
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1200,64 @@
     "text": "Caught fish, retaining pile for skinflint",
     "enumeration": "10"
    },
-   "solution": "CHEAPSKATE"
+   "solution": "CHEAPSKATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CHEAPSKATE",
+    "definitions": [
+     {
+      "text": "skinflint",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retaining",
+      "for": "container",
+      "note": "retaining means keeping hold of something inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "SKATE",
+      "note": "the skate is a flat fish of the ray family"
+     },
+     {
+      "clueFragment": "pile",
+      "gives": "HEAP",
+      "note": "synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HEAP",
+      "SKATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler hauls in a fish along with a pile of something, all for a miser.",
+     "walkthrough": "The pile sits inside the caught fish, right after the cricket abbreviation for caught.",
+     "definitionFit": "A cheapskate is a stingy person who hates to spend money, just like a skinflint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Caught"
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +1271,58 @@
     "text": "Person's son protecting daughter",
     "enumeration": "4"
    },
-   "solution": "BODY"
+   "solution": "BODY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BODY",
+    "definitions": [
+     {
+      "text": "Person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "to protect something is to surround and shield it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "BOY",
+      "note": "a son is a boy"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter in family trees"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "D",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's son looks out for his sister.",
+     "walkthrough": "Person's reads as a possessive but means 'person is'.",
+     "definitionFit": "Body is an old or informal word for a person, as in somebody or a busybody."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Person's"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1336,63 @@
     "text": "Seat for MP that's been half-heartedly supported by church",
     "enumeration": "5"
    },
-   "solution": "BENCH"
+   "solution": "BENCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BENCH",
+    "definitions": [
+     {
+      "text": "Seat for MP",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-heartedly",
+      "for": "deletion",
+      "note": "losing half of its heart means one of the two central letters is dropped"
+     },
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down answer, something supported sits on top of what holds it up"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "been",
+      "gives": "BEEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEN",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "An MP's position has long been propped up by the Church.",
+     "walkthrough": "BEEN has a double E at its centre; drop one to leave BEN.",
+     "definitionFit": "MPs in the House of Commons sit on benches, such as the front bench and back benches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "been"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1406,53 @@
     "text": "Protective cover in operation after merger of companies",
     "enumeration": "6"
    },
-   "solution": "COCOON"
+   "solution": "COCOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCOON",
+    "definitions": [
+     {
+      "text": "Protective cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind the other in the word order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "merger of companies",
+      "gives": "COCO",
+      "note": "two companies joined, each abbreviated CO"
+     },
+     {
+      "clueFragment": "in operation",
+      "gives": "ON",
+      "note": "a machine in operation is switched on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCO",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Insurance coverage takes effect once two firms have merged.",
+     "definitionFit": "A cocoon is the silky case spun by a larva to protect itself as it develops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "merger"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1466,43 @@
     "text": "To maximise performance, racehorses need these shoes",
     "enumeration": "8"
    },
-   "solution": "TRAINERS"
+   "solution": "TRAINERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRAINERS",
+    "definitions": [
+     {
+      "text": "To maximise performance, racehorses need these",
+      "at": 0
+     },
+     {
+      "text": "shoes",
+      "at": 47
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To maximise performance, racehorses need these",
+      "note": "first meaning: the people who prepare horses for races"
+     },
+     {
+      "clueFragment": "shoes",
+      "note": "second meaning: sports shoes, called sneakers in America"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Shoes suggests horseshoes in the racing scene, but it is footwear for athletes. Trainers is the British word for sneakers.",
+     "definitionFit": "Racehorse trainers condition horses for races, and trainers are also soft athletic shoes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shoes"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1516,46 @@
     "text": "In old-fashioned speech, discerns English rage",
     "enumeration": "6"
    },
-   "solution": "SEETHE"
+   "solution": "SEETHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEETHE",
+    "definitions": [
+     {
+      "text": "rage",
+      "at": 42
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In old-fashioned speech, discerns",
+      "gives": "SEETH",
+      "note": "the archaic form of sees, as in 'he seeth'"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEETH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An archaic speaker perceives English anger.",
+     "definitionFit": "To seethe is to be inwardly furious, so it is a verb meaning rage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speech"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1569,39 @@
     "text": "Moderate's so on both sides of this",
     "enumeration": "6"
    },
-   "solution": "HYPHEN"
+   "solution": "HYPHEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HYPHEN",
+    "definitions": [
+     {
+      "text": "Moderate's so on both sides of this",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moderate's so on both sides of this",
+      "note": "surface reading: a moderate person sits in the middle ground of an argument"
+     },
+     {
+      "clueFragment": "Moderate's so on both sides of this",
+      "note": "setter's reading: the word meaning moderate, middling, is written as so twice, joined by a punctuation mark between them"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "So-so means mediocre or moderate, and is written with the word so on each side of a short dash.",
+     "definitionFit": "The joining punctuation mark in so-so is a hyphen, which has so on both its sides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Moderate's"
+    }
+   }
   }
  ]
 }
