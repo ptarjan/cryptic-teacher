@@ -37,6 +37,9 @@
   "date": "2020-03-29",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,62 @@
     "text": "Term for driver in police tactical unit",
     "enumeration": "5"
    },
-   "solution": "CORPS"
+   "solution": "CORPS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CORPS",
+    "definitions": [
+     {
+      "text": "tactical unit",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Term for",
+      "for": "letter_selection",
+      "note": "a term is an end, so this asks for the final letter of the next word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside the word for the police that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police",
+      "gives": "COPS",
+      "note": "cops are police officers"
+     },
+     {
+      "clueFragment": "driver",
+      "gives": "R",
+      "select": "last",
+      "note": "the end letter of driver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "R",
+      "PS"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what officers in a police tactical squad call their driver.",
+     "walkthrough": "The end letter of 'driver' goes inside COPS to give CORPS.",
+     "definitionFit": "A corps is an army formation, a military unit organised for a particular tactical role."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Term"
+    }
+   }
   },
   {
    "number": 1,
@@ -64,7 +122,47 @@
     "text": "Possibly saloon lawsuit remains",
     "enumeration": "7"
    },
-   "solution": "CARCASE"
+   "solution": "CARCASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARCASE",
+    "definitions": [
+     {
+      "text": "remains",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possibly saloon",
+      "gives": "CAR",
+      "note": "a saloon is one kind of car"
+     },
+     {
+      "clueFragment": "lawsuit",
+      "gives": "CASE",
+      "note": "a case is a lawsuit brought in court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "CASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawsuit about a saloon bar, or a car, seems to leave something behind.",
+     "walkthrough": "CARCASE is an older spelling of carcass. A saloon is a car with a fixed roof, what Americans call a sedan.",
+     "definitionFit": "A carcase is a dead body, the bodily remains of an animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "saloon"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +176,83 @@
     "text": "Take out cracking bit of lamb with a bone",
     "enumeration": "6"
    },
-   "solution": "ROTULA"
+   "solution": "ROTULA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROTULA",
+    "definitions": [
+     {
+      "text": "bone",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracking",
+      "for": "anagram",
+      "note": "something cracking is breaking up, so the word before it is broken and reset"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word here is just its opening letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take",
+      "gives": "R",
+      "note": "R stands for recipe, Latin for 'take', on prescriptions"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "OTU",
+      "note": "the letters of out, cracked open"
+     },
+     {
+      "clueFragment": "lamb",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of lamb"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OTU",
+      "L",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OUT",
+       "gives": "OTU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook removes a bone that has split a piece of lamb.",
+     "walkthrough": "'Take out' reads like one verb; it splits into R (the prescription 'take') and an anagram of OUT.",
+     "definitionFit": "The rotula is the kneecap, the patella, a small bone at the front of the knee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 3,
@@ -92,7 +266,64 @@
     "text": "Utter excitedly about joining Royal Engineers",
     "enumeration": "4"
    },
-   "solution": "PURE"
+   "solution": "PURE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PURE",
+    "definitions": [
+     {
+      "text": "Utter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the word for excited is read from its end"
+     }
+    ],
+    "linkWords": [
+     "joining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excitedly",
+      "gives": "UP",
+      "note": "to be up is to be excited, as in worked up"
+     },
+     {
+      "clueFragment": "Royal Engineers",
+      "gives": "RE",
+      "note": "RE is the abbreviation for the Royal Engineers, a British Army corps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "RE"
+     ],
+     "reversals": [
+      {
+       "from": "UP",
+       "to": "PU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone talks excitedly about signing up with the army engineers.",
+     "walkthrough": "'Utter' looks like a verb of speaking; it is the adjective meaning complete.",
+     "definitionFit": "Pure and utter are both intensifying adjectives meaning absolute, as in pure nonsense or utter nonsense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Utter"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +337,63 @@
     "text": "A stiff-upper-lip sort giving endless criticism about nowt",
     "enumeration": "5"
    },
-   "solution": "STOIC"
+   "solution": "STOIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "STOIC",
+    "definitions": [
+     {
+      "text": "A stiff-upper-lip sort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, so the word for criticism loses its last letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the shortened word wraps the nothing"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criticism",
+      "gives": "STICK",
+      "note": "to give someone stick is to criticise them"
+     },
+     {
+      "clueFragment": "nowt",
+      "gives": "O",
+      "note": "nowt is northern English for nothing, which is O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "O",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A stiff-upper-lip type delivers nonstop criticism over nothing at all.",
+     "walkthrough": "STICK loses its K and wraps O.",
+     "definitionFit": "A stoic endures hardship without complaint, which is exactly what keeping a stiff upper lip describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +407,63 @@
     "text": "Yank holding power secure in the Act of Union?",
     "enumeration": "7"
    },
-   "solution": "TUPPING"
+   "solution": "TUPPING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TUPPING",
+    "definitions": [
+     {
+      "text": "the Act of Union?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means keeping something inside, so the word for yank grips the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yank",
+      "gives": "TUG",
+      "note": "to yank is to tug"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power"
+     },
+     {
+      "clueFragment": "secure",
+      "gives": "PIN",
+      "note": "to pin is to fasten securely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "P",
+      "PIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "An American seizes control to guarantee the Act of Union that joined Britain's nations.",
+     "walkthrough": "The Acts of Union joined England and Scotland; the question mark warns that this union is a ram mating with a ewe.",
+     "definitionFit": "Tupping is a ram mating with a ewe, a jocular reading of an act of union."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Union"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +483,66 @@
      }
     ]
    },
-   "solution": "URBANMYTH"
+   "solution": "URBANMYTH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "URBAN MYTH",
+    "definitions": [
+     {
+      "text": "Unlikely tale",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifting the lid on",
+      "for": "deletion",
+      "note": "removing the lid takes off the top, the first letter of the headdress word"
+     },
+     {
+      "text": "is pulled off",
+      "for": "deletion",
+      "note": "pulled off means removed, so those two letters come out of the word this"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "headdress",
+      "gives": "TURBAN",
+      "note": "a turban is a wrapped headdress"
+     },
+     {
+      "clueFragment": "wow!",
+      "gives": "MY",
+      "note": "my! is an exclamation of surprise"
+     },
+     {
+      "clueFragment": "This",
+      "gives": "THIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URBAN",
+      "MY",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "A far-fetched story about someone whose turban gets knocked off.",
+     "walkthrough": "TURBAN loses its T, then THIS loses IS.",
+     "definitionFit": "An urban myth is a widely repeated modern story that is untrue, an unlikely tale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lifting"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +556,50 @@
     "text": "Malevolent Persian being against dance",
     "enumeration": "7"
    },
-   "solution": "PERICON"
+   "solution": "PERICON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERICON",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Malevolent Persian",
+      "gives": "PERI",
+      "note": "a peri in Persian myth was at first an evil spirit, later a fairy"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "CON",
+      "note": "con means against, as in pros and cons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERI",
+      "CON"
+     ]
+    },
+    "explanation": {
+     "surface": "A spiteful Persian objects to dancing.",
+     "walkthrough": "'Persian being' reads as one phrase but 'being' just joins PERI to CON.",
+     "definitionFit": "The pericon is a folk dance of Argentina and Uruguay, performed by couples."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "being"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +613,54 @@
     "text": "At home with good butter? Thick, as it was",
     "enumeration": "6"
    },
-   "solution": "INGRAM"
+   "solution": "INGRAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INGRAM",
+    "definitions": [
+     {
+      "text": "Thick, as it was",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At home",
+      "gives": "IN",
+      "note": "in means at home"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is short for good"
+     },
+     {
+      "clueFragment": "butter",
+      "gives": "RAM",
+      "note": "a ram butts with its head, so it is a butter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "G",
+      "RAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at home asks whether good butter used to be thick.",
+     "walkthrough": "A butter here is one who butts, not the dairy spread. 'As it was' marks an obsolete word.",
+     "definitionFit": "Ingram is an old word for ignorant, and thick is slang for stupid or ignorant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "butter"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +674,53 @@
     "text": "Fancy the new air? It's virtually colourless",
     "enumeration": "9"
    },
-   "solution": "NEARWHITE"
+   "solution": "NEARWHITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEARWHITE",
+    "definitions": [
+     {
+      "text": "virtually colourless",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fancy",
+      "for": "anagram",
+      "note": "fancy means elaborate or decorated, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the new air",
+      "gives": "THENEWAIR",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THENEWAIR",
+       "gives": "NEARWHITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Do you like the fresh air? It's almost clear of any tint.",
+     "definitionFit": "Near-white is almost white, a pale shade with barely any colour in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +734,64 @@
     "text": "German on preposterous way of cheek",
     "enumeration": "5"
    },
-   "solution": "GENAL"
+   "solution": "GENAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GENAL",
+    "definitions": [
+     {
+      "text": "of cheek",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "preposterous",
+      "for": "reversal",
+      "note": "preposterous literally means having the before after, back to front"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "LANE",
+      "note": "a lane is a way or road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ENAL"
+     ],
+     "reversals": [
+      {
+       "from": "LANE",
+       "to": "ENAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German behaves absurdly with a cheeky manner.",
+     "walkthrough": "'Preposterous' is used in its Latin sense, before-after, so the word for way is turned back to front.",
+     "definitionFit": "Genal is the anatomical adjective relating to the cheek, from Latin gena."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "preposterous"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +805,72 @@
     "text": "____ played away from home, European taken in by randy raver",
     "enumeration": "9"
    },
-   "solution": "AVOUTERER"
+   "solution": "AVOUTERER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AVOUTERER",
+    "definitions": [
+     {
+      "text": "____ played away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "randy",
+      "for": "anagram",
+      "note": "randy means wild with lust, so the word after it is in disorder"
+     },
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "being taken in means being placed inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raver",
+      "gives": "RAVER",
+      "note": "the letters to rearrange around the rest"
+     },
+     {
+      "clueFragment": "from home",
+      "gives": "OUT",
+      "note": "out means away from home"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AV",
+      "OUTE",
+      "RER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAVER",
+       "gives": "AVRER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clue with a blank: someone was unfaithful, a European seduced by a lusty partygoer.",
+     "walkthrough": "Read the blank as 'one who': one who played away, that is, cheated on a spouse. 'From home' does double duty in the surface but here means out.",
+     "definitionFit": "Avouterer is an archaic word for adulterer, and playing away is slang for being sexually unfaithful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +884,53 @@
     "text": "Who arranges westbound rockets",
     "enumeration": "6"
    },
-   "solution": "RETROS"
+   "solution": "RETROS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "RETROS",
+    "definitions": [
+     {
+      "text": "rockets",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "westbound",
+      "for": "reversal",
+      "note": "in an across entry going west means running right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Who arranges",
+      "gives": "SORTER",
+      "note": "one who arranges things in order sorts them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETROS"
+     ],
+     "reversals": [
+      {
+       "from": "SORTER",
+       "to": "RETROS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about who organises rockets heading west.",
+     "definitionFit": "Retros are retro-rockets, small rockets fired against a craft's motion to slow it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arranges"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +944,47 @@
     "text": "Scots jag an item of footwear",
     "enumeration": "6"
    },
-   "solution": "BROGAN"
+   "solution": "BROGAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROGAN",
+    "definitions": [
+     {
+      "text": "item of footwear",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scots jag",
+      "gives": "BROG",
+      "note": "brog is Scots for a prod or jab, which is what a jag is"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROG",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scot gives a jab to a shoe.",
+     "walkthrough": "'Jag' looks like slang for a Jaguar car or a drinking spree; here it is a prick or jab.",
+     "definitionFit": "A brogan is a heavy, coarse leather shoe or ankle boot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jag"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +998,65 @@
     "text": "Height of delight about English verse",
     "enumeration": "9"
    },
-   "solution": "ELEVATION"
+   "solution": "ELEVATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELEVATION",
+    "definitions": [
+     {
+      "text": "Height",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the word for delight wraps the other two letters"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delight",
+      "gives": "ELATION",
+      "note": "elation is great delight"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "verse",
+      "gives": "V",
+      "note": "V is the abbreviation for verse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "E",
+      "V",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "The peak of pleasure found in English poetry.",
+     "walkthrough": "'Height of delight' reads as one phrase, but 'of' is only a link between definition and wordplay.",
+     "definitionFit": "An elevation is a height above a level, such as of ground above the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Height"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +1076,51 @@
      }
     ]
    },
-   "solution": "WILDOLIVE"
+   "solution": "WILDOLIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WILD OLIVE",
+    "definitions": [
+     {
+      "text": "A long-standing producer of oil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flaring",
+      "for": "anagram",
+      "note": "flaring means bursting into wild flames, so the letters scatter and regroup"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "will video",
+      "gives": "WILLVIDEO",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WILLVIDEO",
+       "gives": "WILDOLIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone will film a veteran oil well as it bursts into flame.",
+     "walkthrough": "The surface suggests an oil well; the producer is a tree.",
+     "definitionFit": "The wild olive is a tree, long-lived and yielding olives from which oil is pressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "producer"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +1134,43 @@
     "text": "Insides of transistor radios left over in Lossiemouth",
     "enumeration": "4"
    },
-   "solution": "ORRA"
+   "solution": "ORRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ORRA",
+    "definitions": [
+     {
+      "text": "left over in Lossiemouth",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Insides of",
+      "for": "hidden_word",
+      "note": "the insides of a phrase are letters sitting within it, across the word break"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "transistor radios",
+      "gives": "ORRA",
+      "note": "the letters straddle the gap between the two words, the tail of one and the head of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "The innards of old transistor radios lie about unused in a Scottish town.",
+     "walkthrough": "Lossiemouth is a town in north-east Scotland, so the definition asks for a Scots word.",
+     "definitionFit": "Orra is Scots for odd or spare, meaning surplus and left over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lossiemouth"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1184,65 @@
     "text": "Cold, then one'll stuff comprehensive antibiotic",
     "enumeration": "7"
    },
-   "solution": "ALLICIN"
+   "solution": "ALLICIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALLICIN",
+    "definitions": [
+     {
+      "text": "antibiotic",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'ll stuff",
+      "for": "container",
+      "note": "to stuff something is to fill its inside, so these letters go into the next word"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "comprehensive",
+      "gives": "ALLIN",
+      "note": "all-in means comprehensive, including everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLI",
+      "C",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "You've got a cold, so a broad-spectrum antibiotic will be stuffed into you.",
+     "walkthrough": "'One'll' is read as 'one will', and 'will stuff' signals putting C and I inside ALL IN, a word for comprehensive.",
+     "definitionFit": "Allicin is the compound in crushed garlic with antibacterial action, hence an antibiotic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cold"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1256,38 @@
     "text": "Such as keeps lobster fresh in Sri Lanka",
     "enumeration": "5"
    },
-   "solution": "CRAWL"
+   "solution": "CRAWL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CRAWL",
+    "definitions": [
+     {
+      "text": "Such as keeps lobster fresh in Sri Lanka",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Such as keeps lobster fresh",
+      "note": "surface reading: some kind of chilling or storage method for seafood"
+     },
+     {
+      "clueFragment": "in Sri Lanka",
+      "note": "setter's reading: a pen in water where live shellfish are held, and also the enclosure, a kraal, used to trap elephants in Sri Lanka"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The word is the old Dutch-derived noun for an enclosure, not the verb of slow movement or the swimming stroke.",
+     "definitionFit": "A crawl is an enclosure in shallow water for keeping fish, turtles or lobsters alive, related to kraal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fresh"
+    }
+   }
   },
   {
    "number": 19,
@@ -334,7 +1307,62 @@
      }
     ]
    },
-   "solution": "SEASALMON"
+   "solution": "SEASALMON",
+   "annotation": {
+    "type": [
+     "homophone",
+     "deletion",
+     "charade"
+    ],
+    "answer": "SEA SALMON",
+    "definitions": [
+     {
+      "text": "Certain swimmer inaptly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a word's sound, so the spelling may differ"
+     },
+     {
+      "text": "for the biggest part",
+      "for": "deletion",
+      "note": "only most of the word is kept, so its final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grasps",
+      "gives": "SEAS",
+      "soundsLike": "SEIZE",
+      "note": "to grasp is to seize"
+     },
+     {
+      "clueFragment": "nut",
+      "gives": "ALMOND",
+      "note": "an almond is a nut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEAS",
+      "ALMON"
+     ]
+    },
+    "explanation": {
+     "surface": "Some fish is clumsily said to grab a nut for most of the meal.",
+     "walkthrough": "'Inaptly' belongs to the definition: the fish called sea salmon is not a true salmon.",
+     "definitionFit": "Sea salmon is a name given to several fish, such as the Australian salmon, that are not true salmon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "grasps"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1376,50 @@
     "text": "Charles de Gaulle, eg, left pressed by publicity",
     "enumeration": "7"
    },
-   "solution": "AIRPORT"
+   "solution": "AIRPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRPORT",
+    "definitions": [
+     {
+      "text": "Charles de Gaulle, eg",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "pressed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicity",
+      "gives": "AIR",
+      "note": "to give something air is to publicise it"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "General de Gaulle was abandoned, squeezed by the press.",
+     "walkthrough": "In a down entry 'pressed by' puts the word for publicity on top of the other. Charles de Gaulle is the main airport of Paris.",
+     "definitionFit": "Charles de Gaulle is the name of the major airport serving Paris, an example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1433,58 @@
     "text": "Balmoral or other stuck into mature woman's guru",
     "enumeration": "7"
    },
-   "solution": "MAHATMA"
+   "solution": "MAHATMA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAHATMA",
+    "definitions": [
+     {
+      "text": "guru",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck into",
+      "for": "container",
+      "note": "stuck into means pushed inside, so the hat sits in the middle"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mature woman",
+      "gives": "MAMA",
+      "note": "mama is a mother, a mature woman"
+     },
+     {
+      "clueFragment": "Balmoral or other",
+      "gives": "HAT",
+      "note": "a balmoral is a Scottish bonnet, one hat among others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "HAT",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal Scottish castle or another lodged in an elderly woman's spiritual teacher.",
+     "walkthrough": "Balmoral sounds like the royal castle in Scotland; here it is the flat Scottish bonnet named after it.",
+     "definitionFit": "Mahatma, meaning great soul, is an honorific for a revered spiritual teacher, like a guru."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Balmoral"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1498,60 @@
     "text": "Young thug is to stand up and will make a break for it",
     "enumeration": "6"
    },
-   "solution": "TSOTSI"
+   "solution": "TSOTSI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "TSOTSI",
+    "definitions": [
+     {
+      "text": "Young thug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will make a break for it",
+      "for": "deletion",
+      "note": "making a break for it means escaping, so the word and leaves"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry up means read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is to stand",
+      "gives": "ISTOSTAND",
+      "note": "the words taken as written; the letters left once one word escapes run backwards in the clue only by coincidence, so this is not a hidden word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TSOTSI"
+     ],
+     "reversals": [
+      {
+       "from": "ISTOST",
+       "to": "TSOTSI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young hoodlum is told to get to his feet and duly tries to escape.",
+     "walkthrough": "The letters AND escape from IS TO STAND, leaving ISTOST, which then reads upwards. A tsotsi is a South African township gangster.",
+     "definitionFit": "Tsotsi is South African slang for a young urban criminal or gang member, a thug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 23,
@@ -390,7 +1565,67 @@
     "text": "Class of plant: first-rate, umpteen carried out from the east",
     "enumeration": "9"
    },
-   "solution": "DIDYNAMIA"
+   "solution": "DIDYNAMIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DIDYNAMIA",
+    "definitions": [
+     {
+      "text": "Class of plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the east",
+      "for": "reversal",
+      "note": "reading from the east in an across entry means from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first-rate",
+      "gives": "AI",
+      "note": "A1 means first-rate, with 1 read as I"
+     },
+     {
+      "clueFragment": "umpteen",
+      "gives": "MANY",
+      "note": "umpteen means a great many"
+     },
+     {
+      "clueFragment": "carried out",
+      "gives": "DID",
+      "note": "to carry out a task is to do it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DID",
+      "YNAM",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AIMANYDID",
+       "to": "DIDYNAMIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A type of plant, first-class, is shipped out in huge numbers from the east.",
+     "walkthrough": "AI, MANY and DID are joined and then read backwards.",
+     "definitionFit": "Didynamia was a Linnaean class of plants with four stamens in two unequal pairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carried"
+    }
+   }
   },
   {
    "number": 24,
@@ -404,7 +1639,43 @@
     "text": "Cartoon girlfriend that delivers eggs",
     "enumeration": "6"
    },
-   "solution": "MINNIE"
+   "solution": "MINNIE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MINNIE",
+    "definitions": [
+     {
+      "text": "Cartoon girlfriend",
+      "at": 0
+     },
+     {
+      "text": "that delivers eggs",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cartoon girlfriend",
+      "note": "first meaning: the mouse who is Mickey's girlfriend in Disney cartoons"
+     },
+     {
+      "clueFragment": "that delivers eggs",
+      "note": "second meaning: soldiers' slang for a German trench mortar, whose bombs were called eggs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Eggs suggests a hen; it is slang for bombs, and the trench mortar is the Minenwerfer, shortened by British troops.",
+     "definitionFit": "Minnie Mouse is Mickey's cartoon sweetheart, and a minnie was a First World War German mortar firing bombs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eggs"
+    }
+   }
   },
   {
    "number": 25,
@@ -418,7 +1689,55 @@
     "text": "This stunner taken aback posed again",
     "enumeration": "5"
    },
-   "solution": "TASER"
+   "solution": "TASER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TASER",
+    "definitions": [
+     {
+      "text": "This stunner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken aback",
+      "for": "reversal",
+      "note": "aback means backwards, so the word is read from its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "posed again",
+      "gives": "RESAT",
+      "note": "to sit again for a portrait is to resit, past tense resat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TASER"
+     ],
+     "reversals": [
+      {
+       "from": "RESAT",
+       "to": "TASER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stunning model was surprised when asked to pose a second time.",
+     "walkthrough": "'Stunner' suggests a beautiful model; it is a device that stuns.",
+     "definitionFit": "A Taser is an electric stun gun, a weapon that stuns, so a stunner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stunner"
+    }
+   }
   },
   {
    "number": 25,
@@ -432,7 +1751,51 @@
     "text": "Get money from a small snack",
     "enumeration": "5"
    },
-   "solution": "TAPAS"
+   "solution": "TAPAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAPAS",
+    "definitions": [
+     {
+      "text": "snack",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get money from",
+      "gives": "TAP",
+      "note": "to tap someone is to ask them for money"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAP",
+      "A",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Borrowing cash off someone for a little bite to eat.",
+     "definitionFit": "Tapas are small Spanish savoury dishes, eaten as a snack with drinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -446,7 +1809,57 @@
     "text": "What's in motor? Scotsman's joint! It helps to stay steady",
     "enumeration": "7"
    },
-   "solution": "OTOLITH"
+   "solution": "OTOLITH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OTOLITH",
+    "definitions": [
+     {
+      "text": "It helps to stay steady",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "What's in",
+      "for": "letter_selection",
+      "note": "what is in a word is its interior, everything but the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motor",
+      "gives": "OTO",
+      "select": "middle",
+      "note": "the inner letters of motor"
+     },
+     {
+      "clueFragment": "Scotsman's joint",
+      "gives": "LITH",
+      "note": "lith is Scots for a joint or segment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTO",
+      "LITH"
+     ]
+    },
+    "explanation": {
+     "surface": "A car's engine, a Scotsman's spliff: something to keep you calm.",
+     "walkthrough": "'Joint' tempts as a cannabis cigarette; it is a body joint, in Scots.",
+     "definitionFit": "An otolith is a tiny chalky particle in the inner ear that senses gravity and helps balance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 27,
@@ -460,7 +1873,49 @@
     "text": "Open University being for chaps from Jo'burg",
     "enumeration": "5"
    },
-   "solution": "OUENS"
+   "solution": "OUENS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUENS",
+    "definitions": [
+     {
+      "text": "chaps from Jo'burg",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Open University",
+      "gives": "OU",
+      "note": "OU is the Open University, Britain's distance-learning university"
+     },
+     {
+      "clueFragment": "being",
+      "gives": "ENS",
+      "note": "ens is a philosophical term for being or entity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OU",
+      "ENS"
+     ]
+    },
+    "explanation": {
+     "surface": "The Open University exists for South African men.",
+     "definitionFit": "Ouens is the plural of ou, South African slang for a man or bloke, used in Johannesburg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "being"
+    }
+   }
   },
   {
    "number": 28,
@@ -474,7 +1929,47 @@
     "text": "A tiny bit a hustler",
     "enumeration": "4"
    },
-   "solution": "ATOM"
+   "solution": "ATOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATOM",
+    "definitions": [
+     {
+      "text": "A tiny bit",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hustler",
+      "gives": "TOM",
+      "note": "tom is slang for a prostitute, a hustler"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TOM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is only a little bit of a con artist.",
+     "walkthrough": "'Hustler' suggests a swindler; it is a prostitute, slang tom.",
+     "definitionFit": "An atom is the smallest particle, so figuratively a minute amount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hustler"
+    }
+   }
   },
   {
    "number": 29,
@@ -488,7 +1983,43 @@
     "text": "Dear mortal",
     "enumeration": "4"
    },
-   "solution": "HIGH"
+   "solution": "HIGH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HIGH",
+    "definitions": [
+     {
+      "text": "Dear",
+      "at": 0
+     },
+     {
+      "text": "mortal",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dear",
+      "note": "first meaning: expensive"
+     },
+     {
+      "clueFragment": "mortal",
+      "note": "second meaning: very drunk, as mortal is used in slang"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a letter's salutation to a human; both words are adjectives with slang senses.",
+     "definitionFit": "High prices are costly ones, and high and mortal both describe someone heavily intoxicated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dear"
+    }
+   }
   },
   {
    "number": 30,
@@ -502,7 +2033,53 @@
     "text": "Weight of one's jugs",
     "enumeration": "6"
    },
-   "solution": "PITHOI"
+   "solution": "PITHOI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PITHOI",
+    "definitions": [
+     {
+      "text": "jugs",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weight",
+      "gives": "PITH",
+      "note": "pith means substance or weight, as of an argument"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "O",
+      "note": "o' is a shortened of, as in o'clock"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PITH",
+      "O",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "How heavy are a person's jugs?",
+     "walkthrough": "The 's of one's only joins the wordplay to the definition.",
+     "definitionFit": "Pithoi are large earthenware storage jars of ancient Greece, the plural of pithos."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Weight"
+    }
+   }
   },
   {
    "number": 31,
@@ -526,7 +2103,51 @@
      }
     ]
    },
-   "solution": "BEINIT"
+   "solution": "BEINIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BE IN IT",
+    "definitions": [
+     {
+      "text": "Muck in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tightly",
+      "for": "anagram",
+      "note": "tight means drunk, so the letters reel about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bin, tie",
+      "gives": "BINTIE",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BINTIE",
+       "gives": "BEINIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Put the filth in the dustbin and tie it up securely.",
+     "walkthrough": "'Muck' looks like dirt going in the bin; 'muck in' is a phrasal verb meaning join in.",
+     "definitionFit": "To be in it is to take part, which is what mucking in means: sharing in the work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tightly"
+    }
+   }
   },
   {
    "number": 32,
@@ -540,7 +2161,63 @@
     "text": "Blessed Virgin is foremost in maternal doctrine",
     "enumeration": "9"
    },
-   "solution": "IRVINGISM"
+   "solution": "IRVINGISM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "IRVINGISM",
+    "definitions": [
+     {
+      "text": "doctrine",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Blessed",
+      "for": "anagram",
+      "note": "blessed is a mild curse, so the words are knocked about"
+     },
+     {
+      "text": "foremost in",
+      "for": "letter_selection",
+      "note": "the foremost letter is the very first one of a word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virgin is",
+      "gives": "VIRGINIS",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "maternal",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of maternal"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VIRGINISM",
+       "gives": "IRVINGISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Blessed Virgin is central to the teaching of motherhood.",
+     "walkthrough": "'Blessed Virgin' reads as Mary; 'blessed' is a mild curse word.",
+     "definitionFit": "Irvingism is the doctrine of Edward Irving's Catholic Apostolic Church, a religious teaching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blessed"
+    }
+   }
   },
   {
    "number": 33,
@@ -554,7 +2231,64 @@
     "text": "Spoil mitts being back in strong breeze",
     "enumeration": "7"
    },
-   "solution": "SNIFTER"
+   "solution": "SNIFTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SNIFTER",
+    "definitions": [
+     {
+      "text": "strong breeze",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being back",
+      "for": "reversal",
+      "note": "back means returning, so the string is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spoil",
+      "gives": "RET",
+      "note": "to ret is to rot or spoil, as with flax soaked too long"
+     },
+     {
+      "clueFragment": "mitts",
+      "gives": "FINS",
+      "note": "fins and mitts are both slang for hands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNIF",
+      "TER"
+     ],
+     "reversals": [
+      {
+       "from": "RETFINS",
+       "to": "SNIFTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gale ruins your gloves being returned.",
+     "walkthrough": "'Mitts' suggests gloves; here both it and fins are slang for hands.",
+     "definitionFit": "A snifter is a strong breeze in Scots and dialect use, as well as a small drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mitts"
+    }
+   }
   },
   {
    "number": 34,
@@ -568,7 +2302,48 @@
     "text": "Month for Jews taking time off in old Yemen",
     "enumeration": "5"
    },
-   "solution": "SHEBA"
+   "solution": "SHEBA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SHEBA",
+    "definitions": [
+     {
+      "text": "old Yemen",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking time off",
+      "for": "deletion",
+      "note": "taking off means removing, so the letter for time leaves the month"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Month for Jews",
+      "gives": "SHEBAT",
+      "note": "Shebat is a month in the Jewish calendar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHEBA"
+     ]
+    },
+    "explanation": {
+     "surface": "Jews take a month of holiday in ancient Arabia.",
+     "walkthrough": "T is the abbreviation for time.",
+     "definitionFit": "Sheba was the ancient kingdom in south Arabia, roughly modern Yemen, ruled by the Queen of Sheba."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Month"
+    }
+   }
   }
  ]
 }
