@@ -24,6 +24,9 @@
   "date": "2023-11-23",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,44 @@
      }
     ]
    },
-   "solution": "INNERTUBE"
+   "solution": "INNERTUBE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INNER TUBE",
+    "definitions": [
+     {
+      "text": "Central London transport?",
+      "at": 0
+     },
+     {
+      "text": "It's subject to inflation",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Central London transport?",
+      "note": "first meaning, read playfully: the inner part of the Tube, London's underground railway"
+     },
+     {
+      "clueFragment": "It's subject to inflation",
+      "note": "second meaning: the rubber ring inside a tyre that is pumped up with air"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about how to get around the middle of London, followed by a remark about rising prices.",
+     "walkthrough": "The Tube is London's underground railway. 'Inflation' tempts towards economics, but it means pumping air in.",
+     "definitionFit": "An inner tube is the inflatable rubber bladder inside a bicycle or car tyre, so it is literally blown up with air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inflation"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +97,42 @@
     "text": "Get irritated in suit, chafing",
     "enumeration": "4"
    },
-   "solution": "ITCH"
+   "solution": "ITCH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ITCH",
+    "definitions": [
+     {
+      "text": "Get irritated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the following words, spanning the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suit, chafing",
+      "gives": "ITCH",
+      "note": "the end of suit runs into the start of chafing"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wearing a scratchy suit becomes uncomfortable as it rubs.",
+     "definitionFit": "To itch is to feel a prickling irritation of the skin, the urge to scratch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +146,56 @@
     "text": "No rays from sun on St Tropez water? That's new",
     "enumeration": "7"
    },
-   "solution": "NOUVEAU"
+   "solution": "NOUVEAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOUVEAU",
+    "definitions": [
+     {
+      "text": "new",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rays from sun",
+      "gives": "UV",
+      "note": "ultraviolet radiation is the sun's invisible rays"
+     },
+     {
+      "clueFragment": "St Tropez water",
+      "gives": "EAU",
+      "note": "St Tropez is in France, and eau is French for water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "UV",
+      "EAU"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy day on the Riviera, with no sunshine on the sea, is presented as a novelty.",
+     "walkthrough": "St Tropez signals that the water must be given in French.",
+     "definitionFit": "Nouveau is French for new, used in English in phrases such as nouveau riche and art nouveau."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tropez"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +209,61 @@
     "text": "Cheer up Harold when half-cut",
     "enumeration": "3"
    },
-   "solution": "RAH"
+   "solution": "RAH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "RAH",
+    "definitions": [
+     {
+      "text": "Cheer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when half-cut",
+      "for": "deletion",
+      "note": "cut in half, so only the front part of the name survives"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harold",
+      "gives": "HAR",
+      "note": "the first half of the six-letter name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAH"
+     ],
+     "reversals": [
+      {
+       "from": "HAR",
+       "to": "RAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a tipsy Harold to cheer up.",
+     "walkthrough": "'Half-cut' is British slang for drunk, but here it literally halves the name.",
+     "definitionFit": "Rah is a shout of encouragement, a shortened hurrah used by supporters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half-cut"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +277,65 @@
     "text": "Match official's hesitation about booking Greek character",
     "enumeration": "6"
    },
-   "solution": "UMPIRE"
+   "solution": "UMPIRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UMPIRE",
+    "definitions": [
+     {
+      "text": "Match official",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "booking",
+      "for": "container",
+      "note": "to book is to reserve a place for someone, so these words take in the Greek letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hesitation",
+      "gives": "UM",
+      "note": "the sound made while pausing to think"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "PI",
+      "note": "a letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UM",
+      "PI",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A referee dithers over whether to show a yellow card to a Greek footballer.",
+     "walkthrough": "'Booking' suggests a yellow card in football, but here it means taking in.",
+     "definitionFit": "An umpire is the official who enforces the rules in cricket, tennis and other games."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "booking"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +349,46 @@
     "text": "Pick exam on subject of poll",
     "enumeration": "9"
    },
-   "solution": "ELECTORAL"
+   "solution": "ELECTORAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELECTORAL",
+    "definitions": [
+     {
+      "text": "on subject of poll",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pick",
+      "gives": "ELECT",
+      "note": "to elect is to choose"
+     },
+     {
+      "clueFragment": "exam",
+      "gives": "ORAL",
+      "note": "a spoken examination"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECT",
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to choose a test about voting.",
+     "definitionFit": "Electoral describes anything relating to elections, which is what a poll is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pick"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +402,48 @@
     "text": "Cat losing 25 per cent of volume",
     "enumeration": "3"
    },
-   "solution": "TOM"
+   "solution": "TOM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TOM",
+    "definitions": [
+     {
+      "text": "Cat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing 25 per cent of",
+      "for": "deletion",
+      "note": "a quarter of a four-letter word is one letter, so one letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "volume",
+      "gives": "TOME",
+      "note": "a tome is a large book or volume"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOM"
+     ]
+    },
+    "explanation": {
+     "surface": "A cat that has shrunk by a quarter of its size.",
+     "walkthrough": "The last of the four letters goes.",
+     "definitionFit": "A tom is a male cat, short for tomcat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +457,62 @@
     "text": "Sort out old trunk",
     "enumeration": "5"
    },
-   "solution": "TORSO"
+   "solution": "TORSO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TORSO",
+    "definitions": [
+     {
+      "text": "trunk",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "sorting something out rearranges it into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort",
+      "gives": "SORT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORS",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SORT",
+       "gives": "TORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to clear out an old storage chest.",
+     "walkthrough": "'Trunk' looks like a luggage box; it is the body.",
+     "definitionFit": "The torso is the human trunk, the body without head or limbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trunk"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +526,49 @@
     "text": "Fashion filthy place for humble character",
     "enumeration": "7"
    },
-   "solution": "MODESTY"
+   "solution": "MODESTY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MODESTY",
+    "definitions": [
+     {
+      "text": "humble character",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashion",
+      "gives": "MODE",
+      "note": "a mode is a style or fashion"
+     },
+     {
+      "clueFragment": "filthy place",
+      "gives": "STY",
+      "note": "a pigsty, the byword for a dirty place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MODE",
+      "STY"
+     ]
+    },
+    "explanation": {
+     "surface": "A designer creates a grubby setting that suits an unassuming person.",
+     "definitionFit": "Modesty is the quality of being unassuming, a humble disposition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fashion"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +588,46 @@
      }
     ]
    },
-   "solution": "COUGHUP"
+   "solution": "COUGHUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COUGH UP",
+    "definitions": [
+     {
+      "text": "Pay",
+      "at": 0
+     },
+     {
+      "text": "get something off one's chest?",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pay",
+      "note": "first meaning: hand over money reluctantly"
+     },
+     {
+      "clueFragment": "get something off one's chest?",
+      "note": "second meaning, taken literally: expel phlegm from the lungs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Get something off one's chest' usually means confess; here it is the literal act of clearing the lungs.",
+     "definitionFit": "The phrasal verb is slang for paying up unwillingly, and literally means bringing up mucus by coughing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chest"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +641,47 @@
     "text": "Queen, like one in Through the Looking Glass, went wrong",
     "enumeration": "5"
    },
-   "solution": "ERRED"
+   "solution": "ERRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERRED",
+    "definitions": [
+     {
+      "text": "went wrong",
+      "at": 46
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the royal cipher"
+     },
+     {
+      "clueFragment": "like one in Through the Looking Glass",
+      "gives": "RED",
+      "note": "the Red Queen is a character in Lewis Carroll's book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A queen, resembling a character from Lewis Carroll's sequel, made a mistake.",
+     "walkthrough": "The Red Queen appears in Through the Looking-Glass, so the colour describes that queen.",
+     "definitionFit": "To err is to make a mistake, so erred is the past tense meaning made an error."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +695,46 @@
     "text": "Star limits parties",
     "enumeration": "12"
    },
-   "solution": "CELEBRATIONS"
+   "solution": "CELEBRATIONS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CELEBRATIONS",
+    "definitions": [
+     {
+      "text": "parties",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Star",
+      "gives": "CELEB",
+      "note": "a celebrity"
+     },
+     {
+      "clueFragment": "limits",
+      "gives": "RATIONS",
+      "note": "rations are fixed allowances that limit consumption; here used as a verb, restricts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELEB",
+      "RATIONS"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous person restricts how many social gatherings there are.",
+     "definitionFit": "Celebrations are festive gatherings or parties held to mark an occasion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limits"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +748,51 @@
     "text": "Strange to be focused mainly on City of London?",
     "enumeration": "9"
    },
-   "solution": "ECCENTRIC"
+   "solution": "ECCENTRIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ECCENTRIC",
+    "definitions": [
+     {
+      "text": "Strange",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City of London",
+      "gives": "EC",
+      "note": "EC is the postcode district of the City of London"
+     },
+     {
+      "clueFragment": "focused mainly on",
+      "gives": "CENTRIC",
+      "note": "the suffix -centric means centred on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "CENTRIC"
+     ]
+    },
+    "explanation": {
+     "surface": "It seems odd to concentrate all one's attention on London's financial district.",
+     "walkthrough": "The City of London is the historic financial district, whose postcodes begin EC.",
+     "definitionFit": "Eccentric means odd or unconventional in behaviour, literally off-centre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +806,55 @@
     "text": "Thump coming across ace's midriff",
     "enumeration": "6"
    },
-   "solution": "PAUNCH"
+   "solution": "PAUNCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PAUNCH",
+    "definitions": [
+     {
+      "text": "midriff",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming across",
+      "for": "container",
+      "note": "the blow spans over the other letter, wrapping it in the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thump",
+      "gives": "PUNCH",
+      "note": "a punch is a heavy blow"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is the card symbol for an ace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "UNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A punch lands across a top player's stomach.",
+     "walkthrough": "The apostrophe in ace's just joins the definition to the wordplay.",
+     "definitionFit": "A paunch is a large protruding belly, the region around the midriff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ace's"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +868,51 @@
     "text": "Dad jokes, the kind of thing one might share during film?",
     "enumeration": "7"
    },
-   "solution": "POPCORN"
+   "solution": "POPCORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POPCORN",
+    "definitions": [
+     {
+      "text": "the kind of thing one might share during film?",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "POP",
+      "note": "pop is an informal word for father"
+     },
+     {
+      "clueFragment": "jokes",
+      "gives": "CORN",
+      "note": "corn is trite, hackneyed humour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "CORN"
+     ]
+    },
+    "explanation": {
+     "surface": "Fathers' feeble puns are the sort of thing passed round in a cinema.",
+     "walkthrough": "'Dad jokes' reads as one phrase, but it splits into father and stale humour.",
+     "definitionFit": "Popcorn is the snack traditionally shared from a tub while watching a film at the cinema."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dad"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +926,46 @@
     "text": "Like food perhaps that's unhygienic",
     "enumeration": "6"
    },
-   "solution": "GRUBBY"
+   "solution": "GRUBBY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GRUBBY",
+    "definitions": [
+     {
+      "text": "Like food perhaps",
+      "at": 0
+     },
+     {
+      "text": "unhygienic",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like food perhaps",
+      "note": "first meaning, playfully: resembling grub, slang for food"
+     },
+     {
+      "clueFragment": "unhygienic",
+      "note": "second meaning: dirty"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Grub is slang for food, so the first meaning treats the word as grub plus a -y ending.",
+     "definitionFit": "Grubby means dirty or grimy, and whimsically it could describe something food-like."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "food"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +979,48 @@
     "text": "Financial product to mature, being tied up",
     "enumeration": "7"
    },
-   "solution": "BONDAGE"
+   "solution": "BONDAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BONDAGE",
+    "definitions": [
+     {
+      "text": "being tied up",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Financial product",
+      "gives": "BOND",
+      "note": "a bond is an interest-bearing investment"
+     },
+     {
+      "clueFragment": "to mature",
+      "gives": "AGE",
+      "note": "to age is to grow older or ripen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOND",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An investment left to grow, with the money locked away meanwhile.",
+     "walkthrough": "'Tied up' in finance means money inaccessible; here it is literal restraint.",
+     "definitionFit": "Bondage is the state of being bound with ropes or chains, or of servitude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tied"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1034,46 @@
     "text": "Browser that's for looking at the big game?",
     "enumeration": "6"
    },
-   "solution": "SAFARI"
+   "solution": "SAFARI",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SAFARI",
+    "definitions": [
+     {
+      "text": "Browser",
+      "at": 0
+     },
+     {
+      "text": "for looking at the big game?",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Browser",
+      "note": "first meaning: Apple's web browser"
+     },
+     {
+      "clueFragment": "for looking at the big game?",
+      "note": "second meaning: an expedition to watch large wild animals, not a major sporting match"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The big game' suggests a major sports fixture; it means large wild animals such as lions and elephants.",
+     "definitionFit": "A safari is an expedition to observe African wildlife, and is also the name of Apple's internet browser."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1093,66 @@
      }
     ]
    },
-   "solution": "PLAINSAILING"
+   "solution": "PLAINSAILING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PLAIN SAILING",
+    "definitions": [
+     {
+      "text": "piece of cake",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the letter for left is placed inside the word for agonies"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "agonies",
+      "gives": "PAINS",
+      "note": "pains are sufferings"
+     },
+     {
+      "clueFragment": "sickening",
+      "gives": "AILING",
+      "note": "becoming ill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "AINS",
+      "AILING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone left suffering and falling ill, craving a slice of cake.",
+     "walkthrough": "'Sickening for' reads as one phrase meaning about to catch; 'for' is only the link.",
+     "definitionFit": "Plain sailing is an idiom for something straightforward, just as a piece of cake means easy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sickening"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1166,50 @@
     "text": "Legitimate to lose head, it's terrible",
     "enumeration": "5"
    },
-   "solution": "AWFUL"
+   "solution": "AWFUL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AWFUL",
+    "definitions": [
+     {
+      "text": "terrible",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to lose head",
+      "for": "deletion",
+      "note": "losing its head means the word's first letter is removed"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Legitimate",
+      "gives": "LAWFUL",
+      "note": "lawful means permitted by law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AWFUL"
+     ]
+    },
+    "explanation": {
+     "surface": "A legal execution by beheading is called dreadful.",
+     "definitionFit": "Awful means very bad or dreadful, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1223,48 @@
     "text": "Witnesses going up and down",
     "enumeration": "4"
    },
-   "solution": "SEES"
+   "solution": "SEES",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "SEES",
+    "definitions": [
+     {
+      "text": "Witnesses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going up and down",
+      "for": "palindrome",
+      "note": "a word that reads the same whichever way it travels in a down entry"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Witnesses",
+      "gives": "SEES",
+      "note": "observes, as a witness does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEES"
+     ]
+    },
+    "explanation": {
+     "surface": "People who saw an event moving to and fro.",
+     "walkthrough": "The word reads identically from top or bottom, so the clue only needs the definition and a hint that it is symmetrical.",
+     "definitionFit": "To witness something is to see it happen, so witnesses as a verb equals observes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Witnesses"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1278,62 @@
     "text": "Invitation from whistleblower rejected",
     "enumeration": "5"
    },
-   "solution": "OFFER"
+   "solution": "OFFER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OFFER",
+    "definitions": [
+     {
+      "text": "Invitation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from",
+      "gives": "OF",
+      "note": "of can mean from, as in a man of Kent"
+     },
+     {
+      "clueFragment": "whistleblower",
+      "gives": "REF",
+      "note": "a referee blows the whistle in football"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OF",
+      "FER"
+     ],
+     "reversals": [
+      {
+       "from": "REF",
+       "to": "FER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request from someone who exposed wrongdoing is turned down.",
+     "walkthrough": "'Whistleblower' suggests an informant; it is the referee. 'From' supplies letters rather than linking.",
+     "definitionFit": "An offer is a proposal or invitation to accept something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "whistleblower"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1347,52 @@
     "text": "Enliven a Northern Ireland pal",
     "enumeration": "7"
    },
-   "solution": "ANIMATE"
+   "solution": "ANIMATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANIMATE",
+    "definitions": [
+     {
+      "text": "Enliven",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Northern Ireland",
+      "gives": "NI",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "pal",
+      "gives": "MATE",
+      "note": "a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NI",
+      "MATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cheering up a friend from Belfast.",
+     "definitionFit": "To animate is to bring to life or make lively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pal"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1406,52 @@
     "text": "Kind of dairy product, skimmed",
     "enumeration": "3"
    },
-   "solution": "ILK"
+   "solution": "ILK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ILK",
+    "definitions": [
+     {
+      "text": "Kind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skimmed",
+      "for": "deletion",
+      "note": "skimming takes the top off, so the first letter is removed"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dairy product",
+      "gives": "MILK",
+      "note": "the obvious dairy product"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILK"
+     ]
+    },
+    "explanation": {
+     "surface": "A type of dairy product with the fat taken off, skimmed milk.",
+     "walkthrough": "Skimmed milk has its cream removed from the top, a neat double meaning.",
+     "definitionFit": "Ilk means type or sort, as in people of that ilk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "skimmed"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1465,49 @@
     "text": "Duck backing away from big river",
     "enumeration": "3"
    },
-   "solution": "NIL"
+   "solution": "NIL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NIL",
+    "definitions": [
+     {
+      "text": "Duck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing away from",
+      "for": "deletion",
+      "note": "the back, or final letter, goes away from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "big river",
+      "gives": "NILE",
+      "note": "the longest river in Africa"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A duck retreats from a wide river.",
+     "walkthrough": "A duck in cricket is a score of zero.",
+     "definitionFit": "Nil means zero, which is what a batsman's duck is in cricket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Duck"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1521,53 @@
     "text": "Spooner's to choose vegetarian food or vegan option",
     "enumeration": "9"
    },
-   "solution": "CHICKPEAS"
+   "solution": "CHICKPEAS",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "CHICKPEAS",
+    "definitions": [
+     {
+      "text": "vegan option",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Reverend Spooner swapped the opening sounds of words, so the phrase is re-said with its starts exchanged"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to choose vegetarian food",
+      "gives": "CHICK PEAS",
+      "soundsLike": "PICK CHEESE",
+      "note": "to choose is to pick; cheese is food that vegetarians may eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHICKPEAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A choice between a vegetarian dish and a vegan one.",
+     "walkthrough": "Cheese suits vegetarians but not vegans, which is why the second phrase moves on to a plant food.",
+     "definitionFit": "Chickpeas are legumes, a staple protein for people who eat no animal products."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vegetarian"
+    }
+   }
   }
  ]
 }
