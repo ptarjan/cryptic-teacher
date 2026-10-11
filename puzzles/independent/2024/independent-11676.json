@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Picture biscuits just out of the oven",
     "enumeration": "8"
    },
-   "solution": "SNAPSHOT"
+   "solution": "SNAPSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SNAPSHOT",
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "biscuits",
+      "gives": "SNAPS",
+      "note": "ginger snaps are crisp biscuits"
+     },
+     {
+      "clueFragment": "just out of the oven",
+      "gives": "HOT",
+      "note": "freshly baked food is hot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNAPS",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A photo of freshly baked biscuits cooling on the tray.",
+     "definitionFit": "A snapshot is a quickly taken photograph, so it is a kind of picture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Picture"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,57 @@
     "text": "Fried sandwiches left in homage",
     "enumeration": "6"
    },
-   "solution": "SALUTE"
+   "solution": "SALUTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALUTE",
+    "definitions": [
+     {
+      "text": "homage",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "to sandwich something is to hold it between two layers, so one word wraps round another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fried",
+      "gives": "SAUTE",
+      "note": "sauté means fried quickly in a little fat"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "L",
+      "UTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook frying sandwiches as a tribute to someone.",
+     "definitionFit": "A salute is a gesture of respect, so it serves as a noun for homage paid to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +153,44 @@
     "text": "A group of sailors called out to be added",
     "enumeration": "6"
    },
-   "solution": "ACCRUE"
+   "solution": "ACCRUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ACCRUE",
+    "definitions": [
+     {
+      "text": "to be added",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "called out",
+      "for": "homophone",
+      "note": "something called out is spoken, so we want a word that sounds like the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A group of sailors",
+      "gives": "ACCRUE",
+      "soundsLike": "A CREW",
+      "note": "a crew is a group of sailors, and 'a crew' said quickly gives this verb"
+     }
+    ],
+    "explanation": {
+     "surface": "A ship's crew is summoned to join the others.",
+     "definitionFit": "To accrue is to accumulate or be added gradually, as interest accrues to an account."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "added"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +204,61 @@
     "text": "Poles employed by builder, a couple of fellows to put in carpeting",
     "enumeration": "11"
    },
-   "solution": "SCAFFOLDING"
+   "solution": "SCAFFOLDING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCAFFOLDING",
+    "definitions": [
+     {
+      "text": "Poles employed by builder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to put in",
+      "for": "container",
+      "note": "putting something in another word means placing it inside that word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a couple of fellows",
+      "gives": "FF",
+      "note": "F is the abbreviation for fellow, doubled for two of them"
+     },
+     {
+      "clueFragment": "carpeting",
+      "gives": "SCOLDING",
+      "note": "a carpeting is a severe telling-off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "AFF",
+      "OLDING"
+     ]
+    },
+    "explanation": {
+     "surface": "A builder employing Polish workers and some others to lay carpets.",
+     "walkthrough": "'Poles' looks like people from Poland; it is the definition's metal poles. A carpeting, in British usage, is a reprimand, as when an employee is called in to be told off.",
+     "definitionFit": "Scaffolding is the framework of poles and planks that builders put up around a building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +272,72 @@
     "text": "Chore for management getting new star players",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ORCHESTRA",
+    "definitions": [
+     {
+      "text": "players",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for management",
+      "for": "anagram",
+      "note": "a chore up for management is being handled and reorganised, so its letters get rearranged"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "making something new means remaking it, so these letters take a fresh order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chore",
+      "gives": "CHORE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "star",
+      "gives": "STAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORCHE",
+      "STRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHORE",
+       "gives": "ORCHE"
+      },
+      {
+       "fodder": "STAR",
+       "gives": "STRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A management task to recruit a new star to a team of players.",
+     "definitionFit": "An orchestra is a large group of musicians, the players of instruments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "management"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +351,75 @@
     "text": "Memory returned when back in girls' bog",
     "enumeration": "6"
    },
-   "solution": "MORASS"
+   "solution": "MORASS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MORASS",
+    "definitions": [
+     {
+      "text": "bog",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word is read in the opposite direction"
+     },
+     {
+      "text": "back in",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only its final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Memory",
+      "gives": "ROM",
+      "note": "ROM is read-only memory in a computer"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "girls'",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOR",
+      "AS",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "ROM",
+       "to": "MOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman recalls an old memory of the girls' toilets at school.",
+     "walkthrough": "Bog is British slang for a toilet, which makes the surface about school loos; here it is the marshy kind.",
+     "definitionFit": "A morass is an area of soft wet ground, the same thing as a bog or marsh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bog"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +433,58 @@
     "text": "Drink's on me, not Mike",
     "enumeration": "3"
    },
-   "solution": "ONE"
+   "solution": "ONE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ONE",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not having something means it is left out, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on me",
+      "gives": "ONME",
+      "note": "taken as written; the backwards run of letters across 'me not' is a coincidence"
+     },
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is M in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone offering to buy a round, but not for Mike.",
+     "walkthrough": "The surface's own words, on me, lose their M to leave the answer, which is itself what you'd buy in a round.",
+     "definitionFit": "In 'have one on me' or 'fancy a quick one?', the word stands for a single alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mike"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +498,71 @@
     "text": "University life a roué loved over at the Sorbonne",
     "enumeration": "8"
    },
-   "solution": "ACADEMIA"
+   "solution": "ACADEMIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ACADEMIA",
+    "definitions": [
+     {
+      "text": "University life",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means flipped round, so this word is read from the end backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "roué",
+      "gives": "CAD",
+      "note": "a roué is a debauched man, a cad"
+     },
+     {
+      "clueFragment": "loved",
+      "gives": "AIME",
+      "note": "aimé is French for loved"
+     },
+     {
+      "clueFragment": "at the Sorbonne",
+      "note": "gives no letters: it tells the solver to translate the previous word into French"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CAD",
+      "EMIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIME",
+       "to": "EMIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rake's love affair at a Paris university.",
+     "walkthrough": "The Sorbonne is the famous university in Paris, so the phrase tells you to translate into French.",
+     "definitionFit": "Academia is the world of universities and scholarship, the environment of university life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sorbonne"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +576,69 @@
     "text": "Avoid swimming despite having sun overhead",
     "enumeration": "8"
    },
-   "solution": "SIDESTEP"
+   "solution": "SIDESTEP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SIDESTEP",
+    "definitions": [
+     {
+      "text": "Avoid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "letters that are swimming move freely about, so they settle in a new order"
+     },
+     {
+      "text": "overhead",
+      "for": "charade",
+      "note": "overhead in a down entry means set at the top, before the rest of the letters"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sun",
+      "gives": "S",
+      "note": "S is the abbreviation for sun"
+     },
+     {
+      "clueFragment": "despite",
+      "gives": "DESPITE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IDESTEP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DESPITE",
+       "gives": "IDESTEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone avoids swimming even though the sun is shining.",
+     "walkthrough": "'overhead' places the sun at the top of this down answer.",
+     "definitionFit": "To sidestep is to step aside from, and so to avoid or evade, something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swimming"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +652,50 @@
     "text": "Cycling no different for steep hill",
     "enumeration": "4"
    },
-   "solution": "MESA"
+   "solution": "MESA",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "MESA",
+    "definitions": [
+     {
+      "text": "steep hill",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cycling",
+      "for": "cycling",
+      "note": "cycling means letters go round, the front ones moving to the back while the order is kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no different",
+      "gives": "SAME",
+      "note": "no different means identical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MESA"
+     ]
+    },
+    "explanation": {
+     "surface": "Cycling up a steep hill feels no different.",
+     "definitionFit": "A mesa is an isolated flat-topped hill with steep sides, common in the American Southwest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cycling"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +709,44 @@
     "text": "Stretcher for cyclist involved in ugly crash",
     "enumeration": "5"
    },
-   "solution": "LYCRA"
+   "solution": "LYCRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LYCRA",
+    "definitions": [
+     {
+      "text": "Stretcher for cyclist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "hidden_word",
+      "note": "involved in means caught up inside, so the answer sits within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ugly crash",
+      "gives": "LYCRA",
+      "note": "found across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A stretcher brought for a cyclist hurt in a nasty crash.",
+     "walkthrough": "'Stretcher' suggests an ambulance stretcher; it is something that stretches.",
+     "definitionFit": "Lycra is a stretchy elastic fabric, worn tight by racing cyclists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stretcher"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +760,72 @@
     "text": "Even in prison, Donald's heading for president",
     "enumeration": "9"
    },
-   "solution": "CLEVELAND"
+   "solution": "CLEVELAND",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLEVELAND",
+    "definitions": [
+     {
+      "text": "president",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside another, here within the prison"
+     },
+     {
+      "text": "heading",
+      "for": "letter_selection",
+      "note": "the heading of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "CAN",
+      "note": "the can is slang for prison"
+     },
+     {
+      "clueFragment": "Even",
+      "gives": "LEVEL",
+      "note": "even means flat or level"
+     },
+     {
+      "clueFragment": "Donald's",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEVEL",
+      "AN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that Donald Trump is headed for the presidency even from jail.",
+     "walkthrough": "The surface steers toward Donald Trump; the president meant is Grover Cleveland.",
+     "definitionFit": "Grover Cleveland was the 22nd and 24th President of the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Donald's"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +839,50 @@
     "text": "Sweet seeing wrinkle on old model",
     "enumeration": "7"
    },
-   "solution": "TRUFFLE"
+   "solution": "TRUFFLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRUFFLE",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old model",
+      "gives": "T",
+      "note": "the Model T was Ford's early car"
+     },
+     {
+      "clueFragment": "wrinkle",
+      "gives": "RUFFLE",
+      "note": "a ruffle is a crease or wrinkle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RUFFLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An aging fashion model spots a wrinkle, which is not sweet news.",
+     "walkthrough": "In an across clue 'wrinkle on old model' puts the wrinkle after the model.",
+     "definitionFit": "A truffle is a soft chocolate confection, a sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +896,50 @@
     "text": "Sam lies about having nothing to do",
     "enumeration": "7"
    },
-   "solution": "AIMLESS"
+   "solution": "AIMLESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AIMLESS",
+    "definitions": [
+     {
+      "text": "having nothing to do",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about means scattered around, so the letters are placed in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sam lies",
+      "gives": "SAMLIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAMLIES",
+       "gives": "AIMLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sam tells lies because he is bored and idle.",
+     "definitionFit": "Being aimless means lacking purpose or direction, just drifting with no task in hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +959,72 @@
      }
     ]
    },
-   "solution": "MRSDALLOWAY"
+   "solution": "MRSDALLOWAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MRS DALLOWAY",
+    "definitions": [
+     {
+      "text": "Woolf's title",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places this group of letters within the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "title",
+      "gives": "MRS",
+      "note": "Mrs is a woman's title"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is short for with"
+     },
+     {
+      "clueFragment": "24 hours",
+      "gives": "DAY",
+      "note": "a day lasts 24 hours"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MRS",
+      "D",
+      "ALLOW",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Virginia Woolf title that sums up a whole day.",
+     "walkthrough": "'title' works twice: as part of the definition and as the honorific that starts the answer. The novel fittingly covers a single day.",
+     "definitionFit": "Mrs Dalloway is Virginia Woolf's 1925 novel set in London over one June day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "title"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1038,61 @@
     "text": "Windbag spreads froth over king during light meal",
     "enumeration": "12"
    },
-   "solution": "BLATHERSKITE"
+   "solution": "BLATHERSKITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BLATHERSKITE",
+    "definitions": [
+     {
+      "text": "Windbag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within a span, so these letters sit inside the meal word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spreads froth",
+      "gives": "LATHERS",
+      "note": "to lather is to cover with froth"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "light meal",
+      "gives": "BITE",
+      "note": "a bite is a snack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LATHERSK",
+      "ITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pompous talker foaming at the mouth over the king at lunch.",
+     "walkthrough": "In an across clue 'over' puts the froth before the king.",
+     "definitionFit": "A blatherskite is a person who talks at length without making sense, a windbag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "froth"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1106,65 @@
     "text": "Last to realise university lecturer's attire is absent",
     "enumeration": "9"
    },
-   "solution": "ELSEWHERE"
+   "solution": "ELSEWHERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "homophone"
+    ],
+    "answer": "ELSEWHERE",
+    "definitions": [
+     {
+      "text": "absent",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last to",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     },
+     {
+      "text": "lecturer's",
+      "for": "homophone",
+      "note": "a lecturer speaks, so this word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "realise",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "LSE",
+      "note": "the London School of Economics"
+     },
+     {
+      "clueFragment": "attire",
+      "gives": "WHERE",
+      "soundsLike": "WEAR",
+      "note": "wear means clothing, and is pronounced like a question word"
+     }
+    ],
+    "explanation": {
+     "surface": "A lecturer finally realises his gown is missing.",
+     "walkthrough": "The LSE is the London School of Economics, part of the University of London.",
+     "definitionFit": "If someone is elsewhere they are somewhere other than here, that is, not present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lecturer's"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1178,65 @@
     "text": "Smiley perhaps one studies after English test",
     "enumeration": "8"
    },
-   "solution": "EMOTICON"
+   "solution": "EMOTICON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMOTICON",
+    "definitions": [
+     {
+      "text": "Smiley perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sends the studying one to follow the English test rather than precede it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "MOT",
+      "note": "the MOT is Britain's annual roadworthiness test for cars"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "studies",
+      "gives": "CON",
+      "note": "to con is to study or learn by heart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MOT",
+      "I",
+      "CON"
+     ]
+    },
+    "explanation": {
+     "surface": "A happy student revising after an English exam.",
+     "definitionFit": "An emoticon is a face made from keyboard characters, and the smiley is the commonest example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Smiley"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1250,47 @@
     "text": "Obsequious Conservative on the phone",
     "enumeration": "8"
    },
-   "solution": "CRINGING"
+   "solution": "CRINGING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRINGING",
+    "definitions": [
+     {
+      "text": "Obsequious",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "on the phone",
+      "gives": "RINGING",
+      "note": "ringing someone means phoning them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RINGING"
+     ]
+    },
+    "explanation": {
+     "surface": "A grovelling Tory talking on the telephone.",
+     "walkthrough": "To ring someone is British for to telephone them.",
+     "definitionFit": "Cringing describes behaviour that is servile and fawning, which is what obsequious means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "phone"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1310,51 @@
      }
     ]
    },
-   "solution": "MARGINALSEAT"
+   "solution": "MARGINALSEAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MARGINAL SEAT",
+    "definitions": [
+     {
+      "text": "area of concern for MP",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wild",
+      "for": "anagram",
+      "note": "wild means out of control, so the letters run loose into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animals great",
+      "gives": "ANIMALSGREAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANIMALSGREAT",
+       "gives": "MARGINALSEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An MP worried about large wild animals roaming the constituency.",
+     "walkthrough": "'area of concern' sounds like an environmental issue; it is the MP's own constituency.",
+     "definitionFit": "A marginal seat is a constituency held by a small majority, so its MP worries about losing it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "animals"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1368,59 @@
     "text": "Evasive characters in motel could be US hunters",
     "enumeration": "6"
    },
-   "solution": "COYOTE"
+   "solution": "COYOTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COYOTE",
+    "definitions": [
+     {
+      "text": "US hunters",
+      "at": 37,
+      "note": "plural, while the answer names one animal; 'could be' makes it an example"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "characters in",
+      "for": "letter_selection",
+      "note": "characters in a word are letters from its inside, leaving off its outer ends"
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evasive",
+      "gives": "COY",
+      "note": "coy means reluctant to give details"
+     },
+     {
+      "clueFragment": "motel",
+      "gives": "OTE",
+      "select": "middle",
+      "note": "the inner letters of the word, without its ends"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COY",
+      "OTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cagey guests at a motel might be American hunters.",
+     "definitionFit": "Coyotes are North American wild dogs that hunt small prey, so they are among the country's hunters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hunters"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1434,63 @@
     "text": "Amazing lunar shot includes Earth",
     "enumeration": "6"
    },
-   "solution": "UNREAL"
+   "solution": "UNREAL",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "UNREAL",
+    "definitions": [
+     {
+      "text": "Amazing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "includes means takes in, so one letter is placed among the others"
+     },
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "something shot is ruined or broken, so the letters are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lunar",
+      "gives": "LUNAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Earth",
+      "gives": "E",
+      "note": "E is the abbreviation for Earth"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LUNARE",
+       "gives": "UNREAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An astonishing photograph from the Moon showing the Earth.",
+     "walkthrough": "'shot' looks like a photograph; it is the anagram signal.",
+     "definitionFit": "Unreal is informal for incredible or amazing, as in 'that was unreal'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1504,55 @@
     "text": "Drunk nurses working later",
     "enumeration": "7"
    },
-   "solution": "TONIGHT"
+   "solution": "TONIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TONIGHT",
+    "definitions": [
+     {
+      "text": "later",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nurses",
+      "for": "container",
+      "note": "to nurse is to hold and cradle, so one word holds another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drunk",
+      "gives": "TIGHT",
+      "note": "tight is slang for drunk"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "on means operating or working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ON",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Nurses who are drunk on the job.",
+     "walkthrough": "'nurses' looks like hospital staff; it is a verb meaning holds.",
+     "definitionFit": "Tonight refers to the coming evening, a time later on the same day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nurses"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1566,50 @@
     "text": "Top number is one less than twenty",
     "enumeration": "4"
    },
-   "solution": "TEEN"
+   "solution": "TEEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEEN",
+    "definitions": [
+     {
+      "text": "one less than twenty",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top",
+      "gives": "TEE",
+      "note": "a tee is a T-shirt, a top"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A boast that a top score is nineteen.",
+     "walkthrough": "'one less than twenty' suggests nineteen exactly; read it as any one of the numbers below twenty.",
+     "definitionFit": "A teen is a number from thirteen to nineteen, each of them a figure under twenty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1623,63 @@
     "text": "Belgian legislation overturned by twit",
     "enumeration": "7"
    },
-   "solution": "WALLOON"
+   "solution": "WALLOON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "WALLOON",
+    "definitions": [
+     {
+      "text": "Belgian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "overturned means turned the other way round, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legislation",
+      "gives": "LAW",
+      "note": "legislation is law"
+     },
+     {
+      "clueFragment": "twit",
+      "gives": "LOON",
+      "note": "a loon is a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAL",
+      "LOON"
+     ],
+     "reversals": [
+      {
+       "from": "LAW",
+       "to": "WAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Belgian law struck down by an idiot.",
+     "definitionFit": "A Walloon is a French-speaking inhabitant of southern Belgium, so a Belgian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overturned"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1693,65 @@
     "text": "Customers given right box on fourth of March",
     "enumeration": "9"
    },
-   "solution": "CLIENTELE"
+   "solution": "CLIENTELE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLIENTELE",
+    "definitions": [
+     {
+      "text": "Customers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fourth of",
+      "for": "letter_selection",
+      "note": "fourth of picks out the letter in fourth position"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "March",
+      "gives": "C",
+      "select": 4,
+      "note": "the fourth letter of the month"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "LIEN",
+      "note": "a lien is a legal right to hold property until a debt is paid"
+     },
+     {
+      "clueFragment": "box",
+      "gives": "TELE",
+      "note": "the box and the tele are both slang for television"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIEN",
+      "TELE"
+     ]
+    },
+    "explanation": {
+     "surface": "Customers receive the right to a box on the fourth of March.",
+     "walkthrough": "In an across clue 'box on C' puts the box after it; 'fourth of March' looks like a date.",
+     "definitionFit": "A business's clientele is the body of its clients, its customers taken together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fourth"
+    }
+   }
   },
   {
    "number": 26,
@@ -409,7 +1765,58 @@
     "text": "Hair gripper made by twisting metal",
     "enumeration": "3"
    },
-   "solution": "NIT"
+   "solution": "NIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NIT",
+    "definitions": [
+     {
+      "text": "Hair gripper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twisting",
+      "for": "reversal",
+      "note": "twisting turns something round, so the word is read the other way"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "metal",
+      "gives": "TIN",
+      "note": "tin is a metal; that the same three letters also sit in the word twisting is a coincidence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIN",
+       "to": "NIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hairgrip made from bent metal.",
+     "walkthrough": "'Hair gripper' suggests a hairgrip; it is the louse egg glued to hair.",
+     "definitionFit": "A nit is the egg of a head louse, which clings tightly to a strand of hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gripper"
+    }
+   }
   },
   {
    "number": 27,
@@ -423,7 +1830,48 @@
     "text": "Wide orifice, gross",
     "enumeration": "5"
    },
-   "solution": "WHOLE"
+   "solution": "WHOLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHOLE",
+    "definitions": [
+     {
+      "text": "gross",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wide",
+      "gives": "W",
+      "note": "W is the cricket abbreviation for a wide"
+     },
+     {
+      "clueFragment": "orifice",
+      "gives": "HOLE",
+      "note": "an orifice is an opening or hole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HOLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A disgusted reaction to a large opening.",
+     "walkthrough": "'gross' looks like yuck; here it means total, as in gross income.",
+     "definitionFit": "Gross means total before deductions, and so complete or entire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gross"
+    }
+   }
   },
   {
    "number": 28,
@@ -437,7 +1885,53 @@
     "text": "Deny old prison contains no women",
     "enumeration": "6"
    },
-   "solution": "NEGATE"
+   "solution": "NEGATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NEGATE",
+    "definitions": [
+     {
+      "text": "Deny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains no",
+      "for": "deletion",
+      "note": "containing none of something means it is left out, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old prison",
+      "gives": "NEWGATE",
+      "note": "Newgate was a notorious London prison, closed in 1902"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "GATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A denial that the old jail held any female prisoners.",
+     "definitionFit": "To negate is to nullify or contradict, and so to deny the truth of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contains"
+    }
+   }
   },
   {
    "number": 29,
@@ -457,7 +1951,59 @@
      }
     ]
    },
-   "solution": "VERYWELL"
+   "solution": "VERYWELL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VERY WELL",
+    "definitions": [
+     {
+      "text": "OK",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts late",
+      "for": "deletion",
+      "note": "starting late means missing the beginning, so the first letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "if"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "each",
+      "gives": "EVERY",
+      "note": "each means every"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "WELL",
+      "note": "a spring is a natural well of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERY",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Fine, provided every spring arrives late in the year.",
+     "walkthrough": "'spring' looks like the season; it is a source of water.",
+     "definitionFit": "Very well is a phrase of agreement, saying all right or OK to a request."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spring"
+    }
+   }
   }
  ]
 }
