@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Flâneur openly taking in his surroundings, presumably",
     "enumeration": "6"
    },
-   "solution": "EUROPE"
+   "solution": "EUROPE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EUROPE",
+    "definitions": [
+     {
+      "text": "his surroundings, presumably",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "hidden_word",
+      "note": "the opening words take in, that is contain, the letters we want, spanning the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flâneur openly",
+      "gives": "EUROPE",
+      "note": "the tail of the French noun runs on into the start of the adverb"
+     }
+    ],
+    "explanation": {
+     "surface": "A boulevard stroller gazes freely at everything around him as he idles along.",
+     "walkthrough": "The letters EUR OPE sit across 'flanEUR OPEnly'. A flâneur is French, so presumably his surroundings are EUROPE; the 'presumably' flags the inference.",
+     "definitionFit": "A flâneur is a French idler, so the continent he strolls through is, presumably, the setting around him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "openly"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,65 @@
     "text": "Cases of old politician popping into drinks",
     "enumeration": "8"
    },
-   "solution": "EXAMPLES"
+   "solution": "EXAMPLES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXAMPLES",
+    "definitions": [
+     {
+      "text": "Cases",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "popping into",
+      "for": "container",
+      "note": "something popping into a place goes inside it, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex- means former"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "ALES",
+      "note": "ales are beers"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "A",
+      "MP",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "Reports of a former MP turning up at drinks parties.",
+     "walkthrough": "'Old politician' reads as one ex-MP, but EX stays out front and only MP pops into ALES.",
+     "definitionFit": "Examples and cases are synonyms for instances that illustrate something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +164,54 @@
      }
     ]
    },
-   "solution": "RIDESOUT"
+   "solution": "RIDESOUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RIDES OUT",
+    "definitions": [
+     {
+      "text": "Comes through",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alternatively",
+      "for": "anagram",
+      "note": "taken alternatively, the letters can be arranged another way"
+     }
+    ],
+    "linkWords": [
+     "or,"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is routed",
+      "gives": "ISROUTED",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISROUTED",
+       "gives": "RIDESOUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone either survives an ordeal or is soundly beaten.",
+     "walkthrough": "The surface sets winning against losing; 'alternatively' is really telling you to rearrange the next two words.",
+     "definitionFit": "To ride out a storm is to come through it, surviving a difficult period intact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alternatively"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +225,52 @@
     "text": "Battering ram opened front",
     "enumeration": "9"
    },
-   "solution": "PROMENADE"
+   "solution": "PROMENADE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PROMENADE",
+    "definitions": [
+     {
+      "text": "front",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Battering",
+      "for": "anagram",
+      "note": "battering knocks something out of shape, so the letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ram opened",
+      "gives": "RAMOPENED",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAMOPENED",
+       "gives": "PROMENADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A battering ram has broken open the front line or gate of a besieged castle.",
+     "walkthrough": "'Front' sounds military here, but it is the seafront, where a promenade runs along the shore.",
+     "definitionFit": "A promenade is the paved walk along a seaside town's shore, which Britons call the front or seafront."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +284,68 @@
     "text": "New recruits mostly speak without thinking to begin with",
     "enumeration": "8"
    },
-   "solution": "CONVERTS"
+   "solution": "CONVERTS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CONVERTS",
+    "definitions": [
+     {
+      "text": "New recruits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "to begin with points at just the opening letter of the word before"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without here has its old sense of outside, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speak",
+      "gives": "CONVERSE",
+      "note": "to converse is to talk"
+     },
+     {
+      "clueFragment": "thinking",
+      "gives": "T",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONVER",
+      "T",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Raw recruits tend to blurt things out before thinking.",
+     "walkthrough": "CONVERSE loses its final E, and the remaining CONVERS goes outside T.",
+     "definitionFit": "Converts are people newly won over to a faith or cause, so fresh recruits to it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +365,39 @@
      }
     ]
    },
-   "solution": "OVEREGG"
+   "solution": "OVEREGG",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OVER-EGG",
+    "definitions": [
+     {
+      "text": "Exaggerate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exaggerate somewhat, in more ways than one",
+      "note": "surface reading: overstate something a little, in several senses"
+     },
+     {
+      "clueFragment": "somewhat",
+      "note": "setter's reading: some of the letters of the first word, read in the opposite direction, spell a breakfast food, and the answer itself describes that reversal"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A reverse clue: read the answer as an instruction, EGG + OVER (reversed), and you find GGE inside 'exaGGErate'. So the answer is clued 'in more ways than one': by meaning and by the letters of the definition itself.",
+     "definitionFit": "To over-egg the pudding is a British idiom for embellishing or overstating something beyond what is needed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "somewhat"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +417,66 @@
      }
     ]
    },
-   "solution": "VERBS"
+   "solution": "VERBS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "VERBS",
+    "definitions": [
+     {
+      "text": "Pride and Prejudice?",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upwardly mobile",
+      "for": "reversal",
+      "note": "in a down answer, moving upwards reads the word from bottom to top, backwards"
+     }
+    ],
+    "linkWords": [
+     "going to",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clergyman",
+      "gives": "REV",
+      "note": "abbreviation for Reverend"
+     },
+     {
+      "clueFragment": "a load of balls",
+      "gives": "BS",
+      "note": "a load of balls is British slang for nonsense, abbreviated BS"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VER",
+      "BS"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mr Collins, the social-climbing clergyman of Austen's novel, attending the many balls in Pride and Prejudice.",
+     "walkthrough": "The novel's ambitious parson and its dances fit the surface perfectly; the definition takes the title as two words, both of which can be used as verbs ('to pride oneself', 'to prejudice').",
+     "definitionFit": "Pride and prejudice both work as action words (to pride oneself, to prejudice a jury), hence examples flagged by the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "balls"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +490,59 @@
     "text": "Republican instead of Democrat returned — fix!",
     "enumeration": "6"
    },
-   "solution": "REPAIR"
+   "solution": "REPAIR",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "REPAIR",
+    "definitions": [
+     {
+      "text": "fix",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "instead of",
+      "for": "substitution",
+      "note": "instead of says one letter takes the place of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "returned",
+      "gives": "REPAID",
+      "note": "returned, as money is given back"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "abbreviation, removed"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "abbreviation, put in its place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REPAI",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A cry of election rigging: a Republican got returned instead of the Democrat.",
+     "walkthrough": "'Returned' sounds like an election result but it is a word meaning paid back; R replaces its final D.",
+     "definitionFit": "To repair something is to mend it, a plain synonym of fix."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +556,39 @@
     "text": "It's seventy feet but only one metre",
     "enumeration": "6"
    },
-   "solution": "SONNET"
+   "solution": "SONNET",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SONNET",
+    "definitions": [
+     {
+      "text": "It's seventy feet but only one metre",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's seventy feet but only one metre",
+      "note": "surface reading: a paradox of length, as if seventy feet could measure a single metre"
+     },
+     {
+      "clueFragment": "seventy feet",
+      "note": "setter's reading: feet and metre are terms of verse; fourteen lines of five-foot iambic pentameter give seventy feet in a single metre"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Feet and metre are units of prosody, not length: the standard fourteen-line poem in pentameter has 14 × 5 = 70 feet, all in one metre.",
+     "definitionFit": "The classic fourteen-line poem in iambic pentameter contains seventy metrical feet and uses a single metre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "metre"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +602,59 @@
     "text": "Recordings of United overwhelmed by Barcelona's cheers",
     "enumeration": "6"
    },
-   "solution": "AUDIOS"
+   "solution": "AUDIOS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AUDIOS",
+    "definitions": [
+     {
+      "text": "Recordings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "something overwhelmed by another is engulfed and surrounded by it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barcelona's cheers",
+      "gives": "ADIOS",
+      "note": "Spanish for goodbye, as cheers is a British way of saying bye"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "abbreviation used in football team names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "U",
+      "DIOS"
+     ]
+    },
+    "explanation": {
+     "surface": "Footage of Manchester United being drowned out by Barcelona fans' chanting.",
+     "walkthrough": "'Cheers' looks like crowd noise but is the British casual farewell, which in Spanish is ADIOS.",
+     "definitionFit": "Audios is informal for sound recordings or audio files."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +668,71 @@
     "text": "Reptile in trap to wriggle round here after shedding skin",
     "enumeration": "8"
    },
-   "solution": "TERRAPIN"
+   "solution": "TERRAPIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TERRAPIN",
+    "definitions": [
+     {
+      "text": "Reptile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to wriggle round",
+      "for": "anagram",
+      "note": "wriggling about scrambles the order of the letters"
+     },
+     {
+      "text": "shedding skin",
+      "for": "letter_selection",
+      "note": "shedding its skin, a word loses its outer letters and keeps only its middle"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "trap",
+      "gives": "TRAP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "ER",
+      "select": "middle",
+      "note": "the word with its outer letters stripped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTRAPER",
+       "gives": "TERRAPIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snake caught in a trap squirms around after moulting.",
+     "walkthrough": "Shedding skin is something reptiles do, which hides that it trims the word 'here'.",
+     "definitionFit": "A terrapin is a small freshwater turtle, which is a reptile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "skin"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +746,50 @@
     "text": "A flat for one some singleton's flipped",
     "enumeration": "4"
    },
-   "solution": "NOTE"
+   "solution": "NOTE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NOTE",
+    "definitions": [
+     {
+      "text": "A flat for one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of the next word is used, a run of letters inside it"
+     },
+     {
+      "text": "flipped",
+      "for": "reversal",
+      "note": "something flipped is turned over, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singleton's",
+      "gives": "ETON",
+      "note": "the last four letters of the word before its apostrophe"
+     }
+    ],
+    "explanation": {
+     "surface": "A one-bedroom flat for a single person who has had a sudden change of heart.",
+     "walkthrough": "'Flat' sounds like an apartment for a singleton, but it is a musical flat, such as B flat.",
+     "definitionFit": "A flat in music, like B flat or E flat, is an example of a musical note, hence 'for one'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +803,53 @@
     "text": "Crew have to abandon second ship",
     "enumeration": "5"
    },
-   "solution": "POSSE"
+   "solution": "POSSE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "POSSE",
+    "definitions": [
+     {
+      "text": "Crew",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to abandon",
+      "for": "deletion",
+      "note": "to abandon something is to leave it behind, so those letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "have",
+      "gives": "POSSESS",
+      "note": "to have is to own"
+     },
+     {
+      "clueFragment": "second ship",
+      "gives": "SS",
+      "note": "SS is the abbreviation for steamship; the word for have contains it twice, and the second one is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POSSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's company are told they must leave the vessel for another.",
+     "walkthrough": "The verb for have contains SS twice; dropping the second one leaves a word for a group of people.",
+     "definitionFit": "A posse is a band of people acting together, much as a crew or gang does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +869,62 @@
      }
     ]
    },
-   "solution": "OPENSFIRE"
+   "solution": "OPENSFIRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OPENS FIRE",
+    "definitions": [
+     {
+      "text": "Shoots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points at the final letter of the word just before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flowers",
+      "gives": "OPENS",
+      "note": "a flower opens as it blooms"
+     },
+     {
+      "clueFragment": "evergreen",
+      "gives": "FIR",
+      "note": "a fir is an evergreen tree"
+     },
+     {
+      "clueFragment": "peace",
+      "gives": "E",
+      "select": "last",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPENS",
+      "FIR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A garden list: new shoots, blooms and conifers, and finally some peace and quiet.",
+     "walkthrough": "'Shoots' and 'flowers' look like botany side by side; 'shoots' is really the verb for firing a gun, and 'flowers' the verb meaning blooms.",
+     "definitionFit": "When a gunman opens fire he starts shooting, so the phrase is a synonym of shoots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shoots"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +938,51 @@
     "text": "Parrot not quite as dead as a dodo?",
     "enumeration": "7"
    },
-   "solution": "EMULATE"
+   "solution": "EMULATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMULATE",
+    "definitions": [
+     {
+      "text": "Parrot",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "not quite as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as a dodo",
+      "gives": "EMU",
+      "note": "an emu is a large flightless bird, like a dodo, though not extinct"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "LATE",
+      "note": "the late So-and-so is a dead person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMU",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A parrot, though nearly gone, is not quite as extinct as the dodo.",
+     "walkthrough": "Read the answer as EMU-LATE: a flightless bird, dead, but not quite as dead as a dodo. 'Parrot' is a verb, to copy.",
+     "definitionFit": "To parrot someone is to repeat or imitate them, which is what emulate means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Parrot"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +996,55 @@
     "text": "Olympians possibly left out of medals",
     "enumeration": "4"
    },
-   "solution": "GODS"
+   "solution": "GODS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GODS",
+    "definitions": [
+     {
+      "text": "Olympians possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of here means removed from, so a letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medals",
+      "gives": "GOLDS",
+      "note": "golds are winners' medals"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "Some Olympic athletes failed to win a medal.",
+     "walkthrough": "'Olympians' suggests athletes, but it means the deities of Mount Olympus.",
+     "definitionFit": "The Olympians of Greek myth were the deities who lived on Mount Olympus, so they are examples of gods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Olympians"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1058,50 @@
     "text": "Insect to go slowly and then go quickly",
     "enumeration": "9"
    },
-   "solution": "DRAGONFLY"
+   "solution": "DRAGONFLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAGONFLY",
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to",
+     "and then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go slowly",
+      "gives": "DRAGON",
+      "note": "to drag on is to proceed tediously slowly"
+     },
+     {
+      "clueFragment": "go quickly",
+      "gives": "FLY",
+      "note": "to fly is to move fast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAGON",
+      "FLY"
+     ]
+    },
+    "explanation": {
+     "surface": "An insect that crawls along and then suddenly darts off.",
+     "walkthrough": "DRAG ON plus FLY; the creature's own habit of hovering then darting matches the surface.",
+     "definitionFit": "A dragonfly is a long-bodied winged insect found near water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1115,61 @@
     "text": "Amateur match official wearing protective gear — or not",
     "enumeration": "8"
    },
-   "solution": "BAREFOOT"
+   "solution": "BAREFOOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BAREFOOT",
+    "definitions": [
+     {
+      "text": "or not",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "a person wearing something is inside it, so the first pieces sit within the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amateur",
+      "gives": "A",
+      "note": "abbreviation"
+     },
+     {
+      "clueFragment": "match official",
+      "gives": "REF",
+      "note": "short for referee"
+     },
+     {
+      "clueFragment": "protective gear",
+      "gives": "BOOT",
+      "note": "a boot protects the foot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AREF",
+      "OOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Sunday-league referee may or may not bother wearing protective kit.",
+     "walkthrough": "The definition leans on the wordplay: 'or not' means not wearing protective footwear, that is, with no shoes on.",
+     "definitionFit": "Being without the protective footwear the wordplay describes means having bare feet, unshod."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1183,61 @@
     "text": "Perhaps it means, roughly, about meaning",
     "enumeration": "8"
    },
-   "solution": "SEMANTIC"
+   "solution": "SEMANTIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SEMANTIC",
+    "definitions": [
+     {
+      "text": "about meaning",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Perhaps",
+      "for": "anagram",
+      "note": "perhaps suggests one possible version among many, so the letters may be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it means",
+      "gives": "ITMEANS",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "roughly",
+      "gives": "C",
+      "note": "c for circa, Latin for approximately"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEMANTI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITMEANS",
+       "gives": "SEMANTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pedant's remark that an argument about what something roughly means is just a quibble.",
+     "walkthrough": "'Roughly' sounds like an anagram signal but it is the abbreviation c (circa); 'Perhaps' is the anagram signal.",
+     "definitionFit": "Semantic means relating to meaning in language, so it describes something concerned with meaning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roughly"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1251,45 @@
     "text": "Try to find someone faithful using phone",
     "enumeration": "4"
    },
-   "solution": "SEEK"
+   "solution": "SEEK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SEEK",
+    "definitions": [
+     {
+      "text": "Try to find",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using phone",
+      "for": "homophone",
+      "note": "on the phone you only hear a word, so its sound is what counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "someone faithful",
+      "gives": "SEEK",
+      "soundsLike": "SIKH",
+      "note": "a Sikh is a follower of the Sikh faith"
+     }
+    ],
+    "explanation": {
+     "surface": "Trying to track down a loyal friend by ringing round.",
+     "walkthrough": "'Phone' doubles as the linguist's word for a speech sound, which is why it signals a sound-alike.",
+     "definitionFit": "To seek is to look for or attempt to locate something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "faithful"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1303,55 @@
     "text": "Wise man wrapping present",
     "enumeration": "7"
    },
-   "solution": "KNOWING"
+   "solution": "KNOWING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KNOWING",
+    "definitions": [
+     {
+      "text": "Wise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapping",
+      "for": "container",
+      "note": "wrapping goes around something, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "KING",
+      "note": "a chess piece, a man on the board"
+     },
+     {
+      "clueFragment": "present",
+      "gives": "NOW",
+      "note": "the present moment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NOW",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "One of the Wise Men from the Nativity, wrapping a present.",
+     "walkthrough": "'Wise man' evokes the Magi; split it, so 'Wise' is the definition and 'man' a chess piece, the king.",
+     "definitionFit": "Knowing means shrewd or worldly-wise, showing understanding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wise"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1365,49 @@
     "text": "Throw out swimmer moving back to front",
     "enumeration": "7"
    },
-   "solution": "EMANATE"
+   "solution": "EMANATE",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "EMANATE",
+    "definitions": [
+     {
+      "text": "Throw out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving back to front",
+      "for": "cycling",
+      "note": "the last letter is moved to the front, so the word cycles round by one place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swimmer",
+      "gives": "MANATEE",
+      "note": "a manatee is a sea cow, a marine mammal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MANATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lifeguard ejects a swimmer who is doing backstroke into the wrong end.",
+     "walkthrough": "'Swimmer' suggests a person, but it is an aquatic animal.",
+     "definitionFit": "To emanate is to give off or send out, as light or heat is thrown out from a source."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1431,65 @@
    "group": [
     "21-down",
     "23-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EAST ANGLIA",
+    "definitions": [
+     {
+      "text": "nether region",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fixed up",
+      "for": "anagram",
+      "note": "something fixed up is reassembled, so the letters are put into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble"
+     },
+     {
+      "clueFragment": "flies?",
+      "gives": "GNATS",
+      "note": "gnats are small flies"
+     },
+     {
+      "clueFragment": "A&E",
+      "gives": "AE",
+      "note": "the two letters as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AILGNATSAE",
+       "gives": "EASTANGLIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital emergency department treats an embarrassing zip injury in a delicate area.",
+     "walkthrough": "The surface is all trouser flies and private parts, but EAST ANGLIA (Norfolk, Suffolk) is a low-lying English region, the Fens; 'nether' means lower.",
+     "definitionFit": "East Anglia is the flat, low-lying eastern bulge of England, so a lower or nether region in a punning sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flies?"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1503,44 @@
     "text": "Playwright crouched down to audience",
     "enumeration": "6"
    },
-   "solution": "COWARD"
+   "solution": "COWARD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COWARD",
+    "definitions": [
+     {
+      "text": "Playwright",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to audience",
+      "for": "homophone",
+      "note": "an audience hears rather than reads, so the word's sound is what counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crouched down",
+      "gives": "COWARD",
+      "soundsLike": "COWERED",
+      "note": "cowered means shrank or crouched in fear"
+     }
+    ],
+    "explanation": {
+     "surface": "A dramatist shrank back in fear before the theatre crowd.",
+     "walkthrough": "Noël Coward was an English playwright, author of Private Lives and Blithe Spirit.",
+     "definitionFit": "Noël Coward was a celebrated English dramatist, so his surname names a playwright."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 23,
@@ -416,7 +1567,70 @@
     "text": "Dreadful private school grad with debts stuck outside No 10",
     "enumeration": "9"
    },
-   "solution": "OBNOXIOUS"
+   "solution": "OBNOXIOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OBNOXIOUS",
+    "definitions": [
+     {
+      "text": "Dreadful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck outside",
+      "for": "container",
+      "note": "stuck outside something means placed around it, so these pieces enclose the next"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "private school grad",
+      "gives": "OB",
+      "note": "an old boy, a former pupil of a British private school"
+     },
+     {
+      "clueFragment": "debts",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to pay"
+     },
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "10",
+      "gives": "X",
+      "note": "Roman numeral ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "NO",
+      "X",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "An awful old Etonian politician mired in debts loiters outside Downing Street.",
+     "walkthrough": "'No 10' suggests 10 Downing Street, the Prime Minister's residence, but it is the word no plus a Roman numeral; an old boy is a former pupil of a British private school.",
+     "definitionFit": "Obnoxious means extremely unpleasant or offensive, close to dreadful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "10"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1644,64 @@
     "text": "Element of social media site nobody backed",
     "enumeration": "5"
    },
-   "solution": "XENON"
+   "solution": "XENON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "XENON",
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means moved backwards, so the word is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "social media site",
+      "gives": "X",
+      "note": "X is the platform formerly called Twitter"
+     },
+     {
+      "clueFragment": "nobody",
+      "gives": "NONE",
+      "note": "none means not one person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "ENON"
+     ],
+     "reversals": [
+      {
+       "from": "NONE",
+       "to": "ENON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of a social media platform that nobody supported.",
+     "walkthrough": "'Element' looks like 'part of', but it is the chemical element.",
+     "definitionFit": "Xenon is a chemical element, a noble gas used in lamps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Element"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1715,71 @@
     "text": "Letter from Rolling Stone clutched by woman now and then",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "Letter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rolling",
+      "for": "reversal",
+      "note": "a thing rolling turns over, so the word is read backwards"
+     },
+     {
+      "text": "now and then",
+      "for": "letter_selection",
+      "note": "now and then means only occasionally, so every other letter is taken"
+     },
+     {
+      "text": "clutched by",
+      "for": "container",
+      "note": "something clutched by another is held inside its grip"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman",
+      "gives": "OA",
+      "select": "alternate",
+      "note": "its second and fourth letters"
+     },
+     {
+      "clueFragment": "Stone",
+      "gives": "GEM",
+      "note": "a gem is a precious stone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MEG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Every so often a woman gets a letter from Mick Jagger or another of the Rolling Stones.",
+     "walkthrough": "'Rolling Stone' is the band, but it splits into a reversal signal and a word for a gem.",
+     "definitionFit": "Omega is the last letter of the Greek alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rolling"
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +1793,56 @@
     "text": "Network when in lofty surroundings — might an icebreaker be useful there?",
     "enumeration": "8"
    },
-   "solution": "ATLANTIC"
+   "solution": "ATLANTIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATLANTIC",
+    "definitions": [
+     {
+      "text": "might an icebreaker be useful there?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when in",
+      "for": "container",
+      "note": "when in surroundings, a thing sits inside them, enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lofty surroundings",
+      "gives": "ATTIC",
+      "note": "an attic is up in the loft"
+     },
+     {
+      "clueFragment": "Network",
+      "gives": "LAN",
+      "note": "local area network"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "LAN",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Setting up a computer network in a loft, where an icebreaker might be needed at a party.",
+     "walkthrough": "'Icebreaker' suggests a party opener; it is the ship, needed in the iceberg-strewn North Atlantic, where the Titanic sank.",
+     "definitionFit": "Icebreaker ships clear sea ice, and the northern ocean between Europe and America has icebergs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "icebreaker"
+    }
+   }
   },
   {
    "number": 28,
@@ -472,7 +1856,49 @@
     "text": "Just about out of debt, with a few coins",
     "enumeration": "6"
    },
-   "solution": "AFLOAT"
+   "solution": "AFLOAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFLOAT",
+    "definitions": [
+     {
+      "text": "Just about out of debt",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "few coins",
+      "gives": "FLOAT",
+      "note": "a float is the small change in a till at the start of trading"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FLOAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has barely cleared their debts, with only a little loose change left.",
+     "walkthrough": "A float is the modest sum of coins put in a cash register to make change.",
+     "definitionFit": "A business that stays afloat is solvent, just managing to keep out of debt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -486,7 +1912,55 @@
     "text": "Sending water away, ordered red again — or a dear gin?",
     "enumeration": "8"
    },
-   "solution": "DRAINAGE"
+   "solution": "DRAINAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DRAINAGE",
+    "definitions": [
+     {
+      "text": "Sending water away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means put into a new order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "— or a dear gin?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red again",
+      "gives": "REDAGAIN",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDAGAIN",
+       "gives": "DRAINAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At the bar, someone orders red wine again, or perhaps an expensive gin.",
+     "walkthrough": "'A dear gin' is a playful alternative fodder with the same letters, also giving the answer; 'ordered' sounds like a bar order.",
+     "definitionFit": "Drainage is the process of carrying surplus water away from land or buildings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 30,
@@ -500,7 +1974,58 @@
     "text": "Inscrutable setter's met with a lot of criticism",
     "enumeration": "6"
    },
-   "solution": "MYSTIC"
+   "solution": "MYSTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MYSTIC",
+    "definitions": [
+     {
+      "text": "Inscrutable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of means most but not all, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "met with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter's",
+      "gives": "MY",
+      "note": "the setter's own, from the setter's point of view"
+     },
+     {
+      "clueFragment": "criticism",
+      "gives": "STICK",
+      "note": "stick is informal for criticism, as in taking stick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MY",
+      "STIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle-setter's obscure clue was met with plenty of complaints.",
+     "walkthrough": "Getting stick is British slang for being criticised.",
+     "definitionFit": "Mystic means having a hidden, mysterious meaning, so baffling or inscrutable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Inscrutable"
+    }
+   }
   }
  ]
 }
