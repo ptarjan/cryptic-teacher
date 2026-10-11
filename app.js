@@ -4416,8 +4416,13 @@
   const EDGE_WORDS = ("a an the this these those it its one such by of for from " +
                       "with in on at to and that as so s").split(" ");
 
+  // A token is the clue's text split on spaces, so it carries the punctuation
+  // around it: the "in'" that closes "'It's right to tuck in'" (azed-2344 25d).
+  // An apostrophe inside a word is part of it ("it's" is not "its"), but one at
+  // either end is a quote mark, curly or straight, and is not.
   function edgeTokens(span, tokens) {
-    const bare = (n) => tokens[n].text.toLowerCase().replace(/[^a-z']/g, "");
+    const bare = (n) => tokens[n].text.toLowerCase().replace(/[‘’]/g, "'")
+      .replace(/[^a-z']/g, "").replace(/^'+|'+$/g, "");
     const out = [];
     const run = (order) => {
       for (let k = 0; k < order.length; k++) {
