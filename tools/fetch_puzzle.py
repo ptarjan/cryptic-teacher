@@ -71,6 +71,7 @@ import boilerplate  # the paper's publishing notes in the preamble; see tools/bo
 import errata  # a paper's corrections in the preamble; see tools/errata.py
 import quotes  # clue text is stored with straight quotes; see tools/quotes.py
 import punctuation  # the marks no print breaks; see tools/punctuation.py
+import dashes  # and one spelling of a dash and an ellipsis; see tools/dashes.py
 import puzzle_tags  # what is unusual about a puzzle; see tools/puzzle_tags.py
 from puzzle_paths import (  # re-exported for the tools that ask here
     puzzle_path, puzzle_files, resolve_puzzle as resolve_puzzle, shim_path)
@@ -1051,6 +1052,8 @@ def write_puzzle_file(path, puzzle, generator=None):
     if (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS and punctuation.faulted(puzzle):
         puzzle = json.loads(json.dumps(puzzle))
         punctuation.mend_puzzle(puzzle)
+    # Clue text spells the house dash " \u2014 " and ellipsis "\u2026", offsets moved.
+    puzzle = dashes.normalise(puzzle)
     # An absent key means empty, so no writer can put a null or an empty value
     # on disk: tools/puzzle_schema.py.
     puzzle = puzzle_schema.prune(puzzle)

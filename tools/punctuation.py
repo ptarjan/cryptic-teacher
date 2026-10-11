@@ -234,10 +234,18 @@ def mended(text):
 
 def mend_entry(entry):
     """Make `entry`'s clue text's certain mends in place, its italics and
-    annotation moved with them (enumeration.edit_entry). Whether anything
-    changed."""
+    annotation moved with them (enumeration.rewrite_entry), its prose
+    mended alike. Whether anything changed."""
     import enumeration
-    return enumeration.edit_entry(entry, mend, mended)
+    if not enumeration.rewrite_entry(entry, mend):
+        return False
+    note = entry.get("annotation") if isinstance(entry.get("annotation"), dict) else {}
+    prose = note.get("explanation")
+    if isinstance(prose, str):
+        note["explanation"] = mended(prose)
+    elif isinstance(prose, list):
+        note["explanation"] = [mended(t) if isinstance(t, str) else t for t in prose]
+    return True
 
 
 def mend_puzzle(puzzle):

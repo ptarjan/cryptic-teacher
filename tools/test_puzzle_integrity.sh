@@ -105,6 +105,8 @@ MUTATIONS = {
     "COUNT": ("times-15602", lambda p, by: by["7-down"]["clue"].update(enumeration="6;3")),
     "CURLY": ("cryptic-24104", lambda p, by: by["2-down"]["clue"].update(
         text=by["2-down"]["clue"]["text"] + " \u2018it\u2019s\u2019")),
+    "DASH": ("cryptic-24104", lambda p, by: by["2-down"]["clue"].update(
+        text=by["2-down"]["clue"]["text"] + " -- or not...")),
     "QUOTE": ("times-29329", lambda p, by: by["20-down"]["clue"].update(
         text=by["20-down"]["clue"]["text"].replace("Dip ", "Plunge "))),
 }

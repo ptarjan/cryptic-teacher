@@ -114,6 +114,10 @@ The flags, in the order they matter:
             or a backtick: it is stored with ' and " and curled on display
             (tools/quotes.py, quotes.js). Checked on every write, which
             straightens first.
+  DASH      clue text spelling a dash between words other than " — ", or an
+            ellipsis other than "…" (tools/dashes.py): any clue dashes.normal
+            would still change. Checked on every write, which normalises
+            first.
   FILED     a puzzle file that is not where puzzle_paths.file_for puts it:
             puzzles/<series>/<year>/<id>.json, the year its `date`'s. A file in
             the wrong year folder, under a name that is not its id, or left flat
@@ -172,6 +176,7 @@ from itertools import combinations, pairwise, zip_longest
 from pathlib import Path
 
 import boilerplate
+import dashes
 import enumeration
 import errata
 import groups  # linked answers
@@ -216,7 +221,7 @@ from reconstruct_grid import grid_of, lights_from_grid, lights_of
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "QUOTE", "CURLY", "FILED", "NEARDUP", "REPRINT", "COUNT")
+FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "QUOTE", "CURLY", "DASH", "FILED", "NEARDUP", "REPRINT", "COUNT")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -1202,6 +1207,7 @@ def check_puzzle(puzzle, today, flags):
     check_duplicated_clues(puzzle, flags)
     check_annotation_quotes(puzzle, flags)
     check_curly_quotes(puzzle, flags)
+    check_dashes(puzzle, flags)
     check_reprint(puzzle, flags)
 
 
@@ -1244,6 +1250,14 @@ def check_curly_quotes(puzzle, flags):
     for e, key, text in quotes.curly(puzzle):
         flags.append(("CURLY", puzzle.get("id"), f"{entry_id(e)}: {key} {text!r} holds a curly "
                       "quote or backtick; clue text is stored straight (quotes.straight)"))
+
+
+def check_dashes(puzzle, flags):
+    """DASH: clue text spelling a dash between words or an ellipsis other
+    than the house " \u2014 " and "\u2026" (tools/dashes.py)."""
+    for e, text in dashes.unnormal(puzzle):
+        flags.append(("DASH", puzzle.get("id"), f"{entry_id(e)}: {text!r} spells a dash or ellipsis "
+                      f"other ways; clue text is stored {dashes.normal(text)!r} (dashes.normal)"))
 
 
 def check_semicolon_counts(puzzle, flags):

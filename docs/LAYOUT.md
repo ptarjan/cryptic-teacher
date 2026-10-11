@@ -247,6 +247,13 @@ tools/punctuation.py                          the marks no clue's print breaks (
                                               mends, offsets moved
 tools/test_quotes.js                          a clue stored with straight quotes shows curled
                                               ones, apostrophes and leading elisions included
+tools/dashes.py                               clue text spells a dash between words " — " and
+                                              an ellipsis "…": normalises every write with its
+                                              offsets moved, converts held files
+tools/test_dashes.sh                          every spelling of a dash between words becomes "
+                                              — " and of an ellipsis "…"; hyphens, blanks and
+                                              leaders stay; offsets move with the text; DASH
+                                              refuses the rest
 tools/test_puzzle_integrity.sh                proves the two LENGTH exception tables match by
                                               nothing looser than the exact sentence they’re
                                               keyed on, and that baselining one finding never
