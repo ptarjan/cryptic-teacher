@@ -209,7 +209,7 @@ check("blanks a vote fix landed for since the read, answers whole: predicted",
 check("mirror: a blank no vote fix mends holds it", None,
       f.short_cause("times", mend, v(90200, blank={"1-a": "junk"}, **part(0)), {}))
 check("mirror: read after the fix, the same blank holds it", None,
-      f.short_cause("times", {"readAt": "2026-10-11T00:00:00+00:00"}, v(90200, blank={"1-a": "'qx': not a word"},
+      f.short_cause("times", {"readAt": "2099-01-01T00:00:00+00:00"}, v(90200, blank={"1-a": "'qx': not a word"},
                                                                         **part(0)), {}))
 f.edition_dirs, f.input_hash, f.linked_solutions, f.text_headings = real[:4]
 f._HELD_PATH.clear()
