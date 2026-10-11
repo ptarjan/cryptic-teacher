@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,49 @@
     "text": "Something soothing spoken in royal residence",
     "enumeration": "8"
    },
-   "solution": "BALMORAL"
+   "solution": "BALMORAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BALMORAL",
+    "definitions": [
+     {
+      "text": "royal residence",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something soothing",
+      "gives": "BALM",
+      "note": "a balm is an ointment that soothes"
+     },
+     {
+      "clueFragment": "spoken",
+      "gives": "ORAL",
+      "note": "oral means spoken rather than written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALM",
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A calming remark is made inside a royal home.",
+     "definitionFit": "Balmoral Castle in Aberdeenshire is the British royal family's Scottish home, a residence of the monarch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spoken"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +91,71 @@
     "text": "Snake in a study, and article about it",
     "enumeration": "8"
    },
-   "solution": "ANACONDA"
+   "solution": "ANACONDA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANACONDA",
+    "definitions": [
+     {
+      "text": "Snake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about it",
+      "for": "container",
+      "note": "about it means surrounding what was just named, so the later words wrap round the earlier ones"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "CON",
+      "note": "to con is to study or learn by heart"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "A",
+      "CON",
+      "D",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A snake is found in a study, along with some item lying near it.",
+     "walkthrough": "'It' refers back to 'a study', so 'and article' must go around that pair; con meaning study is an old sense, to learn by heart.",
+     "definitionFit": "The anaconda is a very large constricting South American species of serpent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +169,54 @@
     "text": "I'm a demon? Sure, dreadfully producing bad behaviour",
     "enumeration": "12"
    },
-   "solution": "MISDEMEANOUR"
+   "solution": "MISDEMEANOUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISDEMEANOUR",
+    "definitions": [
+     {
+      "text": "bad behaviour",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dreadfully",
+      "for": "anagram",
+      "note": "doing something dreadfully means doing it badly, so the letters come out in a mangled order"
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm a demon? Sure",
+      "gives": "IMADEMONSURE",
+      "note": "the letters used as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMADEMONSURE",
+       "gives": "MISDEMEANOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits to being a demon, which leads to bad conduct.",
+     "definitionFit": "A misdemeanour is a minor wrongdoing or offence, an instance of poor conduct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "dreadfully"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +230,49 @@
     "text": "New centre has moved about, from bottom to top",
     "enumeration": "6"
    },
-   "solution": "RECENT"
+   "solution": "RECENT",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "RECENT",
+    "definitions": [
+     {
+      "text": "New",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has moved about, from bottom to top",
+      "for": "cycling",
+      "note": "in a down entry, shifting the lowest letters up to the top rotates the word round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "centre",
+      "gives": "CENTRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A new central point has shifted from bottom to top.",
+     "walkthrough": "The final RE of CENTRE moves to the front, giving RECENT.",
+     "definitionFit": "Something recent has only lately happened or appeared, so it is fresh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +286,48 @@
     "text": "Light aircraft operating service initially land in Asia",
     "enumeration": "4"
    },
-   "solution": "LAOS"
+   "solution": "LAOS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LAOS",
+    "definitions": [
+     {
+      "text": "land in Asia",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the preceding words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Light aircraft operating service",
+      "gives": "LAOS",
+      "select": "first",
+      "note": "the leading letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAOS"
+     ]
+    },
+    "explanation": {
+     "surface": "A small-plane service starts up by touching down somewhere in Asia.",
+     "definitionFit": "Laos is a landlocked country in South-East Asia, bordering Vietnam and Thailand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "land"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +341,58 @@
     "text": "Giving little away about radium in fish",
     "enumeration": "8"
    },
-   "solution": "STINGRAY"
+   "solution": "STINGRAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STINGRAY",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes round the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Giving little away",
+      "gives": "STINGY",
+      "note": "a stingy person is mean and gives little"
+     },
+     {
+      "clueFragment": "radium",
+      "gives": "RA",
+      "note": "Ra is the chemical symbol for radium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STING",
+      "RA",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A miserly person studies radium levels in fish.",
+     "walkthrough": "'Giving little away' looks like a description of a secretive fish; it is a mean person.",
+     "definitionFit": "A stingray is a flat sea creature with a venomous barbed tail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Giving"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +406,53 @@
     "text": "Agents working with intelligence and love to provide farewell",
     "enumeration": "4"
    },
-   "solution": "CIAO"
+   "solution": "CIAO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CIAO",
+    "definitions": [
+     {
+      "text": "farewell",
+      "at": 53
+     }
+    ],
+    "linkWords": [
+     "to provide"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agents working with intelligence",
+      "gives": "CIA",
+      "note": "the Central Intelligence Agency, US spies"
+     },
+     {
+      "clueFragment": "and",
+      "note": "joins the two pieces"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CIA",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Spies and their romance are bidding someone goodbye.",
+     "definitionFit": "Ciao is the informal Italian word used for goodbye, also for hello."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +466,56 @@
     "text": "Aquatic organisms in great quantity beneath part of wooden keel",
     "enumeration": "8"
    },
-   "solution": "PLANKTON"
+   "solution": "PLANKTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLANKTON",
+    "definitions": [
+     {
+      "text": "Aquatic organisms",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beneath",
+      "for": "charade",
+      "note": "in a down entry, beneath means the piece is placed after the one above it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of wooden keel",
+      "gives": "PLANK",
+      "note": "a plank is a board, a part of a wooden hull"
+     },
+     {
+      "clueFragment": "great quantity",
+      "gives": "TON",
+      "note": "a ton, or tons, is a large amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLANK",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "Masses of tiny sea creatures gather under a boat's timber keel.",
+     "definitionFit": "Plankton are the tiny drifting plants and animals living in seas and lakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "keel"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +529,53 @@
     "text": "Like major thoroughfare in which a trailer gets wrecked",
     "enumeration": "8"
    },
-   "solution": "ARTERIAL"
+   "solution": "ARTERIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARTERIAL",
+    "definitions": [
+     {
+      "text": "Like major thoroughfare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets wrecked",
+      "for": "anagram",
+      "note": "something wrecked is broken up, so its letters are scattered into a new order"
+     }
+    ],
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a trailer",
+      "gives": "ATRAILER",
+      "note": "the letters used as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATRAILER",
+       "gives": "ARTERIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lorry's trailer crashes on a main road.",
+     "definitionFit": "An arterial road is a main route carrying heavy traffic, named by analogy with the body's big blood vessels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trailer"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +589,80 @@
     "text": "For horse race, odds OK, as evens?",
     "enumeration": "4"
    },
-   "solution": "OAKS"
+   "solution": "OAKS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OAKS",
+    "definitions": [
+     {
+      "text": "horse race",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odds",
+      "for": "letter_selection",
+      "note": "odds here means the odd-numbered letters, the first and third and so on"
+     },
+     {
+      "text": "evens",
+      "for": "letter_selection",
+      "note": "evens here means the even-numbered letters, the second and fourth and so on"
+     }
+    ],
+    "linkWords": [
+     "For"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "OK",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter, an odd position"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter, an odd position"
+     },
+     {
+      "clueFragment": "OK",
+      "gives": "K",
+      "select": "last",
+      "note": "second letter, an even position"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "S",
+      "select": "last",
+      "note": "second letter, an even position"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "A",
+      "K",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A punter wonders whether the betting on a race is fine at even money.",
+     "walkthrough": "Odds and evens look like betting terms; here the odd letters of OK AS (O, A) are followed by its even letters (K, S).",
+     "definitionFit": "The Oaks is a classic flat race for fillies run at Epsom in England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +682,46 @@
      }
     ]
    },
-   "solution": "DRESSINGDOWN"
+   "solution": "DRESSINGDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRESSING-DOWN",
+    "definitions": [
+     {
+      "text": "Reprimand",
+      "at": 0
+     },
+     {
+      "text": "wearing informal clothes",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reprimand",
+      "note": "first meaning: a severe telling-off"
+     },
+     {
+      "clueFragment": "wearing informal clothes",
+      "note": "second meaning: choosing casual attire"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told off for turning up too casually dressed.",
+     "definitionFit": "A dressing-down is a scolding, while dressing down is putting on casual garments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 12,
@@ -192,7 +735,56 @@
     "text": "Mistakenly dispatch trio — as a rule, it's awful",
     "enumeration": "12"
    },
-   "solution": "DICTATORSHIP"
+   "solution": "DICTATORSHIP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DICTATORSHIP",
+    "definitions": [
+     {
+      "text": "as a rule, it's awful",
+      "at": 27,
+      "note": "a whole phrase meaning an awful form of rule"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mistakenly",
+      "for": "anagram",
+      "note": "done mistakenly means done wrongly, so the letters are placed in the wrong order"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dispatch trio",
+      "gives": "DISPATCHTRIO",
+      "note": "the letters used as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DISPATCHTRIO",
+       "gives": "DICTATORSHIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Three people are sent off by mistake, which in general seems terrible.",
+     "walkthrough": "'As a rule' looks like the everyday phrase for 'usually'; here it means 'considered as a form of government'.",
+     "definitionFit": "A dictatorship is government by one absolute ruler, generally regarded as oppressive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rule"
+    }
+   }
   },
   {
    "number": 13,
@@ -206,7 +798,61 @@
     "text": "Full of excitement, also hugging one friend",
     "enumeration": "8"
    },
-   "solution": "ANIMATED"
+   "solution": "ANIMATED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANIMATED",
+    "definitions": [
+     {
+      "text": "Full of excitement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "something hugging another wraps its arms round it, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also",
+      "gives": "AND",
+      "note": "and, like also, adds another item"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "MATE",
+      "note": "a mate is a pal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "I",
+      "MATE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thrilled is also embracing a friend.",
+     "walkthrough": "'Also' means AND here, which splits open to take the other pieces inside.",
+     "definitionFit": "Animated means lively and spirited, the state of someone who is excited."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hugging"
+    }
+   }
   },
   {
    "number": 14,
@@ -220,7 +866,43 @@
     "text": "Went out with old hat",
     "enumeration": "5"
    },
-   "solution": "DATED"
+   "solution": "DATED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DATED",
+    "definitions": [
+     {
+      "text": "Went out with",
+      "at": 0
+     },
+     {
+      "text": "old hat",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Went out with",
+      "note": "first meaning: courted someone"
+     },
+     {
+      "clueFragment": "old hat",
+      "note": "second meaning: out of fashion"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone stepped out wearing an elderly hat.",
+     "definitionFit": "To have dated someone is to have courted them; dated also describes something outmoded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hat"
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +916,44 @@
     "text": "Criminal activity that has an impact in court",
     "enumeration": "6"
    },
-   "solution": "RACKET"
+   "solution": "RACKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RACKET",
+    "definitions": [
+     {
+      "text": "Criminal activity",
+      "at": 0
+     },
+     {
+      "text": "that has an impact in court",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criminal activity",
+      "note": "first meaning: a fraudulent scheme"
+     },
+     {
+      "clueFragment": "that has an impact in court",
+      "note": "second meaning: the strung bat that strikes the ball on a tennis court"
+     }
+    ],
+    "explanation": {
+     "surface": "A crime is described as one with effects at a trial.",
+     "walkthrough": "'Court' suggests a law court beside 'criminal'; it is a tennis court.",
+     "definitionFit": "A racket is a dishonest money-making scheme, and also the strung bat used in tennis or squash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 16,
@@ -248,7 +967,48 @@
     "text": "Right or left in Sumatra jarred Asian ruler",
     "enumeration": "4"
    },
-   "solution": "RAJA"
+   "solution": "RAJA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RAJA",
+    "definitions": [
+     {
+      "text": "Asian ruler",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     },
+     {
+      "text": "Right or left",
+      "for": "hidden_word",
+      "note": "says the run of letters can be read going rightwards or leftwards, both work here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sumatra jarred",
+      "gives": "RAJA",
+      "note": "found across the two words, and also when reading them backwards"
+     }
+    ],
+    "explanation": {
+     "surface": "A political right or left in Sumatra shook up an Asian leader.",
+     "walkthrough": "The word sits in sumatRA JArred, and read from the other end, deRRAJArtamus contains it too.",
+     "definitionFit": "A raja is an Indian or Malay king or prince."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Right"
+    }
+   }
   },
   {
    "number": 16,
@@ -262,7 +1022,53 @@
     "text": "Plant one president or another grew first",
     "enumeration": "8"
    },
-   "solution": "ROSEBUSH"
+   "solution": "ROSEBUSH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROSEBUSH",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "first says this piece is placed at the front of the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grew",
+      "gives": "ROSE",
+      "note": "rose is the past tense of rise, to grow"
+     },
+     {
+      "clueFragment": "one president or another",
+      "gives": "BUSH",
+      "note": "George H. W. Bush and George W. Bush were both US presidents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSE",
+      "BUSH"
+     ]
+    },
+    "explanation": {
+     "surface": "One leader or another planted something that grew.",
+     "definitionFit": "A rosebush is the shrub on which roses bloom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grew"
+    }
+   }
   },
   {
    "number": 17,
@@ -276,7 +1082,59 @@
     "text": "Favourite theory, being extremely selective? It's not important",
     "enumeration": "5"
    },
-   "solution": "PETTY"
+   "solution": "PETTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PETTY",
+    "definitions": [
+     {
+      "text": "not important",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely selective",
+      "for": "letter_selection",
+      "note": "choosing only the extremes means keeping just the first and final letters"
+     }
+    ],
+    "linkWords": [
+     "being",
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Favourite",
+      "gives": "PET",
+      "note": "a pet is a favourite, as in teacher's pet"
+     },
+     {
+      "clueFragment": "theory",
+      "gives": "TY",
+      "select": "outer",
+      "note": "its two end letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PET",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A beloved hypothesis is being very choosy, but it does not matter.",
+     "definitionFit": "Petty means trivial and of little consequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "selective"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1148,44 @@
     "text": "Time that may be taken for breakfast",
     "enumeration": "8"
    },
-   "solution": "PORRIDGE"
+   "solution": "PORRIDGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PORRIDGE",
+    "definitions": [
+     {
+      "text": "Time",
+      "at": 0
+     },
+     {
+      "text": "that may be taken for breakfast",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "note": "first meaning: British slang for a prison sentence"
+     },
+     {
+      "clueFragment": "that may be taken for breakfast",
+      "note": "second meaning: oat cereal boiled in milk or water"
+     }
+    ],
+    "explanation": {
+     "surface": "A meal that one has the time to eat in the morning.",
+     "walkthrough": "'Doing porridge' is British slang for serving a jail sentence, which is also called doing time.",
+     "definitionFit": "Porridge is a hot oat dish eaten at breakfast and British slang for a spell in prison."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Time"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1199,49 @@
     "text": "Answer by people that indicates agreement",
     "enumeration": "4"
    },
-   "solution": "AMEN"
+   "solution": "AMEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMEN",
+    "definitions": [
+     {
+      "text": "that indicates agreement",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men are people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A response from the crowd shows they concur.",
+     "definitionFit": "Amen is said at the end of a prayer, or in speech, to express assent: so be it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Answer"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1255,44 @@
     "text": "Full of tense expectation, kind of blue",
     "enumeration": "8"
    },
-   "solution": "ELECTRIC"
+   "solution": "ELECTRIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ELECTRIC",
+    "definitions": [
+     {
+      "text": "Full of tense expectation",
+      "at": 0
+     },
+     {
+      "text": "kind of blue",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Full of tense expectation",
+      "note": "first meaning: thrilling, charged with excitement"
+     },
+     {
+      "clueFragment": "kind of blue",
+      "note": "second meaning: a vivid bright shade"
+     }
+    ],
+    "explanation": {
+     "surface": "Anxious anticipation is linked to feeling sad.",
+     "walkthrough": "'Blue' suggests low spirits after 'tense'; it is a colour.",
+     "definitionFit": "An electric atmosphere is charged with excitement, and electric blue is a brilliant steely shade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1306,61 @@
     "text": "A verse that's in bad taste",
     "enumeration": "6"
    },
-   "solution": "SAVOUR"
+   "solution": "SAVOUR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAVOUR",
+    "definitions": [
+     {
+      "text": "taste",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's in",
+      "for": "container",
+      "note": "the first items are said to sit within what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad",
+      "gives": "SOUR",
+      "note": "food that has gone bad turns sour"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "verse",
+      "gives": "V",
+      "note": "V is the abbreviation for verse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "V",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A line of poetry is considered tasteless.",
+     "walkthrough": "A V goes inside SOUR, after the S.",
+     "definitionFit": "To savour is to taste and enjoy, and savour as a noun is a characteristic flavour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taste"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1374,54 @@
     "text": "Find party with music extremely incomplete",
     "enumeration": "8"
    },
-   "solution": "DISCOVER"
+   "solution": "DISCOVER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DISCOVER",
+    "definitions": [
+     {
+      "text": "Find",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incomplete",
+      "for": "deletion",
+      "note": "incomplete says a word is cut short by losing its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party with music",
+      "gives": "DISCO",
+      "note": "a disco is a dance party with recorded music"
+     },
+     {
+      "clueFragment": "extremely",
+      "gives": "VERY",
+      "note": "very means extremely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISCO",
+      "VER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds a party where the music is very patchy.",
+     "definitionFit": "To discover something is to come upon it for the first time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1435,55 @@
     "text": "E.g. fall for American boy after drink",
     "enumeration": "6"
    },
-   "solution": "SEASON"
+   "solution": "SEASON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEASON",
+    "definitions": [
+     {
+      "text": "E.g. fall for American",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says this piece follows the other in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SEA",
+      "note": "the drink is a familiar name for the sea"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "A US youngster falls in love after a drink.",
+     "walkthrough": "'Fall' looks like a verb with 'for'; it is the American word for autumn.",
+     "definitionFit": "Autumn, called fall in the US, is one of the year's four seasons, so it is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fall"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1503,66 @@
      }
     ]
    },
-   "solution": "BOARDINGPASS"
+   "solution": "BOARDINGPASS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BOARDING PASS",
+    "definitions": [
+     {
+      "text": "it's necessary to take flight",
+      "at": 34,
+      "note": "a phrase describing the document"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "astray",
+      "for": "anagram",
+      "note": "things that go astray wander off course, so these letters lose their order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "Spaniards go",
+      "gives": "SPANIARDSGO",
+      "note": "letters for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OARDINGPASS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPANIARDSGO",
+       "gives": "OARDINGPASS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Britons and Spaniards who get lost must flee.",
+     "walkthrough": "'Go' looks like part of the phrase 'go astray', but its letters join the fodder and 'astray' alone signals the shuffle.",
+     "definitionFit": "A boarding pass is the card a passenger must show to get on a plane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1576,65 @@
     "text": "A learner, in past, with skill",
     "enumeration": "4"
    },
-   "solution": "ABLY"
+   "solution": "ABLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ABLY",
+    "definitions": [
+     {
+      "text": "with skill",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "past",
+      "gives": "BY",
+      "note": "by means past, as in to walk by"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is for learner, as on a British learner driver's L-plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee, back then, had real talent.",
+     "walkthrough": "L sits inside BY, after A.",
+     "definitionFit": "Ably is an adverb meaning competently or skilfully."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "past"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1648,49 @@
     "text": "Cut oxygen, say, then hydrogen",
     "enumeration": "4"
    },
-   "solution": "GASH"
+   "solution": "GASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GASH",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oxygen, say",
+      "gives": "GAS",
+      "note": "oxygen is an example of a gas"
+     },
+     {
+      "clueFragment": "hydrogen",
+      "gives": "H",
+      "note": "H is the chemical symbol for hydrogen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist cuts back the oxygen and then the hydrogen.",
+     "definitionFit": "A gash is a long deep wound or slash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 26,
@@ -422,7 +1704,47 @@
     "text": "Solid, unlike a piece of cake",
     "enumeration": "4"
    },
-   "solution": "HARD"
+   "solution": "HARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HARD",
+    "definitions": [
+     {
+      "text": "Solid",
+      "at": 0
+     },
+     {
+      "text": "unlike a piece of cake",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solid",
+      "note": "first meaning: firm, not soft"
+     },
+     {
+      "clueFragment": "unlike a piece of cake",
+      "note": "second meaning: difficult, as a piece of cake is something easy"
+     }
+    ],
+    "explanation": {
+     "surface": "Something firm, quite different from a soft slice of sponge.",
+     "walkthrough": "'A piece of cake' is an idiom for an easy task, so its opposite is difficult.",
+     "definitionFit": "Hard means firm to the touch and also difficult."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cake"
+    }
+   }
   },
   {
    "number": 27,
@@ -436,7 +1758,53 @@
     "text": "Rescues characters abandoned in Las Vegas",
     "enumeration": "8"
    },
-   "solution": "SALVAGES"
+   "solution": "SALVAGES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SALVAGES",
+    "definitions": [
+     {
+      "text": "Rescues",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "anagram",
+      "note": "abandoned means wild and unrestrained, so the letters run loose into a new order"
+     }
+    ],
+    "linkWords": [
+     "characters"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Las Vegas",
+      "gives": "LASVEGAS",
+      "note": "the letters used as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LASVEGAS",
+       "gives": "SALVAGES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saves people left stranded in the Nevada gambling city.",
+     "definitionFit": "To salvage is to save goods or people from loss or wreckage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1824,49 @@
      }
     ]
    },
-   "solution": "HANDPICK"
+   "solution": "HANDPICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAND-PICK",
+    "definitions": [
+     {
+      "text": "Carefully select",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a hand is a labourer, as in farmhand"
+     },
+     {
+      "clueFragment": "tool",
+      "gives": "PICK",
+      "note": "a pick is a digging tool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "PICK"
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing a labourer and an implement with care.",
+     "definitionFit": "To hand-pick is to choose personally and with great attention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   }
  ]
 }
