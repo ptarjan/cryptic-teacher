@@ -159,9 +159,9 @@ print("TIDIED_NOTE", got["entries"][0]["annotation"]["definitions"][0]["text"], 
 
 # A title one typing slip from the only unclaimed number that fits is renumbered.
 fits = lambda date, n: 5040 <= n <= 5050
-print("RETYPED", F.retyped({"number": 5445, "date": "2023-02-12"}, fits, {5044, 5046}),
-      F.retyped({"number": 5445, "date": "2023-02-12"}, fits, {5045}),
-      F.retyped({"number": 2019, "date": "2019-02-23"}, fits, set()))
+print("RETYPED", B.retyped({"number": 5445, "date": "2023-02-12"}, fits, {5044, 5046}),
+      B.retyped({"number": 5445, "date": "2023-02-12"}, fits, {5045}),
+      B.retyped({"number": 2019, "date": "2019-02-23"}, fits, set()))
 
 # A puzzle filed with no setter is given the title's; a name never is replaced.
 sp = puzzle_paths.find("sundaytimes-4321")

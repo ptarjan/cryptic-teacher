@@ -634,6 +634,8 @@ def _busy_here(why):
 class Session:
     """One ssh session to a desktop's server, owned by one process."""
 
+    err = None
+
     def __init__(self, host):
         self.host = host
         self.err = tempfile.TemporaryFile()  # ssh's stderr for the session's life; close() closes it
@@ -758,7 +760,8 @@ class Session:
             self.proc.wait(5)
         except (OSError, subprocess.TimeoutExpired):
             pass
-        self.err.close()
+        if self.err is not None:  # a session built without __init__ has no stderr file
+            self.err.close()
 
 
 def ship(host):
