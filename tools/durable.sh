@@ -49,9 +49,19 @@ durable_checkpoint() {  # durable_checkpoint <what>: commit what is filed, push 
   ct_unstage_unparsable .
   ct_unstage_refused .
   if ! git diff --cached --quiet; then
-    what="$(git diff --cached --name-status -M -- puzzles | python3 "$_durable_dir/commit_subject.py" "$what")"
-    git commit -q -m "$(printf '%s\n\n%s' "$what" "$(python3 "$_durable_dir/provenance.py" trailer 2>/dev/null)")" ||
-      return 1
+    # One commit per puzzle (a rename's two paths together), then one for
+    # whatever else is staged (ledgers, series files).
+    local trailer line subj
+    trailer="$(python3 "$_durable_dir/provenance.py" trailer 2>/dev/null)"
+    while IFS= read -r line; do
+      [[ "$line" == *.json ]] || continue
+      IFS=$'\t' read -r -a p <<<"$line"
+      subj="$(printf '%s\n' "$line" | python3 "$_durable_dir/commit_subject.py" "$what")"
+      git commit -q -m "$(printf '%s\n\n%s' "$subj" "$trailer")" -- "${p[@]:1}" || return 1
+    done < <(git diff --cached --name-status -M -- puzzles)
+    if ! git diff --cached --quiet; then
+      git commit -q -m "$(printf '%s\n\n%s' "$what" "$trailer")" || return 1
+    fi
   fi
   # Oldest first, from the last one pushed (or origin/master): a commit whose
   # push failed is tried again here, before the ones made after it.
