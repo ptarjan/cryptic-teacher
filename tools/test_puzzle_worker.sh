@@ -220,5 +220,30 @@ stage_with() (   # how many adds are refused before one goes through
 check "two refusals, then staged" "$(stage_with 2)" "staged after 3"
 check "a lock that never clears still fails, after five tries" "$(stage_with 99)" "refused after 5"
 
+echo "a git commit refused by another command's index.lock is tried again"
+# shellcheck disable=SC2329  # its stubs are called by the sourced worker
+commit_with() (   # refusals before one goes through; why
+  CLAUDE_HEADLESS=() WORKER_MODEL=opus WORKER_EFFORT=medium WORKER_WRAP="" WORKER_JOB=test
+  . tools/puzzle_worker.sh
+  # worker_commit runs git commit inside $( ), so the count lives in a file
+  tries=$(mktemp)
+  git() { case "$1" in commit) echo x >>"$tries"; [ "$(wc -l <"$tries")" -gt "$REFUSE" ] && return 0
+    echo "fatal: Unable to create '.git/$WHY': File exists."; return 128;; *) return 0;; esac; }
+  python3() { return 0; }
+  sleep() { :; }
+  alert() { :; }
+  index_unlock() { :; }
+  REFUSE="$1" WHY="$2"
+  # worker_commit pushes through tools/push_puzzle_commit.sh by path: a stub
+  # one, or the real one would push whatever this checkout's HEAD holds
+  stub=$(mktemp -d); mkdir "$stub/tools"; printf 'exit 0\n' >"$stub/tools/push_puzzle_commit.sh"
+  chmod +x "$stub/tools/push_puzzle_commit.sh"; cd "$stub" || exit
+  worker_commit "Annotate pw-test" x >/dev/null && r=committed || r=refused
+  echo "$r after $(wc -l <"$tries")"; rm -rf "$tries" "$stub"
+)
+check "two lock refusals, then committed" "$(commit_with 2 index.lock)" "committed after 3"
+check "a lock that never clears still fails, after five tries" "$(commit_with 99 index.lock)" "refused after 5"
+check "any other refusal is not retried" "$(commit_with 99 HEAD.lock)" "refused after 1"
+
 [ "$fails" = 0 ] && echo "puzzle worker: all checks passed" || echo "puzzle worker: $fails FAILED"
 exit $((fails > 0))
