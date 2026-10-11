@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,50 @@
     "text": "Dog second in queue",
     "enumeration": "8"
    },
-   "solution": "TAILBACK"
+   "solution": "TAILBACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAILBACK",
+    "definitions": [
+     {
+      "text": "queue",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "gives": "TAIL",
+      "note": "to dog someone is to follow them closely, to tail them"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "BACK",
+      "note": "to second a proposal is to support or back it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAIL",
+      "BACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog waiting its turn, second in line.",
+     "walkthrough": "Both wordplay words are verbs here, though the surface reads them as a noun and a number.",
+     "definitionFit": "A tailback is a long line of stationary traffic stretching back from an obstruction, a road queue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +111,60 @@
     "text": "Country poem without the Spanish part",
     "enumeration": "5"
    },
-   "solution": "EGYPT"
+   "solution": "EGYPT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EGYPT",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the Spanish word is dropped from the poem"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poem",
+      "gives": "ELEGY",
+      "note": "an elegy is a mournful poem"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for 'the'"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "PT",
+      "note": "PT is the standard abbreviation for part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGY",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "A national poem missing its Spanish section.",
+     "walkthrough": "Part looks like a section of the poem, but it is just the usual abbreviation. Without here means minus, not outside.",
+     "definitionFit": "Egypt is a North African nation, so it is an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +178,60 @@
     "text": "Witty old woman back on drugs",
     "enumeration": "7"
    },
-   "solution": "AMUSING"
+   "solution": "AMUSING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "AMUSING",
+    "definitions": [
+     {
+      "text": "Witty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back tells us to read the old woman's name in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old woman",
+      "gives": "MA",
+      "note": "ma is an informal word for mother, a familiar 'old woman'"
+     },
+     {
+      "clueFragment": "on drugs",
+      "gives": "USING",
+      "note": "a drug user is said to be using"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "USING"
+     ],
+     "reversals": [
+      {
+       "from": "MA",
+       "to": "AM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp-tongued elderly woman who has relapsed into drug use.",
+     "definitionFit": "Something witty makes people laugh, so it is amusing; the two are near synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +245,48 @@
     "text": "Guevara with Munch?",
     "enumeration": "4"
    },
-   "solution": "CHEW"
+   "solution": "CHEW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHEW",
+    "definitions": [
+     {
+      "text": "Munch?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guevara",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine revolutionary"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is a standard abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "Pairing revolutionary Che Guevara with the Norwegian painter Edvard Munch.",
+     "walkthrough": "Munch looks like the painter of The Scream, a fellow famous name; the question mark warns it is the ordinary verb.",
+     "definitionFit": "To munch is to eat noisily by working the jaws, which is to chew."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Munch"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +300,58 @@
     "text": "Like stocks soon yielding capital",
     "enumeration": "6"
    },
-   "solution": "ATHENS"
+   "solution": "ATHENS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATHENS",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stocks",
+      "for": "container",
+      "note": "to stock something is to hold it, so the first word holds the next one inside"
+     }
+    ],
+    "linkWords": [
+     "yielding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like",
+      "gives": "AS",
+      "note": "as means like, in the manner of"
+     },
+     {
+      "clueFragment": "soon",
+      "gives": "THEN",
+      "note": "then means next, afterwards, coming soon after"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "THEN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A trader's forecast that share prices are like to yield returns soon.",
+     "walkthrough": "Stocks looks like shares on a market; it is a verb meaning holds, so AS holds THEN.",
+     "definitionFit": "Athens is the capital city of Greece, so the answer is an example of a capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stocks"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +365,58 @@
     "text": "Girl with the misshapen ears",
     "enumeration": "7"
    },
-   "solution": "THERESA"
+   "solution": "THERESA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THERESA",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misshapen",
+      "for": "anagram",
+      "note": "misshapen means put out of its proper form, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ears",
+      "gives": "EARS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEEARS",
+       "gives": "THERESA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl with badly shaped ears.",
+     "definitionFit": "Theresa is a female first name, and crosswords often define any such name as a girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "misshapen"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +430,67 @@
     "text": "Puzzling magnetic waves around island",
     "enumeration": "9"
    },
-   "solution": "ENIGMATIC"
+   "solution": "ENIGMATIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENIGMATIC",
+    "definitions": [
+     {
+      "text": "Puzzling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "waves",
+      "for": "anagram",
+      "note": "waves suggests movement back and forth, so the letters are churned into new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the reworked letters enclose the island"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "magnetic",
+      "gives": "MAGNETIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the standard abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "I",
+      "GMATIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAGNETIC",
+       "gives": "ENGMATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physicist baffled by magnetic waves circling an island.",
+     "walkthrough": "Magnetic waves reads as physics; waves is in fact a verb telling the letters to move.",
+     "definitionFit": "Enigmatic means mysterious and hard to understand, so it is a synonym of puzzling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "waves"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +504,49 @@
     "text": "Son in convenient place for drink",
     "enumeration": "6"
    },
-   "solution": "SHANDY"
+   "solution": "SHANDY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHANDY",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     },
+     {
+      "clueFragment": "in convenient place",
+      "gives": "HANDY",
+      "note": "something handy is close at hand, in a convenient place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HANDY"
+     ]
+    },
+    "explanation": {
+     "surface": "A son placed somewhere convenient for getting a drink.",
+     "definitionFit": "Shandy is a drink of beer mixed with lemonade, popular in British pubs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 9,
@@ -186,7 +583,70 @@
     "text": "Adele ultimately inclined to throttle pub trumpeter",
     "enumeration": "8"
    },
-   "solution": "ELEPHANT"
+   "solution": "ELEPHANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ELEPHANT",
+    "definitions": [
+     {
+      "text": "trumpeter",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the singer's name is used"
+     },
+     {
+      "text": "to throttle",
+      "for": "container",
+      "note": "to throttle is to grip around the throat, so one word wraps round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adele",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of Adele"
+     },
+     {
+      "clueFragment": "inclined",
+      "gives": "LEANT",
+      "note": "leant means inclined, tilted"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "PH",
+      "note": "PH is the map abbreviation for public house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LE",
+      "PH",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tale of singer Adele finally losing patience and strangling a trumpet player in a pub.",
+     "walkthrough": "Trumpeter looks like a musician in the pub scene; it is the animal named for its call.",
+     "definitionFit": "An elephant is a trumpeter because its loud call through the trunk is called trumpeting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trumpeter"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +660,53 @@
     "text": "Heather before noon leaving the States",
     "enumeration": "5"
    },
-   "solution": "ERICA"
+   "solution": "ERICA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ERICA",
+    "definitions": [
+     {
+      "text": "Heather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so the morning abbreviation is taken out of the country name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "before noon",
+      "gives": "AM",
+      "note": "AM, ante meridiem, means before noon"
+     },
+     {
+      "clueFragment": "the States",
+      "gives": "AMERICA",
+      "note": "the States is a common name for America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERICA"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Heather departs the US before midday.",
+     "walkthrough": "Heather looks like a woman's name; it is the plant.",
+     "definitionFit": "Erica is the botanical genus of heaths and heathers, so it names the plant heather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heather"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +726,50 @@
      }
     ]
    },
-   "solution": "BUTTIN"
+   "solution": "BUTTIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUTT IN",
+    "definitions": [
+     {
+      "text": "What Nosey Parker might do",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "save",
+      "gives": "BUT",
+      "note": "save means except, as does but"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "TIN",
+      "note": "tin is old British slang for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUT",
+      "TIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what a busybody would do with a request to save money.",
+     "walkthrough": "Save looks like a verb about thrift; here it is the preposition meaning except. A Nosey Parker is an interfering busybody.",
+     "definitionFit": "A busybody interrupts and meddles in others' affairs, which is to butt in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "save"
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +797,79 @@
    "group": [
     "13-across",
     "9-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HERE'S MUD IN YOUR EYE",
+    "definitions": [
+     {
+      "text": "Cheers!",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when out",
+      "for": "anagram",
+      "note": "out means not in the proper state, so these letters are disordered and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "gives": "HOUSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "RED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "MY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ruin",
+      "gives": "RUIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "looker",
+      "gives": "EYE",
+      "note": "an eye is the organ that looks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HERESMUDINYOUR",
+      "EYE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOUSEREDMYRUIN",
+       "gives": "HERESMUDINYOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker whose house red has been their ruin, raising a glass with a beauty.",
+     "walkthrough": "Looker suggests an attractive person; it is the organ that looks.",
+     "definitionFit": "Here's mud in your eye is an old, jocular drinking toast, used just as people say cheers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "looker"
+    }
+   }
   },
   {
    "number": 14,
@@ -262,7 +883,55 @@
     "text": "Ms Kelly's traditional tales about wet weather",
     "enumeration": "8"
    },
-   "solution": "LORRAINE"
+   "solution": "LORRAINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LORRAINE",
+    "definitions": [
+     {
+      "text": "Ms Kelly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the tales go round the weather word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "traditional tales",
+      "gives": "LORE",
+      "note": "lore is the body of traditional stories of a people"
+     },
+     {
+      "clueFragment": "wet weather",
+      "gives": "RAIN",
+      "note": "rain is wet weather"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOR",
+      "RAIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A presenter's old stories about rainy days.",
+     "walkthrough": "Lorraine Kelly is a Scottish breakfast television presenter in Britain.",
+     "definitionFit": "Lorraine is the first name of TV host Kelly, so the name stands for Ms Kelly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wet"
+    }
+   }
   },
   {
    "number": 15,
@@ -286,7 +955,40 @@
      }
     ]
    },
-   "solution": "CHANGEOFHEART"
+   "solution": "CHANGEOFHEART",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHANGE OF HEART",
+    "definitions": [
+     {
+      "text": "Volte-face",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hater suggests?",
+      "note": "surface reading: someone who hates hints at a reversal of feeling"
+     },
+     {
+      "clueFragment": "hater suggests?",
+      "note": "setter's reading: the word hater is what you get by rearranging the letters of the organ of love"
+     }
+    ],
+    "explanation": {
+     "surface": "A sudden reversal of opinion, as a hater might hint at.",
+     "walkthrough": "Shuffle the letters of the word heart and you get hater, so hater suggests a reworked heart.",
+     "definitionFit": "A volte-face is an about-turn in opinion or policy, which is a sudden reversal of feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hater"
+    }
+   }
   },
   {
    "number": 16,
@@ -300,7 +1002,57 @@
     "text": "Aggressor in trouble between two creatures",
     "enumeration": "9"
    },
-   "solution": "ASSAILANT"
+   "solution": "ASSAILANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASSAILANT",
+    "definitions": [
+     {
+      "text": "Aggressor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "between",
+      "for": "container",
+      "note": "between places one item in the gap separating two others"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two creatures",
+      "gives": "ASSANT",
+      "note": "an ass and an ant, two animals"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble or afflict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "AIL",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "An attacker caught in strife between two animals.",
+     "definitionFit": "An assailant is a person who attacks another, which makes them the aggressor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trouble"
+    }
+   }
   },
   {
    "number": 17,
@@ -314,7 +1066,46 @@
     "text": "Pursuit of profit?",
     "enumeration": "8"
    },
-   "solution": "INTEREST"
+   "solution": "INTEREST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INTEREST",
+    "definitions": [
+     {
+      "text": "Pursuit",
+      "at": 0
+     },
+     {
+      "text": "profit",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pursuit",
+      "note": "first meaning: a hobby or activity one enjoys following"
+     },
+     {
+      "clueFragment": "profit",
+      "note": "second meaning: money earned on a loan or deposit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one phrase about chasing gain; the question mark flags two separate senses of one word.",
+     "definitionFit": "The word means both a hobby followed for pleasure and the return earned on invested money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pursuit"
+    }
+   }
   },
   {
    "number": 18,
@@ -334,7 +1125,68 @@
      }
     ]
    },
-   "solution": "SANFRANCISCAN"
+   "solution": "SANFRANCISCAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SAN FRANCISCAN",
+    "definitions": [
+     {
+      "text": "Californian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "found in means located inside, so these words go within the outer ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "SAN",
+      "note": "san is short for sanatorium, a hospital"
+     },
+     {
+      "clueFragment": "currency",
+      "gives": "FRANC",
+      "note": "the franc is a currency, of Switzerland and formerly France"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "loo",
+      "gives": "CAN",
+      "note": "can is slang for a toilet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAN",
+      "FRANC",
+      "IS",
+      "CAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Californian money turning up in a hospital toilet.",
+     "walkthrough": "Californian looks like an adjective for the currency; it is the definition. Loo is British for toilet.",
+     "definitionFit": "A San Franciscan is a resident of San Francisco, a city in California, so a type of Californian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Californian"
+    }
+   }
   },
   {
    "number": 19,
@@ -348,7 +1200,52 @@
     "text": "Related to fission: new uranium crystal?",
     "enumeration": "7"
    },
-   "solution": "NUCLEAR"
+   "solution": "NUCLEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUCLEAR",
+    "definitions": [
+     {
+      "text": "Related to fission",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "uranium",
+      "gives": "U",
+      "note": "U is the chemical symbol for uranium"
+     },
+     {
+      "clueFragment": "crystal",
+      "gives": "CLEAR",
+      "note": "crystal as an adjective means perfectly clear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "U",
+      "CLEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A physics question asking whether a new uranium crystal bears on fission.",
+     "definitionFit": "Fission is the splitting of atomic nuclei, so anything relating to it is nuclear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crystal"
+    }
+   }
   },
   {
    "number": 20,
@@ -362,7 +1259,56 @@
     "text": "Check six-footer internalising pressure",
     "enumeration": "7"
    },
-   "solution": "INSPECT"
+   "solution": "INSPECT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INSPECT",
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "internalising",
+      "for": "container",
+      "note": "internalising means taking inside, so the creature holds the letter within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six-footer",
+      "gives": "INSECT",
+      "note": "insects have six legs"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INS",
+      "P",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "Examining a tall person who is bottling up stress.",
+     "walkthrough": "Six-footer suggests a very tall person; it is a creature with six feet.",
+     "definitionFit": "To inspect something is to examine it closely, so it is a synonym of check."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "six-footer"
+    }
+   }
   },
   {
    "number": 21,
@@ -376,7 +1322,50 @@
     "text": "Treated chesty grass-cutter",
     "enumeration": "6"
    },
-   "solution": "SCYTHE"
+   "solution": "SCYTHE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCYTHE",
+    "definitions": [
+     {
+      "text": "grass-cutter",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Treated",
+      "for": "anagram",
+      "note": "treated means processed or worked on, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chesty",
+      "gives": "CHESTY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHESTY",
+       "gives": "SCYTHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener with a chest complaint receiving medical treatment.",
+     "definitionFit": "A scythe is a long curved-bladed tool swung by hand to mow grass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Treated"
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1385,57 @@
      }
     ]
    },
-   "solution": "CHINCHIN"
+   "solution": "CHINCHIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHIN-CHIN",
+    "definitions": [
+     {
+      "text": "13 9!",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shed",
+      "for": "deletion",
+      "note": "shed means cast off, so the single letter is dropped from each mate"
+     }
+    ],
+    "linkWords": [
+     "both with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two mates",
+      "gives": "CHINACHINA",
+      "note": "china means mate in cockney rhyming slang (china plate rhymes with mate), taken twice"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIN",
+      "CHIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Two friends who each own a garden shed raise a toast.",
+     "walkthrough": "Shed looks like a garden hut; it is a verb meaning lose. Each CHINA loses its A. 13 9 refers to the toast HERE'S MUD IN YOUR EYE.",
+     "definitionFit": "Chin-chin is a dated toast used when drinking, like the cross-referenced toast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1449,44 @@
     "text": "Spirit tipsy chemist hides",
     "enumeration": "6"
    },
-   "solution": "PSYCHE"
+   "solution": "PSYCHE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PSYCHE",
+    "definitions": [
+     {
+      "text": "Spirit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hides",
+      "for": "hidden_word",
+      "note": "hides means conceals within, so the letters sit inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tipsy chemist",
+      "gives": "PSYCHE",
+      "note": "found running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A drunk pharmacist secretly keeping a bottle of spirits.",
+     "walkthrough": "Spirit suggests alcohol beside the tipsy chemist; it means the soul.",
+     "definitionFit": "The psyche is the human soul or mind, which is a sense of spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spirit"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1500,50 @@
     "text": "Tea at home for Bond",
     "enumeration": "5"
    },
-   "solution": "CHAIN"
+   "solution": "CHAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAIN",
+    "definitions": [
+     {
+      "text": "Bond",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tea",
+      "gives": "CHA",
+      "note": "cha (or char) is British slang for tea"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Tea at home laid on for the secret agent James Bond.",
+     "walkthrough": "Bond looks like the spy; it is a link or fetter.",
+     "definitionFit": "A chain is something that binds or restrains, and so it is a bond."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 25,
@@ -448,7 +1567,61 @@
    "group": [
     "25-down",
     "1-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOWN THE HATCH",
+    "definitions": [
+     {
+      "text": "13 9!",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "becoming excited",
+      "for": "anagram",
+      "note": "becoming excited means getting agitated, so the letters are stirred into new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Who'd",
+      "gives": "WHOD",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "chat",
+      "gives": "CHAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "then",
+      "gives": "THEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHODCHATTHEN",
+       "gives": "DOWNTHEHATCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering who would have a chat and then get worked up.",
+     "walkthrough": "13 9 refers to HERE'S MUD IN YOUR EYE, a toast.",
+     "definitionFit": "Down the hatch is a jokey toast said before swallowing a drink, matching the cross-referenced one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "excited"
+    }
+   }
   },
   {
    "number": 26,
@@ -462,7 +1635,60 @@
     "text": "Follow farm vehicle turning east",
     "enumeration": "5"
    },
-   "solution": "TRACE"
+   "solution": "TRACE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRACE",
+    "definitions": [
+     {
+      "text": "Follow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning means turning round, so the vehicle word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farm vehicle",
+      "gives": "CART",
+      "note": "a cart is a farm vehicle"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "E is the abbreviation for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAC",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "CART",
+       "to": "TRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tailing a tractor as it turns east.",
+     "definitionFit": "To trace someone is to track them down, which is to follow their trail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 27,
@@ -476,7 +1702,62 @@
     "text": "Clear West Country river containing single rodent",
     "enumeration": "9"
    },
-   "solution": "EXONERATE"
+   "solution": "EXONERATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXONERATE",
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding within, so the river surrounds the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "West Country river",
+      "gives": "EXE",
+      "note": "the Exe is a river in Devon, in England's West Country"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "ONE",
+      "note": "single means one"
+     },
+     {
+      "clueFragment": "rodent",
+      "gives": "RAT",
+      "note": "a rat is a rodent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ONE",
+      "RAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Clearing a West Country river of a lone rat.",
+     "walkthrough": "Clear looks like an instruction to clean the river; it is the definition.",
+     "definitionFit": "To exonerate is to declare someone free of blame, which is to clear them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clear"
+    }
+   }
   },
   {
    "number": 28,
@@ -490,7 +1771,54 @@
     "text": "Complete religious work in Ireland",
     "enumeration": "6"
    },
-   "solution": "ENTIRE"
+   "solution": "ENTIRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ENTIRE",
+    "definitions": [
+     {
+      "text": "Complete",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the religious text inside the country name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "religious work",
+      "gives": "NT",
+      "note": "NT is the New Testament"
+     },
+     {
+      "clueFragment": "Ireland",
+      "gives": "EIRE",
+      "note": "Eire is the Irish name for Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NT",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A finished devotional book produced in Ireland.",
+     "definitionFit": "Entire means whole, with nothing missing, so it is a synonym of complete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 29,
@@ -504,7 +1832,57 @@
     "text": "Gut feeling vague when DI vanishes",
     "enumeration": "8"
    },
-   "solution": "INSTINCT"
+   "solution": "INSTINCT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INSTINCT",
+    "definitions": [
+     {
+      "text": "Gut feeling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vanishes",
+      "for": "deletion",
+      "note": "vanishes means disappears, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vague",
+      "gives": "INDISTINCT",
+      "note": "indistinct means vague, unclear"
+     },
+     {
+      "clueFragment": "DI",
+      "gives": "DI",
+      "note": "taken as written; a DI is a detective inspector"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STINCT"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective's hunch going hazy once the detective inspector disappears.",
+     "walkthrough": "Gut feeling is apt for a detective, but the DI is just two letters to remove.",
+     "definitionFit": "An instinct is an intuitive, unreasoned sense of something, known colloquially as a gut feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "DI"
+    }
+   }
   }
  ]
 }
