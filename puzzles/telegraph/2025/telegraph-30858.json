@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,55 @@
     "text": "Police officers will accept promise to pay in full",
     "enumeration": "7"
    },
-   "solution": "COPIOUS"
+   "solution": "COPIOUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COPIOUS",
+    "definitions": [
+     {
+      "text": "in full",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will accept",
+      "for": "container",
+      "note": "to accept something is to take it in, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Police officers",
+      "gives": "COPS",
+      "note": "cops are police officers"
+     },
+     {
+      "clueFragment": "promise to pay",
+      "gives": "IOU",
+      "note": "an IOU is a written promise to pay a debt ('I owe you')"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COP",
+      "IOU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Officers agree to take a debtor's pledge that the full amount will be settled.",
+     "walkthrough": "'In full' is the definition: a copious account gives everything, in abundance.",
+     "definitionFit": "Something copious is plentiful and given in abundance, which is what 'in full' conveys of a supply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accept"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +97,65 @@
     "text": "Coat from new catalogue? No thanks",
     "enumeration": "7"
    },
-   "solution": "CAGOULE"
+   "solution": "CAGOULE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CAGOULE",
+    "definitions": [
+     {
+      "text": "Coat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "no here means without, so the following word's letters are removed"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new signals the letters are made into a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "catalogue",
+      "gives": "CATALOGUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is British informal for thanks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAGOULE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CALOGUE",
+       "gives": "CAGOULE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper turns down a coat from the latest mail-order brochure.",
+     "walkthrough": "Remove T and A from the catalogue's letters, then rearrange what is left.",
+     "definitionFit": "A cagoule is a light hooded waterproof jacket, so it is a type of coat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thanks"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +169,67 @@
     "text": "Beg to include men beginning to talk in picture",
     "enumeration": "7"
    },
-   "solution": "PORTRAY"
+   "solution": "PORTRAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PORTRAY",
+    "definitions": [
+     {
+      "text": "picture",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so only that is kept"
+     },
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "including something means taking it inside, so the other pieces go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beg",
+      "gives": "PRAY",
+      "note": "to pray is to beg or entreat"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR stands for other ranks, ordinary soldiers"
+     },
+     {
+      "clueFragment": "talk",
+      "gives": "T",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OR",
+      "T",
+      "RAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Plead to have the men start speaking in the film.",
+     "definitionFit": "To portray someone is to depict them in a painting or performance, so it is a verb synonym of picture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "picture"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +243,39 @@
     "text": "Refuse to eat?",
     "enumeration": "5"
    },
-   "solution": "OFFAL"
+   "solution": "OFFAL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OFFAL",
+    "definitions": [
+     {
+      "text": "Refuse to eat?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refuse to eat?",
+      "note": "surface reading: declining food, with refuse as a verb"
+     },
+     {
+      "clueFragment": "Refuse to eat?",
+      "note": "setter's reading: refuse as a noun, waste matter that is nevertheless edible"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Refuse switches from the verb (re-FUSE) to the noun (REF-use): leftover bits of a carcass that people still cook.",
+     "definitionFit": "Offal is the entrails and organs of a slaughtered animal, once treated as waste but eaten as food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +289,42 @@
     "text": "In some respect, a clever display",
     "enumeration": "9"
    },
-   "solution": "SPECTACLE"
+   "solution": "SPECTACLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SPECTACLE",
+    "definitions": [
+     {
+      "text": "display",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In some",
+      "for": "hidden_word",
+      "note": "the solution lies inside some of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "respect, a clever",
+      "gives": "SPECTACLE",
+      "note": "read across the word breaks"
+     }
+    ],
+    "explanation": {
+     "surface": "A smart show earns some admiration.",
+     "definitionFit": "A spectacle is a visually striking public show, a synonym for a display."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "respect"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +352,42 @@
     "text": "Rate drug",
     "enumeration": "5"
    },
-   "solution": "SPEED"
+   "solution": "SPEED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPEED",
+    "definitions": [
+     {
+      "text": "Rate",
+      "at": 0
+     },
+     {
+      "text": "drug",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rate",
+      "note": "first meaning: pace or velocity"
+     },
+     {
+      "clueFragment": "drug",
+      "note": "second meaning: slang for amphetamine"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as an instruction to grade a medicine; the two words are separate meanings.",
+     "definitionFit": "The word means velocity and is also street slang for amphetamine, a stimulant drug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rate"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +407,56 @@
      }
     ]
    },
-   "solution": "LIEAROUND"
+   "solution": "LIEAROUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIE AROUND",
+    "definitions": [
+     {
+      "text": "Relax",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pork pie",
+      "gives": "LIE",
+      "note": "pork pie is rhyming slang for lie"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "number of drinks",
+      "gives": "ROUND",
+      "note": "a round is drinks bought for a group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIE",
+      "A",
+      "ROUND"
+     ]
+    },
+    "explanation": {
+     "surface": "Unwind in the pub with a pie and a few beers.",
+     "walkthrough": "Cockney rhyming slang: pork pie (often 'porky') means a lie. A round is a set of drinks bought for everyone in a British pub group.",
+     "definitionFit": "To lie around is to lounge idly, an informal way to say relax."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pork"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +470,42 @@
     "text": "\"Bacon,\" I teased, \"contains something poisonous\"",
     "enumeration": "7"
    },
-   "solution": "ACONITE"
+   "solution": "ACONITE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ACONITE",
+    "definitions": [
+     {
+      "text": "something poisonous",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "hidden_word",
+      "note": "the words before it hold the solution within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bacon,\" I teased",
+      "gives": "ACONITE",
+      "note": "read across the word breaks"
+     }
+    ],
+    "explanation": {
+     "surface": "A teasing remark that the breakfast meat holds a toxin.",
+     "definitionFit": "Aconite, or monkshood, is a plant yielding a deadly toxin, so it is a poisonous thing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "teased"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +519,70 @@
     "text": "Enhance base of pizza with ground nutmeg",
     "enumeration": "7"
    },
-   "solution": "AUGMENT"
+   "solution": "AUGMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "AUGMENT",
+    "definitions": [
+     {
+      "text": "Enhance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "base of",
+      "for": "letter_selection",
+      "note": "in a down clue the base is the bottom, the last letter of the word"
+     },
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "something ground is crushed, so these letters are broken up and reassembled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pizza",
+      "gives": "A",
+      "select": "last",
+      "note": "its final letter"
+     },
+     {
+      "clueFragment": "nutmeg",
+      "gives": "NUTMEG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "UGMENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NUTMEG",
+       "gives": "UGMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Improve a pizza crust by grating some spice over it.",
+     "definitionFit": "To augment is to increase or add to something, a synonym for enhance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +596,61 @@
     "text": "Mistake to keep occasionally fiery animal",
     "enumeration": "7"
    },
-   "solution": "GIRAFFE"
+   "solution": "GIRAFFE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GIRAFFE",
+    "definitions": [
+     {
+      "text": "animal",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter of the word is used"
+     },
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "keeping something means holding it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mistake",
+      "gives": "GAFFE",
+      "note": "a gaffe is a social blunder"
+     },
+     {
+      "clueFragment": "fiery",
+      "gives": "IR",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "IR",
+      "AFFE"
+     ]
+    },
+    "explanation": {
+     "surface": "An error leads to keeping some fiery creature now and then.",
+     "definitionFit": "The giraffe is an African mammal, the tallest living animal, so it is an example of the definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +664,71 @@
     "text": "Soon hero fell for Inga, according to insiders?",
     "enumeration": "7"
    },
-   "solution": "ERELONG"
+   "solution": "ERELONG",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ERELONG",
+    "definitions": [
+     {
+      "text": "Soon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to insiders",
+      "for": "letter_selection",
+      "note": "the insiders of words are their inner letters, so only the middles are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hero",
+      "gives": "ER",
+      "select": "middle",
+      "note": "the inner two letters"
+     },
+     {
+      "clueFragment": "fell",
+      "gives": "EL",
+      "select": "middle",
+      "note": "the inner two letters"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "O",
+      "select": "middle",
+      "note": "the central letter"
+     },
+     {
+      "clueFragment": "Inga",
+      "gives": "NG",
+      "select": "middle",
+      "note": "the inner two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "EL",
+      "O",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip has it that a hero will shortly fall in love with Inga.",
+     "walkthrough": "'According to insiders' sounds like gossip from those in the know; it asks for the inside letters of the four words.",
+     "definitionFit": "Erelong is an archaic adverb meaning before long, which is a synonym for soon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "insiders"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +742,64 @@
     "text": "Run out, over the moon to be different",
     "enumeration": "9"
    },
-   "solution": "UNRELATED"
+   "solution": "UNRELATED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNRELATED",
+    "definitions": [
+     {
+      "text": "different",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or disordered, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "RUN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "over the moon",
+      "gives": "ELATED",
+      "note": "over the moon means delighted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNR",
+      "ELATED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUN",
+       "gives": "UNR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's runs out of joy, delighted to stand apart from the crowd.",
+     "walkthrough": "'Run out' reads as a cricket dismissal, but 'out' rearranges just the word before it.",
+     "definitionFit": "Unrelated things have no connection to each other, so they are distinct or different."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +813,61 @@
     "text": "Rubbish emptied in European river",
     "enumeration": "5"
    },
-   "solution": "RHINE"
+   "solution": "RHINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RHINE",
+    "definitions": [
+     {
+      "text": "river",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "a word emptied has its insides removed, leaving only its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rubbish",
+      "gives": "RH",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RH",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Waste has been dumped into a river on the Continent.",
+     "definitionFit": "The Rhine is a major river of western Europe, flowing from Switzerland to the North Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "emptied"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +881,62 @@
     "text": "Ultimately well-meaning type ruined country",
     "enumeration": "5"
    },
-   "solution": "EGYPT"
+   "solution": "EGYPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EGYPT",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is used"
+     },
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked, so these letters are broken up and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "well-meaning",
+      "gives": "G",
+      "select": "last",
+      "note": "its final letter"
+     },
+     {
+      "clueFragment": "type",
+      "gives": "TYPE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GTYPE",
+       "gives": "EGYPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kindly sort of person ended up wrecking a nation.",
+     "definitionFit": "Egypt is a nation in north-east Africa, so it is an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +956,74 @@
      }
     ]
    },
-   "solution": "TIMETRIAL"
+   "solution": "TIMETRIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "TIME TRIAL",
+    "definitions": [
+     {
+      "text": "cycling event?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so everything before it is read backwards"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "'start of' keeps only the first letter of 'television'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "LAIR",
+      "note": "a study is a den, and a den is a lair"
+     },
+     {
+      "clueFragment": "television",
+      "gives": "T",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "EMIT",
+      "note": "to emit a signal is to broadcast it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIME",
+      "T",
+      "RIAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAIRTEMIT",
+       "to": "TIMETRIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Look into the start of a TV programme about a bike race.",
+     "walkthrough": "'Study' is a noun here, a private room; 'start of' picks the first letter of television.",
+     "definitionFit": "A time trial is a race where cyclists ride alone against the clock, a standard cycling event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +1037,55 @@
     "text": "Large clubs put loner off",
     "enumeration": "9"
    },
-   "solution": "CORPULENT"
+   "solution": "CORPULENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CORPULENT",
+    "definitions": [
+     {
+      "text": "Large",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off can mean gone bad or out of place, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the abbreviation for clubs, the card suit"
+     },
+     {
+      "clueFragment": "put loner",
+      "gives": "PUTLONER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CPUTLONER",
+       "gives": "CORPULENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Big golf clubs deterred a solitary player.",
+     "definitionFit": "Corpulent describes a person who is fat or stout, a polite synonym for large in build."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +1099,50 @@
     "text": "Home cider seen brewing",
     "enumeration": "9"
    },
-   "solution": "RESIDENCE"
+   "solution": "RESIDENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESIDENCE",
+    "definitions": [
+     {
+      "text": "Home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewing",
+      "for": "anagram",
+      "note": "brewing means being mixed and fermented, so these letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cider seen",
+      "gives": "CIDERSEEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CIDERSEEN",
+       "gives": "RESIDENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Homemade scrumpy has been spotted fermenting.",
+     "definitionFit": "A residence is the place where someone lives, a formal synonym for home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Home"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1156,48 @@
     "text": "Unattractive companion missing members",
     "enumeration": "9"
    },
-   "solution": "CHARMLESS"
+   "solution": "CHARMLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARMLESS",
+    "definitions": [
+     {
+      "text": "Unattractive",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "companion",
+      "gives": "CH",
+      "note": "CH stands for Companion of Honour, a British order"
+     },
+     {
+      "clueFragment": "missing members",
+      "gives": "ARMLESS",
+      "note": "arms are limbs, or members, so lacking them is armless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "ARMLESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A plain-looking friend is absent from the club roll.",
+     "walkthrough": "'Members' looks like people on a list, but here it means limbs.",
+     "definitionFit": "Something charmless lacks any appeal or charm, which makes it a synonym for unattractive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "members"
+    }
+   }
   },
   {
    "number": 17,
@@ -310,7 +1211,72 @@
     "text": "Opening of roof in centre court is right",
     "enumeration": "7"
    },
-   "solution": "CORRECT"
+   "solution": "CORRECT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "CORRECT",
+    "definitions": [
+     {
+      "text": "right",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one letter inside another word"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roof",
+      "gives": "R",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "centre",
+      "gives": "CORE",
+      "note": "the core is the centre"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "R",
+      "RE",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "Opening the roof on Centre Court at Wimbledon is the right call.",
+     "walkthrough": "Centre Court is Wimbledon's main tennis court with a retractable roof; here the two words are separate pieces.",
+     "definitionFit": "Correct and right are synonyms meaning accurate or true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1290,57 @@
     "text": "In EastEnders ruin a party, finding something to smash?",
     "enumeration": "7"
    },
-   "solution": "AVOCADO"
+   "solution": "AVOCADO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVOCADO",
+    "definitions": [
+     {
+      "text": "something to smash?",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In EastEnders ruin",
+      "gives": "AVOC",
+      "note": "havoc means ruin; a Cockney drops the initial H"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVOC",
+      "A",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "In the soap, a party is wrecked and something gets smashed.",
+     "walkthrough": "EastEnders is a BBC soap set in East London, so its characters drop their aitches. The definition refers to smashed avocado, a brunch staple.",
+     "definitionFit": "Avocado is famously served crushed on toast as smashed avocado, so it is a fruit people smash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smash"
+    }
+   }
   },
   {
    "number": 19,
@@ -338,7 +1354,39 @@
     "text": "Retreat from Moscow?",
     "enumeration": "5"
    },
-   "solution": "DACHA"
+   "solution": "DACHA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DACHA",
+    "definitions": [
+     {
+      "text": "Retreat from Moscow?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retreat from Moscow?",
+      "note": "surface reading: Napoleon's disastrous withdrawal from Moscow in 1812"
+     },
+     {
+      "clueFragment": "Retreat from Moscow?",
+      "note": "setter's reading: a country hideaway where Muscovites escape the city"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase recalls a famous military withdrawal; read again, a retreat is a quiet holiday home.",
+     "definitionFit": "A dacha is a Russian country cottage, a weekend escape for city dwellers such as those from Moscow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Retreat"
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1400,60 @@
     "text": "Unusually cheap gold hat",
     "enumeration": "7"
    },
-   "solution": "CHAPEAU"
+   "solution": "CHAPEAU",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CHAPEAU",
+    "definitions": [
+     {
+      "text": "hat",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unusually",
+      "for": "anagram",
+      "note": "unusually means not in the normal way, so the letters take an unusual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheap",
+      "gives": "CHEAP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAPE",
+      "AU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHEAP",
+       "gives": "CHAPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golden hat going for a surprisingly low price.",
+     "definitionFit": "Chapeau is the French word for hat, used in English for headgear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheap"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1467,49 @@
     "text": "Rather slow article by Italian poet",
     "enumeration": "7"
    },
-   "solution": "ANDANTE"
+   "solution": "ANDANTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANDANTE",
+    "definitions": [
+     {
+      "text": "Rather slow",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "Italian poet",
+      "gives": "DANTE",
+      "note": "Dante Alighieri, author of the Divine Comedy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "DANTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of writing by an Italian verse-maker is a bit sluggish.",
+     "definitionFit": "Andante is a musical tempo marking meaning at a moderately slow, walking pace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1523,56 @@
     "text": "England cricketer, second to go in, bats on this?",
     "enumeration": "5"
    },
-   "solution": "ROOST"
+   "solution": "ROOST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROOST",
+    "definitions": [
+     {
+      "text": "bats on this?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go in",
+      "for": "container",
+      "note": "going in means entering, so one letter is placed inside the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "England cricketer",
+      "gives": "ROOT",
+      "note": "Joe Root, the England batsman and former captain"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROO",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An England cricketer coming in at number two wields the bat on this pitch.",
+     "walkthrough": "The cricket picture makes 'bats' a verb for batting; it is the flying mammals, which hang up to rest.",
+     "definitionFit": "A roost is a perch where birds or bats settle to sleep, which is where bats rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1586,49 @@
     "text": "Team, reportedly weary, keep trophies in here?",
     "enumeration": "9"
    },
-   "solution": "SIDEBOARD"
+   "solution": "SIDEBOARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "SIDEBOARD",
+    "definitions": [
+     {
+      "text": "keep trophies in here?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is spoken, so a word is chosen by how it sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Team",
+      "gives": "SIDE",
+      "note": "a side is a sports team"
+     },
+     {
+      "clueFragment": "weary",
+      "gives": "BOARD",
+      "soundsLike": "BORED",
+      "note": "bored, a sense of weary, sounds like a plank of wood"
+     }
+    ],
+    "explanation": {
+     "surface": "A tired team stores its cups here.",
+     "definitionFit": "A sideboard is a cabinet in a dining room where silverware or trophies might be displayed and stored."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "weary"
+    }
+   }
   },
   {
    "number": 23,
@@ -408,7 +1642,60 @@
     "text": "Disreputable prophet, not drinking, runs out on two separate occasions",
     "enumeration": "5"
    },
-   "solution": "SEEDY"
+   "solution": "SEEDY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SEEDY",
+    "definitions": [
+     {
+      "text": "Disreputable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out on two separate occasions",
+      "for": "deletion",
+      "note": "out means removed, and two separate occasions means it happens once in each of two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prophet",
+      "gives": "SEER",
+      "note": "a seer foretells the future"
+     },
+     {
+      "clueFragment": "not drinking",
+      "gives": "DRY",
+      "note": "dry means abstaining from alcohol"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "DY"
+     ]
+    },
+    "explanation": {
+     "surface": "A shady fortune-teller, now teetotal, goes jogging twice.",
+     "walkthrough": "'On two separate occasions' means one R comes out of each word, not two from one.",
+     "definitionFit": "Seedy means sordid or shabby in a squalid way, close to disreputable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1709,60 @@
     "text": "Perhaps writer turned up for session",
     "enumeration": "5"
    },
-   "solution": "BINGE"
+   "solution": "BINGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BINGE",
+    "definitions": [
+     {
+      "text": "session",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means flipped bottom to top, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps",
+      "gives": "EG",
+      "note": "e.g. means for example, as perhaps does"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "NIB",
+      "note": "a nib is the writing point of a pen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIN",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EGNIB",
+       "to": "BINGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer may show up for a sitting.",
+     "definitionFit": "A binge is a bout of excess, especially drinking, and a session is British slang for such a bout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1776,58 @@
     "text": "Inspect area in former colliery, say",
     "enumeration": "7"
    },
-   "solution": "EXAMINE"
+   "solution": "EXAMINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXAMINE",
+    "definitions": [
+     {
+      "text": "Inspect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the others around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex- means former"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "colliery, say",
+      "gives": "MINE",
+      "note": "a colliery is an example of a mine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "A",
+      "MINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Survey a section of an old coal pit.",
+     "definitionFit": "To examine something is to look at it closely, a direct synonym for inspect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -450,7 +1841,46 @@
     "text": "Granny piercing material",
     "enumeration": "7"
    },
-   "solution": "NANKEEN"
+   "solution": "NANKEEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NANKEEN",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Granny",
+      "gives": "NAN",
+      "note": "nan is an informal word for grandmother"
+     },
+     {
+      "clueFragment": "piercing",
+      "gives": "KEEN",
+      "note": "a piercing wind or gaze is keen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAN",
+      "KEEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Grandma pushing a needle through cloth.",
+     "definitionFit": "Nankeen is a yellowish cotton fabric originally from Nanjing, so it is a kind of material."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piercing"
+    }
+   }
   },
   {
    "number": 27,
@@ -464,7 +1894,62 @@
     "text": "One's pushed unpleasant person you once backed",
     "enumeration": "7"
    },
-   "solution": "TROLLEY"
+   "solution": "TROLLEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TROLLEY",
+    "definitions": [
+     {
+      "text": "One's pushed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means put into reverse, so the word is read from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unpleasant person",
+      "gives": "TROLL",
+      "note": "a troll is a nasty, hostile person, especially online"
+     },
+     {
+      "clueFragment": "you once",
+      "gives": "YE",
+      "note": "ye is the old form of you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROLL",
+      "EY"
+     ],
+     "reversals": [
+      {
+       "from": "YE",
+       "to": "EY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is shoved aside by a nasty character you used to support.",
+     "walkthrough": "'One's pushed' reads as a victim of bullying; it defines a cart that gets pushed.",
+     "definitionFit": "A trolley is a wheeled cart that a shopper or porter pushes along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pushed"
+    }
+   }
   },
   {
    "number": 28,
@@ -478,7 +1963,48 @@
     "text": "Carry out banker? Sweet!",
     "enumeration": "7"
    },
-   "solution": "EXECUTE"
+   "solution": "EXECUTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXECUTE",
+    "definitions": [
+     {
+      "text": "Carry out",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "banker",
+      "gives": "EXE",
+      "note": "a banker is a river, something with banks; the Exe flows through Devon"
+     },
+     {
+      "clueFragment": "Sweet",
+      "gives": "CUTE",
+      "note": "cute means sweet or charming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXE",
+      "CUTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether to take away the bank worker, then cries 'Lovely!'",
+     "walkthrough": "'Banker' is the crossword word for a river, not a financier.",
+     "definitionFit": "To execute a plan or order is to perform it, which matches carry out as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "banker"
+    }
+   }
   }
  ]
 }
