@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "After excluding two unknowns, group of stars party",
     "enumeration": "4"
    },
-   "solution": "GALA"
+   "solution": "GALA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GALA",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After excluding",
+      "for": "deletion",
+      "note": "excluding means leaving something out, so once those letters are removed the rest remains"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group of stars",
+      "gives": "GALAXY",
+      "note": "a galaxy is a vast group of stars"
+     },
+     {
+      "clueFragment": "two unknowns",
+      "gives": "XY",
+      "note": "x and y are the usual unknowns in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GALA"
+     ]
+    },
+    "explanation": {
+     "surface": "A galaxy, minus a couple of mysteries, throws a party.",
+     "walkthrough": "Crosswords borrow the algebra letters x, y and z for 'unknowns'; here two of them come off GALAXY to leave GALA.",
+     "definitionFit": "A gala is a festive social occasion or celebration, which is a kind of party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unknowns"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +96,75 @@
     "text": "150 may riot over European money for weapon",
     "enumeration": "8"
    },
-   "solution": "CLAYMORE"
+   "solution": "CLAYMORE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CLAYMORE",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "riot",
+      "for": "anagram",
+      "note": "to riot is to run wild, so the letters of the neighbouring word are thrown into disorder"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, one piece sitting over another is simply written above it, so first comes before second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "150",
+      "gives": "CL",
+      "note": "CL is 150 in Roman numerals"
+     },
+     {
+      "clueFragment": "may",
+      "gives": "MAY",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "European money",
+      "gives": "ORE",
+      "note": "the öre is a small coin of Sweden, Denmark and Norway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "AYM",
+      "ORE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAY",
+       "gives": "AYM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hundred and fifty people might riot over euros, as a reason to take up arms.",
+     "walkthrough": "'150' looks like a count of rioters but is Roman CL; the öre is the Scandinavian coin worth a hundredth of a krona.",
+     "definitionFit": "A claymore is a large two-edged Scottish broadsword, a type of weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "riot"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +178,61 @@
     "text": "Successful in Australia, Kelly's record is revoked",
     "enumeration": "6"
    },
-   "solution": "GOLDEN"
+   "solution": "GOLDEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GOLDEN",
+    "definitions": [
+     {
+      "text": "Successful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is revoked",
+      "for": "reversal",
+      "note": "revoking undoes or turns back a decision, so the pieces are read from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Australia, Kelly's",
+      "gives": "NED",
+      "note": "Ned Kelly, the Australian outlaw"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LOG",
+      "note": "a log is a written record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOL",
+      "DEN"
+     ],
+     "reversals": [
+      {
+       "from": "NEDLOG",
+       "to": "GOLDEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian called Kelly did well, but then her record was cancelled.",
+     "walkthrough": "Ned Kelly was the notorious 19th-century Australian bushranger; his NED and LOG are written backwards together.",
+     "definitionFit": "Golden can mean very successful or flourishing, as in a golden era or golden boy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revoked"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +246,81 @@
     "text": "Before Conservative Party's finished, Johnson finally quit and gave up",
     "enumeration": "8"
    },
-   "solution": "CONCEDED"
+   "solution": "CONCEDED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "CONCEDED",
+    "definitions": [
+     {
+      "text": "gave up",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Before",
+      "for": "charade",
+      "note": "the setter reads 'before Y, X' as X put ahead of Y, so the second-named item leads"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the very end of the name it follows, keeping only its closing letter"
+     },
+     {
+      "text": "quit",
+      "for": "deletion",
+      "note": "something that has quit has left, so that letter goes out of the word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party's",
+      "gives": "CON",
+      "note": "CON is short for the Conservative Party"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "ENDED",
+      "note": "finished means ended"
+     },
+     {
+      "clueFragment": "Johnson",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of Johnson"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "C",
+      "EDED"
+     ]
+    },
+    "explanation": {
+     "surface": "Boris Johnson resigned in defeat before his party's time in government was over.",
+     "walkthrough": "The setter confirmed this parse, reading 'before Y, X' as X ahead of Y, so the party comes ahead of the single-letter Conservative; many solvers found that order hard.",
+     "definitionFit": "To concede is to admit defeat or surrender something, so conceded is a past-tense synonym for gave up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Johnson"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +334,66 @@
     "text": "Various nuts lacking individual taste",
     "enumeration": "6"
    },
-   "solution": "SAVOUR"
+   "solution": "SAVOUR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SAVOUR",
+    "definitions": [
+     {
+      "text": "taste",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so the letters are scrambled into a new order"
+     },
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means going without, so one letter is taken out first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Various",
+      "gives": "VARIOUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "I",
+      "note": "I is the Roman numeral one, a single individual"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAVOUR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VAROUS",
+       "gives": "SAVOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An assortment of nuts with no distinctive flavour of its own.",
+     "walkthrough": "'Nuts' and 'taste' look like a snack review; nuts is the scramble signal and taste is the verb.",
+     "definitionFit": "To savour is to taste and enjoy something slowly, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +407,55 @@
     "text": "Overseas characters stuff up",
     "enumeration": "4"
    },
-   "solution": "ETAS"
+   "solution": "ETAS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ETAS",
+    "definitions": [
+     {
+      "text": "Overseas characters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from the bottom to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stuff",
+      "gives": "SATE",
+      "note": "to stuff yourself is to sate your appetite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETAS"
+     ],
+     "reversals": [
+      {
+       "from": "SATE",
+       "to": "ETAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Foreign people stuff themselves full.",
+     "walkthrough": "'Overseas characters' sounds like foreign people but means letters of a foreign alphabet.",
+     "definitionFit": "Eta is a letter of the Greek alphabet, so etas are characters used abroad in Greece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +469,70 @@
     "text": "Boycott gets 50 and left balls in bag",
     "enumeration": "7"
    },
-   "solution": "BALLOON"
+   "solution": "BALLOON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BALLOON",
+    "definitions": [
+     {
+      "text": "bag",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "items placed in something go inside it, here within the word for boycott"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boycott",
+      "gives": "BAN",
+      "note": "to boycott is to ban"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is 50 in Roman numerals"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "balls",
+      "gives": "OO",
+      "note": "two round letters O look like balls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "L",
+      "L",
+      "OO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Geoffrey Boycott scores a fifty and leaves the balls in his kit bag.",
+     "walkthrough": "Geoffrey Boycott was a famous Yorkshire and England cricket batsman, so the surface is about cricket; here boycott is simply a ban.",
+     "definitionFit": "A balloon is an inflatable bag of thin rubber or fabric filled with air or gas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Boycott"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +546,48 @@
     "text": "They say sitcom family cuppa has majestic quality",
     "enumeration": "7"
    },
-   "solution": "ROYALTY"
+   "solution": "ROYALTY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ROYALTY",
+    "definitions": [
+     {
+      "text": "majestic quality",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "They say",
+      "for": "homophone",
+      "note": "what people say is spoken, so the words are judged by their sound rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sitcom family cuppa",
+      "gives": "ROYALTY",
+      "soundsLike": "ROYLE TEA",
+      "note": "The Royle Family is a British TV sitcom; a cuppa is a cup of tea"
+     }
+    ],
+    "explanation": {
+     "surface": "Rumour has it a TV sitcom family's cup of tea is fit for a king.",
+     "walkthrough": "The Royle Family was a British sitcom about a couch-bound Manchester family; a cuppa is British slang for a cup of tea.",
+     "definitionFit": "Royalty can mean the status or dignity of a monarch, a regal or majestic character."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "family"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +601,49 @@
     "text": "Knight undressed noblewoman",
     "enumeration": "4"
    },
-   "solution": "LADY"
+   "solution": "LADY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LADY",
+    "definitions": [
+     {
+      "text": "noblewoman",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undressed",
+      "for": "deletion",
+      "note": "stripping off the outer layer leaves only the inside, so the first and last letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knight",
+      "gives": "GLADYS",
+      "note": "the soul singer Gladys Knight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LADY"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight strips off in front of a noblewoman.",
+     "walkthrough": "Knight is not a knight in armour but Gladys Knight, of Gladys Knight and the Pips; her first name loses its outer letters.",
+     "definitionFit": "A lady is a woman of noble rank, the title held by a peeress or a knight's wife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Knight"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +657,71 @@
     "text": "Lied about Conservative promises being tasteful",
     "enumeration": "9"
    },
-   "solution": "DELICIOUS"
+   "solution": "DELICIOUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DELICIOUS",
+    "definitions": [
+     {
+      "text": "tasteful",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests something turned around and moved, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lied",
+      "gives": "LIED",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "promises",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to pay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DELI",
+      "C",
+      "IOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIED",
+       "gives": "DELI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory lied about his promises showing good taste.",
+     "walkthrough": "Tasteful here means full of taste, as food is, rather than showing refinement.",
+     "definitionFit": "Delicious food has a delightful flavour; the clue uses tasteful in the literal sense of full of flavour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tasteful"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +735,67 @@
     "text": "White meat course partially cooked",
     "enumeration": "9"
    },
-   "solution": "LAMBRUSCO"
+   "solution": "LAMBRUSCO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LAMBRUSCO",
+    "definitions": [
+     {
+      "text": "White",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partially",
+      "for": "deletion",
+      "note": "partially means only in part, so the word is used without its final letter"
+     },
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the remaining letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat",
+      "gives": "LAMB",
+      "note": "lamb is a meat"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "COURSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAMB",
+      "RUSCO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COURS",
+       "gives": "RUSCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A white-meat dish served half-cooked.",
+     "walkthrough": "'White meat' reads as one phrase, but White is the definition and meat starts the wordplay.",
+     "definitionFit": "Lambrusco is a sparkling Italian wine, usually red but also made as a white."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "White"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +809,61 @@
     "text": "New? My mistake sending back old club",
     "enumeration": "5"
    },
-   "solution": "SPOON"
+   "solution": "SPOON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SPOON",
+    "definitions": [
+     {
+      "text": "old club",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sending back",
+      "for": "reversal",
+      "note": "sending back returns something the way it came, so the letters are read in the other direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "My mistake",
+      "gives": "OOPS",
+      "note": "what you say when you slip up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOO",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "NOOPS",
+       "to": "SPOON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer admits a blunder and returns an antique club.",
+     "walkthrough": "The spoon was an old wooden golf club, roughly a modern three-wood.",
+     "definitionFit": "Spoon was the historical name of a lofted wooden golf club, now called a three-wood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +877,64 @@
     "text": "Oscar winner shockingly hits man's face",
     "enumeration": "5"
    },
-   "solution": "SMITH"
+   "solution": "SMITH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SMITH",
+    "definitions": [
+     {
+      "text": "Oscar winner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shockingly",
+      "for": "anagram",
+      "note": "shockingly suggests something jolted out of shape, so the letters are jumbled"
+     },
+     {
+      "text": "face",
+      "for": "letter_selection",
+      "note": "a face is the front, so only the opening letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hits",
+      "gives": "HITS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "man's",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of man"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HITSM",
+       "gives": "SMITH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Oscar winner shocks everyone by slapping a man across the face.",
+     "walkthrough": "The surface recalls Will Smith slapping Chris Rock at the 2022 Oscars, shortly before winning Best Actor; the clue's description is also the answer's own story.",
+     "definitionFit": "Will Smith won the Academy Award for Best Actor for King Richard in 2022."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +948,55 @@
     "text": "Fair river in China",
     "enumeration": "8"
    },
-   "solution": "MODERATE"
+   "solution": "MODERATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MODERATE",
+    "definitions": [
+     {
+      "text": "Fair",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "ODER",
+      "note": "the Oder is a river of central Europe"
+     },
+     {
+      "clueFragment": "China",
+      "gives": "MATE",
+      "note": "Cockney rhyming slang: china plate, mate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ODER",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant river runs through China.",
+     "walkthrough": "China is not the country: in Cockney rhyming slang 'china plate' means mate, a friend.",
+     "definitionFit": "Fair and moderate both mean middling or reasonable, neither very good nor bad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +1010,60 @@
     "text": "Big actor briefly dropping hot containers",
     "enumeration": "5"
    },
-   "solution": "TANKS"
+   "solution": "TANKS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TANKS",
+    "definitions": [
+     {
+      "text": "containers",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the first name is reduced to its initial"
+     },
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping something lets it fall away, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big actor",
+      "gives": "TOMHANKS",
+      "note": "Tom Hanks starred in the film Big"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the hot tap abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ANKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A burly actor sheds a few hot water bottles.",
+     "walkthrough": "'Big' reads as large, but it is the 1988 film Big, whose star was Tom Hanks.",
+     "definitionFit": "Tanks are large receptacles for holding liquid or gas, so they are containers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Big"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +1077,50 @@
     "text": "In Sweden, I was knocking back drink",
     "enumeration": "4"
    },
-   "solution": "WINE"
+   "solution": "WINE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "WINE",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in says the letters are found inside the run of words that follows"
+     },
+     {
+      "text": "knocking back",
+      "for": "reversal",
+      "note": "knocking back sends something backwards, so the found letters run right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweden, I was",
+      "gives": "ENIW",
+      "note": "the letters run across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "In Sweden someone recalls putting away a drink.",
+     "walkthrough": "'Knocking back' is a drinker's phrase that doubles as the reversal signal.",
+     "definitionFit": "Wine is an alcoholic beverage made from fermented grapes, a typical drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "knocking"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1134,55 @@
     "text": "Frightened son leaving to be looked after",
     "enumeration": "5"
    },
-   "solution": "CARED"
+   "solution": "CARED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CARED",
+    "definitions": [
+     {
+      "text": "looked after",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when someone is leaving they go away, so that letter departs from the word"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frightened",
+      "gives": "SCARED",
+      "note": "frightened means scared"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARED"
+     ]
+    },
+    "explanation": {
+     "surface": "A frightened boy leaves home to be taken into care.",
+     "definitionFit": "To care for someone is to look after them, so cared and looked after are past forms with the same sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "son"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1196,58 @@
     "text": "Big shot getting bowled out in haste",
     "enumeration": "8"
    },
-   "solution": "CELERITY"
+   "solution": "CELERITY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CELERITY",
+    "definitions": [
+     {
+      "text": "haste",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, as a dismissed batsman leaves the field"
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big shot",
+      "gives": "CELEBRITY",
+      "note": "a big shot is a celebrity"
+     },
+     {
+      "clueFragment": "bowled",
+      "gives": "B",
+      "note": "B is the cricket scorecard abbreviation for bowled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELE",
+      "RITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A star batsman is bowled out in a hurry.",
+     "walkthrough": "In cricket scoring, b stands for bowled.",
+     "definitionFit": "Celerity is a formal word for speed or swiftness, so it is a synonym of haste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bowled"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1261,44 @@
     "text": "Salmon provided by shop in Kensington",
     "enumeration": "4"
    },
-   "solution": "PINK"
+   "solution": "PINK",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PINK",
+    "definitions": [
+     {
+      "text": "Salmon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "provided by",
+      "for": "hidden_word",
+      "note": "the letters are supplied by the words that follow, sitting within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shop in Kensington",
+      "gives": "PINK",
+      "note": "the letters straddle the words"
+     }
+    ],
+    "explanation": {
+     "surface": "Fish bought from a shop in a smart London district.",
+     "walkthrough": "Salmon looks like the fish but is the colour; Kensington is an upmarket area of west London.",
+     "definitionFit": "Salmon is a pale orange-pink shade, so it is a kind of pink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Salmon"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1312,73 @@
     "text": "Mountain climbing? Time for mega-stand",
     "enumeration": "8"
    },
-   "solution": "PLATFORM"
+   "solution": "PLATFORM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PLATFORM",
+    "definitions": [
+     {
+      "text": "stand",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing means going upwards, so the letters read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mountain",
+      "gives": "ALP",
+      "note": "an alp is a mountain"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mega",
+      "gives": "M",
+      "note": "M is the symbol for the prefix mega"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "T",
+      "FOR",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "ALP",
+       "to": "PLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mountaineer is told it is time for a huge stand.",
+     "walkthrough": "The hyphen in 'mega-stand' glues the definition to the wordplay; M is the SI symbol for mega, a million.",
+     "definitionFit": "A platform is a raised level surface on which people or things stand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mega"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1392,53 @@
     "text": "Persuades wife to pay attention to Dennis",
     "enumeration": "8"
    },
-   "solution": "WHEEDLES"
+   "solution": "WHEEDLES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHEEDLES",
+    "definitions": [
+     {
+      "text": "Persuades",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "to pay attention to",
+      "gives": "HEED",
+      "note": "to heed is to pay attention to"
+     },
+     {
+      "clueFragment": "Dennis",
+      "gives": "LES",
+      "note": "Les Dennis, British TV presenter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HEED",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone coaxes his wife into listening to a man called Dennis.",
+     "walkthrough": "Dennis is a surname here: Les Dennis is a British comedian who presented the game show Family Fortunes.",
+     "definitionFit": "To wheedle is to coax or cajole someone into doing something, so it means to persuade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dennis"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1452,55 @@
     "text": "Britain had one politician detained by Ireland",
     "enumeration": "6"
    },
-   "solution": "EMPIRE"
+   "solution": "EMPIRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMPIRE",
+    "definitions": [
+     {
+      "text": "Britain had one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detained by",
+      "for": "container",
+      "note": "someone detained is held within, so this piece is kept inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "Ireland",
+      "gives": "EIRE",
+      "note": "Éire is the Irish name for Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MP",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A British politician is held in Ireland.",
+     "walkthrough": "The definition is a whole phrase: Britain once had an empire.",
+     "definitionFit": "The British Empire was the vast collection of territories ruled by Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Britain"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1514,56 @@
     "text": "Asian state content to leave ludicrous targets",
     "enumeration": "5"
    },
-   "solution": "GOALS"
+   "solution": "GOALS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GOALS",
+    "definitions": [
+     {
+      "text": "targets",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "content to leave",
+      "for": "letter_selection",
+      "note": "the content of a word is its inside, so once it leaves only the outer letters stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Asian state",
+      "gives": "GOA",
+      "note": "Goa is a state of India"
+     },
+     {
+      "clueFragment": "ludicrous",
+      "gives": "LS",
+      "select": "outer",
+      "note": "the first and last letters of ludicrous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOA",
+      "LS"
+     ]
+    },
+    "explanation": {
+     "surface": "An Asian nation is happy to abandon absurd aims.",
+     "walkthrough": "'Asian state' tempts a country; it is a state within India.",
+     "definitionFit": "Goals are aims or objectives one strives for, which are targets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1577,60 @@
     "text": "Relative managed to break into key US city",
     "enumeration": "6"
    },
-   "solution": "GRANNY"
+   "solution": "GRANNY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GRANNY",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to break into",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so this piece goes within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key",
+      "gives": "G",
+      "note": "G is a musical key"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "to run a business is to manage it"
+     },
+     {
+      "clueFragment": "US city",
+      "gives": "NY",
+      "note": "New York"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAN",
+      "NY"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member was able to break into a big American city using a key.",
+     "definitionFit": "A granny is a grandmother, a family relative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1644,57 @@
     "text": "USA proven to distress star having a meltdown",
     "enumeration": "9"
    },
-   "solution": "SUPERNOVA"
+   "solution": "SUPERNOVA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUPERNOVA",
+    "definitions": [
+     {
+      "text": "star having a meltdown",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to distress",
+      "for": "anagram",
+      "note": "distress means to put out of shape, so these letters are disturbed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "USA",
+      "gives": "USA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "proven",
+      "gives": "PROVEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USAPROVEN",
+       "gives": "SUPERNOVA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "America is shown to upset a celebrity who throws a tantrum.",
+     "walkthrough": "'Star having a meltdown' suggests a diva's tantrum; it is a literal exploding star.",
+     "definitionFit": "A supernova is a star that explodes catastrophically at the end of its life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "meltdown"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1708,74 @@
     "text": "Playwright was upset about ending of Macbeth",
     "enumeration": "4"
    },
-   "solution": "SHAW"
+   "solution": "SHAW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "SHAW",
+    "definitions": [
+     {
+      "text": "Playwright",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending of",
+      "for": "letter_selection",
+      "note": "the ending is the final part, so only the closing letter of the play's name is used"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the verb goes around the single letter"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, upset means turned upside down, so the letters read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Macbeth",
+      "gives": "H",
+      "select": "last",
+      "note": "the last letter of Macbeth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "AW"
+     ],
+     "reversals": [
+      {
+       "from": "WAHS",
+       "to": "SHAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dramatist was distressed by how Macbeth finishes.",
+     "walkthrough": "George Bernard Shaw, Irish playwright; fittingly he also wrote The Apple Cart, in a puzzle themed on apples.",
+     "definitionFit": "George Bernard Shaw was an Irish dramatist, author of plays such as Pygmalion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1789,48 @@
     "text": "Mountain tops in France, usually just ice",
     "enumeration": "4"
    },
-   "solution": "FUJI"
+   "solution": "FUJI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "FUJI",
+    "definitions": [
+     {
+      "text": "Mountain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tops in",
+      "for": "letter_selection",
+      "note": "the tops of words are their first letters, taken from each word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "France, usually just ice",
+      "gives": "FUJI",
+      "select": "first",
+      "note": "the first letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FUJI"
+     ]
+    },
+    "explanation": {
+     "surface": "Mountain summits in France are usually nothing but ice.",
+     "definitionFit": "Mount Fuji is the highest peak in Japan, a volcanic mountain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tops"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1844,56 @@
     "text": "European agreement on snoring being music",
     "enumeration": "4"
    },
-   "solution": "JAZZ"
+   "solution": "JAZZ",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JAZZ",
+    "definitions": [
+     {
+      "text": "music",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, one piece on another sits above it, so it is written first"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European agreement",
+      "gives": "JA",
+      "note": "ja is German for yes"
+     },
+     {
+      "clueFragment": "snoring",
+      "gives": "ZZ",
+      "note": "ZZ is the cartoon sound of snoring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JA",
+      "ZZ"
+     ]
+    },
+    "explanation": {
+     "surface": "A European nods off and snores along to some music.",
+     "definitionFit": "Jazz is a genre of popular music originating in African-American communities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "agreement"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1907,73 @@
     "text": "Repeats one's rights during revolting arrest",
     "enumeration": "7"
    },
-   "solution": "PARROTS"
+   "solution": "PARROTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PARROTS",
+    "definitions": [
+     {
+      "text": "Repeats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolting",
+      "for": "reversal",
+      "note": "revolting here means turning over, so the word for arrest is read backwards"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something that happens during an event occurs within it, so these letters sit inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrest",
+      "gives": "STOP",
+      "note": "to arrest is to stop"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "A",
+      "note": "one is A; the 's stands for has"
+     },
+     {
+      "clueFragment": "rights",
+      "gives": "RR",
+      "note": "R is right, so two rights"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "RR",
+      "OTS"
+     ],
+     "reversals": [
+      {
+       "from": "STOP",
+       "to": "POTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detainee keeps repeating their rights during a violent arrest.",
+     "walkthrough": "'One's' is read as 'one has', a common linking trick, so the rights simply follow the A.",
+     "definitionFit": "To parrot is to repeat words mechanically without understanding, as the bird mimics speech."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolting"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1987,72 @@
     "text": "No longer held fun rave with zero dancing",
     "enumeration": "7"
    },
-   "solution": "UNFROZE"
+   "solution": "UNFROZE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNFROZE",
+    "definitions": [
+     {
+      "text": "No longer held",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rave",
+      "for": "anagram",
+      "note": "to rave is to rant wildly, so the word before it is jumbled"
+     },
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about, so the word before it is rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fun",
+      "gives": "FUN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "ZERO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNF",
+      "ROZE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FUN",
+       "gives": "UNF"
+      },
+      {
+       "fodder": "ZERO",
+       "gives": "ROZE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Restrictions lift, allowing a fun rave with nobody dancing.",
+     "walkthrough": "'Rave' and 'dancing' look like a party scene, but each one scrambles the word just before it.",
+     "definitionFit": "Frozen assets or prices are held fixed; once they are unfrozen they are released, no longer held."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rave"
+    }
+   }
   }
  ]
 }
