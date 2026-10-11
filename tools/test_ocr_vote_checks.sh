@@ -934,6 +934,62 @@ check("mirror: a clue with other specks keeps its figure (held)", "Can be8 gentl
 check("mirror: a clue with other figures keeps a lead one (a run-on)", "8Ruth's beer 151",
       oc.agree("8Ruth's beer 151", [["#", "Ruth's", "beer", "#"]] * 2)[0])
 
+# A speck read as a stop on a word's start (Times holds "visionary.lose.his",
+# "for .concealed", which the final close-up made "for.concealed").
+vis = ["#", "Revolutionary", "device", "makes", "visionary", "lose", "his", "head", "#"]
+check("a stop glued between two words no clue prints so becomes their space",
+      "Revolutionary device makes visionary lose his head",
+      oc.agree("Revolutionary device makes visionary.lose.his head", [vis, vis])[0])
+mea = ["#", "Measures", "for", "concealed", "lighting", "#"]
+check("a stop glued to a small word's start goes, not closed up onto the word before",
+      "Measures for concealed lighting", oc.agree("Measures for .concealed lighting", [mea, mea])[0])
+rec = ["#", "Railway", "device", "holds", "the", "record", "#"]
+check("two stops a space apart on a small word's start go ('the. .record')", "Railway device holds the record",
+      oc.agree("Railway device holds the. .record", [rec, rec])[0])
+lov = ["#", "To", "whom", "his", "love", ",", "princess", "#"]
+check("the voted word's small letter counts, not the misread capital ('his.Iove')", "To whom his love, princess",
+      oc.agree("To whom his.Iove, princess", [lov, lov])[0])
+duke = ["#", "Some", "bread", "for", "the", "Duke", "of", "Normandy", "#"]
+check("a middle dot between words is their space, before a capital too",
+      "Some bread for the Duke of Normandy", oc.agree("Some bread for the Duke of\u00b7Normandy", [duke, duke])[0])
+fire = ["#", "Make", "firewood", "out", "of", "the", "old", "piano", "#"]
+check("a stop before a quotation's mark goes, the mark stays", "Make firewood out of 'the old piano",
+      oc.agree("Make firewood out of.'the old piano", [fire, fire])[0])
+been = ["#", "No", "doubt", "his", "deeds", "have", "been", "witnessed", "#"]
+check("mirror: an ellipsis is the print's", "No doubt his deeds have been...witnessed",
+      oc.agree("No doubt his deeds have been...witnessed", [been, been])[0])
+bull = ["#", "John", "Bull", "The", "greatest", "#"]
+check("mirror: a stop before a capital may end a sentence", "John Bull.The greatest",
+      oc.agree("John Bull.The greatest", [bull, bull])[0])
+check("mirror: a lone letter's stop (e.g.) is no speck", "Fruit e.g. apple",
+      oc.agree("Fruit e.g. apple", [mark("4 Fruit e.g. apple 5")] * 2)[0])
+see = ["#", "See", "No", "l", "across", "#"]
+check("mirror: a stop beside one letter that closes up to no word stays (1930 'No.l')", "See No.l across",
+      oc.agree("See No.l across", [see, see])[0])
+tur = ["#", "Turkish", "commander", "#"]
+check("a stop beside one letter that closes up to a known word goes ('Turkis.h')", "Turkish commander",
+      oc.agree("Turkis.h commander", [tur, tur])[0])
+check("a stop before a lone 'a' is the words' space, not closed up ('fora')", "for a child",
+      oc.agree("for\u00b7a child", [["#", "for", "a", "child", "#"]] * 2)[0])
+check("suspect: a stop glued before a capitalised word is a speck ('by.Churchill'), not initials",
+      ([("by.Churchill", "a stray mark inside a word")], []), (oc.suspect("by.Churchill"), oc.suspect("J.R.R. Tolkien")))
+
+# Times asPrinted: readers sharing a detector share misreads, so only a word
+# every reading (three or more) spells alike, no one letter from a known
+# word, is the print's.
+ign = "Like ignis fatuus, difficult to remember"
+check("asPrinted unanimous: a word every reading of three prints is the print's (times 1992 'ignis')",
+      ["ignis", "fatuus,"], oc.printed_alike(ign, [ign, ign, ign.replace(",", "")], unanimous=True))
+check("mirror: two readings alone are a shared slip ('considcraie')", [],
+      oc.printed_alike(ign, [ign, ign], unanimous=True))
+check("mirror: a reading that spells it otherwise vouches none", ["fatuus,"],
+      oc.printed_alike(ign, [ign, ign, ign.replace("ignis", "ignus")], unanimous=True))
+bed = "Mother Adamson turns into a bediamite"
+check("mirror: a word one letter from a known one is a shared misread ('bediamite' for bedlamite)", [],
+      oc.printed_alike(bed, [bed] * 4, unanimous=True))
+check("and without unanimous two readings still vouch it (the Listener's rule)", ["bediamite"],
+      oc.printed_alike(bed, [bed, bed]))
+
 print(f"FAILS {fails}")
 EOF
 )

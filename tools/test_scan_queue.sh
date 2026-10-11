@@ -45,20 +45,22 @@ check("a word split at a kept hyphen, read before join_split's changes, asks aga
       [r["requestedAt"] for r in q.vote_mended_requests()])
 # Each VOTE_MENDED change dates its own reasons: a light no reading laid,
 # read after the speck mend but before relaid() took one copy's readers,
-# is due; a speck-joined clue read then is not (mirror).
+# is due; one read after relaid()'s change is not (mirror).
 between = "2026-10-09T08:00:00+00:00"
 q.sources = lambda: {"times-1": ("archive", "ed/1", row(between, "no reading laid a clue on it"))}
 check("a light no reading laid, read before relaid's change, asks again", ["ed/1"],
       [r["source"] for r in q.vote_mended_requests()])
-q.sources = lambda: {"times-1": ("archive", "ed/1", row(between, "'wear.for': a stray mark inside a word"))}
-check("a speck-joined clue read after its own change asks nothing (mirror)", [], q.vote_mended_requests())
+q.sources = lambda: {"times-1": ("archive", "ed/1", row("2026-10-09T10:00:00+00:00", "no reading laid a clue on it"))}
+check("a light no reading laid, read after relaid's change, asks nothing (mirror)", [], q.vote_mended_requests())
 # Every blank must be one a change mends: a re-read leaves any other blank,
 # so the puzzle would be held again.
 two = lambda at, a, b: {"readAt": at, "verdicts": [{"id": "times-1", "blank": {"2-down": a, "3-down": b}}]}
 old = "2026-10-01T00:00:00+00:00"
 q.sources = lambda: {"times-1": ("archive", "ed/1", two(old, "no reading laid a clue on it",
                                                         "'wear.for': a stray mark inside a word"))}
-check("blanks each some change mends ask again, at the later change", [q.VOTE_MENDED[1][0]],
+check("blanks each some change mends ask again, at the later change",
+      [max(next(at for at, why in reversed(q.VOTE_MENDED) if any(w in b for w in why))
+           for b in ("no reading laid a clue on it", "a stray mark inside a word"))],
       [r["requestedAt"] for r in q.vote_mended_requests()])
 q.sources = lambda: {"times-1": ("archive", "ed/1", two(old, "no reading laid a clue on it", "starts mid-clue"))}
 check("a blank no change mends beside them asks nothing (mirror)", [], q.vote_mended_requests())
