@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,44 @@
     "text": "English bank",
     "enumeration": "4"
    },
-   "solution": "SIDE"
+   "solution": "SIDE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SIDE",
+    "definitions": [
+     {
+      "text": "English",
+      "at": 0
+     },
+     {
+      "text": "bank",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "note": "first meaning: in billiards and snooker, spin put on a ball"
+     },
+     {
+      "clueFragment": "bank",
+      "note": "second meaning: the edge or slope beside a river"
+     }
+    ],
+    "explanation": {
+     "surface": "A financial institution in England, such as one of the big high-street lenders.",
+     "walkthrough": "'English bank' reads as one phrase about Barclays or Lloyds, but the two words are split. Side and English are both terms for the spin a cue player puts on a ball.",
+     "definitionFit": "Both are synonyms: cue spin is called side in Britain, and a riverbank is one side of the stream."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +87,55 @@
     "text": "Passionate tale gripping millions",
     "enumeration": "6"
    },
-   "solution": "STORMY"
+   "solution": "STORMY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STORMY",
+    "definitions": [
+     {
+      "text": "Passionate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gripping",
+      "for": "container",
+      "note": "to grip something is to hold it tightly in the middle of one's grasp, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tale",
+      "gives": "STORY",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the standard abbreviation for million(s)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOR",
+      "M",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A gripping romance that has captivated millions of readers.",
+     "walkthrough": "M goes inside STORY, between the R and the Y, to make STORMY.",
+     "definitionFit": "A stormy relationship or temperament is a turbulent, emotionally intense one, so the adjective fits passionate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gripping"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +155,52 @@
      }
     ]
    },
-   "solution": "DESERTORCHID"
+   "solution": "DESERTORCHID",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "DESERT ORCHID",
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jumping",
+      "for": "anagram",
+      "note": "letters that are jumping leap about out of place, so they land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse, cert, did",
+      "gives": "HORSECERTDID",
+      "note": "the letters of these three words, punctuation ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HORSECERTDID",
+       "gives": "DESERTORCHID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racing tip about a horse that was a sure bet, asking whether it won over the fences.",
+     "walkthrough": "The whole clue also describes the answer: Desert Orchid was a famous British steeplechaser, a near-certainty that did win at jumping. A cert is racing slang for a horse sure to win.",
+     "definitionFit": "Desert Orchid was a celebrated grey racehorse that won the Cheltenham Gold Cup in 1989, so it is an example of a horse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jumping"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +220,60 @@
      }
     ]
    },
-   "solution": "INFACT"
+   "solution": "INFACT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "IN FACT",
+    "definitions": [
+     {
+      "text": "Actually",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incomplete",
+      "for": "deletion",
+      "note": "something incomplete is missing a part, here its final letter"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer, one piece sitting on another comes after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gen",
+      "gives": "INF",
+      "note": "gen is British slang for information, INFO, shortened here by its last letter"
+     },
+     {
+      "clueFragment": "take measures",
+      "gives": "ACT",
+      "note": "to take measures is to act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INF",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone advising action on the basis of information that is only partial.",
+     "walkthrough": "Gen is informal British for information; INFO is its short form, which loses its O before ACT follows it.",
+     "definitionFit": "The phrase 'in fact' is used like the adverb actually, to say what is really the case."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gen"
+    }
+   }
   },
   {
    "number": 3,
@@ -111,7 +297,70 @@
      }
     ]
    },
-   "solution": "ILLATEASE"
+   "solution": "ILLATEASE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ILL AT EASE",
+    "definitions": [
+     {
+      "text": "awkward",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down answer, something upset is turned upside down, so the word reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone means all"
+     },
+     {
+      "clueFragment": "guy",
+      "gives": "TEASE",
+      "note": "to guy someone is to mock or tease them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "LLA",
+      "TEASE"
+     ],
+     "reversals": [
+      {
+       "from": "ALL",
+       "to": "LLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who upsets everybody he meets, so the atmosphere becomes uncomfortable.",
+     "walkthrough": "'Upset' applies only to 'everyone', not the whole clue. 'Guy' looks like a noun for a man but is the old verb meaning to ridicule.",
+     "definitionFit": "Someone ill at ease feels uncomfortable and self-conscious, which is what awkward means of a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guy"
+    }
+   }
   },
   {
    "number": 4,
@@ -125,7 +374,58 @@
     "text": "Mug's about right in Rookery Nook?",
     "enumeration": "5"
    },
-   "solution": "FARCE"
+   "solution": "FARCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FARCE",
+    "definitions": [
+     {
+      "text": "Rookery Nook?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first piece goes round the second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mug",
+      "gives": "FACE",
+      "note": "mug is slang for the face"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "R",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's mug placed somewhere in a hidden corner of a rookery, where birds nest.",
+     "walkthrough": "Rookery Nook is a 1920s Ben Travers stage comedy of the Aldwych series; the question mark marks it as one example of the type.",
+     "definitionFit": "A farce is a comic play built on absurd situations, and Rookery Nook is a classic example of that genre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Nook"
+    }
+   }
   },
   {
    "number": 5,
@@ -149,7 +449,63 @@
      }
     ]
    },
-   "solution": "COCKAHOOP"
+   "solution": "COCKAHOOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCK-A-HOOP",
+    "definitions": [
+     {
+      "text": "extremely pleased",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "charade",
+      "note": "in a down answer the piece that is leading comes at the top, before the rest"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "COCK",
+      "note": "cock is old British slang for a fellow or mate"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "HOOP",
+      "note": "a hoop is a circular band, as round a barrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCK",
+      "A",
+      "HOOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who fronts a music group is delighted.",
+     "walkthrough": "'Band' suggests musicians, but it is a ring of metal; 'old cock' is a dated British form of address meaning pal.",
+     "definitionFit": "Cock-a-hoop is an idiom for being jubilant or triumphantly delighted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 6,
@@ -163,7 +519,56 @@
     "text": "Report name found in case",
     "enumeration": "4"
    },
-   "solution": "BANG"
+   "solution": "BANG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BANG",
+    "definitions": [
+     {
+      "text": "Report",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a holder is located inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "BAG",
+      "note": "a case for carrying things is a bag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "N",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A report in which a name appears in connection with a legal case.",
+     "walkthrough": "N sits inside BAG. 'Report' here is the sound of a gun, not a written account.",
+     "definitionFit": "A report is a loud explosive noise, such as a gunshot, which is a synonym for a bang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Report"
+    }
+   }
   },
   {
    "number": 7,
@@ -183,7 +588,64 @@
      }
     ]
    },
-   "solution": "OBSTACLERACE"
+   "solution": "OBSTACLERACE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OBSTACLE RACE",
+    "definitions": [
+     {
+      "text": "event",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means arranged, so these letters are put into a fresh sequence"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old boy",
+      "gives": "OB",
+      "note": "OB is the abbreviation for old boy, a former pupil of a school"
+     },
+     {
+      "clueFragment": "case — claret",
+      "gives": "CASECLARET",
+      "note": "the letters of these two words together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "STACLERACE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASECLARET",
+       "gives": "STACLERACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former pupil orders a case of claret for a function.",
+     "walkthrough": "'Ordered' looks like the verb for buying the wine, but it signals rearranging the letters of 'case' and 'claret'. Claret is the British name for red Bordeaux.",
+     "definitionFit": "An obstacle race is a sporting contest over hurdles, nets and walls, so it is an example of an athletic event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 8,
@@ -203,7 +665,54 @@
      }
     ]
    },
-   "solution": "CAVALRYTWILL"
+   "solution": "CAVALRYTWILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAVALRY TWILL",
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They used to charge",
+      "gives": "CAVALRY",
+      "note": "mounted soldiers who once made charges in battle"
+     },
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "T is the abbreviation for tons"
+     },
+     {
+      "clueFragment": "to leave",
+      "gives": "WILL",
+      "note": "to will something is to leave it to someone in a testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAVALRY",
+      "T",
+      "WILL"
+     ]
+    },
+    "explanation": {
+     "surface": "People who used to bill vast amounts, now quitting the cloth trade.",
+     "walkthrough": "'Charge' suggests pricing and 'leave' departure; here they mean a cavalry attack and bequeathing in a will.",
+     "definitionFit": "Cavalry twill is a strong woollen cloth with a pronounced diagonal rib, first used for riding breeches, so it is a kind of fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 9,
@@ -217,7 +726,41 @@
     "text": "A plentiful supply? Very probably",
     "enumeration": "4"
    },
-   "solution": "WELL"
+   "solution": "WELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WELL",
+    "definitions": [
+     {
+      "text": "A plentiful supply",
+      "at": 0
+     },
+     {
+      "text": "Very probably",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A plentiful supply",
+      "note": "first meaning: a source that can be drawn on"
+     },
+     {
+      "clueFragment": "Very probably",
+      "note": "second meaning: the adverb in phrases like 'it may ... rain'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark makes the second part look like an answer to the first; they are two separate senses of one short word.",
+     "definitionFit": "A well is an abundant source, and the adverb in 'may well' expresses strong likelihood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -237,7 +780,55 @@
      }
     ]
    },
-   "solution": "MRRIGHT"
+   "solution": "MRRIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MR RIGHT",
+    "definitions": [
+     {
+      "text": "her ideal partner?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to describe",
+      "for": "container",
+      "note": "to describe in the geometric sense is to draw a line around something, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ability",
+      "gives": "MIGHT",
+      "note": "might is power or ability"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "RR",
+      "note": "RR is short for Right Reverend, a bishop's title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "RR",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's skill at portraying a clergyman, perhaps the man she dreams of marrying.",
+     "walkthrough": "'Describe' is used in its geometry sense of drawing a line round something; Right Reverend is the formal style of an Anglican bishop.",
+     "definitionFit": "Mr Right is the idiom for the perfect future husband a woman hopes to meet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "describe"
+    }
+   }
   },
   {
    "number": 11,
@@ -251,7 +842,71 @@
     "text": "Revolving handle gets a note to emerge",
     "enumeration": "7"
    },
-   "solution": "EMANATE"
+   "solution": "EMANATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EMANATE",
+    "definitions": [
+     {
+      "text": "emerge",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolving",
+      "for": "reversal",
+      "note": "a revolving thing turns round, so the word is read from the other end"
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "handle",
+      "gives": "NAME",
+      "note": "a handle is slang for a name"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is the seventh note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMAN",
+      "A",
+      "TE"
+     ],
+     "reversals": [
+      {
+       "from": "NAME",
+       "to": "EMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turning a door handle makes a musical squeak come out.",
+     "walkthrough": "'Revolving handle' sounds like a doorknob, but handle is slang for a person's name, which is turned round to EMAN.",
+     "definitionFit": "To emanate is to issue or flow out from a source, a near synonym of emerge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "handle"
+    }
+   }
   },
   {
    "number": 12,
@@ -279,7 +934,50 @@
      }
     ]
    },
-   "solution": "ONCEANDFORALL"
+   "solution": "ONCEANDFORALL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ONCE AND FOR ALL",
+    "definitions": [
+     {
+      "text": "Finally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means intricately tangled, so these letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an old falconer",
+      "gives": "ANOLDFALCONER",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANOLDFALCONER",
+       "gives": "ONCEANDFORALL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly hawk-handler was at last drawn into some affair.",
+     "definitionFit": "Once and for all is an idiom meaning conclusively, so that the matter is settled for good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 13,
@@ -299,7 +997,54 @@
      }
     ]
    },
-   "solution": "CUTTYSARK"
+   "solution": "CUTTYSARK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CUTTY SARK",
+    "definitions": [
+     {
+      "text": "Tea clipper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocks",
+      "for": "anagram",
+      "note": "something that rocks is shaken about, so these letters are jolted out of order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tay struck",
+      "gives": "TAYSTRUCK",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TAYSTRUCK",
+       "gives": "CUTTYSARK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tea-carrying sailing ship in the River Tay hit rocks.",
+     "walkthrough": "'Rocks' reads as the noun the ship hit, but it is a verb telling you to shake up 'Tay struck'. The Tay is a Scottish river.",
+     "definitionFit": "The Cutty Sark is a famous nineteenth-century sailing ship built for the China tea trade, now preserved at Greenwich."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 14,
@@ -319,7 +1064,51 @@
      }
     ]
    },
-   "solution": "DOINGTIME"
+   "solution": "DOINGTIME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOING TIME",
+    "definitions": [
+     {
+      "text": "in prison?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "criminal suggests something bent or corrupt, so these letters are twisted out of shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gone timid",
+      "gives": "GONETIMID",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GONETIMID",
+       "gives": "DOINGTIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook who has lost his nerve behind bars.",
+     "walkthrough": "'Criminal' reads as a noun for the crook, but it is an adjective telling you to rearrange the next two words.",
+     "definitionFit": "Doing time is the idiom for serving a jail sentence, so a person doing time is locked up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 15,
@@ -343,7 +1132,64 @@
      }
     ]
    },
-   "solution": "JACKTHERIPPER"
+   "solution": "JACKTHERIPPER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "JACK THE RIPPER",
+    "definitions": [
+     {
+      "text": "Serial killer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught by another is held within its grip"
+     }
+    ],
+    "linkWords": [
+     "got"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "JACK",
+      "note": "jack, as in jack tar, is a sailor"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tourist",
+      "gives": "TRIPPER",
+      "note": "a tripper is a day tourist, a British word for a sightseer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "T",
+      "HE",
+      "RIPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A murderer and a seaman, the latter apprehended by a holidaymaker.",
+     "walkthrough": "'Tourist' is the British tripper, someone out on a day trip, and 'he' is lodged just after its first letter.",
+     "definitionFit": "Jack the Ripper was the unidentified murderer of several women in Whitechapel, London, in 1888."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -357,7 +1203,65 @@
     "text": "Magistrate touring heart of Greece in vehicle",
     "enumeration": "4"
    },
-   "solution": "JEEP"
+   "solution": "JEEP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "JEEP",
+    "definitions": [
+     {
+      "text": "vehicle",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart of",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only the middle letters are kept"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring means going round, so one piece travels around the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Magistrate",
+      "gives": "JP",
+      "note": "JP stands for Justice of the Peace, a magistrate"
+     },
+     {
+      "clueFragment": "Greece",
+      "gives": "EE",
+      "select": "middle",
+      "note": "the central two letters of the six-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "EE",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge travelling around the middle of Greece in a four-wheel drive.",
+     "walkthrough": "JP wraps around EE. In Britain a Justice of the Peace, abbreviated JP, is a lay magistrate.",
+     "definitionFit": "A jeep is a rugged four-wheel-drive car, originally a military one, so it is a kind of vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 16,
@@ -371,7 +1275,53 @@
     "text": "Joined one before editor",
     "enumeration": "6"
    },
-   "solution": "UNITED"
+   "solution": "UNITED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNITED",
+    "definitions": [
+     {
+      "text": "Joined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "one piece placed before another comes first in the sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "UNIT",
+      "note": "a unit is a single one of something"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the standard abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNIT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who signed up with a single magazine ahead of its chief editor.",
+     "definitionFit": "Joined and united are synonyms, both past forms describing parts brought together as one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 17,
@@ -385,7 +1335,49 @@
     "text": "Monsters in Ireland? That's right",
     "enumeration": "7"
    },
-   "solution": "ERINYES"
+   "solution": "ERINYES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERINYES",
+    "definitions": [
+     {
+      "text": "Monsters",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ireland",
+      "gives": "ERIN",
+      "note": "Erin is a poetic name for Ireland"
+     },
+     {
+      "clueFragment": "That's right",
+      "gives": "YES",
+      "note": "an affirmation, agreeing that something is correct"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERIN",
+      "YES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asking whether there really are monsters in Ireland, and being told yes.",
+     "walkthrough": "The question mark makes 'That's right' look like a reply to a question, but it supplies a word.",
+     "definitionFit": "The Erinyes are the Furies of Greek myth, avenging female monsters with snakes for hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -399,7 +1391,41 @@
     "text": "Brush, a puppet",
     "enumeration": "5"
    },
-   "solution": "SWEEP"
+   "solution": "SWEEP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWEEP",
+    "definitions": [
+     {
+      "text": "Brush",
+      "at": 0
+     },
+     {
+      "text": "a puppet",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brush",
+      "note": "first meaning: to clean a floor with a broom"
+     },
+     {
+      "clueFragment": "a puppet",
+      "note": "second meaning: the grey dog glove puppet from the British children's TV show Sooty"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Sooty and Sweep were glove puppets on long-running British children's television; Sweep is the squeaking dog.",
+     "definitionFit": "To brush and to sweep are synonyms for clearing dirt, and Sweep is the name of a famous puppet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -413,7 +1439,43 @@
     "text": "Forest animal, a pig",
     "enumeration": "7"
    },
-   "solution": "GLUTTON"
+   "solution": "GLUTTON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GLUTTON",
+    "definitions": [
+     {
+      "text": "Forest animal",
+      "at": 0
+     },
+     {
+      "text": "a pig",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Forest animal",
+      "note": "first meaning: another name for the wolverine, a carnivore of northern forests"
+     },
+     {
+      "clueFragment": "a pig",
+      "note": "second meaning: a person who eats greedily"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pig' looks like a second animal, a wild boar in the forest; it is the insult for an overeater.",
+     "definitionFit": "The wolverine is also called the glutton, and a pig is slang for a greedy eater."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pig"
+    }
+   }
   },
   {
    "number": 20,
@@ -433,7 +1495,47 @@
      }
     ]
    },
-   "solution": "UPTO"
+   "solution": "UPTO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UP TO",
+    "definitions": [
+     {
+      "text": "As far as",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite means falling just short, so the word stops before its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chester suburb",
+      "gives": "UPTON",
+      "note": "Upton-by-Chester is a village suburb north of the city of Chester"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether one travels as far as a district on the edge of Chester, and being told not quite.",
+     "walkthrough": "Chester is a city in north-west England; UPTON loses its last letter.",
+     "definitionFit": "Up to and as far as are interchangeable phrases giving a limit, as in 'up to the gate'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -453,7 +1555,51 @@
      }
     ]
    },
-   "solution": "LAKEDISTRICT"
+   "solution": "LAKEDISTRICT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAKE DISTRICT",
+    "definitions": [
+     {
+      "text": "here in NW England",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in ruins",
+      "for": "anagram",
+      "note": "something in ruins has fallen apart, so these letters are rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skirt citadel",
+      "gives": "SKIRTCITADEL",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SKIRTCITADEL",
+       "gives": "LAKEDISTRICT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Go around a ruined fortress found in north-west England.",
+     "walkthrough": "'Skirt' looks like the verb for going round, but its letters are fodder along with 'citadel'.",
+     "definitionFit": "The Lake District is a mountainous national park in Cumbria, in the north-west corner of England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Skirt"
+    }
+   }
   },
   {
    "number": 22,
@@ -467,7 +1613,69 @@
     "text": "Silly jokes about parking in capital",
     "enumeration": "6"
    },
-   "solution": "SKOPJE"
+   "solution": "SKOPJE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SKOPJE",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Silly",
+      "for": "anagram",
+      "note": "silly means scatterbrained, so these letters are jumbled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece is wrapped around the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jokes",
+      "gives": "JOKES",
+      "note": "taken as written before rearranging"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKO",
+      "P",
+      "JE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "JOKES",
+       "gives": "SKOJE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Foolish jests about the parking situation in a capital city.",
+     "walkthrough": "The rearranged 'jokes' has to be built around the parking letter, so the anagram and the insertion work together.",
+     "definitionFit": "Skopje is the capital city of North Macedonia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -481,7 +1689,54 @@
     "text": "Happy, former PM having lost weight",
     "enumeration": "4"
    },
-   "solution": "GLAD"
+   "solution": "GLAD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GLAD",
+    "definitions": [
+     {
+      "text": "Happy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having lost",
+      "for": "deletion",
+      "note": "having lost something means it has been taken away, so a part of the name goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former PM",
+      "gives": "GLADSTONE",
+      "note": "William Gladstone, Liberal Prime Minister four times in Victorian Britain"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "STONE",
+      "note": "a stone is a British unit of weight, fourteen pounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful ex-premier who has slimmed down.",
+     "walkthrough": "Removing STONE from the end of GLADSTONE leaves the answer; the stone is the British weight unit of fourteen pounds.",
+     "definitionFit": "Glad and happy are synonyms for feeling pleased."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "weight"
+    }
+   }
   }
  ]
 }
