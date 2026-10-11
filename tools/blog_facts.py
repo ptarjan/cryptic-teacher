@@ -49,6 +49,7 @@ import json
 import os
 import random
 import re
+import sqlite3
 import sys
 import tempfile
 import time
@@ -82,6 +83,11 @@ CACHE = DATA / "blog_facts_cache"
 #: The first item of every cache key. It is fixed: changing it orphans every
 #: cached join and the next run re-parses them all.
 CACHE_SALT = "fb2b83f44d84fc7ca417b368533590eef62de4eefe5319ebf1c352625027bde1"
+#: A local-disk copy of what extract reads off DATA (a virtiofs share, where
+#: each of the ~45k posts and ~45k cached joins costs an open): each post's
+#: sha256 and title by (path, size, mtime), and each cached join by its key.
+#: Reading 90k small files there took most of a run's 2h limit.
+INDEX = Path.home() / ".cache" / "cryptic-blog-facts-index.sqlite"
 
 #: Blog key -> (cache directory, the name a reader is shown). The key is what
 #: the sidecar stores; the name is what the site prints beside the link.
@@ -1867,11 +1873,56 @@ def keep(best, r, spool):
         best[r["id"]] = r
 
 
-def cache_key(blog, data, cands):
-    """The name a post's join is cached under: the post's bytes and the entries
-    and clues of its candidate puzzles, never the code that parsed it."""
-    return hashlib.sha256(json.dumps([CACHE_SALT, blog, hashlib.sha256(data).hexdigest(),
+def cache_key(blog, data_sha, cands):
+    """The name a post's join is cached under: the sha256 of the post's bytes
+    and the entries and clues of its candidate puzzles, never the code that
+    parsed it."""
+    return hashlib.sha256(json.dumps([CACHE_SALT, blog, data_sha,
                                       [(pid, digest) for pid, _, digest in cands]]).encode()).hexdigest()
+
+
+class Index:
+    """INDEX: post (sha256, title) by path, size and mtime, and joins by key."""
+
+    def __init__(self, path=None):
+        path = path or INDEX
+        path.parent.mkdir(parents=True, exist_ok=True)
+        self.db = sqlite3.connect(path)
+        self.db.execute("CREATE TABLE IF NOT EXISTS post (path TEXT PRIMARY KEY, size INT, mtime INT, sha TEXT, title TEXT)")
+        self.db.execute("CREATE TABLE IF NOT EXISTS join_ (key TEXT PRIMARY KEY, json TEXT)")
+
+    def post(self, path):
+        """(sha256 of the post's bytes, its rendered title), or None for a post that is not JSON."""
+        st = path.stat()
+        row = self.db.execute("SELECT size, mtime, sha, title FROM post WHERE path=?", (str(path),)).fetchone()
+        if row and row[0] == st.st_size and row[1] == st.st_mtime_ns:
+            return None if row[2] is None else (row[2], row[3])
+        data = path.read_bytes()
+        try:
+            got = hashlib.sha256(data).hexdigest(), rendered(json.loads(data.decode("utf-8")).get("title"))
+        except ValueError:
+            got = None
+        self.db.execute("INSERT OR REPLACE INTO post VALUES (?,?,?,?,?)",
+                        (str(path), st.st_size, st.st_mtime_ns, *(got or (None, None))))
+        return got
+
+    def join(self, key):
+        row = self.db.execute("SELECT json FROM join_ WHERE key=?", (key,)).fetchone()
+        return row[0] if row else None
+
+    def put_join(self, key, text):
+        self.db.execute("INSERT OR REPLACE INTO join_ VALUES (?,?)", (key, text))
+
+    def prune(self, keys):
+        """Drop every join not under `keys`."""
+        self.db.execute("CREATE TEMP TABLE keep (key TEXT PRIMARY KEY)")
+        self.db.executemany("INSERT OR IGNORE INTO keep VALUES (?)", ((k,) for k in keys))
+        self.db.execute("DELETE FROM join_ WHERE key NOT IN (SELECT key FROM keep)")
+        self.db.execute("DROP TABLE keep")
+
+    def close(self):
+        self.db.commit()
+        self.db.close()
 
 
 def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, reparse=()):
@@ -1886,20 +1937,25 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
     raw facts, which the cache does not hold, so every post is parsed."""
     extra = bigdave_records() if with_bigdave_records else ()
     by_number, series = load_puzzles(extra)
+    index = Index()
     work = []
     for blog in blogs:
         posts = BLOGS[blog][0] / "posts"
         for path in sorted(posts.glob("*.json")):
-            data = path.read_bytes()
-            try:
-                title = rendered(json.loads(data.decode("utf-8")).get("title"))
-            except ValueError:
+            got = index.post(path)
+            if got is None:
                 continue
+            sha, title = got
             cands = [c for n in post_numbers(title) for c in by_number.get(n, ())]
             if cands:
-                key = cache_key(blog, data, cands)
+                key = cache_key(blog, sha, cands)
                 cached = None if keep_facts else CACHE / key[:2] / f"{key}.json"
-                hit = cached if cached and blog not in reparse and cached.exists() else None
+                hit = None
+                if cached and blog not in reparse:
+                    hit = index.join(key)
+                    if hit is None and cached.exists():
+                        hit = cached.read_text(encoding="utf-8")
+                        index.put_join(key, hit)
                 work.append(((blog, path, cands, keep_facts), hit, cached))
     del by_number
     misses = [w for w, hit, _ in work if not hit]
@@ -1910,15 +1966,17 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
         parsed = ex.map(_work, misses, chunksize=16)
     best, spool = {}, Spool()
     for _, hit, cached in work:
-        if hit:
-            r = json.loads(hit.read_text(encoding="utf-8"))
+        if hit is not None:
+            r = json.loads(hit)
         else:
             r = next(parsed)
             if cached:
+                text = json.dumps(r, ensure_ascii=False)
                 cached.parent.mkdir(parents=True, exist_ok=True)
                 tmp = cached.with_suffix(".tmp")
-                tmp.write_text(json.dumps(r, ensure_ascii=False), encoding="utf-8")
+                tmp.write_text(text, encoding="utf-8")
                 tmp.replace(cached)
+                index.put_join(cached.stem, text)
         keep(best, r, spool)
     if ex:
         ex.shutdown()
@@ -1927,6 +1985,8 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
         for old in CACHE.glob("*/*"):
             if old.name not in used:
                 old.unlink()
+        index.prune(name.removesuffix(".json") for name in used)
+    index.close()
     print(f"parsed {len(misses)} of {len(work)} posts; the rest were cached by an earlier run")
     return best, series, spool
 
