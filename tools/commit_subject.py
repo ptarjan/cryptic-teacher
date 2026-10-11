@@ -3,15 +3,15 @@
 
     git diff --cached --name-status -M -- puzzles | python3 tools/commit_subject.py "<job>"
 
-prints e.g. "File times-17317, renumber times-18318 as times-17318 (Full OCR
-pass)": what changed comes first, the job that changed it after. With no
-puzzle staged it prints the job alone.
+prints e.g. "File times-17317 +4; renumber times-18318 as times-17318 (full
+pass)": what changed comes first, one id per verb and a count of the rest,
+then the job. With no puzzle staged it prints the job alone.
 """
 import sys
 from pathlib import PurePosixPath
 
 #: Shown per verb before the rest are counted.
-SHOWN = 3
+SHOWN = 1
 
 VERBS = {"A": "file", "M": "update", "D": "drop", "R": "renumber"}
 
@@ -30,7 +30,7 @@ def subject(lines, job):
     parts = []
     for verb, ids in by.items():
         if ids:
-            more = f" and {len(ids) - SHOWN} more" if len(ids) > SHOWN else ""
+            more = f" +{len(ids) - SHOWN}" if len(ids) > SHOWN else ""
             parts.append(f"{verb} {', '.join(ids[:SHOWN])}{more}")
     if not parts:
         return job

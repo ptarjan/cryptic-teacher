@@ -236,7 +236,7 @@ def recent_keyed():
 
 def job(key):
     """The unit as its commit subject names it (tools/commit_subject.py)."""
-    return f"{key} backfill" if key in BACKFILLS else f"Daily update: {key}"
+    return f"{key} backfill" if key in BACKFILLS else f"daily {key}"
 
 
 def main(argv):
