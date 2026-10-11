@@ -3665,6 +3665,61 @@
     // running straight into the first and the reader counting to find where
     // one stops. One word gets no breaks at all — an unbroken ring is the
     // whole point of it.
+    // A tile is the same button whichever shape it sits in; only where it goes
+    // differs, so the ring and the line share it.
+    const tile = (idx, w, x, y, extra) => `<button type="button" class="ana-tile${
+        ring.struck[idx] ? " struck" : ""}${pinnedTile[idx] ? " fixed" : ""}"
+          data-ana="${idx}" data-word="${w}" aria-pressed="${ring.struck[idx] ? "true" : "false"}"
+          title="${pinnedTile[idx] ? "Already in the crossword grid — fixed in its place" : "Tap to cross off once used"}"
+          style="left:calc(50% + ${x}px);
+                 top:calc(50% + ${y}px)${extra || ""}">${ring.letters[idx]}</button>`;
+    const focus = ringKbdFocused() ? " ana-focus" : "";
+    // Once a letter is pinned the circle is the wrong shape. A ring says the
+    // letters have no order, and a pinned letter is exactly a piece of order:
+    // it is letter 4 of the answer, not "somewhere round there". Counting
+    // clockwise from the top to find slot 4 is work the solver should not be
+    // doing, so with any pin the tiles stand in a LINE in answer order, the
+    // way the light itself runs, each pinned letter in its own slot and the
+    // free ones filling the slots between. Words are split by a gap, and a word
+    // that would push the line wider than the ring ever gets starts a new row.
+    // No pins, no order: the ring stays.
+    if (Object.keys(ring.pins).length) {
+      const MAXW = 314;  // the widest the ring itself is ever drawn
+      const rows = [];   // each row: [[word index, start, len], ...]
+      let start = 0, row = [], used = 0;
+      cuts.forEach((len, w) => {
+        const need = used ? used + 1 + len : len;   // +1: the gap before this word
+        if (row.length && need * PITCH > MAXW) { rows.push(row); row = []; used = 0; }
+        row.push([w, start, len]);
+        used = used ? used + 1 + len : len;
+        start += len;
+      });
+      rows.push(row);
+      const width = (r) => r.reduce((a, [, , len]) => a + len, 0) + r.length - 1;
+      const widest = Math.max(...rows.map(width));
+      // A single word longer than the panel is wide closes the tiles up rather
+      // than wrapping mid-word, which would put a break where the answer has none.
+      const pitch = Math.min(PITCH, Math.floor(MAXW / widest));
+      const narrow = pitch < PITCH ? `;min-width:0;width:${pitch - 3}px;padding-left:0;padding-right:0` : "";
+      const ROW = 46;
+      const tiles = rows.map((r, ri) => {
+        const y = Math.round((ri - (rows.length - 1) / 2) * ROW);
+        let slot = 0;
+        const left = -((width(r) - 1) / 2) * pitch;
+        return r.map(([w, s0, len]) => {
+          const out = ring.order.slice(s0, s0 + len).map((idx, k) =>
+            tile(idx, w, Math.round(left + (slot + k) * pitch), y, narrow)).join("");
+          slot += len + 1;
+          return out;
+        }).join("");
+      }).join("");
+      const lineDisc = `<div class="ana-disc ana-line${focus}" style="width:${
+        widest * pitch + 34}px;height:${rows.length * ROW + 10}px">${tiles}</div>`;
+      return `<div class="anagram-ring">
+      <div class="ana-discs">${lineDisc}</div>
+      <button type="button" id="ana-shuffle" class="ghost small">Shuffle</button>
+    </div>`;
+    }
     const slots = n + (cuts.length > 1 ? cuts.length : 0);
     const radius = Math.max(56, Math.min(140,
       Math.ceil(PITCH / (2 * Math.sin(Math.PI / Math.max(3, slots))))));
@@ -3675,15 +3730,10 @@
       from += len;
       return slice.map((idx, pos) => {
         const a = ((before + pos) / slots) * 2 * Math.PI - Math.PI / 2;
-        return `<button type="button" class="ana-tile${ring.struck[idx] ? " struck" : ""}${
-            pinnedTile[idx] ? " fixed" : ""}"
-          data-ana="${idx}" data-word="${w}" aria-pressed="${ring.struck[idx] ? "true" : "false"}"
-          title="${pinnedTile[idx] ? "Already in the crossword grid — fixed in its place" : "Tap to cross off once used"}"
-          style="left:calc(50% + ${Math.round(Math.cos(a) * radius)}px);
-                 top:calc(50% + ${Math.round(Math.sin(a) * radius)}px)">${ring.letters[idx]}</button>`;
+        return tile(idx, w, Math.round(Math.cos(a) * radius), Math.round(Math.sin(a) * radius));
       }).join("");
     }).join("");
-    const discs = `<div class="ana-disc${ringKbdFocused() ? " ana-focus" : ""}" style="width:${
+    const discs = `<div class="ana-disc${focus}" style="width:${
       d}px;height:${d}px">${tiles}</div>`;
     // ana-focus is a plain function of activeElement at render time, not of a
     // focus/blur listener toggling a class: the disc is thrown away and rebuilt
