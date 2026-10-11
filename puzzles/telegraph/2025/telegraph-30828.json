@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,51 @@
     "text": "At work, so a pertinent task for PowerPoint users?",
     "enumeration": "12"
    },
-   "solution": "PRESENTATION"
+   "solution": "PRESENTATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRESENTATION",
+    "definitions": [
+     {
+      "text": "task for PowerPoint users",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At work",
+      "for": "anagram",
+      "note": "letters at work are busy being moved about, so the following words get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so a pertinent",
+      "gives": "SOAPERTINENT",
+      "note": "the fodder, every letter used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOAPERTINENT",
+       "gives": "PRESENTATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at the office describes a job that suits people who live in PowerPoint.",
+     "walkthrough": "'At work' reads as setting the scene but is the signal to rearrange 'so a pertinent'.",
+     "definitionFit": "PowerPoint is slideshow software, and giving a slideshow talk is exactly what its users are tasked with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +93,61 @@
     "text": "Long-suﬀering postman that is not disheartened",
     "enumeration": "7"
    },
-   "solution": "PATIENT"
+   "solution": "PATIENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PATIENT",
+    "definitions": [
+     {
+      "text": "Long-suﬀering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "deletion",
+      "note": "losing its heart means the middle letter of the word before is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "postman",
+      "gives": "PAT",
+      "note": "Postman Pat, the children's TV character"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is Latin shorthand for 'that is'"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "IE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A postman who puts up with a lot without losing heart.",
+     "walkthrough": "Postman Pat is a British children's TV postman; NOT loses its middle O.",
+     "definitionFit": "Someone patient endures delay or trouble without complaint, which is what long-suffering describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "postman"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +161,59 @@
     "text": "Something that happens still on 3rd of October",
     "enumeration": "5"
    },
-   "solution": "EVENT"
+   "solution": "EVENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EVENT",
+    "definitions": [
+     {
+      "text": "Something that happens",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "3rd of",
+      "for": "letter_selection",
+      "note": "an ordinal plus 'of' asks for just that numbered letter of the following word"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "EVEN",
+      "note": "'even' as in 'even more', 'still more'"
+     },
+     {
+      "clueFragment": "October",
+      "gives": "T",
+      "select": 3,
+      "note": "its third letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Something is still due to happen on the third of October.",
+     "walkthrough": "'3rd of October' looks like a date but asks for a single letter.",
+     "definitionFit": "An event is an occurrence, anything that takes place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "3rd"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +233,56 @@
      }
     ]
    },
-   "solution": "EASTENDER"
+   "solution": "EASTENDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EAST-ENDER",
+    "definitions": [
+     {
+      "text": "Cockney, maybe",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "equally",
+      "gives": "AS",
+      "note": "as in 'as good', meaning equally good"
+     },
+     {
+      "clueFragment": "aﬀectionate",
+      "gives": "TENDER",
+      "note": "synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "AS",
+      "TENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Cockney and a European are described as equally loving.",
+     "walkthrough": "A Cockney is a working-class Londoner from the East End, so 'maybe' marks the definition as an example.",
+     "definitionFit": "An East Ender lives in east London, and Cockneys are the classic example of such residents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "equally"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +296,42 @@
     "text": "Quiche possibly bitter",
     "enumeration": "4"
    },
-   "solution": "TART"
+   "solution": "TART",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TART",
+    "definitions": [
+     {
+      "text": "Quiche possibly",
+      "at": 0
+     },
+     {
+      "text": "bitter",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiche possibly",
+      "note": "first meaning: a pastry case with a filling, of which quiche is one kind"
+     },
+     {
+      "clueFragment": "bitter",
+      "note": "second meaning: sharp or sour in taste or tone"
+     }
+    ],
+    "explanation": {
+     "surface": "A quiche that may have turned out sour.",
+     "definitionFit": "The word is both a noun for an open pastry dish and an adjective meaning sharp or acidic in taste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bitter"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +345,43 @@
     "text": "In Leicester, minuscule railway station?",
     "enumeration": "8"
    },
-   "solution": "TERMINUS"
+   "solution": "TERMINUS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TERMINUS",
+    "definitions": [
+     {
+      "text": "railway station",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of letters of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leicester, minuscule",
+      "gives": "TERMINUS",
+      "note": "read across the end of the first word and most of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A query about a tiny railway station in the city of Leicester.",
+     "walkthrough": "The answer runs from the end of 'Leicester' into 'minuscule'.",
+     "definitionFit": "A terminus is the end station of a railway line, so the question mark covers it being a particular kind of station."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "minuscule"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +395,66 @@
     "text": "Undisguised clergyman turning up in part of Bible",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "Undisguised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue turning up means the word reads from the bottom upwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the clergyman goes inside the scriptural part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clergyman",
+      "gives": "REV",
+      "note": "Rev, short for reverend"
+     },
+     {
+      "clueFragment": "part of Bible",
+      "gives": "OT",
+      "note": "Old Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VER",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar openly appears in a passage of scripture.",
+     "definitionFit": "Overt means done openly, not hidden, which is what undisguised describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +468,54 @@
     "text": "Renoir, if touched up, is not as good",
     "enumeration": "8"
    },
-   "solution": "INFERIOR"
+   "solution": "INFERIOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INFERIOR",
+    "definitions": [
+     {
+      "text": "not as good",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touched up",
+      "for": "anagram",
+      "note": "a painting touched up has been altered, so these letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Renoir, if",
+      "gives": "RENOIRIF",
+      "note": "the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RENOIRIF",
+       "gives": "INFERIOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Renoir painting that has been retouched is worse than the original.",
+     "walkthrough": "'Touched up' fits a painting so well it hides being the anagram signal.",
+     "definitionFit": "Inferior means of lower quality, lesser in standard than something else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touched"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +529,53 @@
     "text": "Make logical arguments, dealing with a child",
     "enumeration": "6"
    },
-   "solution": "REASON"
+   "solution": "REASON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REASON",
+    "definitions": [
+     {
+      "text": "Make logical arguments",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dealing with",
+      "gives": "RE",
+      "note": "re means concerning, on the subject of"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "SON",
+      "note": "a son is a child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "A",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "Arguing sensibly while looking after a youngster.",
+     "walkthrough": "The comma splits definition from wordplay; 'dealing with' is RE, as in a letter's subject line.",
+     "definitionFit": "To reason is to think and argue logically, drawing conclusions from premises."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dealing"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +589,70 @@
     "text": "Fixed rate certainly right for financial manager",
     "enumeration": "9"
    },
-   "solution": "TREASURER"
+   "solution": "TREASURER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TREASURER",
+    "definitions": [
+     {
+      "text": "financial manager",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fixed",
+      "for": "anagram",
+      "note": "something fixed has been repaired or rigged, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rate",
+      "gives": "RATE",
+      "note": "fodder"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "SURE",
+      "note": "'sure!' means certainly"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREA",
+      "SURE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATE",
+       "gives": "TREA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fixed rate is definitely the correct choice for someone running the finances.",
+     "walkthrough": "'Fixed rate' reads as a mortgage term, but 'Fixed' only shuffles RATE.",
+     "definitionFit": "A treasurer looks after the money of a club, company or council."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fixed"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +666,56 @@
     "text": "Wise bird circling island?",
     "enumeration": "5"
    },
-   "solution": "ERNIE"
+   "solution": "ERNIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ERNIE",
+    "definitions": [
+     {
+      "text": "Wise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "going round something puts it inside, so the bird surrounds the island"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "ERNE",
+      "note": "the erne is a sea eagle"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERN",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A clever bird flying round an island.",
+     "walkthrough": "'Wise' looks like an adjective for the bird, but it is the surname of Ernie Wise, of the British comedy double act Morecambe and Wise.",
+     "definitionFit": "Ernie Wise was the straight man of the famous British comedy duo, so his first name stands for the surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wise"
+    }
+   }
   },
   {
    "number": 11,
@@ -192,7 +729,47 @@
     "text": "In Paris, is that lady an old Persian queen?",
     "enumeration": "6"
    },
-   "solution": "ESTHER"
+   "solution": "ESTHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESTHER",
+    "definitions": [
+     {
+      "text": "an old Persian queen",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In Paris, is",
+      "gives": "EST",
+      "note": "est is French for 'is'"
+     },
+     {
+      "clueFragment": "that lady",
+      "gives": "HER",
+      "note": "pronoun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EST",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in Paris wonders whether a woman is an ancient Persian queen.",
+     "walkthrough": "'In Paris' tells you to translate the next word into French.",
+     "definitionFit": "Esther is the biblical Jewish heroine who became queen to the Persian king Ahasuerus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Paris"
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +783,65 @@
     "text": "Start to dye one's hair, creating anguish",
     "enumeration": "8"
    },
-   "solution": "DISTRESS"
+   "solution": "DISTRESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DISTRESS",
+    "definitions": [
+     {
+      "text": "anguish",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter alone"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dye",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is = I is, I for one"
+     },
+     {
+      "clueFragment": "hair",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Beginning to colour your hair causes great worry.",
+     "walkthrough": "'One's' is read as 'one is', with one giving I.",
+     "definitionFit": "Distress is acute mental suffering, a close synonym of anguish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Start"
+    }
+   }
   },
   {
    "number": 13,
@@ -220,7 +855,57 @@
     "text": "Rant from yours truly, engaged in commerce",
     "enumeration": "6"
    },
-   "solution": "TIRADE"
+   "solution": "TIRADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIRADE",
+    "definitions": [
+     {
+      "text": "Rant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engaged in",
+      "for": "container",
+      "note": "being engaged in something means being held within it"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commerce",
+      "gives": "TRADE",
+      "note": "synonym"
+     },
+     {
+      "clueFragment": "yours truly",
+      "gives": "I",
+      "note": "yours truly means the speaker, me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "RADE"
+     ]
+    },
+    "explanation": {
+     "surface": "A businessperson sounds off about their work in trade.",
+     "definitionFit": "A tirade is a long angry speech, the same as a rant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engaged"
+    }
+   }
   },
   {
    "number": 14,
@@ -234,7 +919,50 @@
     "text": "Religious teacher and Irish priest yakked",
     "enumeration": "8"
    },
-   "solution": "RABBITED"
+   "solution": "RABBITED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RABBITED",
+    "definitions": [
+     {
+      "text": "yakked",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Religious teacher",
+      "gives": "RABBI",
+      "note": "a rabbi is a Jewish teacher"
+     },
+     {
+      "clueFragment": "Irish priest",
+      "gives": "TED",
+      "note": "Father Ted, the Irish priest of the TV sitcom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RABBI",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "A rabbi and an Irish priest chatted away.",
+     "walkthrough": "Father Ted is a well-known sitcom about Irish priests; in British slang to rabbit is to talk on and on.",
+     "definitionFit": "Rabbited, from rhyming slang 'rabbit and pork' (talk), means chattered at length, just as yakked does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Irish"
+    }
+   }
   },
   {
    "number": 15,
@@ -248,7 +976,54 @@
     "text": "A pound taken from Antipodean national",
     "enumeration": "8"
    },
-   "solution": "AUSTRIAN"
+   "solution": "AUSTRIAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AUSTRIAN",
+    "definitions": [
+     {
+      "text": "national",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken from",
+      "for": "deletion",
+      "note": "something taken from a word is removed from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A pound",
+      "gives": "L",
+      "note": "L for libra, the pound"
+     },
+     {
+      "clueFragment": "Antipodean",
+      "gives": "AUSTRALIAN",
+      "note": "the Antipodes are Australia and New Zealand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSTR",
+      "IAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Money is taken off a visitor from Down Under.",
+     "walkthrough": "One L is dropped from AUSTRALIAN; the two nationalities differ by just that letter.",
+     "definitionFit": "An Austrian is a citizen of Austria, so a national of that country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1043,55 @@
      }
     ]
    },
-   "solution": "TAKINGOFF"
+   "solution": "TAKINGOFF",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TAKING OFF",
+    "definitions": [
+     {
+      "text": "Imitating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so the aristocrat surrounds what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aristocrat",
+      "gives": "TOFF",
+      "note": "a toff is a posh, upper-class person"
+     },
+     {
+      "clueFragment": "a monarch",
+      "gives": "AKING",
+      "note": "a + king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AKING",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A posh person receives a visiting sovereign while mimicking someone.",
+     "walkthrough": "Toff is British slang for a rich upper-class person.",
+     "definitionFit": "Taking off someone means mimicking them for comic effect, so it means imitating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "welcoming"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1111,68 @@
      }
     ]
    },
-   "solution": "CARDGAME"
+   "solution": "CARDGAME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CARD GAME",
+    "definitions": [
+     {
+      "text": "bridge",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter"
+     },
+     {
+      "text": "to tour",
+      "for": "container",
+      "note": "touring something means going round it, so the outer words surround the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicle",
+      "gives": "CAR",
+      "note": "synonym"
+     },
+     {
+      "clueFragment": "dangerous",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "willing",
+      "gives": "GAME",
+      "note": "game for something means willing to do it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "D",
+      "GAME"
+     ]
+    },
+    "explanation": {
+     "surface": "A car whose driver is keen to go over a perilous bridge.",
+     "walkthrough": "'Bridge' looks like a river crossing, but it is the card game, so the question mark marks an example.",
+     "definitionFit": "Bridge is a partnership card game for four players, so it is one example of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1186,65 @@
     "text": "Dog's barking bored bishop, for example",
     "enumeration": "8"
    },
-   "solution": "DOBERMAN"
+   "solution": "DOBERMAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DOBERMAN",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barking",
+      "for": "anagram",
+      "note": "barking is British slang for mad, so these letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bored",
+      "gives": "BORED",
+      "note": "fodder"
+     },
+     {
+      "clueFragment": "bishop, for example",
+      "gives": "MAN",
+      "note": "a bishop is a chessman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOBER",
+      "MAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BORED",
+       "gives": "DOBER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog's barking bores a churchman, say.",
+     "walkthrough": "'Barking' suits a dog but is the anagram signal (barking mad); a bishop is a piece, or man, in chess. The 's stands for 'is'.",
+     "definitionFit": "The Dobermann is a German breed of guard dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "barking"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1258,50 @@
     "text": "Expel from the pub that Diana owns",
     "enumeration": "6"
    },
-   "solution": "DISBAR"
+   "solution": "DISBAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISBAR",
+    "definitions": [
+     {
+      "text": "Expel",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diana owns",
+      "gives": "DIS",
+      "note": "Di's, belonging to Di, short for Diana"
+     },
+     {
+      "clueFragment": "the pub",
+      "gives": "BAR",
+      "note": "synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "BAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Being thrown out of a pub that belongs to Diana.",
+     "walkthrough": "The pub Diana owns is Di's bar.",
+     "definitionFit": "To disbar is to expel a barrister from the legal profession."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pub"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1315,61 @@
     "text": "Winter sport equipment includes extremely resplendent garments",
     "enumeration": "6"
    },
-   "solution": "SKIRTS"
+   "solution": "SKIRTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SKIRTS",
+    "definitions": [
+     {
+      "text": "garments",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "something that includes another holds it inside"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Winter sport equipment",
+      "gives": "SKIS",
+      "note": "skis are used for skiing"
+     },
+     {
+      "clueFragment": "resplendent",
+      "gives": "RT",
+      "select": "outer",
+      "note": "outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKI",
+      "RT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Ski kit now comes with some dazzling clothing.",
+     "definitionFit": "Skirts are items of clothing, so they are garments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1383,64 @@
     "text": "Small kitchen item with oddly golden, glittering adornment",
     "enumeration": "7"
    },
-   "solution": "SPANGLE"
+   "solution": "SPANGLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SPANGLE",
+    "definitions": [
+     {
+      "text": "glittering adornment",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means take the letters in the odd positions"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "kitchen item",
+      "gives": "PAN",
+      "note": "a pan is a cooking utensil"
+     },
+     {
+      "clueFragment": "golden",
+      "gives": "GLE",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PAN",
+      "GLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A little kitchen gadget decorated with shiny gold trim.",
+     "definitionFit": "A spangle is a small shiny sequin sewn on clothes to sparkle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "golden"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1454,59 @@
     "text": "Transmits banking advice for salaries",
     "enumeration": "8"
    },
-   "solution": "STIPENDS"
+   "solution": "STIPENDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STIPENDS",
+    "definitions": [
+     {
+      "text": "salaries",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banking",
+      "for": "container",
+      "note": "to bank something is to hem it in on both sides, so the first word encloses the second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Transmits",
+      "gives": "SENDS",
+      "note": "synonym"
+     },
+     {
+      "clueFragment": "advice",
+      "gives": "TIP",
+      "note": "a tip is a piece of advice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TIP",
+      "ENDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone passes on financial advice in exchange for pay.",
+     "walkthrough": "'Banking advice' looks like financial guidance, but banking means surrounding.",
+     "definitionFit": "Stipends are fixed regular payments, often to clergy, so salaries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "banking"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1526,64 @@
      }
     ]
    },
-   "solution": "EATUP"
+   "solution": "EATUP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EAT UP",
+    "definitions": [
+     {
+      "text": "Devour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "the starter of a word is its first letter"
+     },
+     {
+      "text": "crackers",
+      "for": "anagram",
+      "note": "crackers means crazy, so the letters go wild and are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pate",
+      "gives": "PATE",
+      "note": "fodder"
+     },
+     {
+      "clueFragment": "unappetising",
+      "gives": "U",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PATEU",
+       "gives": "EATUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wolf down pâté and the first course of nasty crackers.",
+     "walkthrough": "'Crackers' looks like the biscuits for the pâté but signals the anagram.",
+     "definitionFit": "To eat up is to consume all of something, just as devour means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crackers"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1597,68 @@
     "text": "Knight clad in silver and gold — a kind of fabric",
     "enumeration": "6"
    },
-   "solution": "ANGORA"
+   "solution": "ANGORA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ANGORA",
+    "definitions": [
+     {
+      "text": "a kind of fabric",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clad in",
+      "for": "container",
+      "note": "being clad in something means being wrapped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "Knight",
+      "gives": "N",
+      "note": "N is the chess notation for knight"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "G",
+      "OR",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight in silver and gold armour, likened to a sort of cloth.",
+     "walkthrough": "The 'a' before the dash belongs to the wordplay, so the definition is 'kind of fabric'.",
+     "definitionFit": "Angora is a soft yarn or cloth made from the hair of the Angora goat or rabbit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Knight"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1672,51 @@
     "text": "Franco-German agreements for the board",
     "enumeration": "5"
    },
-   "solution": "OUIJA"
+   "solution": "OUIJA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUIJA",
+    "definitions": [
+     {
+      "text": "board",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Franco",
+      "gives": "OUI",
+      "note": "French for yes"
+     },
+     {
+      "clueFragment": "German agreements",
+      "gives": "JA",
+      "note": "German for yes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUI",
+      "JA"
+     ]
+    },
+    "explanation": {
+     "surface": "French and German treaties being put to a company board.",
+     "walkthrough": "'Franco-German agreements' are two yeses, one in each language; the board's name was indeed coined from them.",
+     "definitionFit": "A Ouija board is the lettered board used in séances to spell out supposed messages from spirits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "agreements"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1730,51 @@
     "text": "Sin initially suppressed in part of church",
     "enumeration": "4"
    },
-   "solution": "APSE"
+   "solution": "APSE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "APSE",
+    "definitions": [
+     {
+      "text": "part of church",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially suppressed",
+      "for": "deletion",
+      "note": "having its beginning suppressed means the opening letter is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sin",
+      "gives": "LAPSE",
+      "note": "a lapse is a moral slip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Wrongdoing is hushed up within a church building.",
+     "walkthrough": "'Sin initially' wants to be S, but 'initially suppressed' acts together on a synonym for sin.",
+     "definitionFit": "The apse is the rounded or vaulted recess at the east end of a church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1788,69 @@
     "text": "Arsenal's wingers regularly earn time on the ball",
     "enumeration": "5"
    },
-   "solution": "ALERT"
+   "solution": "ALERT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALERT",
+    "definitions": [
+     {
+      "text": "on the ball",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wingers",
+      "for": "letter_selection",
+      "note": "a team's wingers are on the outside, so only the first and last letters are kept"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means taking every other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arsenal's",
+      "gives": "AL",
+      "select": "outer",
+      "note": "outer letters of Arsenal"
+     },
+     {
+      "clueFragment": "earn",
+      "gives": "ER",
+      "select": "alternate",
+      "note": "first and third letters"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "ER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Arsenal's wide players regularly earn time in possession.",
+     "walkthrough": "Arsenal is a London football club; its wingers are just its outer letters.",
+     "definitionFit": "Being on the ball is an idiom for being quick and attentive, the same as alert."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wingers"
+    }
+   }
   },
   {
    "number": 27,
@@ -448,7 +1864,61 @@
     "text": "Endorsing article rambling across two pages",
     "enumeration": "9"
    },
-   "solution": "APPROVING"
+   "solution": "APPROVING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "APPROVING",
+    "definitions": [
+     {
+      "text": "Endorsing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "across",
+      "for": "container",
+      "note": "lying across something means straddling it, so these words wrap around what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "indefinite article"
+     },
+     {
+      "clueFragment": "rambling",
+      "gives": "ROVING",
+      "note": "roving means wandering, rambling"
+     },
+     {
+      "clueFragment": "two pages",
+      "gives": "PP",
+      "note": "pp is the abbreviation for pages"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PP",
+      "ROVING"
+     ]
+    },
+    "explanation": {
+     "surface": "Giving approval to a newspaper article that wanders across a two-page spread.",
+     "walkthrough": "'Article rambling' is read as one phrase, and the two pages sit inside it just after the article.",
+     "definitionFit": "Approving means giving official sanction to something, which is what endorsing does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 28,
@@ -476,7 +1946,46 @@
      }
     ]
    },
-   "solution": "APIECEOFCAKE"
+   "solution": "APIECEOFCAKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "A PIECE OF CAKE",
+    "definitions": [
+     {
+      "text": "Something to eat",
+      "at": 0
+     },
+     {
+      "text": "a picnic",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something to eat",
+      "note": "first meaning: a slice of a sweet baked treat"
+     },
+     {
+      "clueFragment": "a picnic",
+      "note": "second meaning: in the idiom 'no picnic', a picnic is an easy task"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests packing food for an outdoor meal, but 'a picnic' is used in its sense of something easy.",
+     "definitionFit": "The phrase is literally a slice of baked dessert and also an idiom for any very easy task, like a picnic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "picnic"
+    }
+   }
   }
  ]
 }
