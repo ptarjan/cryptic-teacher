@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Rip across page showing prominent headline",
     "enumeration": "6"
    },
-   "solution": "SPLASH"
+   "solution": "SPLASH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPLASH",
+    "definitions": [
+     {
+      "text": "prominent headline",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "across",
+      "for": "container",
+      "note": "one thing lying across another straddles it, so the tear word sits on either side of the other"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rip",
+      "gives": "SLASH",
+      "note": "to slash is to rip or cut"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the standard abbreviation for page"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "LASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A torn front page reveals the big banner headline beneath.",
+     "definitionFit": "A splash in newspaper jargon is a story given the biggest, boldest headline on the front page."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rip"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +100,42 @@
     "text": "Unconnected part",
     "enumeration": "8"
    },
-   "solution": "SEPARATE"
+   "solution": "SEPARATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEPARATE",
+    "definitions": [
+     {
+      "text": "Unconnected",
+      "at": 0
+     },
+     {
+      "text": "part",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unconnected",
+      "note": "first meaning: an adjective for things not joined"
+     },
+     {
+      "clueFragment": "part",
+      "note": "second meaning: a verb, to divide or split"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Part' looks like a noun, a piece; read it as the verb to split up.",
+     "definitionFit": "The word is both an adjective for things apart and a verb meaning to divide, pronounced differently."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +149,49 @@
     "text": "Read up on line and make",
     "enumeration": "5"
    },
-   "solution": "LEARN"
+   "solution": "LEARN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEARN",
+    "definitions": [
+     {
+      "text": "Read up on",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "make",
+      "gives": "EARN",
+      "note": "to make money is to earn it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EARN"
+     ]
+    },
+    "explanation": {
+     "surface": "Study a topic one line at a time and earn a living from it.",
+     "definitionFit": "To read up on a subject is to study it and so come to know it, which is to learn it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +205,78 @@
     "text": "Docker set off, drove wildly close to Felixstowe",
     "enumeration": "9"
    },
-   "solution": "STEVEDORE"
+   "solution": "STEVEDORE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STEVEDORE",
+    "definitions": [
+     {
+      "text": "Docker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "set off can mean disturbed or knocked out of order, so these letters are shuffled"
+     },
+     {
+      "text": "wildly",
+      "for": "anagram",
+      "note": "acting wildly means without order, so these letters join the same jumble"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "drove",
+      "gives": "DROVE",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "Felixstowe",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of Felixstowe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEVEDOR",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SETDROVE",
+       "gives": "STEVEDOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dock worker set off and drove recklessly near Felixstowe.",
+     "walkthrough": "Felixstowe is a major container port on England's east coast, which suits the docker.",
+     "definitionFit": "A stevedore is a person employed to load and unload ships, a docker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +290,55 @@
     "text": "Row, we hear, with international in protective helmet",
     "enumeration": "8"
    },
-   "solution": "SKULLCAP"
+   "solution": "SKULLCAP",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SKULLCAP",
+    "definitions": [
+     {
+      "text": "protective helmet",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken sound, so the word for row is taken by its sound and respelt"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Row",
+      "gives": "SKULL",
+      "soundsLike": "SCULL",
+      "note": "to scull is to row a boat with oars; it sounds like the word for the bony head"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "CAP",
+      "note": "a player picked for their country is awarded a cap, and is called a cap or an international"
+     }
+    ],
+    "explanation": {
+     "surface": "A rower teams up with an international sportsman, both wearing safety helmets.",
+     "walkthrough": "In British sport a cap is a player who has represented their country, after the cap traditionally awarded.",
+     "definitionFit": "A skullcap is a close-fitting cap; here, loosely, protective headgear covering the crown of the head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +358,51 @@
      }
     ]
    },
-   "solution": "KITCHENGARDEN"
+   "solution": "KITCHENGARDEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KITCHEN GARDEN",
+    "definitions": [
+     {
+      "text": "Potager",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cultivated",
+      "for": "anagram",
+      "note": "cultivated soil is dug and turned over, so these letters are turned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recent king had",
+      "gives": "RECENTKINGHAD",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RECENTKINGHAD",
+       "gives": "KITCHENGARDEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recent monarch had a vegetable plot tended.",
+     "walkthrough": "'Cultivated' fits the garden scene perfectly, which hides its job as the shuffle signal.",
+     "definitionFit": "Potager is the French term for an ornamental vegetable garden, grown to supply the kitchen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cultivated"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +416,68 @@
     "text": "Rule amended to include married primate",
     "enumeration": "5"
    },
-   "solution": "LEMUR"
+   "solution": "LEMUR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LEMUR",
+    "definitions": [
+     {
+      "text": "primate",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amended",
+      "for": "anagram",
+      "note": "a rule amended is altered, so its letters are reworked"
+     },
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "including something means holding it inside, so one letter goes in the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rule",
+      "gives": "RULE",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "M",
+      "UR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RULE",
+       "gives": "LEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A regulation is changed so it covers wedded monkeys.",
+     "walkthrough": "'Primate' could suggest an archbishop alongside married and rule; it is the animal.",
+     "definitionFit": "A lemur is a tree-dwelling primate native to Madagascar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "primate"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +497,67 @@
      }
     ]
    },
-   "solution": "CONGEREEL"
+   "solution": "CONGEREEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CONGER EEL",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "a container holds things, so the word for basket wraps around the rest"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside means surrounding, so the word for one sits around the letter for good"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "basket",
+      "gives": "CREEL",
+      "note": "a creel is an angler's wicker basket"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "G",
+      "E",
+      "REEL"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler's basket contains one good fish from outside.",
+     "walkthrough": "Two words signal wrapping here, so it is done twice: inner first, then the result goes inside the basket word.",
+     "definitionFit": "The conger eel is a large sea fish of the eel family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +571,61 @@
     "text": "Like excuses over ending of marriage",
     "enumeration": "6"
    },
-   "solution": "PLEASE"
+   "solution": "PLEASE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PLEASE",
+    "definitions": [
+     {
+      "text": "Like",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending of",
+      "for": "letter_selection",
+      "note": "the ending of a word is its last letter, so only that one is kept"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, over means placed above, so the first part sits on top of the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excuses",
+      "gives": "PLEAS",
+      "note": "pleas are excuses offered in defence"
+     },
+     {
+      "clueFragment": "marriage",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of marriage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLEAS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enjoys making excuses at the end of a marriage.",
+     "walkthrough": "'Like' is a verb here, as in 'do as you like'.",
+     "definitionFit": "To like, in the sense of wish or choose, is to please: do as you please."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +645,86 @@
      }
     ]
    },
-   "solution": "PRAYERMAT"
+   "solution": "PRAYERMAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "PRAYER MAT",
+    "definitions": [
+     {
+      "text": "Rug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one letter is kept"
+     },
+     {
+      "text": "used",
+      "for": "anagram",
+      "note": "something used is worn and knocked about, so these letters are jumbled out of order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means surrounding it, so one group of letters wraps another"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after puts this group later in the line, following the single opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pilgrimage",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of pilgrimage"
+     },
+     {
+      "clueFragment": "a martyr",
+      "gives": "AMARTYR",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "the east",
+      "gives": "E",
+      "note": "E is the abbreviation for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RAY",
+      "E",
+      "RMAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMARTYR",
+       "gives": "RAYRMAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A martyr's rug is laid facing east at the start of a religious pilgrimage.",
+     "walkthrough": "The jumbled letters of 'a martyr' go round the E, and P from the start of pilgrimage goes in front.",
+     "definitionFit": "A prayer mat is a small rug on which a worshipper kneels to pray, notably facing Mecca in the east."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "used"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +748,43 @@
      }
     ]
    },
-   "solution": "MAIDSOFHONOUR"
+   "solution": "MAIDSOFHONOUR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAIDS OF HONOUR",
+    "definitions": [
+     {
+      "text": "Bridesmaids",
+      "at": 0
+     },
+     {
+      "text": "Tarts",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bridesmaids",
+      "note": "first meaning: unmarried attendants of a bride or queen"
+     },
+     {
+      "clueFragment": "Tarts",
+      "note": "second meaning: small almond or curd pastries of that name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The exclamation suggests an insult aimed at the bridesmaids, but the tarts are pastries.",
+     "definitionFit": "Maids of honour are a bride's chief attendants, and also small sweet pastries associated with Richmond in Surrey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tarts"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +798,59 @@
     "text": "Husband's last to leave house",
     "enumeration": "5"
    },
-   "solution": "MANSE"
+   "solution": "MANSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MANSE",
+    "definitions": [
+     {
+      "text": "house",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only that one letter is kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband's",
+      "gives": "MANS",
+      "note": "a husband is a man, and the 's is kept as S"
+     },
+     {
+      "clueFragment": "leave",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The husband is the last one to leave the house.",
+     "walkthrough": "'Last to leave' reads as the final person out of the door; it is the last letter of leave.",
+     "definitionFit": "A manse is the house provided for a minister, especially in Scotland, so it is a particular kind of dwelling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leave"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +864,55 @@
     "text": "Fury about new row",
     "enumeration": "5"
    },
-   "solution": "RANGE"
+   "solution": "RANGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RANGE",
+    "definitions": [
+     {
+      "text": "row",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the word for fury goes around the other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fury",
+      "gives": "RAGE",
+      "note": "rage is fury"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "N",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flies into a fury over a fresh row or quarrel.",
+     "walkthrough": "'Row' looks like a quarrel to go with fury; it means a line, as in a mountain range.",
+     "definitionFit": "A range is a line or series of things, such as a row of mountains or hills."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +932,49 @@
      }
     ]
    },
-   "solution": "INHARNESS"
+   "solution": "INHARNESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN HARNESS",
+    "definitions": [
+     {
+      "text": "Working together",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "tackle",
+      "gives": "HARNESS",
+      "note": "tackle is gear or equipment, as a harness is for a horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "HARNESS"
+     ]
+    },
+    "explanation": {
+     "surface": "People cooperate at home while dealing with their gear.",
+     "definitionFit": "Being in harness is an idiom for working closely alongside others, like horses yoked together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tackle"
+    }
+   }
   },
   {
    "number": 14,
@@ -277,7 +1002,67 @@
      }
     ]
    },
-   "solution": "THEBOYSINBLUE"
+   "solution": "THEBOYSINBLUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "THE BOYS IN BLUE",
+    "definitions": [
+     {
+      "text": "Policemen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "buckling",
+      "for": "anagram",
+      "note": "something buckling bends and twists out of shape, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shone by",
+      "gives": "THEBOYS",
+      "note": "the anagram fodder, which should yield seven letters but as printed has an N where a T is needed"
+     },
+     {
+      "clueFragment": "with it",
+      "gives": "IN",
+      "note": "fashionable, as in the in thing"
+     },
+     {
+      "clueFragment": "down",
+      "gives": "BLUE",
+      "note": "feeling down is feeling blue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEBOYS",
+      "IN",
+      "BLUE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHONEBY",
+       "gives": "THEBOYS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police officers, fashionable and gleaming, collapse in a gloomy state.",
+     "walkthrough": "As printed the anagram fails: 'shone by' has an N where THE BOYS needs a T, so the setter presumably meant 'those by'.",
+     "definitionFit": "The boys in blue is a familiar nickname for the police, from the colour of their uniforms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +1076,64 @@
     "text": "Sweetbriar, for example, worker planted in row",
     "enumeration": "9"
    },
-   "solution": "EGLANTINE"
+   "solution": "EGLANTINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EGLANTINE",
+    "definitions": [
+     {
+      "text": "Sweetbriar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "planted in",
+      "for": "container",
+      "note": "something planted in is set inside the ground, so the worker goes inside the word for row"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for for example"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "LINE",
+      "note": "a line is a row"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "a worker ant; ant is the usual crossword worker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "L",
+      "ANT",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener plants wild roses, for example, in a neat row.",
+     "definitionFit": "Eglantine is another name for the sweetbriar, a wild rose with fragrant leaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +1147,57 @@
     "text": "Fellers, number with elm chopped up",
     "enumeration": "9"
    },
-   "solution": "LUMBERMEN"
+   "solution": "LUMBERMEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LUMBERMEN",
+    "definitions": [
+     {
+      "text": "Fellers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chopped up",
+      "for": "anagram",
+      "note": "chopped up means cut into pieces and scattered, so these letters are mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "NUMBER",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "elm",
+      "gives": "ELM",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NUMBERELM",
+       "gives": "LUMBERMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Woodcutters with a stand of elms being chopped down.",
+     "walkthrough": "'Fellers' reads as fellows; it means people who fell trees.",
+     "definitionFit": "Lumbermen cut down trees for timber, so they are fellers in the logging sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fellers"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1211,52 @@
     "text": "Mrs Mopp is old ladymaking personal appeal",
     "enumeration": "8"
    },
-   "solution": "CHARISMA"
+   "solution": "CHARISMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARISMA",
+    "definitions": [
+     {
+      "text": "personal appeal",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mrs Mopp",
+      "gives": "CHAR",
+      "note": "Mrs Mopp was the charwoman in the British radio comedy ITMA; a char is a cleaning lady"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old ladymaking",
+      "gives": "MA",
+      "note": "one's old lady is one's mother, ma; the source runs the link word making onto lady"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "IS",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "The cleaning lady is an elderly woman with a magnetic personality.",
+     "walkthrough": "Mrs Mopp, the cleaner from the wartime radio show ITMA, stands for a char, British for a cleaning woman. The clue as printed runs 'lady' and 'making' together.",
+     "definitionFit": "Charisma is the compelling personal charm that draws others, a strong personal appeal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1270,59 @@
     "text": "A blue film and rich mulled wine",
     "enumeration": "13"
    },
-   "solution": "LIEBFRAUMILCH"
+   "solution": "LIEBFRAUMILCH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIEBFRAUMILCH",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mulled",
+      "for": "anagram",
+      "note": "mulled wine is heated and stirred with spices, so these letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A blue film",
+      "gives": "ABLUEFILM",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "rich",
+      "gives": "RICH",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABLUEFILMRICH",
+       "gives": "LIEBFRAUMILCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An evening of a racy film and rich hot spiced wine.",
+     "walkthrough": "'Mulled' looks like it describes the wine, but it signals the jumble; 'wine' is the definition.",
+     "definitionFit": "Liebfraumilch is a sweet German white wine, once hugely popular in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mulled"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1336,50 @@
     "text": "What could be the beginning or be my undoing?",
     "enumeration": "6"
    },
-   "solution": "EMBRYO"
+   "solution": "EMBRYO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMBRYO",
+    "definitions": [
+     {
+      "text": "What could be the beginning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undoing",
+      "for": "anagram",
+      "note": "an undoing unpicks something, so these letters are taken apart and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or be my",
+      "gives": "OREBMY",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OREBMY",
+       "gives": "EMBRYO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dramatic question: is this the start of something, or my ruin?",
+     "definitionFit": "An embryo is an organism at its earliest stage, the potential start of a life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "undoing"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1393,50 @@
     "text": "Wolfsbane could make brothers blind",
     "enumeration": "9"
    },
-   "solution": "MONKSHOOD"
+   "solution": "MONKSHOOD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MONKSHOOD",
+    "definitions": [
+     {
+      "text": "Wolfsbane",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "could make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brothers",
+      "gives": "MONKS",
+      "note": "monks are religious brothers"
+     },
+     {
+      "clueFragment": "blind",
+      "gives": "HOOD",
+      "note": "a hood over the eyes blinds, as with a falcon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MONKS",
+      "HOOD"
+     ]
+    },
+    "explanation": {
+     "surface": "A poisonous plant might make a group of brothers go blind.",
+     "walkthrough": "'Blind' reads as a verb about poisoning, but it is a noun: a covering for the eyes.",
+     "definitionFit": "Monkshood and wolfsbane are both common names for the poisonous aconite plant, named for its hood-shaped flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blind"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1450,49 @@
     "text": "Plagiarise newly-written tales",
     "enumeration": "5"
    },
-   "solution": "STEAL"
+   "solution": "STEAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEAL",
+    "definitions": [
+     {
+      "text": "Plagiarise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "newly-written",
+      "for": "anagram",
+      "note": "a text newly written is composed afresh, so these letters are set down in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tales",
+      "gives": "TALES",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TALES",
+       "gives": "STEAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone passes off freshly penned stories as their own.",
+     "definitionFit": "To plagiarise is to take someone else's work as your own, which is to steal it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1506,50 @@
     "text": "Keen, agree changes",
     "enumeration": "5"
    },
-   "solution": "EAGER"
+   "solution": "EAGER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EAGER",
+    "definitions": [
+     {
+      "text": "Keen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "the word changes signals the letters are altered into a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agree",
+      "gives": "AGREE",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGREE",
+       "gives": "EAGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An enthusiastic person agrees to changes.",
+     "definitionFit": "Keen and eager are synonyms, both meaning enthusiastic and ready to act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1563,59 @@
     "text": "Spirit, one imbibed by Autry?",
     "enumeration": "5"
    },
-   "solution": "GENIE"
+   "solution": "GENIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GENIE",
+    "definitions": [
+     {
+      "text": "Spirit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imbibed by",
+      "for": "container",
+      "note": "a drink imbibed by someone ends up inside them, so the numeral goes within the name"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Autry",
+      "gives": "GENE",
+      "note": "Gene Autry was the American singing cowboy"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A shot of spirits swallowed by the singing cowboy Gene Autry.",
+     "walkthrough": "'Spirit' and 'imbibed' suggest liquor, but the spirit is a magical one.",
+     "definitionFit": "A genie is a spirit of Arabian folklore, as in the one from Aladdin's lamp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "imbibed"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1629,45 @@
     "text": "Put up beams noisily",
     "enumeration": "5"
    },
-   "solution": "RAISE"
+   "solution": "RAISE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RAISE",
+    "definitions": [
+     {
+      "text": "Put up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "noisily",
+      "for": "homophone",
+      "note": "done noisily means said out loud, so the word is taken by its sound and respelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beams",
+      "gives": "RAISE",
+      "soundsLike": "RAYS",
+      "note": "beams of light are rays"
+     }
+    ],
+    "explanation": {
+     "surface": "Builders noisily put up roof beams.",
+     "walkthrough": "'Put up' is the definition; the beams are not timber but rays of light.",
+     "definitionFit": "To raise something is to lift or erect it, the same as putting it up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "beams"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1695,46 @@
     "text": "A thing of the past, noble WWII Operation",
     "enumeration": "8"
    },
-   "solution": "OVERLORD"
+   "solution": "OVERLORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERLORD",
+    "definitions": [
+     {
+      "text": "WWII Operation",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A thing of the past",
+      "gives": "OVER",
+      "note": "something over is finished, a thing of the past"
+     },
+     {
+      "clueFragment": "noble",
+      "gives": "LORD",
+      "note": "a lord is a nobleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "LORD"
+     ]
+    },
+    "explanation": {
+     "surface": "A former nobleman's title recalls a famous wartime military operation.",
+     "definitionFit": "Operation Overlord was the codename for the Allied invasion of Normandy in 1944."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "noble"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1748,50 @@
     "text": "Investor, a girl",
     "enumeration": "6"
    },
-   "solution": "ANGELA"
+   "solution": "ANGELA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANGELA",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Investor",
+      "gives": "ANGEL",
+      "note": "an angel is a backer who invests in a theatre production"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGEL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman is described as an investor.",
+     "walkthrough": "An angel, in theatre slang, is a private investor who funds a show.",
+     "definitionFit": "Angela is a woman's given name, and crosswords routinely define names as girl or boy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Investor"
+    }
+   }
   }
  ]
 }
