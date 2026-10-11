@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,51 @@
     "text": "This area of England isn't eyed badly",
     "enumeration": "8"
    },
-   "solution": "TYNESIDE"
+   "solution": "TYNESIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TYNESIDE",
+    "definitions": [
+     {
+      "text": "This area of England",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is botched, so the letters before it come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "isn't eyed",
+      "gives": "ISNTEYED",
+      "note": "the letters of these two words, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISNTEYED",
+       "gives": "TYNESIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A defensive claim that some part of England is not looked down upon.",
+     "walkthrough": "Tyneside is the conurbation around the River Tyne in north-east England, including Newcastle.",
+     "definitionFit": "Tyneside is a named region of north-east England, so it is an example of an English area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "badly"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +94,47 @@
     "text": "Tastelessly showy marble, dull",
     "enumeration": "6"
    },
-   "solution": "TAWDRY"
+   "solution": "TAWDRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAWDRY",
+    "definitions": [
+     {
+      "text": "Tastelessly showy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marble",
+      "gives": "TAW",
+      "note": "a taw is a large marble used for shooting in the game of marbles"
+     },
+     {
+      "clueFragment": "dull",
+      "gives": "DRY",
+      "note": "dry as in boring, dull"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAW",
+      "DRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of some marble decor that manages to be both garish and lifeless.",
+     "walkthrough": "'Marble' reads as the stone; here it is the child's glass ball, a taw.",
+     "definitionFit": "Tawdry is a synonym for cheap and gaudy, describing showiness without taste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "marble"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +148,56 @@
     "text": "Ordinary girl, first to leave",
     "enumeration": "6"
    },
-   "solution": "NORMAL"
+   "solution": "NORMAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NORMAL",
+    "definitions": [
+     {
+      "text": "Ordinary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first to",
+      "for": "letter_selection",
+      "note": "the first of the following word supplies just its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "NORMA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "leave",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NORMA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An unremarkable girl is the first one to go home.",
+     "walkthrough": "'First to leave' sounds like an exit order; it simply takes the initial letter of leave.",
+     "definitionFit": "Normal and ordinary are synonyms meaning usual, typical, nothing out of the way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leave"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +211,82 @@
     "text": "Second article she found in disorderly room is a thing of superlative quality",
     "enumeration": "9"
    },
-   "solution": "SMASHEROO"
+   "solution": "SMASHEROO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "SMASHEROO",
+    "definitions": [
+     {
+      "text": "a thing of superlative quality",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "things found in a place are inside it, so these words go within the next piece"
+     },
+     {
+      "text": "disorderly",
+      "for": "anagram",
+      "note": "a disorderly arrangement is out of order, so the letters of the room are mixed up"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the standard abbreviation for second"
+     },
+     {
+      "clueFragment": "room",
+      "gives": "ROOM",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "she",
+      "gives": "SHE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "M",
+      "ASHE",
+      "ROO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROOM",
+       "gives": "MROO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A second item a woman discovered in a messy room turns out to be a gem.",
+     "walkthrough": "Two pieces sit inside the scrambled room, not beside it. Smasheroo is informal, chiefly British slang for a smash hit or knockout.",
+     "definitionFit": "Smasheroo is slang for a smasher, something outstandingly good, a thing of the highest quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +320,56 @@
     "text": "Cold, with frost on a peninsula",
     "enumeration": "6"
    },
-   "solution": "CRIMEA"
+   "solution": "CRIMEA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRIMEA",
+    "definitions": [
+     {
+      "text": "peninsula",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "with",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "frost",
+      "gives": "RIME",
+      "note": "rime is hoar frost"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RIME",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Wintry weather report: cold and frosty conditions on a peninsula.",
+     "walkthrough": "'On' just places the frost before A; the wintry picture suits the Black Sea peninsula well.",
+     "definitionFit": "Crimea is a peninsula jutting into the Black Sea, so it is one specific example of the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +383,51 @@
     "text": "Runs over supporter in motoring event",
     "enumeration": "5"
    },
-   "solution": "RALLY"
+   "solution": "RALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RALLY",
+    "definitions": [
+     {
+      "text": "motoring event",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "over",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runs",
+      "gives": "R",
+      "note": "R is the cricket scorecard abbreviation for runs"
+     },
+     {
+      "clueFragment": "supporter",
+      "gives": "ALLY",
+      "note": "an ally supports you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A spectator gets knocked down by a car during a race.",
+     "walkthrough": "In a down clue 'over' places the first piece above the second.",
+     "definitionFit": "A rally is a car competition run over public or off-road stages, a motoring event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Runs"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +441,54 @@
     "text": "Glad, Irma burst into song",
     "enumeration": "8"
    },
-   "solution": "MADRIGAL"
+   "solution": "MADRIGAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MADRIGAL",
+    "definitions": [
+     {
+      "text": "song",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "burst",
+      "for": "anagram",
+      "note": "something that bursts breaks apart, so these letters scatter and reform"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Glad, Irma",
+      "gives": "GLADIRMA",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GLADIRMA",
+       "gives": "MADRIGAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Happy Irma bursts into song.",
+     "walkthrough": "'Burst into song' is a stock phrase; here 'burst' acts on the words before it and 'into' only joins.",
+     "definitionFit": "A madrigal is a part-song for several voices, popular in the Renaissance, so it is a kind of song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "burst"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +502,50 @@
     "text": "Story date once concocted",
     "enumeration": "8"
    },
-   "solution": "ANECDOTE"
+   "solution": "ANECDOTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANECDOTE",
+    "definitions": [
+     {
+      "text": "Story",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concocted",
+      "for": "anagram",
+      "note": "something concocted is made up by mixing, so the letters are blended into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "date once",
+      "gives": "DATEONCE",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DATEONCE",
+       "gives": "ANECDOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale about a past romantic date that was made up.",
+     "definitionFit": "An anecdote is a short personal account of an incident, a kind of story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "date"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +565,59 @@
      }
     ]
    },
-   "solution": "WARPAINT"
+   "solution": "WARPAINT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WAR PAINT",
+    "definitions": [
+     {
+      "text": "make-up",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding blemish? Just the opposite",
+      "for": "container",
+      "note": "the reversal of roles means the second item does the concealing and the first is concealed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blemish",
+      "gives": "WART",
+      "note": "a wart is a small growth on the skin"
+     },
+     {
+      "clueFragment": "Trouble",
+      "gives": "PAIN",
+      "note": "pain as in bother, trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "PAIN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to cover a skin flaw with cosmetics.",
+     "walkthrough": "The natural reading puts the blemish inside the trouble; 'Just the opposite' flips who hides whom. Make-up hiding a blemish is exactly the surface scene.",
+     "definitionFit": "War paint is a jocular term for a woman's cosmetics, after the face paint worn for battle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trouble"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +631,46 @@
     "text": "Make offensive remarks in toboggan",
     "enumeration": "6"
    },
-   "solution": "SLEDGE"
+   "solution": "SLEDGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLEDGE",
+    "definitions": [
+     {
+      "text": "Make offensive remarks",
+      "at": 0
+     },
+     {
+      "text": "toboggan",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make offensive remarks",
+      "note": "first meaning: to taunt an opponent, as cricketers do"
+     },
+     {
+      "clueFragment": "toboggan",
+      "note": "second meaning: a sled for riding on snow"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hurls insults while sliding downhill on a sled.",
+     "walkthrough": "To sledge, in cricket slang, is to needle the batsman with insults to break their concentration.",
+     "definitionFit": "The word is both a verb for verbal baiting of an opponent and a noun for a sledge, a snow vehicle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "offensive"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +690,56 @@
      }
     ]
    },
-   "solution": "PRIMROSEPATH"
+   "solution": "PRIMROSEPATH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRIMROSE PATH",
+    "definitions": [
+     {
+      "text": "the easy way",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "getting on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "PRIMROSE",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "Pat",
+      "gives": "PAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "H",
+      "note": "horse is slang for heroin, abbreviated H"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIMROSE",
+      "PAT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl called Pat mounts a horse and takes the easy route.",
+     "walkthrough": "'Getting on horse' paints riding, but the horse is drugs slang for heroin, abbreviated H.",
+     "definitionFit": "The primrose path, from Shakespeare, is the pursuit of pleasure, the easy course leading to ruin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +753,48 @@
     "text": "Missing starter, start to speak about fish",
     "enumeration": "5"
    },
-   "solution": "ROACH"
+   "solution": "ROACH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROACH",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Missing starter",
+      "for": "deletion",
+      "note": "a dinner without its first course is missing the opening, so the word loses its initial letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "start to speak about",
+      "gives": "BROACH",
+      "note": "to broach a subject is to begin discussing it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROACH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a meal lacking a first course starts talking about fish.",
+     "walkthrough": "'Start' is part of the definition of the longer word, not a first-letter signal; 'Missing starter' does the trimming.",
+     "definitionFit": "The roach is a common European freshwater fish of the carp family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +814,43 @@
      }
     ]
    },
-   "solution": "EARLYBIRD"
+   "solution": "EARLYBIRD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EARLY BIRD",
+    "definitions": [
+     {
+      "text": "One up with the lark",
+      "at": 0
+     },
+     {
+      "text": "worm catcher",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One up with the lark",
+      "note": "first meaning: a person who rises at dawn"
+     },
+     {
+      "clueFragment": "worm catcher",
+      "note": "second meaning: from the proverb about the early riser getting the worm"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Up with the lark' is an idiom for rising very early; the question mark flags the proverb in the second half.",
+     "definitionFit": "An early riser is called this, and the proverb says this creature catches the worm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lark"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +882,59 @@
    "group": [
     "14-across",
     "18-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CROSS MY HEART AND HOPE TO DIE",
+    "definitions": [
+     {
+      "text": "Promise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is blown",
+      "for": "anagram",
+      "note": "something blown is wrecked or scattered, so all these letters are reassembled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "preacher sainthood",
+      "gives": "PREACHERSAINTHOOD",
+      "note": "the letters of these two words"
+     },
+     {
+      "clueFragment": "modesty",
+      "gives": "MODESTY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PREACHERSAINTHOODMODESTY",
+       "gives": "CROSSMYHEARTANDHOPETODIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vow that a preacher's holy reputation and humility have been exposed.",
+     "walkthrough": "The 'and' is not part of the fodder; it just joins the two pieces of fodder.",
+     "definitionFit": "The phrase is a solemn childhood oath swearing that one is telling the truth, a form of promise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blown"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +954,63 @@
      }
     ]
    },
-   "solution": "HOIPOLLOI"
+   "solution": "HOIPOLLOI",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "HOI POLLOI",
+    "definitions": [
+     {
+      "text": "The masses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say marks the island as spoken, so its sound is what counts, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orkney island",
+      "gives": "HOI",
+      "soundsLike": "HOY",
+      "note": "Hoy is one of the Orkney Islands"
+     },
+     {
+      "clueFragment": "vote-casting",
+      "gives": "POLL",
+      "note": "a poll is a casting of votes"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round shape like the letter O"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "explanation": {
+     "surface": "Ordinary islanders on Orkney turn out to vote around their island.",
+     "walkthrough": "Hoy is an island in the Orkneys, off the north of Scotland.",
+     "definitionFit": "Hoi polloi, Greek for 'the many', is a mildly scornful term for the common people, the masses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +1024,56 @@
     "text": "Local, uncomfortable on very large island",
     "enumeration": "8"
    },
-   "solution": "BARBADOS"
+   "solution": "BARBADOS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARBADOS",
+    "definitions": [
+     {
+      "text": "island",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Local",
+      "gives": "BAR",
+      "note": "a local is a neighbourhood pub, a bar"
+     },
+     {
+      "clueFragment": "uncomfortable",
+      "gives": "BAD",
+      "note": "feeling bad, unwell or uneasy"
+     },
+     {
+      "clueFragment": "very large",
+      "gives": "OS",
+      "note": "OS is the clothing abbreviation for outsize"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "BAD",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "Uneasy in a pub on a huge island.",
+     "walkthrough": "A local is British slang for the pub nearest your home.",
+     "definitionFit": "Barbados is a Caribbean island nation, so it is one example of an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Local"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1087,44 @@
     "text": "Went ahead and provided loan",
     "enumeration": "8"
    },
-   "solution": "ADVANCED"
+   "solution": "ADVANCED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ADVANCED",
+    "definitions": [
+     {
+      "text": "Went ahead",
+      "at": 0
+     },
+     {
+      "text": "provided loan",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Went ahead",
+      "note": "first meaning: moved forward"
+     },
+     {
+      "clueFragment": "provided loan",
+      "note": "second meaning: lent money up front"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone pressed on and lent money.",
+     "definitionFit": "The verb covers both moving forward, as troops do, and handing over money as a loan or payment before it is due."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -360,7 +1165,51 @@
     "text": "Riddle in game worked out",
     "enumeration": "6"
    },
-   "solution": "ENIGMA"
+   "solution": "ENIGMA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENIGMA",
+    "definitions": [
+     {
+      "text": "Riddle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked out",
+      "for": "anagram",
+      "note": "something worked out has been processed and rearranged, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in game",
+      "gives": "INGAME",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INGAME",
+       "gives": "ENIGMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle within a game has been solved.",
+     "walkthrough": "'In' looks like a link word placing the riddle, but it is part of the fodder.",
+     "definitionFit": "An enigma is a puzzle or mysterious saying, a synonym for riddle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 20,
@@ -374,7 +1223,53 @@
     "text": "Heart and clubs put down, we hear",
     "enumeration": "6"
    },
-   "solution": "CENTRE"
+   "solution": "CENTRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "CENTRE",
+    "definitions": [
+     {
+      "text": "Heart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear signals the result is judged by sound rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the card-suit abbreviation for clubs"
+     },
+     {
+      "clueFragment": "put down",
+      "gives": "ENTRE",
+      "soundsLike": "ENTER",
+      "note": "to enter something is to put it down in writing, in a register"
+     }
+    ],
+    "explanation": {
+     "surface": "A card player lays down hearts and clubs.",
+     "walkthrough": "C plus ENTER sounds like the answer, which British spelling ends -RE.",
+     "definitionFit": "Heart and centre are synonyms for the core or middle of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heart"
+    }
+   }
   },
   {
    "number": 21,
@@ -388,7 +1283,50 @@
     "text": "Small restaurant could make money by lake",
     "enumeration": "9"
    },
-   "solution": "BRASSERIE"
+   "solution": "BRASSERIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRASSERIE",
+    "definitions": [
+     {
+      "text": "Small restaurant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "could make",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "BRASS",
+      "note": "brass is British slang for money"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "ERIE",
+      "note": "Lake Erie, one of the Great Lakes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRASS",
+      "ERIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A little lakeside café could be a money-spinner.",
+     "walkthrough": "Brass is northern English slang for money.",
+     "definitionFit": "A brasserie is an informal French-style restaurant, typically modest in size."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -402,7 +1340,53 @@
     "text": "Char individual left out",
     "enumeration": "5"
    },
-   "solution": "SINGE"
+   "solution": "SINGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SINGE",
+    "definitions": [
+     {
+      "text": "Char",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means excluded, so the named letter is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "individual",
+      "gives": "SINGLE",
+      "note": "single as in one individual"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaning lady excluded on her own.",
+     "walkthrough": "'Char' looks like a British cleaner; it is the verb to scorch.",
+     "definitionFit": "To char and to singe both mean to scorch or burn the surface of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Char"
+    }
+   }
   },
   {
    "number": 23,
@@ -416,7 +1400,62 @@
     "text": "Wild cat, on one occasion seen round Uzbekistan's capital",
     "enumeration": "5"
    },
-   "solution": "OUNCE"
+   "solution": "OUNCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OUNCE",
+    "definitions": [
+     {
+      "text": "Wild cat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is the top or head, so the country's name gives only its leading letter"
+     },
+     {
+      "text": "seen round",
+      "for": "container",
+      "note": "being seen round something means encircling it, so the next piece wraps the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on one occasion",
+      "gives": "ONCE",
+      "note": "once means on one occasion"
+     },
+     {
+      "clueFragment": "Uzbekistan's",
+      "gives": "U",
+      "select": "first",
+      "note": "the initial letter of the country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "U",
+      "NCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild cat was once spotted near Tashkent.",
+     "walkthrough": "The ounce is another name for the snow leopard of Central Asia, so Uzbekistan suits the surface.",
+     "definitionFit": "Ounce is an older name for the snow leopard, a large wild cat of Asian mountains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1469,42 @@
     "text": "Honest in 1A,20",
     "enumeration": "6"
    },
-   "solution": "DECENT"
+   "solution": "DECENT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DECENT",
+    "definitions": [
+     {
+      "text": "Honest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells you the answer is lodged inside the referenced entries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1A,20",
+      "gives": "DECENT",
+      "note": "the answers to 1 Across and 20 Down written together, tyne-SIDE CENT-re"
+     }
+    ],
+    "explanation": {
+     "surface": "A cross-reference saying honesty is found in a region of England.",
+     "walkthrough": "1A,20 means the answers to 1 Across and 20 Down read together, TYNESIDE CENTRE; the answer runs across the join.",
+     "definitionFit": "Decent means respectable and upright, so it is a looser synonym for honest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1518,55 @@
     "text": "Small window girl reportedly used in getaway",
     "enumeration": "8"
    },
-   "solution": "FANLIGHT"
+   "solution": "FANLIGHT",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container"
+    ],
+    "answer": "FANLIGHT",
+    "definitions": [
+     {
+      "text": "Small window",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is heard said, so the name's sound is used"
+     },
+     {
+      "text": "used in",
+      "for": "container",
+      "note": "something used in another thing is put inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "getaway",
+      "gives": "FLIGHT",
+      "note": "a flight is an escape"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "AN",
+      "soundsLike": "ANNE",
+      "note": "a girl's name with the same sound"
+     }
+    ],
+    "explanation": {
+     "surface": "A girl escapes through a little window.",
+     "walkthrough": "The girl's name is cut to two letters by its sound, then slotted in after the getaway's first letter. A fanlight is a fan-shaped window above a door.",
+     "definitionFit": "A fanlight is a small, often semicircular window over a door or larger window."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "getaway"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1580,67 @@
     "text": "City, extremely sunny, film producer is missing",
     "enumeration": "6"
    },
-   "solution": "SYDNEY"
+   "solution": "SYDNEY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "SYDNEY",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes, the two end letters of the word"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means absent, so the named letters are removed from the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sunny",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "film producer",
+      "gives": "DISNEY",
+      "note": "Walt Disney, the film producer"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SY",
+      "DNEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sunny city that a film producer is absent from.",
+     "walkthrough": "'is missing' reads as a verb phrase about the producer, but 'is' is the very pair of letters taken out of his name.",
+     "definitionFit": "Sydney is Australia's largest city, so it is one example of a city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sunny"
+    }
+   }
   },
   {
    "number": 27,
@@ -472,7 +1654,68 @@
     "text": "Small fish stuffed with one Italian mushroom",
     "enumeration": "8"
    },
-   "solution": "SHIITAKE"
+   "solution": "SHIITAKE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SHIITAKE",
+    "definitions": [
+     {
+      "text": "mushroom",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffed with",
+      "for": "container",
+      "note": "something stuffed has other things packed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "HAKE",
+      "note": "the hake is a sea fish"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "IT is the abbreviation for Italian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "I",
+      "IT",
+      "AKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A little fish stuffed with an Italian mushroom recipe.",
+     "walkthrough": "The small piece stays outside at the front; only the two short pieces go into the fish.",
+     "definitionFit": "Shiitake is an edible East Asian mushroom grown on logs, so it is one kind of mushroom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   }
  ]
 }
