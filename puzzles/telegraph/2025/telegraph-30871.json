@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,56 @@
     "text": "Some person's feeble flipping complaints",
     "enumeration": "5"
    },
-   "solution": "BEEFS"
+   "solution": "BEEFS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BEEFS",
+    "definitions": [
+     {
+      "text": "complaints",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "'some' asks for only part of the following words, so the letters sit inside them"
+     },
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the hidden run is read back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person's feeble",
+      "gives": "SFEEB",
+      "note": "the letters running across the end of the first word and the start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "SFEEB",
+       "to": "BEEFS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moans weakly and keeps flipping between grievances.",
+     "definitionFit": "Beef is informal slang for a grievance, so beefs are complaints or gripes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +98,77 @@
     "text": "Jack climbed this staircase initially wrapped in a blanket shivering",
     "enumeration": "9"
    },
-   "solution": "BEANSTALK"
+   "solution": "BEANSTALK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "BEANSTALK",
+    "definitions": [
+     {
+      "text": "Jack climbed this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start, so only the opening letter of the word is kept"
+     },
+     {
+      "text": "wrapped in",
+      "for": "container",
+      "note": "something wrapped in a covering sits inside it"
+     },
+     {
+      "text": "shivering",
+      "for": "anagram",
+      "note": "shivering means trembling and shaking, so these letters are jumbled about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "staircase",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "blanket",
+      "gives": "BLANKET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEANSTALK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SABLANKET",
+       "gives": "BEANSTALK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cold boy wrapped in a blanket climbed the stairs.",
+     "walkthrough": "The S goes inside A BLANKET, and all nine letters are then rearranged.",
+     "definitionFit": "In the fairy tale Jack and the Beanstalk, Jack climbs a giant beanstalk to the giant's castle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "staircase"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +182,58 @@
     "text": "Go in tent with her, both topless",
     "enumeration": "5"
    },
-   "solution": "ENTER"
+   "solution": "ENTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENTER",
+    "definitions": [
+     {
+      "text": "Go in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "both topless",
+      "for": "deletion",
+      "note": "topless means with the top removed, and in a down answer that is each word's first letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tent",
+      "gives": "TENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to join a woman in a tent, both of them shirtless.",
+     "definitionFit": "To enter is to go into a place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +247,43 @@
     "text": "Victoria possibly standing",
     "enumeration": "7"
    },
-   "solution": "STATION"
+   "solution": "STATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STATION",
+    "definitions": [
+     {
+      "text": "Victoria possibly",
+      "at": 0
+     },
+     {
+      "text": "standing",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Victoria possibly",
+      "note": "first meaning: London Victoria is a major railway terminus"
+     },
+     {
+      "clueFragment": "standing",
+      "note": "second meaning: social rank or position"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Victoria looks like a queen or a name, but it is an example of a railway terminus in London.",
+     "definitionFit": "The word means both a stopping place for trains and one's rank in society, as in 'above one's station'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Victoria"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +307,52 @@
      }
     ]
    },
-   "solution": "LIKEASHOT"
+   "solution": "LIKEASHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIKE A SHOT",
+    "definitions": [
+     {
+      "text": "Instantly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enjoy",
+      "gives": "LIKE",
+      "note": "to enjoy something is to like it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "little drink of liquor",
+      "gives": "SHOT",
+      "note": "a shot is a small measure of spirits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIKE",
+      "A",
+      "SHOT"
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to knock back a quick tot of spirits right away.",
+     "definitionFit": "The idiom 'like a shot' means without hesitation, immediately."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Instantly"
+    }
+   }
   },
   {
    "number": 4,
@@ -112,7 +366,43 @@
     "text": "Refuse group of kittens?",
     "enumeration": "6"
    },
-   "solution": "LITTER"
+   "solution": "LITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LITTER",
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0
+     },
+     {
+      "text": "group of kittens?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refuse",
+      "note": "first meaning: rubbish dropped in public places"
+     },
+     {
+      "clueFragment": "group of kittens?",
+      "note": "second meaning: the young born to an animal at one time"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Refuse' reads as the verb to decline, but it is the noun meaning rubbish.",
+     "definitionFit": "The word covers both scattered rubbish and a set of young animals born together in one birth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +416,67 @@
     "text": "Dish's awful reek around rim",
     "enumeration": "8"
    },
-   "solution": "KEDGEREE"
+   "solution": "KEDGEREE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "KEDGEREE",
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "something awful is in a bad state, so these letters are disordered"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around places one part surrounding another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reek",
+      "gives": "REEK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rim",
+      "gives": "EDGE",
+      "note": "a rim is an edge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "EDGE",
+      "REE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REEK",
+       "gives": "KREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plate gives off a nasty smell around its edge.",
+     "walkthrough": "The 's after 'Dish' stands for 'is', joining the definition to the wordplay.",
+     "definitionFit": "Kedgeree is a dish of rice, flaked fish and eggs, from Anglo-Indian cookery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rim"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +490,67 @@
     "text": "This indicates current problem, ultimately, with tree ma uprooted",
     "enumeration": "7"
    },
-   "solution": "AMMETER"
+   "solution": "AMMETER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "AMMETER",
+    "definitions": [
+     {
+      "text": "This indicates current",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the word is kept"
+     },
+     {
+      "text": "uprooted",
+      "for": "anagram",
+      "note": "uprooted means pulled up and displaced, so the letters are scattered"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "problem",
+      "gives": "M",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "tree ma",
+      "gives": "TREEMA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MTREEMA",
+       "gives": "AMMETER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A current trouble: a tree has been torn up, along with Mum.",
+     "walkthrough": "'Current' looks like 'present' but is electric current.",
+     "definitionFit": "An ammeter is an instrument measuring electric current in amperes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +564,64 @@
     "text": "Huge copper following the woman north of bank",
     "enumeration": "9"
    },
-   "solution": "HERCULEAN"
+   "solution": "HERCULEAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HERCULEAN",
+    "definitions": [
+     {
+      "text": "Huge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the metal comes after the pronoun"
+     },
+     {
+      "text": "north of",
+      "for": "charade",
+      "note": "in a down answer, north of means placed above, so earlier in the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the woman",
+      "gives": "HER",
+      "note": "the woman is referred to as her"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "LEAN",
+      "note": "an aircraft banks when it leans or tilts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "CU",
+      "LEAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A tall police officer tails a woman to a spot north of a riverbank.",
+     "definitionFit": "Herculean means needing or showing great strength, like Hercules, so huge in scale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +635,58 @@
     "text": "Herb from your old mate hollowed out",
     "enumeration": "5"
    },
-   "solution": "THYME"
+   "solution": "THYME",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "THYME",
+    "definitions": [
+     {
+      "text": "Herb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hollowed out",
+      "for": "letter_selection",
+      "note": "hollowing out removes the inside, so only the outer letters stay"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "your old",
+      "gives": "THY",
+      "note": "thy is the archaic form of your"
+     },
+     {
+      "clueFragment": "mate",
+      "gives": "ME",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THY",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "A herb taken from a long-time friend's garden, its insides scooped out.",
+     "definitionFit": "Thyme is a fragrant herb of the mint family used in cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +700,55 @@
     "text": "Charmed at paper by editor",
     "enumeration": "9"
    },
-   "solution": "ATTRACTED"
+   "solution": "ATTRACTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTRACTED",
+    "definitions": [
+     {
+      "text": "Charmed",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "TRACT",
+      "note": "a tract is a pamphlet or short paper on a subject"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the standard abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TRACT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is delighted at a newspaper piece written by its editor.",
+     "definitionFit": "To be attracted is to be drawn in or captivated, a synonym of charmed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +762,55 @@
     "text": "Join prime minister in Rolls-Royce? On the contrary",
     "enumeration": "5"
    },
-   "solution": "MARRY"
+   "solution": "MARRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MARRY",
+    "definitions": [
+     {
+      "text": "Join",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in Rolls-Royce? On the contrary",
+      "for": "container",
+      "note": "'in' would put the politician inside the car, but 'on the contrary' flips it so the car's initials go inside the politician"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prime minister",
+      "gives": "MAY",
+      "note": "Theresa May was a British prime minister"
+     },
+     {
+      "clueFragment": "Rolls-Royce",
+      "gives": "RR",
+      "note": "RR is the abbreviation for Rolls-Royce"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "RR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A political leader is invited to step into a luxury car.",
+     "walkthrough": "Theresa May was UK prime minister 2016-19. The reversal of 'in' means the car goes inside the leader's name.",
+     "definitionFit": "To marry is to join two people in wedlock, or to unite things generally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +824,61 @@
     "text": "Fish from South American river – tuck in!",
     "enumeration": "7"
    },
-   "solution": "SARDINE"
+   "solution": "SARDINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SARDINE",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     },
+     {
+      "clueFragment": "tuck in",
+      "gives": "DINE",
+      "note": "'tuck in!' is an invitation to eat, to dine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "R",
+      "DINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A host serves fish caught in a South American river and urges guests to eat.",
+     "definitionFit": "The sardine is a small oily fish of the herring family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "South"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +892,72 @@
     "text": "Being oddly abandoned by us in the rave",
     "enumeration": "7"
    },
-   "solution": "ENTHUSE"
+   "solution": "ENTHUSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ENTHUSE",
+    "definitions": [
+     {
+      "text": "rave",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly abandoned",
+      "for": "letter_selection",
+      "note": "the odd-numbered letters are dropped, leaving only the even-placed ones"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word goes inside another, as something placed in a box"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Being",
+      "gives": "EN",
+      "select": "alternate",
+      "note": "the second and fourth letters of the word"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TH",
+      "US",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eccentric is left out by a group at a dance party.",
+     "walkthrough": "'Rave' looks like a party noun but is a verb here: to rave about something.",
+     "definitionFit": "To enthuse is to speak with great excitement, as to rave about something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rave"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +971,53 @@
     "text": "Emphasise mishap this writer had ignored",
     "enumeration": "6"
    },
-   "solution": "ACCENT"
+   "solution": "ACCENT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ACCENT",
+    "definitions": [
+     {
+      "text": "Emphasise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "what is ignored is left out, so those letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mishap",
+      "gives": "ACCIDENT",
+      "note": "a mishap is an accident"
+     },
+     {
+      "clueFragment": "this writer had",
+      "gives": "ID",
+      "note": "'this writer' is the setter, I, and 'I had' contracts to I'D"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACC",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer highlights an accident they chose to overlook.",
+     "definitionFit": "To accent a word or point is to stress or highlight it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +1031,56 @@
     "text": "Sensible prisoners caught with debts?",
     "enumeration": "9"
    },
-   "solution": "CONSCIOUS"
+   "solution": "CONSCIOUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSCIOUS",
+    "definitions": [
+     {
+      "text": "Sensible",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoners",
+      "gives": "CONS",
+      "note": "cons are convicts"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket abbreviation for caught"
+     },
+     {
+      "clueFragment": "debts",
+      "gives": "IOUS",
+      "note": "IOUs are written promises of debt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONS",
+      "C",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Are inmates caught owing money being sensible?",
+     "walkthrough": "'Sensible' here is the old sense, aware of, rather than wise.",
+     "definitionFit": "Sensible can mean aware or cognizant, as in 'sensible of the danger', which is being conscious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sensible"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +1094,52 @@
     "text": "Most buoyant triremes at sea",
     "enumeration": "8"
    },
-   "solution": "MERRIEST"
+   "solution": "MERRIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MERRIEST",
+    "definitions": [
+     {
+      "text": "Most buoyant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "to be at sea is to be confused, so these letters are in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "triremes",
+      "gives": "TRIREMES",
+      "note": "taken as written: ancient oared warships"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIREMES",
+       "gives": "MERRIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ancient galleys out on the ocean float highest of all.",
+     "walkthrough": "'Buoyant' suggests floating ships, but here it means cheerful.",
+     "definitionFit": "Buoyant can mean cheerful and lively, so the most buoyant are the merriest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "buoyant"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +1153,54 @@
     "text": "Walk outside certainly cherished",
     "enumeration": "9"
    },
-   "solution": "TREASURED"
+   "solution": "TREASURED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TREASURED",
+    "definitions": [
+     {
+      "text": "cherished",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside places one part around another, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Walk",
+      "gives": "TREAD",
+      "note": "to tread is to walk"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "SURE",
+      "note": "sure is an informal yes, certainly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREA",
+      "SURE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A treasured stroll outdoors, certainly.",
+     "definitionFit": "Something treasured is valued and held dear, a synonym of cherished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1214,55 @@
     "text": "People gathered may bless criminal",
     "enumeration": "8"
    },
-   "solution": "ASSEMBLY"
+   "solution": "ASSEMBLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASSEMBLY",
+    "definitions": [
+     {
+      "text": "People gathered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked, so the letters are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "may",
+      "gives": "MAY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bless",
+      "gives": "BLESS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAYBLESS",
+       "gives": "ASSEMBLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A congregation may give its blessing to a wrongdoer.",
+     "definitionFit": "An assembly is a group of people gathered together, as in a school assembly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1276,57 @@
     "text": "Benevolence from head after class",
     "enumeration": "8"
    },
-   "solution": "KINDNESS"
+   "solution": "KINDNESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KINDNESS",
+    "definitions": [
+     {
+      "text": "Benevolence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' puts the first-named piece behind the second-named one"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "class",
+      "gives": "KIND",
+      "note": "a kind is a class or type"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland, a head of land projecting into the sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIND",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil receives goodwill from the headteacher after a lesson.",
+     "walkthrough": "'Head' and 'class' suggest a school, but head is a headland, as in place names like Fife Ness in Scotland.",
+     "definitionFit": "Kindness is goodwill shown to others, a near-synonym of benevolence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1340,55 @@
     "text": "Nervous about temperature, sitting on the fence",
     "enumeration": "7"
    },
-   "solution": "NEUTRAL"
+   "solution": "NEUTRAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEUTRAL",
+    "definitions": [
+     {
+      "text": "sitting on the fence",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one part goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nervous",
+      "gives": "NEURAL",
+      "note": "neural means relating to the nerves"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEU",
+      "T",
+      "RAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A worrier frets over the weather but refuses to take sides.",
+     "walkthrough": "'Nervous' reads as anxious but is the adjective for nerves, as in 'nervous system'.",
+     "definitionFit": "Sitting on the fence is the idiom for declining to take sides, being neutral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Nervous"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1402,63 @@
     "text": "Worth pinching Meghan's rear, Harry?",
     "enumeration": "6"
    },
-   "solution": "PRINCE"
+   "solution": "PRINCE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "PRINCE",
+    "definitions": [
+     {
+      "text": "Harry?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "to pinch something is to grip it, so one part holds another inside"
+     },
+     {
+      "text": "rear",
+      "for": "container",
+      "note": "a rear is the back end, so only the final letter of the name is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worth",
+      "gives": "PRICE",
+      "note": "the worth of something is its price"
+     },
+     {
+      "clueFragment": "Meghan's",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRI",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is it worth Harry pinching his wife Meghan's bottom?",
+     "walkthrough": "The question mark marks Harry as one example of the answer.",
+     "definitionFit": "Harry, Duke of Sussex, is a royal prince, son of King Charles III."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "pinching"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1472,68 @@
     "text": "Rally car going round church in reverse",
     "enumeration": "7"
    },
-   "solution": "RECOVER"
+   "solution": "RECOVER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RECOVER",
+    "definitions": [
+     {
+      "text": "Rally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in reverse",
+      "for": "reversal",
+      "note": "in reverse means going backwards, so the word is read from end to start"
+     },
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round means encircling, so one part surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "ROVER",
+      "note": "Rover is a British car make"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EC",
+      "OVER"
+     ],
+     "reversals": [
+      {
+       "from": "CE",
+       "to": "EC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rally car drives round a church, then backs up.",
+     "walkthrough": "'Rally' looks like motor sport, but it is the verb to recover strength.",
+     "definitionFit": "To rally is to regain health or strength, which is to recover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rally"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1547,63 @@
     "text": "Encountered husband with almost strange manner",
     "enumeration": "6"
    },
-   "solution": "METHOD"
+   "solution": "METHOD",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "METHOD",
+    "definitions": [
+     {
+      "text": "manner",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Encountered",
+      "gives": "MET",
+      "note": "to have encountered is to have met"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "strange",
+      "gives": "ODD",
+      "note": "strange means odd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "H",
+      "OD"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman met a husband who had a slightly odd way about him.",
+     "definitionFit": "A method is a way or manner of doing something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manner"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1617,55 @@
     "text": "Seeing that insect cut root",
     "enumeration": "7"
    },
-   "solution": "BECAUSE"
+   "solution": "BECAUSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BECAUSE",
+    "definitions": [
+     {
+      "text": "Seeing that",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut is shortened, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insect",
+      "gives": "BEE",
+      "note": "a bee is an insect"
+     },
+     {
+      "clueFragment": "root",
+      "gives": "CAUSE",
+      "note": "the root of a problem is its cause"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "CAUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices an insect has bitten through a plant's root.",
+     "walkthrough": "'Seeing that' reads like a verb phrase but is a conjunction meaning 'since'.",
+     "definitionFit": "Both are conjunctions giving a reason: 'seeing that it rained' equals 'because it rained'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "root"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1679,43 @@
     "text": "Wide, minor thoroughfare",
     "enumeration": "5"
    },
-   "solution": "BROAD"
+   "solution": "BROAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BROAD",
+    "definitions": [
+     {
+      "text": "Wide",
+      "at": 0
+     },
+     {
+      "text": "minor thoroughfare",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wide",
+      "note": "first meaning: wide across, an adjective"
+     },
+     {
+      "clueFragment": "minor thoroughfare",
+      "note": "second meaning: a ..., Britain's class of secondary road"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "British roads are graded A (main) and B (minor), so a minor road is a B-road.",
+     "definitionFit": "The adjective means wide, while split as B road it names a minor British road."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "minor"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1729,52 @@
     "text": "Former Conservative exploits justifications",
     "enumeration": "7"
    },
-   "solution": "EXCUSES"
+   "solution": "EXCUSES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXCUSES",
+    "definitions": [
+     {
+      "text": "justifications",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former",
+      "gives": "EX",
+      "note": "an ex is a former partner, so ex- means former"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "exploits",
+      "gives": "USES",
+      "note": "to exploit something is to use it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "C",
+      "USES"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-Tory politician abuses the excuses offered for wrongdoing.",
+     "definitionFit": "Excuses are reasons offered to justify or defend an action."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exploits"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1788,55 @@
     "text": "Bend over in bar",
     "enumeration": "5"
    },
-   "solution": "STOOP"
+   "solution": "STOOP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STOOP",
+    "definitions": [
+     {
+      "text": "Bend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one part inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "STOP",
+      "note": "to bar something is to stop it"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "O",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leans down at a pub counter.",
+     "walkthrough": "'Bend over' looks like one phrase but splits: 'Bend' defines and 'over' is the letter.",
+     "definitionFit": "To stoop is to bend the body forwards and down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1850,45 @@
     "text": "Smell flower, we're told",
     "enumeration": "5"
    },
-   "solution": "ODOUR"
+   "solution": "ODOUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ODOUR",
+    "definitions": [
+     {
+      "text": "Smell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "what we are told is heard, so the word is identified by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "ODOUR",
+      "soundsLike": "ODER",
+      "note": "a flower is something that flows, a river; the Oder runs along the German-Polish border"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is advised to sniff a bloom.",
+     "walkthrough": "'Flower' wants to be a bloom, which fits 'smell', but it is a river, a thing that flows.",
+     "definitionFit": "An odour is a smell, especially a distinctive one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 27,
@@ -448,7 +1902,65 @@
     "text": "Bishop and I have changed our demeanour",
     "enumeration": "9"
    },
-   "solution": "BEHAVIOUR"
+   "solution": "BEHAVIOUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BEHAVIOUR",
+    "definitions": [
+     {
+      "text": "demeanour",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed means altered, so these letters are put in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "I have",
+      "gives": "IHAVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EHAVIOUR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IHAVEOUR",
+       "gives": "EHAVIOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric and the speaker have altered the way they carry themselves.",
+     "definitionFit": "Demeanour is outward conduct and bearing, much the same as behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changed"
+    }
+   }
   },
   {
    "number": 28,
@@ -462,7 +1974,52 @@
     "text": "Showed daughter is duped",
     "enumeration": "9"
    },
-   "solution": "DISPLAYED"
+   "solution": "DISPLAYED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISPLAYED",
+    "definitions": [
+     {
+      "text": "Showed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "duped",
+      "gives": "PLAYED",
+      "note": "to be played is to be fooled or tricked"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "PLAYED"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent reveals that their daughter has been tricked.",
+     "definitionFit": "To display something is to show or exhibit it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "duped"
+    }
+   }
   },
   {
    "number": 29,
@@ -476,7 +2033,63 @@
     "text": "Sudden attack enthrals head of Portuguese fleet",
     "enumeration": "5"
    },
-   "solution": "RAPID"
+   "solution": "RAPID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RAPID",
+    "definitions": [
+     {
+      "text": "fleet",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthrals",
+      "for": "container",
+      "note": "to enthral is to hold captive, so one part holds another inside it"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head is the top, so only the opening letter of the word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sudden attack",
+      "gives": "RAID",
+      "note": "a raid is a sudden attack"
+     },
+     {
+      "clueFragment": "Portuguese",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "P",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A surprise assault captures the commander of Portugal's navy.",
+     "walkthrough": "'Fleet' looks like ships, continuing the naval picture, but it is the adjective meaning swift.",
+     "definitionFit": "Fleet as an adjective means swift or nimble, so it equals rapid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fleet"
+    }
+   }
   }
  ]
 }
