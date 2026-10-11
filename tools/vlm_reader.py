@@ -30,7 +30,7 @@ from ocr_clues import unhyphen
 
 TOOLS = Path(__file__).resolve().parent
 URL = os.environ.get("VLM_READER_URL", "http://192.168.1.198:8090")
-MODEL = os.environ.get("VLM_READER_MODEL", "qwen3.0-vl-8b")
+MODEL = os.environ.get("VLM_READER_MODEL", "qwen3.8-vl-27b")
 PROMPT = TOOLS / "vlm_column_prompt.md"
 PICK_PROMPT = TOOLS / "vlm_pick_prompt.md"
 CACHE = Path(os.path.expanduser("~/.cache/vlm_reader"))
@@ -45,10 +45,38 @@ _UP = {}
 _YIELDED = [float("-inf")]
 
 
+#: How long llama-swap's /running answer stands, like desktop_busy.PROBE_EVERY's.
+CHAT_EVERY = 30
+_CHAT = [float("-inf"), None]
+
+
+def chat_model():
+    """The other model llama-swap has loaded and ready, or None: asking for
+    ours would evict it from the card, and a room (#local-model) is using
+    it. Its ttl unloads it after idle minutes, then ours loads again. An
+    answer that does not come or parse is no chat model; asked at most once
+    every CHAT_EVERY seconds."""
+    if time.monotonic() - _CHAT[0] < CHAT_EVERY:
+        return _CHAT[1]
+    try:
+        req = urllib.request.Request(f"{URL}/running", headers={"User-Agent": "cryptic-teacher"})
+        loaded = json.load(urllib.request.urlopen(req, timeout=3)).get("running", [])
+        other = sorted(m["model"] for m in loaded if m.get("state") == "ready" and m.get("model") != MODEL)
+    except (OSError, ValueError, TypeError, KeyError, AttributeError):
+        other = []
+    _CHAT[:] = [time.monotonic(), other[0] if other else None]
+    return _CHAT[1]
+
+
 def busy():
-    """Why the desktop the server is on is busy, or None."""
+    """Why the desktop the server is on is busy, or None: Paul gaming
+    (desktop_busy), or another model loaded that we would evict."""
     host = urllib.parse.urlparse(URL).hostname
-    return desktop_busy.busy([f"{desktop_busy.USER}@{host}"]) if host else None
+    why = desktop_busy.busy([f"{desktop_busy.USER}@{host}"]) if host else None
+    if why or not URL:
+        return why
+    other = chat_model()
+    return f"{other} is loaded, in use by a chat room" if other else None
 
 
 def reachable():

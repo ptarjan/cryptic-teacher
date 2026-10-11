@@ -116,6 +116,14 @@ check("scan() reaches each thread-pool sizing definition, and its key leaves the
 check("a title no verdict covers makes the edition due", "titles changed",
       f.due_reason({"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
                     "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))
+# A read by another VLM version (a model change) is due, at the whole-corpus
+# rank: behind never-read and every fix-driven reason, never jumping them.
+by_old = {"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "old", "scan": {"puzzles": []}}
+check("a read by another VLM version is due at the whole-corpus rank; the same version, or no VLM up, is not",
+      ("read by another VLM", 3, None, None, True),
+      (f.due_reason(by_old, "h", [], "new"), f.RANKS["read by another VLM"], f.due_reason(by_old, "h", [], "old"),
+       f.due_reason(by_old, "h", [], None),
+       f.RANKS["read by another VLM"] > max(r for k, r in f.RANKS.items() if k != "read by another VLM" and r < 3)))
 # Gale 1991-04-13 read No 18,579's answers off 1991-04-03, a page the
 # solution pairing no longer links: due once, and not again once read off
 # the page it now links from.

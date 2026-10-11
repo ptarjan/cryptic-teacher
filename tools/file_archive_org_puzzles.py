@@ -3765,7 +3765,8 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
     read), its titles moved
     since its verdicts (a scan by new code, see scan_key), read without the
     VLM that now answers, or last read before `reread` (a datetime: the
-    explicit --reread)."""
+    explicit --reread), or by another VLM version (vlm_reader.version: a new
+    model or prompt; the whole-corpus rank, behind everything else)."""
     if "inputs" not in row:
         return "never read"
     if row["inputs"] != inputs or row.get("solutionsSeen") != sol_seen:
@@ -3783,6 +3784,8 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
         return why
     if reread and scan_queue.read_before(row, reread):
         return "--reread"
+    if vlm_up and row.get("vlm") != vlm_up:
+        return "read by another VLM"
     return None
 
 
@@ -3849,13 +3852,15 @@ def staged_at(d):
 #: a fix landed for what it refused, or its solution read short by other
 #: solution code (solution_key); 3 the whole-corpus
 #: re-reads: a scan by older scan code (scan_key) and --reread BEFORE, which
-#: edition_queue.dispatch starts only once nothing ranked below 3 waits.
+#: edition_queue.dispatch starts only once nothing ranked below 3 waits; so
+#: does a read by another VLM version (a model or prompt change).
 #: Within a rank, the reads likely() predicts to file the most puzzles
 #: whole go first. Every reason due_reason or plan gives is named here.
 RANKS = {"saved by hand": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          **{f"refused {c} before its fix": 2 for c in REFUSALS}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "scan stale": 3, "--reread": 3}
+         "scan stale, answers linked": 2, "scan stale": 3, "--reread": 3,
+         "read by another VLM": 3}
 #: The reasons of a read whose scan is by older scan code: "answers missing"
 #: when a stored title is a puzzle read without answers that no page links a
 #: solution heading to and an edition is dated within SOLUTION_DAYS after it
