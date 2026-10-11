@@ -998,9 +998,9 @@ def parted(clue, others):
             # whole, though one reading split it; so does a misread of one
             # ("reorgauized", "serice") most print whole or a letter off.
             return w
-        if is_word(w.lower()):
-            # A dictionary word stays whole ("hairstyle", which a reading
-            # broke over a line end), unless the corpus's clues print the
+        if known(w.lower()):
+            # A known word stays whole ("hairstyle", "Ignatius", which a
+            # reading broke over a line end), unless the corpus's clues print the
             # two words far more than it: "fora" for "for a".
             k = sizes[0]
             if len(sizes) != 2 or pairs.get(f"{w[:k].lower()} {w[k:].lower()}", 0) <= words.get(w.lower(), 0):
@@ -1085,8 +1085,8 @@ def unglued(theirs, low):
 
 def rejoin(theirs, low):
     """Another reading's tokens with a word it split joined again, when this
-    clue's words (`low`) hold the joined word, or one a letter from it, and
-    it is a dictionary word: one
+    clue's words (`low`) hold the joined word and it is known ("ital ian"),
+    or one a letter from it and it is a dictionary word: one
     split at a line end ("taste. fully", "subter fuge") or spaced out letter
     by letter ("w a lk")."""
     out, k = [], 0
@@ -1101,7 +1101,8 @@ def rejoin(theirs, low):
             apart = parts == [2] or not all(is_word(t.lower()) for t in pieces)
             # The clue may misread the joined word by a letter ("obviousJy").
             here = joined in low or (len(joined) > 4 and any(within_one(joined, w) for w in low))
-            if all(t.isalpha() for t in pieces) and apart and here and is_word(joined):
+            if all(t.isalpha() for t in pieces) and apart and here and (
+                    is_word(joined) or joined in low and known(joined)):
                 out.append("".join(pieces))
                 k += parts[-1] + 1
                 break
@@ -2132,14 +2133,16 @@ def join_split(clue, others):
     and neither one letter nor an apostrophe's tail ("lady's, rather"), are
     run together when more readings have the one lexicon word they spell
     (or one a letter from it) than have the pieces apart ("Edward, ian",
-    which one other reading split too); two words ("dis, orderly") only
-    when most readings have the one: the vote then settles its spelling."""
+    which one other reading split too), or when the first piece is no word,
+    the second none or a rarer word than the one, and the one is, however
+    every reading broke it ("phy, sics", "heav — enly"); two words ("dis, orderly") only when most readings have the one:
+    the vote then settles its spelling."""
     if not others:
         return clue
     held = [{w.lower() for w in t} for t in others]
     k = 0
     while True:
-        m = re.compile(r"(?<![\w'‘’])([A-Za-z]+)(-? |[,.] ?)([A-Za-z]+)\b").search(clue, k)
+        m = re.compile(r"(?<![\w'‘’])([A-Za-z]+)(-? |[,.:] ?| ?[\u2013\u2014] ?)([A-Za-z]+)\b").search(clue, k)
         if not m:
             return clue
         a, b = m.group(1).lower(), m.group(3).lower()
@@ -2150,8 +2153,10 @@ def join_split(clue, others):
             spelt = {w for h in held for w in h if w.isalpha()
                      and (known(w) if w == whole else len(whole) > 4 and is_word(w) and within_one(whole, w))}
             ones = sum(bool(h & spelt) for h in held)
-            ok = (len(spelt) == 1 and min(len(a), len(b)) > 1 and ones > sum(a in h and b in h for h in held)
-                  and (ones * 2 > len(others) or not (is_word(a) and is_word(b))))
+            ok = min(len(a), len(b)) > 1 and (
+                (len(spelt) == 1 and ones > sum(a in h and b in h for h in held)
+                 and (ones * 2 > len(others) or not (is_word(a) and is_word(b))))
+                or (not known(a) and is_word(whole) and (not known(b) or (rank(b) or 0) > rank(whole))))
         if ok:
             clue = clue[:m.start()] + m.group(1) + m.group(3) + clue[m.end():]
             k = m.start()
@@ -2689,10 +2694,11 @@ def slipped(word):
 
 
 #: Endings and beginnings that make a known word another ("ceasefires",
-#: "redubbed", "antifeminist"); "-er" is left out, since "scater" is "scat".
+#: "redubbed", "antifeminist", "decentralization", "collaborationist",
+#: "prestidigitation"); "-er" is left out, since "scater" is "scat".
 SUFFIXES = (("ies", "y"), ("es", ""), ("s", ""), ("ed", ""), ("ed", "e"), ("d", ""), ("ing", ""),
-            ("ing", "e"), ("ers", ""), ("ers", "e"), ("ly", ""), ("ness", ""))
-PREFIXES = ("un", "re", "anti", "non", "over", "under", "pre", "dis", "mis", "out", "counter")
+            ("ing", "e"), ("ers", ""), ("ers", "e"), ("ly", ""), ("ness", ""), ("ist", ""), ("ion", "or"))
+PREFIXES = ("un", "re", "de", "anti", "non", "over", "under", "pre", "dis", "mis", "out", "counter")
 
 
 def formed(word):

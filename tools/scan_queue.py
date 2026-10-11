@@ -384,8 +384,11 @@ def flagged_requests():
 #: the tenth parted()'s misread most readings print whole as a known word
 #: ("reorgauized", once "re orgau ized") and agree()'s halves of a word
 #: joined once the next word is parted off ("orig inallyby"), refused as
-#: no word; the last agree()'s first letter read as a bracket the clue
-#: never closes ("(ornwall"), dropped once the vote puts the letter back.
+#: no word; the eleventh agree()'s first letter read as a bracket the clue
+#: never closes ("(ornwall"), dropped once the vote puts the letter back;
+#: the last join_split()'s line-end halves every reading breaks ("phy,
+#: sics"), parted()'s corpus word kept whole ("Ignatius") and formed()'s
+#: de-, -ist and -ion for -or ("decentralization"), refused as no word.
 VOTE_MENDED = (
     ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
                                    "start is lost: other readings have")),
@@ -399,6 +402,7 @@ VOTE_MENDED = (
     ("2026-10-11T02:31:00+00:00", ("a stray mark inside a word", "not a word")),
     ("2026-10-11T02:50:00+00:00", ("not a word",)),
     ("2026-10-11T03:31:00+00:00", ("a bracket never closed or opened",)),
+    ("2026-10-11T04:12:00+00:00", ("not a word",)),
 )
 
 
