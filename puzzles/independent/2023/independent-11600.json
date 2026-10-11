@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Stale humour starts to corrupt old and basic part of the ear",
     "enumeration": "7"
    },
-   "solution": "CORNCOB"
+   "solution": "CORNCOB",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CORNCOB",
+    "definitions": [
+     {
+      "text": "part of the ear",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the following words means only their opening letters are kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stale humour",
+      "gives": "CORN",
+      "note": "corn is old, tired, trite humour"
+     },
+     {
+      "clueFragment": "corrupt old",
+      "gives": "CO",
+      "select": "first",
+      "note": "opening letters of the two words"
+     },
+     {
+      "clueFragment": "basic",
+      "gives": "B",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORN",
+      "CO",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that hackneyed jokes are spoiling the old and fundamental anatomy of the ear.",
+     "walkthrough": "'and' joins the selected words but gives no letter; 'basic part of the ear' looks like the definition, but 'basic' supplies a letter and 'ear' is an ear of corn, not the organ of hearing.",
+     "definitionFit": "A corncob is the central woody core of a maize ear, on which the kernels grow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ear"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +110,73 @@
     "text": "Head of union avoiding hint about excellent nurse",
     "enumeration": "6"
    },
-   "solution": "CRADLE"
+   "solution": "CRADLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "CRADLE",
+    "definitions": [
+     {
+      "text": "nurse",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its front, so only its opening letter is taken"
+     },
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "avoiding means keeping clear of, so that letter is left out"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "union",
+      "gives": "U",
+      "select": "first",
+      "note": "Head of union: its first letter"
+     },
+     {
+      "clueFragment": "hint",
+      "gives": "CLUE",
+      "note": "a clue is a hint"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "RAD",
+      "note": "rad is slang for excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RAD",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A union leader sidesteps a hint about a superb nurse.",
+     "walkthrough": "'Nurse' is a verb here, to hold a baby tenderly; RAD is slang for excellent.",
+     "definitionFit": "To cradle is to hold gently in the arms, as one nurses a baby."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nurse"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +190,58 @@
     "text": "Gag involving university in alteration of image",
     "enumeration": "7"
    },
-   "solution": "RETOUCH"
+   "solution": "RETOUCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RETOUCH",
+    "definitions": [
+     {
+      "text": "alteration of image",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means taking in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gag",
+      "gives": "RETCH",
+      "note": "to gag is to retch"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "OU",
+      "note": "OU is the Open University, Britain's distance-learning university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RET",
+      "OU",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A joke about a university featured in a doctored photograph.",
+     "walkthrough": "'Gag' looks like a joke but is the verb meaning to heave.",
+     "definitionFit": "A retouch is a small improvement or correction made to a photograph or painting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gag"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +255,55 @@
     "text": "Excellent American expert probing Egyptian language",
     "enumeration": "9"
    },
-   "solution": "COPACETIC"
+   "solution": "COPACETIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COPACETIC",
+    "definitions": [
+     {
+      "text": "Excellent American",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "probing",
+      "for": "container",
+      "note": "probing means poking inside, so one word sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Egyptian language",
+      "gives": "COPTIC",
+      "note": "Coptic is the language of Egypt's Christian church"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COP",
+      "ACE",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A top US scholar investigating an ancient Egyptian tongue.",
+     "walkthrough": "'American' belongs to the definition: the word is US slang.",
+     "definitionFit": "Copacetic is American slang meaning fine, satisfactory or excellent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Excellent"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +321,56 @@
    "group": [
     "4-down",
     "24-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOLT-HOLE",
+    "definitions": [
+     {
+      "text": "concealed location",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind the other"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quantity of fabric",
+      "gives": "BOLT",
+      "note": "a bolt is a roll of cloth"
+     },
+     {
+      "clueFragment": "Difficult situation",
+      "gives": "HOLE",
+      "note": "to be in a hole is to be in trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOLT",
+      "HOLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tricky spot arises after a roll of cloth turns up in a hiding place.",
+     "definitionFit": "A bolt-hole is a secret refuge where one can hide away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fabric"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +384,58 @@
     "text": "Dismissive comment about promotional material in songs",
     "enumeration": "7"
    },
-   "solution": "BALLADS"
+   "solution": "BALLADS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BALLADS",
+    "definitions": [
+     {
+      "text": "songs",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so one word wraps around another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dismissive comment",
+      "gives": "BALLS",
+      "note": "'Balls!' is a rude British retort meaning nonsense"
+     },
+     {
+      "clueFragment": "promotional material",
+      "gives": "AD",
+      "note": "an ad is an advertisement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALL",
+      "AD",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A scornful remark about the advertising that turns up inside songs.",
+     "walkthrough": "'Balls!' is crude British slang for 'rubbish!'; the dismissive word wraps the advert.",
+     "definitionFit": "Ballads are narrative songs, so the plural noun matches the plural definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +455,68 @@
      }
     ]
    },
-   "solution": "BATHOLIVER"
+   "solution": "BATHOLIVER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "BATH OLIVER",
+    "definitions": [
+     {
+      "text": "biscuit",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of means nearly all, so the final letter is dropped"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating means taking in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hinder",
+      "gives": "BAR",
+      "note": "to bar is to hinder or obstruct"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written, then cut short"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "OLIVE",
+      "note": "an olive is a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "TH",
+      "OLIVE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is stopped from munching nearly all of the fruit.",
+     "walkthrough": "'most of' trims only 'the', not the fruit. A Bath Oliver is a plain, hard British cracker, invented by Dr William Oliver of Bath.",
+     "definitionFit": "A Bath Oliver is an unsweetened dry biscuit often eaten with cheese."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +530,54 @@
     "text": "Very quick, missing fine story-telling",
     "enumeration": "5"
    },
-   "solution": "LYING"
+   "solution": "LYING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LYING",
+    "definitions": [
+     {
+      "text": "story-telling",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means lacking, so one letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very quick",
+      "gives": "FLYING",
+      "note": "flying means extremely fast"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LYING"
+     ]
+    },
+    "explanation": {
+     "surface": "A rapid narrator who lacks finesse.",
+     "walkthrough": "F is taken from FLYING. 'Story-telling' is the informal sense of telling stories, i.e. fibbing.",
+     "definitionFit": "Telling stories is a euphemism for telling untruths, so story-telling is fibbing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "story-telling"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +591,80 @@
     "text": "One torn apart following something done by Diana, ultimately?",
     "enumeration": "7"
    },
-   "solution": "ACTAEON"
+   "solution": "ACTAEON",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ACTAEON",
+    "definitions": [
+     {
+      "text": "One torn apart following something done by Diana, ultimately?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the last letter is kept"
+     },
+     {
+      "text": "torn apart",
+      "for": "anagram",
+      "note": "torn apart means ripped up, so the letters are scattered and put back differently"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places one piece after the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something done",
+      "gives": "ACT",
+      "note": "an act is a deed"
+     },
+     {
+      "clueFragment": "Diana",
+      "gives": "A",
+      "select": "last",
+      "note": "its last letter"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "ONE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACT",
+      "A",
+      "EON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONE",
+       "gives": "EON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mythological victim ripped apart after an act committed by the goddess Diana.",
+     "walkthrough": "The whole clue is the definition too: in myth the hunter who saw Diana bathing was turned into a stag by her and torn apart by his own hounds.",
+     "definitionFit": "Actaeon is the Greek hunter whom Diana (Artemis) transformed into a stag, after which his hounds killed him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +678,65 @@
     "text": "Director has a hit around Southern Spain",
     "enumeration": "8"
    },
-   "solution": "SCORSESE"
+   "solution": "SCORSESE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SCORSESE",
+    "definitions": [
+     {
+      "text": "Director",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece wraps another"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a hit",
+      "gives": "SCORES",
+      "note": "scores means makes a hit, succeeds"
+     },
+     {
+      "clueFragment": "Southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOR",
+      "S",
+      "ES",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A film director enjoys a success across the south of Spain.",
+     "walkthrough": "'has a hit' reads as SCORES, with 'has' doing double duty as the link.",
+     "definitionFit": "Martin Scorsese is the American film director of Taxi Driver and Goodfellas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +750,71 @@
     "text": "Gold given to best group, including current air traffic controller?",
     "enumeration": "9"
    },
-   "solution": "AUTOPILOT"
+   "solution": "AUTOPILOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AUTOPILOT",
+    "definitions": [
+     {
+      "text": "air traffic controller?",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking something inside, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "best",
+      "gives": "TOP",
+      "note": "top means best"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "LOT",
+      "note": "a lot is a group or batch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "TOP",
+      "I",
+      "LOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A medal ceremony: gold awarded to the top team, which includes a modern air traffic controller.",
+     "walkthrough": "The current goes inside the two words for 'best group' together. The question mark flags that the controller is a machine flying a plane, not a person in a tower.",
+     "definitionFit": "An autopilot is a device that steers an aircraft automatically, so it controls air traffic in a whimsical sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +828,66 @@
     "text": "Opening temperature seen in molten iron",
     "enumeration": "5"
    },
-   "solution": "INTRO"
+   "solution": "INTRO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INTRO",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "molten",
+      "for": "anagram",
+      "note": "molten metal has lost its shape and can be recast in any form"
+     },
+     {
+      "text": "seen in",
+      "for": "container",
+      "note": "seen in places one thing inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the standard abbreviation for temperature"
+     },
+     {
+      "clueFragment": "iron",
+      "gives": "IRON",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "T",
+      "RO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IRON",
+       "gives": "INRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foundry note: the first temperature reading taken in melted iron.",
+     "definitionFit": "An intro is the opening section of a song or piece, a short form of introduction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "molten"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +901,54 @@
     "text": "Meal to host a debut",
     "enumeration": "6"
    },
-   "solution": "LAUNCH"
+   "solution": "LAUNCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAUNCH",
+    "definitions": [
+     {
+      "text": "debut",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to host",
+      "for": "container",
+      "note": "a host takes in guests, so one word holds another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meal",
+      "gives": "LUNCH",
+      "note": "lunch is a midday meal"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "UNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A lunch thrown to celebrate someone's first appearance.",
+     "definitionFit": "A launch is the first public presentation of something, the same as its debut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "host"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +962,40 @@
     "text": "It's not always a scandal for politicians to be caught in this",
     "enumeration": "8"
    },
-   "solution": "CONGRESS"
+   "solution": "CONGRESS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CONGRESS",
+    "definitions": [
+     {
+      "text": "It's not always a scandal for politicians to be caught in this",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's not always a scandal for politicians to be caught in this",
+      "note": "surface reading: a political sex scandal, where politicians are caught in the act"
+     },
+     {
+      "clueFragment": "It's not always a scandal for politicians to be caught in this",
+      "note": "setter's reading: the US legislature, where politicians sit routinely without any scandal"
+     }
+    ],
+    "explanation": {
+     "surface": "A wry remark on politicians being caught in compromising situations.",
+     "walkthrough": "The word has an old sense of sexual intercourse, which suggests scandal, but it is also the name of the American legislative assembly, where being 'caught' is perfectly normal.",
+     "definitionFit": "Congress is both a formal word for sexual intercourse and the national legislature of the United States, where politicians gather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scandal"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +1009,51 @@
     "text": "Army shells exploded without causing damage",
     "enumeration": "10"
    },
-   "solution": "HARMLESSLY"
+   "solution": "HARMLESSLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARMLESSLY",
+    "definitions": [
+     {
+      "text": "without causing damage",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exploded",
+      "for": "anagram",
+      "note": "exploded means blown apart, so the letters are scattered into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Army shells",
+      "gives": "ARMYSHELLS",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARMYSHELLS",
+       "gives": "HARMLESSLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Military shells blew up but nobody was hurt.",
+     "definitionFit": "Harmlessly is an adverb meaning in a way that does no injury, matching the adverbial phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "exploded"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +1073,59 @@
      }
     ]
    },
-   "solution": "CHATHAMISLANDS"
+   "solution": "CHATHAMISLANDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHATHAM ISLANDS",
+    "definitions": [
+     {
+      "text": "Pacific territory",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "quaking",
+      "for": "anagram",
+      "note": "something quaking is shaken about, so these letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A hitch",
+      "gives": "AHITCH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "landmass",
+      "gives": "LANDMASS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHITCHLANDMASS",
+       "gives": "CHATHAMISLANDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A problem arises as land shakes in an earthquake somewhere in the Pacific.",
+     "walkthrough": "'with' joins the two parts of the fodder.",
+     "definitionFit": "The Chatham Islands are an archipelago in the South Pacific belonging to New Zealand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quaking"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1145,50 @@
      }
     ]
    },
-   "solution": "LASTDITCH"
+   "solution": "LASTDITCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAST-DITCH",
+    "definitions": [
+     {
+      "text": "at the eleventh hour",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go on",
+      "gives": "LAST",
+      "note": "to last is to continue, go on"
+     },
+     {
+      "clueFragment": "abandon",
+      "gives": "DITCH",
+      "note": "to ditch is to abandon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAST",
+      "DITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Carrying on with reckless freedom right at the final moment.",
+     "walkthrough": "'abandon' looks like the noun (wildness) but is the verb.",
+     "definitionFit": "A last-ditch effort is a final desperate one made at the latest possible moment, the idiomatic eleventh hour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abandon"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1202,64 @@
     "text": "Austrian composer raised concern in French commune",
     "enumeration": "8"
    },
-   "solution": "BERGERAC"
+   "solution": "BERGERAC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BERGERAC",
+    "definitions": [
+     {
+      "text": "French commune",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "raised means lifted upward, and in a down clue that runs the word from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Austrian composer",
+      "gives": "BERG",
+      "note": "Alban Berg, the Austrian composer of Wozzeck"
+     },
+     {
+      "clueFragment": "concern",
+      "gives": "CARE",
+      "note": "care means concern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BERG",
+      "ERAC"
+     ],
+     "reversals": [
+      {
+       "from": "CARE",
+       "to": "ERAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Viennese composer voiced worries while staying in a French town.",
+     "walkthrough": "'raised' looks like 'voiced', but in a down clue it turns the word upside down.",
+     "definitionFit": "Bergerac is a town and commune in the Dordogne in south-west France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1287,67 @@
      }
     ]
    },
-   "solution": "EASYCOMEEASYGO"
+   "solution": "EASYCOMEEASYGO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EASY COME EASY GO",
+    "definitions": [
+     {
+      "text": "Expression of unconcern",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests the letters are toyed with and moved around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cameo — yes",
+      "gives": "CAMEOYES",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "simple",
+      "gives": "EASY",
+      "note": "easy means simple"
+     },
+     {
+      "clueFragment": "thing to play",
+      "gives": "GO",
+      "note": "Go is the Japanese board game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASYCOME",
+      "EASY",
+      "GO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAMEOYES",
+       "gives": "EASYCOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor shrugs off a small cameo role: yes, it's an easy part to play.",
+     "walkthrough": "'thing to play' looks like a role but is the game Go.",
+     "definitionFit": "The phrase is said by someone untroubled about losing what they gained without effort, a casual shrug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1361,50 @@
     "text": "Part of cow seen with quiet frisson",
     "enumeration": "7"
    },
-   "solution": "SHUDDER"
+   "solution": "SHUDDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHUDDER",
+    "definitions": [
+     {
+      "text": "frisson",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "seen with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "'sh!' is a call for quiet"
+     },
+     {
+      "clueFragment": "Part of cow",
+      "gives": "UDDER",
+      "note": "the udder is the cow's milk gland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "UDDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cow's udder, together with silence, produces a thrill.",
+     "definitionFit": "A frisson is a sudden shiver of excitement or fear, which is a shudder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1418,67 @@
     "text": "Respectable toilet, mostly sheltered, on reflection",
     "enumeration": "7"
    },
-   "solution": "GENTEEL"
+   "solution": "GENTEEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "GENTEEL",
+    "definitions": [
+     {
+      "text": "Respectable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means nearly all, so the last letter is dropped"
+     },
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows a mirror image, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toilet",
+      "gives": "GENTS",
+      "note": "the gents is a British name for a men's lavatory"
+     },
+     {
+      "clueFragment": "sheltered",
+      "gives": "LEE",
+      "note": "lee is the side sheltered from the wind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENT",
+      "EEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEE",
+       "to": "EEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decent loo, largely protected from the weather, when you think about it.",
+     "walkthrough": "In British usage 'the gents' is a men's toilet; it loses its last letter, and LEE is read backwards after it.",
+     "definitionFit": "Genteel means polite and refined, respectable in a somewhat affected way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1492,58 @@
     "text": "Writer's mother enthralled by Quaker leader",
     "enumeration": "6"
    },
-   "solution": "PENMAN"
+   "solution": "PENMAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PENMAN",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralled by",
+      "for": "container",
+      "note": "to be enthralled is to be held captive, so one piece is held within another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quaker leader",
+      "gives": "PENN",
+      "note": "William Penn, Quaker founder of Pennsylvania"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "MA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An author's mother is captivated by a Quaker leader.",
+     "walkthrough": "The 's stands for 'is', linking definition to wordplay.",
+     "definitionFit": "A penman is someone who writes, especially an author or skilled calligrapher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Writer"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1557,50 @@
     "text": "Infantryman under command is pleased",
     "enumeration": "8"
    },
-   "solution": "GRUNTLED"
+   "solution": "GRUNTLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRUNTLED",
+    "definitions": [
+     {
+      "text": "pleased",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Infantryman",
+      "gives": "GRUNT",
+      "note": "grunt is slang for an infantry soldier"
+     },
+     {
+      "clueFragment": "under command",
+      "gives": "LED",
+      "note": "led means commanded, directed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRUNT",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "A foot soldier serving under orders is content.",
+     "walkthrough": "The word is a humorous back-formation from 'disgruntled'.",
+     "definitionFit": "Gruntled is a jocular coinage meaning satisfied, made by dropping the negative prefix from disgruntled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Infantryman"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1614,50 @@
     "text": "Dance beat with energy",
     "enumeration": "5"
    },
-   "solution": "TANGO"
+   "solution": "TANGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANGO",
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beat",
+      "gives": "TAN",
+      "note": "to tan someone's hide is to beat them"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "GO",
+      "note": "go means energy, vigour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A dance with an energetic rhythm.",
+     "walkthrough": "'beat' looks like a musical rhythm but is the verb meaning to thrash.",
+     "definitionFit": "The tango is a ballroom dance from Argentina."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1671,55 @@
     "text": "Danish city, second to Copenhagen, not spread out",
     "enumeration": "6"
    },
-   "solution": "ODENSE"
+   "solution": "ODENSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ODENSE",
+    "definitions": [
+     {
+      "text": "Danish city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second to",
+      "for": "letter_selection",
+      "note": "second to points to the letter in position two of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copenhagen",
+      "gives": "O",
+      "select": 2,
+      "note": "its second letter"
+     },
+     {
+      "clueFragment": "not spread out",
+      "gives": "DENSE",
+      "note": "dense means compact, closely packed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "DENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Danish city described as coming second after the capital, and compactly built.",
+     "definitionFit": "Odense is the third-largest city in Denmark, on the island of Funen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 24,
@@ -432,7 +1746,53 @@
     "text": "Extracting energy, continue to study gas",
     "enumeration": "5"
    },
-   "solution": "RADON"
+   "solution": "RADON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RADON",
+    "definitions": [
+     {
+      "text": "gas",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extracting",
+      "for": "deletion",
+      "note": "extracting means pulling something out, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "continue to study",
+      "gives": "READON",
+      "note": "read on means keep studying"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RADON"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for a student: take out the energy part and carry on studying the gas.",
+     "walkthrough": "E is removed from READ ON.",
+     "definitionFit": "Radon is a radioactive noble gas, element 86."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extracting"
+    }
+   }
   },
   {
    "number": 26,
@@ -452,7 +1812,64 @@
      }
     ]
    },
-   "solution": "SHORTTERM"
+   "solution": "SHORTTERM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SHORT-TERM",
+    "definitions": [
+     {
+      "text": "not for long",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "buttonholed by",
+      "for": "container",
+      "note": "to be buttonholed is to be detained by someone, held within their grasp"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more brusque",
+      "gives": "SHORTER",
+      "note": "shorter means curter, more abrupt"
+     },
+     {
+      "clueFragment": "Tense",
+      "gives": "T",
+      "note": "T is the grammar abbreviation for tense"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHORT",
+      "T",
+      "ER",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous person is collared by a rather curt man, but only briefly.",
+     "definitionFit": "Short-term means lasting only a brief period, the same as not for long."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tense"
+    }
+   }
   },
   {
    "number": 27,
@@ -466,7 +1883,55 @@
     "text": "Vehicle repairer of the year, initially with ginger hair",
     "enumeration": "7"
    },
-   "solution": "CARROTY"
+   "solution": "CARROTY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CARROTY",
+    "definitions": [
+     {
+      "text": "with ginger hair",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of each word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "repairer of the year",
+      "gives": "ROTY",
+      "select": "first",
+      "note": "opening letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "ROTY"
+     ]
+    },
+    "explanation": {
+     "surface": "The garage mechanic who has won an annual award turns out to be a redhead.",
+     "definitionFit": "Carroty describes hair of an orange-red colour like carrots, so a carroty person has ginger hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repairer"
+    }
+   }
   },
   {
    "number": 28,
@@ -480,7 +1945,79 @@
     "text": "Switzerland leading the Spanish in one distributed hierarchical group",
     "enumeration": "7"
    },
-   "solution": "ECHELON"
+   "solution": "ECHELON",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "ECHELON",
+    "definitions": [
+     {
+      "text": "hierarchical group",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "charade",
+      "note": "leading puts one piece in front of the next"
+     },
+     {
+      "text": "distributed",
+      "for": "anagram",
+      "note": "distributed means spread around, so the letters are scattered into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first pair of pieces inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Switzerland",
+      "gives": "CH",
+      "note": "CH is the international code for Switzerland"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "CH",
+      "EL",
+      "ON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONE",
+       "gives": "EON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Switzerland heading the Spanish in a single dispersed group arranged by rank.",
+     "walkthrough": "CH is the international vehicle code for Switzerland; the Swiss and Spanish pieces sit together inside the scrambled 'one'.",
+     "definitionFit": "An echelon is a level or rank in an organisation, or a group at one such level of a hierarchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "distributed"
+    }
+   }
   }
  ]
 }
