@@ -24,6 +24,9 @@
   "date": "2024-09-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,53 @@
     "text": "Bellicose sort of Roman grew agitated",
     "enumeration": "9"
    },
-   "solution": "WARMONGER"
+   "solution": "WARMONGER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WARMONGER",
+    "definitions": [
+     {
+      "text": "Bellicose sort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "agitated",
+      "for": "anagram",
+      "note": "something agitated is stirred up, so the letters before it are shaken into a new order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman grew",
+      "gives": "ROMANGREW",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROMANGREW",
+       "gives": "WARMONGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warlike Roman becomes worked up.",
+     "definitionFit": "A warmonger is a person who stirs up or favours war, a belligerent type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "agitated"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +100,46 @@
     "text": "Drink, it's said, leads to unpleasant-sounding complaint",
     "enumeration": "5"
    },
-   "solution": "WHINE"
+   "solution": "WHINE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WHINE",
+    "definitions": [
+     {
+      "text": "unpleasant-sounding complaint",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "what is said is heard rather than read, so we want a word that sounds like the drink"
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "WHINE",
+      "soundsLike": "WINE",
+      "note": "wine is a drink; the answer is pronounced the same"
+     }
+    ],
+    "explanation": {
+     "surface": "Drinking supposedly leads to grumbling.",
+     "definitionFit": "A whine is a querulous, high-pitched grievance, a moan that grates on the ear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Drink"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +153,79 @@
     "text": "Great revolutionary rings Liberal before English revolt",
     "enumeration": "7"
    },
-   "solution": "REPULSE"
+   "solution": "REPULSE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "REPULSE",
+    "definitions": [
+     {
+      "text": "revolt",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns something round, so the word for great is read backwards"
+     },
+     {
+      "text": "rings",
+      "for": "container",
+      "note": "to ring something is to encircle it, so the reversed word goes around the party letter"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before places one piece ahead of the next in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great",
+      "gives": "SUPER",
+      "note": "super means great; read backwards it becomes REPUS"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REPU",
+      "L",
+      "S",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "SUPER",
+       "to": "REPUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A great revolutionary figure encircles the Liberals before an English uprising.",
+     "walkthrough": "'Revolt' looks like a noun for an uprising, but here it is the verb meaning to disgust.",
+     "definitionFit": "To revolt someone is to disgust them, and repulse has the same sense of causing strong aversion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "revolt"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +239,47 @@
     "text": "Public deprivation laid bare",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "Public",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "laid bare",
+      "for": "deletion",
+      "note": "laying something bare strips off its outer covering, so the first and last letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deprivation",
+      "gives": "POVERTY",
+      "note": "poverty is deprivation; strip its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT"
+     ]
+    },
+    "explanation": {
+     "surface": "Hardship among the public has been exposed.",
+     "definitionFit": "Overt means done openly, in public view, rather than hidden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bare"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +293,49 @@
     "text": "Spooner's fishy jokes? They go on and on!",
     "enumeration": "7"
    },
-   "solution": "GASBAGS"
+   "solution": "GASBAGS",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "GASBAGS",
+    "definitions": [
+     {
+      "text": "They go on and on!",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Reverend Spooner swapped the opening sounds of words, so we exchange the initial sounds of the two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fishy jokes",
+      "gives": "GASBAGS",
+      "soundsLike": "BASS GAGS",
+      "note": "a bass is a fish and gags are jokes; swap their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GASBAGS"
+     ]
+    },
+    "explanation": {
+     "surface": "Fish-based jokes that never end.",
+     "definitionFit": "Gasbags is an informal term for people who talk at tedious length without stopping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fishy"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +349,66 @@
     "text": "Stunning piece of jewellry incorporates dancing Shiva",
     "enumeration": "9"
    },
-   "solution": "RAVISHING"
+   "solution": "RAVISHING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RAVISHING",
+    "definitions": [
+     {
+      "text": "Stunning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "a dancing figure moves about, so the god's name is rearranged"
+     },
+     {
+      "text": "incorporates",
+      "for": "container",
+      "note": "to incorporate is to take something into a body, so the jewellery word holds the shuffled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece of jewellry",
+      "gives": "RING",
+      "note": "a ring is a piece of jewellery; it wraps around the other letters"
+     },
+     {
+      "clueFragment": "Shiva",
+      "gives": "SHIVA",
+      "note": "the Hindu god's name, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AVISH",
+      "ING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHIVA",
+       "gives": "AVISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beautiful jewel depicts the god Shiva dancing.",
+     "definitionFit": "Ravishing and stunning are both adjectives for something extraordinarily beautiful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +422,70 @@
     "text": "Steerpike's taken aback by fine fellow's anger",
     "enumeration": "4"
    },
-   "solution": "MIFF"
+   "solution": "MIFF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MIFF",
+    "definitions": [
+     {
+      "text": "anger",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken aback",
+      "for": "reversal",
+      "note": "taken aback suggests being pushed backwards, so the setter's phrase is read in reverse"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steerpike's",
+      "gives": "IM",
+      "note": "Steerpike is the setter, so Steerpike's means I'm; read backwards"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the abbreviation for fine, as on pencil grades"
+     },
+     {
+      "clueFragment": "fellow's",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "F",
+      "F"
+     ],
+     "reversals": [
+      {
+       "from": "IM",
+       "to": "MI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter is startled by a decent chap's outburst of temper.",
+     "walkthrough": "The setter's pseudonym stands for the first person, so 'Steerpike's' is I'M; the 's after fellow is just 'is'.",
+     "definitionFit": "To miff someone is to annoy or irritate them; as a noun a miff is a fit of pique."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aback"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +499,60 @@
     "text": "Tiniest creatures discovered south of Michigan",
     "enumeration": "7"
    },
-   "solution": "MINIMAL"
+   "solution": "MINIMAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MINIMAL",
+    "definitions": [
+     {
+      "text": "Tiniest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "deletion",
+      "note": "dis-covered means with its cover removed, so the outer letters are stripped away"
+     },
+     {
+      "text": "south of",
+      "for": "charade",
+      "note": "in a down answer, south of means placed below, so this piece comes after the state abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Michigan",
+      "gives": "MI",
+      "note": "MI is the postal abbreviation for the US state of Michigan"
+     },
+     {
+      "clueFragment": "creatures",
+      "gives": "ANIMALS",
+      "note": "animals are creatures; lose the outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "NIMAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Microscopic creatures have been found in southern Michigan.",
+     "walkthrough": "'Tiniest' reads as a superlative but the answer is an adjective meaning the least possible, which serves as the same sense.",
+     "definitionFit": "Minimal describes the smallest possible amount or degree, the least or tiniest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +572,61 @@
      }
     ]
    },
-   "solution": "FREELUNCH"
+   "solution": "FREELUNCH",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "FREE LUNCH",
+    "definitions": [
+     {
+      "text": "meal on the house",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "something that receives takes another thing in, so the letter for noon is added into the mix"
+     },
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk person staggers about, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheerful",
+      "gives": "CHEERFUL",
+      "note": "taken as written, to be jumbled"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHEERFULN",
+       "gives": "FREELUNCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A happy drunk is served a midday meal paid for by the pub.",
+     "definitionFit": "A free lunch is a meal provided without charge, which is what on the house means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +640,59 @@
     "text": "Line crossed by those leaving gratuities in boozers",
     "enumeration": "8"
    },
-   "solution": "TIPPLERS"
+   "solution": "TIPPLERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIPPLERS",
+    "definitions": [
+     {
+      "text": "boozers",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossed by",
+      "for": "container",
+      "note": "a line crossed by something passes through it, so the letter for line sits inside the other word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those leaving gratuities",
+      "gives": "TIPPERS",
+      "note": "people who leave gratuities give tips"
+     },
+     {
+      "clueFragment": "Line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIPP",
+      "L",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Generous tippers in pubs step over the line.",
+     "walkthrough": "'Boozers' suggests pubs, as in British slang, but here it means the drinkers themselves.",
+     "definitionFit": "Tipplers are habitual drinkers, people who drink alcohol regularly, just as boozers are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boozers"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +706,54 @@
     "text": "Places Earl in custody of beautiful woman",
     "enumeration": "6"
    },
-   "solution": "VENUES"
+   "solution": "VENUES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VENUES",
+    "definitions": [
+     {
+      "text": "Places",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in custody of",
+      "for": "container",
+      "note": "someone in custody is held by another, so the title letter is held inside the woman"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beautiful woman",
+      "gives": "VENUS",
+      "note": "a Venus is a beautiful woman, after the goddess of love"
+     },
+     {
+      "clueFragment": "Earl",
+      "gives": "E",
+      "note": "E is the abbreviation for Earl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VENU",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat is detained by a lovely lady.",
+     "definitionFit": "Venues are the places where events are held, sites or locations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Places"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +767,59 @@
     "text": "Pizzeria essentially has a good deal for fanatic",
     "enumeration": "6"
    },
-   "solution": "ZEALOT"
+   "solution": "ZEALOT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ZEALOT",
+    "definitions": [
+     {
+      "text": "fanatic",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only its central letters are kept"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pizzeria",
+      "gives": "ZE",
+      "select": "middle",
+      "note": "the two central letters of the eight-letter word"
+     },
+     {
+      "clueFragment": "a good deal",
+      "gives": "ALOT",
+      "note": "a lot means a good deal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZE",
+      "ALOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant advertises a pizza bargain for an obsessive customer.",
+     "definitionFit": "A zealot is a person fanatically devoted to a cause or belief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +833,66 @@
     "text": "Skilfully conceals confusion about convention",
     "enumeration": "8"
    },
-   "solution": "ASSEMBLY"
+   "solution": "ASSEMBLY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ASSEMBLY",
+    "definitions": [
+     {
+      "text": "convention",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so the word for confusion is read backwards"
+     },
+     {
+      "text": "conceals",
+      "for": "container",
+      "note": "to conceal is to hide inside, so the adverb holds the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skilfully",
+      "gives": "ABLY",
+      "note": "to do something ably is to do it skilfully; it splits after its first letter"
+     },
+     {
+      "clueFragment": "confusion",
+      "gives": "MESS",
+      "note": "a mess is a state of confusion; read backwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SSEM",
+      "BLY"
+     ],
+     "reversals": [
+      {
+       "from": "MESS",
+       "to": "SSEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cleverly hides their bewilderment at a conference.",
+     "definitionFit": "An assembly is a gathering of people for a shared purpose, as a convention is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "convention"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +906,43 @@
     "text": "Mad heretic clutches stick",
     "enumeration": "6"
    },
-   "solution": "ADHERE"
+   "solution": "ADHERE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ADHERE",
+    "definitions": [
+     {
+      "text": "stick",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clutches",
+      "for": "hidden_word",
+      "note": "to clutch is to hold tightly, so the phrase holds the answer inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mad heretic",
+      "gives": "ADHERE",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A deranged dissenter grabs hold of a stick.",
+     "walkthrough": "'Stick' looks like a noun being clutched, but it is the verb meaning to cling.",
+     "definitionFit": "To adhere is to stick fast to a surface, or to stick to a rule or belief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +956,62 @@
     "text": "Debate about the origins of Ruth Ellis's infamy",
     "enumeration": "9"
    },
-   "solution": "DISREPUTE"
+   "solution": "DISREPUTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DISREPUTE",
+    "definitions": [
+     {
+      "text": "infamy",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the debate word surrounds the initials"
+     },
+     {
+      "text": "the origins of",
+      "for": "letter_selection",
+      "note": "origins are beginnings, so only the first letters of the name are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Debate",
+      "gives": "DISPUTE",
+      "note": "a dispute is a debate or argument; it splits after its third letter"
+     },
+     {
+      "clueFragment": "Ruth Ellis's",
+      "gives": "RE",
+      "select": "first",
+      "note": "the first letters of the two names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "RE",
+      "PUTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Argument surrounds the notorious case of Ruth Ellis.",
+     "walkthrough": "Ruth Ellis was the last woman hanged in Britain, in 1955, which lends the surface its talk of infamy.",
+     "definitionFit": "Disrepute is the state of having a bad reputation, which is what infamy means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ellis's"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +1025,65 @@
     "text": "In finale, vulgar European gets engaged",
     "enumeration": "9"
    },
-   "solution": "ENGROSSED"
+   "solution": "ENGROSSED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ENGROSSED",
+    "definitions": [
+     {
+      "text": "engaged",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in places the following pieces inside the word for an ending"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finale",
+      "gives": "END",
+      "note": "a finale is the end"
+     },
+     {
+      "clueFragment": "vulgar",
+      "gives": "GROSS",
+      "note": "gross means vulgar or coarse"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "GROSS",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "At the climax of the story, a crude continental announces an engagement.",
+     "walkthrough": "'Engaged' hints at marriage but means absorbed.",
+     "definitionFit": "Engrossed means fully absorbed or occupied, as is someone engaged in a task."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "engaged"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1097,61 @@
     "text": "Sultry soprano regularly avoided staid affair",
     "enumeration": "8"
    },
-   "solution": "STIFLING"
+   "solution": "STIFLING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STIFLING",
+    "definitions": [
+     {
+      "text": "Sultry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly avoided",
+      "for": "letter_selection",
+      "note": "avoiding at regular intervals means skipping every other letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soprano",
+      "gives": "S",
+      "note": "S is the abbreviation for soprano"
+     },
+     {
+      "clueFragment": "staid",
+      "gives": "TI",
+      "select": "alternate",
+      "note": "skip the first, third and fifth letters, keeping the second and fourth"
+     },
+     {
+      "clueFragment": "affair",
+      "gives": "FLING",
+      "note": "a fling is a brief affair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TI",
+      "FLING"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer steered clear of a dull romance in hot weather.",
+     "definitionFit": "Sultry weather is hot and humid, the kind of airless heat called stifling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sultry"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1165,51 @@
     "text": "Ogre's cat made mincemeat of French delicacy",
     "enumeration": "8"
    },
-   "solution": "ESCARGOT"
+   "solution": "ESCARGOT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESCARGOT",
+    "definitions": [
+     {
+      "text": "French delicacy",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made mincemeat of",
+      "for": "anagram",
+      "note": "making mincemeat of something chops it up, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ogre's cat",
+      "gives": "OGRESCAT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OGRESCAT",
+       "gives": "ESCARGOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monster's cat devours a dish from France.",
+     "definitionFit": "Escargot is the French word for snail, served cooked as a delicacy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "mincemeat"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1223,55 @@
     "text": "Turned out broadcast entertains models",
     "enumeration": "7"
    },
-   "solution": "ATTIRED"
+   "solution": "ATTIRED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATTIRED",
+    "definitions": [
+     {
+      "text": "Turned out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertains",
+      "for": "container",
+      "note": "a host who entertains takes guests in, so one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIRED",
+      "note": "aired means broadcast; it splits after its first letter"
+     },
+     {
+      "clueFragment": "models",
+      "gives": "TT",
+      "note": "the Ford Model T, so two models are TT"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TT",
+      "IRED"
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcast programme hosts fashion models.",
+     "walkthrough": "'Models' suggests catwalks, but in crosswords a model is often T, after the Ford car.",
+     "definitionFit": "Someone turned out well is dressed, and attired means clothed or dressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "models"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1291,43 @@
      }
     ]
    },
-   "solution": "TAKEOFF"
+   "solution": "TAKEOFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKE OFF",
+    "definitions": [
+     {
+      "text": "Mock",
+      "at": 0
+     },
+     {
+      "text": "the Wright brothers' initial achievement",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mock",
+      "note": "first meaning: to imitate someone for comic effect"
+     },
+     {
+      "clueFragment": "the Wright brothers' initial achievement",
+      "note": "second meaning: an aircraft leaving the ground, as the first powered flight did in 1903"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The verb phrase means to parody; the noun is the moment a plane leaves the ground. The question mark flags the playful second definition.",
+     "definitionFit": "To take off someone is to mimic them; a takeoff is also an aircraft's departure from the ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mock"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1341,67 @@
     "text": "Unsophisticated cowboy ignoring old flame's last letter",
     "enumeration": "6"
    },
-   "solution": "GAUCHE"
+   "solution": "GAUCHE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GAUCHE",
+    "definitions": [
+     {
+      "text": "Unsophisticated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "to ignore something is to leave it out, so the letter for old is dropped"
+     },
+     {
+      "text": "last letter",
+      "for": "letter_selection",
+      "note": "only the final letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cowboy",
+      "gives": "GAUCHO",
+      "note": "a gaucho is a South American cowboy"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old; it is removed"
+     },
+     {
+      "clueFragment": "flame's",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of flame"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAUCH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A rough cowboy disregards his former girlfriend's final note.",
+     "walkthrough": "'Old flame' looks like an ex-lover, but old and flame work separately.",
+     "definitionFit": "Gauche describes someone socially awkward and lacking polish or sophistication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flame's"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1415,66 @@
     "text": "Universal issue almost overwhelms an idealist",
     "enumeration": "7"
    },
-   "solution": "UTOPIAN"
+   "solution": "UTOPIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "UTOPIAN",
+    "definitions": [
+     {
+      "text": "idealist",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is cut"
+     },
+     {
+      "text": "overwhelms",
+      "for": "charade",
+      "note": "in a down answer, to be over something is to sit above it, so this piece comes before the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Universal",
+      "gives": "U",
+      "note": "U is the film-certificate abbreviation for universal"
+     },
+     {
+      "clueFragment": "issue",
+      "gives": "TOPIC",
+      "note": "a topic is an issue under discussion; drop its last letter"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "TOPI",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A global problem nearly defeats a dreamer.",
+     "walkthrough": "'Idealist' is a noun here; utopian works as a noun for a person who believes in a perfect society.",
+     "definitionFit": "A utopian is a visionary who dreams of a perfect society, an idealist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1488,62 @@
     "text": "Exemplary knight concludes message with startling cry",
     "enumeration": "8"
    },
-   "solution": "TEXTBOOK"
+   "solution": "TEXTBOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEXTBOOK",
+    "definitions": [
+     {
+      "text": "Exemplary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concludes",
+      "for": "charade",
+      "note": "concludes puts the chess-piece letter at the very end of the answer"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "message",
+      "gives": "TEXT",
+      "note": "a text is a message"
+     },
+     {
+      "clueFragment": "startling cry",
+      "gives": "BOO",
+      "note": "boo is shouted to startle someone"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "K",
+      "note": "K is the abbreviation for knight, as in the honours KBE and KG"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEXT",
+      "BOO",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight finishes a message with a shout of surprise.",
+     "definitionFit": "Textbook as an adjective means a perfect model of its kind, which is what exemplary means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concludes"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1557,54 @@
     "text": "Judge checks places for crossing narrow inlets",
     "enumeration": "6"
    },
-   "solution": "FJORDS"
+   "solution": "FJORDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FJORDS",
+    "definitions": [
+     {
+      "text": "narrow inlets",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "checks",
+      "for": "container",
+      "note": "to check something is to hold it in, so the judge letter is held within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "places for crossing",
+      "gives": "FORDS",
+      "note": "fords are shallow places where a river can be crossed"
+     },
+     {
+      "clueFragment": "Judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "J",
+      "ORDS"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge inspects river crossings.",
+     "definitionFit": "Fjords are long narrow sea inlets between steep cliffs, typical of Norway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "checks"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1618,63 @@
     "text": "Oddly farcical end of elder brother",
     "enumeration": "5"
    },
-   "solution": "FRIAR"
+   "solution": "FRIAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FRIAR",
+    "definitions": [
+     {
+      "text": "brother",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the letters in odd-numbered positions"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farcical",
+      "gives": "FRIA",
+      "select": "alternate",
+      "note": "first, third, fifth and seventh letters"
+     },
+     {
+      "clueFragment": "elder",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of elder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRIA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An older sibling meets a strangely absurd end.",
+     "walkthrough": "'Elder brother' reads as an older sibling; in fact brother alone is the definition, in its religious sense.",
+     "definitionFit": "A friar is a member of a religious order, addressed as Brother."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brother"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1688,59 @@
     "text": "Pirate is Devon's foremost libertine",
     "enumeration": "5"
    },
-   "solution": "DRAKE"
+   "solution": "DRAKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DRAKE",
+    "definitions": [
+     {
+      "text": "Pirate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foremost",
+      "for": "letter_selection",
+      "note": "foremost means at the front, so only the first letter of the county is kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Devon's",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of the English county"
+     },
+     {
+      "clueFragment": "libertine",
+      "gives": "RAKE",
+      "note": "a rake is a dissolute man, a libertine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "Devon's leading pirate was a womaniser.",
+     "walkthrough": "Sir Francis Drake, the Elizabethan seafarer from Devon, an English county, was regarded by the Spanish as a pirate.",
+     "definitionFit": "Drake raided Spanish ships and ports, so he is often described as a privateer or pirate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "foremost"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1754,47 @@
     "text": "Old landowners initially overlooked piles of paper",
     "enumeration": "6"
    },
-   "solution": "QUIRES"
+   "solution": "QUIRES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "QUIRES",
+    "definitions": [
+     {
+      "text": "piles of paper",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially overlooked",
+      "for": "deletion",
+      "note": "the first letter is overlooked, meaning it is left off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old landowners",
+      "gives": "SQUIRES",
+      "note": "squires were the traditional country landowners of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUIRES"
+     ]
+    },
+    "explanation": {
+     "surface": "Former gentry at first failed to notice stacks of documents.",
+     "definitionFit": "A quire is a set of twenty-four or twenty-five sheets, a small stack of writing paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooked"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1808,61 @@
     "text": "Innovative, independent spirit displayed in test",
     "enumeration": "8"
    },
-   "solution": "ORIGINAL"
+   "solution": "ORIGINAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ORIGINAL",
+    "definitions": [
+     {
+      "text": "Innovative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "displayed in",
+      "for": "container",
+      "note": "something displayed in a case sits inside it, so these pieces go within the test"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test",
+      "gives": "ORAL",
+      "note": "an oral is a spoken examination; it holds the other pieces"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "I",
+      "note": "I is the abbreviation for independent"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "GIN",
+      "note": "gin is a spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "I",
+      "GIN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A free-thinking mind shows itself in an exam.",
+     "definitionFit": "Original means new and inventive, not derived from what came before."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1876,59 @@
     "text": "Suggestive of Old Welsh upon reflection",
     "enumeration": "4"
    },
-   "solution": "LEWD"
+   "solution": "LEWD",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LEWD",
+    "definitions": [
+     {
+      "text": "Suggestive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of here means taken from within, so the answer lies inside the next words"
+     },
+     {
+      "text": "upon reflection",
+      "for": "reversal",
+      "note": "a reflection in a mirror is back to front, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old Welsh",
+      "gives": "DWEL",
+      "note": "the letters straddle the two words; read in reverse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEWD"
+     ],
+     "reversals": [
+      {
+       "from": "DWEL",
+       "to": "LEWD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar muses that a word looks reminiscent of Old Welsh.",
+     "definitionFit": "Lewd means crude and sexually suggestive, offensive in a vulgar way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1942,62 @@
     "text": "Courtesy of French queen held in stockade",
     "enumeration": "9"
    },
-   "solution": "DEFERENCE"
+   "solution": "DEFERENCE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DEFERENCE",
+    "definitions": [
+     {
+      "text": "Courtesy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "something held in is contained, so the queen sits inside the stockade word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     },
+     {
+      "clueFragment": "stockade",
+      "gives": "FENCE",
+      "note": "a stockade is a fence of stakes"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER stands for Elizabeth Regina, Queen Elizabeth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "F",
+      "ER",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A French queen is kindly locked behind a palisade.",
+     "walkthrough": "'Courtesy of' looks like a phrase meaning provided by; split it, and 'of French' means the French word for of.",
+     "definitionFit": "Deference is respectful politeness shown to another, a form of courtesy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Courtesy"
+    }
+   }
   }
  ]
 }
