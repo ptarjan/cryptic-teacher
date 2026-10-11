@@ -223,6 +223,20 @@ SPACED_MARK = re.compile(r"(?<=[^\s.])\s+(?=[,?!;:](?:\s|$)|[\u2019']s\b(?![\u20
 #: "[two-word answer]", or a count retyped in them, goes whole.
 BRACKETED_ASIDE = re.compile(r"\s*\[(?:sic|[^\[\]]*\bwords?\b[^\[\]]*|\d[\d,\-\s]*)\]", re.IGNORECASE)
 LINK_WORDS = re.compile(r"\[([^\[\]]*)\]")
+#: A count the blog typed broken just before the clue's count: "(4,4)/i>",
+#: "(6>", "6,3)", "(9", "(11j". It goes when its numbers are the count's and a
+#: bracket shows it a count: "Channel 5 (5)" ends in the channel.
+STUCK_COUNT = re.compile(r"\s+[({\[]?\s*(\d{1,2}(?:\s*[,\-\u2013.]\s*\d{1,2})*)\s*[)}\]>]?[^\s()'\"‘’“”]{0,3}"
+                         r"(?=\s*\(\s*\d[^()]*\)\s*$)")
+
+
+def unstuck(ln):
+    """`ln` without a broken copy of its count before the count (STUCK_COUNT)."""
+    m, count = STUCK_COUNT.search(ln), ENUM.search(ln)
+    if not (m and count and re.search(r"[(){}\[\]>]", m.group())
+            and re.findall(r"\d+", m.group(1)) == re.findall(r"\d+", count.group(1))):
+        return ln
+    return f"{ln[:m.start()]} {ln[m.end():].lstrip()}"
 
 
 def tidy(ln, link_words=True):
@@ -240,7 +254,7 @@ def tidy(ln, link_words=True):
     if link_words:
         ln = LINK_WORDS.sub(r"\1", ln)
     ln = DEF_SLASH.sub(" ", ln).strip()
-    return SPACED_MARK.sub("", ln)
+    return unstuck(SPACED_MARK.sub("", ln))
 
 
 def lines(rendered):
