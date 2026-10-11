@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,69 @@
     "text": "River vessel by centre of loch with relative aboard",
     "enumeration": "7"
    },
-   "solution": "POTOMAC"
+   "solution": "POTOMAC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "POTOMAC",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle, so only the inner letters are kept"
+     },
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "someone aboard is inside a vessel, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vessel",
+      "gives": "POT",
+      "note": "a pot is a vessel for cooking or holding liquid"
+     },
+     {
+      "clueFragment": "loch",
+      "gives": "OC",
+      "select": "middle",
+      "note": "the two middle letters of the four-letter word"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "MA",
+      "note": "Ma is mother, a relative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POT",
+      "O",
+      "MA",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat moored beside the middle of a Scottish lake, with a family member on board.",
+     "walkthrough": "The relative goes inside the middle pair of letters of loch, and the vessel stands in front.",
+     "definitionFit": "The Potomac is the American river that flows past Washington DC."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +111,43 @@
     "text": "Yankee suckers Kensit and Cline caught?",
     "enumeration": "7"
    },
-   "solution": "PATSIES"
+   "solution": "PATSIES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PATSIES",
+    "definitions": [
+     {
+      "text": "Yankee suckers",
+      "at": 0
+     },
+     {
+      "text": "Kensit and Cline caught?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yankee suckers",
+      "note": "first meaning: American slang for easily fooled people"
+     },
+     {
+      "clueFragment": "Kensit and Cline caught?",
+      "note": "second meaning: the English actress Kensit and the American country singer Cline share a first name; the plural names the pair"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Patsy Kensit is an English actress and Patsy Cline was an American country singer; 'caught?' hints that dupes are people who get caught out.",
+     "definitionFit": "In American slang a patsy is a person easily taken advantage of, a dupe or sucker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Yankee"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +161,58 @@
     "text": "Shelter close to hut with weapon",
     "enumeration": "5"
    },
-   "solution": "TEPEE"
+   "solution": "TEPEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TEPEE",
+    "definitions": [
+     {
+      "text": "Shelter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so its final letter is taken"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hut",
+      "gives": "T",
+      "select": "last",
+      "note": "the closing letter of hut"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "EPEE",
+      "note": "an épée is a fencing sword"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EPEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A refuge built near a hut, stocked with arms.",
+     "definitionFit": "A tepee is a conical tent used by Plains peoples, a kind of shelter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +226,55 @@
     "text": "Good tooth 60% twisted",
     "enumeration": "5"
    },
-   "solution": "MORAL"
+   "solution": "MORAL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "MORAL",
+    "definitions": [
+     {
+      "text": "Good",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "60% twisted",
+      "for": "reversal",
+      "note": "twisted here means turned round, applied to only three fifths of the word, its tail end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tooth",
+      "gives": "MOLAR",
+      "note": "a molar is a back grinding tooth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "RAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAR",
+       "to": "RAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decent tooth that has become partly crooked.",
+     "walkthrough": "Only three of the five letters, 60%, are turned round: the last three, leaving the first two in place.",
+     "definitionFit": "As a noun, a moral is a lesson in good conduct, and as an adjective moral means virtuous or good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Good"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +288,64 @@
     "text": "Hood worn by bishop on the Spanish instrument",
     "enumeration": "7"
    },
-   "solution": "COWBELL"
+   "solution": "COWBELL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COWBELL",
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worn by",
+      "for": "container",
+      "note": "a garment worn by someone surrounds them, so the clothing wraps round what follows"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hood",
+      "gives": "COWL",
+      "note": "a cowl is a monk's hood"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COW",
+      "B",
+      "EL",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A hooded garment worn by a bishop who is wearing it in Spain.",
+     "walkthrough": "The hood is worn by, so wraps round, both the bishop and the Spanish article.",
+     "definitionFit": "A cowbell is a bell hung on a cow and also used as a percussion instrument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hood"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +359,57 @@
     "text": "Heading to port, some called at iconic fortress",
     "enumeration": "7"
    },
-   "solution": "CITADEL"
+   "solution": "CITADEL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "CITADEL",
+    "definitions": [
+     {
+      "text": "fortress",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heading to port",
+      "for": "reversal",
+      "note": "port is a ship's left side, so in an across entry the letters run right to left"
+     },
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means a portion of the words that follow, a run of their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "called at iconic",
+      "gives": "LEDATIC",
+      "note": "a run of letters straddling the three words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LEDATIC",
+       "to": "CITADEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship heading for harbour stopped at a famous fortress on the way.",
+     "walkthrough": "Port is the left side of a ship, so heading to port in an across clue means reading leftwards.",
+     "definitionFit": "A citadel is a fortress, typically one commanding a city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +423,57 @@
     "text": "Forecaster following Charlie's boat",
     "enumeration": "7"
    },
-   "solution": "CORACLE"
+   "solution": "CORACLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORACLE",
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "coming after places one piece behind the other in the order of the entry"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Forecaster",
+      "gives": "ORACLE",
+      "note": "an oracle foretells the future"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ORACLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A weather forecaster's boat, coming after Charlie's.",
+     "walkthrough": "'Following' puts the forecaster after Charlie.",
+     "definitionFit": "A coracle is a small round Welsh boat made of wicker covered with hide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Forecaster"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +493,61 @@
      }
     ]
    },
-   "solution": "TEAKETTLE"
+   "solution": "TEAKETTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TEA KETTLE",
+    "definitions": [
+     {
+      "text": "Boiler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped",
+      "for": "letter_selection",
+      "note": "stripped means divested of its outer covering, so the first and last letters go"
+     },
+     {
+      "text": "at bottom of",
+      "for": "charade",
+      "note": "in a down entry the bottom is the end, so this piece comes after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wood",
+      "gives": "TEAK",
+      "note": "teak is a hardwood"
+     },
+     {
+      "clueFragment": "settler",
+      "gives": "ETTLE",
+      "select": "middle",
+      "note": "settler without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAK",
+      "ETTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A colonist, stripped of clothes, standing at the edge of a forest beside a boiler.",
+     "walkthrough": "In a down clue 'at bottom of' places the trimmed settler below the wood.",
+     "definitionFit": "A teakettle is a vessel for boiling water, so it is a boiler in a cryptic sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Boiler"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +561,71 @@
     "text": "Gadget from US state briefly in file on locker",
     "enumeration": "9"
    },
-   "solution": "DOOHICKEY"
+   "solution": "DOOHICKEY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "DOOHICKEY",
+    "definitions": [
+     {
+      "text": "Gadget",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "said briefly means cut short, so the word loses its final letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "file",
+      "gives": "DOC",
+      "note": "a doc is a document file"
+     },
+     {
+      "clueFragment": "US state",
+      "gives": "OHI",
+      "note": "Ohio cut short by its last letter"
+     },
+     {
+      "clueFragment": "locker",
+      "gives": "KEY",
+      "note": "a key locks things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "OHI",
+      "C",
+      "KEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A device taken from an American state, filed in a document on a storage locker.",
+     "walkthrough": "The shortened state sits inside the file, and in a down clue 'on' puts that above the locker.",
+     "definitionFit": "A doohickey is an informal, chiefly American word for a small gadget whose name you forget."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "locker"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +639,60 @@
     "text": "Northern bird below city light",
     "enumeration": "7"
    },
-   "solution": "LANTERN"
+   "solution": "LANTERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LANTERN",
+    "definitions": [
+     {
+      "text": "light",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "in a down entry what is below comes later, so these pieces follow the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TERN",
+      "note": "a tern is a seabird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "N",
+      "TERN"
+     ]
+    },
+    "explanation": {
+     "surface": "A northern seabird seen below a brightly lit city.",
+     "walkthrough": "In a down clue 'below' puts the northern bird after the city.",
+     "definitionFit": "A lantern is a portable lamp, a source of light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 9,
@@ -184,7 +712,50 @@
      }
     ]
    },
-   "solution": "TOPDRAWER"
+   "solution": "TOPDRAWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOP-DRAWER",
+    "definitions": [
+     {
+      "text": "of the highest standing",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "meets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spinner",
+      "gives": "TOP",
+      "note": "a top is a spinning toy"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "DRAWER",
+      "note": "a drawer is one who draws"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOP",
+      "DRAWER"
+     ]
+    },
+    "explanation": {
+     "surface": "A spin bowler encounters a painter of great renown.",
+     "walkthrough": "A spinner in cricket is a slow bowler who spins the ball; here it is the toy.",
+     "definitionFit": "Top-drawer is an idiom for the best quality or highest social class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spinner"
+    }
+   }
   },
   {
    "number": 10,
@@ -198,7 +769,50 @@
     "text": "Deck trouble confronting sailors",
     "enumeration": "5"
    },
-   "solution": "ADORN"
+   "solution": "ADORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADORN",
+    "definitions": [
+     {
+      "text": "Deck",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "confronting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trouble",
+      "gives": "ADO",
+      "note": "ado is fuss or trouble"
+     },
+     {
+      "clueFragment": "sailors",
+      "gives": "RN",
+      "note": "RN is the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADO",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "Problems on a ship's deck with the crew facing up to it.",
+     "walkthrough": "'Deck' is the verb, to decorate, not the floor of a ship.",
+     "definitionFit": "To deck something out is to decorate it, which is what adorn means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deck"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +832,66 @@
      }
     ]
    },
-   "solution": "ICEFLOE"
+   "solution": "ICEFLOE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ICE FLOE",
+    "definitions": [
+     {
+      "text": "Pack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly dropped",
+      "for": "letter_selection",
+      "note": "dropping at regular intervals means every other letter is lost and the rest kept"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diamonds",
+      "gives": "ICE",
+      "note": "ice is slang for diamonds"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "FLO",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of fellow"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE",
+      "FLO",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A pack of cards of the diamond suit, with a man repeatedly dropping them on the base.",
+     "walkthrough": "'Pack' here is pack ice, the floating mass of frozen sea.",
+     "definitionFit": "An ice floe is a sheet of floating ice, the stuff that makes up pack ice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pack"
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +905,61 @@
     "text": "Vicar in charge blocks up church opening",
     "enumeration": "7"
    },
-   "solution": "CREVICE"
+   "solution": "CREVICE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CREVICE",
+    "definitions": [
+     {
+      "text": "opening",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocks up",
+      "for": "container",
+      "note": "something that blocks up an opening sits inside it, plugging the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "Vicar",
+      "gives": "REV",
+      "note": "Rev is the title of a vicar, the Reverend"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "i/c is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "REV",
+      "IC",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar, being in charge, has a hole in his church boarded up.",
+     "definitionFit": "A crevice is a narrow crack or opening in a rock or wall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blocks"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +973,51 @@
     "text": "Guru peels off sticker",
     "enumeration": "9"
    },
-   "solution": "SUPERGLUE"
+   "solution": "SUPERGLUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUPERGLUE",
+    "definitions": [
+     {
+      "text": "sticker",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or wrong, so the letters are out of order and need rearranging"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guru peels",
+      "gives": "GURUPEELS",
+      "note": "the fodder, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GURUPEELS",
+       "gives": "SUPERGLUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spiritual teacher peels away a label.",
+     "walkthrough": "'Off' means bad or not right, so the letters go wrong and must be rearranged.",
+     "definitionFit": "Superglue is a very strong adhesive, something that makes things stick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sticker"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +1031,50 @@
     "text": "ID numbers attached to rubbish suit?",
     "enumeration": "9"
    },
-   "solution": "PINSTRIPE"
+   "solution": "PINSTRIPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PINSTRIPE",
+    "definitions": [
+     {
+      "text": "suit?",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ID numbers",
+      "gives": "PINS",
+      "note": "PINs are personal identification numbers"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "TRIPE",
+      "note": "tripe is nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PINS",
+      "TRIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A judgement that security codes are linked to a load of junk.",
+     "walkthrough": "The question mark flags that the definition is by example: a pinstripe is a suit of a kind.",
+     "definitionFit": "A pinstripe is a suit with fine stripes, the uniform of bankers and businessmen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +1088,51 @@
     "text": "Criminal pair sends speed",
     "enumeration": "9"
    },
-   "solution": "RAPIDNESS"
+   "solution": "RAPIDNESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RAPIDNESS",
+    "definitions": [
+     {
+      "text": "speed",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "criminal suggests something crooked or bent, so these letters are bent into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pair sends",
+      "gives": "PAIRSENDS",
+      "note": "the fodder, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PAIRSENDS",
+       "gives": "RAPIDNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked duo dispatches drugs.",
+     "walkthrough": "'Speed' is also slang for an amphetamine, which fits the criminal surface but is the quickness meaning here.",
+     "definitionFit": "Rapidness is the quality of being quick, which is speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speed"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1146,43 @@
     "text": "Distinctive feature of Barbie's letter opener?",
     "enumeration": "5"
    },
-   "solution": "TOKEN"
+   "solution": "TOKEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOKEN",
+    "definitions": [
+     {
+      "text": "Distinctive feature",
+      "at": 0
+     },
+     {
+      "text": "Barbie's letter opener?",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Distinctive feature",
+      "note": "first meaning: a sign or mark that characterises something"
+     },
+     {
+      "clueFragment": "Barbie's letter opener?",
+      "note": "second meaning, read as two words: how Barbie would start a note to her doll boyfriend"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A letter opener sounds like a paper knife, but here it is the greeting at the head of a letter: Barbie writing to Ken.",
+     "definitionFit": "A token is a symbol or sign, a characteristic mark that stands for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1202,50 @@
      }
     ]
    },
-   "solution": "MANUP"
+   "solution": "MANUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAN UP",
+    "definitions": [
+     {
+      "text": "adopt a responsible attitude",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reds",
+      "gives": "MANU",
+      "note": "Man U, Manchester United football club, are nicknamed the Red Devils or Reds"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANU",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Communists with political clout decide to behave sensibly.",
+     "walkthrough": "'Reds' suggests communists; here it is the nickname of Manchester United, the English football club.",
+     "definitionFit": "To man up is an idiom for taking responsibility and facing a difficulty bravely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reds"
+    }
+   }
   },
   {
    "number": 17,
@@ -322,7 +1259,64 @@
     "text": "Blokes arrested by London police with old trophy",
     "enumeration": "7"
    },
-   "solution": "MEMENTO"
+   "solution": "MEMENTO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MEMENTO",
+    "definitions": [
+     {
+      "text": "trophy",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrested by",
+      "for": "container",
+      "note": "people arrested by police are held in custody, so one piece is held inside the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London police",
+      "gives": "MET",
+      "note": "the Met is London's Metropolitan Police"
+     },
+     {
+      "clueFragment": "Blokes",
+      "gives": "MEN",
+      "note": "blokes are men"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "MEN",
+      "T",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Some lads arrested by the Metropolitan Police were carrying an old cup.",
+     "definitionFit": "A memento is a keepsake, and a trophy is a souvenir kept as a reminder of a success."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arrested"
+    }
+   }
   },
   {
    "number": 18,
@@ -342,7 +1336,54 @@
      }
     ]
    },
-   "solution": "SPARETYRE"
+   "solution": "SPARETYRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "SPARE TYRE",
+    "definitions": [
+     {
+      "text": "Love Handles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered",
+      "for": "homophone",
+      "note": "a speech is delivered out loud, so the word is to be heard rather than read"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "autobiography",
+      "gives": "SPARE",
+      "note": "Spare is the title of Prince Harry's 2023 memoir"
+     },
+     {
+      "clueFragment": "bore",
+      "gives": "TYRE",
+      "soundsLike": "TIRE",
+      "note": "to bore someone is to tire them"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone named Love handles the delivery of a memoir by a tedious author.",
+     "walkthrough": "Delivered means spoken, so the word for bore is heard and spelt the British way as the wheel's rubber.",
+     "definitionFit": "A spare tyre is jokey slang for a roll of fat round the waist, the same thing as love handles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Handles"
+    }
+   }
   },
   {
    "number": 18,
@@ -356,7 +1397,50 @@
     "text": "Condition of sheep that is at bottom of ditch",
     "enumeration": "7"
    },
-   "solution": "SCRAPIE"
+   "solution": "SCRAPIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCRAPIE",
+    "definitions": [
+     {
+      "text": "Condition of sheep",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at bottom of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ditch",
+      "gives": "SCRAP",
+      "note": "to ditch something is to scrap it"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRAP",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sickly sheep is found lying at the bottom of a ditch.",
+     "walkthrough": "In a down clue 'at bottom of' puts that is below the ditch; ditch is a verb, not a trench.",
+     "definitionFit": "Scrapie is a fatal brain disease of sheep and goats, a prion illness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ditch"
+    }
+   }
   },
   {
    "number": 19,
@@ -370,7 +1454,64 @@
     "text": "Worker with helper bottling cold medicine",
     "enumeration": "7"
    },
-   "solution": "ANTACID"
+   "solution": "ANTACID",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ANTACID",
+    "definitions": [
+     {
+      "text": "medicine",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottling",
+      "for": "container",
+      "note": "bottling means enclosing something in a container, so one piece holds another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worker",
+      "gives": "ANT",
+      "note": "a worker ant is the classic crossword worker"
+     },
+     {
+      "clueFragment": "helper",
+      "gives": "AID",
+      "note": "an aid is a helper or assistant"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "A",
+      "C",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "An employee and an assistant hold in a cold remedy.",
+     "definitionFit": "An antacid is a medicine that neutralises stomach acid to relieve indigestion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 20,
@@ -384,7 +1525,64 @@
     "text": "Poem from record carried by electronic signal",
     "enumeration": "7"
    },
-   "solution": "ECLOGUE"
+   "solution": "ECLOGUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ECLOGUE",
+    "definitions": [
+     {
+      "text": "Poem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carried by",
+      "for": "container",
+      "note": "a load carried by something is held within it, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "e- is short for electronic, as in email"
+     },
+     {
+      "clueFragment": "signal",
+      "gives": "CUE",
+      "note": "a cue is a signal to act"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LOG",
+      "note": "a log is a written record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "C",
+      "LOG",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "A poem recovered from a recording transmitted electronically.",
+     "definitionFit": "An eclogue is a short pastoral poem, often a dialogue between shepherds, as in Virgil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 21,
@@ -398,7 +1596,61 @@
     "text": "A lot of Antipodean guards bit fighter",
     "enumeration": "7"
    },
-   "solution": "MATADOR"
+   "solution": "MATADOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MATADOR",
+    "definitions": [
+     {
+      "text": "fighter",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A lot of",
+      "for": "deletion",
+      "note": "a lot of means most but not all, so the word is cut short by its final letter"
+     },
+     {
+      "text": "guards",
+      "for": "container",
+      "note": "guards stand around what they protect, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Antipodean",
+      "gives": "MAORI",
+      "note": "a Maori is a native New Zealander, from the Antipodes"
+     },
+     {
+      "clueFragment": "bit",
+      "gives": "TAD",
+      "note": "a tad is a little bit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "TAD",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "Many Australasian security guards bit a boxer.",
+     "walkthrough": "The Antipodean loses its last letter, then holds the bit inside it.",
+     "definitionFit": "A matador is the bullfighter who kills the bull."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 22,
@@ -412,7 +1664,59 @@
     "text": "Fun playing with lute in musical",
     "enumeration": "7"
    },
-   "solution": "TUNEFUL"
+   "solution": "TUNEFUL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TUNEFUL",
+    "definitions": [
+     {
+      "text": "musical",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests fooling about, so the letters are jumbled into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fun",
+      "gives": "FUN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lute",
+      "gives": "LUTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FUNLUTE",
+       "gives": "TUNEFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having fun strumming a lute in a stage show.",
+     "walkthrough": "'Musical' looks like the noun, a stage show, but it is the adjective.",
+     "definitionFit": "Tuneful means melodious, full of pleasant tunes, which is musical in the adjective sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "musical"
+    }
+   }
   },
   {
    "number": 23,
@@ -426,7 +1730,66 @@
     "text": "New song about a South African native",
     "enumeration": "5"
    },
-   "solution": "NYALA"
+   "solution": "NYALA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NYALA",
+    "definitions": [
+     {
+      "text": "South African native",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about as in turned about, so the word faces the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "LAY",
+      "note": "a lay is a ballad or song"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "YAL",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "LAY",
+       "to": "YAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh tune about one person born in South Africa.",
+     "definitionFit": "The nyala is a spiral-horned antelope native to southern Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "native"
+    }
+   }
   },
   {
    "number": 24,
@@ -440,7 +1803,59 @@
     "text": "Blond given last of fizzy Sprite",
     "enumeration": "5"
    },
-   "solution": "FAIRY"
+   "solution": "FAIRY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FAIRY",
+    "definitions": [
+     {
+      "text": "Sprite",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, which alone is kept"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blond",
+      "gives": "FAIR",
+      "note": "fair hair is blond"
+     },
+     {
+      "clueFragment": "fizzy",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of fizzy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAIR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A fair-haired person handed the end of a fizzy Sprite drink.",
+     "walkthrough": "Sprite is a lemonade brand, which suits fizzy, but here it means a spirit.",
+     "definitionFit": "A sprite is an elf or small supernatural being, a synonym for a fairy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sprite"
+    }
+   }
   },
   {
    "number": 25,
@@ -454,7 +1869,55 @@
     "text": "Sound hooter across Italy",
     "enumeration": "5"
    },
-   "solution": "NOISE"
+   "solution": "NOISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOISE",
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "across",
+      "for": "container",
+      "note": "lying across something means spanning it, so one piece stretches round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hooter",
+      "gives": "NOSE",
+      "note": "hooter is slang for nose"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "I",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A car horn blares across Italy.",
+     "walkthrough": "A hooter suggests a horn, but here it is the slang for a nose.",
+     "definitionFit": "Noise is any sound, especially a loud or unwanted one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hooter"
+    }
+   }
   },
   {
    "number": 26,
@@ -468,7 +1931,49 @@
     "text": "Outward appearance of group getting on",
     "enumeration": "9"
    },
-   "solution": "PACKAGING"
+   "solution": "PACKAGING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PACKAGING",
+    "definitions": [
+     {
+      "text": "Outward appearance",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group",
+      "gives": "PACK",
+      "note": "a pack is a group of animals or people"
+     },
+     {
+      "clueFragment": "getting on",
+      "gives": "AGING",
+      "note": "getting on means growing old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PACK",
+      "AGING"
+     ]
+    },
+    "explanation": {
+     "surface": "The look of a band whose members are growing old.",
+     "definitionFit": "Packaging can mean the way something is presented to the public, its image or outward appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 27,
@@ -482,7 +1987,62 @@
     "text": "Manage poetry poet barely comprehends",
     "enumeration": "7"
    },
-   "solution": "OVERSEE"
+   "solution": "OVERSEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OVERSEE",
+    "definitions": [
+     {
+      "text": "Manage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barely",
+      "for": "letter_selection",
+      "note": "barely read as made bare, stripped of its outer letters, leaving the middle"
+     },
+     {
+      "text": "comprehends",
+      "for": "container",
+      "note": "comprehends in its old sense of includes or takes in, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poet",
+      "gives": "OE",
+      "select": "middle",
+      "note": "poet stripped bare of its outer letters"
+     },
+     {
+      "clueFragment": "poetry",
+      "gives": "VERSE",
+      "note": "verse is poetry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERSE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet can barely understand how to deal with poetry.",
+     "walkthrough": "'Barely' means stripped bare, its outside layer removed, not 'scarcely'.",
+     "definitionFit": "To oversee is to supervise or be in charge, which is to manage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "barely"
+    }
+   }
   },
   {
    "number": 28,
@@ -502,7 +2062,61 @@
      }
     ]
    },
-   "solution": "DEARYME"
+   "solution": "DEARYME",
+   "annotation": {
+    "type": [
+     "cycling",
+     "container"
+    ],
+    "answer": "DEARY ME",
+    "definitions": [
+     {
+      "text": "oh no!",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "going round in a cycle moves the front letter round to the back of the name"
+     },
+     {
+      "text": "obstructed by",
+      "for": "container",
+      "note": "something obstructed has a blockage in its middle, so another piece sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runner",
+      "gives": "DEE",
+      "note": "the Dee is a river, and a river runs"
+     },
+     {
+      "clueFragment": "Mary",
+      "gives": "MARY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "ARYM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner is blocked by Mary on her bike, and cries in dismay.",
+     "walkthrough": "Cycling moves the first letter of the name to the end. A runner is crossword shorthand for a river; the Dee flows in Scotland and Wales.",
+     "definitionFit": "Deary me is an exclamation of dismay or sorrow, much like saying oh no."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Runner"
+    }
+   }
   }
  ]
 }
