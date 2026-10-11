@@ -24,6 +24,9 @@
   "date": "2024-02-20",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,46 @@
     "text": "False part of expert's research paper",
     "enumeration": "10"
    },
-   "solution": "PROSTHESIS"
+   "solution": "PROSTHESIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROSTHESIS",
+    "definitions": [
+     {
+      "text": "False part",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert's",
+      "gives": "PROS",
+      "note": "a pro is an expert, here with the possessive 's"
+     },
+     {
+      "clueFragment": "research paper",
+      "gives": "THESIS",
+      "note": "a thesis is a dissertation written up from research"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROS",
+      "THESIS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone questions which part of a specialist's research paper might be fabricated.",
+     "definitionFit": "A prosthesis is an artificial body part, such as a false limb or tooth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "False"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +93,60 @@
     "text": "Managed, say, to climb several mountains?",
     "enumeration": "5"
    },
-   "solution": "RANGE"
+   "solution": "RANGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RANGE",
+    "definitions": [
+     {
+      "text": "several mountains",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to climb",
+      "for": "reversal",
+      "note": "in a down clue, climbing means going upwards, so the letters are read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Managed",
+      "gives": "RAN",
+      "note": "ran a business means managed it"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for 'for example', i.e. say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAN",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether someone succeeded in scaling a series of peaks.",
+     "definitionFit": "A range is a connected line or chain of mountains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +160,64 @@
     "text": "Section of head exposed at the front with large surgical tool",
     "enumeration": "7"
    },
-   "solution": "SCALPEL"
+   "solution": "SCALPEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SCALPEL",
+    "definitions": [
+     {
+      "text": "surgical tool",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the front",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Section of head",
+      "gives": "SCALP",
+      "note": "the scalp is the skin covering the top of the head"
+     },
+     {
+      "clueFragment": "exposed",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of exposed"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the standard abbreviation for large, as on clothing sizes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCALP",
+      "E",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A grisly operating-theatre picture of part of a head laid bare by a big instrument.",
+     "definitionFit": "A scalpel is the small, very sharp knife used by surgeons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exposed"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +231,55 @@
     "text": "How silly of me to overturn this carrying trough",
     "enumeration": "3"
    },
-   "solution": "HOD"
+   "solution": "HOD",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "HOD",
+    "definitions": [
+     {
+      "text": "this carrying trough",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to overturn",
+      "for": "reversal",
+      "note": "overturning a down entry flips it so its letters run from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How silly of me",
+      "gives": "DOH",
+      "note": "doh is the exclamation used when one realises one has been stupid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOD"
+     ],
+     "reversals": [
+      {
+       "from": "DOH",
+       "to": "HOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone berates themselves for clumsily tipping over a builder's carrier.",
+     "walkthrough": "'Doh!' is Homer Simpson's cry of self-reproach. A hod is the open box on a pole that builders use to carry bricks.",
+     "definitionFit": "A hod is a builder's open trough on a long handle for carrying bricks or mortar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "overturn"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +293,47 @@
     "text": "Times spent inside for physio exercises?",
     "enumeration": "9"
    },
-   "solution": "STRETCHES"
+   "solution": "STRETCHES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRETCHES",
+    "definitions": [
+     {
+      "text": "Times spent inside",
+      "at": 0
+     },
+     {
+      "text": "physio exercises",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times spent inside",
+      "note": "first meaning: prison terms, in slang"
+     },
+     {
+      "clueFragment": "physio exercises",
+      "note": "second meaning: movements that lengthen muscles"
+     }
+    ],
+    "explanation": {
+     "surface": "Sessions spent indoors doing the routines a physiotherapist prescribes.",
+     "walkthrough": "'Inside' looks like indoors, but it is slang for in prison; a stretch is a jail sentence.",
+     "definitionFit": "A stretch is both a prison sentence in slang and a muscle-lengthening exercise a physiotherapist prescribes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +347,48 @@
     "text": "Harmonise initial elements of sound, yet nothing's clearly heard",
     "enumeration": "5"
    },
-   "solution": "SYNCH"
+   "solution": "SYNCH",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SYNCH",
+    "definitions": [
+     {
+      "text": "Harmonise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initial elements of",
+      "for": "letter_selection",
+      "note": "the initial element of each word is its opening letter, so those are taken in turn"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sound, yet nothing's clearly heard",
+      "gives": "SYNCH",
+      "select": "first",
+      "note": "first letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to a sound engineer: line things up so that nothing can be heard distinctly.",
+     "definitionFit": "To synch is to make things coincide in timing, as sound with film, so they operate together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +402,46 @@
     "text": "Training programme is rough, we're told",
     "enumeration": "6"
    },
-   "solution": "COURSE"
+   "solution": "COURSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COURSE",
+    "definitions": [
+     {
+      "text": "Training programme",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "being told something means hearing it spoken, so the word is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rough",
+      "gives": "COURSE",
+      "soundsLike": "COARSE",
+      "note": "coarse means rough in texture"
+     }
+    ],
+    "explanation": {
+     "surface": "Word has it that a particular training scheme is hard going.",
+     "definitionFit": "A course is a series of lessons or a set programme of study or training."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rough"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +455,44 @@
     "text": "Advanced nursing staff may be found here",
     "enumeration": "6"
    },
-   "solution": "ONWARD"
+   "solution": "ONWARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONWARD",
+    "definitions": [
+     {
+      "text": "Advanced",
+      "at": 0
+     },
+     {
+      "text": "nursing staff may be found here",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advanced",
+      "note": "first meaning: moved forward"
+     },
+     {
+      "clueFragment": "nursing staff may be found here",
+      "note": "second meaning, read as two words: located in a hospital room"
+     }
+    ],
+    "explanation": {
+     "surface": "A note on where senior nurses are posted in a hospital.",
+     "walkthrough": "The second meaning splits the answer as ON WARD: nurses are often on a ward.",
+     "definitionFit": "Onward is an adjective meaning moving forward, as advanced does in the sense of having progressed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Advanced"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +506,67 @@
     "text": "Irregular stuff inspires core of nationalist party",
     "enumeration": "6"
    },
-   "solution": "RANDOM"
+   "solution": "RANDOM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RANDOM",
+    "definitions": [
+     {
+      "text": "Irregular",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "core of",
+      "for": "letter_selection",
+      "note": "the core of a word is its central letter, here the middle of an eleven-letter word"
+     },
+     {
+      "text": "inspires",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so one word takes the others inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stuff",
+      "gives": "RAM",
+      "note": "to ram is to stuff or cram"
+     },
+     {
+      "clueFragment": "nationalist",
+      "gives": "N",
+      "select": "middle",
+      "note": "the sixth of eleven letters is the centre one"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is an informal word for a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "N",
+      "DO",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "An erratic piece of writing that motivates the heart of a nationalist movement.",
+     "definitionFit": "Random means haphazard, without a pattern, so not following any regular order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +580,53 @@
     "text": "Quickly look around tower in a castle",
     "enumeration": "4"
    },
-   "solution": "KEEP"
+   "solution": "KEEP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "KEEP",
+    "definitions": [
+     {
+      "text": "tower in a castle",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around means facing the other way, so the word is read from its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quickly look",
+      "gives": "PEEK",
+      "note": "to peek is to take a quick glance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEEK",
+       "to": "KEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist told to take a swift glance around a castle's main tower.",
+     "definitionFit": "A keep is the strongest, innermost tower of a medieval castle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +640,65 @@
     "text": "Flawed protagonist — one featuring in another novel",
     "enumeration": "8"
    },
-   "solution": "ANTIHERO"
+   "solution": "ANTIHERO",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "ANTIHERO",
+    "definitions": [
+     {
+      "text": "Flawed protagonist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featuring in",
+      "for": "container",
+      "note": "featuring in something means appearing within it, so one piece goes inside the other"
+     },
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters take on a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "ANOTHER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTIHERO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANOTHIER",
+       "gives": "ANTIHERO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lead character with flaws who turns up in a second book as well.",
+     "walkthrough": "'Novel' reads as a book in the surface, which suits the protagonist, but it signals the rearrangement.",
+     "definitionFit": "An antihero is a central character who lacks conventional heroic virtues, so is a flawed protagonist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +712,68 @@
     "text": "Guys in a fix ultimately sought change",
     "enumeration": "9"
    },
-   "solution": "AMENDMENT"
+   "solution": "AMENDMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AMENDMENT",
+    "definitions": [
+     {
+      "text": "change",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the final letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits in the middle of the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a fix",
+      "gives": "AMEND",
+      "note": "a mend is a repair, i.e. a fix"
+     },
+     {
+      "clueFragment": "Guys",
+      "gives": "MEN",
+      "note": "guys are men"
+     },
+     {
+      "clueFragment": "sought",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of sought"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMEND",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Men who found themselves in trouble wanted things to be different.",
+     "walkthrough": "A MEND and the final letter come together, and the guys go inside between them.",
+     "definitionFit": "An amendment is an alteration, typically to a law or document, so a change."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fix"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +787,51 @@
     "text": "Literary princess lied so deviously",
     "enumeration": "6"
    },
-   "solution": "ISOLDE"
+   "solution": "ISOLDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ISOLDE",
+    "definitions": [
+     {
+      "text": "Literary princess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deviously",
+      "for": "anagram",
+      "note": "acting deviously means being twisty, so the letters are twisted into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lied so",
+      "gives": "LIEDSO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIEDSO",
+       "gives": "ISOLDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A princess in a story told a lot of crafty lies.",
+     "walkthrough": "Isolde is the Irish princess of the Tristan and Isolde legend, retold by Malory and set by Wagner.",
+     "definitionFit": "Isolde is the princess who loves Tristan in Arthurian romance, so a princess of literature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lied"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +845,46 @@
     "text": "Bogus journalist discredited",
     "enumeration": "6"
    },
-   "solution": "SHAMED"
+   "solution": "SHAMED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHAMED",
+    "definitions": [
+     {
+      "text": "discredited",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bogus",
+      "gives": "SHAM",
+      "note": "sham means fake or bogus"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor, the stock crossword journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHAM",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A fraudulent reporter has had their reputation ruined.",
+     "definitionFit": "Shamed means disgraced or brought into disrepute, so discredited."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "journalist"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +898,49 @@
     "text": "Retail customer ignoring the first jumper",
     "enumeration": "6"
    },
-   "solution": "HOPPER"
+   "solution": "HOPPER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HOPPER",
+    "definitions": [
+     {
+      "text": "jumper",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring the first",
+      "for": "deletion",
+      "note": "ignoring the first means the opening letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retail customer",
+      "gives": "SHOPPER",
+      "note": "a shopper is a customer in a shop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A shop customer who skips the queue and takes no notice of who was first.",
+     "walkthrough": "'Jumper' looks like the British word for a sweater, but here it means something that jumps.",
+     "definitionFit": "A hopper is something that hops, such as a grasshopper or flea, so a creature that jumps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jumper"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +960,53 @@
      }
     ]
    },
-   "solution": "PEPTALK"
+   "solution": "PEPTALK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PEP TALK",
+    "definitions": [
+     {
+      "text": "moral-boosting words",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lively",
+      "for": "anagram",
+      "note": "lively letters jump about and land in a fresh order"
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pal kept",
+      "gives": "PALKEPT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PALKEPT",
+       "gives": "PEPTALK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An energetic friend kept offering encouragement.",
+     "definitionFit": "A pep talk is a short speech meant to lift someone's spirits and confidence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lively"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1020,62 @@
     "text": "Country pub, unpleasant and noisy from time to time",
     "enumeration": "8"
    },
-   "solution": "BARBADOS"
+   "solution": "BARBADOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BARBADOS",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from time to time",
+      "for": "letter_selection",
+      "note": "from time to time means now and then, so only every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     },
+     {
+      "clueFragment": "unpleasant",
+      "gives": "BAD",
+      "note": "bad means unpleasant"
+     },
+     {
+      "clueFragment": "noisy",
+      "gives": "OS",
+      "select": "alternate",
+      "note": "the second and fourth letters of noisy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "BAD",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "A rural pub that is grim and occasionally rowdy.",
+     "walkthrough": "'Country pub' reads as one phrase, but the definition is just Country.",
+     "definitionFit": "Barbados is an independent island nation in the Caribbean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1089,54 @@
     "text": "Composer touring European holiday destination?",
     "enumeration": "5"
    },
-   "solution": "BEACH"
+   "solution": "BEACH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEACH",
+    "definitions": [
+     {
+      "text": "holiday destination",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring means travelling around, so one word goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Composer",
+      "gives": "BACH",
+      "note": "J.S. Bach, the German composer"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "E",
+      "ACH"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer on a European tour stops off at a resort.",
+     "definitionFit": "A beach by the sea is a typical place to go on holiday, so this definition is by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1150,41 @@
     "text": "Try to contact young attendant",
     "enumeration": "4"
    },
-   "solution": "PAGE"
+   "solution": "PAGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PAGE",
+    "definitions": [
+     {
+      "text": "Try to contact",
+      "at": 0
+     },
+     {
+      "text": "young attendant",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try to contact",
+      "note": "first meaning: summon over a tannoy or ..."
+     },
+     {
+      "clueFragment": "young attendant",
+      "note": "second meaning: a boy servant or wedding attendant"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone attempts to reach a youthful helper.",
+     "definitionFit": "To page someone is to call them by pager or public address, and a page is a boy who attends a knight or a bride."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1198,54 @@
     "text": "Inexperienced soldiers overwhelmed by information",
     "enumeration": "5"
    },
-   "solution": "GREEN"
+   "solution": "GREEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GREEN",
+    "definitions": [
+     {
+      "text": "Inexperienced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "being overwhelmed means being engulfed, so one piece is swallowed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RE",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "New recruits swamped by briefings they cannot take in.",
+     "definitionFit": "Green describes someone new and untrained, so lacking experience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soldiers"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1259,67 @@
     "text": "Court welcoming return of live discussion",
     "enumeration": "6"
    },
-   "solution": "DEBATE"
+   "solution": "DEBATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DEBATE",
+    "definitions": [
+     {
+      "text": "discussion",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return of",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the word is read backwards"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone means taking them in, so one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Court",
+      "gives": "DATE",
+      "note": "to court someone is to date them"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to be is to exist or live"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EB",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "BE",
+       "to": "EB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A courtroom resumes hearing a live argument.",
+     "walkthrough": "'Court' looks like a law court, but it is the verb for wooing.",
+     "definitionFit": "A debate is a formal discussion in which opposing arguments are put forward."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Court"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1339,60 @@
      }
     ]
    },
-   "solution": "TEASET"
+   "solution": "TEASET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TEA SET",
+    "definitions": [
+     {
+      "text": "afternoon service",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead part for",
+      "for": "letter_selection",
+      "note": "the lead part of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kid",
+      "gives": "TEASE",
+      "note": "to kid someone is to tease them"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEASE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A child is cast in the main role for an afternoon church service.",
+     "walkthrough": "'Service' suggests a church service; here it is a set of china, as in a dinner service.",
+     "definitionFit": "A tea set is a matching set of cups, saucers and pot, a service used for afternoon tea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1406,51 @@
     "text": "Fastening made from odd bits of twine",
     "enumeration": "3"
    },
-   "solution": "TIE"
+   "solution": "TIE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TIE",
+    "definitions": [
+     {
+      "text": "Fastening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd bits of",
+      "for": "letter_selection",
+      "note": "odd bits are those in the first, third and fifth places"
+     }
+    ],
+    "linkWords": [
+     "made from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "twine",
+      "gives": "TIE",
+      "select": "alternate",
+      "note": "letters one, three and five of twine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fastening improvised from scraps of string.",
+     "definitionFit": "A tie is a cord or strip used to fasten or bind things together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1470,53 @@
      }
     ]
    },
-   "solution": "HOTDESKING"
+   "solution": "HOTDESKING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOT-DESKING",
+    "definitions": [
+     {
+      "text": "flexible work set-up",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Different",
+      "for": "anagram",
+      "note": "different means changed, so the letters are changed into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "things OKed",
+      "gives": "THINGSOKED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THINGSOKED",
+       "gives": "HOTDESKING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A manager approves various changes to make office working more flexible.",
+     "definitionFit": "Hot-desking is an office practice where staff have no fixed desk and use whichever is free."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "OKed"
+    }
+   }
   }
  ]
 }
