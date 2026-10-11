@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Rare scoundrel's keeping promise to pay",
     "enumeration": "7"
    },
-   "solution": "CURIOUS"
+   "solution": "CURIOUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CURIOUS",
+    "definitions": [
+     {
+      "text": "Rare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "one thing keeping another holds it within itself, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scoundrel's",
+      "gives": "CURS",
+      "note": "a cur is a scoundrel; the 's supplies the final S"
+     },
+     {
+      "clueFragment": "promise to pay",
+      "gives": "IOU",
+      "note": "an IOU is a written promise to pay a debt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR",
+      "IOU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A rare sight: a rogue honouring his IOU.",
+     "walkthrough": "The 's of scoundrel's is a letter, not just a possessive: CUR + S holds IOU to make CURIOUS.",
+     "definitionFit": "Curious can mean strange or unusual, which is a sense of rare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rare"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,64 @@
     "text": "Sword is polished removing gladiator's head",
     "enumeration": "7"
    },
-   "solution": "CUTLASS"
+   "solution": "CUTLASS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "CUTLASS",
+    "definitions": [
+     {
+      "text": "Sword",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "a head is the top or front, so take only the opening letter of the word"
+     },
+     {
+      "text": "removing",
+      "for": "deletion",
+      "note": "removing means taking away, so a letter is dropped from the phrase"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "polished",
+      "gives": "CUTGLASS",
+      "note": "cut-glass describes a refined, polished accent"
+     },
+     {
+      "clueFragment": "gladiator's",
+      "gives": "G",
+      "select": "first",
+      "note": "the head is the first letter, which is taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUT",
+      "LASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A gleaming sword is used after the gladiator has been beheaded.",
+     "walkthrough": "A cut-glass accent is a very upper-class British one.",
+     "definitionFit": "A cutlass is a short curved sword favoured by sailors and pirates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "polished"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +169,65 @@
     "text": "Shine when ace detective in charge",
     "enumeration": "7"
    },
-   "solution": "RADIATE"
+   "solution": "RADIATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RADIATE",
+    "definitions": [
+     {
+      "text": "Shine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so these pieces go within the last one"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A for ace, as on playing cards"
+     },
+     {
+      "clueFragment": "detective",
+      "gives": "DI",
+      "note": "a DI is a Detective Inspector"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "RATE",
+      "note": "a rate is a charge or price"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "DI",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Describes a star investigator coming into their own in charge of a case.",
+     "walkthrough": "'In charge' looks like a single phrase meaning responsible, but 'in' is the container signal and 'charge' means a price.",
+     "definitionFit": "To radiate is to emit light or warmth, which is to shine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +241,49 @@
     "text": "Australia only gets bracing air",
     "enumeration": "5"
    },
-   "solution": "OZONE"
+   "solution": "OZONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OZONE",
+    "definitions": [
+     {
+      "text": "bracing air",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australia",
+      "gives": "OZ",
+      "note": "Oz is a nickname for Australia"
+     },
+     {
+      "clueFragment": "only",
+      "gives": "ONE",
+      "note": "one as in 'the one and only'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OZ",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A boast that only Australia has properly fresh air.",
+     "definitionFit": "Ozone is used informally for fresh, invigorating seaside air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "only"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +297,62 @@
     "text": "Worker night before day inside hold",
     "enumeration": "9"
    },
-   "solution": "STEVEDORE"
+   "solution": "STEVEDORE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STEVEDORE",
+    "definitions": [
+     {
+      "text": "Worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places these pieces within the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hold",
+      "gives": "STORE",
+      "note": "to hold is to store"
+     },
+     {
+      "clueFragment": "night before",
+      "gives": "EVE",
+      "note": "an eve is the night before an event"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "EVE",
+      "D",
+      "ORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker in a ship's hold the night before the day of sailing.",
+     "walkthrough": "Hold suggests a ship's cargo space, apt for a docker, but it is the verb store.",
+     "definitionFit": "A stevedore is a dock worker who loads and unloads ships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +366,67 @@
     "text": "Simple stone in gold, oddly earned",
     "enumeration": "7"
    },
-   "solution": "AUSTERE"
+   "solution": "AUSTERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AUSTERE",
+    "definitions": [
+     {
+      "text": "Simple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly tells you to keep only the letters in odd-numbered positions of the next word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in the others means it is set inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "st is the abbreviation for stone, the British weight of 14 pounds"
+     },
+     {
+      "clueFragment": "earned",
+      "gives": "ERE",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "ST",
+      "ERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A plain stone set in gold, picturing a modest piece of jewellery that someone worked for.",
+     "walkthrough": "The stone does not sit in the gold alone: it goes between the gold and the odd letters, inside the pair once joined.",
+     "definitionFit": "Austere means plain and without ornament, a synonym of simple in style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "earned"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +440,62 @@
     "text": "Lots of winners accepting silver finally",
     "enumeration": "5"
    },
-   "solution": "ACRES"
+   "solution": "ACRES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ACRES",
+    "definitions": [
+     {
+      "text": "Lots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word just before it"
+     },
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking in, so the first word holds the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "winners",
+      "gives": "ACES",
+      "note": "aces are winners, as in tennis serves"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "R",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Many winners collect silver medals at the end.",
+     "walkthrough": "Lots looks like 'a great many', but it is plots of land.",
+     "definitionFit": "Acres are plots of land, and lots are parcels of land, as in a building lot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lots"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +509,56 @@
     "text": "Schism from church in conclave?",
     "enumeration": "9"
    },
-   "solution": "SECESSION"
+   "solution": "SECESSION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SECESSION",
+    "definitions": [
+     {
+      "text": "Schism",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one word goes within the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conclave",
+      "gives": "SESSION",
+      "note": "a conclave is a private meeting or session"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "CE",
+      "SSION"
+     ]
+    },
+    "explanation": {
+     "surface": "A church split arising during a cardinals' meeting.",
+     "definitionFit": "Secession is formal withdrawal from a body, causing a schism or split."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +572,70 @@
     "text": "A Queen with flag elevated country",
     "enumeration": "7"
    },
-   "solution": "ERITREA"
+   "solution": "ERITREA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ERITREA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "elevated",
+      "for": "reversal",
+      "note": "elevated in a down entry means lifted, so the letters read upwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina"
+     },
+     {
+      "clueFragment": "flag",
+      "gives": "TIRE",
+      "note": "to flag is to tire, grow weary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERIT",
+      "RE",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AERTIRE",
+       "to": "ERITREA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A queen raises a flag over a nation.",
+     "walkthrough": "Flag looks like a banner raised aloft, but it is the verb meaning grow weary.",
+     "definitionFit": "Eritrea is a country in the Horn of Africa on the Red Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flag"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +649,56 @@
     "text": "Radical former Tories meet occasionally",
     "enumeration": "7"
    },
-   "solution": "EXTREME"
+   "solution": "EXTREME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EXTREME",
+    "definitions": [
+     {
+      "text": "Radical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "Tories meet",
+      "gives": "TREME",
+      "select": "alternate",
+      "note": "first, third, fifth, seventh and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TREME"
+     ]
+    },
+    "explanation": {
+     "surface": "Former Conservative politicians gather from time to time with radical ideas.",
+     "walkthrough": "Tories are members of the UK Conservative Party.",
+     "definitionFit": "Radical and extreme both describe views far from the political centre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "meet"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +712,49 @@
     "text": "Little rod getting little swimmer",
     "enumeration": "7"
    },
-   "solution": "TADPOLE"
+   "solution": "TADPOLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TADPOLE",
+    "definitions": [
+     {
+      "text": "little swimmer",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little",
+      "gives": "TAD",
+      "note": "a tad is a little bit"
+     },
+     {
+      "clueFragment": "rod",
+      "gives": "POLE",
+      "note": "a pole is a rod"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAD",
+      "POLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A small fishing rod catches a tiny swimmer.",
+     "definitionFit": "A tadpole is the small aquatic larva of a frog or toad, swimming in ponds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rod"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +768,70 @@
     "text": "Acceptance by right about rejected constituent",
     "enumeration": "7"
    },
-   "solution": "RECEIPT"
+   "solution": "RECEIPT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RECEIPT",
+    "definitions": [
+     {
+      "text": "Acceptance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the word is read in the opposite direction"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first piece goes round the second"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "RT",
+      "note": "RT is an abbreviation for right"
+     },
+     {
+      "clueFragment": "constituent",
+      "gives": "PIECE",
+      "note": "a piece is a constituent part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ECEIP",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "PIECE",
+       "to": "ECEIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An election candidate on the right turns away a voter in the constituency.",
+     "walkthrough": "Constituent suggests a voter, but it means a component part.",
+     "definitionFit": "A receipt is the act of receiving or accepting something, as in 'on receipt of goods'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "constituent"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +845,61 @@
     "text": "Sense a battle facing European head",
     "enumeration": "9"
    },
-   "solution": "AWARENESS"
+   "solution": "AWARENESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWARENESS",
+    "definitions": [
+     {
+      "text": "Sense",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "facing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "battle",
+      "gives": "WAR",
+      "note": "a war is a battle on a large scale"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland or promontory, as in Orford Ness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAR",
+      "E",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier senses a battle against a European commander.",
+     "definitionFit": "Awareness is perception or consciousness, a meaning of sense as in 'a sense of danger'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +913,43 @@
     "text": "Material increase is reported",
     "enumeration": "5"
    },
-   "solution": "SERGE"
+   "solution": "SERGE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SERGE",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is reported",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so we want a word with the same sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "increase",
+      "gives": "SERGE",
+      "soundsLike": "SURGE",
+      "note": "a surge is a sudden increase"
+     }
+    ],
+    "explanation": {
+     "surface": "A news item about rising demand for cloth.",
+     "definitionFit": "Serge is a durable twilled woollen fabric used for suits and uniforms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +963,43 @@
     "text": "Pips best players",
     "enumeration": "5"
    },
-   "solution": "SEEDS"
+   "solution": "SEEDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEEDS",
+    "definitions": [
+     {
+      "text": "Pips",
+      "at": 0
+     },
+     {
+      "text": "best players",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pips",
+      "note": "first meaning: the small ... of fruit"
+     },
+     {
+      "clueFragment": "best players",
+      "note": "second meaning: top-ranked players in a tournament draw"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pips looks like a verb for narrowly beating someone, which suits the tennis picture, but it is the plural noun for fruit kernels.",
+     "definitionFit": "Fruit pips are small seeds, and tournament organisers give the strongest entrants seeded positions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pips"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +1013,68 @@
     "text": "Placed vase specifically outside new grave",
     "enumeration": "9"
    },
-   "solution": "SATURNINE"
+   "solution": "SATURNINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SATURNINE",
+    "definitions": [
+     {
+      "text": "grave",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means placed around, so this goes round the following piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Placed",
+      "gives": "SAT",
+      "note": "sat as in placed or set down"
+     },
+     {
+      "clueFragment": "vase",
+      "gives": "URN",
+      "note": "an urn is a vase"
+     },
+     {
+      "clueFragment": "specifically",
+      "gives": "IE",
+      "note": "i.e. (id est) introduces a specific clarification"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "URN",
+      "I",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone places a vase near a freshly dug grave.",
+     "walkthrough": "Grave looks like a burial place, apt with the urn, but it is the adjective meaning solemn.",
+     "definitionFit": "Saturnine means gloomy and solemn in temperament, as grave does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "grave"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1088,62 @@
     "text": "Flow from spout containing one drink",
     "enumeration": "9"
    },
-   "solution": "ORIGINATE"
+   "solution": "ORIGINATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ORIGINATE",
+    "definitions": [
+     {
+      "text": "Flow from",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding something inside, so the other pieces go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spout",
+      "gives": "ORATE",
+      "note": "to spout is to orate, to speak pompously"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "GIN",
+      "note": "gin is a drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "I",
+      "GIN",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker sounds off with a glass of gin in hand.",
+     "walkthrough": "Spout looks like a noun, a pipe something flows from, but it is the verb for holding forth.",
+     "definitionFit": "To originate is to arise or derive, which is what flowing from a source means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spout"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1157,43 @@
     "text": "Open University?",
     "enumeration": "9"
    },
-   "solution": "INSTITUTE"
+   "solution": "INSTITUTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INSTITUTE",
+    "definitions": [
+     {
+      "text": "Open",
+      "at": 0
+     },
+     {
+      "text": "University",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Open",
+      "note": "first meaning: to set up or establish, as a verb"
+     },
+     {
+      "clueFragment": "University",
+      "note": "second meaning: a place of higher learning, as a noun"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Open University is Britain's distance-learning university; here the two words are separate meanings, a verb and a noun.",
+     "definitionFit": "To institute is to start or establish something, and an institute is an educational establishment like a university."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Open"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1207,62 @@
     "text": "Husband and sweetheart plain cruel",
     "enumeration": "9"
    },
-   "solution": "HEARTLESS"
+   "solution": "HEARTLESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HEARTLESS",
+    "definitions": [
+     {
+      "text": "cruel",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so keep only the middle letter of the word it is attached to"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "select": "middle",
+      "note": "read as sweet + heart: the centre letter of sweet"
+     },
+     {
+      "clueFragment": "plain",
+      "gives": "ARTLESS",
+      "note": "artless means plain, simple and unsophisticated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "E",
+      "ARTLESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife complains that her husband and her lover are both just plain cruel.",
+     "walkthrough": "Sweetheart reads as a lover, but it splits into sweet + heart, the middle of sweet.",
+     "definitionFit": "Heartless describes someone without compassion, and so cruel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1276,54 @@
     "text": "Organic matter covering old king's bone",
     "enumeration": "7"
    },
-   "solution": "HUMERUS"
+   "solution": "HUMERUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HUMERUS",
+    "definitions": [
+     {
+      "text": "bone",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping around, so the first word goes round the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Organic matter",
+      "gives": "HUMUS",
+      "note": "humus is decayed organic matter in soil"
+     },
+     {
+      "clueFragment": "old king's",
+      "gives": "ER",
+      "note": "ER for an old king, Edwardus Rex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUM",
+      "ER",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient king's bone found buried under soil.",
+     "walkthrough": "The 's here is 'is', a link word inside the fragment.",
+     "definitionFit": "The humerus is the long bone of the upper arm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1337,43 @@
     "text": "Goddess Astarte misunderstood somewhat",
     "enumeration": "7"
    },
-   "solution": "ARTEMIS"
+   "solution": "ARTEMIS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARTEMIS",
+    "definitions": [
+     {
+      "text": "Goddess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means to some extent, so only part of the words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Astarte misunderstood",
+      "gives": "ARTEMIS",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "The goddess Astarte is somewhat misunderstood.",
+     "walkthrough": "Misunderstood looks like an anagram signal for Astarte, but the answer is lying in plain sight.",
+     "definitionFit": "Artemis is the Greek goddess of the hunt and the moon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "misunderstood"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1387,49 @@
     "text": "Nudged only slowly, edging deliberately initially",
     "enumeration": "5"
    },
-   "solution": "NOSED"
+   "solution": "NOSED",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NOSED",
+    "definitions": [
+     {
+      "text": "Nudged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letters of the words that precede it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "only slowly, edging deliberately",
+      "gives": "OSED",
+      "select": "first",
+      "note": "first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OSED"
+     ]
+    },
+    "explanation": {
+     "surface": "Describes a car or boat inching cautiously forward into place.",
+     "walkthrough": "Nudged is both the definition and a source of its own first letter N, so the clue is close to an all-in-one.",
+     "definitionFit": "Nosed means moved forward carefully, pushing gently, which is to nudge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1443,63 @@
     "text": "Flog last of products company push",
     "enumeration": "7"
    },
-   "solution": "SCOURGE"
+   "solution": "SCOURGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCOURGE",
+    "definitions": [
+     {
+      "text": "Flog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of means only the final letter of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "products",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "push",
+      "gives": "URGE",
+      "note": "to urge is to push"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CO",
+      "URGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sales push for a company's remaining goods.",
+     "walkthrough": "Flog is British slang for sell, which fits the sales picture, but here it means whip.",
+     "definitionFit": "To scourge is to whip or flog someone as punishment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flog"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1513,71 @@
     "text": "Second refusal then drink up spirits",
     "enumeration": "7"
    },
-   "solution": "DAEMONS"
+   "solution": "DAEMONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DAEMONS",
+    "definitions": [
+     {
+      "text": "spirits",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "up in a down entry means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "refusal",
+      "gives": "NO",
+      "note": "no is a refusal"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "MEAD",
+      "note": "mead is a drink made from honey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAEM",
+      "ON",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SNOMEAD",
+       "to": "DAEMONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker says no for a moment, then downs a glass of spirits.",
+     "walkthrough": "Spirits looks like alcohol, matching drink, but means supernatural beings.",
+     "definitionFit": "Daemons are supernatural spirits in Greek mythology, intermediate between gods and humans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirits"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1591,61 @@
     "text": "Owner gutted after annual check for car",
     "enumeration": "5"
    },
-   "solution": "MOTOR"
+   "solution": "MOTOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MOTOR",
+    "definitions": [
+     {
+      "text": "car",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gutted",
+      "for": "deletion",
+      "note": "a gutted thing has had its insides removed, so only the outer letters remain"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "annual check",
+      "gives": "MOT",
+      "note": "the MOT is the yearly roadworthiness test for British vehicles"
+     },
+     {
+      "clueFragment": "Owner",
+      "gives": "OR",
+      "select": "outer",
+      "note": "outer letters only"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A car owner is devastated after the vehicle fails its annual inspection.",
+     "walkthrough": "The MOT (Ministry of Transport) test is the compulsory annual safety check on older cars in Britain.",
+     "definitionFit": "Motor is an informal British word for an automobile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1659,50 @@
     "text": "Butterfly seeing colour on borders",
     "enumeration": "9"
    },
-   "solution": "BRIMSTONE"
+   "solution": "BRIMSTONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRIMSTONE",
+    "definitions": [
+     {
+      "text": "Butterfly",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "borders",
+      "gives": "BRIMS",
+      "note": "brims are edges or borders"
+     },
+     {
+      "clueFragment": "colour",
+      "gives": "TONE",
+      "note": "a tone is a shade of colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIMS",
+      "TONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A butterfly spotted with coloured edging on its wings.",
+     "walkthrough": "'On' means placed after; reading 'stone' as the colour leaves 'borders' one letter short, so the plural belongs to the borders.",
+     "definitionFit": "The brimstone is a common European butterfly with sulphur-yellow wings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "borders"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1716,56 @@
     "text": "Having a position when in sack",
     "enumeration": "5"
    },
-   "solution": "BASED"
+   "solution": "BASED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BASED",
+    "definitions": [
+     {
+      "text": "Having a position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sack",
+      "gives": "BED",
+      "note": "the sack is slang for bed"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as means when, as in 'as I left'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether one has a job while in bed, or after being sacked.",
+     "walkthrough": "Sack suggests being fired, which plays against having a position, but it is slang for bed.",
+     "definitionFit": "Based means located or stationed somewhere, which is to have a position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sack"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1779,47 @@
     "text": "Small border plant",
     "enumeration": "5"
    },
-   "solution": "SEDGE"
+   "solution": "SEDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEDGE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "EDGE",
+      "note": "an edge is a border"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A small plant for a garden border.",
+     "walkthrough": "Border plant suggests a garden bed, but border is the wordplay and plant alone is the definition.",
+     "definitionFit": "Sedge is a grass-like plant growing in wet places."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1833,46 @@
     "text": "Survives touching electricity supply",
     "enumeration": "7"
    },
-   "solution": "REMAINS"
+   "solution": "REMAINS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMAINS",
+    "definitions": [
+     {
+      "text": "Survives",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "touching",
+      "gives": "RE",
+      "note": "re means concerning or touching on"
+     },
+     {
+      "clueFragment": "electricity supply",
+      "gives": "MAINS",
+      "note": "the mains is the public electricity supply"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MAINS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone survives after making contact with the live mains.",
+     "definitionFit": "Remains as a verb means stays in existence, the same as survives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touching"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1886,43 @@
     "text": "Weather restrained by Thunder God",
     "enumeration": "7"
    },
-   "solution": "UNDERGO"
+   "solution": "UNDERGO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UNDERGO",
+    "definitions": [
+     {
+      "text": "Weather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restrained by",
+      "for": "hidden_word",
+      "note": "something restrained by words is held within them, spanning the boundary between two"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thunder God",
+      "gives": "UNDERGO",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A storm held in check by the god of thunder, perhaps Thor.",
+     "walkthrough": "Weather looks like a noun about storms, but it is the verb meaning to come through something.",
+     "definitionFit": "To weather a crisis is to undergo it and come through, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Weather"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1936,43 @@
     "text": "Arrest and hang",
     "enumeration": "7"
    },
-   "solution": "SUSPEND"
+   "solution": "SUSPEND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUSPEND",
+    "definitions": [
+     {
+      "text": "Arrest",
+      "at": 0
+     },
+     {
+      "text": "hang",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrest",
+      "note": "first meaning: halt or stop for a time"
+     },
+     {
+      "clueFragment": "hang",
+      "note": "second meaning: hang from above"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Arrest and hang suggest a criminal's fate, but arrest means halt and hang means dangle.",
+     "definitionFit": "To suspend is both to halt something temporarily and to hang it from a support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Arrest"
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +1986,61 @@
     "text": "Matches involving depleted league teams",
     "enumeration": "7"
    },
-   "solution": "ELEVENS"
+   "solution": "ELEVENS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ELEVENS",
+    "definitions": [
+     {
+      "text": "teams",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "depleted",
+      "for": "deletion",
+      "note": "depleted means much reduced, so most of the word is lost and only its start remains"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means taking in, so the first word wraps around the shortened one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Matches",
+      "gives": "EVENS",
+      "note": "evens means equals or matches, as in 'evens the score'"
+     },
+     {
+      "clueFragment": "league",
+      "gives": "LE",
+      "note": "only the first two letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LE",
+      "VENS"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports report on fixtures within a weakened league.",
+     "walkthrough": "Matches looks like the noun for games, apt for teams, but it is the verb meaning equals.",
+     "definitionFit": "An eleven is a side in cricket or football, which fields eleven players."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Matches"
+    }
+   }
   }
  ]
 }
