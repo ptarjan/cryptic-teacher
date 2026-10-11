@@ -2255,7 +2255,9 @@ def numbers_joined(clue, streams):
 def join_split(clue, others):
     """The clue with two of its words run together where most other readings
     have them as one lexicon word: a word the print broke over a line end
-    whose hyphen this reading lost ("par simony" for "parsimony"). Two
+    whose hyphen this reading lost ("par simony" for "parsimony"), or,
+    the two not both known, a letter off the one known word most readings
+    print there and fewer print apart ("Rea dins" for "Reading"). Two
     pieces across the line end's hyphen this reading kept, or across a
     speck read as a comma or stop ("bow- Ier", "giy, ing"), not both words
     and neither one letter nor an apostrophe's tail ("lady's, rather"), are
@@ -2276,7 +2278,12 @@ def join_split(clue, others):
         a, b = m.group(1).lower(), m.group(3).lower()
         whole = a + b
         if m.group(2) == " ":
-            ok = m.group(3).islower() and sum(whole in h for h in held) * 2 > len(others) and is_word(whole)
+            near = {w for h in held for w in h if len(whole) > 4 and w.isalpha() and known(w) and within_one(whole, w)}
+            ones = sum(bool(h & near) for h in held)
+            ok = m.group(3).islower() and (
+                (sum(whole in h for h in held) * 2 > len(others) and is_word(whole))
+                or (len(near) == 1 and ones * 2 > len(others) and not (known(a) and known(b))
+                    and ones > sum(a in h and b in h for h in held)))
         else:
             spelt = {w for h in held for w in h if w.isalpha()
                      and (known(w) if w == whole else len(whole) > 4 and is_word(w) and within_one(whole, w))}
