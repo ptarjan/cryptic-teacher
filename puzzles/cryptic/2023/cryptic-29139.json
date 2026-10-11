@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Whitehall comedian ignoring answer involving old Scotsman",
     "enumeration": "4"
    },
-   "solution": "JOCK"
+   "solution": "JOCK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "JOCK",
+    "definitions": [
+     {
+      "text": "Scotsman",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "to ignore something is to leave it out, so a letter is dropped from the comedian's name"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means taking something in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whitehall comedian",
+      "gives": "JACK",
+      "note": "Jack Whitehall is an English stand-up comedian"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the standard abbreviation for answer"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a common abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "O",
+      "CK"
+     ]
+    },
+    "explanation": {
+     "surface": "A government-district comic snubs a reply and brings in an elderly Scot.",
+     "walkthrough": "Whitehall looks like the seat of government, but it is comedian Jack Whitehall's surname: JACK loses its A, then O goes into the gap.",
+     "definitionFit": "Jock is an informal, sometimes slangy name for any man from Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Whitehall"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +109,67 @@
     "text": "Competed with Villa playing in claret",
     "enumeration": "8"
    },
-   "solution": "RIVALLED"
+   "solution": "RIVALLED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RIVALLED",
+    "definitions": [
+     {
+      "text": "Competed with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "a team playing is in action, moving about, so the letters of the club name are moved around"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "claret",
+      "gives": "RED",
+      "note": "claret is a red wine, and its colour is red"
+     },
+     {
+      "clueFragment": "Villa",
+      "gives": "IVALL",
+      "note": "the letters of Villa, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IVALL",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VILLA",
+       "gives": "IVALL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Aston Villa, playing in their claret shirts, matched their rivals.",
+     "walkthrough": "Claret and blue are Aston Villa's colours, so the surface is all football; claret just supplies the outer RED.",
+     "definitionFit": "To rival someone is to compete with or equal them, so the past tense matches the phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "claret"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +183,74 @@
     "text": "Dishonest Tory leader protected by fishy organisation",
     "enumeration": "6"
    },
-   "solution": "SHIFTY"
+   "solution": "SHIFTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "SHIFTY",
+    "definitions": [
+     {
+      "text": "Dishonest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes first, so only the opening letter of the party name is taken"
+     },
+     {
+      "text": "organisation",
+      "for": "anagram",
+      "note": "organisation means arranging things, so the letters of fishy are set in a new order"
+     },
+     {
+      "text": "protected by",
+      "for": "container",
+      "note": "something protected by another is surrounded by it, so one piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fishy",
+      "gives": "SHIFY",
+      "note": "the letters of fishy, rearranged"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Tory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHIF",
+      "T",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FISHY",
+       "gives": "SHIFY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady Conservative chief is shielded by a suspicious outfit.",
+     "walkthrough": "Fishy already means suspicious, so it seems to be a synonym, but its letters are the fodder; T goes in before the final Y.",
+     "definitionFit": "Someone shifty looks evasive and untrustworthy, a near synonym of dishonest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "organisation"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +264,53 @@
     "text": "See Dr Who getting prepared and washed",
     "enumeration": "8"
    },
-   "solution": "SHOWERED"
+   "solution": "SHOWERED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHOWERED",
+    "definitions": [
+     {
+      "text": "washed",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting prepared",
+      "for": "anagram",
+      "note": "getting something prepared means making it up from raw ingredients, so the letters are worked into a new form"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See Dr Who",
+      "gives": "SEEDRWHO",
+      "note": "every letter of these three words is used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEDRWHO",
+       "gives": "SHOWERED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watch the Doctor from Doctor Who getting ready and freshening up.",
+     "definitionFit": "To shower is to wash under a spray of water, so showered is a past-tense synonym of washed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +324,67 @@
     "text": "Alien captain unhappy about everyone getting promoted",
     "enumeration": "6"
    },
-   "solution": "DALLAS"
+   "solution": "DALLAS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "DALLAS",
+    "definitions": [
+     {
+      "text": "Alien captain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word goes round the other"
+     },
+     {
+      "text": "getting promoted",
+      "for": "reversal",
+      "note": "in a down clue being promoted means moving up, so the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unhappy",
+      "gives": "SAD",
+      "note": "sad is a synonym of unhappy"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means every person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "LLA",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SALLAD",
+       "to": "DALLAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An extraterrestrial commander is miserable that all the others are being promoted.",
+     "walkthrough": "Alien is the 1979 film, not a space creature; its ship's captain is called Dallas.",
+     "definitionFit": "In Ridley Scott's film Alien, Captain Dallas commands the spaceship Nostromo before the creature kills him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Alien"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +398,52 @@
     "text": "Scam inside Las Vegas ends in confusion",
     "enumeration": "4"
    },
-   "solution": "MESS"
+   "solution": "MESS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "MESS",
+    "definitions": [
+     {
+      "text": "confusion",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends",
+      "for": "letter_selection",
+      "note": "ends are the last parts, so only the final letter of each preceding word is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scam inside Las Vegas",
+      "gives": "MESS",
+      "select": "last",
+      "note": "the final letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A con game inside Las Vegas ends in chaos.",
+     "walkthrough": "Ends seems to belong to Las Vegas alone, but it takes the last letter of all four words before it.",
+     "definitionFit": "A mess is a state of disorder or muddle, a straightforward synonym for confusion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ends"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +457,55 @@
     "text": "Mean to cover up leg this evening",
     "enumeration": "7"
    },
-   "solution": "TONIGHT"
+   "solution": "TONIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TONIGHT",
+    "definitions": [
+     {
+      "text": "this evening",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cover up",
+      "for": "container",
+      "note": "covering something up means enclosing it, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mean",
+      "gives": "TIGHT",
+      "note": "tight means stingy with money"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "ON",
+      "note": "in cricket the leg side is also called the on side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ON",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to hide a leg this evening, perhaps under a dress.",
+     "walkthrough": "Mean is the miserly sense, not 'intend'. Leg = ON comes from cricket, where the leg side of the field is also the on side.",
+     "definitionFit": "Tonight is an adverb for during the present or coming evening, the same as this evening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mean"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +519,51 @@
     "text": "Fooled around, getting angry",
     "enumeration": "7"
    },
-   "solution": "CHEATED"
+   "solution": "CHEATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHEATED",
+    "definitions": [
+     {
+      "text": "Fooled",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "around",
+      "gives": "C",
+      "note": "C stands for circa, Latin for around"
+     },
+     {
+      "clueFragment": "angry",
+      "gives": "HEATED",
+      "note": "heated means agitated or furious"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HEATED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who fooled around with another partner and the row turned furious.",
+     "walkthrough": "Fooled around reads as one phrase meaning had an affair, which is itself a sense of the answer, but around is split off as C.",
+     "definitionFit": "To cheat someone is to deceive or trick them, so cheated works as a synonym for fooled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +577,51 @@
     "text": "Fine artist portraying ladies' fingers",
     "enumeration": "4"
    },
-   "solution": "OKRA"
+   "solution": "OKRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OKRA",
+    "definitions": [
+     {
+      "text": "ladies' fingers",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "portraying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "OK",
+      "note": "OK means fine or acceptable"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, the usual crossword artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OK",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A decent painter depicting women's hands.",
+     "walkthrough": "Ladies' fingers sounds like a portrait subject, but it is a vegetable name.",
+     "definitionFit": "Okra pods are long and slender, which is why the vegetable is also called ladies' fingers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fingers"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +635,67 @@
     "text": "Parting expressions were translated during trips",
     "enumeration": "9"
    },
-   "solution": "FAREWELLS"
+   "solution": "FAREWELLS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FAREWELLS",
+    "definitions": [
+     {
+      "text": "Parting expressions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "translated",
+      "for": "anagram",
+      "note": "translating turns words into another form, so the letters of were are rearranged"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trips",
+      "gives": "FALLS",
+      "note": "trips and falls are both stumbles"
+     },
+     {
+      "clueFragment": "were",
+      "gives": "REWE",
+      "note": "the letters of were, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "REWE",
+      "LLS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WERE",
+       "gives": "REWE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Goodbye phrases were put into another language while travelling abroad.",
+     "walkthrough": "Trips suggests journeys, which suits the travel picture, but it means tumbles here.",
+     "definitionFit": "Farewells are things said on leaving, such as goodbye, so they are expressions used at parting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trips"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +709,55 @@
     "text": "Driving back 45 inches a long time ago in regret",
     "enumeration": "9"
    },
-   "solution": "REPELLENT"
+   "solution": "REPELLENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REPELLENT",
+    "definitions": [
+     {
+      "text": "Driving back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the measure inside the word for regret"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regret",
+      "gives": "REPENT",
+      "note": "to repent is to feel regret"
+     },
+     {
+      "clueFragment": "45 inches a long time ago",
+      "gives": "ELL",
+      "note": "an ell was an old English measure of cloth, 45 inches long"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "ELL",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Pushing back an old length of cloth, someone regrets it.",
+     "walkthrough": "A long time ago tells you the measure is obsolete; the ell, used for cloth, was 45 inches in England.",
+     "definitionFit": "Repellent describes something that drives back or wards off, as an insect repellent keeps pests away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Driving"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +771,72 @@
     "text": "Extremely sorry — divided by 49 + 50 is just absurd!",
     "enumeration": "5"
    },
-   "solution": "SILLY"
+   "solution": "SILLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SILLY",
+    "definitions": [
+     {
+      "text": "absurd",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of the word, its first and last letters"
+     },
+     {
+      "text": "divided by",
+      "for": "container",
+      "note": "a word divided by something is split with it in the middle"
+     }
+    ],
+    "linkWords": [
+     "is just"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sorry",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the first and last letters of sorry"
+     },
+     {
+      "clueFragment": "49",
+      "gives": "IL",
+      "note": "IL is 49 in Roman numerals"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is 50 in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IL",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A maths sum interrupting an apology is ridiculous.",
+     "walkthrough": "The plus sign just joins the two Roman numerals, IL and L, which together go between S and Y.",
+     "definitionFit": "Silly means foolish or ridiculous, the same as absurd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "divided"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +850,65 @@
     "text": "Second hospital admits being on strike to make a point",
     "enumeration": "5"
    },
-   "solution": "SOUTH"
+   "solution": "SOUTH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SOUTH",
+    "definitions": [
+     {
+      "text": "point",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "admitting lets something in, so a word goes inside the pair of letters"
+     }
+    ],
+    "linkWords": [
+     "to make a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "being on strike",
+      "gives": "OUT",
+      "note": "workers on strike are said to be out"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OUT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Another hospital lets in staff who are on strike, to make a point.",
+     "walkthrough": "To make a point sounds like protest, but point is a compass point.",
+     "definitionFit": "South is one of the four cardinal points of the compass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +922,63 @@
     "text": "Hilton Hotel's plugged by English districts",
     "enumeration": "8"
    },
-   "solution": "PARISHES"
+   "solution": "PARISHES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PARISHES",
+    "definitions": [
+     {
+      "text": "districts",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plugged by",
+      "for": "container",
+      "note": "something plugged by another has it stuck in its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hilton",
+      "gives": "PARIS",
+      "note": "Paris Hilton is the hotel heiress and celebrity"
+     },
+     {
+      "clueFragment": "Hotel's",
+      "gives": "HS",
+      "note": "H is hotel in the NATO alphabet, plus the S of the possessive"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E abbreviates English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARIS",
+      "H",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A Hilton hotel is advertised across English areas.",
+     "walkthrough": "Hilton Hotel reads as one chain name, but Hilton is Paris Hilton and Hotel is just H.",
+     "definitionFit": "A parish is a small administrative or church district, so parishes are districts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hilton"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +992,71 @@
     "text": "Back in the past, you captured soldiers in time?",
     "enumeration": "5"
    },
-   "solution": "ENEMY"
+   "solution": "ENEMY",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ENEMY",
+    "definitions": [
+     {
+      "text": "time?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captured",
+      "for": "container",
+      "note": "a captive is held within, so one piece goes inside the other"
+     },
+     {
+      "text": "Back",
+      "for": "reversal",
+      "note": "going back means running in the opposite direction, so the result is read from the end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the past, you",
+      "gives": "YE",
+      "note": "ye is the old form of you"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "men are soldiers, as opposed to officers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NEM",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "YMENE",
+       "to": "ENEMY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Long ago, you took soldiers prisoner in time.",
+     "walkthrough": "The question mark flags that the definition is by example: the saying is that time is the enemy.",
+     "definitionFit": "Time is often called the enemy, as in the phrase 'time is the enemy', because it works against us."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +1070,58 @@
     "text": "In retirement, God's taken to court",
     "enumeration": "4"
    },
-   "solution": "SUED"
+   "solution": "SUED",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SUED",
+    "definitions": [
+     {
+      "text": "taken to court",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In retirement",
+      "for": "reversal",
+      "note": "to retire is to withdraw or go back, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God",
+      "gives": "DEUS",
+      "note": "Deus is Latin for God"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUED"
+     ],
+     "reversals": [
+      {
+       "from": "DEUS",
+       "to": "SUED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deity in retirement has been sued in court.",
+     "walkthrough": "The 's stands for 'is', linking wordplay to definition. Deus is the Latin word for God.",
+     "definitionFit": "To sue someone is to bring a legal action against them, which means taking them to court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1135,59 @@
     "text": "Drunk's wound wants a bit of cleansing",
     "enumeration": "5"
    },
-   "solution": "OILED"
+   "solution": "OILED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "OILED",
+    "definitions": [
+     {
+      "text": "Drunk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wants",
+      "for": "deletion",
+      "note": "to want something is to lack it, so a letter is missing"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wound",
+      "gives": "COILED",
+      "note": "wound as in coiled up, not injured"
+     },
+     {
+      "clueFragment": "a bit of cleansing",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of cleansing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OILED"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk's injury needs some cleaning.",
+     "walkthrough": "Wound looks like an injury, but it is the past tense of wind; removing the C leaves the answer.",
+     "definitionFit": "Oiled is slang for intoxicated, as in 'well oiled', so it means drunk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wound"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1201,68 @@
     "text": "Dismissal by Small — success! Starting to get movement with ball",
     "enumeration": "8"
    },
-   "solution": "OUTSWING"
+   "solution": "OUTSWING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OUTSWING",
+    "definitions": [
+     {
+      "text": "movement with ball",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starting",
+      "for": "letter_selection",
+      "note": "starting points to the start of the next word, its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dismissal",
+      "gives": "OUT",
+      "note": "a batsman dismissed in cricket is out"
+     },
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "success",
+      "gives": "WIN",
+      "note": "a win is a success"
+     },
+     {
+      "clueFragment": "to get",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of get"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "S",
+      "WIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman dismissed by a bowler named Small; success comes as the ball begins to move.",
+     "walkthrough": "Small reads as a person's name, like the England bowler Gladstone Small, but it is just S. In cricket outswing is the ball's sideways movement away from the batsman.",
+     "definitionFit": "Outswing is the curving of a bowled cricket ball through the air away from the batsman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1276,59 @@
     "text": "Way to inject drugs inducing rush",
     "enumeration": "4"
    },
-   "solution": "REED"
+   "solution": "REED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REED",
+    "definitions": [
+     {
+      "text": "rush",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to inject",
+      "for": "container",
+      "note": "injecting puts something inside, so one piece goes into the other"
+     }
+    ],
+    "linkWords": [
+     "inducing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way",
+      "gives": "RD",
+      "note": "RD abbreviates road, a way"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "EE",
+      "note": "E is ecstasy, so two Es are drugs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A method of injecting drugs that brings on a high.",
+     "walkthrough": "Rush looks like a drug high, but it is the plant: the rush and the reed are both tall waterside grasses.",
+     "definitionFit": "Reeds and rushes are similar marsh plants, and the words are used interchangeably."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rush"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1342,74 @@
     "text": "Firmly lift gold sculpture, luckily hollow",
     "enumeration": "8"
    },
-   "solution": "ROBUSTLY"
+   "solution": "ROBUSTLY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ROBUSTLY",
+    "definitions": [
+     {
+      "text": "Firmly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lift",
+      "for": "reversal",
+      "note": "in a down clue lifting moves letters upwards, so they read from bottom to top"
+     },
+     {
+      "text": "hollow",
+      "for": "letter_selection",
+      "note": "a hollow thing has its inside removed, so only the outer letters remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "sculpture",
+      "gives": "BUST",
+      "note": "a bust is a sculpture of head and shoulders"
+     },
+     {
+      "clueFragment": "luckily",
+      "gives": "LY",
+      "select": "outer",
+      "note": "the first and last letters of luckily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "BUST",
+      "LY"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Steal a gold statue with force, fortunately empty inside.",
+     "walkthrough": "Lift looks like steal, which fits the heist picture, but it raises OR in the down light.",
+     "definitionFit": "Robustly means in a strong, sturdy, vigorous way, close to firmly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1429,74 @@
      }
     ]
    },
-   "solution": "WHITETIE"
+   "solution": "WHITETIE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WHITE TIE",
+    "definitions": [
+     {
+      "text": "formal evening dress",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked, so these letters are twisted out of order"
+     },
+     {
+      "text": "chasing",
+      "for": "charade",
+      "note": "chasing means coming behind, so this word follows the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "WITH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E abbreviates European"
+     },
+     {
+      "clueFragment": "Bond",
+      "gives": "TIE",
+      "note": "a tie is a bond"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHITE",
+      "TIE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WITHE",
+       "gives": "WHITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "James Bond pursues a crook from Europe, both in black-tie evening wear.",
+     "walkthrough": "Bond suggests 007, but it is just a tie, which goes after the rearranged WITH plus E.",
+     "definitionFit": "White tie is the most formal dress code, a tailcoat with a white bow tie, worn at evening events."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1510,48 @@
     "text": "Allegedly royal seat's in shed",
     "enumeration": "6"
    },
-   "solution": "THROWN"
+   "solution": "THROWN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "THROWN",
+    "definitions": [
+     {
+      "text": "shed",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Allegedly",
+      "for": "homophone",
+      "note": "allegedly means as people say, so what is said rather than what is written counts"
+     }
+    ],
+    "linkWords": [
+     "'s in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "royal seat",
+      "gives": "THROWN",
+      "soundsLike": "THRONE",
+      "note": "a throne is the seat of a king or queen"
+     }
+    ],
+    "explanation": {
+     "surface": "Supposedly a monarch's throne is kept in a garden shed.",
+     "walkthrough": "Shed looks like the garden building but is a past participle, as when a horse sheds or throws its rider.",
+     "definitionFit": "Thrown off and shed both mean cast off, as a rider is thrown or a skin is shed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1565,70 @@
     "text": "Policeman in Boris's first campaign sacking 50",
     "enumeration": "5"
    },
-   "solution": "BOBBY"
+   "solution": "BOBBY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "BOBBY",
+    "definitions": [
+     {
+      "text": "Policeman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the name"
+     },
+     {
+      "text": "sacking",
+      "for": "deletion",
+      "note": "sacking someone removes them, so a letter is thrown out"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boris's",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of Boris"
+     },
+     {
+      "clueFragment": "campaign",
+      "gives": "LOBBY",
+      "note": "to lobby is to campaign for a cause"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is 50 in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OBBY"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer in Boris Johnson's early election campaign fires fifty people.",
+     "walkthrough": "Bobby is British slang for a police officer, after Sir Robert Peel, founder of the Metropolitan Police.",
+     "definitionFit": "Bobby is the traditional British nickname for a police constable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sacking"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1642,75 @@
     "text": "Wallis Simpson finally stops rattling sabre",
     "enumeration": "6"
    },
-   "solution": "BARNES"
+   "solution": "BARNES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "BARNES",
+    "definitions": [
+     {
+      "text": "Wallis",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the surname"
+     },
+     {
+      "text": "rattling",
+      "for": "anagram",
+      "note": "rattling shakes things about, so the letters are jumbled"
+     },
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "a stopper plugs a gap, so one letter goes inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sabre",
+      "gives": "BARES",
+      "note": "the letters of sabre, rearranged"
+     },
+     {
+      "clueFragment": "Simpson",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of Simpson"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "N",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SABRE",
+       "gives": "BARES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wallis Simpson finally halts the sabre-rattling.",
+     "walkthrough": "Wallis Simpson, the American for whom Edward VIII abdicated, is a false pairing: the definition is Wallis alone, as in Barnes Wallis, the engineer of the bouncing bomb.",
+     "definitionFit": "Barnes Wallis was the British engineer who designed the bouncing bomb, so Barnes is the name that goes with Wallis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wallis"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1724,78 @@
     "text": "Poor waiter, beset by official over strong drink",
     "enumeration": "9"
    },
-   "solution": "FIREWATER"
+   "solution": "FIREWATER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "FIREWATER",
+    "definitions": [
+     {
+      "text": "strong drink",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "something poor is in bad shape, so the letters are put in a different order"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over suggests turning something over, so the word is read backwards"
+     },
+     {
+      "text": "beset by",
+      "for": "container",
+      "note": "beset means surrounded, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "official",
+      "gives": "REF",
+      "note": "a ref, or referee, is a match official"
+     },
+     {
+      "clueFragment": "waiter",
+      "gives": "IREWAT",
+      "note": "the letters of waiter, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IREWAT",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WAITER",
+       "gives": "IREWAT"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "REF",
+       "to": "FER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hapless waiter, cornered by an official, over hard liquor.",
+     "definitionFit": "Firewater is a jocular name for strong spirits such as whisky, because they burn the throat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1809,45 @@
     "text": "Split delivered in 4K?",
     "enumeration": "4"
    },
-   "solution": "FORK"
+   "solution": "FORK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FORK",
+    "definitions": [
+     {
+      "text": "Split",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered",
+      "for": "homophone",
+      "note": "a speech is delivered, so the expression is taken by its spoken form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "4K",
+      "gives": "FORK",
+      "soundsLike": "FOUR K",
+      "note": "the digit and letter, said out loud"
+     }
+    ],
+    "explanation": {
+     "surface": "Something split and shipped in ultra-high-definition 4K.",
+     "walkthrough": "4K looks like a screen resolution; spoken, it is the number four and the letter K.",
+     "definitionFit": "A fork is a place where a road or branch divides, and to fork is to split in two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "4K"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1861,49 @@
     "text": "Cleaner scrubs overalls after pocketing tips",
     "enumeration": "4"
    },
-   "solution": "SOAP"
+   "solution": "SOAP",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SOAP",
+    "definitions": [
+     {
+      "text": "Cleaner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tips",
+      "for": "letter_selection",
+      "note": "tips are the ends of things, here the opening letter of each preceding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scrubs overalls after pocketing",
+      "gives": "SOAP",
+      "select": "first",
+      "note": "the first letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner scrubs a pair of overalls after emptying gratuities from the pockets.",
+     "walkthrough": "Tips looks like money in the pockets, but it signals the initial letters.",
+     "definitionFit": "Soap is a cleaning agent, so it is a cleaner in the sense of the substance used."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tips"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1917,56 @@
     "text": "God taking part in horse race coming up",
     "enumeration": "4"
    },
-   "solution": "ARES"
+   "solution": "ARES",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ARES",
+    "definitions": [
+     {
+      "text": "God",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking part in",
+      "for": "hidden_word",
+      "note": "taking part in means being part of, so the answer is a part of the following words"
+     },
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down clue coming up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse race",
+      "gives": "SERA",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "SERA",
+       "to": "ARES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A god joins a horse race and comes up on the rails.",
+     "definitionFit": "Ares is the Greek god of war, the counterpart of the Roman Mars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1980,55 @@
     "text": "Escort partners inside gathering",
     "enumeration": "7"
    },
-   "solution": "BREWING"
+   "solution": "BREWING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BREWING",
+    "definitions": [
+     {
+      "text": "gathering",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places the partners within the word for escort"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Escort",
+      "gives": "BRING",
+      "note": "to bring someone is to escort them along"
+     },
+     {
+      "clueFragment": "partners",
+      "gives": "EW",
+      "note": "East and West are partners at bridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "EW",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "An escort has partners inside the gathering.",
+     "walkthrough": "In bridge, East and West play as a partnership, so partners can be EW (or NS).",
+     "definitionFit": "Gathering as in a storm gathering: something brewing is building up and about to break."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gathering"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +2042,66 @@
     "text": "Will I punch social workers in the guts?",
     "enumeration": "7"
    },
-   "solution": "BELLIES"
+   "solution": "BELLIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BELLIES",
+    "definitions": [
+     {
+      "text": "guts",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "punch",
+      "for": "container",
+      "note": "a punch drives into something, so these letters go inside the other word"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "social workers",
+      "gives": "BEES",
+      "note": "worker bees are social insects"
+     },
+     {
+      "clueFragment": "Will",
+      "gives": "LL",
+      "note": "'ll is the short form of will, as in I'll"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "LL",
+      "I",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Will I hit the social workers in the stomach?",
+     "walkthrough": "Social workers looks like a profession, but it is bees, the classic social insects with a worker caste.",
+     "definitionFit": "Belly and guts both refer to the stomach or abdomen, so bellies matches guts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "social"
+    }
+   }
   }
  ]
 }
