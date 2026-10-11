@@ -595,6 +595,7 @@ LAYOUT = [
     ("fetching", "tools/test_writeup_keyed.sh", "a blank light on a puzzle whose answer key is a blog's write-up is never offered for a solve"),
     ("fetching", "tools/test_fifteensquared_index.sh", "do the fifteensquared readers find a category's posts off the index, without opening every cached post, and does tools/ft_puzzles.py's budget count its parse?"),
     ("fetching", "tools/collapse_clue_spaces.py", "one-shot migration (2026-10-11): cut each run of spaces in held clue text"),
+    ("fetching", "tools/test_block_confirm.js", "a building block that would cost a hint takes two taps; a free one takes one"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

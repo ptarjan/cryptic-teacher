@@ -3421,6 +3421,79 @@
     saveState();
   }
 
+  // ---------- a building block that costs takes two taps ----------
+  //
+  // Paul: "If a building blocks can't be free it should make me click twice to
+  // confirm I want it." Most ways onto the blocks rung cost nothing — it asks a
+  // question first, and pointing at the right words is free; it has already been
+  // paid for, so the next piece rides on that; or the clue is solved, so nothing
+  // charges any more. What is left is a tap that adds a hint to the clue on the
+  // spot. That tap only arms the button, and its label says so; the same button
+  // again within a few seconds takes the hint, and a tap anywhere else, focus
+  // moving away, or the time running out puts it back.
+  //
+  // The price is hintsCharged's: rungs shown less rungs earned, frozen once the
+  // group is solved. So a tap charges exactly when the group is unsolved and it
+  // either opens the blocks rung, or — "Just tell me" on a blocks question —
+  // takes back a blocks rung earned by an earlier piece.
+  function blocksCost(e, tell) {
+    if (!e || groupSolved(e)) return false;
+    if (!isShown(e, "blocks")) return true;
+    return !!tell && earnedRungs(e).indexOf("blocks") >= 0;
+  }
+
+  const ARM_MS = 4000;
+  const ARMED_TEXT = "Tap again to reveal · costs a hint";
+  let blockArm = null;   // { key, id, timer }
+  const armedFor = (e, id) => !!(blockArm && e && blockArm.key === entryKey(e) && blockArm.id === id);
+  const armOf = (el) => {
+    for (let n = el; n && n.getAttribute; n = n.parentNode) {
+      const v = n.getAttribute("data-arm");
+      if (v) return v;
+    }
+    return null;
+  };
+  // Rebuilding the row or the question replaces the button, so a keyboard
+  // user's focus has to be put back on its successor or the second Enter lands
+  // nowhere.
+  function focusArm(id) {
+    const el = document.querySelector && document.querySelector(`[data-arm="${id}"]`);
+    if (el && el.focus) el.focus({ preventScroll: true });
+  }
+  function disarmBlock(redraw) {
+    if (!blockArm) return;
+    clearTimeout(blockArm.timer);
+    const id = blockArm.id;
+    const had = armOf(document.activeElement) === id;
+    blockArm = null;
+    if (redraw) { renderHintPanel(); if (had) focusArm(id); }
+  }
+  // True when the tap should go ahead. A second click inside one double-click
+  // (detail 2 and up) is the same gesture as the first and confirms nothing.
+  function confirmBlock(e, id, ev) {
+    if (armedFor(e, id)) {
+      if (ev && ev.detail > 1) return false;
+      disarmBlock(false);
+      return true;
+    }
+    disarmBlock(false);
+    blockArm = { key: entryKey(e), id, timer: setTimeout(() => disarmBlock(true), ARM_MS) };
+    renderHintPanel();
+    focusArm(id);
+    return false;
+  }
+  if (document.addEventListener) {
+    // Capture, so it sees the tap before whatever it lands on acts on it; the
+    // redraw waits a tick so that target's own handler still finds its button.
+    const away = (ev) => {
+      if (!blockArm || armOf(ev.target) === blockArm.id) return;
+      disarmBlock(false);
+      setTimeout(renderHintPanel, 0);
+    };
+    document.addEventListener("click", away, true);
+    document.addEventListener("focusin", away, true);
+  }
+
   // Where the definition sits, and therefore where the wordplay starts. A fair
   // cryptic splits into exactly two parts and finding that seam is most of the
   // battle, so the seam is what this rung should hand over. It is computable
@@ -4772,6 +4845,15 @@
     return `<ul class="gm-rows">${rows}</ul><p class="gm-chips">${chips}</p>`;
   }
 
+  // "Just tell me" on a blocks question that would cost a hint is a building
+  // block bought, so it takes the same two taps as the rung button.
+  function tellHTML() {
+    if (guessing.rung !== "blocks") return `<button id="guess-tell" class="ghost small">Just tell me</button>`;
+    const armed = armedFor(currentEntry(), "blocks-tell");
+    return `<button id="guess-tell" data-arm="blocks-tell" class="ghost small${armed ? " arm-cost" : ""}">${
+      armed ? ARMED_TEXT : "Just tell me"}</button>`;
+  }
+
   function guessHTML(ask, position, label, inClue) {
     const answer = ask.choices
       ? guessChoicesHTML(ask)
@@ -4788,7 +4870,7 @@
       <p>${ask.prompt}${inClue && !ask.choices && !ask.pairs
         ? ` <span class="tap-hint">Tap them in the clue above.</span>` : ""}</p>
       ${answer}
-      <p class="guess-actions">${check}<button id="guess-tell" class="ghost small">Just tell me</button>
+      <p class="guess-actions">${check}${tellHTML()}
       <button id="guess-later" class="ghost small">Skip for now</button></p></div>`;
   }
 
@@ -5123,8 +5205,9 @@
       if (b.cls) btn.className = b.cls;
       btn.textContent = b.text;
       if (b.title) btn.title = b.title;
+      if (b.arm) btn.setAttribute("data-arm", b.arm);
       if (b.disabled) { btn.disabled = true; el.appendChild(btn); return; }
-      btn.onclick = () => {
+      btn.onclick = (ev) => {
         // Ask before telling, where the clue can pose the question. Not once
         // the clue is solved: the rungs have stopped being hints by then and
         // quizzing someone on an answer they already have is a chore.
@@ -5140,6 +5223,9 @@
         // its single question at step 0.
         const at = b.step || 0;
         const asked = GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung, at);
+        // A building block that would cost a hint takes a second tap.
+        if (b.rung === "blocks" && !asked && blocksCost(on, false)
+            && !confirmBlock(on, "blocks-" + at, ev)) return;
         if (asked) {
           guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [],
                        slots: (asked.pairs || []).map(() => -1), held: -1, heldSlot: -1 };
@@ -5490,9 +5576,11 @@
         // The piece is already paid for, so the walk follows it: this button
         // leads the row, and a light that skipped it would go dark in the
         // middle of the one rung that takes several presses.
-        nextSpec.push({ rung: "blocks", step: total - left,
-          cls: nuxPointsAtRung() ? "rung-point" : "",
-          text: `Next building block · ${total - left + 1} of ${total}` });
+        const arm = "blocks-" + (total - left);
+        const armed = armedFor(e, arm);
+        nextSpec.push({ rung: "blocks", step: total - left, arm,
+          cls: (nuxPointsAtRung() ? "rung-point" : "") + (armed ? " arm-cost" : ""),
+          text: armed ? ARMED_TEXT : `Next building block · ${total - left + 1} of ${total}` });
       }
       open.forEach(({ s, n }, j) => {
         // Every rung reads as its own question and nothing else, not as an
@@ -5505,9 +5593,14 @@
         // The welcome dialog says "take the first one"; this is which one that
         // is. Only while the cursor is still on the ladder line, so it stops at
         // the first hint along with the sentence that asked for it.
-        nextSpec.push({ rung: s.key,
-          cls: (j || left ? "ghost small" : (nuxFreeRung(e, s.key, solved) ? "rung-point" : "")) + (solved ? " free" : ""),
-          text: `${n} · ${s.label}${solved ? " · free" : ""}` });
+        // The building blocks, where taking them costs, carry the two-tap
+        // confirm (blocksCost): armed, the button says what the next tap does.
+        const arm = s.key === "blocks" ? "blocks-0" : undefined;
+        const armed = arm && armedFor(e, arm);
+        nextSpec.push({ rung: s.key, arm,
+          cls: (j || left ? "ghost small" : (nuxFreeRung(e, s.key, solved) ? "rung-point" : "")) + (solved ? " free" : "")
+            + (armed ? " arm-cost" : ""),
+          text: armed ? ARMED_TEXT : `${n} · ${s.label}${solved ? " · free" : ""}` });
       });
       togo.filter((t) => open.indexOf(t) < 0).forEach(({ s, n }) => {
         nextSpec.push({ cls: "ghost small locked", disabled: true, text: `${n} · ${s.label}`,
@@ -5690,9 +5783,12 @@
     // nothing is spent and nothing is earned; the rung goes back on the ladder
     // and asks again.
     if (ask) {
-      $("guess-tell").onclick = () => {
+      $("guess-tell").onclick = (ev) => {
         const a = currentAsk();
-        if (a) finishGuess(null, a);
+        if (!a) return;
+        const on = currentEntry();
+        if (guessing.rung === "blocks" && blocksCost(on, true) && !confirmBlock(on, "blocks-tell", ev)) return;
+        finishGuess(null, a);
       };
       $("guess-later").onclick = () => {
         if (!currentAsk()) return;

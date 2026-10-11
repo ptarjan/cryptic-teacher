@@ -1738,3 +1738,10 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 .hm-letter, .hm-slot { display: inline-block; min-width: 1em; border-bottom: 2px solid currentColor; }
 .hm-slot { height: 1.2em; opacity: .5; }
 .hm-gap { min-width: .6em; display: inline-block; }
+/* A building block that costs a hint takes two taps (app.js, blocksCost). The
+   first one arms the button and its label says what the second will do; the
+   colour is the price, the same red a wrong letter wears. */
+#hint-next button.arm-cost, .guess-actions button.arm-cost,
+#hint-next button.arm-cost:hover, .guess-actions button.arm-cost:hover {
+  border-color: var(--wrong); color: var(--wrong); background: transparent;
+}

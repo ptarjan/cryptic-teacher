@@ -2054,5 +2054,7 @@ tools/test_fifteensquared_index.sh            do the fifteensquared readers find
                                               its parse?
 tools/collapse_clue_spaces.py                 one-shot migration (2026-10-11): cut each run of
                                               spaces in held clue text
+tools/test_block_confirm.js                   a building block that would cost a hint takes two
+                                              taps; a free one takes one
 ```
 <!-- LAYOUT-END -->
