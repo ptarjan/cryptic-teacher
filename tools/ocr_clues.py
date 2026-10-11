@@ -1318,7 +1318,8 @@ def elsewhere_run(end, side, clues):
     return False
 
 
-def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), number=None, count=None):
+def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), number=None, count=None,
+          counted=True):
     """(text or None, how) for one clue against the other readings' words
     and marks (`others`: one list per reading, or one list alone). Each word
     stands when another reading has it too; else it takes the spelling the
@@ -1337,7 +1338,8 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     that runs on into one of them is no end lost (elsewhere_run). `number`
     (the clue's own number) and `count` (its count, digits) are what a
     reading's words before or after the clue may be misread from
-    (number_read): no end lost."""
+    (number_read): no end lost. `counted`: the list prints counts, so
+    figures after the clue's last word may be its count."""
     if others and isinstance(others[0], str):
         others = [others]
     if not tokens(clue):
@@ -1386,9 +1388,18 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     # A figure the readings print as a mark ("Hunts7" for "Hunts?") is that
     # mark, no count.
     end_fig = re.search(r"(?<=[A-Za-z?!])\d+[\s).,:;]*$", clue)
+    # Figures standing after the last word ("quality 7", "girl 151.",
+    # "child i7j", "role 1 7V 3") are a count or the next clue's number by
+    # the same test, or by reading as the count with its brackets read as
+    # ones (count_read); a reference ("Display list of 16") is followed by
+    # both of those. The next clue's words must follow, else the clue may be
+    # its list's last, with no next number ("Homer in 3 (5)").
+    standing = STANDING_FIGURES.search(clue)
+    end_fig = standing if standing and not (end_fig and end_fig.start() < standing.start()) else end_fig
     end_word = max((i for i, (at, t) in enumerate(spans) if at + len(t) <= end_fig.start()
                     and t not in MARKS and t != BREAK and not t.isdigit()), default=None) if end_fig else None
     end_runs = []  # each printing reading's numbers after end_word's place
+    end_next = []  # whether a word (the next clue's) follows those numbers
     # A word with a speck against it ("i»" for "is") is no sure reading.
     specked = {i for i, (at, t) in enumerate(spans)
                if JUNK_MARK.match(clue[at + len(t):at + len(t) + 1] or " ")
@@ -1414,6 +1425,8 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
         if j is not None:
             after = list(itertools.takewhile(lambda t: t == BREAK or t in MARKS, theirs[j + 1:]))
             end_runs.append(after.count(BREAK))
+            follows = theirs[j + 1 + len(after):j + 2 + len(after)]
+            end_next.append(bool(follows) and follows[0][:1].isalpha() and follows[0].lower() not in ("across", "down"))
         leads.append(lead)
         trails.append(trail)
         for i, j in pairs:
@@ -1745,11 +1758,18 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     adds = {g: ws for g, ws in adds.items() if len(ws) == 1}
     if lead_cut is not None and (0 in adds or printing < 2 or not glued_digits(0, low, seen, extra, fixes, before=True)):
         lead_cut = None
-    if (end_word is not None and count_cut is None and printing >= 2 and len(end_runs) >= 2
+    if (end_word is not None and count_cut is None and not end_fig.group()[:1].isspace() and printing >= 2 and len(end_runs) >= 2
             and not any(fixes.get(i, "#") in MARKS for i, (at, t) in enumerate(spans) if at >= end_fig.start())
             and all(1 <= r <= (len(clue) if clue[end_fig.start() - 1] in "?!" else 1 + len(re.findall(r"\d+", count or "0")))
                     for r in end_runs)
             and printed_as_voted(end_word, low, seen, fixes)):
+        count_cut = end_fig.start()
+    if (counted and end_word is not None and count_cut is None and end_fig.group()[:1].isspace() and end_runs
+            and sum(v.lower() == (fixes.get(end_word) or low[end_word]).lower() for v in seen[end_word].values())
+            and not any(COUNTED.fullmatch(t) for t in end_fig.group().split())
+            and (all(r == 1 + count_groups(end_fig.group(), count) and n for r, n in zip(end_runs, end_next))
+                 and len(end_runs) >= min(2, printing)
+                 or count_read(end_fig.group(), count) and min(end_runs) <= 2)):
         count_cut = end_fig.start()
     # A letter read as its look-alike figure ("to0" for "too", "Result0f"
     # for "Result of", "a5" for "as") that the vote put back in the word
@@ -1824,6 +1844,8 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
             # letter back, so the bracket goes.
             k += 1
     out += (" " + adds[len(mine)][0] if adds.get(len(mine)) else "") + speckless(text[k:count_cut])
+    if count_cut is not None:
+        out = out.rstrip(" ,;:")  # a comma read inside the count ("(6, 8)") voted onto the clue's end
     if adds and how == "agree":
         how = "settled by the readings"
     if (drop or count_cut is not None) and how == "agree":
@@ -1855,6 +1877,26 @@ def glued_digits(i, low, seen, extra, fixes, before=False):
         return True
     return not seen[i] and not any(v == BREAK or v in MARKS or any(c.isdigit() for c in v)
                                    for v in [*extra[i], *extra[i + 1]])
+
+
+#: Figures after a clue's last word, each with a speck or letter misread
+#: from a bracket at most on either side ("7", "151.", "i7j", "1 7V 3").
+STANDING_FIGURES = re.compile(r"(?<=[A-Za-z?!.'\u2019])(?:\s+[A-Za-z]?[^\sA-Za-z?!]*\d[^\sA-Za-z]*[A-Za-z]?[^\sA-Za-z]*)+\s*$")
+
+
+def count_read(figures, count):
+    """Whether `figures` read as the clue's count (digits, groups joined),
+    its brackets read as ones or lost ("151" for "(5)", "15" for "(5")."""
+    digits, want = re.sub(r"\D", "", figures), re.sub(r"\D", "", count or "")
+    return bool(want) and re.fullmatch(rf"1?{want}1?", digits) is not None
+
+
+def count_groups(figures, count):
+    """The numbers in the clue's count (digits), else in `figures` when a
+    bracket shows them a count ("14, 3).": 2), else 1."""
+    if count:
+        return len(re.findall(r"\d+", count))
+    return 1 + len(re.findall(r"\d\s*[,;\-]\s*(?=\d)", figures)) if re.search(r"[()]", figures) else 1
 
 
 def printed_as_voted(word, low, seen, fixes):
@@ -2578,7 +2620,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
             text = text[lead.end():]
         text = join_split(numbers_joined(text, streams), other)
         got, how = agree(text, other, keep_known, engines, rates, [w for k, w in words_of.items() if k != lid],
-                         str(own), enum)
+                         str(own), enum, counted=not uncounted)
         got = trimmed(cut_at_count(got, enum), lid)
         if got is not None and merged(got):
             got, how = None, merged(got)

@@ -4501,6 +4501,31 @@ def corrects(was, now, printed=()):
     return True
 
 
+def count_left(text, cells):
+    """`text` without the figures standing after its last word when they are
+    its count misread, filling its `cells` ("Song of joy 141" for "(4)",
+    "restaurant? 15-41" for "(5-4)": brackets read as ones); else None. A
+    figure with a unit ("8s", "100p") is the clue's."""
+    m = ocr_clues.STANDING_FIGURES.search(text or "")
+    if not m or not cells or any(ocr_clues.COUNTED.fullmatch(t) for t in m.group().split()):
+        return None
+    groups = re.findall(r"\d+", re.sub(r"^\D*1(?=\d)|1(?=\D*$)", "", m.group().strip()))
+    if not (ocr_clues.count_read(m.group(), str(cells)) or len(groups) > 1 and sum(map(int, groups)) == cells):
+        return None
+    return text[:m.start()].rstrip(" ,;:")
+
+
+def count_dropped(was, now, cells, printed=()):
+    """Whether `now` reads the held `was` with its misread count dropped
+    (count_left), the rest as corrects() lets a reading change it: the
+    re-read's vote cut those figures (ocr_clues.agree), the grid says they
+    fill the light."""
+    bare = count_left(was, cells)
+    if bare is None or not ocr_clues.tokens(bare):
+        return False
+    return now.strip() == bare and not ocr_clues.suspect(now, printed=printed) or corrects(bare, now, printed)
+
+
 def corrected_clues(puzzle, old, skip=()):
     """{light: its clue now} after taking `puzzle`'s reading of each held
     clue of `old` (in place) that corrects() it: a reader's fix to a clue's
@@ -4516,7 +4541,9 @@ def corrected_clues(puzzle, old, skip=()):
     for e in old["entries"]:
         lid, was = entry_id(e), e.get("clue") or {}
         if lid in skip or lid not in now or e.get("annotation") or (old.get("id"), lid) in rows \
-                or not corrects(was.get("text"), now[lid]["text"], now[lid].get("asPrinted") or ()):
+                or not (corrects(was.get("text"), now[lid]["text"], now[lid].get("asPrinted") or ())
+                        or count_dropped(was.get("text"), now[lid]["text"], e.get("length"),
+                                         now[lid].get("asPrinted") or ())):
             continue
         clue = {**now[lid]}
         if "enumeration" in was and "enumeration" not in clue:

@@ -1070,6 +1070,28 @@ check("mirror: a word one letter from a known one is a shared misread ('bediamit
 check("and without unanimous two readings still vouch it (the Listener's rule)", ["bediamite"],
       oc.printed_alike(bed, [bed, bed]))
 
+# A count misread as figures after the clue's last word: cut when each
+# reading prints only the count and the next clue's number there, or when
+# the figures read as the count with its brackets read as ones.
+line = ["#", "Head", "of", "this", "line", "?", "#", "#", "Like"]
+check("figures standing after the last word where the readings print a count and the next number go (NewsUK 1978)",
+      "Head of this line?", oc.agree("Head of this line 7", [line, line])[0])
+ref = ["#", "Display", "list", "of", "#", "#", "#", "Social"]
+check("mirror: a reference is followed by the count and the next number too ('list of 16')",
+      "Display list of 16", oc.agree("Display list of 16", [ref, ref, ref])[0])
+unit = ["#", "Goes", "down", "in", "#", "s", "#", "#"]
+check("mirror: figures with a unit are the clue's ('in 8s')",
+      "Goes down in 8s", oc.agree("Goes down in 8s", [unit, unit])[0])
+girl = ["#", "Said", "to", "be", "transported", "by", "a", "girl", "#", "A", "stand", "#"]
+check("figures that read as the count, its brackets as ones, go ('girl 151.' for '(5).')",
+      "Said to be transported by a girl", oc.agree("Said to be transported by a girl 151.", [girl, girl], number="27", count="5")[0])
+check("mirror: figures that are not the count stay when the readings do not show a count there",
+      "Said to be transported by a girl 151.", oc.agree("Said to be transported by a girl 151.", [girl, girl], number="27", count="7")[0])
+ship = ["#", "Fugitive", "from", "Hook", "perhaps", "in", "a", "phantom", "ship", "#", ",", "#", "#", "Next"]
+check("a two-number count torn open at the end goes with its comma ('ship (6; 81')",
+      "Fugitive from Hook perhaps — in a phantom ship",
+      oc.agree("Fugitive from Hook perhaps — in a phantom ship (6; 81", [ship, ship, ship])[0])
+
 print(f"FAILS {fails}")
 EOF
 )
