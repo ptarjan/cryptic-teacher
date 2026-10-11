@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Rubber glove plant?",
     "enumeration": "8"
    },
-   "solution": "MARIGOLD"
+   "solution": "MARIGOLD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MARIGOLD",
+    "definitions": [
+     {
+      "text": "Rubber glove",
+      "at": 0
+     },
+     {
+      "text": "plant",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rubber glove",
+      "note": "first meaning: a well-known British brand of yellow household rubber gloves"
+     },
+     {
+      "clueFragment": "plant",
+      "note": "second meaning: a garden flower with orange or yellow blooms"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Marigold is the brand name British shoppers use for washing-up gloves, so the two words read like one odd item but are two separate meanings.",
+     "definitionFit": "The word names both a trademarked brand of kitchen gloves and a common bright-flowered garden annual."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rubber"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +86,53 @@
     "text": "Son's left diving equipment somewhere in the Caribbean",
     "enumeration": "4"
    },
-   "solution": "CUBA"
+   "solution": "CUBA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CUBA",
+    "definitions": [
+     {
+      "text": "somewhere in the Caribbean",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left",
+      "for": "deletion",
+      "note": "left here means departed, so that letter goes away from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     },
+     {
+      "clueFragment": "diving equipment",
+      "gives": "SCUBA",
+      "note": "the breathing apparatus divers wear underwater"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUBA"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy has walked off with his snorkelling gear while on a Caribbean holiday.",
+     "walkthrough": "'Son's left' reads as 'the son has left', so S departs from SCUBA.",
+     "definitionFit": "Cuba is an island nation lying in the Caribbean Sea, so it is a place in that region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +146,53 @@
     "text": "Work in arts is random",
     "enumeration": "6"
    },
-   "solution": "STRAIN"
+   "solution": "STRAIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRAIN",
+    "definitions": [
+     {
+      "text": "Work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "random",
+      "for": "anagram",
+      "note": "random means in no set order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in arts",
+      "gives": "INARTS",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INARTS",
+       "gives": "STRAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that creative work in the arts is haphazard.",
+     "definitionFit": "To strain is to exert yourself hard, a synonym for labour or effort as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "random"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +206,73 @@
     "text": "Scent victory at last in real struggle",
     "enumeration": "8"
    },
-   "solution": "LAVENDER"
+   "solution": "LAVENDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "LAVENDER",
+    "definitions": [
+     {
+      "text": "Scent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggle",
+      "for": "anagram",
+      "note": "a struggle is a tussle, so these letters get thrown about into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us the preceding letters are placed inside the following ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victory",
+      "gives": "V",
+      "note": "V for victory"
+     },
+     {
+      "clueFragment": "at last",
+      "gives": "END",
+      "note": "at last means in the end, giving the word end"
+     },
+     {
+      "clueFragment": "real",
+      "gives": "REAL",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "VEND",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REAL",
+       "gives": "LAER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fragrance marks a hard-won triumph after a genuine fight.",
+     "walkthrough": "'At last' gives a whole word meaning 'finally', not just a final letter, which is easy to miss.",
+     "definitionFit": "Lavender is a fragrant shrub whose oil is a classic perfume, so it names a smell or scent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "struggle"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +292,70 @@
      }
     ]
    },
-   "solution": "DUSTJACKET"
+   "solution": "DUSTJACKET",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DUST JACKET",
+    "definitions": [
+     {
+      "text": "Book cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the designer's initials within the German word that follows"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dirt",
+      "gives": "DUST",
+      "note": "dust is fine dirt"
+     },
+     {
+      "clueFragment": "yes, German",
+      "gives": "JA",
+      "note": "ja is German for yes"
+     },
+     {
+      "clueFragment": "Calvin Klein",
+      "gives": "CK",
+      "note": "the fashion designer's initials, used as his brand"
+     },
+     {
+      "clueFragment": "and French",
+      "gives": "ET",
+      "note": "et is French for and"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUST",
+      "JA",
+      "CK",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A paperback jacket promising gossip about the designer Calvin Klein, written in two languages.",
+     "walkthrough": "'On' here means placed before, in a down clue; the designer's initials sit inside the German word.",
+     "definitionFit": "A dust jacket is the removable paper wrapper protecting a hardback, i.e. its outer cover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dirt"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +369,47 @@
     "text": "Free soldiers at the right moment!",
     "enumeration": "6"
    },
-   "solution": "RESCUE"
+   "solution": "RESCUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESCUE",
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RES",
+      "note": "the Royal Engineers are RE, and the setter reads soldiers as RE's, the Royal Engineers'"
+     },
+     {
+      "clueFragment": "at the right moment",
+      "gives": "CUE",
+      "note": "a cue is the signal telling you the right moment to act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "CUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rallying cry to liberate the troops just in time.",
+     "walkthrough": "RE is the Royal Engineers, a British Army corps; the setter treats the soldiers' cue as RE'S CUE, an S the clue never prints.",
+     "definitionFit": "To rescue someone is to free them from danger or captivity, so the verb free is a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Free"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +423,48 @@
     "text": "Small container, say, for bread?",
     "enumeration": "8"
    },
-   "solution": "BAGUETTE"
+   "solution": "BAGUETTE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BAGUETTE",
+    "definitions": [
+     {
+      "text": "bread",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say signals that we go by how the word is spoken rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small container",
+      "gives": "BAGUETTE",
+      "soundsLike": "BAG-ETTE",
+      "note": "a bag with the diminutive -ette would be a little bag"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether a little box or pouch would do for carrying a loaf.",
+     "walkthrough": "Spoken, the answer sounds like a bag plus the -ette ending that means small, as in kitchenette.",
+     "definitionFit": "A baguette is the long thin French loaf, so it is a kind of bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +478,82 @@
     "text": "English 10p, one with Queen reversed, is to become invalid",
     "enumeration": "6"
    },
-   "solution": "EXPIRE"
+   "solution": "EXPIRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EXPIRE",
+    "definitions": [
+     {
+      "text": "become invalid",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "reversed tells us to read the royal abbreviation backwards"
+     }
+    ],
+    "linkWords": [
+     "is to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E abbreviates English"
+     },
+     {
+      "clueFragment": "10",
+      "gives": "X",
+      "note": "X is ten in Roman numerals"
+     },
+     {
+      "clueFragment": "p",
+      "gives": "P",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is one in Roman numerals"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, the usual crossword queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "P",
+      "I",
+      "RE"
+     ],
+     "reversals": [
+      {
+       "from": "ER",
+       "to": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old English ten-pence coin bearing the Queen's head is no longer legal tender.",
+     "walkthrough": "10p is split into X and P. ER (Elizabeth Regina) is the Queen.",
+     "definitionFit": "A passport or licence that expires runs out and stops being valid, so expire means to become invalid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "10p"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +567,56 @@
     "text": "Charm consisting of a cross on a letter",
     "enumeration": "6"
    },
-   "solution": "AMULET"
+   "solution": "AMULET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMULET",
+    "definitions": [
+     {
+      "text": "Charm",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "consisting of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "MULE",
+      "note": "a mule is a cross between a horse and a donkey"
+     },
+     {
+      "clueFragment": "on a letter",
+      "gives": "T",
+      "note": "a letter, here T, placed after the rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MULE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A lucky charm made of a cross on a letter, like a pendant.",
+     "walkthrough": "'Cross' looks like a religious symbol but means a hybrid animal.",
+     "definitionFit": "An amulet is an object worn as a protective trinket against harm, which is a charm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +630,36 @@
     "text": "Satnav is an essential for travel to certain countries",
     "enumeration": "4"
    },
-   "solution": "VISA"
+   "solution": "VISA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VISA",
+    "definitions": [
+     {
+      "text": "essential for travel to certain countries",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Satnav is an",
+      "gives": "VISA",
+      "note": "the letters run across the end of satnav, all of is and the start of an"
+     }
+    ],
+    "explanation": {
+     "surface": "A claim that a satellite navigation device is indispensable for travelling abroad.",
+     "walkthrough": "There is no signal word: the answer sits in plain sight inside the opening words, which also lend 'an' to the definition.",
+     "definitionFit": "A visa is the official entry permit some countries require before visitors may enter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Satnav"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +673,73 @@
     "text": "Novice tore into a very quiet Italian church",
     "enumeration": "10"
    },
-   "solution": "APPRENTICE"
+   "solution": "APPRENTICE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "APPRENTICE",
+    "definitions": [
+     {
+      "text": "Novice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into tells us the first piece is put inside what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very quiet",
+      "gives": "PP",
+      "note": "pianissimo, the musical marking for very quiet"
+     },
+     {
+      "clueFragment": "tore",
+      "gives": "RENT",
+      "note": "rent is the past tense of rend, to tear"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "I",
+      "note": "I abbreviates Italian"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE, the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PP",
+      "RENT",
+      "I",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A beginner charged into a hushed church in Italy.",
+     "walkthrough": "'Tore' looks like a verb of rushing, but it is the past tense of rend, to tear.",
+     "definitionFit": "An apprentice is a learner of a trade, a newcomer still being taught, which is a novice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tore"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +753,58 @@
     "text": "Relative's money is keeping Uncle Sam",
     "enumeration": "6"
    },
-   "solution": "COUSIN"
+   "solution": "COUSIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COUSIN",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding, so one word contains the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "COIN",
+      "note": "coin is money in metal"
+     },
+     {
+      "clueFragment": "Uncle Sam",
+      "gives": "US",
+      "note": "Uncle Sam personifies the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "US",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member's cash is propping up the American government.",
+     "walkthrough": "The 's stands for 'is': the relative is the money holding Uncle Sam.",
+     "definitionFit": "A cousin is the child of an aunt or uncle, a family member and so a relative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Uncle"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +818,50 @@
     "text": "Still try it on as a cook",
     "enumeration": "10"
    },
-   "solution": "STATIONARY"
+   "solution": "STATIONARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STATIONARY",
+    "definitions": [
+     {
+      "text": "Still",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cook",
+      "for": "anagram",
+      "note": "to cook the books is to fiddle them, so these letters are tampered with"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "try it on as a",
+      "gives": "TRYITONASA",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRYITONASA",
+       "gives": "STATIONARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to someone working in a kitchen to have a go at being a chef.",
+     "definitionFit": "Stationary means not moving, the adjectival sense of still."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +881,62 @@
      }
     ]
    },
-   "solution": "REDFACED"
+   "solution": "REDFACED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RED-FACED",
+    "definitions": [
+     {
+      "text": "Embarrassed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting in",
+      "for": "container",
+      "note": "putting in tells us one piece is inserted inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "theologian",
+      "gives": "DD",
+      "note": "DD, Doctor of Divinity"
+     },
+     {
+      "clueFragment": "appearance",
+      "gives": "FACE",
+      "note": "face as in outward look"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "D",
+      "FACE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abashed about a scholar of religion turning up.",
+     "walkthrough": "DD (Doctor of Divinity) is the usual crossword theologian; 'appearance' means looks, not turning up.",
+     "definitionFit": "Red-faced describes blushing with shame, the visible sign of being embarrassed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appearance"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +950,64 @@
     "text": "Famine makes daughter heart-broken",
     "enumeration": "6"
    },
-   "solution": "DEARTH"
+   "solution": "DEARTH",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DEARTH",
+    "definitions": [
+     {
+      "text": "Famine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed up, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D abbreviates daughter"
+     },
+     {
+      "clueFragment": "heart",
+      "gives": "HEART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EARTH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEART",
+       "gives": "EARTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother's grief that hunger leaves her daughter heartbroken.",
+     "walkthrough": "'Heart-broken' is one word in the surface but splits into the fodder and its signal.",
+     "definitionFit": "A dearth is a scarcity, and a famine is a severe scarcity of food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart-broken"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1021,74 @@
     "text": "Old Poet Laureate crafts sonnet about new young leaders",
     "enumeration": "8"
    },
-   "solution": "TENNYSON"
+   "solution": "TENNYSON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "TENNYSON",
+    "definitions": [
+     {
+      "text": "Old Poet Laureate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "leaders are the front runners, so we keep the opening letter of each word"
+     },
+     {
+      "text": "crafts",
+      "for": "anagram",
+      "note": "to craft is to fashion something, so these letters are worked into a new form"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged letters surround the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sonnet",
+      "gives": "SONNET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new young",
+      "gives": "NY",
+      "select": "first",
+      "note": "the first letters of new and young"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "NY",
+      "SON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SONNET",
+       "gives": "TENSON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former laureate writes a sonnet about fresh young figures in charge.",
+     "walkthrough": "'Leaders' here applies to the two words before it, taking their opening letters.",
+     "definitionFit": "Alfred, Lord Tennyson held the post of Britain's Poet Laureate in the Victorian era."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1102,49 @@
     "text": "Out of money with number not working",
     "enumeration": "6"
    },
-   "solution": "BROKEN"
+   "solution": "BROKEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROKEN",
+    "definitions": [
+     {
+      "text": "not working",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Out of money",
+      "gives": "BROKE",
+      "note": "broke means having no cash"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N abbreviates number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROKE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Penniless, and the phone number has been cut off.",
+     "definitionFit": "A machine that is broken is out of order, so it is not functioning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1158,70 @@
     "text": "Author's not written about sad lives",
     "enumeration": "8"
    },
-   "solution": "NOVELIST"
+   "solution": "NOVELIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NOVELIST",
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written about",
+      "for": "container",
+      "note": "written about means written around, so one word is set around the other"
+     },
+     {
+      "text": "sad",
+      "for": "anagram",
+      "note": "sad suggests something in a sorry state, so these letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "LIVES",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "VELIS",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIVES",
+       "gives": "VELIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer has never chronicled unhappy lives.",
+     "walkthrough": "The 's stands for 'is', joining the definition to the wordplay.",
+     "definitionFit": "A novelist writes fiction books, so is a kind of author."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "written"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1235,71 @@
     "text": "Clever commercial's first-rate: love it!",
     "enumeration": "6"
    },
-   "solution": "ADROIT"
+   "solution": "ADROIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ADROIT",
+    "definitions": [
+     {
+      "text": "Clever",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the word joined to it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "rate",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of rate"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "R",
+      "O",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A viewer raves that a clever TV advert is top-notch.",
+     "walkthrough": "'First-rate' looks like praise but splits into the signal 'first' and the word rate.",
+     "definitionFit": "Adroit means skilful and quick-witted, a synonym for clever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first-rate"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1313,61 @@
     "text": "Appointed as design engineers",
     "enumeration": "8"
    },
-   "solution": "ASSIGNED"
+   "solution": "ASSIGNED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ASSIGNED",
+    "definitions": [
+     {
+      "text": "Appointed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engineers",
+      "for": "anagram",
+      "note": "to engineer is to contrive or construct, so these letters are rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "design",
+      "gives": "DESIGN",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SIGNED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DESIGN",
+       "gives": "SIGNED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has been hired as a design engineer.",
+     "walkthrough": "'Engineers' looks like a plural noun but is a verb working on design.",
+     "definitionFit": "To be assigned to a post is to be allotted or named to it, i.e. appointed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "engineers"
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1381,63 @@
     "text": "Caught in lady setter's stratagem",
     "enumeration": "6"
    },
-   "solution": "SCHEME"
+   "solution": "SCHEME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCHEME",
+    "definitions": [
+     {
+      "text": "stratagem",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us the first letter is placed inside the rest"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lady",
+      "gives": "SHE",
+      "note": "she, a lady"
+     },
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is the cricket scoring abbreviation for caught"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "the setter refers to themself as me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "HEME"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle compiler's cunning plan is trapped by a woman.",
+     "walkthrough": "C goes inside SHE ME, after the S. Calling the setter 'me' is a crossword convention.",
+     "definitionFit": "A scheme is a crafty plan or plot, the same as a stratagem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Caught"
+    }
+   }
   },
   {
    "number": 22,
@@ -339,7 +1451,56 @@
     "text": "From time to time I have reason to act",
     "enumeration": "6"
    },
-   "solution": "MOTIVE"
+   "solution": "MOTIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOTIVE",
+    "definitions": [
+     {
+      "text": "reason to act",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "From"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "MO",
+      "note": "a mo is a moment, a short time"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T abbreviates time"
+     },
+     {
+      "clueFragment": "I have",
+      "gives": "IVE",
+      "note": "I've, contracted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "T",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits they only occasionally feel driven to do anything.",
+     "walkthrough": "'From time to time' looks like one phrase meaning occasionally; here each time is clued separately.",
+     "definitionFit": "A motive is the cause that drives someone to do something, their reason for acting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "From"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1514,43 @@
     "text": "Mentioned house in the country style",
     "enumeration": "6"
    },
-   "solution": "MANNER"
+   "solution": "MANNER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MANNER",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mentioned",
+      "for": "homophone",
+      "note": "mentioned means said out loud, so we go by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house in the country",
+      "gives": "MANNER",
+      "soundsLike": "MANOR",
+      "note": "a manor is a country house"
+     }
+    ],
+    "explanation": {
+     "surface": "A country house was described in a particular fashion.",
+     "definitionFit": "A manner is a way of doing something, so it means style or mode."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1570,75 @@
      }
     ]
    },
-   "solution": "SHANTYTOWN"
+   "solution": "SHANTYTOWN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SHANTY TOWN",
+    "definitions": [
+     {
+      "text": "Slum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost heart",
+      "for": "deletion",
+      "note": "losing its heart means the middle letter drops out"
+     },
+     {
+      "text": "riot",
+      "for": "anagram",
+      "note": "a riot is wild disorder, so these letters are scrambled"
+     },
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "changes means alters, a second signal to rearrange the letters"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hasn't",
+      "gives": "HASNT",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "yet",
+      "gives": "YT",
+      "note": "the middle letter removed"
+     },
+     {
+      "clueFragment": "won",
+      "gives": "WON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HASNTYTWON",
+       "gives": "SHANTYTOWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shanty district's unrest hasn't died down, having won concessions.",
+     "walkthrough": "'Changes' backs up the riot signal; the surface reads 'Slum riot' as one news item.",
+     "definitionFit": "A shantytown is a settlement of makeshift shacks on a city's edge, a poor area or slum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "riot"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1652,55 @@
     "text": "Rippling lake's variety of greens",
     "enumeration": "4"
    },
-   "solution": "KALE"
+   "solution": "KALE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KALE",
+    "definitions": [
+     {
+      "text": "variety of greens",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rippling",
+      "for": "anagram",
+      "note": "rippling water is disturbed, so these letters are stirred about"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lake",
+      "gives": "LAKE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAKE",
+       "gives": "KALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The rippling lake shows many shades of green.",
+     "walkthrough": "'Greens' here means leafy vegetables, not colours.",
+     "definitionFit": "Kale is a leafy cabbage, one kind of the green vegetables known as greens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "greens"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1714,46 @@
     "text": "Sleeps with some of the fishes?",
     "enumeration": "4"
    },
-   "solution": "KIPS"
+   "solution": "KIPS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KIPS",
+    "definitions": [
+     {
+      "text": "Sleeps",
+      "at": 0
+     },
+     {
+      "text": "some of the fishes",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleeps",
+      "note": "first meaning: kip is British slang for sleep"
+     },
+     {
+      "clueFragment": "some of the fishes",
+      "note": "second meaning: a kip is the hooked lower jaw of a male salmon, part of a fish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface plays on the gangster phrase 'sleeps with the fishes', meaning lies dead at the bottom of the sea. Kip is also a rarer word for the hooked jaw of a spawning salmon.",
+     "definitionFit": "Kips is slang for naps, and also the plural of a term for part of a salmon's anatomy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fishes"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1767,76 @@
     "text": "Oriental doctor has nothing after over year developing organism",
     "enumeration": "6"
    },
-   "solution": "EMBRYO"
+   "solution": "EMBRYO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EMBRYO",
+    "definitions": [
+     {
+      "text": "developing organism",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over suggests turning something over, so the abbreviation is read backwards"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oriental",
+      "gives": "E",
+      "note": "E for East"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "YR",
+      "note": "YR abbreviates year"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "zero, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MB",
+      "RY",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "YR",
+       "to": "RY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Eastern physician is left with nothing after more than a year of growing something.",
+     "walkthrough": "'Over' looks like 'more than' but signals turning the year round; MB is a medical degree, a stock crossword doctor.",
+     "definitionFit": "An embryo is an organism in its earliest stage of growth, before birth or hatching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oriental"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1850,58 @@
     "text": "Spring lock outside and enter without permission",
     "enumeration": "8"
    },
-   "solution": "TRESPASS"
+   "solution": "TRESPASS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRESPASS",
+    "definitions": [
+     {
+      "text": "enter without permission",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means one word wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     },
+     {
+      "clueFragment": "Spring",
+      "gives": "SPA",
+      "note": "a spa is a mineral spring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRE",
+      "SPA",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar springs a lock from outside to break in.",
+     "walkthrough": "'Spring' and 'lock' look like burglary terms, but are water and hair.",
+     "definitionFit": "To trespass is to go onto someone's land or property without the right to, i.e. intrude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lock"
+    }
+   }
   }
  ]
 }
