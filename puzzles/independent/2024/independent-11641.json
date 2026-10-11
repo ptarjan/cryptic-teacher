@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "Disney's film business doubled",
     "enumeration": "4"
    },
-   "solution": "COCO"
+   "solution": "COCO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCO",
+    "definitions": [
+     {
+      "text": "Disney's film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doubled",
+      "for": "charade",
+      "note": "doubled tells you to write the abbreviation twice, side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "business",
+      "gives": "CO",
+      "note": "CO is the standard abbreviation for company, a business"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "CO",
+      "note": "the same abbreviation again, as the doubling asks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "A report on how Disney's movie trade has grown twice as big.",
+     "definitionFit": "Coco is the 2017 Pixar animated feature released by Disney, set during the Mexican Day of the Dead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doubled"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +96,59 @@
     "text": "In religious residence, sex is a pressing matter",
     "enumeration": "8"
    },
-   "solution": "PRIORITY"
+   "solution": "PRIORITY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRIORITY",
+    "definitions": [
+     {
+      "text": "a pressing matter",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "In places one word inside the other, the residence holding the sex"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "religious residence",
+      "gives": "PRIORY",
+      "note": "a priory is a house of monks or nuns"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "IT is a old slang word for sex or sex appeal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIOR",
+      "IT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A racy suggestion that in a monastery, sex is urgently on everyone's mind.",
+     "walkthrough": "IT for sex is old slang, as in the 'It girl' of the 1920s; the residence opens just before its last letter to take it.",
+     "definitionFit": "A priority is something urgent that must be dealt with first, exactly a pressing matter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sex"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +162,61 @@
     "text": "Kind of red coat worn by clubber, periodically",
     "enumeration": "6"
    },
-   "solution": "MALBEC"
+   "solution": "MALBEC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MALBEC",
+    "definitions": [
+     {
+      "text": "Kind of red",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so only every other letter is kept"
+     },
+     {
+      "text": "worn by",
+      "for": "container",
+      "note": "a coat worn by someone wraps around them, so the coat goes round the kept letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coat",
+      "gives": "MAC",
+      "note": "a mac is a raincoat, short for mackintosh"
+     },
+     {
+      "clueFragment": "clubber",
+      "gives": "LBE",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of clubber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "LBE",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a red coat that a nightclub-goer wears now and then.",
+     "definitionFit": "Malbec is a grape variety and the red wine made from it, notably in Argentina, so it is a kind of red."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +230,53 @@
     "text": "Boss working hard to clear debts",
     "enumeration": "4"
    },
-   "solution": "STUD"
+   "solution": "STUD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STUD",
+    "definitions": [
+     {
+      "text": "Boss",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to clear",
+      "for": "deletion",
+      "note": "to clear debts is to wipe them out, so those letters are removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "working hard",
+      "gives": "STUDIOUS",
+      "note": "a studious person works hard at their books"
+     },
+     {
+      "clueFragment": "debts",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to pay a debt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUD"
+     ]
+    },
+    "explanation": {
+     "surface": "A manager toiling away to pay off what is owed.",
+     "walkthrough": "Boss looks like a person in charge, but here it is a raised knob or stud on a surface.",
+     "definitionFit": "A boss is a round ornamental knob projecting from a surface, which is the same thing as a stud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Boss"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +290,60 @@
     "text": "I must leave Munich's beer supply for admired figure there",
     "enumeration": "10"
    },
-   "solution": "UBERMENSCH"
+   "solution": "UBERMENSCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "UBERMENSCH",
+    "definitions": [
+     {
+      "text": "admired figure there",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I must leave",
+      "for": "deletion",
+      "note": "the letter I has to go, so it is struck from the words that follow"
+     },
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "read as supple-y, meaning flexibly, so the remaining letters bend into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Munich's beer",
+      "gives": "MUNICHSBEER",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UBERMENSCH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MUNCHSBEER",
+       "gives": "UBERMENSCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Bavarian beer cellar telling a customer to clear off so a famous drinker can be served.",
+     "walkthrough": "'Supply' reads as a noun for the beer stock, but it is the adverb from supple. 'There' points back to Munich, so the definition wants a German word.",
+     "definitionFit": "Übermensch is Nietzsche's German term for a superman, an idealised being looked up to in Germany."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +357,62 @@
     "text": "Maybe Rooney's drunk, snorting cocaine, right?",
     "enumeration": "7"
    },
-   "solution": "SCOUSER"
+   "solution": "SCOUSER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SCOUSER",
+    "definitions": [
+     {
+      "text": "Maybe Rooney",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snorting",
+      "for": "container",
+      "note": "snorting takes something in through the nose, so one word swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "SOUSE",
+      "note": "a souse is a habitual drunkard"
+     },
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "note": "C is drug slang for cocaine"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the usual abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "OUSE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Tabloid gossip asking whether the footballer was drunk and taking drugs.",
+     "walkthrough": "The C goes in after the first letter: S + C + OUSE, then R. Wayne Rooney, the footballer, comes from Liverpool, and a Scouser is someone from Liverpool.",
+     "definitionFit": "Scouser is the informal name for a native of Liverpool, and Rooney is one example, hence Maybe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +426,65 @@
     "text": "Don't talk about something downloaded by love poet",
     "enumeration": "6"
    },
-   "solution": "SAPPHO"
+   "solution": "SAPPHO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SAPPHO",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the hush word surrounds the download"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don't talk",
+      "gives": "SH",
+      "note": "SH is the call for silence"
+     },
+     {
+      "clueFragment": "something downloaded",
+      "gives": "APP",
+      "note": "an app is a program you download to a phone"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "APP",
+      "H",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to keep quiet about a file you got from a romantic poet.",
+     "walkthrough": "'Love poet' looks like one phrase, but love only supplies the final letter; the definition is just poet.",
+     "definitionFit": "Sappho was the ancient Greek lyric poet of Lesbos, famed for her verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +498,72 @@
     "text": "Sing about free ride, with intro from Stevie Nicks",
     "enumeration": "9"
    },
-   "solution": "SHOPLIFTS"
+   "solution": "SHOPLIFTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "SHOPLIFTS",
+    "definitions": [
+     {
+      "text": "Nicks",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intro",
+      "for": "letter_selection",
+      "note": "an intro is the opening, so only the first letter of the name is used"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the sing word wraps around the free ride"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sing",
+      "gives": "SHOP",
+      "note": "to sing and to shop are both slang for informing on someone"
+     },
+     {
+      "clueFragment": "Stevie",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of Stevie"
+     },
+     {
+      "clueFragment": "free ride",
+      "gives": "LIFT",
+      "note": "a lift is a free ride in someone's car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOP",
+      "LIFT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Song lyrics about hitching a lift, with Stevie Nicks of Fleetwood Mac introducing them.",
+     "walkthrough": "Stevie Nicks reads as a singer's name, but Nicks is the definition. The first letter of Stevie extends the sing word before it wraps round the ride.",
+     "definitionFit": "To nick is British slang for to steal, and shoplifts means steals goods from a store."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nicks"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +577,77 @@
     "text": "Addicts keeping sober, with flipping rowdy encouragement",
     "enumeration": "7"
    },
-   "solution": "ATTABOY"
+   "solution": "ATTABOY",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ATTABOY",
+    "definitions": [
+     {
+      "text": "encouragement",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding inside, so the addicts surround the sober letters"
+     },
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping turns something over, so the word for rowdy is read backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Addicts",
+      "gives": "AA",
+      "note": "AA is Alcoholics Anonymous, a body of recovering addicts"
+     },
+     {
+      "clueFragment": "sober",
+      "gives": "TT",
+      "note": "TT means teetotal, never drinking"
+     },
+     {
+      "clueFragment": "rowdy",
+      "gives": "YOB",
+      "note": "a yob is a rowdy lout"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TT",
+      "A",
+      "BOY"
+     ],
+     "reversals": [
+      {
+       "from": "YOB",
+       "to": "BOY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Recovering addicts staying dry while being cheered by a noisy crowd.",
+     "walkthrough": "'Flipping' looks like a mild swear word qualifying rowdy, but it signals the reversal of YOB.",
+     "definitionFit": "Attaboy is an exclamation of praise urging someone on, so a form of encouragement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +661,76 @@
     "text": "Marina may welcome these revolutionary extremists from steadfast, heroic army",
     "enumeration": "6"
    },
-   "solution": "YACHTS"
+   "solution": "YACHTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "YACHTS",
+    "definitions": [
+     {
+      "text": "Marina may welcome these",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremists from",
+      "for": "letter_selection",
+      "note": "extremists are at the far ends, so only the outer letters of each word are kept"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the gathered letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steadfast",
+      "gives": "ST",
+      "select": "outer",
+      "note": "first and last letters of steadfast"
+     },
+     {
+      "clueFragment": "heroic",
+      "gives": "HC",
+      "select": "outer",
+      "note": "first and last letters of heroic"
+     },
+     {
+      "clueFragment": "army",
+      "gives": "AY",
+      "select": "outer",
+      "note": "first and last letters of army"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YA",
+      "CH",
+      "TS"
+     ],
+     "reversals": [
+      {
+       "from": "STHCAY",
+       "to": "YACHTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Marina sheltering a band of rebels from a brave, resolute army.",
+     "walkthrough": "Marina reads as a woman's name, but it is a harbour for pleasure boats.",
+     "definitionFit": "A marina is a dock for small pleasure craft, so it welcomes boats such as these sailing vessels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Marina"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +744,69 @@
     "text": "In blocking Porto's wingers fail to disrupt a shot",
     "enumeration": "9"
    },
-   "solution": "PHOTOBOMB"
+   "solution": "PHOTOBOMB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "PHOTOBOMB",
+    "definitions": [
+     {
+      "text": "disrupt a shot",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wingers",
+      "for": "letter_selection",
+      "note": "wingers play on the flanks, so only the two edge letters of the city are taken"
+     },
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "blocking means getting in the way, so the first word sits in the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Porto's",
+      "gives": "PO",
+      "select": "outer",
+      "note": "the outer letters of Porto"
+     },
+     {
+      "clueFragment": "In",
+      "gives": "HOT",
+      "note": "in and hot both mean fashionable"
+     },
+     {
+      "clueFragment": "fail",
+      "gives": "BOMB",
+      "note": "to bomb is to fail badly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HOT",
+      "O",
+      "BOMB"
+     ]
+    },
+    "explanation": {
+     "surface": "A football report on Porto's wide men failing to get past a defensive block.",
+     "walkthrough": "The football words lead you to expect a match; In is a word in its own right meaning trendy.",
+     "definitionFit": "To photobomb is to jump into someone else's photograph uninvited, spoiling the picture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +820,64 @@
     "text": "Doctor grasps paper by cooler physicist",
     "enumeration": "5"
    },
-   "solution": "DIRAC"
+   "solution": "DIRAC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DIRAC",
+    "definitions": [
+     {
+      "text": "physicist",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grasps",
+      "for": "container",
+      "note": "to grasp is to hold tight, so the doctor's letters close round the paper"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "DR is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "I",
+      "note": "i is the name of a British newspaper, sister to the Independent"
+     },
+     {
+      "clueFragment": "cooler",
+      "gives": "AC",
+      "note": "AC is air conditioning, a cooler"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "I",
+      "R",
+      "AC"
+     ]
+    },
+    "explanation": {
+     "surface": "A medic clutching a newspaper beside an air-conditioning unit.",
+     "definitionFit": "Paul Dirac was the British theoretical physicist who shared the 1933 Nobel Prize for quantum mechanics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooler"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +891,50 @@
     "text": "Prince Albert's accepted in Abu Dhabi, say",
     "enumeration": "5"
    },
-   "solution": "HALAL"
+   "solution": "HALAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HALAL",
+    "definitions": [
+     {
+      "text": "accepted in Abu Dhabi, say",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prince",
+      "gives": "HAL",
+      "note": "Prince Hal is Shakespeare's young Henry V"
+     },
+     {
+      "clueFragment": "Albert",
+      "gives": "AL",
+      "note": "Al is a short form of Albert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAL",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal visitor named Albert being welcomed in the Gulf.",
+     "walkthrough": "Prince Albert reads as one royal name, but it splits into two separate pieces.",
+     "definitionFit": "Halal means permissible under Islamic law, as food is in a Muslim country such as the UAE."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Prince"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +954,56 @@
      }
     ]
    },
-   "solution": "LEFTFOOTED"
+   "solution": "LEFTFOOTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEFT-FOOTED",
+    "definitions": [
+     {
+      "text": "like Messi",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe Labour",
+      "gives": "LEFT",
+      "note": "Labour is an example of a left-wing party"
+     },
+     {
+      "clueFragment": "its old leader",
+      "gives": "FOOT",
+      "note": "Michael Foot led the Labour Party from 1980 to 1983"
+     },
+     {
+      "clueFragment": "Miliband",
+      "gives": "ED",
+      "note": "Ed Miliband led Labour from 2010 to 2015"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEFT",
+      "FOOT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether Labour and its leaders resemble a famous footballer.",
+     "definitionFit": "Lionel Messi is famous for kicking with his left foot, so he is left-footed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +1017,62 @@
     "text": "Corrupt person's confession probed by new copper in office",
     "enumeration": "9"
    },
-   "solution": "INCUMBENT"
+   "solution": "INCUMBENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INCUMBENT",
+    "definitions": [
+     {
+      "text": "in office",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "probed by",
+      "for": "container",
+      "note": "a probe goes inside something, so the confession has the other letters pushed into it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corrupt person's confession",
+      "gives": "IMBENT",
+      "note": "a crook admitting it would say I'm bent, bent being slang for corrupt"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "CU",
+      "MBENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked official owning up while questioned by a rookie police officer.",
+     "walkthrough": "Copper suggests a police officer, but it is the metal. The new letters go in straight after the confession's opening I.",
+     "definitionFit": "As an adjective, incumbent describes someone currently holding a post, so in office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1086,65 @@
     "text": "English playmaker has heart, not retreating",
     "enumeration": "9"
    },
-   "solution": "MIDDLETON"
+   "solution": "MIDDLETON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MIDDLETON",
+    "definitions": [
+     {
+      "text": "English playmaker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retreating",
+      "for": "reversal",
+      "note": "to retreat is to go backwards, so the little word is read in the other direction"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heart",
+      "gives": "MIDDLE",
+      "note": "the heart of something is its middle"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIDDLE",
+      "TON"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for an English midfielder who has courage and never backs off.",
+     "walkthrough": "Playmaker suggests a football midfielder, but it means a writer of plays.",
+     "definitionFit": "Thomas Middleton was an English Jacobean dramatist, author of The Changeling, so literally a maker of plays."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "playmaker"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1178,55 @@
    "group": [
     "16-across",
     "21-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FIFTY SHADES OF GREY",
+    "definitions": [
+     {
+      "text": "a spanking tale",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Remake of",
+      "for": "anagram",
+      "note": "a remake makes the thing over again in new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "but it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Godfather's iffy? Yes",
+      "gives": "GODFATHERSIFFYYES",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GODFATHERSIFFYYES",
+       "gives": "FIFTYSHADESOFGREY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film critic doubting a remake of The Godfather yet admitting it is a cracking story.",
+     "walkthrough": "Spanking sounds like the British sense of excellent, but it is literal here.",
+     "definitionFit": "Fifty Shades of Grey is E. L. James's erotic novel, famous for its scenes of spanking and bondage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spanking"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1246,43 @@
      }
     ]
    },
-   "solution": "HAYFEVER"
+   "solution": "HAYFEVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAY FEVER",
+    "definitions": [
+     {
+      "text": "Bad reaction to bloomers",
+      "at": 0
+     },
+     {
+      "text": "comic play",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bad reaction to bloomers",
+      "note": "first meaning: an allergy to pollen from flowering plants"
+     },
+     {
+      "clueFragment": "comic play",
+      "note": "second meaning: Noel Coward's 1925 comedy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bloomers suggests underwear, but here it means plants in bloom.",
+     "definitionFit": "The phrase names both the pollen allergy that makes people sneeze and Coward's farce about the eccentric Bliss family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomers"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1296,79 @@
     "text": "Lass excited about turning up silk trousers",
     "enumeration": "6"
    },
-   "solution": "SLACKS"
+   "solution": "SLACKS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "SLACKS",
+    "definitions": [
+     {
+      "text": "trousers",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited means stirred up, so the letters are jumbled"
+     },
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means read from bottom to top, so the letters run backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the jumbled girl goes round the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lass",
+      "gives": "LASS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "silk",
+      "gives": "KC",
+      "note": "a silk is a senior barrister, a King's Counsel or KC, who wears a silk gown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLA",
+      "CK",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LASS",
+       "gives": "SLAS"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "KC",
+       "to": "CK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl thrilled to show off her silk trousers.",
+     "walkthrough": "Silk looks like the cloth of the trousers, but it is a senior lawyer, who 'takes silk' on promotion.",
+     "definitionFit": "Slacks are loose casual trousers, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "silk"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1382,63 @@
     "text": "Maybe Rachel Riley's beginning to bore devoted fan",
     "enumeration": "6"
    },
-   "solution": "FRIEND"
+   "solution": "FRIEND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FRIEND",
+    "definitions": [
+     {
+      "text": "Maybe Rachel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a name is its first letter, so only that is used"
+     },
+     {
+      "text": "to bore",
+      "for": "container",
+      "note": "to bore is to drill into, so the single letter goes inside the fan"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Riley's",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of Riley"
+     },
+     {
+      "clueFragment": "devoted fan",
+      "gives": "FIEND",
+      "note": "a fiend is an enthusiast, as in a fitness fiend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "IEND"
+     ]
+    },
+    "explanation": {
+     "surface": "Rachel Riley of Countdown starting to tire an adoring follower.",
+     "walkthrough": "Rachel Riley is the Countdown TV presenter, but the definition is only Maybe Rachel: Rachel Green is a character in the sitcom Friends.",
+     "definitionFit": "Rachel is one of the six characters of the sitcom Friends, so she is an example of a friend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Riley's"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1458,65 @@
      }
     ]
    },
-   "solution": "LIFESTORY"
+   "solution": "LIFESTORY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LIFE STORY",
+    "definitions": [
+     {
+      "text": "account",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "investing",
+      "for": "container",
+      "note": "investing means putting money in, so the currency letter goes inside the word for dishonesty"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is dishonest",
+      "gives": "LIES",
+      "note": "someone who is dishonest lies"
+     },
+     {
+      "clueFragment": "francs",
+      "gives": "F",
+      "note": "F is the abbreviation for franc"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "TORY",
+      "note": "a Tory is a British Conservative politician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "F",
+      "ES",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a crooked MP is putting foreign money into a bank account.",
+     "walkthrough": "Account suggests a bank, but it means a narrative of events.",
+     "definitionFit": "A life story is a narrative of someone's life, and an account is a telling of events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1549,64 @@
     "text": "What American held in hands for composer",
     "enumeration": "5"
    },
-   "solution": "LEHAR"
+   "solution": "LEHAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LEHAR",
+    "definitions": [
+     {
+      "text": "composer",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "something held in a pair of hands is gripped between them, so the letters sit inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "EH",
+      "note": "eh? is a way of asking what?"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a common abbreviation for American"
+     },
+     {
+      "clueFragment": "hands",
+      "gives": "LR",
+      "note": "left and right hands, L and R"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EH",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about what an American was clutching for a musician.",
+     "definitionFit": "Franz Lehár was the Austro-Hungarian composer of operettas such as The Merry Widow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1620,49 @@
     "text": "Harsh noise from King Charles by his hiding place",
     "enumeration": "5"
    },
-   "solution": "CROAK"
+   "solution": "CROAK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROAK",
+    "definitions": [
+     {
+      "text": "Harsh noise",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King Charles",
+      "gives": "CR",
+      "note": "CR is Carolus Rex, Latin for King Charles"
+     },
+     {
+      "clueFragment": "by his hiding place",
+      "gives": "OAK",
+      "note": "Charles II hid in an oak tree after the battle of Worcester in 1651"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "OAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A rasping sound coming from the king near the spot where he hid.",
+     "walkthrough": "The Royal Oak at Boscobel, where the future Charles II hid from Parliament's soldiers, is a famous story in English history.",
+     "definitionFit": "A croak is a deep, rough cry such as a frog makes, a harsh noise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -432,7 +1696,56 @@
      }
     ]
    },
-   "solution": "GREATOUSE"
+   "solution": "GREATOUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GREAT OUSE",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "a sandwich has its filling between two slices, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carp",
+      "gives": "GROUSE",
+      "note": "to carp and to grouse both mean to complain"
+     },
+     {
+      "clueFragment": "put away",
+      "gives": "EAT",
+      "note": "to put away food is to eat it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "EAT",
+      "OUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish swallowing sandwiches that someone had stored.",
+     "walkthrough": "Carp looks like the fish, but it is a verb meaning grumble. GR + EAT + OUSE.",
+     "definitionFit": "The Great Ouse is a long river in eastern England, flowing through Bedford and Ely to the Wash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "carp"
+    }
+   }
   },
   {
    "number": 26,
@@ -446,7 +1759,52 @@
     "text": "Ms Quatro has lowered head and arms",
     "enumeration": "4"
    },
-   "solution": "UZIS"
+   "solution": "UZIS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "UZIS",
+    "definitions": [
+     {
+      "text": "arms",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has lowered head",
+      "for": "cycling",
+      "note": "in a down clue, lowering the head moves the top letter to the bottom"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ms Quatro",
+      "gives": "SUZI",
+      "note": "Suzi Quatro is the American rock singer and bassist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UZIS"
+     ]
+    },
+    "explanation": {
+     "surface": "The rock singer bowing and spreading her arms.",
+     "walkthrough": "Arms looks like limbs, but here it means weapons.",
+     "definitionFit": "Uzis are Israeli submachine guns, and arms means weapons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "arms"
+    }
+   }
   },
   {
    "number": 27,
@@ -460,7 +1818,43 @@
     "text": "Mobster, I learn, essentially unable to create issue",
     "enumeration": "7"
    },
-   "solution": "STERILE"
+   "solution": "STERILE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STERILE",
+    "definitions": [
+     {
+      "text": "unable to create issue",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "hidden_word",
+      "note": "essentially points to the core of the phrase, where the letters sit inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mobster, I learn",
+      "gives": "STERILE",
+      "note": "the run of letters across the end of the first word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A gangster discovering he cannot father children.",
+     "walkthrough": "Issue here means children, not a problem.",
+     "definitionFit": "Issue is a formal word for offspring, so someone sterile cannot produce children."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 28,
@@ -474,7 +1868,44 @@
     "text": "Bored taking cannabis, did you say?",
     "enumeration": "7"
    },
-   "solution": "ENNUIED"
+   "solution": "ENNUIED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ENNUIED",
+    "definitions": [
+     {
+      "text": "Bored",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say",
+      "for": "homophone",
+      "note": "did you say asks about what was spoken, so we go by the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taking cannabis",
+      "gives": "ENNUIED",
+      "soundsLike": "ON WEED",
+      "note": "someone taking cannabis is on weed, weed being slang for cannabis"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asking if a listless friend has been smoking dope.",
+     "walkthrough": "The French-derived word is said roughly as on-wee-d.",
+     "definitionFit": "Ennuied means affected by ennui, the French word for listless weariness, so bored."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
