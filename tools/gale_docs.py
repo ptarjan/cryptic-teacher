@@ -21,16 +21,16 @@ inbox sweep recognises and files by.
 """
 import datetime
 import http.client
-import http.cookiejar
 import json
 import re
-import ssl
 import sys
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
+
+from gale_http import UA, Chrome, click_headers, verifies  # noqa: F401 (UA: re-exported)
 
 CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PER_TICK = 15
@@ -43,9 +43,6 @@ REPORT_WEEKS = 5
 LOOKUP_GRACE = 120
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
-#: A current Chrome on a Mac (the one curl_cffi's impersonate="chrome" sends; tools/gale_fetch.py).
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) "
-      "Chrome/150.0.0.0 Safari/537.36")
 #: product: (the portal's db code, the citation's paper, the archive's name)
 PRODUCTS = {"TTDA": ("ttda", "Times", "The Times Digital Archive"),
             "LSNR": ("lsnr", "The Listener", "The Listener Historical Archive")}
@@ -59,25 +56,32 @@ class Gale:
     def __init__(self, pace=PACE, deadline=None):
         """`deadline`: the monotonic time past which no request is sent and
         none waits longer, so one slow lookup cannot outlast its tick."""
-        self.pace, self.last, self.openers, self.months = pace, 0.0, {}, {}
+        self.pace, self.last, self.openers, self.pages, self.months = pace, 0.0, {}, {}, {}
         self.deadline = deadline
 
     def get(self, prod, url, xhr=False):
+        """`url`'s body, browsed as Chrome does (tools/gale_http.py): the
+        portal's collections page, its link to the product (landing on
+        Gale's search page), then each request with that page as Referer."""
         if prod not in self.openers:
-            op = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()),
-                                             urllib.request.HTTPSHandler(context=ssl._create_unverified_context()))
-            op.addheaders = [("User-Agent", UA)]
-            self.openers[prod] = op
-            self.get(prod, f"{PORTAL}/collections")
-            self.get(prod, f"{PORTAL}/actions/auth.php?db={PRODUCTS[prod][0]}")
+            self.openers[prod] = Chrome()
+            self.pages[prod] = None
+            self.pages[prod] = self.fetch(prod, f"{PORTAL}/collections")[1]
+            self.pages[prod] = self.fetch(prod, f"{PORTAL}/actions/auth.php?db={PRODUCTS[prod][0]}")[1]
+        return self.fetch(prod, url, None, xhr)[0]
+
+    def fetch(self, prod, url, wait=None, xhr=False):
+        """(decoded body, final url) of `url`, paced, within the deadline."""
         time.sleep(max(0.0, self.last + self.pace - time.time()))
-        wait = 90 if self.deadline is None else min(90, self.deadline - time.monotonic())
+        wait = wait or (90 if self.deadline is None else min(90, self.deadline - time.monotonic()))
         if wait <= 0:
             raise TimeoutError("out of time mid-lookup; asked again next tick")
         try:
-            req = urllib.request.Request(url, headers={"X-Requested-With": "XMLHttpRequest"} if xhr else {})
-            with self.openers[prod].open(req, timeout=wait) as r:
-                return r.read().decode("utf-8", "replace")
+            status, body, final = self.openers[prod](url, click_headers(self.pages[prod], url, xhr),
+                                                     verifies(url, PORTAL), wait)
+            if status >= 400:
+                raise urllib.error.HTTPError(final, status, f"HTTP {status}", None, None)
+            return body.decode("utf-8", "replace"), final
         finally:
             self.last = time.time()
 
