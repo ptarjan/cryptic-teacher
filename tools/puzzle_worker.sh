@@ -306,9 +306,16 @@ stage_puzzle() {
 # Commit what is staged as "$1" under the index lock and push it. $2.. are the
 # pathspecs to unstage if the commit is refused. 0 when committed.
 worker_commit() {   # subject paths...
-  local subject="$1" out sha
+  local subject="$1" out sha try ok=0
   shift
-  if ! out=$(git commit -q -m "$(printf '%s\n\n%s' "$subject" "$(python3 tools/provenance.py trailer)")" 2>&1); then
+  # A status or sync elsewhere in this tree holds index.lock for a moment, as
+  # stage_puzzle's add knows; refused once, the staged puzzle used to ride in
+  # the next run's commit under that run's name. Only a held lock is retried.
+  for try in 1 2 3 4 5; do
+    out=$(git commit -q -m "$(printf '%s\n\n%s' "$subject" "$(python3 tools/provenance.py trailer)")" 2>&1) && { ok=1; break; }
+    case "$out" in *index.lock*) [ "$try" -lt 5 ] && sleep 2 ;; *) break ;; esac
+  done
+  if [ "$ok" = 0 ]; then
     # push_puzzle_commit.sh would find HEAD already on origin and exit 0, so a
     # refused commit has to stop here or the log says "committed".
     git reset -q -- "$@"
