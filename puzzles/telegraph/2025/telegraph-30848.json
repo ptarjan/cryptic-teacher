@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,55 @@
     "text": "Refuse to acknowledge row about pig",
     "enumeration": "6"
    },
-   "solution": "DISOWN"
+   "solution": "DISOWN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISOWN",
+    "definitions": [
+     {
+      "text": "Refuse to acknowledge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing placed about another surrounds it, so the noise word wraps the animal"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "DIN",
+      "note": "a din is a loud row or racket"
+     },
+     {
+      "clueFragment": "pig",
+      "gives": "SOW",
+      "note": "a sow is a female pig"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SOW",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to own up to a quarrel over a pig.",
+     "walkthrough": "'Row' rhymes with now here, a noisy commotion, not a line or a rowing trip.",
+     "definitionFit": "To disown someone is to deny any connection with them, i.e. refuse to recognise them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +97,72 @@
     "text": "Fed up clergyman ignoring Republican traitor",
     "enumeration": "8"
    },
-   "solution": "DEFECTOR"
+   "solution": "DEFECTOR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "DEFECTOR",
+    "definitions": [
+     {
+      "text": "traitor",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the letters read from bottom to top"
+     },
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring something leaves it out, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fed",
+      "gives": "FED",
+      "note": "taken as written, then turned round"
+     },
+     {
+      "clueFragment": "clergyman",
+      "gives": "RECTOR",
+      "note": "a rector is a parish priest"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican, the letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEF",
+      "ECTOR"
+     ],
+     "reversals": [
+      {
+       "from": "FED",
+       "to": "DEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest who's had enough walks away from a turncoat.",
+     "walkthrough": "'Fed up' reads as one idiom meaning annoyed, but splits into a word and its reversal signal.",
+     "definitionFit": "A defector abandons their country or side for the enemy, which makes them a traitor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +176,52 @@
     "text": "Genuine saint incorporated before",
     "enumeration": "7"
    },
-   "solution": "SINCERE"
+   "solution": "SINCERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINCERE",
+    "definitions": [
+     {
+      "text": "Genuine",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saint",
+      "gives": "S",
+      "note": "S is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "incorporated",
+      "gives": "INC",
+      "note": "Inc. is the abbreviation for incorporated, as in company names"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "INC",
+      "ERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A real holy figure was taken in long ago.",
+     "definitionFit": "Sincere means honest and without pretence, so genuine is a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "incorporated"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +235,39 @@
     "text": "That which distinguishes a quality paper?",
     "enumeration": "9"
    },
-   "solution": "WATERMARK"
+   "solution": "WATERMARK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WATERMARK",
+    "definitions": [
+     {
+      "text": "That which distinguishes a quality paper?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That which distinguishes a quality paper?",
+      "note": "surface reading: whatever makes a broadsheet newspaper stand out"
+     },
+     {
+      "clueFragment": "a quality paper",
+      "note": "setter's reading: fine writing paper bears a faint design visible against the light, identifying its maker"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A 'quality paper' in Britain means a serious newspaper, but here it is literally good stationery.",
+     "definitionFit": "A watermark is a faint maker's design pressed into high-grade paper, marking its quality and origin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +281,49 @@
     "text": "A bit of profit I repaid over a pre-dinner drink",
     "enumeration": "8"
    },
-   "solution": "APERITIF"
+   "solution": "APERITIF",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "APERITIF",
+    "definitions": [
+     {
+      "text": "a pre-dinner drink",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A bit of",
+      "for": "hidden_word",
+      "note": "only a portion of the following words is wanted, so the answer sits inside them"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means read the other way, from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "profit I repaid",
+      "gives": "APERITIF",
+      "note": "read backwards, these letters run DIAPERITIFORP, with the answer in the middle"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone spends a little of the profit they paid back on a drink before dinner.",
+     "walkthrough": "Read 'profIT I REPAid' from right to left and APERITIF appears.",
+     "definitionFit": "An aperitif is an alcoholic drink taken before a meal to stimulate the appetite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +343,39 @@
      }
     ]
    },
-   "solution": "POLLINGSTATION"
+   "solution": "POLLINGSTATION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "POLLING STATION",
+    "definitions": [
+     {
+      "text": "Place where I make the sign of the cross every once in a while",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place where I make the sign of the cross every once in a while",
+      "note": "surface reading: a church where someone occasionally crosses themselves"
+     },
+     {
+      "clueFragment": "make the sign of the cross",
+      "note": "setter's reading: marking an X on a ballot paper, done at each election"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The religious gesture is a decoy: the cross is the X a voter puts on a ballot paper every few years.",
+     "definitionFit": "A polling station is where voters go on election day to mark their choice with a cross."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +389,60 @@
     "text": "Puzzle concerning U-boat surfacing",
     "enumeration": "5"
    },
-   "solution": "REBUS"
+   "solution": "REBUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "REBUS",
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surfacing",
+      "for": "reversal",
+      "note": "in a down clue, a vessel surfacing rises, so its letters read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     },
+     {
+      "clueFragment": "U-boat",
+      "gives": "SUB",
+      "note": "a U-boat is a submarine, or sub; reversed here"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "BUS"
+     ],
+     "reversals": [
+      {
+       "from": "SUB",
+       "to": "BUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mystery about a German submarine coming up from the depths.",
+     "definitionFit": "A rebus is a puzzle using pictures or symbols to represent words or syllables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surfacing"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +456,62 @@
     "text": "European politician in trial storm",
     "enumeration": "7"
    },
-   "solution": "TEMPEST"
+   "solution": "TEMPEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TEMPEST",
+    "definitions": [
+     {
+      "text": "storm",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pieces inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "TEST",
+      "note": "a test is a trial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "E",
+      "MP",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "A Euro MP in court causes uproar.",
+     "walkthrough": "'Trial' suggests a court case, but it simply means an examination or test.",
+     "definitionFit": "A tempest is a violent windy storm, the word used for Shakespeare's play title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trial"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +525,41 @@
     "text": "Party held in Alfie's tavern",
     "enumeration": "6"
    },
-   "solution": "FIESTA"
+   "solution": "FIESTA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FIESTA",
+    "definitions": [
+     {
+      "text": "Party",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held in",
+      "for": "hidden_word",
+      "note": "held in means contained within the following words, spanning them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alfie's tavern",
+      "gives": "FIESTA",
+      "note": "the letters run across the two words once the apostrophe is ignored"
+     }
+    ],
+    "explanation": {
+     "surface": "A celebration is being thrown at Alfie's pub.",
+     "definitionFit": "A fiesta is a festive celebration, originally a Spanish religious holiday, so a party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +583,43 @@
      }
     ]
    },
-   "solution": "ACROSSTHEBOARD"
+   "solution": "ACROSSTHEBOARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACROSS-THE-BOARD",
+    "definitions": [
+     {
+      "text": "As bishop may move",
+      "at": 0
+     },
+     {
+      "text": "affecting everyone",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As bishop may move",
+      "note": "first meaning: a chess bishop can sweep diagonally over the whole chequered surface"
+     },
+     {
+      "clueFragment": "affecting everyone",
+      "note": "second meaning: the idiom for applying to all"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The bishop is the chess piece, not a cleric; it can travel corner to corner of the chessboard.",
+     "definitionFit": "The idiom means applying equally to all; literally a long bishop move goes over the entire chessboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bishop"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +633,51 @@
     "text": "Committed a final act at work",
     "enumeration": "9"
    },
-   "solution": "FANATICAL"
+   "solution": "FANATICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FANATICAL",
+    "definitions": [
+     {
+      "text": "Committed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at work",
+      "for": "anagram",
+      "note": "letters at work are busy being moved about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a final act",
+      "gives": "AFINALACT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AFINALACT",
+       "gives": "FANATICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone performed one last deed at their workplace.",
+     "walkthrough": "'Committed' looks like a verb (committed a crime) but is the adjective meaning zealous.",
+     "definitionFit": "A fanatical person is zealously devoted to a cause, just as a committed one is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Committed"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +691,61 @@
     "text": "Sweet former pupil returned a gong",
     "enumeration": "5"
    },
-   "solution": "BOMBE"
+   "solution": "BOMBE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BOMBE",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former pupil",
+      "gives": "OB",
+      "note": "OB stands for old boy, a former pupil; reversed here"
+     },
+     {
+      "clueFragment": "a gong",
+      "gives": "MBE",
+      "note": "an MBE is a British honour, informally a gong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "MBE"
+     ],
+     "reversals": [
+      {
+       "from": "OB",
+       "to": "BO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old pupil came back and was awarded a medal.",
+     "walkthrough": "OB reversed gives BO; a gong is slang for a medal or honour, and the MBE (Member of the Order of the British Empire) is one.",
+     "definitionFit": "A bombe is a frozen dome-shaped dessert, so it counts as a sweet, the British word for a pudding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +759,62 @@
     "text": "Toast failure of heroic English, at first",
     "enumeration": "7"
    },
-   "solution": "CHEERIO"
+   "solution": "CHEERIO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CHEERIO",
+    "definitions": [
+     {
+      "text": "Toast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word just before it"
+     },
+     {
+      "text": "failure of",
+      "for": "anagram",
+      "note": "a failure is a collapse, so the word breaks up and is rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heroic",
+      "gives": "HEROIC",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of English"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEROICE",
+       "gives": "CHEERIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A toast marks the downfall of a brave Englishman.",
+     "definitionFit": "Cheerio is a British informal word said when parting or raising a glass, like the toast 'cheers'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "failure"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +828,56 @@
     "text": "Examine six-footer eating quietly",
     "enumeration": "7"
    },
-   "solution": "INSPECT"
+   "solution": "INSPECT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INSPECT",
+    "definitions": [
+     {
+      "text": "Examine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "a creature eating something takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six-footer",
+      "gives": "INSECT",
+      "note": "an insect has six legs"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INS",
+      "P",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone studies a bug munching away without a sound.",
+     "walkthrough": "'Six-footer' suggests a tall person, but it means a creature with six feet. P goes inside INSECT.",
+     "definitionFit": "To inspect is to look over carefully, which is what examine means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "six-footer"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +891,54 @@
     "text": "Old Margaret — a character right to the end?",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "character right to the end?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "Margaret",
+      "gives": "MEG",
+      "note": "Meg is a short form of Margaret"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MEG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Old Margaret was a stalwart personality until she died.",
+     "walkthrough": "The 'character' is a letter, not a person: the last letter of the Greek alphabet.",
+     "definitionFit": "Omega is the final letter of the Greek alphabet, a character found right at its end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +952,57 @@
     "text": "Nice perhaps to follow story displaying wisdom",
     "enumeration": "8"
    },
-   "solution": "SAGACITY"
+   "solution": "SAGACITY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAGACITY",
+    "definitions": [
+     {
+      "text": "wisdom",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "to follow places the first-named piece after the next one rather than before it"
+     }
+    ],
+    "linkWords": [
+     "displaying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "SAGA",
+      "note": "a saga is a long story"
+     },
+     {
+      "clueFragment": "Nice perhaps",
+      "gives": "CITY",
+      "note": "Nice is a city in France; 'perhaps' marks it as an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAGA",
+      "CITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant tale ought to come after a story showing good judgement.",
+     "walkthrough": "'Nice' is the French city, its capital hidden at the start of the sentence; 'to follow' places it after the story.",
+     "definitionFit": "Sagacity is keen practical judgement, a synonym of wisdom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +1022,54 @@
      }
     ]
    },
-   "solution": "CAFEROYAL"
+   "solution": "CAFEROYAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAFE ROYAL",
+    "definitions": [
+     {
+      "text": "old Regent St landmark",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means put into an arrangement, so these letters are sorted afresh"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cola Freya",
+      "gives": "COLAFREYA",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COLAFREYA",
+       "gives": "CAFEROYAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Freya asked for a soft drink at a famous London venue.",
+     "walkthrough": "Regent Street is a major shopping street in London's West End.",
+     "definitionFit": "The Café Royal was a celebrated restaurant on Regent Street, haunt of Oscar Wilde, now a hotel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cola"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +1089,48 @@
      }
     ]
    },
-   "solution": "SEAOTTER"
+   "solution": "SEAOTTER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SEA OTTER",
+    "definitions": [
+     {
+      "text": "aquatic mammal",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's commonly said",
+      "for": "homophone",
+      "note": "commonly said points to how the phrase sounds in casual speech, with an h dropped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Result of global warming",
+      "gives": "SEAOTTER",
+      "soundsLike": "SEA HOTTER",
+      "note": "warming makes the ocean hotter; said with the h dropped, it matches the animal's name"
+     }
+    ],
+    "explanation": {
+     "surface": "A common saying about climate change concerns a creature living in the water.",
+     "walkthrough": "'Commonly' signals the dropped H of informal British speech, turning 'hotter' into 'otter'.",
+     "definitionFit": "The sea otter is a marine mammal of the North Pacific, a creature that lives in water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "commonly"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1144,48 @@
     "text": "Dollars stolen — might this provide police lead?",
     "enumeration": "8"
    },
-   "solution": "BUCKSHOT"
+   "solution": "BUCKSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUCKSHOT",
+    "definitions": [
+     {
+      "text": "might this provide police lead?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dollars",
+      "gives": "BUCKS",
+      "note": "bucks is slang for dollars"
+     },
+     {
+      "clueFragment": "stolen",
+      "gives": "HOT",
+      "note": "hot goods are stolen ones"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUCKS",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Cash has been stolen; could this give detectives a clue?",
+     "walkthrough": "A 'police lead' sounds like a clue in an investigation, but here lead is the metal: ammunition a police gun might fire.",
+     "definitionFit": "Buckshot is coarse lead shot for shotguns, so it is lead ammunition police might use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1199,49 @@
     "text": "Remarkable peacekeepers with habitual drink?",
     "enumeration": "7"
    },
-   "solution": "UNUSUAL"
+   "solution": "UNUSUAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNUSUAL",
+    "definitions": [
+     {
+      "text": "Remarkable",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peacekeepers",
+      "gives": "UN",
+      "note": "the United Nations sends peacekeeping forces"
+     },
+     {
+      "clueFragment": "habitual drink?",
+      "gives": "USUAL",
+      "note": "a regular's standing order at the bar is 'the usual'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "USUAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Odd soldiers keeping the peace with their regular tipple.",
+     "definitionFit": "Unusual means out of the ordinary, so worth remarking on: remarkable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1255,55 @@
     "text": "Bishop wears sack cloth",
     "enumeration": "5"
    },
-   "solution": "FIBRE"
+   "solution": "FIBRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FIBRE",
+    "definitions": [
+     {
+      "text": "cloth",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wears",
+      "for": "container",
+      "note": "whoever wears something is inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "sack",
+      "gives": "FIRE",
+      "note": "to sack someone is to fire them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "B",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop dresses in sackcloth as penance.",
+     "walkthrough": "'Sack cloth' reads as one penitential garment, but sack is a verb meaning fire and cloth is the definition.",
+     "definitionFit": "Fibre can mean a fabric or cloth, as in a natural fibre made from threads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sack"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1317,62 @@
     "text": "Macbeth's general fails to finish extremely elegant meal",
     "enumeration": "7"
    },
-   "solution": "BANQUET"
+   "solution": "BANQUET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BANQUET",
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fails to finish",
+      "for": "deletion",
+      "note": "failing to finish means stopping before the last letter"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes, the first and last letters of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Macbeth's general",
+      "gives": "BANQUO",
+      "note": "Banquo is Macbeth's fellow general in Shakespeare's play"
+     },
+     {
+      "clueFragment": "elegant",
+      "gives": "ET",
+      "select": "outer",
+      "note": "the outside letters of elegant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANQU",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A Shakespearean soldier doesn't complete a very refined dinner.",
+     "walkthrough": "Fittingly, Banquo's ghost famously appears at a feast in Macbeth.",
+     "definitionFit": "A banquet is an elaborate formal meal for many guests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "general"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1386,56 @@
     "text": "Muscular supporter, oddly windy",
     "enumeration": "6"
    },
-   "solution": "BRAWNY"
+   "solution": "BRAWNY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRAWNY",
+    "definitions": [
+     {
+      "text": "Muscular",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the letters in odd-numbered positions only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supporter",
+      "gives": "BRA",
+      "note": "a bra is a supporting undergarment"
+     },
+     {
+      "clueFragment": "windy",
+      "gives": "WNY",
+      "select": "alternate",
+      "note": "first, third and fifth letters of windy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRA",
+      "WNY"
+     ]
+    },
+    "explanation": {
+     "surface": "A strong backer, strangely full of wind.",
+     "walkthrough": "'Supporter' is a crossword favourite for a bra rather than a fan.",
+     "definitionFit": "Brawny means physically strong and well-built, a synonym of muscular."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supporter"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1449,43 @@
     "text": "Chatter from actors that might be forced?",
     "enumeration": "7"
    },
-   "solution": "RHUBARB"
+   "solution": "RHUBARB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RHUBARB",
+    "definitions": [
+     {
+      "text": "Chatter from actors",
+      "at": 0
+     },
+     {
+      "text": "that might be forced?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chatter from actors",
+      "note": "first meaning: the word extras repeat on stage to make crowd noise"
+     },
+     {
+      "clueFragment": "that might be forced?",
+      "note": "second meaning: a plant grown early in the dark, 'forced'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Gardeners force this plant by covering it so it grows early, pale and tender.",
+     "definitionFit": "Actors murmur the word to fake background conversation, and the stalked vegetable is commonly grown as forced crop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "forced"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1499,46 @@
     "text": "Check German car temperature",
     "enumeration": "5"
    },
-   "solution": "AUDIT"
+   "solution": "AUDIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUDIT",
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German car",
+      "gives": "AUDI",
+      "note": "Audi is a German car maker"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUDI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Inspect the engine heat of a German motor.",
+     "definitionFit": "An audit is an official examination of accounts, so a check."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "temperature"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1552,55 @@
     "text": "Lone Ranger's sidekick smuggling gold in provincial capital",
     "enumeration": "7"
    },
-   "solution": "TORONTO"
+   "solution": "TORONTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TORONTO",
+    "definitions": [
+     {
+      "text": "provincial capital",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smuggling",
+      "for": "container",
+      "note": "something smuggled is carried hidden inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lone Ranger's sidekick",
+      "gives": "TONTO",
+      "note": "Tonto is the Lone Ranger's companion in the Western stories"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is the heraldic term for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OR",
+      "ONTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A cowboy hero's partner sneaks bullion into a regional seat of government.",
+     "walkthrough": "Heraldry's word for gold is a crossword staple; Ontario is the province in question.",
+     "definitionFit": "Toronto is the capital city of the Canadian province of Ontario."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smuggling"
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1614,42 @@
     "text": "Wrapped cut, say",
     "enumeration": "5"
    },
-   "solution": "WOUND"
+   "solution": "WOUND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WOUND",
+    "definitions": [
+     {
+      "text": "Wrapped",
+      "at": 0
+     },
+     {
+      "text": "cut, say",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrapped",
+      "note": "first meaning: coiled round, past tense of wind (rhymes with round)"
+     },
+     {
+      "clueFragment": "cut, say",
+      "note": "second meaning: an injury, of which a cut is an example"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two meanings are spelt alike but pronounced differently; 'say' marks a cut as one example, not a sound clue.",
+     "definitionFit": "The past participle of wind means wrapped round, and the noun names an injury such as a cut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1669,43 @@
      }
     ]
    },
-   "solution": "AGONYAUNT"
+   "solution": "AGONYAUNT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AGONY AUNT",
+    "definitions": [
+     {
+      "text": "Newspaper columnist",
+      "at": 0
+     },
+     {
+      "text": "dealing with painful relations?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newspaper columnist",
+      "note": "first meaning: a writer who answers readers' problem letters"
+     },
+     {
+      "clueFragment": "dealing with painful relations?",
+      "note": "second, playful meaning: a relative who is a pain, read as two words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half splits the phrase literally: an aunt (a relation) who brings anguish. Readers' troubles with family are also the column's staple.",
+     "definitionFit": "An agony aunt writes an advice column answering readers' personal problems, often about difficult relatives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "relations"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1719,60 @@
     "text": "Christmas Brynner film idea unfinished",
     "enumeration": "8"
    },
-   "solution": "YULETIDE"
+   "solution": "YULETIDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "YULETIDE",
+    "definitions": [
+     {
+      "text": "Christmas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "unfinished means the word stops short, losing its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brynner",
+      "gives": "YUL",
+      "note": "Yul Brynner was the actor in The King and I"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "E.T. is Spielberg's film about an alien"
+     },
+     {
+      "clueFragment": "idea",
+      "gives": "IDEA",
+      "note": "taken as written, then cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YUL",
+      "ET",
+      "IDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A half-formed notion for a festive movie starring Yul Brynner.",
+     "definitionFit": "Yuletide is an old term for the Christmas season, from the pagan midwinter festival of Yule."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 29,
@@ -472,7 +1786,53 @@
     "text": "Poor result for island province",
     "enumeration": "6"
    },
-   "solution": "ULSTER"
+   "solution": "ULSTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ULSTER",
+    "definitions": [
+     {
+      "text": "island province",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "something poor is in bad shape, so the word is knocked into a different arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "result",
+      "gives": "RESULT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RESULT",
+       "gives": "ULSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disappointing outcome for a region of an island, perhaps in an election.",
+     "definitionFit": "Ulster is one of the four historic provinces of Ireland, an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   }
  ]
 }
