@@ -7,7 +7,10 @@ Times No 1, then the 1974-99 editions archive.org has no scan of (the list
 before it was widened, which Paul was part way through), then 2014-19, then
 2000-13, then the rest of 1930-99, each newest first.
 
-Only tools/gale_docs.py asks Gale anything: each sync looks up the next
+Since 2026-10-11 tools/gale_fetch.py downloads the rows itself, at a hand's
+pace, into the same inbox (Paul: "Mac script, at hand pace").
+
+Only tools/gale_docs.py asks Gale for links: each sync looks up the next
 editions' document ids, so their rows link straight to Gale's Download. This
 writes a checklist of the editions to fetch, and lays
 each page Paul saves into his inbox out as one more Times edition for
@@ -1266,7 +1269,7 @@ def page(*, paper, prod, name, store, done, total, done_word, folder, steps, not
 <h1>{e(title)}</h1>
 <p><progress id="prog" value="{done}" max="{max(total, 1)}"></progress> <b id="count">{done:,} of {total:,}</b> {e(done_word)}, <span id="togo">{total - done:,}</span> to go.
 Updated {datetime.datetime.fromtimestamp(stamp).astimezone():%a %d %b %H:%M}. <span id="age"></span></p>"""]
-    out.append(AGENT_STEPS)
+    out.append(SCRIPTED.get(paper, "") + AGENT_STEPS)
     if notes:
         out.append(f'<details class="notes"><summary>Sorted automatically ({len(notes)} file(s)); nothing to do</summary><ul>')
         out += [f"<li><b>{e(f)}</b>: {e(why)}</li>" for f, why in notes]
@@ -1318,6 +1321,15 @@ come back to this tab. The row now says <b>CLICKED</b>.</li>
 row that says CLICKED or DONE, and never use retry.</li>
 <li>Stop when no row says TO DO, or when Gale shows a password or login page or an error instead of a PDF.</li>
 </ol></section>"""
+
+#: Above the how-to on a paper whose rows a script downloads.
+SCRIPTED = {"Times": """<section class="agent" id="scripted"><h2>A script downloads these now</h2>
+<p><b>tools/gale_fetch.py</b> fetches the wanted rows in this page's order at a hand's pace
+(a jittered 8-22 s apart, at most 15 in 3 minutes, a 30-60 min rest every 400), straight into the Times inbox,
+where the sync files it. The Claude-in-browser that clicked these rows is retired (Paul, 11 Oct 2026): no one
+needs to click. The script stops at Gale's first login page, captcha or non-PDF and tells the room; only then,
+and only once it has been looked at, would anyone follow the steps below.</p></section>"""}
+
 
 def search_for(n):
     """What to type in Gale's search box for Times cryptic No `n`."""
