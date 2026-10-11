@@ -170,42 +170,54 @@ def collapse_spaces(text, italics=()):
     return text_now, [r for r in moved if r["length"] > 0]
 
 
-def _spaces_cut(value):
-    """`value` (an annotation) with a run of plain spaces in each string
-    in it cut to one."""
+def _strings_cut(value, cut):
+    """`value` (an annotation) with `cut` applied to each string in it."""
     if isinstance(value, str):
-        return _space_map(value)[0] if "  " in value else value
+        return cut(value)
     if isinstance(value, dict):
-        return {k: _spaces_cut(v) for k, v in value.items()}
+        return {k: _strings_cut(v, cut) for k, v in value.items()}
     if isinstance(value, list):
-        return [_spaces_cut(v) for v in value]
+        return [_strings_cut(v, cut) for v in value]
     return value
 
 
-def collapse_entry_spaces(entry):
-    """Cut each run of spaces in `entry`'s clue text to one, in place, and
-    move what points into the text with it: italics, and its annotation's
-    definition offsets and hiddenLetter. Whether anything changed."""
+def edit_entry(entry, mapped, cut):
+    """Rewrite `entry`'s clue text as `mapped(text)` gives it ((new text,
+    [new offset of each old offset 0..len(text)])), in place, moving what
+    points into the text with it: italics, and its annotation's definition
+    offsets and hiddenLetter; each string of the annotation goes through
+    `cut` (the phrases it quotes are the clue's words, written as the clue
+    now is: fetch_puzzle.drop_stale_annotations drops an annotation quoting
+    words its clue lacks). Whether anything changed."""
     clue = entry.get("clue") if isinstance(entry.get("clue"), dict) else None
     text = (clue or {}).get("text")
-    if not text or "  " not in text:
+    if not text:
         return False
-    clue["text"], italics = collapse_spaces(text, clue.get("italics"))
+    now, at = mapped(text)
+    if now == text:
+        return False
+
+    def to(i):
+        return at[max(0, min(i, len(text)))]
+    clue["text"] = now
     if "italics" in clue:
-        clue["italics"] = italics
-    _, at = _space_map(text)
+        moved = [{**r, "at": to(r["at"]), "length": to(r["at"] + r["length"]) - to(r["at"])} for r in clue["italics"]]
+        clue["italics"] = [r for r in moved if r["length"] > 0]
     note = entry.get("annotation") if isinstance(entry.get("annotation"), dict) else None
     if note:
-        # The phrases it quotes ("willing  consent") are the clue's words,
-        # spaced as the clue now is (fetch_puzzle.drop_stale_annotations
-        # drops an annotation quoting words its clue lacks).
-        entry["annotation"] = note = _spaces_cut(note)
+        entry["annotation"] = note = _strings_cut(note, cut)
         for d in note.get("definitions") or ():
             if isinstance(d, dict) and isinstance(d.get("at"), int):
-                d["at"] = at[max(0, min(d["at"], len(text)))]
+                d["at"] = to(d["at"])
         if isinstance(note.get("hiddenLetter"), int):
-            note["hiddenLetter"] = at[max(0, min(note["hiddenLetter"], len(text)))]
+            note["hiddenLetter"] = to(note["hiddenLetter"])
     return True
+
+
+def collapse_entry_spaces(entry):
+    """Cut each run of spaces in `entry`'s clue text to one, in place
+    (edit_entry). Whether anything changed."""
+    return edit_entry(entry, _space_map, lambda s: _space_map(s)[0] if "  " in s else s)
 
 
 def clue(printed, **keys):

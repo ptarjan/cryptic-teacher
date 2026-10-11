@@ -240,6 +240,11 @@ tools/quotes.py                               clue text is stored with straight 
                                               curls for the static pages and social cards
 tools/quotes_cases.json                       the one table of curl cases that quotes.js and
                                               tools/quotes.py are both run over
+tools/punctuation.py                          the marks no clue's print breaks ("by.clever",
+                                              "''" for a double quote, ",.", "word , word"):
+                                              faults() for the OCR write gate, the vote and
+                                              edition_commit.strayed; mend() makes the certain
+                                              mends, offsets moved
 tools/test_quotes.js                          a clue stored with straight quotes shows curled
                                               ones, apostrophes and leading elisions included
 tools/test_puzzle_integrity.sh                proves the two LENGTH exception tables match by
@@ -1932,6 +1937,11 @@ tools/test_fold_reprints.sh                   does fold_reprints.rekeyer rename 
                                               both as a whole JSON string and as the lead of
                                               one, and leave a longer number, a mid-string
                                               mention and other ids alone?
+tools/test_punctuation.sh                     does tools/punctuation.py flag only the marks a
+                                              reader made and mend only the certain ones,
+                                              offsets moved, and do the OCR write gate, the
+                                              write path, strayed(), corrects() and the vote
+                                              use it?
 tools/test_ocr_vote_checks.sh                 does the clue vote file each word, count, capital
                                               and hyphen as the readings print them, and settle
                                               a word they all misread on the known word their
@@ -2074,5 +2084,8 @@ tools/collapse_clue_spaces.py                 one-shot migration (2026-10-11): c
                                               spaces in held clue text
 tools/test_block_confirm.js                   a building block that would cost a hint takes two
                                               taps; a free one takes one
+tools/mend_clue_punctuation.py                one-shot migration (2026-10-11): punctuation's
+                                              certain mends in held book clue text, the faults
+                                              left listed
 ```
 <!-- LAYOUT-END -->

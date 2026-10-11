@@ -179,6 +179,7 @@ import groups  # noqa: E402 — linked answers
 import ocr_clues  # noqa: E402
 import parallel  # noqa: E402
 import provenance  # noqa: E402
+import punctuation  # noqa: E402
 import puzzle_paths  # noqa: E402
 import puzzle_schema  # noqa: E402
 import quotes  # noqa: E402
@@ -1303,6 +1304,25 @@ def check_new_spaces(old, new, flags):
                           f"spaces; cut it to one (enumeration.collapse_spaces)")))
 
 
+def check_new_punctuation(old, new, flags):
+    """SHAPE: a clue an OCR channel's write brings that breaks a rule of
+    English punctuation no print breaks (punctuation.faults: "by.clever",
+    "''" for a double quote, ",.", "word , word"). The write path makes the
+    certain mends itself (punctuation.mend_puzzle); what is left is a
+    reader's mark only a re-read mends. A clue the held file already had as
+    it is stays for that re-read (edition_commit.strayed makes it due)."""
+    if (new.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return
+    was = {entry_id(e): (e.get("clue") or {}).get("text") for e in (old or {}).get("entries") or []
+           if isinstance(e.get("clue"), dict)}
+    for e in new.get("entries") or []:
+        text = (e.get("clue") if isinstance(e.get("clue"), dict) else {}).get("text")
+        if text and was.get(entry_id(e)) != text and (found := punctuation.faults(text)):
+            flags.append(("SHAPE", new.get("id"), (f"{entry_id(e)}: clue {text!r} holds "
+                          + "; ".join(f"{why} ({snip!r})" for why, snip in found)
+                          + ": file the reading that prints it right (punctuation.faults)")))
+
+
 def check_duplicated_clues(puzzle, flags):
     """An OCR-read puzzle (provenance.OCR_CHANNELS) holds no clue on two
     lights of one list (fetch_puzzle.duplicated_clues, `one_list`), where it
@@ -1371,6 +1391,7 @@ def refuse_bad_write(puzzle, old=None):
         check_rewrite(old, puzzle, flags)
     check_new_bleed(old, puzzle, flags)
     check_new_spaces(old, puzzle, flags)
+    check_new_punctuation(old, puzzle, flags)
     if flags:
         raise RefusedWrite(f"refusing to write {puzzle['id']}: "
                            + "; ".join(f"{flag} {what}" for flag, _, what in flags), flags)
