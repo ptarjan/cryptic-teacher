@@ -24,6 +24,9 @@
   "date": "2024-09-23",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,61 @@
     "text": "Illness mostly found in horses spreads",
     "enumeration": "10"
    },
-   "solution": "MARMALADES"
+   "solution": "MARMALADES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MARMALADES",
+    "definitions": [
+     {
+      "text": "spreads",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all of the word, so its final letter is dropped"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in another thing sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horses",
+      "gives": "MARES",
+      "note": "mares are female horses"
+     },
+     {
+      "clueFragment": "Illness",
+      "gives": "MALADY",
+      "note": "a malady is an illness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "MALAD",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A vet notes that a sickness is turning up among the horses and spreading.",
+     "walkthrough": "'Spreads' reads as a verb about the illness; it is the plural noun for things put on bread.",
+     "definitionFit": "Marmalades are citrus preserves that people spread on toast, so they are spreads in the food sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spreads"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +108,71 @@
     "text": "Type of post Irishman Brian unwrapped then erected",
     "enumeration": "7"
    },
-   "solution": "AIRMAIL"
+   "solution": "AIRMAIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "AIRMAIL",
+    "definitions": [
+     {
+      "text": "Type of post",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unwrapped",
+      "for": "letter_selection",
+      "note": "unwrapping strips off the outer covering, so the first and last letters of the name go"
+     },
+     {
+      "text": "erected",
+      "for": "reversal",
+      "note": "in a down entry, putting something upright means it reads from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irishman",
+      "gives": "LIAM",
+      "note": "Liam is a common Irish first name"
+     },
+     {
+      "clueFragment": "Brian",
+      "gives": "RIA",
+      "select": "middle",
+      "note": "Brian without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "MAIL"
+     ],
+     "reversals": [
+      {
+       "from": "LIAMRIA",
+       "to": "AIRMAIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Irishman named Brian unwraps a parcel and stands it up, puzzling over its postage.",
+     "walkthrough": "LIAM plus RIA gives LIAMRIA, which read upwards in the down light becomes the answer. 'Irishman Brian' looks like one man; it is two separate pieces.",
+     "definitionFit": "Airmail is mail sent by aircraft, one class or kind of postal service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Irishman"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +186,45 @@
     "text": "Small child's pronounced strength",
     "enumeration": "5"
    },
-   "solution": "MIGHT"
+   "solution": "MIGHT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MIGHT",
+    "definitions": [
+     {
+      "text": "strength",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pronounced",
+      "for": "homophone",
+      "note": "pronounced means spoken out, so the word is wanted by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small child's",
+      "gives": "MIGHT",
+      "soundsLike": "MITE",
+      "note": "a mite is a small child; the 's is just 'is'"
+     }
+    ],
+    "explanation": {
+     "surface": "A tiny child's strength is said to be remarkable.",
+     "walkthrough": "'Small child's' reads as possessive; it is 'small child is', joining wordplay to definition.",
+     "definitionFit": "Might is power or force, a direct synonym for strength."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pronounced"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +238,62 @@
     "text": "Coffee line adopted by railway recently",
     "enumeration": "8"
    },
-   "solution": "LATTERLY"
+   "solution": "LATTERLY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LATTERLY",
+    "definitions": [
+     {
+      "text": "recently",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopted by",
+      "for": "container",
+      "note": "a thing adopted by another is taken in by it, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coffee",
+      "gives": "LATTE",
+      "note": "a latte is a milky coffee"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is the standard abbreviation for railway"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATTE",
+      "R",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A railway has lately started serving coffee to the queue of passengers.",
+     "walkthrough": "The line letter goes inside the railway abbreviation, not inside the coffee.",
+     "definitionFit": "Latterly is an adverb meaning in the recent past, matching recently in sense and part of speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +321,76 @@
      }
     ]
    },
-   "solution": "DONTBEASTRANGER"
+   "solution": "DONTBEASTRANGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DON'T BE A STRANGER",
+    "definitions": [
+     {
+      "text": "keep in touch",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one part behind the run of parts before it in the answer"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "DON",
+      "note": "a don is a fellow of a university college"
+     },
+     {
+      "clueFragment": "track",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of track"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "BEAST",
+      "note": "a beast is an animal"
+     },
+     {
+      "clueFragment": "park officer",
+      "gives": "RANGER",
+      "note": "a park ranger looks after a park"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DON",
+      "T",
+      "BEAST",
+      "RANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A fellow and a park ranger go off to track an animal, promising to stay in contact.",
+     "walkthrough": "The clue names the park officer first, but 'after' sends that piece to the very end of the phrase.",
+     "definitionFit": "Don't be a stranger is a friendly parting phrase urging someone to stay in contact, the same plea as keep in touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fellow"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +404,57 @@
     "text": "Not married, appearing to be discerning",
     "enumeration": "6"
    },
-   "solution": "SEEING"
+   "solution": "SEEING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SEEING",
+    "definitions": [
+     {
+      "text": "discerning",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not",
+      "for": "deletion",
+      "note": "not marks that the following abbreviation is removed from the word"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "appearing",
+      "gives": "SEEMING",
+      "note": "seeming means appearing, as in seeming to be"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A single person seems to be choosy about partners.",
+     "walkthrough": "SEEMING loses its M to leave the answer.",
+     "definitionFit": "Seeing can mean perceptive or understanding, as in a seeing eye, so it fits discerning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "married"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +468,45 @@
     "text": "Found singer in audition",
     "enumeration": "4"
    },
-   "solution": "BASE"
+   "solution": "BASE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BASE",
+    "definitions": [
+     {
+      "text": "Found",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in audition",
+      "for": "homophone",
+      "note": "an audition is a hearing, so the word is taken by how it sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer",
+      "gives": "BASE",
+      "soundsLike": "BASS",
+      "note": "a bass is a low male singer"
+     }
+    ],
+    "explanation": {
+     "surface": "A talent scout discovers a singer while hearing hopefuls try out.",
+     "walkthrough": "'Found' looks like the past tense of find; here it is the verb to found, establish.",
+     "definitionFit": "To base something is to found or ground it on something, as in a story based on fact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Found"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +520,67 @@
     "text": "Learner taken in by deceptive person in attempts to win games",
     "enumeration": "9"
    },
-   "solution": "BILLIARDS"
+   "solution": "BILLIARDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BILLIARDS",
+    "definitions": [
+     {
+      "text": "games",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "taken in by means received inside, so one piece sits within the other"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the combined piece inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attempts to win",
+      "gives": "BIDS",
+      "note": "bids are attempts to win, as at an auction"
+     },
+     {
+      "clueFragment": "deceptive person",
+      "gives": "LIAR",
+      "note": "a liar deceives"
+     },
+     {
+      "clueFragment": "Learner",
+      "gives": "L",
+      "note": "L is the learner plate abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "L",
+      "L",
+      "IAR",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "A novice is fooled by a cheat while trying to win some games.",
+     "walkthrough": "The learner's letter is inserted just after the first letter of the deceiver, and that whole piece then splits the attempts after their second letter.",
+     "definitionFit": "Billiards is a cue sport; the plural noun names the game, matching games as a class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Learner"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +594,54 @@
     "text": "Mixed slammer with wine",
     "enumeration": "7"
    },
-   "solution": "STIRRED"
+   "solution": "STIRRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STIRRED",
+    "definitions": [
+     {
+      "text": "Mixed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with sets the second part alongside the first, one after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slammer",
+      "gives": "STIR",
+      "note": "stir is slang for prison, as is slammer"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "red is red wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STIR",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cocktail of jail time and drink.",
+     "walkthrough": "'Mixed' looks like an anagram signal; it is the definition.",
+     "definitionFit": "To stir something is to mix it with a spoon, so stirred is a past-tense synonym of mixed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mixed"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +655,53 @@
     "text": "Show off dress twirling round",
     "enumeration": "4"
    },
-   "solution": "BRAG"
+   "solution": "BRAG",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "BRAG",
+    "definitions": [
+     {
+      "text": "Show off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twirling round",
+      "for": "reversal",
+      "note": "twirling round turns the word to face the other way, so it reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dress",
+      "gives": "GARB",
+      "note": "garb is clothing, dress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAG"
+     ],
+     "reversals": [
+      {
+       "from": "GARB",
+       "to": "BRAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows off a new frock by spinning around in it.",
+     "definitionFit": "To brag is to boast, which is to show off verbally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dress"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +715,72 @@
     "text": "Crumpled old tenner secures one cut of meat",
     "enumeration": "10"
    },
-   "solution": "TENDERLOIN"
+   "solution": "TENDERLOIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TENDERLOIN",
+    "definitions": [
+     {
+      "text": "cut of meat",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Crumpled",
+      "for": "anagram",
+      "note": "something crumpled is crushed out of shape, so the letters are jumbled"
+     },
+     {
+      "text": "secures",
+      "for": "container",
+      "note": "to secure is to hold fast inside, so the jumble wraps around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "OLD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tenner",
+      "gives": "TENNER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENDERLO",
+      "I",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLDTENNER",
+       "gives": "TENDERLON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A creased old ten-pound note is used to buy a single piece of meat.",
+     "walkthrough": "A tenner is a British ten-pound note. The Roman numeral for one lands near the end of the jumbled letters.",
+     "definitionFit": "Tenderloin is the tender muscle along a loin, a particular butcher's cut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Crumpled"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +794,58 @@
     "text": "Guy consuming books for role",
     "enumeration": "6"
    },
-   "solution": "MANTLE"
+   "solution": "MANTLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MANTLE",
+    "definitions": [
+     {
+      "text": "role",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "consuming means swallowing up, so one word takes the other inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guy",
+      "gives": "MALE",
+      "note": "a guy is a male"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "NT",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man devours books in preparation for playing a part.",
+     "walkthrough": "'Books' in crosswords often means one of the two Testaments of the Bible.",
+     "definitionFit": "A mantle is a responsibility or position passed on, as in taking up the mantle, which is a role."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Guy"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +859,72 @@
     "text": "Detective shot following arrest to overturn organised crime",
     "enumeration": "8"
    },
-   "solution": "BANDITRY"
+   "solution": "BANDITRY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BANDITRY",
+    "definitions": [
+     {
+      "text": "organised crime",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to overturn",
+      "for": "reversal",
+      "note": "overturning flips the word over, so it reads backwards"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places one part behind another in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrest",
+      "gives": "NAB",
+      "note": "to nab is to arrest"
+     },
+     {
+      "clueFragment": "Detective",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "TRY",
+      "note": "a shot is an attempt, a try"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "DI",
+      "TRY"
+     ],
+     "reversals": [
+      {
+       "from": "NAB",
+       "to": "BAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective takes a shot at overturning a gangland conviction.",
+     "walkthrough": "NAB read backwards gives BAN, which comes first, followed by DI and TRY.",
+     "definitionFit": "Banditry is robbery by organised gangs of bandits, hence organised crime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +938,68 @@
     "text": "Occupy gathering group with a craft collection",
     "enumeration": "8"
    },
-   "solution": "FLOTILLA"
+   "solution": "FLOTILLA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FLOTILLA",
+    "definitions": [
+     {
+      "text": "craft collection",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "gathering means collecting in, so one word encloses the other"
+     },
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with adds the next piece alongside, at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Occupy",
+      "gives": "FILL",
+      "note": "to fill a space is to occupy it"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "LOT",
+      "note": "a lot is a group or batch"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOT",
+      "ILL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Protesters occupy a building, gathering a group to make things at a craft fair.",
+     "walkthrough": "'Craft' suggests handicrafts; here it means boats.",
+     "definitionFit": "A flotilla is a small fleet of boats, and craft is a word for vessels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1013,56 @@
     "text": "Taxes kept being changed — OMG, WTF?!",
     "enumeration": "9"
    },
-   "solution": "TEXTSPEAK"
+   "solution": "TEXTSPEAK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEXTSPEAK",
+    "definitions": [
+     {
+      "text": "OMG, WTF?!",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being changed",
+      "for": "anagram",
+      "note": "being changed means altered into another form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taxes",
+      "gives": "TAXES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "kept",
+      "gives": "KEPT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TAXESKEPT",
+       "gives": "TEXTSPEAK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An outraged reaction to news that taxes keep being altered.",
+     "definitionFit": "OMG and WTF are abbreviations typical of text messaging shorthand, so they are examples of that style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Taxes"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1076,55 @@
     "text": "Sit on free pew away from outsiders",
     "enumeration": "4"
    },
-   "solution": "RIDE"
+   "solution": "RIDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RIDE",
+    "definitions": [
+     {
+      "text": "Sit on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away from outsiders",
+      "for": "letter_selection",
+      "note": "keeping away from the outsiders strips the outer letters and leaves the centre"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to rid is to free"
+     },
+     {
+      "clueFragment": "pew",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of pew"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RID",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a free seat on a church pew, away from the crowd.",
+     "definitionFit": "To ride a horse or bike is to sit on it and be carried along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1138,49 @@
     "text": "Crushed, Edward is forbidden from socialising",
     "enumeration": "8"
    },
-   "solution": "GROUNDED"
+   "solution": "GROUNDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GROUNDED",
+    "definitions": [
+     {
+      "text": "forbidden from socialising",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crushed",
+      "gives": "GROUND",
+      "note": "ground is crushed, as with coffee"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "ED",
+      "note": "Ed is short for Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GROUND",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Poor Edward is crushed at being kept in by his parents.",
+     "definitionFit": "A grounded child is punished by being kept at home, not allowed out to see friends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Crushed"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1194,58 @@
     "text": "Regularly picked Apple social media site as top",
     "enumeration": "4"
    },
-   "solution": "APEX"
+   "solution": "APEX",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "APEX",
+    "definitions": [
+     {
+      "text": "top",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly picked",
+      "for": "letter_selection",
+      "note": "picking at regular intervals takes every other letter"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apple",
+      "gives": "APE",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     },
+     {
+      "clueFragment": "social media site",
+      "gives": "X",
+      "note": "X is the platform formerly called Twitter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APE",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "Apple and a social network both claim to be at the peak of the tech world.",
+     "definitionFit": "The apex is the highest point or summit of something, synonymous with top."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Apple"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1259,56 @@
     "text": "Irreverent teacher contracted again",
     "enumeration": "7"
    },
-   "solution": "PROFANE"
+   "solution": "PROFANE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PROFANE",
+    "definitions": [
+     {
+      "text": "Irreverent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contracted",
+      "for": "deletion",
+      "note": "contracted means shortened, so the last letter is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teacher",
+      "gives": "PROF",
+      "note": "prof is short for professor"
+     },
+     {
+      "clueFragment": "again",
+      "gives": "ANEW",
+      "note": "anew means again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROF",
+      "ANE"
+     ]
+    },
+    "explanation": {
+     "surface": "A disrespectful teacher has been hired once more.",
+     "walkthrough": "ANEW drops its last letter.",
+     "definitionFit": "Profane describes language or acts that show disrespect for sacred things, so it means irreverent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "contracted"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1322,55 @@
     "text": "Performing trio seem boring",
     "enumeration": "8"
    },
-   "solution": "TIRESOME"
+   "solution": "TIRESOME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIRESOME",
+    "definitions": [
+     {
+      "text": "boring",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Performing",
+      "for": "anagram",
+      "note": "performers act things out in a new arrangement, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trio",
+      "gives": "TRIO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seem",
+      "gives": "SEEM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIOSEEM",
+       "gives": "TIRESOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic finds a band of three dull on stage.",
+     "definitionFit": "Tiresome means tedious and wearying, a close synonym of boring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Performing"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1384,61 @@
     "text": "This writer's beginning to refine aluminium ore",
     "enumeration": "7"
    },
-   "solution": "MINERAL"
+   "solution": "MINERAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MINERAL",
+    "definitions": [
+     {
+      "text": "ore",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, which alone is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This writer's",
+      "gives": "MINE",
+      "note": "this writer is the setter, so what is the writer's is mine"
+     },
+     {
+      "clueFragment": "refine",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of refine"
+     },
+     {
+      "clueFragment": "aluminium",
+      "gives": "AL",
+      "note": "Al is the chemical symbol for aluminium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINE",
+      "R",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter claims to have begun refining aluminium from rock.",
+     "definitionFit": "An ore is a naturally occurring mineral from which metal is extracted, so the two are close in sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "refine"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1452,63 @@
     "text": "Trainees dance at the wings in musical show",
     "enumeration": "6"
    },
-   "solution": "CADETS"
+   "solution": "CADETS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CADETS",
+    "definitions": [
+     {
+      "text": "Trainees",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the wings",
+      "for": "letter_selection",
+      "note": "the wings are the edges, so only the outermost letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the selected letters inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical show",
+      "gives": "CATS",
+      "note": "Cats is the Andrew Lloyd Webber musical"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "DE",
+      "select": "outer",
+      "note": "first and last letters of dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "DE",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Novice performers dance in the wings during a musical.",
+     "walkthrough": "'Wings' suggests the sides of a stage, fitting the scene, but here it means the edges of the word dance.",
+     "definitionFit": "Cadets are young people training for the armed forces or police, so they are trainees."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wings"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1522,62 @@
     "text": "Land snake constricts tense bird",
     "enumeration": "8"
    },
-   "solution": "BOTSWANA"
+   "solution": "BOTSWANA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BOTSWANA",
+    "definitions": [
+     {
+      "text": "Land",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "constricts",
+      "for": "container",
+      "note": "constricting means squeezing round something, as a constrictor does, so one word wraps the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snake",
+      "gives": "BOA",
+      "note": "a boa is a constricting snake"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "SWAN",
+      "note": "a swan is a bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "T",
+      "SWAN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A snake on land squeezes a nervous bird.",
+     "walkthrough": "'Tense' looks like an adjective for the bird; it is an abbreviation. T and SWAN go inside BOA.",
+     "definitionFit": "Botswana is a country in southern Africa, and land is a common word for a nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1591,44 @@
     "text": "Dire amateur gently boxes",
     "enumeration": "6"
    },
-   "solution": "URGENT"
+   "solution": "URGENT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "URGENT",
+    "definitions": [
+     {
+      "text": "Dire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxes",
+      "for": "hidden_word",
+      "note": "a pair of words that boxes something encloses it, so the answer sits within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amateur gently",
+      "gives": "URGENT",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A hopeless novice spars softly in the ring.",
+     "walkthrough": "'Boxes' paints a boxing match; it means the two words enclose the answer.",
+     "definitionFit": "Dire can mean pressing or desperate, as in dire need, which is urgent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boxes"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1642,54 @@
     "text": "New information intercepted by soldiers",
     "enumeration": "5"
    },
-   "solution": "GREEN"
+   "solution": "GREEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GREEN",
+    "definitions": [
+     {
+      "text": "New",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intercepted by",
+      "for": "container",
+      "note": "something intercepted is cut into midway, so the other piece breaks into it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is slang for information"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RE",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Fresh intelligence is seized by troops before it arrives.",
+     "definitionFit": "Green describes someone inexperienced or newly started, as a green recruit is new to the job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1703,63 @@
     "text": "Got trousers on the Parisian wearing just pants?",
     "enumeration": "10"
    },
-   "solution": "BARELEGGED"
+   "solution": "BARELEGGED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BARELEGGED",
+    "definitions": [
+     {
+      "text": "wearing just pants?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trousers",
+      "for": "container",
+      "note": "used as a verb, to trouser is to pocket, so one word takes the others inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Got",
+      "gives": "BAGGED",
+      "note": "to bag is to get or seize"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about"
+     },
+     {
+      "clueFragment": "the Parisian",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "RE",
+      "LE",
+      "GGED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a man got his trousers on, or is he in just his underwear.",
+     "walkthrough": "'Trousers' looks like clothing in the picture; it is a verb meaning pockets. The question mark flags a playful definition.",
+     "definitionFit": "Someone in only underpants has bare legs, which is what the adjective describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1773,58 @@
     "text": "Deserve attention with first from Newcastle",
     "enumeration": "4"
    },
-   "solution": "EARN"
+   "solution": "EARN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EARN",
+    "definitions": [
+     {
+      "text": "Deserve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first from",
+      "for": "letter_selection",
+      "note": "first from takes only the opening letter of the place"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attention",
+      "gives": "EAR",
+      "note": "to have someone's ear is to have their attention"
+     },
+     {
+      "clueFragment": "Newcastle",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter of Newcastle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A football club wants its fair share of notice.",
+     "definitionFit": "To earn something is to deserve it through effort, as in earn respect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Newcastle"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1838,42 @@
     "text": "Adorn part of skateboard",
     "enumeration": "4"
    },
-   "solution": "DECK"
+   "solution": "DECK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DECK",
+    "definitions": [
+     {
+      "text": "Adorn",
+      "at": 0
+     },
+     {
+      "text": "part of skateboard",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adorn",
+      "note": "first meaning: to decorate"
+     },
+     {
+      "clueFragment": "part of skateboard",
+      "note": "second meaning: the flat board a skater stands on"
+     }
+    ],
+    "explanation": {
+     "surface": "A skater decorates the board.",
+     "definitionFit": "The word is both a verb for decorating and the noun for the standing surface of a skateboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Adorn"
+    }
+   }
   },
   {
    "number": 28,
@@ -443,7 +1887,55 @@
     "text": "Shrewd holding spear in domineering manner",
     "enumeration": "10"
    },
-   "solution": "STRIDENTLY"
+   "solution": "STRIDENTLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STRIDENTLY",
+    "definitions": [
+     {
+      "text": "in domineering manner",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means keeping something within, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shrewd",
+      "gives": "SLY",
+      "note": "sly means cunning, shrewd"
+     },
+     {
+      "clueFragment": "spear",
+      "gives": "TRIDENT",
+      "note": "a trident is a three-pronged spear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRIDENT",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A crafty warrior grips a spear and lords it over others.",
+     "walkthrough": "A trident is the three-pronged spear carried by Neptune.",
+     "definitionFit": "Stridently means in a loud, harsh and forceful way, the overbearing tone of someone who dominates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shrewd"
+    }
+   }
   }
  ]
 }
