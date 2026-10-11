@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,46 @@
     "text": "Rent is raised, we hear",
     "enumeration": "4"
    },
-   "solution": "HIRE"
+   "solution": "HIRE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HIRE",
+    "definitions": [
+     {
+      "text": "Rent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is speech, so the word for raised is taken by its sound rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raised",
+      "gives": "HIRE",
+      "soundsLike": "HIGHER",
+      "note": "something raised is put higher"
+     }
+    ],
+    "explanation": {
+     "surface": "A tenant grumbles that the rent has gone up again.",
+     "definitionFit": "To hire something is to pay for its temporary use, the same as renting it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +88,49 @@
     "text": "Raised in Basilicata, Roman Italian lover",
     "enumeration": "9"
    },
-   "solution": "INAMORATA"
+   "solution": "INAMORATA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "INAMORATA",
+    "definitions": [
+     {
+      "text": "lover",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Raised",
+      "for": "reversal",
+      "note": "in a down clue, raising letters means reading them from the bottom upwards"
+     },
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of words that follows, spanning their boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Basilicata, Roman Italian",
+      "gives": "ATAROMANI",
+      "note": "the letters straddling the end of Basilicata, all of Roman and the first letter of Italian"
+     }
+    ],
+    "explanation": {
+     "surface": "An Italian sweetheart grew up in Basilicata, a region of southern Italy.",
+     "walkthrough": "Italian lover reads as one phrase for the definition, but Italian is needed for its I; the definition is just lover.",
+     "definitionFit": "Inamorata is the Italian-derived word for a woman who is someone's beloved or mistress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Raised"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +144,64 @@
     "text": "Satisfies sweetheart getting elevated respect",
     "enumeration": "6"
    },
-   "solution": "ESTEEM"
+   "solution": "ESTEEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ESTEEM",
+    "definitions": [
+     {
+      "text": "respect",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "elevated",
+      "for": "reversal",
+      "note": "in a down clue, lifting the letters up means they read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Satisfies",
+      "gives": "MEETS",
+      "note": "to meet a demand is to satisfy it"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "note": "the heart of sweet, its middle letter, a stock crossword device"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STEEM"
+     ],
+     "reversals": [
+      {
+       "from": "MEETSE",
+       "to": "ESTEEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lover is so pleased with their partner that they hold them in high regard.",
+     "walkthrough": "Sweetheart looks like a word for a lover, but it is read as the heart of sweet.",
+     "definitionFit": "Esteem and respect are synonyms for the high regard felt for someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +215,61 @@
     "text": "Extensive hamper contains nearly everything",
     "enumeration": "9"
    },
-   "solution": "PREVALENT"
+   "solution": "PREVALENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PREVALENT",
+    "definitions": [
+     {
+      "text": "Extensive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly the whole word means its last letter is dropped"
+     },
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "one word holds the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hamper",
+      "gives": "PREVENT",
+      "note": "to hamper is to hinder or prevent"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PREV",
+      "AL",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A huge picnic basket holds almost everything you might want.",
+     "walkthrough": "Hamper suggests a wicker basket, but here it is the verb meaning hinder.",
+     "definitionFit": "Something prevalent is widespread, found over a wide area, so extensive in its reach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hamper"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +283,49 @@
     "text": "Power cut generates surprised expression",
     "enumeration": "4"
    },
-   "solution": "PHEW"
+   "solution": "PHEW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PHEW",
+    "definitions": [
+     {
+      "text": "surprised expression",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "generates"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Power",
+      "gives": "P",
+      "note": "P is the standard abbreviation for power"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "HEW",
+      "note": "to hew is to cut with an axe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HEW"
+     ]
+    },
+    "explanation": {
+     "surface": "A blackout makes people gasp in shock.",
+     "definitionFit": "Phew is an exclamation of relief, astonishment or exhaustion, so a word said when surprised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +339,52 @@
     "text": "Surprisingly taut, she's in buff!",
     "enumeration": "10"
    },
-   "solution": "ENTHUSIAST"
+   "solution": "ENTHUSIAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENTHUSIAST",
+    "definitions": [
+     {
+      "text": "buff",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Surprisingly",
+      "for": "anagram",
+      "note": "a surprising outcome is an unexpected one, so the letters come out in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taut, she's in",
+      "gives": "TAUTSHESIN",
+      "note": "the letters to be rearranged, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TAUTSHESIN",
+       "gives": "ENTHUSIAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A toned woman turns out, to everyone's surprise, to be naked.",
+     "walkthrough": "In buff suggests nakedness; here buff is a noun meaning a keen fan.",
+     "definitionFit": "A buff is a devotee of a hobby, as in film buff, which is what an enthusiast is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "buff"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +398,62 @@
     "text": "Defendant admitting murder finally condemned",
     "enumeration": "8"
    },
-   "solution": "ACCURSED"
+   "solution": "ACCURSED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ACCURSED",
+    "definitions": [
+     {
+      "text": "condemned",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word before it"
+     },
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting someone means letting them in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Defendant",
+      "gives": "ACCUSED",
+      "note": "the accused is the defendant in a trial"
+     },
+     {
+      "clueFragment": "murder",
+      "gives": "R",
+      "select": "last",
+      "note": "the closing letter of murder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACCU",
+      "R",
+      "SED"
+     ]
+    },
+    "explanation": {
+     "surface": "A defendant who confesses to murder is condemned at the end of the trial.",
+     "walkthrough": "The R goes between the U and S of ACCUSED.",
+     "definitionFit": "Accursed means under a curse, damned, so condemned in the religious sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "condemned"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +467,42 @@
     "text": "Looking at some money in gamble",
     "enumeration": "5"
    },
-   "solution": "EYING"
+   "solution": "EYING",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EYING",
+    "definitions": [
+     {
+      "text": "Looking at",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some of the following words means only a portion of their letters is used, running on unbroken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money in gamble",
+      "gives": "EYING",
+      "note": "the run across the end of money, all of in and the start of gamble"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is weighing up how much cash to stake on a bet.",
+     "definitionFit": "Eying is the alternative spelling of eyeing, watching closely, which is looking at something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +516,56 @@
     "text": "Join up to be orchestra member",
     "enumeration": "4"
    },
-   "solution": "TUBA"
+   "solution": "TUBA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TUBA",
+    "definitions": [
+     {
+      "text": "orchestra member",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the letters are read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Join",
+      "gives": "ABUT",
+      "note": "to abut is to adjoin, sit up against"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUBA"
+     ],
+     "reversals": [
+      {
+       "from": "ABUT",
+       "to": "TUBA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician signs up to become part of an orchestra.",
+     "definitionFit": "The tuba is the large brass instrument that sits at the bottom of the orchestra's range."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Join"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +579,55 @@
     "text": "One represents good person in difficulty?",
     "enumeration": "9"
    },
-   "solution": "BARRISTER"
+   "solution": "BARRISTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BARRISTER",
+    "definitions": [
+     {
+      "text": "One represents",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the other, as a person sits in a situation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "difficulty",
+      "gives": "BARRIER",
+      "note": "a barrier is an obstacle or difficulty"
+     },
+     {
+      "clueFragment": "good person",
+      "gives": "ST",
+      "note": "ST, saint, is the crossword's stock good person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARRI",
+      "ST",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stands up for a decent person who has got into trouble.",
+     "walkthrough": "The question mark flags that the definition is a description, not a synonym: a barrister is one kind of person who represents others.",
+     "definitionFit": "A barrister is a lawyer who argues cases in court on behalf of clients, so one who represents them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +641,62 @@
     "text": "Flat fitting taking on craft workers",
     "enumeration": "9"
    },
-   "solution": "APARTMENT"
+   "solution": "APARTMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "APARTMENT",
+    "definitions": [
+     {
+      "text": "Flat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking on",
+      "for": "container",
+      "note": "taking something on means accepting it within, so the other letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fitting",
+      "gives": "APT",
+      "note": "apt means fitting or suitable"
+     },
+     {
+      "clueFragment": "craft",
+      "gives": "ART",
+      "note": "a craft is a skill or art"
+     },
+     {
+      "clueFragment": "workers",
+      "gives": "MEN",
+      "note": "men as in workmen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "ART",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Fitting out a flat means bringing in skilled tradespeople.",
+     "walkthrough": "Fitting looks like part of fitting out a flat, but it is the adjective meaning suitable.",
+     "definitionFit": "Apartment is the American and formal word for a flat, a set of rooms on one floor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fitting"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +710,49 @@
     "text": "Uphill struggle of Conservative member",
     "enumeration": "5"
    },
-   "solution": "CLIMB"
+   "solution": "CLIMB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLIMB",
+    "definitions": [
+     {
+      "text": "Uphill struggle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "LIMB",
+      "note": "a limb is a member of the body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIMB"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory MP faces a hard political fight.",
+     "definitionFit": "A climb is literally a hard ascent, which is what an uphill struggle is, read at face value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +766,46 @@
     "text": "Routes reportedly leading to island",
     "enumeration": "6"
    },
-   "solution": "RHODES"
+   "solution": "RHODES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RHODES",
+    "definitions": [
+     {
+      "text": "island",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "a report is something spoken, so the word is matched by sound"
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Routes",
+      "gives": "RHODES",
+      "soundsLike": "ROADS",
+      "note": "routes are roads"
+     }
+    ],
+    "explanation": {
+     "surface": "Directions to a holiday island.",
+     "definitionFit": "Rhodes is a large Greek island in the Aegean, near the Turkish coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Routes"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +819,55 @@
     "text": "Republican in power breakdown shock",
     "enumeration": "7"
    },
-   "solution": "OUTRAGE"
+   "solution": "OUTRAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OUTRAGE",
+    "definitions": [
+     {
+      "text": "shock",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one letter is placed inside the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power breakdown",
+      "gives": "OUTAGE",
+      "note": "an outage is a cut in the electricity supply"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "R",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican official provokes a stir by causing a blackout.",
+     "walkthrough": "R goes after the T of OUTAGE.",
+     "definitionFit": "Outrage is strong shocked indignation, so shock works as a noun synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breakdown"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +881,53 @@
     "text": "Pledge from all to clear off",
     "enumeration": "10"
    },
-   "solution": "COLLATERAL"
+   "solution": "COLLATERAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COLLATERAL",
+    "definitions": [
+     {
+      "text": "Pledge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means wrong or gone bad, so these letters are out of their proper order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all to clear",
+      "gives": "ALLTOCLEAR",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALLTOCLEAR",
+       "gives": "COLLATERAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A promise to everyone that they can go home.",
+     "definitionFit": "Collateral is security put up against a loan, something pledged as a guarantee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +941,58 @@
     "text": "Prophet taking pilgrimage is appropriate",
     "enumeration": "9"
    },
-   "solution": "SEQUESTER"
+   "solution": "SEQUESTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEQUESTER",
+    "definitions": [
+     {
+      "text": "appropriate",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in means it ends up held inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prophet",
+      "gives": "SEER",
+      "note": "a seer foresees the future"
+     },
+     {
+      "clueFragment": "pilgrimage",
+      "gives": "QUEST",
+      "note": "a pilgrimage is a quest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "QUEST",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man deems it right to go on a pilgrimage.",
+     "walkthrough": "Appropriate looks like the adjective suitable, but it is the verb meaning to seize.",
+     "definitionFit": "To sequester property is to confiscate it, taking it for oneself, which is to appropriate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appropriate"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +1006,49 @@
     "text": "Someone called, alternatively, blackleg initially",
     "enumeration": "4"
    },
-   "solution": "SCAB"
+   "solution": "SCAB",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SCAB",
+    "definitions": [
+     {
+      "text": "blackleg",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the words it governs"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone called, alternatively, blackleg",
+      "gives": "SCAB",
+      "select": "first",
+      "note": "the opening letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAB"
+     ]
+    },
+    "explanation": {
+     "surface": "A strike-breaker goes by another name.",
+     "walkthrough": "Blackleg is both the definition and the source of the final B. A blackleg is British slang for a worker who crosses a picket line.",
+     "definitionFit": "Scab and blackleg are both contemptuous names for someone who works during a strike."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alternatively"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1062,51 @@
     "text": "Shout out after voice breaks",
     "enumeration": "10"
    },
-   "solution": "VOCIFERATE"
+   "solution": "VOCIFERATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VOCIFERATE",
+    "definitions": [
+     {
+      "text": "Shout out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks",
+      "for": "anagram",
+      "note": "something that breaks falls to pieces, and the pieces are reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after voice",
+      "gives": "AFTERVOICE",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AFTERVOICE",
+       "gives": "VOCIFERATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy yells once his voice has broken.",
+     "walkthrough": "After reads as a time word, but it is part of the letters to rearrange.",
+     "definitionFit": "To vociferate is to shout loudly and insistently, to cry out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1120,53 @@
     "text": "Cheat list prepared for games",
     "enumeration": "9"
    },
-   "solution": "ATHLETICS"
+   "solution": "ATHLETICS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ATHLETICS",
+    "definitions": [
+     {
+      "text": "games",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been worked into a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheat list",
+      "gives": "CHEATLIST",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHEATLIST",
+       "gives": "ATHLETICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of dopers is drawn up ahead of a sporting event.",
+     "definitionFit": "Games is the British school word for sport, and athletics are track and field sports."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 19,
@@ -298,7 +1180,46 @@
     "text": "Sparkling silver rubbish",
     "enumeration": "8"
    },
-   "solution": "AGLITTER"
+   "solution": "AGLITTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGLITTER",
+    "definitions": [
+     {
+      "text": "Sparkling",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "AG is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "LITTER",
+      "note": "litter is rubbish left lying about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "LITTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Shiny silver turns out to be worthless.",
+     "definitionFit": "Aglitter means glittering, shining with bright flashes of light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rubbish"
+    }
+   }
   },
   {
    "number": 20,
@@ -312,7 +1233,39 @@
     "text": "One adopting missionary position?",
     "enumeration": "10"
    },
-   "solution": "EVANGELIST"
+   "solution": "EVANGELIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EVANGELIST",
+    "definitions": [
+     {
+      "text": "One adopting missionary position?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One adopting missionary position?",
+      "note": "surface reading: a sexual position"
+     },
+     {
+      "clueFragment": "missionary position",
+      "note": "setter's reading: someone taking up the post of missionary, spreading the gospel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase missionary position is a cheeky pointer to sex; taken literally it is a job preaching the faith.",
+     "definitionFit": "An evangelist is a preacher who travels to spread the Christian gospel, as a missionary does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "position"
+    }
+   }
   },
   {
    "number": 21,
@@ -326,7 +1279,52 @@
     "text": "It's grand even being half cut!",
     "enumeration": "4"
    },
-   "solution": "THOU"
+   "solution": "THOU",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THOU",
+    "definitions": [
+     {
+      "text": "It's grand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half cut",
+      "for": "deletion",
+      "note": "half cut means half the word is chopped off, keeping only one half"
+     }
+    ],
+    "linkWords": [
+     "even being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grand",
+      "gives": "THOUSAND",
+      "note": "a grand is a thousand pounds or dollars"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOU"
+     ]
+    },
+    "explanation": {
+     "surface": "Something is still great even when you are drunk.",
+     "walkthrough": "Half cut is British slang for tipsy. The answer is still a grand even when the word for it loses its second half, since THOU is slang for a thousand too.",
+     "definitionFit": "Thou is informal shorthand for a thousand, the same sum as a grand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 22,
@@ -340,7 +1338,50 @@
     "text": "Song and dance display",
     "enumeration": "6"
    },
-   "solution": "BALLAD"
+   "solution": "BALLAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BALLAD",
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "BALL",
+      "note": "a ball is a formal dance"
+     },
+     {
+      "clueFragment": "display",
+      "gives": "AD",
+      "note": "an ad, advertisement, is a public display"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALL",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A performance combining singing and dancing.",
+     "walkthrough": "Song and dance looks like one stock phrase; it splits after Song.",
+     "definitionFit": "A ballad is a song, often narrative or slow and sentimental."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 23,
@@ -354,7 +1395,65 @@
     "text": "Ace detective in charge for branch",
     "enumeration": "7"
    },
-   "solution": "RADIATE"
+   "solution": "RADIATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RADIATE",
+    "definitions": [
+     {
+      "text": "branch",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first pieces are set inside the word that follows"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge",
+      "gives": "RATE",
+      "note": "a rate is a charge or price"
+     },
+     {
+      "clueFragment": "Ace",
+      "gives": "A",
+      "note": "A for ace, as on playing cards"
+     },
+     {
+      "clueFragment": "detective",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "DI",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A top detective has been put in charge of a local branch.",
+     "walkthrough": "In charge reads as one phrase, but it splits: in is the container signal and charge is the price.",
+     "definitionFit": "To radiate is to spread out from a centre, as to branch out does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 24,
@@ -368,7 +1467,55 @@
     "text": "Advanced large weapon creating panic",
     "enumeration": "5"
    },
-   "solution": "ALARM"
+   "solution": "ALARM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALARM",
+    "definitions": [
+     {
+      "text": "panic",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advanced",
+      "gives": "A",
+      "note": "A is the abbreviation for advanced"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "ARM",
+      "note": "an arm is a weapon, as in firearm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "ARM"
+     ]
+    },
+    "explanation": {
+     "surface": "An enemy's huge new weapon spreads fear.",
+     "definitionFit": "Alarm is sudden fear or anxiety, close in sense to panic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Advanced"
+    }
+   }
   },
   {
    "number": 25,
@@ -382,7 +1529,69 @@
     "text": "Press copy runs in empty presses",
     "enumeration": "6"
    },
-   "solution": "PAPERS"
+   "solution": "PAPERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PAPERS",
+    "definitions": [
+     {
+      "text": "Press",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its contents, leaving only the outside letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first pieces are placed inside what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copy",
+      "gives": "APE",
+      "note": "to ape is to copy"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "presses",
+      "gives": "PS",
+      "select": "outer",
+      "note": "the first and last letters of presses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "APE",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Copies are printed by idle printing machines.",
+     "walkthrough": "APER goes inside PS.",
+     "definitionFit": "The press and the papers are both collective names for newspapers and journalism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copy"
+    }
+   }
   },
   {
    "number": 26,
@@ -396,7 +1605,58 @@
     "text": "Stake rises for unpredictable mount?",
     "enumeration": "4"
    },
-   "solution": "ETNA"
+   "solution": "ETNA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ETNA",
+    "definitions": [
+     {
+      "text": "unpredictable mount?",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rises",
+      "for": "reversal",
+      "note": "in a down clue, rising means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stake",
+      "gives": "ANTE",
+      "note": "the ante is a poker player's opening stake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANTE",
+       "to": "ETNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler raises the stakes on a horse that might do anything.",
+     "walkthrough": "Mount suggests a horse; it is a mountain, and an unpredictable one because the volcano may erupt.",
+     "definitionFit": "Etna is the active Sicilian volcano, a mountain whose eruptions cannot be foreseen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mount"
+    }
+   }
   },
   {
    "number": 27,
@@ -410,7 +1670,54 @@
     "text": "Active enemy agent covering resistance",
     "enumeration": "4"
    },
-   "solution": "SPRY"
+   "solution": "SPRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPRY",
+    "definitions": [
+     {
+      "text": "Active",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "to cover something is to wrap round it, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enemy agent",
+      "gives": "SPY",
+      "note": "a spy is an agent working for the enemy"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the physics symbol for resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "R",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A busy foreign spy works undercover with the Resistance.",
+     "definitionFit": "Spry means lively and nimble, especially of an older person, so active."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 28,
@@ -424,7 +1731,57 @@
     "text": "Zone of diplomacy protecting Queen",
     "enumeration": "5"
    },
-   "solution": "TRACT"
+   "solution": "TRACT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRACT",
+    "definitions": [
+     {
+      "text": "Zone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "protecting something means surrounding it, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diplomacy",
+      "gives": "TACT",
+      "note": "tact is diplomacy"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R for Regina, Latin for queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomatic area set aside to keep the monarch safe.",
+     "definitionFit": "A tract is an expanse of land or region, so a zone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Zone"
+    }
+   }
   },
   {
    "number": 29,
@@ -438,7 +1795,50 @@
     "text": "Pure evil's rampant provoking disgust",
     "enumeration": "9"
    },
-   "solution": "REPULSIVE"
+   "solution": "REPULSIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPULSIVE",
+    "definitions": [
+     {
+      "text": "provoking disgust",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rampant",
+      "for": "anagram",
+      "note": "rampant means running wild and unchecked, so the letters are scattered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pure evil's",
+      "gives": "PUREEVILS",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUREEVILS",
+       "gives": "REPULSIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unchecked wickedness is sickening.",
+     "definitionFit": "Something repulsive repels, causing revulsion or disgust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rampant"
+    }
+   }
   },
   {
    "number": 30,
@@ -452,7 +1852,39 @@
     "text": "The main office?",
     "enumeration": "9"
    },
-   "solution": "ADMIRALTY"
+   "solution": "ADMIRALTY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ADMIRALTY",
+    "definitions": [
+     {
+      "text": "The main office?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The main office?",
+      "note": "surface reading: a company's headquarters"
+     },
+     {
+      "clueFragment": "main",
+      "note": "setter's reading: the main is the sea, so this is the office that runs the navy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Main reads as chief; poetically, the main is the open sea.",
+     "definitionFit": "The Admiralty was the British government department in charge of the Royal Navy, the sea's office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 31,
@@ -466,7 +1898,50 @@
     "text": "Swindle mum for money",
     "enumeration": "4"
    },
-   "solution": "DOSH"
+   "solution": "DOSH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOSH",
+    "definitions": [
+     {
+      "text": "money",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swindle",
+      "gives": "DO",
+      "note": "to do someone is slang for cheating them"
+     },
+     {
+      "clueFragment": "mum",
+      "gives": "SH",
+      "note": "mum means silent, and SH is a call for silence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "A con artist cheats their mother out of cash.",
+     "walkthrough": "Mum looks like mother, but it means keeping quiet. Dosh is British slang for money.",
+     "definitionFit": "Dosh is informal British slang for cash or money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mum"
+    }
+   }
   }
  ]
 }
