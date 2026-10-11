@@ -32,8 +32,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-11",
+  "check": "36 entries, 90 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -46,6 +52,64 @@
    "clue": {
     "text": "With sub-zero temperatures around, start of winter unpleasantly close",
     "enumeration": "7"
+   },
+   "solution": "FROWSTY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "FROWSTY",
+    "definitions": [
+     {
+      "text": "unpleasantly close",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the other piece sits inside the outer word"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only one letter of the following word is wanted"
+     }
+    ],
+    "linkWords": [
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sub-zero temperatures",
+      "gives": "FROSTY",
+      "note": "weather below freezing is frosty"
+     },
+     {
+      "clueFragment": "winter",
+      "gives": "W",
+      "select": "first",
+      "note": "opening letter of winter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRO",
+      "W",
+      "STY"
+     ]
+    },
+    "explanation": {
+     "surface": "A winter's day that is freezing yet somehow muggy and stuffy indoors.",
+     "definitionFit": "Frowsty describes a room that is stuffy and stale-smelling, airless in an unpleasant way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
    }
   },
   {
@@ -59,6 +123,70 @@
    "clue": {
     "text": "Old woman creating mouldy smell that holds operations up",
     "enumeration": "7"
+   },
+   "solution": "FUSSPOT",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "FUSSPOT",
+    "definitions": [
+     {
+      "text": "Old woman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "one word holds the other by gripping it inside"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue up means read from the bottom, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mouldy smell",
+      "gives": "FUST",
+      "note": "fust is a musty, mouldy smell"
+     },
+     {
+      "clueFragment": "operations",
+      "gives": "OPS",
+      "note": "ops is short for operations; going up it reads SPO"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FU",
+      "SSPO",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "OPS",
+       "to": "SPO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly woman's musty house smells so bad it stalls surgery.",
+     "walkthrough": "'Old woman' is not literal: it is a jibe for a fussy person of either sex.",
+     "definitionFit": "Calling someone an old woman means they fret over trifles, which is exactly a fusspot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "operations"
+    }
    }
   },
   {
@@ -72,6 +200,65 @@
    "clue": {
     "text": "Carriage that's damaged in hartal left abandoned",
     "enumeration": "5"
+   },
+   "solution": "RATHA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RATHA",
+    "definitions": [
+     {
+      "text": "Carriage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so its letters are rearranged"
+     },
+     {
+      "text": "left abandoned",
+      "for": "deletion",
+      "note": "the abbreviation for left is abandoned, dropped from the word"
+     }
+    ],
+    "linkWords": [
+     "that's",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hartal",
+      "gives": "HARTAL",
+      "note": "a hartal is an Indian strike; it loses its L before the rearranging"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HARTA",
+       "gives": "RATHA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carriage is wrecked during a general strike, and its owners flee.",
+     "definitionFit": "A ratha is an Indian four-wheeled carriage, often ox-drawn, also a temple chariot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
    }
   },
   {
@@ -85,6 +272,62 @@
    "clue": {
     "text": "Smell worse than what pigs produce, volume formerly inside",
     "enumeration": "9"
+   },
+   "solution": "OVERSTINK",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OVERSTINK",
+    "definitions": [
+     {
+      "text": "Smell worse than",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "the last pieces named go inside the earlier word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what pigs produce",
+      "gives": "OINK",
+      "note": "the noise a pig makes"
+     },
+     {
+      "clueFragment": "volume",
+      "gives": "V",
+      "note": "V is the symbol for volume"
+     },
+     {
+      "clueFragment": "formerly",
+      "gives": "ERST",
+      "note": "erst is an old word for formerly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "V",
+      "ERST",
+      "INK"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer complains that something reeks worse than his pigsty, as it used to.",
+     "walkthrough": "'what pigs produce' points at manure, but it is the sound they make.",
+     "definitionFit": "To overstink is to stink more than something else, an old Shakespearean coinage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "produce"
+    }
    }
   },
   {
@@ -98,6 +341,43 @@
    "clue": {
     "text": "One demonstrating bathroom appliance?",
     "enumeration": "6"
+   },
+   "solution": "SHOWER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHOWER",
+    "definitions": [
+     {
+      "text": "One demonstrating",
+      "at": 0
+     },
+     {
+      "text": "bathroom appliance?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One demonstrating",
+      "note": "first meaning: someone who shows something"
+     },
+     {
+      "clueFragment": "bathroom appliance?",
+      "note": "second meaning: the spray fitting you wash under"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two senses are pronounced differently; the question mark flags the punning one.",
+     "definitionFit": "A person who shows things is literally a shower, and the bathroom fitting has the same spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "demonstrating"
+    }
    }
   },
   {
@@ -111,6 +391,67 @@
    "clue": {
     "text": "Sluggish business receiving a right taunt",
     "enumeration": "10"
+   },
+   "solution": "TARDIGRADE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TARDIGRADE",
+    "definitions": [
+     {
+      "text": "Sluggish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking in, so the later pieces go inside the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "business",
+      "gives": "TRADE",
+      "note": "trade as commerce"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "taunt",
+      "gives": "DIG",
+      "note": "a dig is a sneering remark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "A",
+      "R",
+      "DIG",
+      "RADE"
+     ]
+    },
+    "explanation": {
+     "surface": "A slow-moving firm gets mocked for its sluggishness.",
+     "definitionFit": "Tardigrade means slow-paced, from the Latin for slow-stepping, and names the tiny water bears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "business"
+    }
    }
   },
   {
@@ -124,6 +465,61 @@
    "clue": {
     "text": "One bit of wreckage, wood floating helplessly",
     "enumeration": "5"
+   },
+   "solution": "AWASH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AWASH",
+    "definitions": [
+     {
+      "text": "floating helplessly",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is a single letter of it, here the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "one as the article a"
+     },
+     {
+      "clueFragment": "wreckage",
+      "gives": "W",
+      "select": "first",
+      "note": "first letter of wreckage"
+     },
+     {
+      "clueFragment": "wood",
+      "gives": "ASH",
+      "note": "ash is a timber tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "W",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone piece of a shipwreck, a timber, drifts at the mercy of the sea.",
+     "definitionFit": "Something awash is covered by or tossed about in water, at the mercy of the waves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "One"
+    }
    }
   },
   {
@@ -137,6 +533,54 @@
    "clue": {
     "text": "Immigrants when receiving legal right",
     "enumeration": "6"
+   },
+   "solution": "ALIENS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALIENS",
+    "definitions": [
+     {
+      "text": "Immigrants",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking in, so the second piece goes inside the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as in the sense of while or when"
+     },
+     {
+      "clueFragment": "legal right",
+      "gives": "LIEN",
+      "note": "a lien is a legal right to hold property until a debt is paid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIEN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Newcomers to a country are granted their entitlements under the law.",
+     "definitionFit": "Aliens are people from another country living as foreigners, which immigrants are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "when"
+    }
    }
   },
   {
@@ -150,6 +594,54 @@
    "clue": {
     "text": "Pad soaking in old dyestuff",
     "enumeration": "4"
+   },
+   "solution": "WOAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WOAD",
+    "definitions": [
+     {
+      "text": "dyestuff",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "soaking in",
+      "for": "container",
+      "note": "a pad soaking in a liquid takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pad",
+      "gives": "WAD",
+      "note": "a wad is a pad of soft material"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "O",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A cotton pad lies steeping in an ancient dye.",
+     "definitionFit": "Woad is a blue dye made from a plant, famously used by ancient Britons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
    }
   },
   {
@@ -163,6 +655,57 @@
    "clue": {
     "text": "Steamer you'll find isn't under pressure as formerly",
     "enumeration": "7"
+   },
+   "solution": "STRAINT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRAINT",
+    "definitions": [
+     {
+      "text": "pressure as formerly",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue the piece named second is placed below the first"
+     }
+    ],
+    "linkWords": [
+     "you'll find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steamer",
+      "gives": "STR",
+      "note": "str. is the dictionary abbreviation for steamer"
+     },
+     {
+      "clueFragment": "isn't",
+      "gives": "AINT",
+      "note": "ain't is a nonstandard form of isn't"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STR",
+      "AINT"
+     ]
+    },
+    "explanation": {
+     "surface": "A steamship is reassuringly said not to be at risk of a boiler blowing.",
+     "walkthrough": "'Steamer' wants to be a vessel whole, but Azed uses its abbreviation.",
+     "definitionFit": "Straint is an obsolete Spenserian word for pressure or strain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pressure"
+    }
    }
   },
   {
@@ -176,6 +719,64 @@
    "clue": {
     "text": "Old vow — see me freed from the same when it's broken",
     "enumeration": "5"
+   },
+   "solution": "HEAST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HEAST",
+    "definitions": [
+     {
+      "text": "Old vow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freed from",
+      "for": "deletion",
+      "note": "freed from means let out of, so those letters leave the phrase"
+     },
+     {
+      "text": "when it's broken",
+      "for": "anagram",
+      "note": "broken means smashed into pieces that are put back in a new order"
+     }
+    ],
+    "linkWords": [
+     "see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written, then removed"
+     },
+     {
+      "clueFragment": "the same",
+      "gives": "THESAME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THESA",
+       "gives": "HEAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reminder of an old promise: keep your word to me, as before.",
+     "definitionFit": "Heast is an obsolete form of hest, a behest or vow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
    }
   },
   {
@@ -189,6 +790,71 @@
    "clue": {
     "text": "One sort of tart or another, and the rest doing a turn outside",
     "enumeration": "9"
+   },
+   "solution": "CHARLOTTE",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "CHARLOTTE",
+    "definitions": [
+     {
+      "text": "One sort of tart or another",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doing a turn",
+      "for": "reversal",
+      "note": "to do a turn is to face the other way, so the phrase's letters run backwards"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the turned letters sit on either side of the other piece, wrapping it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the rest",
+      "gives": "ETC",
+      "note": "et cetera means and the rest; the turn makes it CTE, split around the other piece"
+     },
+     {
+      "clueFragment": "One sort of tart",
+      "gives": "HARLOT",
+      "note": "tart as slang for a prostitute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HARLOT",
+      "TE"
+     ],
+     "reversals": [
+      {
+       "from": "ETC",
+       "to": "CTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baker lists the tarts on offer, then dismisses everything else on the menu.",
+     "walkthrough": "The definition does double duty: a harlot is one kind of tart, a charlotte is a pudding, another kind; so 'One sort of tart or another' covers both.",
+     "definitionFit": "A charlotte is a fruit dessert baked in a mould lined with bread or sponge, loosely another sort of tart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tart"
+    }
    }
   },
   {
@@ -202,6 +868,43 @@
    "clue": {
     "text": "Stop the race",
     "enumeration": "4"
+   },
+   "solution": "STEM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEM",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     },
+     {
+      "text": "the race",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "note": "first meaning: to check or staunch a flow"
+     },
+     {
+      "clueFragment": "the race",
+      "note": "second meaning: a line of descent, a family stock"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like an order to halt a sporting event, but race here means lineage, not a contest.",
+     "definitionFit": "To stem bleeding is to stop it, and a stem is also the main line of a family's ancestry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "race"
+    }
    }
   },
   {
@@ -215,6 +918,55 @@
    "clue": {
     "text": "Something to revive libido by way of innate character dropping in",
     "enumeration": "6"
+   },
+   "solution": "VIAGRA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "VIAGRA",
+    "definitions": [
+     {
+      "text": "Something to revive libido",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping in",
+      "for": "deletion",
+      "note": "dropping here means letting fall away, and the two letters spelling in are the ones let go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by way of",
+      "gives": "VIA",
+      "note": "via means by way of"
+     },
+     {
+      "clueFragment": "innate character",
+      "gives": "GRAIN",
+      "note": "going against the grain means against one's nature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIA",
+      "GRA"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that a lagging sex drive comes back once your true nature reasserts itself.",
+     "walkthrough": "'dropping in' looks like visiting, but it means GRAIN loses its IN.",
+     "definitionFit": "Viagra is the trade name of a drug prescribed for erectile dysfunction, popularly a sex-life booster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dropping"
+    }
    }
   },
   {
@@ -227,6 +979,79 @@
    "length": 10,
    "clue": {
     "text": "Ivy rampant round cedar I'll cut — record kept by camcorder? (10, two words)"
+   },
+   "solution": "VIDEODIARY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VIDEO DIARY",
+    "definitions": [
+     {
+      "text": "record kept by camcorder?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rampant",
+      "for": "anagram",
+      "note": "rampant ivy grows wild and unruly, so its letters run riot"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round puts the first piece on either side of what follows"
+     },
+     {
+      "text": "'ll cut",
+      "for": "container",
+      "note": "to cut into something is to enter its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ivy",
+      "gives": "IVY",
+      "note": "taken as written, scrambled and split around the rest"
+     },
+     {
+      "clueFragment": "cedar",
+      "gives": "DEODAR",
+      "note": "the deodar is a Himalayan cedar"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "DEOD",
+      "I",
+      "AR",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IVY",
+       "gives": "VIY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener vows to hack back ivy smothering a cedar, filming the work as they go.",
+     "walkthrough": "'cedar' is not wordplay fodder; it is defined by a specific cedar species.",
+     "definitionFit": "A video diary is a personal record filmed regularly on a camcorder; the question mark admits it is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cedar"
+    }
    }
   },
   {
@@ -240,6 +1065,49 @@
    "clue": {
     "text": "Crafty fellow making troublesome woman stamp",
     "enumeration": "8"
+   },
+   "solution": "SHREWDIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHREWDIE",
+    "definitions": [
+     {
+      "text": "Crafty fellow",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "troublesome woman",
+      "gives": "SHREW",
+      "note": "a shrew is a scolding, bad-tempered woman"
+     },
+     {
+      "clueFragment": "stamp",
+      "gives": "DIE",
+      "note": "a die is a tool that stamps a design"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHREW",
+      "DIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sly man turns an awkward woman into a postage stamp.",
+     "definitionFit": "A shrewdie is an informal word for a shrewd, cunning person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stamp"
+    }
    }
   },
   {
@@ -253,6 +1121,51 @@
    "clue": {
     "text": "Dart fired to wound etc he felt being smitten",
     "enumeration": "9"
+   },
+   "solution": "FLECHETTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FLECHETTE",
+    "definitions": [
+     {
+      "text": "Dart fired to wound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being smitten",
+      "for": "anagram",
+      "note": "smitten means struck hard, and struck letters are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "etc he felt",
+      "gives": "ETCHEFELT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ETCHEFELT",
+       "gives": "FLECHETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man struck by Cupid's dart describes the pain of falling in love.",
+     "walkthrough": "The surface suggests the definition is love-struck feeling; it is a weapon.",
+     "definitionFit": "A flechette is a small steel dart dropped or fired as a weapon, notably from aircraft in the First World War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smitten"
+    }
    }
   },
   {
@@ -266,6 +1179,44 @@
    "clue": {
     "text": "Something for the sandwiches went steadily? Sounds like it",
     "enumeration": "5"
+   },
+   "solution": "PASTE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PASTE",
+    "definitions": [
+     {
+      "text": "Something for the sandwiches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounds like it",
+      "for": "homophone",
+      "note": "the solver is told the answer, spoken, matches the phrase before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "went steadily",
+      "gives": "PASTE",
+      "soundsLike": "PACED",
+      "note": "to pace is to walk at a steady rate"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzled cook wonders whether walking at an even tempo is a sandwich ingredient.",
+     "definitionFit": "Fish or meat paste is a spread commonly put in sandwiches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "steadily"
+    }
    }
   },
   {
@@ -279,6 +1230,47 @@
    "clue": {
     "text": "Move unsteadily, following drunk",
     "enumeration": "4"
+   },
+   "solution": "FLIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLIT",
+    "definitions": [
+     {
+      "text": "Move unsteadily",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f. is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "drunk",
+      "gives": "LIT",
+      "note": "lit is slang for drunk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone staggers about after a heavy night's drinking.",
+     "walkthrough": "Chambers gives flit the sense of being unsteady or fluttering, not only moving house.",
+     "definitionFit": "To flit is to flutter or move lightly and erratically from place to place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
    }
   },
   {
@@ -292,6 +1284,72 @@
    "clue": {
     "text": "'Grand' French palace: king will be seen in it when erected, shortly",
     "enumeration": "7"
+   },
+   "solution": "TRIANON",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRIANON",
+    "definitions": [
+     {
+      "text": "'Grand' French palace",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will be seen in",
+      "for": "container",
+      "note": "a thing seen in another sits inside it"
+     },
+     {
+      "text": "when erected",
+      "for": "reversal",
+      "note": "erected means stood upright, so in a down clue the letters read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, king"
+     },
+     {
+      "clueFragment": "shortly",
+      "gives": "ANON",
+      "note": "anon means soon, shortly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "ANON"
+     ],
+     "reversals": [
+      {
+       "from": "IRT",
+       "to": "TRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A guidebook explains that the king will soon visit his grand palace once it is built.",
+     "walkthrough": "The quotation marks around Grand hint at its name: the Grand Trianon at Versailles.",
+     "definitionFit": "The Grand Trianon is a small palace in the park at Versailles, built for Louis XIV."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "erected"
+    }
    }
   },
   {
@@ -305,6 +1363,56 @@
    "clue": {
     "text": "Time is pressing with red swelling",
     "enumeration": "10"
+   },
+   "solution": "TURGESCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TURGESCENT",
+    "definitions": [
+     {
+      "text": "swelling",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "is pressing",
+      "gives": "URGES",
+      "note": "urges means presses or impels"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "CENT",
+      "note": "from 'not a red cent', a cent as the coin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "URGES",
+      "CENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor warns that an inflamed, reddening lump needs urgent attention.",
+     "walkthrough": "'red' reads as the colour of the swelling, but it stands for a cent, the copper coin in 'not a red cent'.",
+     "definitionFit": "Turgescent means becoming swollen or distended, as tissue does when filled with fluid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "red"
+    }
    }
   },
   {
@@ -318,6 +1426,42 @@
    "clue": {
     "text": "Without mincing words, group gathered in enters Elysium",
     "enumeration": "7"
+   },
+   "solution": "TERSELY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TERSELY",
+    "definitions": [
+     {
+      "text": "Without mincing words",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "group gathered in",
+      "for": "hidden_word",
+      "note": "a group gathered in is enclosed by the words around it, so the letters are inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enters Elysium",
+      "gives": "TERSELY",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A blunt account of the blessed arriving in paradise.",
+     "definitionFit": "Speaking tersely means bluntly and briefly, using few words and no softening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
    }
   },
   {
@@ -331,6 +1475,66 @@
    "clue": {
     "text": "Like French flag, splendid, held by trim CO, fluttering",
     "enumeration": "10"
+   },
+   "solution": "TRICHROMIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TRICHROMIC",
+    "definitions": [
+     {
+      "text": "Like French flag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another is gripped inside it"
+     },
+     {
+      "text": "fluttering",
+      "for": "anagram",
+      "note": "fluttering letters flap about out of place, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trim CO",
+      "gives": "TRIMCO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "splendid",
+      "gives": "RICH",
+      "note": "rich as sumptuous or splendid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RICH",
+      "ROMIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIMCO",
+       "gives": "TROMIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smart commanding officer salutes the grand tricolour as it waves in the breeze.",
+     "definitionFit": "Trichromic means having three colours, as the blue, white and red tricolour does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "trim"
+    }
    }
   },
   {
@@ -344,6 +1548,64 @@
    "clue": {
     "text": "Rainy day spent in deathly rambling",
     "enumeration": "6"
+   },
+   "solution": "HYETAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HYETAL",
+    "definitions": [
+     {
+      "text": "Rainy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spent",
+      "for": "deletion",
+      "note": "something spent is used up and gone"
+     },
+     {
+      "text": "rambling",
+      "for": "anagram",
+      "note": "rambling wanders all over, so the letters stray from their order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     },
+     {
+      "clueFragment": "deathly",
+      "gives": "DEATHLY",
+      "note": "taken as written, losing its D"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EATHLY",
+       "gives": "HYETAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wet day passed in gloomy, aimless wandering.",
+     "definitionFit": "Hyetal is a technical term meaning relating to rain or rainfall, from the Greek for rain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "day"
+    }
    }
   },
   {
@@ -357,6 +1619,54 @@
    "clue": {
     "text": "Subway systems: put 'em in order, from below",
     "enumeration": "6"
+   },
+   "solution": "METROS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "METROS",
+    "definitions": [
+     {
+      "text": "Subway systems",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from below",
+      "for": "reversal",
+      "note": "in a down clue reading from the bottom means the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put 'em in order",
+      "gives": "SORTEM",
+      "note": "to sort them is to put them in order, with 'em for them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "METROS"
+     ],
+     "reversals": [
+      {
+       "from": "SORTEM",
+       "to": "METROS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A transport planner arranges a city's underground lines, starting from the bottom.",
+     "walkthrough": "In British English a subway is a pedestrian underpass; here it means an underground railway, as in America.",
+     "definitionFit": "Metros are underground urban railway networks, what Americans call subways."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "below"
+    }
    }
   },
   {
@@ -370,6 +1680,50 @@
    "clue": {
     "text": "Hit the jackpot with 1,000 a second?",
     "enumeration": "4"
+   },
+   "solution": "WINK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WINK",
+    "definitions": [
+     {
+      "text": "a second?",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit the jackpot",
+      "gives": "WIN",
+      "note": "to hit the jackpot is to win"
+     },
+     {
+      "clueFragment": "1,000",
+      "gives": "K",
+      "note": "K stands for a thousand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler imagines winnings pouring in at a thousand pounds every second.",
+     "walkthrough": "The question mark flags a loose definition: 'in a wink' means in an instant.",
+     "definitionFit": "A wink is used for a moment or an instant, as in 'I didn't sleep a wink'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "second"
+    }
    }
   },
   {
@@ -383,6 +1737,43 @@
    "clue": {
     "text": "Pimple, what the most incompetent will fail to shift?",
     "enumeration": "5"
+   },
+   "solution": "WHELK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WHELK",
+    "definitions": [
+     {
+      "text": "Pimple",
+      "at": 0
+     },
+     {
+      "text": "what the most incompetent will fail to shift?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pimple",
+      "note": "first meaning: a pustule, an old sense of the word"
+     },
+     {
+      "clueFragment": "what the most incompetent will fail to shift?",
+      "note": "second meaning: the shellfish sold at a seaside stall"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A hopeless person is said to be unable to run a whelk stall; to shift goods is to sell them.",
+     "definitionFit": "A whelk is both an edible sea snail and, in an older sense, a pimple or pustule."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shift"
+    }
    }
   },
   {
@@ -396,6 +1787,66 @@
    "clue": {
     "text": "Former magistrate brought back hanging, hard at heart",
     "enumeration": "5"
+   },
+   "solution": "EPHOR",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "EPHOR",
+    "definitions": [
+     {
+      "text": "Former magistrate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "brought back means returned, so the word runs the other way"
+     },
+     {
+      "text": "at heart",
+      "for": "container",
+      "note": "at heart puts the letter in the middle of the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hanging",
+      "gives": "ROPE",
+      "note": "the hangman's noose; turned round it reads EPOR"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "H",
+      "OR"
+     ],
+     "reversals": [
+      {
+       "from": "ROPE",
+       "to": "EPOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old judge restores the death penalty, showing a hard heart.",
+     "definitionFit": "An ephor was one of five senior magistrates of ancient Sparta."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hanging"
+    }
    }
   },
   {
@@ -409,6 +1860,47 @@
    "clue": {
     "text": "'E mebbe deals in knitwear, such as goes into a basket",
     "enumeration": "5"
+   },
+   "solution": "OSIER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OSIER",
+    "definitions": [
+     {
+      "text": "such as goes into a basket",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'E mebbe",
+      "for": "deletion",
+      "note": "a Cockney says 'e for he, dropping the opening aitch, so the next word loses it too"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deals in knitwear",
+      "gives": "HOSIER",
+      "note": "a hosier sells stockings and knitted goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OSIER"
+     ]
+    },
+    "explanation": {
+     "surface": "Speculation in dialect that a certain man sells woollens, perhaps in wicker baskets.",
+     "definitionFit": "An osier is a willow whose pliant shoots are woven into baskets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "knitwear"
+    }
    }
   },
   {
@@ -422,6 +1914,57 @@
    "clue": {
     "text": "Scottish set creating stir locally on loch",
     "enumeration": "4"
+   },
+   "solution": "JEEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JEEL",
+    "definitions": [
+     {
+      "text": "Scottish set",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one piece placed on another sits above it"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stir locally",
+      "gives": "JEE",
+      "note": "jee is a Scots word for to stir or budge"
+     },
+     {
+      "clueFragment": "loch",
+      "gives": "L",
+      "note": "L is the map abbreviation for loch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JEE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A group of Scots makes a commotion out on a loch.",
+     "walkthrough": "'set' looks like a group of people, but it is the verb, as jelly sets.",
+     "definitionFit": "Jeel is a Scots verb meaning to congeal or jell, so in Scotland a jelly is said to jeel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
    }
   },
   {
@@ -435,6 +1978,76 @@
    "clue": {
     "text": "With year gone, I dye frizzy hair? Brown perhaps",
     "enumeration": "8"
+   },
+   "solution": "EDITRESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EDITRESS",
+    "definitions": [
+     {
+      "text": "Brown perhaps",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gone",
+      "for": "deletion",
+      "note": "with something gone it is taken away, here the abbreviation for year"
+     },
+     {
+      "text": "frizzy",
+      "for": "anagram",
+      "note": "frizzy hair is tangled and crimped, so the letters before it are jumbled"
+     }
+    ],
+    "linkWords": [
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     },
+     {
+      "clueFragment": "I dye",
+      "gives": "IDYE",
+      "note": "taken as written, losing its Y and then jumbled"
+     },
+     {
+      "clueFragment": "hair",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDI",
+      "TRESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IDE",
+       "gives": "EDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone colouring their frizzy hair asks whether brown would be the right shade.",
+     "walkthrough": "'Brown' looks like a hair colour, but it is Tina Brown, the British-born editor of Vanity Fair and The New Yorker.",
+     "definitionFit": "Editress is a dated word for a female editor, and Tina Brown is a famous example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brown"
+    }
    }
   },
   {
@@ -448,6 +2061,65 @@
    "clue": {
     "text": "Ditsy teen, with another one only half besotted",
     "enumeration": "6"
+   },
+   "solution": "ENTETE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "ENTETE",
+    "definitions": [
+     {
+      "text": "besotted",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ditsy",
+      "for": "anagram",
+      "note": "a ditsy person is scatterbrained, so the letters are scattered"
+     },
+     {
+      "text": "only half",
+      "for": "letter_selection",
+      "note": "only half keeps one of the two halves of the second word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teen",
+      "gives": "TEEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "another one",
+      "gives": "TE",
+      "select": "first",
+      "note": "another teen, of which only the first half counts"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEENTE",
+       "gives": "ENTETE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two scatterbrained teenagers, one of them only half in love.",
+     "definitionFit": "Entêté is a French borrowing in Chambers meaning infatuated or obstinately attached."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "besotted"
+    }
    }
   },
   {
@@ -461,6 +2133,50 @@
    "clue": {
     "text": "Old-fashioned pen starts to splash the ink everywhere",
     "enumeration": "4"
+   },
+   "solution": "STIE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "STIE",
+    "definitions": [
+     {
+      "text": "Old-fashioned pen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their first letters, taken from each word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "splash the ink everywhere",
+      "gives": "STIE",
+      "select": "first",
+      "note": "first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STIE"
+     ]
+    },
+    "explanation": {
+     "surface": "An antique dip pen spatters ink all over the page.",
+     "walkthrough": "The pen is an enclosure for pigs, not a writing instrument.",
+     "definitionFit": "Stie is an obsolete spelling of sty; Chambers files it under the climbing verb, so the pigpen sense is a slight stretch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pen"
+    }
    }
   },
   {
@@ -474,6 +2190,37 @@
    "clue": {
     "text": "Fine quartz crystal suggesting Cupid's dart",
     "enumeration": "9"
+   },
+   "solution": "LOVEARROW",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LOVEARROW",
+    "definitions": [
+     {
+      "text": "Fine quartz crystal suggesting Cupid's dart",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine quartz crystal",
+      "note": "surface reading: a gemstone with delicate needles inside"
+     },
+     {
+      "clueFragment": "suggesting Cupid's dart",
+      "note": "setter's reading: the mineral's name evokes the weapon of the god of love"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Hair-fine needles of rutile in quartz look like tiny darts, so the stone is named after Cupid's weapon.",
+     "definitionFit": "The love-arrow is a needle-like rutile crystal enclosed in rock crystal, also called Venus's hair-stone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
    }
   },
   {
@@ -487,6 +2234,45 @@
    "clue": {
     "text": "King with royal mistress? This marks one's passing",
     "enumeration": "5"
+   },
+   "solution": "KNELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KNELL",
+    "definitions": [
+     {
+      "text": "This marks one's passing",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K for king, as in chess"
+     },
+     {
+      "clueFragment": "royal mistress",
+      "gives": "NELL",
+      "note": "Nell Gwyn, mistress of Charles II"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A king and his mistress, and something solemn at his end.",
+     "definitionFit": "A knell is the bell tolled to announce a death or a funeral."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
    }
   },
   {
@@ -500,6 +2286,41 @@
    "clue": {
     "text": "Shakespeare's skill, an inexplicable phenomenon",
     "enumeration": "7"
+   },
+   "solution": "MYSTERY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MYSTERY",
+    "definitions": [
+     {
+      "text": "Shakespeare's skill",
+      "at": 0
+     },
+     {
+      "text": "an inexplicable phenomenon",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shakespeare's skill",
+      "note": "first meaning: a craft or trade, as Shakespeare used the word"
+     },
+     {
+      "clueFragment": "an inexplicable phenomenon",
+      "note": "second meaning: something nobody can explain"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The trade sense comes from the old word for a craft guild, as in the mystery plays.",
+     "definitionFit": "A mystery once meant a craft or skill, and today means something baffling and unexplained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   }
  ]
