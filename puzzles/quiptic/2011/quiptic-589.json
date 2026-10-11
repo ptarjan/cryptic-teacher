@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Where Marco Polo went in a yacht, wandering",
     "enumeration": "6"
    },
-   "solution": "CATHAY"
+   "solution": "CATHAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CATHAY",
+    "definitions": [
+     {
+      "text": "Where Marco Polo went",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wandering",
+      "for": "anagram",
+      "note": "something wandering does not keep a fixed course, so the letters stray into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a yacht",
+      "gives": "AYACHT",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AYACHT",
+       "gives": "CATHAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An imagined account of the Venetian explorer drifting about in a yacht on his travels.",
+     "walkthrough": "Marco Polo travelled overland, so the yacht is pure misdirection: it is the source of the letters.",
+     "definitionFit": "Cathay is the old European name for China, the land Marco Polo famously reached."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "wandering"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +97,45 @@
     "text": "Stream must be present",
     "enumeration": "7"
    },
-   "solution": "CURRENT"
+   "solution": "CURRENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CURRENT",
+    "definitions": [
+     {
+      "text": "Stream",
+      "at": 0
+     },
+     {
+      "text": "present",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "must be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stream",
+      "note": "first meaning: a flow of water or electricity"
+     },
+     {
+      "clueFragment": "present",
+      "note": "second meaning: belonging to now, contemporary"
+     }
+    ],
+    "explanation": {
+     "surface": "A rule that a stream has to be there, or attending.",
+     "definitionFit": "The word is both a noun for a flow of water and an adjective for something happening at the present time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +149,58 @@
     "text": "Toddler, extremely exhausted, has to be carried",
     "enumeration": "5"
    },
-   "solution": "TOTED"
+   "solution": "TOTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TOTED",
+    "definitions": [
+     {
+      "text": "carried",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of the word, its very first and very last letters"
+     }
+    ],
+    "linkWords": [
+     "has to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toddler",
+      "gives": "TOT",
+      "note": "a tot is a small child"
+     },
+     {
+      "clueFragment": "exhausted",
+      "gives": "ED",
+      "select": "outer",
+      "note": "the first and last letters of exhausted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-out little child needs carrying home.",
+     "definitionFit": "To tote is to carry or lug something, so the past tense is a synonym of carried."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +214,70 @@
     "text": "Dismay about queen turning up in this costume",
     "enumeration": "7"
    },
-   "solution": "APPAREL"
+   "solution": "APPAREL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "APPAREL",
+    "definitions": [
+     {
+      "text": "costume",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means the word is read from bottom to top, backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one word wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "in this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dismay",
+      "gives": "APPAL",
+      "note": "to dismay is to appal"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the usual crossword queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APPA",
+      "RE",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "ER",
+       "to": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is horrified to see a queen arrive dressed in a certain outfit.",
+     "walkthrough": "APPAL splits after its second P to take the turned-up queen.",
+     "definitionFit": "Apparel is clothing in general, and a costume is a set of clothes, so the two overlap as synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dismay"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +291,59 @@
     "text": "Parisian thanks leader of allies in old kingdom",
     "enumeration": "6"
    },
-   "solution": "MERCIA"
+   "solution": "MERCIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MERCIA",
+    "definitions": [
+     {
+      "text": "old kingdom",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is whatever comes first, its opening letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parisian thanks",
+      "gives": "MERCI",
+      "note": "French for thank you"
+     },
+     {
+      "clueFragment": "allies",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of allies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MERCI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A French ally offers thanks to the head of the allied forces in an ancient realm.",
+     "walkthrough": "Parisian signals a French word.",
+     "definitionFit": "Mercia was one of the Anglo-Saxon kingdoms of central England, so it is a historic realm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +357,50 @@
     "text": "Puzzle resolved in game",
     "enumeration": "6"
    },
-   "solution": "ENIGMA"
+   "solution": "ENIGMA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENIGMA",
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resolved",
+      "for": "anagram",
+      "note": "something resolved has been worked out and put into new order, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in game",
+      "gives": "INGAME",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INGAME",
+       "gives": "ENIGMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle that came up during a game has been solved.",
+     "definitionFit": "An enigma is a mystery or riddle, which is a kind of puzzle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resolved"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +414,51 @@
     "text": "No curates could reform a kept woman",
     "enumeration": "9"
    },
-   "solution": "COURTESAN"
+   "solution": "COURTESAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COURTESAN",
+    "definitions": [
+     {
+      "text": "a kept woman",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could reform",
+      "for": "anagram",
+      "note": "to reform something is to reshape it, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No curates",
+      "gives": "NOCURATES",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOCURATES",
+       "gives": "COURTESAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "No clergyman, it seems, could save a mistress from her way of life.",
+     "walkthrough": "The surface pictures curates reforming a sinner; reform is the anagram signal.",
+     "definitionFit": "A courtesan was a mistress supported by wealthy lovers, so she is a woman kept by a patron."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reform"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +472,55 @@
     "text": "Oscar-winning film produced in Australia",
     "enumeration": "7"
    },
-   "solution": "AMADEUS"
+   "solution": "AMADEUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMADEUS",
+    "definitions": [
+     {
+      "text": "Oscar-winning film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the letters of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australia",
+      "gives": "AUS",
+      "note": "the standard abbreviation for Australia"
+     },
+     {
+      "clueFragment": "produced",
+      "gives": "MADE",
+      "note": "produced means made"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MADE",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A film that won an Academy Award was made in Australia.",
+     "walkthrough": "The surface reads as trivia about where a film was shot; produced and Australia are both wordplay, with one sitting inside the other.",
+     "definitionFit": "Amadeus, the 1984 film about Mozart, won the Academy Award for Best Picture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "produced"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +548,50 @@
      }
     ]
    },
-   "solution": "GRINANDBEARIT"
+   "solution": "GRINANDBEARIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRIN AND BEAR IT",
+    "definitions": [
+     {
+      "text": "to be stoical",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been made ready and set up afresh, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A retiring band",
+      "gives": "ARETIRINGBAND",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARETIRINGBAND",
+       "gives": "GRINANDBEARIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shy group of musicians gets ready to endure their ordeal.",
+     "definitionFit": "The idiom means to put up with hardship cheerfully, which is to accept it without complaint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +605,61 @@
     "text": "Worry about moving into empty flat",
     "enumeration": "4"
    },
-   "solution": "FRET"
+   "solution": "FRET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FRET",
+    "definitions": [
+     {
+      "text": "Worry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "empty means the inside of the word is cleared out, keeping only its outside letters"
+     },
+     {
+      "text": "moving into",
+      "for": "container",
+      "note": "moving into puts one piece inside another, like a new tenant"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flat",
+      "gives": "FT",
+      "select": "outer",
+      "note": "the first and last letters of flat"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frets over moving into an unfurnished flat.",
+     "definitionFit": "To fret is to be anxious, so it is a synonym of the verb worry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +673,42 @@
     "text": "Fastidious individual",
     "enumeration": "10"
    },
-   "solution": "PARTICULAR"
+   "solution": "PARTICULAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PARTICULAR",
+    "definitions": [
+     {
+      "text": "Fastidious",
+      "at": 0
+     },
+     {
+      "text": "individual",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fastidious",
+      "note": "first meaning: fussy, hard to please"
+     },
+     {
+      "clueFragment": "individual",
+      "note": "second meaning: specific, single, not general"
+     }
+    ],
+    "explanation": {
+     "surface": "A fussy person, described in two words.",
+     "definitionFit": "The adjective means both fussy about details and relating to one specific thing as opposed to others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "individual"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +722,67 @@
     "text": "Sex object in Germany taking off a lot",
     "enumeration": "6"
    },
-   "solution": "GENDER"
+   "solution": "GENDER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GENDER",
+    "definitions": [
+     {
+      "text": "Sex",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking off",
+      "for": "deletion",
+      "note": "taking off means removing something, so letters are cut away"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the letters of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "object",
+      "gives": "END",
+      "note": "an end is an aim or object"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "GERMANY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a lot",
+      "gives": "MANY",
+      "note": "a lot means many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "END",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sex object in Germany is taking off a lot of clothing.",
+     "walkthrough": "Germany loses many to leave GER, which then holds END. Sex object looks like one phrase; sex is the definition and object the wordplay.",
+     "definitionFit": "Gender is used as a synonym of sex in classifying people as male or female."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +802,43 @@
      }
     ]
    },
-   "solution": "NOMATTER"
+   "solution": "NOMATTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NO MATTER",
+    "definitions": [
+     {
+      "text": "Never mind",
+      "at": 0
+     },
+     {
+      "text": "vacuum?",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Never mind",
+      "note": "first meaning: it is of no importance"
+     },
+     {
+      "clueFragment": "vacuum",
+      "note": "second meaning, read literally: an absence of any substance"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful literal reading: a vacuum is space with no matter in it.",
+     "definitionFit": "The phrase is a dismissive idiom meaning it does not matter, and literally describes empty space containing no substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vacuum"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +852,55 @@
     "text": "Excursion occupying shy lad",
     "enumeration": "9"
    },
-   "solution": "STRIPLING"
+   "solution": "STRIPLING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STRIPLING",
+    "definitions": [
+     {
+      "text": "lad",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "occupying means sitting inside, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shy",
+      "gives": "SLING",
+      "note": "to shy is to throw, as is to sling"
+     },
+     {
+      "clueFragment": "Excursion",
+      "gives": "TRIP",
+      "note": "a trip is an excursion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRIP",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A day out is giving a timid boy something to do.",
+     "walkthrough": "Shy looks like an adjective for the lad, but here it is the verb meaning throw.",
+     "definitionFit": "A stripling is a youth not yet fully grown, so a young lad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shy"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +914,45 @@
     "text": "Hints from close friends",
     "enumeration": "9"
    },
-   "solution": "INTIMATES"
+   "solution": "INTIMATES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INTIMATES",
+    "definitions": [
+     {
+      "text": "Hints",
+      "at": 0
+     },
+     {
+      "text": "close friends",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hints",
+      "note": "first meaning: suggests indirectly, a verb"
+     },
+     {
+      "clueFragment": "close friends",
+      "note": "second meaning: people one is very close to, a noun"
+     }
+    ],
+    "explanation": {
+     "surface": "Pointers passed on by one's best mates.",
+     "definitionFit": "The word is a verb meaning suggests indirectly and a plural noun for very close companions, pronounced differently."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hints"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +966,56 @@
     "text": "Snakes like empty pockets",
     "enumeration": "4"
    },
-   "solution": "ASPS"
+   "solution": "ASPS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ASPS",
+    "definitions": [
+     {
+      "text": "Snakes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "empty means the inside of the word is cleared out, keeping only its outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as means like"
+     },
+     {
+      "clueFragment": "pockets",
+      "gives": "PS",
+      "select": "outer",
+      "note": "the first and last letters of pockets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "PS"
+     ]
+    },
+    "explanation": {
+     "surface": "Snakes are fond of pockets with nothing in them.",
+     "walkthrough": "Like looks like a verb meaning enjoy, but it is the comparison word.",
+     "definitionFit": "Asps are small venomous snakes, so the plural fits snakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1029,56 @@
     "text": "Walton loses points as a singer",
     "enumeration": "4"
    },
-   "solution": "ALTO"
+   "solution": "ALTO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALTO",
+    "definitions": [
+     {
+      "text": "singer",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses",
+      "for": "deletion",
+      "note": "something that loses pieces has them taken away, so letters are removed"
+     }
+    ],
+    "linkWords": [
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Walton",
+      "gives": "WALTON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "WN",
+      "note": "compass points: west and north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALTO"
+     ]
+    },
+    "explanation": {
+     "surface": "The composer Walton is marked down for his performance as a vocalist.",
+     "walkthrough": "Points are compass points, here W and N, removed from either end of Walton.",
+     "definitionFit": "An alto is a singer with a low female or high male voice, so a type of singer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1092,56 @@
     "text": "A learner with a gun, possibly frightened",
     "enumeration": "7"
    },
-   "solution": "ALARMED"
+   "solution": "ALARMED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALARMED",
+    "definitions": [
+     {
+      "text": "frightened",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "possibly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner plate on a UK car"
+     },
+     {
+      "clueFragment": "with a gun",
+      "gives": "ARMED",
+      "note": "carrying a weapon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "ARMED"
+     ]
+    },
+    "explanation": {
+     "surface": "A novice carrying a firearm might well be scared.",
+     "walkthrough": "L stands for learner because UK learner drivers display an L plate.",
+     "definitionFit": "To be alarmed is to be suddenly afraid, a close synonym of frightened."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gun"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1155,51 @@
     "text": "Fix it on beast like a mule",
     "enumeration": "9"
    },
-   "solution": "OBSTINATE"
+   "solution": "OBSTINATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBSTINATE",
+    "definitions": [
+     {
+      "text": "like a mule",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fix",
+      "for": "anagram",
+      "note": "to fix is to put right by rearranging, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it on beast",
+      "gives": "ITONBEAST",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITONBEAST",
+       "gives": "OBSTINATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to load something onto an animal, a mule perhaps.",
+     "walkthrough": "The beast in the surface is the mule; beast is fodder and mule part of the definition.",
+     "definitionFit": "Mules are proverbially stubborn, so being like a mule is being obstinate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Fix"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1213,50 @@
     "text": "Deliberation even if on time",
     "enumeration": "7"
    },
-   "solution": "THOUGHT"
+   "solution": "THOUGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THOUGHT",
+    "definitions": [
+     {
+      "text": "Deliberation",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "even if",
+      "gives": "THOUGH",
+      "note": "though means even if"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOUGH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Careful consideration, even when time is short.",
+     "walkthrough": "In a down clue, on means placed after, so T comes beneath.",
+     "definitionFit": "Thought is careful consideration of something, which is what deliberation means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1276,52 @@
      }
     ]
    },
-   "solution": "TOOMUCH"
+   "solution": "TOOMUCH",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "TOO MUCH",
+    "definitions": [
+     {
+      "text": "over the top",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Spooner was the Oxford don famous for swapping the starting sounds of words"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "low bit",
+      "gives": "TOOMUCH",
+      "soundsLike": "MOO TOUCH",
+      "note": "to low is to moo like a cow and a touch is a small bit; swapping the opening sounds of the pair gives the phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOOMUCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Spooner's poor contribution was excessive.",
+     "walkthrough": "Swap the opening sounds of MOO and TOUCH to get the answer. Low is the cow's noise, not the opposite of high.",
+     "definitionFit": "Over the top is an idiom for excessive, which is what the phrase means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1335,76 @@
     "text": "Narrow opening in a northern river? This will provide more room",
     "enumeration": "6"
    },
-   "solution": "ANNEXE"
+   "solution": "ANNEXE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ANNEXE",
+    "definitions": [
+     {
+      "text": "This will provide more room",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its very first letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the letters of the others"
+     }
+    ],
+    "linkWords": [
+     "?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is short for northern"
+     },
+     {
+      "clueFragment": "Narrow",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of narrow"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "EXE",
+      "note": "the Exe is a river in Devon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "N",
+      "EXE"
+     ]
+    },
+    "explanation": {
+     "surface": "A narrow gap by a river in the north would make space for an extension.",
+     "walkthrough": "The Exe is a river in south-west England that gives Exeter its name.",
+     "definitionFit": "An annexe is an extension added to a building, which supplies extra space."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1418,50 @@
     "text": "Volunteer force's excessive enthusiasm for island state",
     "enumeration": "8"
    },
-   "solution": "TASMANIA"
+   "solution": "TASMANIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TASMANIA",
+    "definitions": [
+     {
+      "text": "island state",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Volunteer force's",
+      "gives": "TAS",
+      "note": "the TA, or Territorial Army, is Britain's volunteer reserve; with the 's"
+     },
+     {
+      "clueFragment": "excessive enthusiasm",
+      "gives": "MANIA",
+      "note": "a mania is a craze"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAS",
+      "MANIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Reservists have a wild passion for an island state.",
+     "walkthrough": "The Territorial Army was the British Army's part-time volunteer reserve.",
+     "definitionFit": "Tasmania is the island that forms one of the states of Australia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "force's"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1481,47 @@
      }
     ]
    },
-   "solution": "ODDSON"
+   "solution": "ODDSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODDS ON",
+    "definitions": [
+     {
+      "text": "as favourite may be",
+      "at": 16,
+      "note": "an adjective phrase describing the favourite's odds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puzzling",
+      "gives": "ODD",
+      "note": "odd means strange or puzzling"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "SON",
+      "note": "a son is a child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODD",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "A baffling youngster, in the way a frontrunner might be.",
+     "definitionFit": "A favourite in a race is often odds-on, meaning the betting odds are shorter than evens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Puzzling"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1535,46 @@
     "text": "Sap in sewer",
     "enumeration": "5"
    },
-   "solution": "DRAIN"
+   "solution": "DRAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRAIN",
+    "definitions": [
+     {
+      "text": "Sap",
+      "at": 0
+     },
+     {
+      "text": "sewer",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sap",
+      "note": "first meaning: to exhaust, sap strength from"
+     },
+     {
+      "clueFragment": "sewer",
+      "note": "second meaning: a pipe carrying waste water"
+     }
+    ],
+    "explanation": {
+     "surface": "Plant fluid found in a waste pipe.",
+     "walkthrough": "Sap looks like tree juice, but it is the verb meaning weaken, and sewer is the pipe rather than someone who sews.",
+     "definitionFit": "The word is a verb meaning gradually deplete and a noun for a channel taking away waste water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sap"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1588,60 @@
     "text": "Carol is keeping mum inside — it's stifling",
     "enumeration": "10"
    },
-   "solution": "SMOTHERING"
+   "solution": "SMOTHERING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SMOTHERING",
+    "definitions": [
+     {
+      "text": "stifling",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding something within, so one word goes inside another"
+     }
+    ],
+    "linkWords": [
+     "inside",
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carol",
+      "gives": "SING",
+      "note": "to carol is to sing"
+     },
+     {
+      "clueFragment": "mum",
+      "gives": "MOTHER",
+      "note": "mum is short for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MOTHER",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Carol says nothing about what is inside, and the secrecy feels oppressive.",
+     "walkthrough": "Carol looks like a name and keeping mum like staying silent; carol is the verb sing and mum is mother.",
+     "definitionFit": "Smothering means suffocating, which is a synonym of stifling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mum"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1655,57 @@
     "text": "Neighbour bringing instrument back",
     "enumeration": "4"
    },
-   "solution": "ABUT"
+   "solution": "ABUT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ABUT",
+    "definitions": [
+     {
+      "text": "Neighbour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means returning to the start, so the word is read from the end"
+     }
+    ],
+    "linkWords": [
+     "bringing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "instrument",
+      "gives": "TUBA",
+      "note": "a tuba is a brass instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABUT"
+     ],
+     "reversals": [
+      {
+       "from": "TUBA",
+       "to": "ABUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The person next door returns a borrowed musical instrument.",
+     "walkthrough": "Neighbour looks like a noun for the person next door, but it is the verb meaning adjoin.",
+     "definitionFit": "To abut is to share a boundary with, which is what neighbour means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Neighbour"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1719,50 @@
     "text": "Cricket trophy presented after 500 runs",
     "enumeration": "6"
    },
-   "solution": "DASHES"
+   "solution": "DASHES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DASHES",
+    "definitions": [
+     {
+      "text": "runs",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "presented after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is the Roman numeral for 500"
+     },
+     {
+      "clueFragment": "Cricket trophy",
+      "gives": "ASHES",
+      "note": "the Ashes is the England-Australia Test cricket trophy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ASHES"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket prize handed over once a batsman has scored five hundred runs.",
+     "walkthrough": "Runs looks like cricket scoring but is the definition: quick sprints.",
+     "definitionFit": "Dashes are short fast runs, so the plural noun matches runs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1776,58 @@
     "text": "Unpleasant odour from head of smelly fish",
     "enumeration": "6"
    },
-   "solution": "STENCH"
+   "solution": "STENCH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STENCH",
+    "definitions": [
+     {
+      "text": "Unpleasant odour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, the one at the top"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smelly",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of smelly"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "TENCH",
+      "note": "a tench is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TENCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A bad smell comes from a rotting fish head.",
+     "definitionFit": "A stench is a strong foul smell, which is an unpleasant odour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   }
  ]
 }
