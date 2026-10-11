@@ -24,6 +24,9 @@
   "date": "2025-02-11",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,79 @@
     "text": "Remove restaurant retrospectively charging uncapped fee",
     "enumeration": "6"
    },
-   "solution": "EFFACE"
+   "solution": "EFFACE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EFFACE",
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retrospectively",
+      "for": "reversal",
+      "note": "looking back in time suggests reading the eatery's name from its end to its start"
+     },
+     {
+      "text": "uncapped",
+      "for": "letter_selection",
+      "note": "without a cap means the top letter is lost, leaving the rest of the word"
+     },
+     {
+      "text": "charging",
+      "for": "container",
+      "note": "charging means loading or filling, so one piece is packed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fee",
+      "gives": "E",
+      "select": "last",
+      "note": "fee with its first letter knocked off, first part of the shell"
+     },
+     {
+      "clueFragment": "restaurant",
+      "gives": "FFAC",
+      "note": "a caff is a cheap café, here read backwards"
+     },
+     {
+      "clueFragment": "fee",
+      "gives": "E",
+      "note": "the remaining letter of the beheaded fee closes the shell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "FFAC",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "CAFF",
+       "to": "FFAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner complains about a restaurant that sneakily added a fee to the bill after the fact and wants it removed.",
+     "walkthrough": "A CAFF is British slang for a cheap café. Reversed, it goes inside EE, which is FEE without its first letter: E(FFAC)E.",
+     "definitionFit": "To efface something is to rub it out or erase it, a close synonym of remove."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charging"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +126,63 @@
     "text": "Fine old cat hiding tail in folded paper",
     "enumeration": "5"
    },
-   "solution": "FOLIO"
+   "solution": "FOLIO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FOLIO",
+    "definitions": [
+     {
+      "text": "folded paper",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding tail",
+      "for": "deletion",
+      "note": "hiding its tail means the big cat's last letter is kept out of sight"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "LIO",
+      "note": "a lion is a big cat; its last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "O",
+      "LIO"
+     ]
+    },
+    "explanation": {
+     "surface": "A cat curls up inside a folded newspaper with its tail tucked out of sight.",
+     "definitionFit": "A folio is a sheet of paper folded once to make two leaves, or a book made of such sheets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cat"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +196,50 @@
     "text": "Discrimination distorted hit parade",
     "enumeration": "9"
    },
-   "solution": "APARTHEID"
+   "solution": "APARTHEID",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APARTHEID",
+    "definitions": [
+     {
+      "text": "Discrimination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distorted",
+      "for": "anagram",
+      "note": "something distorted is twisted out of its proper shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit parade",
+      "gives": "HITPARADE",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HITPARADE",
+       "gives": "APARTHEID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that the pop charts are skewed and unfair to some artists.",
+     "definitionFit": "Apartheid was South Africa's system of racial segregation, the most notorious example of institutional discrimination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parade"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +253,65 @@
     "text": "'Throw up' (to quote author) with this medicine",
     "enumeration": "6"
    },
-   "solution": "EMETIC"
+   "solution": "EMETIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EMETIC",
+    "definitions": [
+     {
+      "text": "medicine",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Throw up",
+      "for": "reversal",
+      "note": "in a down entry, throwing something up sends its letters upwards, so they read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to quote",
+      "gives": "CITE",
+      "note": "to cite is to quote"
+     },
+     {
+      "clueFragment": "author",
+      "gives": "ME",
+      "note": "the author of a clue refers to the setter, ME"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "ETIC"
+     ],
+     "reversals": [
+      {
+       "from": "CITEME",
+       "to": "EMETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author quoted saying 'throw up', as if describing what a certain medicine makes you do.",
+     "walkthrough": "CITE ME, read upwards, gives the answer; the quoted 'Throw up' doubles as a nod to what the medicine does.",
+     "definitionFit": "An emetic is a medicine or substance taken to induce vomiting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Throw"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +325,67 @@
     "text": "Cut back relations with company controlling international minister?",
     "enumeration": "8"
    },
-   "solution": "POLITICO"
+   "solution": "POLITICO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "POLITICO",
+    "definitions": [
+     {
+      "text": "minister?",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word for cut is written from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut",
+      "gives": "POL",
+      "note": "to lop is to cut; read backwards"
+     },
+     {
+      "clueFragment": "relations",
+      "gives": "IT",
+      "note": "IT is slang for sexual relations"
+     },
+     {
+      "clueFragment": "company controlling international",
+      "gives": "ICO",
+      "note": "CO (company) with I (international) placed in front, as if the firm is the power behind the international"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POL",
+      "IT",
+      "ICO"
+     ],
+     "reversals": [
+      {
+       "from": "LOP",
+       "to": "POL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper story about a minister who severed ties with a company running an international business.",
+     "walkthrough": "The positioning of I before CO is loose: 'controlling' just links the two abbreviations rather than putting one inside the other.",
+     "definitionFit": "A politico is a politician, and a government minister is one example, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relations"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +405,61 @@
      }
     ]
    },
-   "solution": "PEREGRINEFALCON"
+   "solution": "PEREGRINEFALCON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PEREGRINE FALCON",
+    "definitions": [
+     {
+      "text": "fast mover",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all of the word, so its last letter is dropped"
+     },
+     {
+      "text": "Jockey",
+      "for": "anagram",
+      "note": "to jockey is to manoeuvre or jostle for position, so the letters are moved around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prefers",
+      "gives": "PREFER",
+      "note": "prefers without its last letter"
+     },
+     {
+      "clueFragment": "congenial",
+      "gives": "CONGENIAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PREFERCONGENIAL",
+       "gives": "PEREGRINEFALCON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jockey who mostly likes a friendly, quick horse.",
+     "definitionFit": "The peregrine falcon is famed as the fastest animal on earth when diving, so it is a fast mover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Jockey"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +473,62 @@
     "text": "Attractive characteristic of The Third Man elevating the finale",
     "enumeration": "8"
    },
-   "solution": "LIKEABLE"
+   "solution": "LIKEABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "LIKEABLE",
+    "definitions": [
+     {
+      "text": "Attractive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "elevating the finale",
+      "for": "cycling",
+      "note": "in a down entry, raising the final letter moves it one place up, swapping it with its neighbour"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "characteristic of",
+      "gives": "LIKE",
+      "note": "characteristic of someone is like them"
+     },
+     {
+      "clueFragment": "The Third Man",
+      "gives": "ABEL",
+      "note": "after Adam and Cain, Abel was the third man in Genesis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIKE",
+      "ABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABEL",
+       "gives": "ABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film buff praises the charm of The Third Man and its famous closing scene.",
+     "walkthrough": "The Third Man looks like the 1949 film, but here it is the third human in Genesis, after Adam and Cain. In a down entry, elevating the last letter lifts it one place.",
+     "definitionFit": "Likeable means pleasant and easy to like, so a likeable person is attractive in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Third"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +542,44 @@
     "text": "Code for the Speaker's tea dance",
     "enumeration": "5"
    },
-   "solution": "TANGO"
+   "solution": "TANGO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TANGO",
+    "definitions": [
+     {
+      "text": "Code for the Speaker's tea",
+      "at": 0
+     },
+     {
+      "text": "dance",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Code for the Speaker's tea",
+      "note": "first meaning: the NATO alphabet code word for T, which is how tea is spoken"
+     },
+     {
+      "clueFragment": "dance",
+      "note": "second meaning: the Argentine ballroom dance"
+     }
+    ],
+    "explanation": {
+     "surface": "The Commons Speaker's rules for afternoon tea dances.",
+     "walkthrough": "The first half is a cryptic description: the word tea pronounced is the letter T, whose NATO phonetic code word is the answer.",
+     "definitionFit": "The tango is a passionate ballroom dance from Argentina, and Tango is the radio code word for T."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Speaker's"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +593,64 @@
     "text": "Alsace beer brewed without English vegetable",
     "enumeration": "9"
    },
-   "solution": "CALABRESE"
+   "solution": "CALABRESE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CALABRESE",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing mixes ingredients together, so the letters are stirred into a new order"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means the following abbreviation is taken out of the mixture"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alsace beer",
+      "gives": "ALSACEBEER",
+      "note": "the letters to mix"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English; one E is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CALABRESE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALSACBEER",
+       "gives": "CALABRESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beer made in Alsace that leaves out English hops or produce.",
+     "definitionFit": "Calabrese is a variety of green broccoli, a familiar vegetable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brewed"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +664,61 @@
     "text": "Divide prime bit of Camembert the French way",
     "enumeration": "6"
    },
-   "solution": "CLEAVE"
+   "solution": "CLEAVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLEAVE",
+    "definitions": [
+     {
+      "text": "Divide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prime bit of",
+      "for": "letter_selection",
+      "note": "the prime or first part of the cheese's name is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Camembert",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "AVE",
+      "note": "Ave is the abbreviation for avenue, a way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LE",
+      "AVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cutting the best wedge of Camembert in the French manner.",
+     "definitionFit": "To cleave is to split or divide something, typically with a sharp blow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +732,66 @@
     "text": "Family haunting retired senior cause further provocation",
     "enumeration": "8"
    },
-   "solution": "REKINDLE"
+   "solution": "REKINDLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "REKINDLE",
+    "definitions": [
+     {
+      "text": "cause further provocation",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "haunting",
+      "for": "container",
+      "note": "a ghost haunting a place dwells within it, so one piece sits inside the other"
+     },
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retiring means drawing back, so the word for senior is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "senior",
+      "gives": "REDLE",
+      "note": "an elder is a senior; read backwards"
+     },
+     {
+      "clueFragment": "Family",
+      "gives": "KIN",
+      "note": "kin are family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "KIN",
+      "DLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELDER",
+       "to": "REDLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Relatives who keep pestering a retired old person and stir up trouble.",
+     "definitionFit": "To rekindle a quarrel or feeling is to stir it up again, provoking it anew."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "haunting"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +805,62 @@
     "text": "Trivial affair keeping Wellington away from the front?",
     "enumeration": "8"
    },
-   "solution": "FOOTLING"
+   "solution": "FOOTLING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FOOTLING",
+    "definitions": [
+     {
+      "text": "Trivial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away from the front",
+      "for": "deletion",
+      "note": "with its front gone, the footwear loses its first letter"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding it within, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "affair",
+      "gives": "FLING",
+      "note": "a fling is a brief affair"
+     },
+     {
+      "clueFragment": "Wellington",
+      "gives": "OOT",
+      "note": "a wellington is a rubber boot; it loses its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OOT",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A minor affair kept the Duke of Wellington from going to the battlefront.",
+     "walkthrough": "Wellington suggests the duke, but a wellington is also a rubber boot.",
+     "definitionFit": "Footling means trifling or unimportant, a mainly British word for trivial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wellington"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +874,78 @@
     "text": "Graduates going head to head about shell of obscure creature",
     "enumeration": "6"
    },
-   "solution": "AMOEBA"
+   "solution": "AMOEBA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AMOEBA",
+    "definitions": [
+     {
+      "text": "creature",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going head to head",
+      "for": "reversal",
+      "note": "for the two degrees to meet head to head, the first must be turned round to face the second"
+     },
+     {
+      "text": "shell of",
+      "for": "letter_selection",
+      "note": "the shell of a word is its outside, its first and last letters"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the degrees go round the selected letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Graduates",
+      "gives": "AM",
+      "note": "MA, Master of Arts, turned round"
+     },
+     {
+      "clueFragment": "obscure",
+      "gives": "OE",
+      "select": "outer",
+      "note": "the outside letters"
+     },
+     {
+      "clueFragment": "Graduates",
+      "gives": "BA",
+      "note": "BA, Bachelor of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "OE",
+      "BA"
+     ],
+     "reversals": [
+      {
+       "from": "MA",
+       "to": "AM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two graduates square up over a dull subject's outer layer.",
+     "definitionFit": "An amoeba is a single-celled creature, a microscopic living organism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Graduates"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +959,67 @@
     "text": "Player from Expresso Bongo extremely withdrawn",
     "enumeration": "4"
    },
-   "solution": "OBOE"
+   "solution": "OBOE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "OBOE",
+    "definitions": [
+     {
+      "text": "Player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "at the extremes means only the outermost letters of each word are used"
+     },
+     {
+      "text": "withdrawn",
+      "for": "reversal",
+      "note": "withdrawn means drawn back, so the chosen letters are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expresso",
+      "gives": "EO",
+      "select": "outer",
+      "note": "the outside letters"
+     },
+     {
+      "clueFragment": "Bongo",
+      "gives": "BO",
+      "select": "outer",
+      "note": "the outside letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBOE"
+     ],
+     "reversals": [
+      {
+       "from": "EOBO",
+       "to": "OBOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician from the 1959 Cliff Richard film Expresso Bongo becomes a recluse.",
+     "walkthrough": "Expresso Bongo was a 1959 British musical film starring Cliff Richard.",
+     "definitionFit": "An oboe is an instrument that is played, and in an orchestra the word can stand for its player too."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Player"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +1039,39 @@
      }
     ]
    },
-   "solution": "BLACKHOLE"
+   "solution": "BLACKHOLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BLACK HOLE",
+    "definitions": [
+     {
+      "text": "Site of massive gathering from which there's no escape",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Site of massive gathering",
+      "note": "surface reading: a huge crowd at an event, or a prison camp"
+     },
+     {
+      "clueFragment": "from which there's no escape",
+      "note": "setter's reading: a region of space where enormous mass collects and even light cannot get out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Massive suggests a huge crowd; read literally it means having great mass, as astronomers use it.",
+     "definitionFit": "In astronomy, it is a collapsed star whose gravity is so strong that nothing, not even light, can leave it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "massive"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1091,43 @@
      }
     ]
    },
-   "solution": "ILLTIMED"
+   "solution": "ILLTIMED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ILL-TIMED",
+    "definitions": [
+     {
+      "text": "Inappropriate",
+      "at": 0
+     },
+     {
+      "text": "clue for 'demit'? It's just a reversal",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inappropriate",
+      "note": "first meaning: coming at the wrong moment, unsuitable"
+     },
+     {
+      "clueFragment": "clue for 'demit'? It's just a reversal",
+      "note": "second meaning, a cryptic one: read as a clue, the answer means 'timed, badly arranged', and those five letters are only demit written backwards"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as a clue, the answer means 'timed, badly arranged', which gives DEMIT; since TIMED is simply DEMIT backwards, it would be a lazy clue, which is the joke.",
+     "definitionFit": "Ill-timed means coming at an unsuitable moment, so it describes something inopportune or out of place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clue"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1141,61 @@
     "text": "Start to interpret three notes about quarantine",
     "enumeration": "9"
    },
-   "solution": "ISOLATION"
+   "solution": "ISOLATION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ISOLATION",
+    "definitions": [
+     {
+      "text": "quarantine",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "interpret",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "three notes",
+      "gives": "SOLATI",
+      "note": "so, la and ti, three notes of the sol-fa scale"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, as in a talk on a topic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SOLATI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician starts to interpret a three-note motif about being locked down.",
+     "definitionFit": "Quarantine is the enforced separation of people or animals to stop disease spreading, a form of isolation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1209,67 @@
     "text": "Naked lovers' rampant favourites go too far",
     "enumeration": "8"
    },
-   "solution": "OVERSTEP"
+   "solution": "OVERSTEP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "OVERSTEP",
+    "definitions": [
+     {
+      "text": "go too far",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Naked",
+      "for": "letter_selection",
+      "note": "stripped naked, the word loses its outer covering, the first and last letters"
+     },
+     {
+      "text": "rampant",
+      "for": "reversal",
+      "note": "a rampant beast rears up on its hind legs, so in a down entry the word reads upward"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lovers'",
+      "gives": "OVER",
+      "select": "middle",
+      "note": "lovers with its outside letters removed"
+     },
+     {
+      "clueFragment": "favourites",
+      "gives": "STEP",
+      "note": "pets are favourites; read upward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "STEP"
+     ],
+     "reversals": [
+      {
+       "from": "PETS",
+       "to": "STEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unclothed lovers' wild favourite games take things too far.",
+     "definitionFit": "To overstep a limit is to go beyond what is allowed or proper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rampant"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1293,65 @@
      }
     ]
    },
-   "solution": "EAUDEVIE"
+   "solution": "EAUDEVIE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EAU DE VIE",
+    "definitions": [
+     {
+      "text": "spirit",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inwardly",
+      "for": "letter_selection",
+      "note": "inwardly means taking only the inner letters of each word, discarding the outer ones"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Read",
+      "gives": "EA",
+      "select": "middle",
+      "note": "the inner letters"
+     },
+     {
+      "clueFragment": "rude",
+      "gives": "UD",
+      "select": "middle",
+      "note": "the inner letters"
+     },
+     {
+      "clueFragment": "review",
+      "gives": "EVIE",
+      "select": "middle",
+      "note": "the inner letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "UD",
+      "EVIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Reading a harsh review makes you privately reveal your true mood.",
+     "definitionFit": "Eau de vie, French for water of life, is a clear brandy distilled from fruit, a type of spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1365,61 @@
     "text": "Nurse on flipping second warning",
     "enumeration": "4"
    },
-   "solution": "OMEN"
+   "solution": "OMEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OMEN",
+    "definitions": [
+     {
+      "text": "warning",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something over turns it round, so the word for second runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "OM",
+      "note": "MO, as in 'half a mo', is a moment or second; turned round"
+     },
+     {
+      "clueFragment": "Nurse",
+      "gives": "EN",
+      "note": "EN is an Enrolled Nurse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OM",
+      "EN"
+     ],
+     "reversals": [
+      {
+       "from": "MO",
+       "to": "OM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse on her shift loses her temper and issues a second warning.",
+     "walkthrough": "In an across clue, 'Nurse on' the other piece places it after; MO is British for a short moment.",
+     "definitionFit": "An omen is a sign of what is to come, often a warning of trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1433,46 @@
     "text": "Approve detective sergeant's reforms",
     "enumeration": "6"
    },
-   "solution": "AMENDS"
+   "solution": "AMENDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMENDS",
+    "definitions": [
+     {
+      "text": "reforms",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Approve",
+      "gives": "AMEN",
+      "note": "to say amen to something is to approve it"
+     },
+     {
+      "clueFragment": "detective sergeant's",
+      "gives": "DS",
+      "note": "DS is the abbreviation for detective sergeant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMEN",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "A chief signs off a detective sergeant's proposed changes to procedure.",
+     "definitionFit": "To amend something is to change it for the better, which is what one does when one reforms it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Approve"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1486,43 @@
     "text": "Partially unmask a terrifying iceman",
     "enumeration": "6"
    },
-   "solution": "SKATER"
+   "solution": "SKATER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SKATER",
+    "definitions": [
+     {
+      "text": "iceman",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Partially",
+      "for": "hidden_word",
+      "note": "partially means only part of the following words is used, the answer lying inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unmask a terrifying",
+      "gives": "SKATER",
+      "note": "letters spanning the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone partly reveals a frightening man made of ice, or a horror villain.",
+     "definitionFit": "A skater glides on ice, so the answer is a man of the ice in a playful sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "iceman"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1536,53 @@
     "text": "Little sign of queen leaving balcony",
     "enumeration": "5"
    },
-   "solution": "TRACE"
+   "solution": "TRACE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRACE",
+    "definitions": [
+     {
+      "text": "Little sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing from, so the queen's letters are taken out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the queen"
+     },
+     {
+      "clueFragment": "balcony",
+      "gives": "TERRACE",
+      "note": "a terrace is a raised platform or balcony"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Barely a sign of the queen as she left the royal balcony.",
+     "definitionFit": "A trace is a slight mark or indication that something was present, a little sign of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "queen"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1602,60 @@
      }
     ]
    },
-   "solution": "ARMCANDY"
+   "solution": "ARMCANDY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ARM CANDY",
+    "definitions": [
+     {
+      "text": "attractive escort",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertains",
+      "for": "container",
+      "note": "to entertain guests is to take them in, so the other letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Host",
+      "gives": "ARMY",
+      "note": "a host is an army"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is the NATO code word for C"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means with or along with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARM",
+      "CAND",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A party host welcomes Charlie, who arrives with a good-looking companion.",
+     "definitionFit": "Arm candy is an informal term for a glamorous companion taken to events mainly to be seen with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Host"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1669,59 @@
     "text": "Odd bits of dagger located after party trick",
     "enumeration": "5"
    },
-   "solution": "DODGE"
+   "solution": "DODGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DODGE",
+    "definitions": [
+     {
+      "text": "trick",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd bits of",
+      "for": "letter_selection",
+      "note": "the odd bits are the letters in odd-numbered positions, first, third, fifth"
+     }
+    ],
+    "linkWords": [
+     "located"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "dagger",
+      "gives": "DGE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "DGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dagger turns up after a party, a sinister trick.",
+     "walkthrough": "'Located after' puts the dagger's letters behind those for party.",
+     "definitionFit": "A dodge is a cunning trick or ruse to avoid something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dagger"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1735,47 @@
     "text": "Visionary movement introduced by Marcus Aurelius?",
     "enumeration": "8"
    },
-   "solution": "ROMANTIC"
+   "solution": "ROMANTIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROMANTIC",
+    "definitions": [
+     {
+      "text": "Visionary",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "introduced by Marcus Aurelius?",
+      "gives": "ROMAN",
+      "note": "Marcus Aurelius was a Roman emperor, so what he brings in is Roman"
+     },
+     {
+      "clueFragment": "movement",
+      "gives": "TIC",
+      "note": "a tic is an involuntary movement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROMAN",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A philosophical movement founded by the Stoic emperor Marcus Aurelius.",
+     "walkthrough": "The surface suggests a school of thought; movement is in fact a twitch, and the Roman is put in front of it.",
+     "definitionFit": "A romantic is an idealistic dreamer with grand, unrealistic visions, so a visionary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1789,60 @@
     "text": "Scotsman going west notices divine females",
     "enumeration": "6"
    },
-   "solution": "NAIADS"
+   "solution": "NAIADS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NAIADS",
+    "definitions": [
+     {
+      "text": "divine females",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going west",
+      "for": "reversal",
+      "note": "west is to the left on a map, so in an across entry the name runs right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scotsman",
+      "gives": "NAI",
+      "note": "Ian is a typical Scottish name; reversed"
+     },
+     {
+      "clueFragment": "notices",
+      "gives": "ADS",
+      "note": "ads are notices, advertisements"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAI",
+      "ADS"
+     ],
+     "reversals": [
+      {
+       "from": "IAN",
+       "to": "NAI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scotsman heading west spots some heavenly women.",
+     "definitionFit": "Naiads are water nymphs in Greek myth, minor female deities of springs and rivers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notices"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1856,67 @@
     "text": "Poor Schopenhauer lacking cash supply at this stage",
     "enumeration": "8"
    },
-   "solution": "HEREUPON"
+   "solution": "HEREUPON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HEREUPON",
+    "definitions": [
+     {
+      "text": "at this stage",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means without, so certain letters are taken out of the name"
+     },
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "poor means in bad shape, so the remaining letters are put into disorder"
+     }
+    ],
+    "linkWords": [
+     "supply"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Schopenhauer",
+      "gives": "SCHOPENHAUER",
+      "note": "the German philosopher's name"
+     },
+     {
+      "clueFragment": "cash",
+      "gives": "CASH",
+      "note": "these four letters are removed from the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEREUPON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OPENHUER",
+       "gives": "HEREUPON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Penniless Schopenhauer runs out of money to supply his needs at this point in his life.",
+     "definitionFit": "Hereupon is a formal adverb meaning immediately after this, at this point in time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1930,53 @@
     "text": "Soprano in Germany?",
     "enumeration": "6"
    },
-   "solution": "SINGER"
+   "solution": "SINGER",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "SINGER",
+    "definitions": [
+     {
+      "text": "Soprano in Germany?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soprano",
+      "gives": "S",
+      "note": "S is the abbreviation for soprano"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "GER",
+      "note": "GER is the abbreviation for Germany"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IN",
+      "GER"
+     ]
+    },
+    "explanation": {
+     "surface": "An opera diva performing in Germany.",
+     "walkthrough": "The whole clue is both the wordplay and a description of the answer: a soprano anywhere, Germany included, is one.",
+     "definitionFit": "A soprano is the highest female voice, and the person with that voice is a vocalist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
