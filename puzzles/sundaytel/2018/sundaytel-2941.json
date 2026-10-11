@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,72 @@
     "text": "Material Chekhov initially included in his play rewritten",
     "enumeration": "8"
    },
-   "solution": "PHYSICAL"
+   "solution": "PHYSICAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "PHYSICAL",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the name just before it"
+     },
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "included in means one piece is placed inside the words that follow"
+     },
+     {
+      "text": "rewritten",
+      "for": "anagram",
+      "note": "something rewritten has had its contents rearranged into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his play",
+      "gives": "HISPLAY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Chekhov",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of the Russian playwright's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHYSICAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HISPLCAY",
+       "gives": "PHYSICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A director's notes on reworking a Chekhov play, with the author slipped into the text.",
+     "walkthrough": "Chekhov is a real playwright, which makes 'his play' look like a reference to The Seagull, but it is just eight letters to rearrange.",
+     "definitionFit": "Physical and material are synonyms as adjectives, both meaning tangible or of the body rather than the mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +114,48 @@
     "text": "Flower in bunch a rebel leader distributed",
     "enumeration": "8"
    },
-   "solution": "HAREBELL"
+   "solution": "HAREBELL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HAREBELL",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells you the answer is sitting inside the run of words that follows"
+     },
+     {
+      "text": "distributed",
+      "for": "hidden_word",
+      "note": "distributed says the letters are spread across several words rather than inside one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bunch a rebel leader",
+      "gives": "HAREBELL",
+      "note": "runs from the last letter of bunch to the first letter of leader"
+     }
+    ],
+    "explanation": {
+     "surface": "Rebels hand out flowers from a bunch, perhaps as a peace gesture.",
+     "walkthrough": "'Leader' tempts you to take a first letter, but here it simply contributes its L to the hidden run.",
+     "definitionFit": "The harebell is a wild plant with pale blue bell-shaped blooms, the bluebell of Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "distributed"
+    }
+   }
   },
   {
    "number": 3,
@@ -66,7 +175,39 @@
      }
     ]
    },
-   "solution": "SEMIFINALIST"
+   "solution": "SEMIFINALIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SEMI-FINALIST",
+    "definitions": [
+     {
+      "text": "Player in quartet that's been successful thus far",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Player in quartet",
+      "note": "surface reading: a musician in a string quartet"
+     },
+     {
+      "clueFragment": "that's been successful thus far",
+      "note": "setter's reading: one of the last four competitors left in a knockout tournament, having won every round so far"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Player' and 'quartet' suggest chamber music; the quartet is really the four survivors of a knockout competition.",
+     "definitionFit": "A competitor reaching the penultimate round is one of four who have won all their matches to that point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "quartet"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +221,48 @@
     "text": "In different senses, it may be perceived as hot or cold",
     "enumeration": "6"
    },
-   "solution": "CHILLI"
+   "solution": "CHILLI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHILLI",
+    "definitions": [
+     {
+      "text": "hot",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In different senses, it may be perceived as",
+      "for": "homophone",
+      "note": "perceived through a different sense means taken in by the ear rather than the tongue, so the sound counts"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "CHILLI",
+      "soundsLike": "CHILLY",
+      "note": "the adjective for cool weather, spelt here as the pepper"
+     }
+    ],
+    "explanation": {
+     "surface": "A riddle about something that seems hot to one sense and cold to another.",
+     "walkthrough": "'Senses' means both taste and hearing: on the tongue the pepper burns, while to the ear it is the word for cool weather.",
+     "definitionFit": "The pepper is fiery to taste, so hot describes it in the sense of spicy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "senses"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +276,59 @@
     "text": "Piece of wood securing pole is pine",
     "enumeration": "4"
    },
-   "solution": "LONG"
+   "solution": "LONG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LONG",
+    "definitions": [
+     {
+      "text": "pine",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing means gripping hold of, so the first piece wraps round the second"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piece of wood",
+      "gives": "LOG",
+      "note": "a log is a piece of a tree trunk"
+     },
+     {
+      "clueFragment": "pole",
+      "gives": "N",
+      "note": "N for the North Pole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "N",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A carpenter describes a timber block clamping a pine post.",
+     "walkthrough": "'Pine' reads as the wood, matching the timber surface, but it is the verb meaning yearn.",
+     "definitionFit": "To pine and to long both mean to yearn wistfully for something absent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pine"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +348,54 @@
      }
     ]
    },
-   "solution": "TEACADDY"
+   "solution": "TEACADDY",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "TEA CADDY",
+    "definitions": [
+     {
+      "text": "Leaves container",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard says one of the items counts by its sound rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "holding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two things golfer needs, one",
+      "gives": "TEA",
+      "soundsLike": "TEE",
+      "note": "the peg a golfer drives from, spelt as the drink"
+     },
+     {
+      "clueFragment": "two things golfer needs",
+      "gives": "CADDY",
+      "note": "the bag-carrier who accompanies a golfer"
+     }
+    ],
+    "explanation": {
+     "surface": "A bag holds a golfer's essentials, one of them audible.",
+     "walkthrough": "'Leaves' means tea leaves, not departs. Both items come from the golf course: the peg a ball sits on and the person who carries the clubs.",
+     "definitionFit": "A tea caddy is a small tin or box for storing loose tea leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +409,54 @@
     "text": "Source of special fare husband got from old Asian city",
     "enumeration": "4"
    },
-   "solution": "DELI"
+   "solution": "DELI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DELI",
+    "definitions": [
+     {
+      "text": "Source of special fare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "got from",
+      "for": "deletion",
+      "note": "got from means one piece is taken out of the bigger word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband"
+     },
+     {
+      "clueFragment": "old Asian city",
+      "gives": "DELHI",
+      "note": "the historic Indian capital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEL",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband brings home exotic food from an ancient city in Asia.",
+     "walkthrough": "Removing the husband's letter from the Indian city leaves a shop selling speciality food.",
+     "definitionFit": "A deli, short for delicatessen, sells cured meats, cheeses and other speciality foods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "got"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +476,76 @@
      }
     ]
    },
-   "solution": "GREYAREA"
+   "solution": "GREYAREA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "GREY AREA",
+    "definitions": [
+     {
+      "text": "Ill-defined situation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means trimmed, so the word for big loses its last letter"
+     },
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "awful suggests something in a terrible state, so the letters are jumbled"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping round, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "big",
+      "gives": "GREAT",
+      "note": "great means large"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "YEAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRE",
+      "YARE",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "YEAR",
+       "gives": "YARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that a large budget cut has made for a dreadful year.",
+     "walkthrough": "The trimmed word for big splits after its third letter to hold the scrambled year.",
+     "definitionFit": "A grey area is a matter not clearly in one category or the other, so its rules are uncertain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +559,50 @@
     "text": "Get to know about remaining present as stated",
     "enumeration": "8"
    },
-   "solution": "OVERHEAR"
+   "solution": "OVERHEAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "OVERHEAR",
+    "definitions": [
+     {
+      "text": "Get to know about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as stated",
+      "for": "homophone",
+      "note": "as stated means as spoken, so the word counts by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remaining",
+      "gives": "OVER",
+      "note": "as in left over"
+     },
+     {
+      "clueFragment": "present",
+      "gives": "HEAR",
+      "soundsLike": "HERE",
+      "note": "present means in this place; the spelling used is the one for listening"
+     }
+    ],
+    "explanation": {
+     "surface": "A teacher learns about someone who stayed behind after class.",
+     "walkthrough": "'Present' looks like a gift or the verb; it means being here.",
+     "definitionFit": "To overhear is to learn about something by catching words not meant for you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +616,55 @@
     "text": "Intensively study some basic education in academic stream",
     "enumeration": "4"
    },
-   "solution": "CRAM"
+   "solution": "CRAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRAM",
+    "definitions": [
+     {
+      "text": "Intensively study",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells you one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "academic stream",
+      "gives": "CAM",
+      "note": "the Cam is the river flowing through Cambridge, a university town"
+     },
+     {
+      "clueFragment": "some basic education",
+      "gives": "R",
+      "note": "one of the three Rs: reading, writing and arithmetic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Students revise hard while studying beside a river at university.",
+     "walkthrough": "The three Rs are the traditional basics of schooling, so one R is 'some basic education'. The Cam is the river in Cambridge.",
+     "definitionFit": "To cram is to study hard in a short time, usually just before an exam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stream"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +678,68 @@
     "text": "One left area without soldier? That doesn't make sense",
     "enumeration": "12"
    },
-   "solution": "ILLOGICALITY"
+   "solution": "ILLOGICALITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ILLOGICALITY",
+    "definitions": [
+     {
+      "text": "That doesn't make sense",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "LOCALITY",
+      "note": "a locality is a district or neighbourhood"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "L",
+      "LO",
+      "GI",
+      "CALITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier-less region is questioned: that cannot be right.",
+     "walkthrough": "'Without' looks like 'lacking', but here it means outside: the area wraps round the soldier.",
+     "definitionFit": "Illogicality is the quality of not following reason, so the definition describes it as something that doesn't make sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +759,52 @@
      }
     ]
    },
-   "solution": "LANDINGSTAGE"
+   "solution": "LANDINGSTAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LANDING-STAGE",
+    "definitions": [
+     {
+      "text": "for disembarking passengers",
+      "at": 39,
+      "note": "read as 'a thing for disembarking passengers'"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What comes after flight",
+      "gives": "LANDING",
+      "note": "a landing follows a flight of stairs, and also an aircraft's flight"
+     },
+     {
+      "clueFragment": "coach",
+      "gives": "STAGE",
+      "note": "short for stagecoach"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANDING",
+      "STAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A travel guide lists what happens after a flight: a coach to take passengers onward.",
+     "walkthrough": "'Flight' suggests a plane, but the landing is also the floor at the top of a flight of stairs.",
+     "definitionFit": "A landing stage is a jetty or platform where people get off boats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +818,68 @@
     "text": "Labour's leader in mines revised leftist theory",
     "enumeration": "8"
    },
-   "solution": "LENINISM"
+   "solution": "LENINISM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "LENINISM",
+    "definitions": [
+     {
+      "text": "leftist theory",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     },
+     {
+      "text": "revised",
+      "for": "anagram",
+      "note": "revised means reworked, so the letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour's",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of Labour"
+     },
+     {
+      "clueFragment": "in mines",
+      "gives": "INMINES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ENINISM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INMINES",
+       "gives": "ENINISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Labour Party's leader announces a rethink of policy on the coal mines.",
+     "walkthrough": "Labour is the British party of the left, which fits the miners' politics of the surface.",
+     "definitionFit": "Leninism is the revolutionary communist doctrine developed by Lenin, a theory of the far left."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Labour's"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +893,50 @@
     "text": "The writer and physician getting together for wine",
     "enumeration": "5"
    },
-   "solution": "MEDOC"
+   "solution": "MEDOC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEDOC",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 46
+     }
+    ],
+    "linkWords": [
+     "getting together for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The writer",
+      "gives": "ME",
+      "note": "the setter referring to themselves"
+     },
+     {
+      "clueFragment": "physician",
+      "gives": "DOC",
+      "note": "informal word for a doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "DOC"
+     ]
+    },
+    "explanation": {
+     "surface": "An author and a doctor meet up over a bottle.",
+     "walkthrough": "'The writer' is the setter, so it gives the first-person pronoun.",
+     "definitionFit": "Médoc is a red Bordeaux, named after the region of south-west France where it is made."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +950,58 @@
     "text": "What ends in road rage, creating hazard",
     "enumeration": "6"
    },
-   "solution": "DANGER"
+   "solution": "DANGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DANGER",
+    "definitions": [
+     {
+      "text": "hazard",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "What ends in",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that letter is kept"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter of road"
+     },
+     {
+      "clueFragment": "rage",
+      "gives": "ANGER",
+      "note": "rage and anger are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning about how a burst of temper at the wheel makes driving perilous.",
+     "definitionFit": "Danger and hazard are synonyms, both meaning a risk of harm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ends"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +1015,45 @@
     "text": "As we hear, try to escape from bloodsucker",
     "enumeration": "4"
    },
-   "solution": "FLEA"
+   "solution": "FLEA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLEA",
+    "definitions": [
+     {
+      "text": "bloodsucker",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "As we hear",
+      "for": "homophone",
+      "note": "As we hear means judged by sound, so the spelling may differ"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "try to escape",
+      "gives": "FLEA",
+      "soundsLike": "FLEE",
+      "note": "to flee is to run away"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone advises running away from a vampire.",
+     "walkthrough": "'Bloodsucker' conjures a vampire, but it is a small insect.",
+     "definitionFit": "A flea is a tiny jumping parasite that feeds on the blood of animals and people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloodsucker"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +1067,53 @@
     "text": "Fellow and I modify rocket, for instance",
     "enumeration": "8"
    },
-   "solution": "FIREWORK"
+   "solution": "FIREWORK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIREWORK",
+    "definitions": [
+     {
+      "text": "rocket, for instance",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "modify",
+      "gives": "REWORK",
+      "note": "to rework is to alter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "I",
+      "REWORK"
+     ]
+    },
+    "explanation": {
+     "surface": "An engineer and a colleague adapt a space rocket.",
+     "walkthrough": "'Rocket' suggests a spacecraft; it is the kind set off on bonfire night.",
+     "definitionFit": "A rocket is one example of a firework, an explosive device lit for display."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rocket"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1127,46 @@
     "text": "Land in East in fit of temper",
     "enumeration": "5"
    },
-   "solution": "PADDY"
+   "solution": "PADDY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PADDY",
+    "definitions": [
+     {
+      "text": "Land in East",
+      "at": 0
+     },
+     {
+      "text": "fit of temper",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Land in East",
+      "note": "first meaning: a flooded field where rice grows, typical of East Asia"
+     },
+     {
+      "clueFragment": "fit of temper",
+      "note": "second meaning: British slang for a tantrum"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone flies into a rage while abroad in the Orient.",
+     "walkthrough": "'In a paddy' is everyday British slang for being in a temper.",
+     "definitionFit": "A paddy is a rice field in Asia, and separately an informal British word for an angry outburst."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Land"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1180,60 @@
     "text": "Alarm about US politician that causes widespread ill-feeling?",
     "enumeration": "8"
    },
-   "solution": "PANDEMIC"
+   "solution": "PANDEMIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PANDEMIC",
+    "definitions": [
+     {
+      "text": "widespread ill-feeling",
+      "at": 38,
+      "note": "the clue's 'that causes' frames the noun; ill-feeling is read as sickness"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first piece encloses the second"
+     }
+    ],
+    "linkWords": [
+     "that causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alarm",
+      "gives": "PANIC",
+      "note": "panic is sudden alarm"
+     },
+     {
+      "clueFragment": "US politician",
+      "gives": "DEM",
+      "note": "short for a Democrat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "DEM",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A scare over an American politician whose actions spread resentment.",
+     "walkthrough": "'Ill-feeling' looks like hostility; the question mark signals it means being ill.",
+     "definitionFit": "A pandemic is an outbreak of disease across a very wide area, so sickness is felt everywhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ill-feeling"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1247,50 @@
     "text": "Leaders of international organisation worried about state of America",
     "enumeration": "4"
    },
-   "solution": "IOWA"
+   "solution": "IOWA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "IOWA",
+    "definitions": [
+     {
+      "text": "state of America",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders of",
+      "for": "letter_selection",
+      "note": "leaders are the front letters, one taken from each word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "international organisation worried about",
+      "gives": "IOWA",
+      "select": "first",
+      "note": "first letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IOWA"
+     ]
+    },
+    "explanation": {
+     "surface": "Heads of a global body are concerned about the condition of the USA.",
+     "walkthrough": "'State of America' reads as 'condition of the country', but it is one of the fifty states.",
+     "definitionFit": "Iowa is a Midwestern US state, known for farming and early presidential caucuses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1310,55 @@
      }
     ]
    },
-   "solution": "WARCHEST"
+   "solution": "WARCHEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WAR CHEST",
+    "definitions": [
+     {
+      "text": "case for military spending?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reconstructed",
+      "for": "anagram",
+      "note": "reconstructed means rebuilt in a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charts we",
+      "gives": "CHARTSWE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHARTSWE",
+       "gives": "WARCHEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Revised graphs make the argument for higher defence budgets.",
+     "walkthrough": "'Case' suggests an argument, as the surface wants; it is a literal box, and the question mark flags the play.",
+     "definitionFit": "A war chest is a fund set aside for a campaign, originally money kept to pay for a war."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1372,53 @@
     "text": "Ignore changes, in part",
     "enumeration": "6"
    },
-   "solution": "REGION"
+   "solution": "REGION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REGION",
+    "definitions": [
+     {
+      "text": "part",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "changes signals that the letters are altered into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ignore",
+      "gives": "IGNORE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IGNORE",
+       "gives": "REGION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to overlook some of the alterations.",
+     "definitionFit": "A region is a part or area of a larger whole, such as a country or the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1432,68 @@
     "text": "Class, for example, taken to heart by one Conservative after another",
     "enumeration": "8"
    },
-   "solution": "CATEGORY"
+   "solution": "CATEGORY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CATEGORY",
+    "definitions": [
+     {
+      "text": "Class",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken to heart by",
+      "for": "container",
+      "note": "taken to heart means placed in the middle of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "TORY",
+      "note": "another Conservative, a Tory being a member of Britain's Conservative Party"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "abbreviation of exempli gratia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "T",
+      "EG",
+      "ORY"
+     ]
+    },
+    "explanation": {
+     "surface": "A school class is a favourite with a succession of Tory politicians.",
+     "walkthrough": "Read 'one Conservative after another' as C, then 'a Tory' after it. Tory is the everyday name for a British Conservative.",
+     "definitionFit": "Category and class are synonyms, both meaning a group of things sharing a characteristic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Class"
+    }
+   }
   },
   {
    "number": 22,
@@ -384,7 +1507,50 @@
     "text": "Journey composer's taken after short time",
     "enumeration": "6"
    },
-   "solution": "TRAVEL"
+   "solution": "TRAVEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRAVEL",
+    "definitions": [
+     {
+      "text": "Journey",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "taken after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "composer's",
+      "gives": "RAVEL",
+      "note": "Maurice Ravel, the French composer of Boléro"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAVEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer sets off on a trip after a brief wait.",
+     "walkthrough": "The composer's name is placed after the single time letter.",
+     "definitionFit": "Journey and travel are synonyms, as verbs meaning to go from place to place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 23,
@@ -404,7 +1570,66 @@
      }
     ]
    },
-   "solution": "WEATHERCHART"
+   "solution": "WEATHERCHART",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "WEATHER CHART",
+    "definitions": [
+     {
+      "text": "way to display elements",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping round another piece"
+     },
+     {
+      "text": "amended",
+      "for": "anagram",
+      "note": "amended means altered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What teacher",
+      "gives": "WHATTEACHER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEATHERCHART"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WHATTEACHERR",
+       "gives": "WEATHERCHART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry teacher corrects a pupil's way of laying out the periodic table.",
+     "walkthrough": "'Elements' points to chemistry, but it means the weather, as in being out in the elements.",
+     "definitionFit": "A weather chart is a map showing conditions like rain and wind, which are popularly called the elements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "elements"
+    }
+   }
   },
   {
    "number": 24,
@@ -418,7 +1643,57 @@
     "text": "Fighting men another military evacuated",
     "enumeration": "4"
    },
-   "solution": "ARMY"
+   "solution": "ARMY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ARMY",
+    "definitions": [
+     {
+      "text": "Fighting men",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evacuated",
+      "for": "letter_selection",
+      "note": "evacuated means emptied, so only the outside letters of each word stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another",
+      "gives": "AR",
+      "select": "outer",
+      "note": "outside letters of another"
+     },
+     {
+      "clueFragment": "military",
+      "gives": "MY",
+      "select": "outer",
+      "note": "outside letters of military"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "MY"
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers are withdrawn from a second military base.",
+     "walkthrough": "'Evacuated' suits the military surface; here it strips the middles from both words.",
+     "definitionFit": "An army is a large body of soldiers organised for land warfare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "evacuated"
+    }
+   }
   },
   {
    "number": 25,
@@ -432,7 +1707,42 @@
     "text": "Part of leg held in cynical foul",
     "enumeration": "4"
    },
-   "solution": "CALF"
+   "solution": "CALF",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CALF",
+    "definitions": [
+     {
+      "text": "Part of leg",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held in",
+      "for": "hidden_word",
+      "note": "held in means contained within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cynical foul",
+      "gives": "CALF",
+      "note": "spans the end of cynical and the start of foul"
+     }
+    ],
+    "explanation": {
+     "surface": "A footballer's leg is caught in a deliberate, cynical foul.",
+     "definitionFit": "The calf is the fleshy back part of the leg below the knee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 26,
@@ -446,7 +1756,50 @@
     "text": "Top primate with cross",
     "enumeration": "4"
    },
-   "solution": "APEX"
+   "solution": "APEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APEX",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "primate",
+      "gives": "APE",
+      "note": "an ape is a primate"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "X",
+      "note": "X is the shape of a cross"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APE",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "The leading ape in a troop is in a bad mood.",
+     "walkthrough": "'Cross' looks like angry; it is the letter shaped like a cross.",
+     "definitionFit": "The apex is the highest point or tip of something, its top."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 27,
@@ -460,7 +1813,56 @@
     "text": "Call on me first, in relation to treatment",
     "enumeration": "8"
    },
-   "solution": "REMEDIAL"
+   "solution": "REMEDIAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMEDIAL",
+    "definitions": [
+     {
+      "text": "in relation to treatment",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "first"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on the subject of"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Call",
+      "gives": "DIAL",
+      "note": "to dial is to telephone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ME",
+      "DIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient asks to be phoned before anyone else about their therapy.",
+     "walkthrough": "'On me first' puts both short words ahead of the word for call.",
+     "definitionFit": "Remedial means intended to cure or put right, so it relates to treatment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 28,
@@ -474,7 +1876,59 @@
     "text": "Raised voice in argument after endless decline",
     "enumeration": "8"
    },
-   "solution": "FALSETTO"
+   "solution": "FALSETTO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FALSETTO",
+    "definitions": [
+     {
+      "text": "Raised voice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means without its final letter"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decline",
+      "gives": "FALL",
+      "note": "a fall is a drop"
+     },
+     {
+      "clueFragment": "argument",
+      "gives": "SETTO",
+      "note": "a set-to is a quarrel or scuffle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAL",
+      "SETTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Voices rise in a quarrel after a long slump.",
+     "walkthrough": "'Raised voice' sounds like shouting; it means a pitch above the natural range. A set-to is British informal for a fight or row.",
+     "definitionFit": "Falsetto is a male singing voice pitched above its normal register."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Raised"
+    }
+   }
   }
  ]
 }
