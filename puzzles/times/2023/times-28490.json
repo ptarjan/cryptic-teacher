@@ -23,6 +23,9 @@
   "date": "2023-01-03",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,62 @@
     "text": "European secretary's first son at Westminster?",
     "enumeration": "5"
    },
-   "solution": "SWISS"
+   "solution": "SWISS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SWISS",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only the head of the preceding word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at Westminster",
+      "gives": "SWI",
+      "note": "SW1 is the London postcode of Westminster, with the digit 1 read as the letter I"
+     },
+     {
+      "clueFragment": "secretary's",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter of secretary"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWI",
+      "S",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about whether a European minister's eldest boy has a seat in Parliament.",
+     "walkthrough": "The question mark flags the postcode trick: SW1 is Westminster's London postcode, and the 1 is read as I. The postcode comes first, then the two S's.",
+     "definitionFit": "A Swiss is a native of Switzerland, a country in Europe, so the noun works as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Westminster"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +108,49 @@
     "text": "Forager from South Carolina, one getting his own back",
     "enumeration": "9"
    },
-   "solution": "SCAVENGER"
+   "solution": "SCAVENGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCAVENGER",
+    "definitions": [
+     {
+      "text": "Forager",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Carolina",
+      "gives": "SC",
+      "note": "SC is the postal abbreviation of the US state South Carolina"
+     },
+     {
+      "clueFragment": "one getting his own back",
+      "gives": "AVENGER",
+      "note": "someone who takes revenge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "AVENGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A man from the Carolinas who scrounges for food is also out for revenge.",
+     "definitionFit": "A scavenger searches for and collects scraps of food or discarded things, which is what a forager does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +164,65 @@
     "text": "Man possibly digesting core of dietary fibre",
     "enumeration": "5"
    },
-   "solution": "ISTLE"
+   "solution": "ISTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ISTLE",
+    "definitions": [
+     {
+      "text": "fibre",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "digesting",
+      "for": "container",
+      "note": "something being digested is taken inside, so one piece swallows the other"
+     },
+     {
+      "text": "core",
+      "for": "letter_selection",
+      "note": "the core of a word is its central letter, so only the middle is kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man possibly",
+      "gives": "ISLE",
+      "note": "the Isle of Man is one example of an isle"
+     },
+     {
+      "clueFragment": "dietary",
+      "gives": "T",
+      "select": "middle",
+      "note": "the central letter of the seven-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "T",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man's gut working on the roughage in his diet.",
+     "walkthrough": "'Man possibly' is not a person but the Isle of Man; 'possibly' says it is just one example of an isle. 'Dietary fibre' is the surface phrase, but the definition is fibre alone.",
+     "definitionFit": "Istle is a plant fibre from Mexican agave and yucca, used for cordage and brushes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +236,58 @@
     "text": "Interval in which Jew possibly receives cricket side",
     "enumeration": "8"
    },
-   "solution": "SEMITONE"
+   "solution": "SEMITONE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEMITONE",
+    "definitions": [
+     {
+      "text": "Interval",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "to receive is to take in, so one piece holds the other within it"
+     }
+    ],
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jew possibly",
+      "gives": "SEMITE",
+      "note": "a Jew is one example of a Semite"
+     },
+     {
+      "clueFragment": "cricket side",
+      "gives": "ON",
+      "note": "the on side is one half of a cricket field, also called leg side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEMIT",
+      "ON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A break in play during which a Jewish player welcomes a cricket team.",
+     "walkthrough": "In cricket the field is split into the off side and the on side; ON is a staple crossword abbreviation for that half.",
+     "definitionFit": "A semitone is the smallest musical interval in Western music, half a whole tone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Interval"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +301,67 @@
     "text": "Distressing start to period in university environment",
     "enumeration": "9"
    },
-   "solution": "UPSETTING"
+   "solution": "UPSETTING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UPSETTING",
+    "definitions": [
+     {
+      "text": "Distressing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, so only that is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside what follows, sitting within the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "period",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of period"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "environment",
+      "gives": "SETTING",
+      "note": "a setting is the surroundings or environment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "P",
+      "SETTING"
+     ]
+    },
+    "explanation": {
+     "surface": "A troubling beginning to term on a university campus.",
+     "walkthrough": "The single letter goes inside the combined 'university environment', slotting between its first letter and the rest.",
+     "definitionFit": "Upsetting is an adjective meaning causing worry or unhappiness, so it is a synonym of distressing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "period"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +375,42 @@
     "text": "In part Louis toured a Hebridean island or two",
     "enumeration": "4"
    },
-   "solution": "UIST"
+   "solution": "UIST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UIST",
+    "definitions": [
+     {
+      "text": "a Hebridean island or two",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In part",
+      "for": "hidden_word",
+      "note": "only a part of the following words is wanted, so the letters sit within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Louis toured",
+      "gives": "UIST",
+      "note": "the letters run across the two words, inside the first and into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A man called Louis visited parts of the Scottish isles.",
+     "walkthrough": "'Or two' is fair because there are two islands of the name, North Uist and South Uist, in the Outer Hebrides off western Scotland.",
+     "definitionFit": "Uist is the name of islands in the Outer Hebrides, a chain off the west coast of Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +424,44 @@
     "text": "Skill in mounting shows — HMS Pinafore, for example?",
     "enumeration": "10"
    },
-   "solution": "STAGECRAFT"
+   "solution": "STAGECRAFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAGECRAFT",
+    "definitions": [
+     {
+      "text": "Skill in mounting shows",
+      "at": 0
+     },
+     {
+      "text": "HMS Pinafore, for example?",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skill in mounting shows",
+      "note": "first meaning: the theatrical skill of staging productions"
+     },
+     {
+      "clueFragment": "HMS Pinafore, for example?",
+      "note": "second meaning: a ship that exists only on the stage"
+     }
+    ],
+    "explanation": {
+     "surface": "A theatrical skill illustrated by the Gilbert and Sullivan operetta HMS Pinafore.",
+     "walkthrough": "HMS Pinafore is a Gilbert and Sullivan comic opera set aboard a naval ship; the question mark warns that read as two words the answer is a vessel on a stage.",
+     "definitionFit": "Stagecraft is expertise in theatre production, and split up it names a boat built for the theatre, which the operetta's ship is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pinafore"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +475,62 @@
     "text": "Uproar surrounding extremely large Spanish city",
     "enumeration": "6"
    },
-   "solution": "TOLEDO"
+   "solution": "TOLEDO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TOLEDO",
+    "definitions": [
+     {
+      "text": "Spanish city",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "something surrounding another encloses it, so one piece wraps around the other"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the first and last letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uproar",
+      "gives": "TODO",
+      "note": "a to-do is a commotion or fuss"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the two end letters of large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "LE",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A commotion breaks out around a big city in Spain.",
+     "walkthrough": "'Large Spanish city' reads as one phrase, but 'extremely large' is the wordplay and only 'Spanish city' defines.",
+     "definitionFit": "Toledo is a historic city in central Spain, the old capital of Castile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +544,68 @@
     "text": "Good woman in fashionable church: a blissful state for some",
     "enumeration": "9"
    },
-   "solution": "IGNORANCE"
+   "solution": "IGNORANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IGNORANCE",
+    "definitions": [
+     {
+      "text": "a blissful state for some",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the earlier pieces are placed inside the later ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in means trendy or fashionable"
+     },
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "NORA",
+      "note": "Nora is a woman's name"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "G",
+      "NORA",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A virtuous woman at a trendy church, finding bliss there.",
+     "walkthrough": "The definition draws on the saying 'ignorance is bliss', hence 'for some'.",
+     "definitionFit": "The proverb 'ignorance is bliss' says not knowing can be a happy condition, which the definition alludes to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Good"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +619,43 @@
     "text": "Maxim, a banker in Zurich?",
     "enumeration": "5"
    },
-   "solution": "GNOME"
+   "solution": "GNOME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GNOME",
+    "definitions": [
+     {
+      "text": "Maxim",
+      "at": 0
+     },
+     {
+      "text": "a banker in Zurich?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maxim",
+      "note": "first meaning: a short pithy saying or aphorism"
+     },
+     {
+      "clueFragment": "a banker in Zurich?",
+      "note": "second meaning: the nickname for Swiss financiers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The gnomes of Zurich' is a disparaging term coined by a British politician for Swiss bankers; the question mark marks the nickname.",
+     "definitionFit": "A gnome is an aphorism, and the phrase 'gnomes of Zurich' gave the word a sense of a shadowy Swiss financier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Maxim"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +669,53 @@
     "text": "Site Maria prepared for a herbaceous plant",
     "enumeration": "9"
    },
-   "solution": "ARTEMISIA"
+   "solution": "ARTEMISIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARTEMISIA",
+    "definitions": [
+     {
+      "text": "a herbaceous plant",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been made ready or worked up, so these letters are reorganised"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Site Maria",
+      "gives": "SITEMARIA",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SITEMARIA",
+       "gives": "ARTEMISIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener named Maria gets a plot ready for planting.",
+     "definitionFit": "Artemisia is a genus of aromatic plants including wormwood and mugwort, many of them herbaceous perennials."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Site"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +729,55 @@
     "text": "Language left Jones the architect gutted",
     "enumeration": "5"
    },
-   "solution": "LINGO"
+   "solution": "LINGO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LINGO",
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gutted",
+      "for": "deletion",
+      "note": "gutting removes innards, so a letter from inside the name is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "Jones the architect",
+      "gives": "INIGO",
+      "note": "Inigo Jones was the 17th-century English architect of the Banqueting House"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "INGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A building designer's interior ripped out, leaving the language of the trade.",
+     "walkthrough": "Only the middle I of the first name goes, the second of its two I's.",
+     "definitionFit": "Lingo is an informal word for a language or jargon, especially one that is foreign or specialised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +791,50 @@
     "text": "Key openings for items in sports programme",
     "enumeration": "6"
    },
-   "solution": "EVENTS"
+   "solution": "EVENTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVENTS",
+    "definitions": [
+     {
+      "text": "items in sports programme",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Key",
+      "gives": "E",
+      "note": "E is a musical key"
+     },
+     {
+      "clueFragment": "openings",
+      "gives": "VENTS",
+      "note": "vents are openings or outlets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VENTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Important starts to fixtures listed in a sporting schedule.",
+     "walkthrough": "'Key' looks like an adjective meaning important, but it is a musical key, one of the letters A to G.",
+     "definitionFit": "A sports meeting's programme lists its separate contests, each called an event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +848,64 @@
     "text": "Policeman needing information runs in titled lady",
     "enumeration": "8"
    },
-   "solution": "GENDARME"
+   "solution": "GENDARME",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GENDARME",
+    "definitions": [
+     {
+      "text": "Policeman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes inside another, sitting within its letters"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "titled lady",
+      "gives": "DAME",
+      "note": "Dame is a title for a woman honoured in Britain"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "DA",
+      "R",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "An officer seeking intelligence rushes into a noblewoman's home.",
+     "definitionFit": "A gendarme is a member of the French armed police force, so an example of a policeman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +925,50 @@
      }
     ]
    },
-   "solution": "SWORDDANCE"
+   "solution": "SWORDDANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWORD DANCE",
+    "definitions": [
+     {
+      "text": "Lively composition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ineptly",
+      "for": "anagram",
+      "note": "something done ineptly is botched and jumbled, so the letters come out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dawn scored",
+      "gives": "DAWNSCORED",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DAWNSCORED",
+       "gives": "SWORDDANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A composer called Dawn wrote a cheerful piece of music, but badly.",
+     "definitionFit": "A sword dance is a vigorous dance performed over or with swords, and also the tune it is danced to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scored"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +982,51 @@
     "text": "Possible battle with fussy kid over veg at duke's grassland?",
     "enumeration": "10"
    },
-   "solution": "GREENSWARD"
+   "solution": "GREENSWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREENSWARD",
+    "definitions": [
+     {
+      "text": "grassland?",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possible battle with fussy kid over veg",
+      "gives": "GREENSWAR",
+      "note": "a fight with a picky child about eating vegetables might be called a war over greens"
+     },
+     {
+      "clueFragment": "duke's",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREENSWAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A dinner-table fight with a picky child about vegetables, held at a duke's house.",
+     "walkthrough": "Greens are leafy green vegetables. The question mark on the definition hints at the whole clue's picture of a green field.",
+     "definitionFit": "A greensward is an expanse of grassy turf, a poetic word for a lawn or green field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "veg"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +1040,50 @@
     "text": "Government department's former auditor mentioned in speech",
     "enumeration": "9"
    },
-   "solution": "EXCHEQUER"
+   "solution": "EXCHEQUER",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "EXCHEQUER",
+    "definitions": [
+     {
+      "text": "Government department's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mentioned in speech",
+      "for": "homophone",
+      "note": "something mentioned in speech is heard rather than seen, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "auditor",
+      "gives": "CHEQUER",
+      "soundsLike": "CHECKER",
+      "note": "an auditor checks accounts, so is a checker"
+     }
+    ],
+    "explanation": {
+     "surface": "A government department's previous accounts inspector is talked about.",
+     "walkthrough": "The definition includes the possessive: 'department's' reads as 'department is', the clue's link.",
+     "definitionFit": "The Exchequer is the UK government department in charge of public revenue, headed by the Chancellor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "auditor"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +1097,55 @@
     "text": "A set of books one is opposed to?",
     "enumeration": "4"
    },
-   "solution": "ANTI"
+   "solution": "ANTI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANTI",
+    "definitions": [
+     {
+      "text": "opposed to",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "set of books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books of the Bible"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question: is a person who dislikes a library set against reading?",
+     "definitionFit": "Anti is a preposition meaning against, so it can stand in for opposed to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1159,53 @@
     "text": "Crossed Bury, needing basic food picked up",
     "enumeration": "9"
    },
-   "solution": "INTERBRED"
+   "solution": "INTERBRED",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "INTERBRED",
+    "definitions": [
+     {
+      "text": "Crossed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up means heard, as a radio picks up a signal, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bury",
+      "gives": "INTER",
+      "note": "to inter is to bury"
+     },
+     {
+      "clueFragment": "basic food",
+      "gives": "BRED",
+      "soundsLike": "BREAD",
+      "note": "bread is a staple food"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone from the Lancashire town of Bury is cross because they need basic groceries.",
+     "walkthrough": "Bury, capitalised, poses as the Lancashire town, but it is the verb. 'Crossed' is the breeding sense.",
+     "definitionFit": "Animals or plants that interbred have mated across breeds or species, so they were crossed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1219,64 @@
     "text": "Cross-examining cook over misplaced gin",
     "enumeration": "8"
    },
-   "solution": "GRILLING"
+   "solution": "GRILLING",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "GRILLING",
+    "definitions": [
+     {
+      "text": "Cross-examining",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misplaced",
+      "for": "anagram",
+      "note": "something misplaced is put in the wrong position, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cook",
+      "gives": "GRILL",
+      "note": "to grill is to cook under direct heat"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "GIN",
+      "note": "the three letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRILL",
+      "ING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GIN",
+       "gives": "ING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef interrogating someone about a lost bottle of gin.",
+     "walkthrough": "In a down clue 'over' means the first part sits on top of the second.",
+     "definitionFit": "Grilling someone is questioning them intensely, as in a hostile interrogation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1290,45 @@
     "text": "People in the Tour de France, for example",
     "enumeration": "4"
    },
-   "solution": "RACE"
+   "solution": "RACE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RACE",
+    "definitions": [
+     {
+      "text": "People",
+      "at": 0
+     },
+     {
+      "text": "the Tour de France, for example",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People",
+      "note": "first meaning: a group of humans sharing descent"
+     },
+     {
+      "clueFragment": "the Tour de France, for example",
+      "note": "second meaning: a speed contest"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as the riders in the cycle race, but 'in' only links two separate senses.",
+     "definitionFit": "The word means an ethnic group of people and also a competition of speed, of which the cycling Tour is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "People"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1342,50 @@
     "text": "What misogynists do, given time and promotion?",
     "enumeration": "10"
    },
-   "solution": "PREFERMENT"
+   "solution": "PREFERMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PREFERMENT",
+    "definitions": [
+     {
+      "text": "promotion",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "given",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What misogynists do",
+      "gives": "PREFERMEN",
+      "note": "misogynists dislike women, so they would favour the other sex"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PREFERMEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Women-haters choosing men, given time, and handing them a promotion.",
+     "definitionFit": "Preferment is advancement to a higher office or position, especially in the Church, so a synonym of promotion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1399,58 @@
     "text": "Young creature biting a woman's innocent child",
     "enumeration": "6"
    },
-   "solution": "CHERUB"
+   "solution": "CHERUB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHERUB",
+    "definitions": [
+     {
+      "text": "innocent child",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "biting",
+      "for": "container",
+      "note": "something biting holds another piece between its jaws, so it encloses it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Young creature",
+      "gives": "CUB",
+      "note": "a cub is a young animal such as a fox or bear"
+     },
+     {
+      "clueFragment": "a woman",
+      "gives": "HER",
+      "note": "her is the pronoun for a woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HER",
+      "UB"
+     ]
+    },
+    "explanation": {
+     "surface": "A young animal nips a woman's toddler.",
+     "walkthrough": "The 's is the link, standing for 'is'.",
+     "definitionFit": "A cherub is an angelic figure shown as a chubby winged child, and by extension a sweet, innocent-looking child."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "biting"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1464,69 @@
     "text": "Visor from east English certainly possessed first",
     "enumeration": "8"
    },
-   "solution": "EYESHADE"
+   "solution": "EYESHADE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYESHADE",
+    "definitions": [
+     {
+      "text": "Visor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "says the words right before it are placed ahead of the word that precedes them"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "E is the abbreviation for east"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "YES",
+      "note": "yes, certainly"
+     },
+     {
+      "clueFragment": "possessed",
+      "gives": "HAD",
+      "note": "had is the past tense of have, to possess"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "YES",
+      "HAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Where a sunshield came from: in the east, the English certainly owned one before anyone.",
+     "walkthrough": "'First' moves the two words before it ahead of 'English', so its letter comes last.",
+     "definitionFit": "An eyeshade is a peaked shield worn over the eyes to cut glare, much like a visor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1540,56 @@
     "text": "European doctor on American board",
     "enumeration": "5"
    },
-   "solution": "EMBUS"
+   "solution": "EMBUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMBUS",
+    "definitions": [
+     {
+      "text": "board",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB is Bachelor of Medicine, a doctor's degree"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US means American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MB",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A European physician sits on the board of a US company.",
+     "walkthrough": "'Board' looks like a committee noun but is the verb: to get on a vehicle.",
+     "definitionFit": "To embus is to get on, or put troops on, a bus, which is to board one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1603,61 @@
     "text": "Footballer, perhaps, one settling outside Liverpool at last",
     "enumeration": "6"
    },
-   "solution": "PLAYER"
+   "solution": "PLAYER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLAYER",
+    "definitions": [
+     {
+      "text": "Footballer, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "something outside another surrounds it, so one piece is wrapped around the other"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter, so only the end of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one settling",
+      "gives": "PAYER",
+      "note": "someone who settles a bill pays it"
+     },
+     {
+      "clueFragment": "Liverpool",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of Liverpool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "AYER"
+     ]
+    },
+    "explanation": {
+     "surface": "A soccer star finally settles down in a home away from Liverpool.",
+     "definitionFit": "A footballer is one example of a player, someone who takes part in a sport or game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "settling"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1671,69 @@
     "text": "Bumpkin acceptable in the Old Bull at last",
     "enumeration": "5"
    },
-   "solution": "YOKEL"
+   "solution": "YOKEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "YOKEL",
+    "definitions": [
+     {
+      "text": "Bumpkin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is put inside another, sitting within its letters"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter, so only the end of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Old",
+      "gives": "YE",
+      "note": "ye is a mock-archaic spelling of the, as in 'Ye Olde Tea Shoppe'"
+     },
+     {
+      "clueFragment": "acceptable",
+      "gives": "OK",
+      "note": "OK means acceptable"
+     },
+     {
+      "clueFragment": "Bull",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of bull"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "OK",
+      "E",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A country lad is welcome at last in a pub called the Old Bull.",
+     "walkthrough": "'The Old Bull' looks like a pub name, but 'the Old' means the archaic form of the word the.",
+     "definitionFit": "A yokel is an unsophisticated country person, which is what a bumpkin is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bull"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1747,62 @@
     "text": "Stop anarchist finally entering state",
     "enumeration": "4"
    },
-   "solution": "STAY"
+   "solution": "STAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STAY",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the final letter, so only the end of the word is kept"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering another goes inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "SAY",
+      "note": "to state is to say"
+     },
+     {
+      "clueFragment": "anarchist",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of anarchist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Halt the anarchist before they finally break into a nation.",
+     "walkthrough": "'State' looks like a country but is the verb.",
+     "definitionFit": "To stay something, such as an execution, is to stop or postpone it; stay is also a noun for a halt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1816,49 @@
     "text": "Squander rupees, becoming more dejected",
     "enumeration": "5"
    },
-   "solution": "BLUER"
+   "solution": "BLUER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLUER",
+    "definitions": [
+     {
+      "text": "more dejected",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Squander",
+      "gives": "BLUE",
+      "note": "to blue money is old British slang for spending it recklessly"
+     },
+     {
+      "clueFragment": "rupees",
+      "gives": "R",
+      "note": "R is the abbreviation for rupees"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who wastes their rupees ends up gloomier.",
+     "walkthrough": "To blue, or blow, money is dated British slang for wasting it.",
+     "definitionFit": "Blue means sad or low in spirits, so its comparative is a synonym of more dejected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -448,7 +1872,39 @@
     "text": "Pernickety person choosing eggs?",
     "enumeration": "9"
    },
-   "solution": "NITPICKER"
+   "solution": "NITPICKER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NITPICKER",
+    "definitions": [
+     {
+      "text": "Pernickety person choosing eggs?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pernickety person",
+      "note": "surface reading: a fussy individual"
+     },
+     {
+      "clueFragment": "choosing eggs?",
+      "note": "setter's reading: someone selecting the eggs of lice, which have their own short name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a fussy shopper at the egg counter, but the eggs meant are those of head lice, called nits.",
+     "definitionFit": "A nitpicker fusses over tiny details; literally the word means someone who picks lice eggs out of hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eggs"
+    }
+   }
   },
   {
    "number": 28,
@@ -462,7 +1918,58 @@
     "text": "Coy about games played in plantation",
     "enumeration": "9"
    },
-   "solution": "SHRUBBERY"
+   "solution": "SHRUBBERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHRUBBERY",
+    "definitions": [
+     {
+      "text": "plantation",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coy",
+      "gives": "SHY",
+      "note": "coy and shy both mean bashful"
+     },
+     {
+      "clueFragment": "games played",
+      "gives": "RUBBER",
+      "note": "a rubber is a set of games in bridge or whist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "RUBBER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bashful about the sports played on an estate.",
+     "walkthrough": "In card games such as bridge, a rubber is a match of three games.",
+     "definitionFit": "A shrubbery is an area planted with shrubs, which is a kind of plantation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "games"
+    }
+   }
   },
   {
    "number": 29,
@@ -476,7 +1983,45 @@
     "text": "Icy cold, as eels may be, we're told",
     "enumeration": "5"
    },
-   "solution": "GELID"
+   "solution": "GELID",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GELID",
+    "definitions": [
+     {
+      "text": "Icy cold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "being told something means hearing it, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as eels may be",
+      "gives": "GELID",
+      "soundsLike": "JELLIED",
+      "note": "jellied eels are a traditional London dish"
+     }
+    ],
+    "explanation": {
+     "surface": "Eels, we hear, can be served freezing cold.",
+     "walkthrough": "Jellied eels, eels set in their own cooled stock, are a traditional East London food.",
+     "definitionFit": "Gelid is a literary word meaning extremely cold or frozen, from the Latin for frost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "eels"
+    }
+   }
   }
  ]
 }
