@@ -107,6 +107,9 @@ MUTATIONS = {
         text=by["2-down"]["clue"]["text"] + " \u2018it\u2019s\u2019")),
     "DASH": ("cryptic-24104", lambda p, by: by["2-down"]["clue"].update(
         text=by["2-down"]["clue"]["text"] + " -- or not...")),
+    # An OCR clue with a speck read as a quote and its number leaked after it.
+    "LEAD": ("times-15602", lambda p, by: by["7-down"]["clue"].update(
+        text='"7 ' + by["7-down"]["clue"]["text"])),
     "QUOTE": ("times-29329", lambda p, by: by["20-down"]["clue"].update(
         text=by["20-down"]["clue"]["text"].replace("Dip ", "Plunge "))),
 }

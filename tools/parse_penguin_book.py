@@ -88,6 +88,8 @@ import re
 import sys
 from pathlib import Path
 
+import leading_quote
+
 FORM_FEED = "\f"
 
 PUZZLES_SECTION_TITLE = "The Puzzles"
@@ -482,9 +484,11 @@ def parse_clue_chunk(chunk: str) -> dict:
         text = re.sub(r"^[^\w\"'‘“(.…]+", "", text.strip())
         text = re.sub(r"\s{2,}", " ", text)
 
+    # A stray quote the OCR left before the clue, or before its number so
+    # that LEADING_NUMBER_RE missed it, goes as every OCR reader's does.
     return {
         "number": number,
-        "clue": text.strip(" ,"),
+        "clue": leading_quote.clean(text.strip(" ,")),
         "enumeration": enumeration,
     }
 

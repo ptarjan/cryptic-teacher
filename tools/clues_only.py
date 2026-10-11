@@ -103,9 +103,11 @@ def write(record, root=None):
     import puzzle_integrity
     import puzzle_schema
     import dashes
+    import leading_quote
     import quotes
     record = quotes.straighten_clues_only(record)   # stored straight, like puzzles/
     record = dashes.normalise_clues_only(record)    # house dash and ellipsis, likewise
+    record = leading_quote.normalise_clues_only(record)  # no stray leading quote or leaked number
     old = read(record["id"], root)
     if old:
         first = min(old["source"]["acquiredOn"], record["source"]["acquiredOn"])

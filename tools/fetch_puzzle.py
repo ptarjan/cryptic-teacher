@@ -72,6 +72,7 @@ import errata  # a paper's corrections in the preamble; see tools/errata.py
 import quotes  # clue text is stored with straight quotes; see tools/quotes.py
 import punctuation  # the marks no print breaks; see tools/punctuation.py
 import dashes  # and one spelling of a dash and an ellipsis; see tools/dashes.py
+import leading_quote  # and no stray quote or leaked number at an OCR clue's start; see tools/leading_quote.py
 import puzzle_tags  # what is unusual about a puzzle; see tools/puzzle_tags.py
 from puzzle_paths import (  # re-exported for the tools that ask here
     puzzle_path, puzzle_files, resolve_puzzle as resolve_puzzle, shim_path)
@@ -1054,6 +1055,9 @@ def write_puzzle_file(path, puzzle, generator=None):
         punctuation.mend_puzzle(puzzle)
     # Clue text spells the house dash " \u2014 " and ellipsis "\u2026", offsets moved.
     puzzle = dashes.normalise(puzzle)
+    # An OCR clue opens with a quote only when it is a quotation: a stray one,
+    # or a clue number leaked after it, goes (tools/leading_quote.py).
+    puzzle = leading_quote.normalise(puzzle)
     # An absent key means empty, so no writer can put a null or an empty value
     # on disk: tools/puzzle_schema.py.
     puzzle = puzzle_schema.prune(puzzle)

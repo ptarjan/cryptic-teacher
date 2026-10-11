@@ -2108,5 +2108,16 @@ tools/mend_clue_punctuation.py                one-shot migration (2026-10-11): p
                                               left listed
 tools/resolve_promotion_conflict.py           settle the one conflict a promotion races into,
                                               for tools/push_puzzle_commit.sh
+tools/leading_quote.py                        an OCR'd clue opens with a quote mark only when
+                                              it is a quotation
+tools/test_leading_quote.sh                   an OCR'd clue opens with a quote only when it is
+                                              a quotation (tools/leading_quote.py): a stray
+                                              unclosed quote and a clue number leaked after one
+                                              go, an attributed quotation that lost its closing
+                                              quote is closed, a matched quotation, an elision
+                                              and a dropped h stand, offsets move with the
+                                              text, a publisher's clue is never touched, both
+                                              OCR readers finish a clue through it, and the
+                                              write gate refuses what it would still mend
 ```
 <!-- LAYOUT-END -->
