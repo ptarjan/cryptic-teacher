@@ -35,12 +35,10 @@ Usage:  python3 tools/find_renarration.py [puzzle-number ...]
 """
 import re
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (  # noqa: E402 — one glob, one id resolver, one reader
+from fetch_puzzle import (  # one glob, one id resolver, one reader
     puzzle_files, read_puzzle_file, resolve_puzzle)
-from groups import entry_id  # noqa: E402
+from groups import entry_id
 
 CAPS = re.compile(r"\b[A-Z][A-Z’'-]{1,}\b")
 # Assembly language: the walkthrough is placing pieces relative to one another,

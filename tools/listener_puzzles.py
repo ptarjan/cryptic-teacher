@@ -40,14 +40,11 @@ import sys
 import time
 import urllib.request
 from collections import Counter, defaultdict
-from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import enumeration
 import downloads
 import series as series_meta
 from fetch_puzzle import puzzle_path, write_puzzle_file
+
 
 SERIES = "listener"
 CACHE = downloads.LISTENER
@@ -813,7 +810,7 @@ def file_times(write=True, log=print):
             page = (CACHE / "times" / f"{number}.html").read_text(encoding="utf-8", errors="replace")
             notes = (CACHE / "times" / f"Notes_{number}.html").read_text(encoding="utf-8", errors="replace")
             puzzle, why = assemble_times(number, page, notes)
-        except Exception as e:  # noqa: BLE001 — one malformed page is one puzzle
+        except Exception as e:  # any raise: one malformed page is one puzzle
             puzzle, why = None, f"unreadable: {type(e).__name__}: {e}"[:200]
         if puzzle is None:
             log(f"  {number}: {why}")
@@ -837,7 +834,7 @@ def file_pdfs(write=True, log=print):
         try:
             puzzle, why = assemble(number, pdf_bytes(f"List{number:04d}.pdf"),
                                    pdf_bytes(f"List{number:04d}s.pdf"), date)
-        except Exception as e:  # noqa: BLE001 — a malformed PDF is one puzzle
+        except Exception as e:  # any raise: a malformed PDF is one puzzle
             puzzle, why = None, f"unreadable: {type(e).__name__}: {e}"[:200]
         if puzzle is None:
             log(f"  {number}: {why}")

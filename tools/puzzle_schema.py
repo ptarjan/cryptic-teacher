@@ -34,7 +34,6 @@ from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 SCHEMA_PATH = TOOLS / "data" / "puzzle.schema.json"
 SCHEMA = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
 

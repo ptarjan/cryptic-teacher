@@ -27,20 +27,17 @@ import json
 import pathlib
 import re
 import statistics
-import sys
+import app_tables  # needs the sys.path line above
+import clue_types
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 MC_DIR = ROOT / "tools" / "data" / "minutecryptic"
 HINTS_PATH = MC_DIR / "hints.jsonl"
 COURSE_PATH = MC_DIR / "course.json"
 
-sys.path.insert(0, str(ROOT / "tools"))
-
 
 # ---------- our own rung text, from the list app.js reads ----------
 
-import app_tables  # noqa: E402 — needs the sys.path line above
-import clue_types  # noqa: E402
 
 # app.js INDICATOR_OPS: keyed by type name, and a letter selection by its
 # block's `select`.

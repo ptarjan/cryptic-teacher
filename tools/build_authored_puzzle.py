@@ -34,15 +34,14 @@ import json
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import definitions  # noqa: E402
-import provenance  # noqa: E402
-import puzzle_paths  # noqa: E402
-import puzzle_schema  # noqa: E402
-import series  # noqa: E402
-import validate_annotations  # noqa: E402
-from fetch_puzzle import write_puzzle_file  # noqa: E402
-from groups import entry_id  # noqa: E402
+import definitions
+import provenance
+import puzzle_paths
+import puzzle_schema
+import series
+import validate_annotations
+from fetch_puzzle import write_puzzle_file
+from groups import entry_id
 
 
 def build(fill_path, clues_path, number, name, setter, day):

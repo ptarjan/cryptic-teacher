@@ -43,11 +43,10 @@ from pathlib import Path
 
 from PIL import Image, ImageFilter
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import fetch_privateeye as fp  # noqa: E402
-import provenance  # noqa: E402
-import downloads  # noqa: E402
-from fetch_puzzle import write_puzzle_file  # noqa: E402
+import fetch_privateeye as fp
+import provenance
+import downloads
+from fetch_puzzle import write_puzzle_file
 
 GENERATOR = "tools/file_cyclops_christmas.py"
 POSTS = downloads.FIFTEENSQUARED / "posts"
@@ -446,8 +445,8 @@ def main(argv):
     for num in args.numbers:
         try:
             puzzle = build(num, args.images)
-        except Exception as err:  # noqa: BLE001 — report every number, refuse each failure
-            print(f"cyclops-{num}: refused — {err}")
+        except Exception as err:  # every number is reported; each failure is refused alone
+            print(f"cyclops-{num}: refused — {type(err).__name__}: {err}")
             failed += 1
             continue
         if args.dry_run:

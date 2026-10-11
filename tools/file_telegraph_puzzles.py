@@ -20,7 +20,6 @@ import datetime
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fetch_telegraph
 import fetch_wp_blog
 import file_blog_puzzles

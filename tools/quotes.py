@@ -21,7 +21,6 @@ import re
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 STRAIGHT = str.maketrans({"‘": "'", "’": "'", "“": '"', "”": '"', "`": "'"})
 CURLY = frozenset("\u2018\u2019\u201c\u201d`")

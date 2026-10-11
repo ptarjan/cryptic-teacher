@@ -14,10 +14,8 @@ hashes its own bytes into every card's key, and any edit to it redraws them all.
 import contextlib
 import functools
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import make_og_card  # noqa: E402
+import make_og_card
 
 
 def main(argv):

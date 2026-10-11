@@ -79,7 +79,6 @@ from pathlib import Path
 
 import requests
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import fetch_ia_book
 import grid_verdict

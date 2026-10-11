@@ -37,14 +37,9 @@ import collections
 import datetime
 import json
 import re
-import sys
 from collections.abc import Callable
 from dataclasses import dataclass
-from pathlib import Path
 from urllib.parse import urlparse
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import enumeration
 import fetch_puzzle
 import reconstruct_grid as rg
@@ -65,6 +60,7 @@ from normalise_linked_enumerations import (
     format_parts,
     resolve_groups,
 )
+
 
 
 @dataclass(frozen=True)

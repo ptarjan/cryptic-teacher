@@ -154,10 +154,6 @@ import urllib.parse
 import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-ROOT = TOOLS.parent
-sys.path.insert(0, str(TOOLS))
 import enumeration
 import file_trove_puzzles as ftp
 import ocr_clues
@@ -174,7 +170,7 @@ from groups import entry_id
 import dir_cache
 import downloads
 import edition_commit
-from edition_commit import filer_path, held_paths, strayed  # noqa: F401 -- ocr_remote's and the tests'
+from edition_commit import filer_path, strayed
 from ocr_clues import (
     READERS,
     UPSCALE,
@@ -189,6 +185,9 @@ from ocr_clues import (
     similar,
     suspect,
 )
+
+TOOLS = Path(__file__).resolve().parent
+ROOT = TOOLS.parent
 
 SERIES = "times"
 CACHE = downloads.ARCHIVE_ORG
@@ -435,7 +434,6 @@ GAP = 80
 ACROSS_GUTTER = 60
 #: What a line printed across both columns reads as in columns().
 NOTICE = "\x00across the columns"
-
 
 
 def number_of(text):
@@ -909,7 +907,6 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
             last = line[1]
         out.append(kept)
     return out
-
 
 
 #: How far either side of each quarter of the grid's width, as a share of
@@ -4085,7 +4082,7 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None):
             return "current"
         try:
             found = scan_anywhere(d)
-        except Exception as e:  # noqa: BLE001 -- as _run: a scan that raises stands as one with no headings
+        except Exception as e:  # any raise, as _run: a scan that raises stands as one with no headings
             found = {"puzzles": [], "solutions": [], "failed": scan_queue.failure((rel,), e)}
         progress(f"scanned {rel}: " + (f"failed: {found['failed']}" if "failed" in found
                                        else f"{len(found['puzzles'])} puzzle(s)"))
@@ -4354,7 +4351,7 @@ def read_edition(d, found):
         for hit in found["puzzles"]:
             try:
                 verdict, puzzle = read_puzzle(d, found, hit, _SOLUTIONS)
-            except Exception as e:  # noqa: BLE001 -- one bad page is a verdict, not a crash
+            except Exception as e:  # any raise: one bad page is a verdict, not a crash
                 verdict, puzzle = refuse({"number": hit["number"]}, "crashed",
                                          f"crashed: {type(e).__name__}: {e}"), None
             results.append((verdict, puzzle))

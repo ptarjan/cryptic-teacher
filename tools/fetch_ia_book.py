@@ -170,8 +170,7 @@ from pathlib import Path
 
 import requests
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import book_queue  # noqa: E402
+import book_queue
 
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
 CSRF_URL = "https://archive.org/services/csrf-token"

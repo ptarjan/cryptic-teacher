@@ -34,12 +34,10 @@ import json
 import re
 import sys
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
 import ocr_clues
+
 
 NUMBER = r"(\d[,.]?\d{3})"
 HEAD = re.compile(r"^\W*listener\s+crossword\s+no\.?\s*" + NUMBER, re.IGNORECASE)

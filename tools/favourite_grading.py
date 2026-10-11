@@ -45,14 +45,12 @@ import json
 import pathlib
 import random
 import re
-import sys
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from fetch_puzzle import read_puzzle_file  # noqa: E402 — one reader
-import puzzle_paths  # noqa: E402 — one puzzles/
-import enumeration  # noqa: E402 — the printed line a judge reads
-from groups import entry_id  # noqa: E402
+from fetch_puzzle import read_puzzle_file  # one reader
+import puzzle_paths  # one puzzles/
+import enumeration  # the printed line a judge reads
+from groups import entry_id
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 AXES = ["surface", "misdirection", "pennydrop", "economy", "fairness"]

@@ -114,13 +114,12 @@ from collections import deque
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
-import puzzle_paths  # noqa: E402
-import reprints  # noqa: E402
-from fetch_puzzle import (flatten_clue, http_bytes, separators,  # noqa: E402
+import enumeration  # a clue's printed counts; tools/enumeration.py
+import puzzle_paths
+import reprints
+from fetch_puzzle import (flatten_clue, http_bytes, separators,
                           read_puzzle_file, reindex, write_puzzle_file)
-import series as series_meta  # noqa: E402
+import series as series_meta
 
 SET = "globeandmail-new-cryptic"
 DATE_PICKER_URL = f"https://cdn-us.amuselabs.com/pmm/date-picker?set={SET}"
@@ -522,8 +521,8 @@ def run_dates(ymds, out_dir, dry_run):
             # the generic arm below would print it twice.
             print(f"skip {err}")
             missing += 1
-        except Exception as err:  # noqa: BLE001 — one bad day shouldn't stop the run
-            print(f"skip {ymd}: {err}")
+        except Exception as err:  # one bad day is reported, not the run's end
+            print(f"skip {ymd}: {type(err).__name__}: {err}")
             missing += 1
     if not dry_run and out_dir.resolve() == puzzle_paths.PUZZLE_DIR.resolve():
         reindex()

@@ -14,12 +14,9 @@ one bulk write.
 """
 import argparse
 import json
-import sys
 from collections import defaultdict
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import kv  # noqa: E402
+import kv
 
 VOTE_TTL = 60 * 60 * 24 * 365  # sync/worker.js VOTE_TTL
 VERDICTS = ("up", "down")

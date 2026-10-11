@@ -38,15 +38,14 @@ import os
 import subprocess
 import sys
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
-
 import archive_coverage
 import downloads
 import file_trove_puzzles
 import scan_queue
 import series as series_meta
+
+ROOT = Path(__file__).resolve().parent.parent
+
 
 HOME = Path.home()
 STATE = Path(os.environ.get("COVERAGE_STATE", HOME / ".cache" / "coverage_ledger"))

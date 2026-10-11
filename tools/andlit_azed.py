@@ -48,10 +48,6 @@ import re
 import sys
 import time
 import urllib.error
-from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import azed_puzzles
 import downloads
 import fetch_fifteensquared as fsq
@@ -66,6 +62,7 @@ from fetch_puzzle import (
     write_puzzle_file,
 )
 from unit_queue import backlog_left
+
 
 SERIES = "azed"
 CACHE = downloads.ANDLIT_AZED

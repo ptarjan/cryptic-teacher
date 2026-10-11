@@ -213,15 +213,15 @@ import sys
 from datetime import datetime
 from pathlib import Path
 from types import SimpleNamespace
-
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
+from fetch_puzzle import (  # one glob, one reader for every tool
     blog_fact_hashes, puzzle_files, puzzle_is_annotated, read_puzzle_file)
 import definitions
 import parallel
+import row_cache
 import series as series_meta
 from groups import entry_id
+
+ROOT = Path(__file__).resolve().parent.parent
 LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
 BASELINE = ROOT / "tools" / "data" / "difficulty_baseline.json"
 BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
@@ -729,7 +729,6 @@ def history():
 
     Higher is less familiar. Each is None until HISTORY_FLOOR earlier puzzles
     (earlier defined puzzles, for the pairing) are behind it."""
-    import row_cache  # noqa: PLC0415
     rows = [r for r in row_cache.cached_map("difficulty", history_row, puzzle_files(),
                                             deps=history_row_deps) if r]
     rows.sort(key=lambda r: r[0])
@@ -969,7 +968,6 @@ def all_scores(base=None):
 
     Each file's clue_row() comes off tools/row_cache.py, made again only for
     a file, blog facts, lexicon or wordnet that changed."""
-    import row_cache  # noqa: PLC0415
     base = load_baseline() if base is None else base
     fam, comments, cm = history(), load_comments(), base.get("comment_blend") or {}
     rows = row_cache.cached_map("difficulty", clue_row, puzzle_files(), roots={"_load_clue_inputs"},

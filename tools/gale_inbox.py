@@ -56,9 +56,6 @@ import tarfile
 import time
 import urllib.parse
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import archive_coverage
 import code_reach
 import dir_cache
@@ -66,6 +63,8 @@ import file_archive_org_puzzles as fa
 import gale_arrived
 import gale_docs
 import pypdf
+
+TOOLS = Path(__file__).resolve().parent
 
 HOST = os.environ.get("GALE_INBOX_HOST", "pt@host.docker.internal")
 #: The Mac folder every Gale page lands in, on the Media disk: the SMB share

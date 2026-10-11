@@ -40,15 +40,14 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+import clues_only
+import enumeration
+import puzzle_paths
+from groups import entry_id
 
 ROOT = Path(__file__).resolve().parent.parent
 LEDGER = Path(os.environ.get("FAILED_INPUTS_FILE")
               or Path(os.environ.get("CT_MAIN_CHECKOUT") or ROOT) / ".failed_inputs.json")
-sys.path.insert(0, str(ROOT / "tools"))
-import clues_only  # noqa: E402
-import enumeration  # noqa: E402
-import puzzle_paths  # noqa: E402
-from groups import entry_id  # noqa: E402
 
 if os.environ.get("FAILED_INPUTS_PUZZLES"):
     puzzle_paths.PUZZLE_DIR = Path(os.environ["FAILED_INPUTS_PUZZLES"])

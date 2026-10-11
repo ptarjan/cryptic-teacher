@@ -102,7 +102,6 @@ def log(line, out=sys.stderr):
 def queue_module(name):
     """The queue's module; UNIT_QUEUE_PATH adds a folder whose <name>_units.py
     defines one (tools/test_unit_queue.sh's fake)."""
-    sys.path.insert(0, str(TOOLS))
     extra = os.environ.get("UNIT_QUEUE_PATH")
     if extra:
         sys.path.insert(0, extra)
@@ -129,7 +128,7 @@ def lock_path(queue, key):
 def try_lock(path):
     """An open file holding `path`'s lock, or None when another holds it."""
     import fcntl
-    f = open(path, "a")  # noqa: SIM115 -- returned open: the lock is held while it is
+    f = open(path, "a")  # returned open: the lock is held while it is
     try:
         fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except BlockingIOError:

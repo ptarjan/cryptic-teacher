@@ -10,12 +10,9 @@ anything that needs one to compare against.
 Usage:  python3 tools/grid_rules.py [puzzle-number]   # check a real grid passes
 """
 import sys
-from pathlib import Path
-
-REPO = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO / "tools"))
-from fetch_puzzle import (  # noqa: E402 — one id resolver, one reader
+from fetch_puzzle import (  # one id resolver, one reader
     read_puzzle_file, resolve_puzzle)
+
 DEFAULT_PUZZLE = "cryptic-30066"   # Tramp, 15x15, fully annotated
 
 

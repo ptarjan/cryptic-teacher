@@ -60,16 +60,15 @@ import time
 import traceback
 import unicodedata
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-ROOT = TOOLS.parent
-sys.path.insert(0, str(TOOLS))
 import archive_org_listener as al
 import file_archive_org_puzzles as fa
 import gale_docs
 import gale_inbox as gi
 import listener_puzzles as lp
 import ocr_clues
+
+TOOLS = Path(__file__).resolve().parent
+ROOT = TOOLS.parent
 
 #: Published to the Gale root beside the Times' checklist.
 CHECKLIST_NAME = "Listener checklist.html"
@@ -1325,7 +1324,7 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file):
         # ledgered, and the next run reads it again.
         print(f"{p.name}: OCR timed out after {e.timeout:.0f} s; read again next run", file=out)
         return None
-    except Exception as e:  # noqa: BLE001 -- one page's failure must not stop the pages after it
+    except Exception as e:  # any raise: one page's failure must not stop the pages after it
         # Ledgered with its error, so the checklist shows it and the
         # pages after it are read; a VERSION bump reads it again.
         print(f"{p.name}: read failed:\n{traceback.format_exc()}", file=out)

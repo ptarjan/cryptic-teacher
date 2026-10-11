@@ -96,20 +96,19 @@ import urllib.error
 import urllib.request
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
+import book_queue
+import grid_verdict
+from light_spec import build_spec, coverage
+from parse_penguin_book import (
+    NoPuzzleRegion, build_quality_report, parse_book)
+from reconstruct_grid import conventions_broken, reconstruct
+import clues_only
+from series import BOOK_SERIES, book_number, puzzle_id
+from clues_only import entries_from_grid
+import downloads
 
 TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 
-import book_queue  # noqa: E402
-import grid_verdict  # noqa: E402
-from light_spec import build_spec, coverage  # noqa: E402
-from parse_penguin_book import (  # noqa: E402
-    NoPuzzleRegion, build_quality_report, parse_book)  # noqa: E402
-from reconstruct_grid import conventions_broken, reconstruct  # noqa: E402
-import clues_only  # noqa: E402
-from series import BOOK_SERIES, book_number, puzzle_id  # noqa: E402
-from clues_only import entries_from_grid  # noqa: E402
-import downloads  # noqa: E402
 
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
 PUBLIC_TEXT_URL = "https://archive.org/download/{id}/{id}_djvu.txt"

@@ -63,7 +63,7 @@ def _open():
 
 def _blobs(paths):
     """{path: git blob sha} for each path."""
-    import puzzle_integrity  # noqa: PLC0415 — it imports fetch_puzzle, which imports this
+    import puzzle_integrity  # lazy: it imports fetch_puzzle, which imports this
     root = puzzle_paths.PUZZLE_DIR.parent  # what listing() names files under
     listed = puzzle_integrity.listing()
     out = {}
@@ -73,7 +73,7 @@ def _blobs(paths):
 
 
 def _blob_sha(path):
-    import puzzle_integrity  # noqa: PLC0415
+    import puzzle_integrity  # lazy, as in _blobs
     return puzzle_integrity._blob_sha(path)
 
 

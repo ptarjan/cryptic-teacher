@@ -39,8 +39,6 @@ import sys
 from pathlib import Path
 import downloads
 
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 
 CACHE = downloads.TROVE
 ZONES = downloads.TROVE_CLUES

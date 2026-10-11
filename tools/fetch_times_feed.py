@@ -30,11 +30,8 @@ import re
 import sys
 import urllib.error
 import urllib.request
-from pathlib import Path
 import downloads
 
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 
 CACHE = downloads.TIMES_FEED
 URL = "https://feeds.thetimes.co.uk/puzzles/crossword/{date}/{id}/data.json"

@@ -21,9 +21,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import series as series_meta  # noqa: E402
-from puzzle_paths import puzzle_path  # noqa: E402
+import series as series_meta
+from puzzle_paths import puzzle_path
 
 REPO = Path(__file__).resolve().parent.parent
 TIMEOUT = 300

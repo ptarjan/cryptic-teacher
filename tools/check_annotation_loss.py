@@ -28,12 +28,10 @@ forgets to pass its own ids still gets checked on what it wrote.
 """
 import subprocess
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import groups  # noqa: E402
-from groups import entry_id  # noqa: E402
-from fetch_puzzle import ROOT, has_words, read_puzzle_file, resolve_puzzle  # noqa: E402
+import groups
+from groups import entry_id
+from fetch_puzzle import ROOT, has_words, read_puzzle_file, resolve_puzzle
 
 
 def changed_puzzles():

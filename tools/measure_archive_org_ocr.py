@@ -35,13 +35,12 @@ import argparse
 import json
 import sys
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import archive_org_jumbo as jumbo
 import archive_org_listener as listener
 import file_archive_org_puzzles as fa
 import ocr_clues
+
+TOOLS = Path(__file__).resolve().parent
 
 GOLD = TOOLS / "data" / "archive_org_ocr_gold.json"
 

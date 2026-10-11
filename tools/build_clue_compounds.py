@@ -16,13 +16,11 @@ import collections
 import glob
 import json
 import re
-import sys
 from pathlib import Path
+from ocr_clues import rank
 
 TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
-sys.path.insert(0, str(TOOLS))
-from ocr_clues import rank
 
 
 def is_word(word):

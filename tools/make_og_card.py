@@ -48,19 +48,18 @@ import json
 import re
 import sys
 from pathlib import Path
-
-REPO = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import app_tables  # noqa: E402 — app.js's tables, read from app.js
+import app_tables  # app.js's tables, read from app.js
 from annotation import whole_anagram  # tools/annotation.py
-import clue_types  # noqa: E402
-import quotes  # noqa: E402 — curl(): clue text is stored straight, shown curled
-import enumeration  # noqa: E402
-from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
+import clue_types
+import quotes  # curl(): clue text is stored straight, shown curled
+import enumeration
+from fetch_puzzle import (  # one glob, one reader, one puzzles/ for every tool
     blog_annotation, blog_facts_for, puzzle_files, read_puzzle_file,
     with_blog_facts)
-import puzzle_paths  # noqa: E402
-from groups import entry_id  # noqa: E402
+import puzzle_paths
+from groups import entry_id
+
+REPO = Path(__file__).resolve().parent.parent
 CARD = REPO / "tools" / "og_card.html"
 # Quiptic 1,393 3D: "Woman found in Oregon or Maine (5)" — five short words, a
 # definition anyone can check, and NORMA sitting across the state line. This is

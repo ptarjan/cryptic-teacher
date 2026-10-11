@@ -29,14 +29,13 @@ import datetime
 import json
 import sys
 from pathlib import Path
+import downloads
+import fetch_puzzle
+import puzzle_paths
+import reprints
+import series as series_meta
 
 TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
-import downloads  # noqa: E402
-import fetch_puzzle  # noqa: E402
-import puzzle_paths  # noqa: E402
-import reprints  # noqa: E402
-import series as series_meta  # noqa: E402
 
 BLOG = downloads.TIMESFORTHETIMES
 SUNDAY = 6

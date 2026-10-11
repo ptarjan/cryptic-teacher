@@ -40,9 +40,6 @@ import time
 import urllib.error
 import urllib.request
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import ft_puzzles
@@ -52,6 +49,8 @@ import reconstruct_grid as rg
 import downloads
 import times_grids as tg
 from fetch_puzzle import correct_source_answers, puzzle_path, write_puzzle_file
+
+TOOLS = Path(__file__).resolve().parent
 
 SERIES = "ftcryptic"
 CACHE = downloads.FT_PDF
@@ -362,11 +361,12 @@ def ink_space(spaces, name):
     """Whether colour space `name` paints ink, a tint of 1 the darkest: a
     /Separation or /DeviceN space ("/Black", No 13,909 on). The device spaces
     and the rest paint light, 1 the lightest."""
+    from pypdf.errors import PyPdfError
     try:
         space = spaces[name].get_object() if name in spaces else name
         family = space[0] if isinstance(space, list) else space
-    except Exception:  # noqa: BLE001 — an unreadable space is not ink
-        return False
+    except (LookupError, TypeError, AttributeError, ValueError, PyPdfError):
+        return False  # an unreadable space is not ink
     return family in ("/Separation", "/DeviceN")
 
 

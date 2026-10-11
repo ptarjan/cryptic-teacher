@@ -16,13 +16,10 @@ no longer cached) and exits 1.
 """
 import json
 import sys
-from pathlib import Path
+import downloads
+import file_archive_org_puzzles as filer
+from fetch_puzzle import read_puzzle_file, resolve_puzzle
 
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
-import downloads  # noqa: E402
-import file_archive_org_puzzles as filer  # noqa: E402
-from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
 
 
 class NoCrop(Exception):

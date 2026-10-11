@@ -23,16 +23,13 @@ import html
 import json
 import re
 import sys
-from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import ft_puzzles
 import parse_timesforthetimes as tftt
 import times_grids as tg
 from fetch_puzzle import correct_source_answers, puzzle_path, write_puzzle_file
+
 
 SERIES = "azed"
 #: The blog's category, and the label its records carry into times_grids.

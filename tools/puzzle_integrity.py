@@ -171,33 +171,33 @@ from datetime import datetime, timezone
 from itertools import combinations, pairwise, zip_longest
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import boilerplate  # noqa: E402
-import enumeration  # noqa: E402
-import errata  # noqa: E402
-import groups  # noqa: E402 — linked answers
-import ocr_clues  # noqa: E402
-import parallel  # noqa: E402
-import provenance  # noqa: E402
-import punctuation  # noqa: E402
-import puzzle_paths  # noqa: E402
-import puzzle_schema  # noqa: E402
-import quotes  # noqa: E402
-import series as series_meta  # noqa: E402
-from apply_solution import (  # noqa: E402
+import boilerplate
+import enumeration
+import errata
+import groups  # linked answers
+import ocr_clues
+import parallel
+import provenance
+import punctuation
+import puzzle_paths
+import puzzle_schema
+import quotes
+import reprints
+import series as series_meta
+from apply_solution import (
     check_fill,
     check_geometry,
     normalise,
     off_board,
 )
-from clue_index import (  # noqa: E402
+from clue_index import (
     MIN_CLUES,
     THRESHOLD,
     ClueIndex,
     clue_keys,
     known_copy,
 )
-from fetch_puzzle import (  # noqa: E402
+from fetch_puzzle import (
     PER_LIGHT_ENUMERATION,
     clued,
     corrected_clue,
@@ -209,10 +209,9 @@ from fetch_puzzle import (  # noqa: E402
     prints_own_count,
     read_puzzle_file,
 )
-from groups import entry_id  # noqa: E402
-from reconstruct_grid import grid_of, lights_from_grid, lights_of  # noqa: E402
+from groups import entry_id
+from reconstruct_grid import grid_of, lights_from_grid, lights_of
 
-ROOT = Path(__file__).resolve().parent.parent
 
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
@@ -991,7 +990,7 @@ def check_puzzle_text(puzzle, flags):
     """validate_annotations' checks on the puzzle's own text and groups: no
     markup or undecodable character, and each linked answer's group on its
     leader alone. Annotations are left to that validator, which grades them."""
-    import validate_annotations  # noqa: PLC0415 — it imports this module's fetcher
+    import validate_annotations  # lazy: it imports this module's fetcher
     bare = {**puzzle, "entries": [{k: v for k, v in e.items() if k != "annotation"}
                                   for e in puzzle.get("entries") or []]}
     errors = []
@@ -1210,7 +1209,6 @@ def check_reprint(puzzle, flags):
     """REPRINT: a reprint whose original is identified, filed as a puzzle of
     its own. It is filed as the original, with its own print in the
     original's source.reprintedIn (tools/reprints.py)."""
-    import reprints  # noqa: PLC0415 — only this check reads it
     original = reprints.original_of(puzzle)
     if original and puzzle["id"] not in reprints.pending():
         flags.append(("REPRINT", puzzle["id"], f"reprints {original}: file it as {original}, "

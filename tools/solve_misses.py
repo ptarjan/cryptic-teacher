@@ -25,15 +25,13 @@ import datetime
 import json
 import os
 import shutil
-import sys
 import time
 from pathlib import Path
+from fetch_puzzle import read_puzzle_file, resolve_puzzle
+from groups import entry_id
+from solve_packet import crossing_map, label
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
-from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
-from groups import entry_id  # noqa: E402
-from solve_packet import crossing_map, label  # noqa: E402
 
 MISSES = ROOT / "tools" / "data" / "blind_misses.json"
 DIAGNOSED = ROOT / "tools" / "data" / "diagnosed_misses.json"

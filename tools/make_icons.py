@@ -12,7 +12,6 @@ apple-touch-icon.png into the repo root. The 1200x630 social card is separate: i
 type, so it is rendered from tools/og_card.html by tools/make_og.sh.
 """
 import struct
-import sys
 import zlib
 from pathlib import Path
 
@@ -148,7 +147,6 @@ def write_svg(path):
 def check_motif():
     """Refuse to draw a mini-grid that isn't a legal one, by tools/grid_rules.py's
     checker."""
-    sys.path.insert(0, str(Path(__file__).resolve().parent))
     from grid_rules import check
     check([[(r, c) not in BLOCKS for c in range(5)] for r in range(5)])
 

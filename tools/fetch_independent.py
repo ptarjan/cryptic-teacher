@@ -54,14 +54,12 @@ import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import date, datetime, timedelta, timezone
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
-from fetch_puzzle import (http_bytes, flatten_clue, separators,  # noqa: E402
+import enumeration  # a clue's printed counts; tools/enumeration.py
+from fetch_puzzle import (http_bytes, flatten_clue, separators,
                           merge_annotations, plain_text, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, source_clue, write_puzzle_file)
-import series as series_meta  # noqa: E402
+import series as series_meta
 
 FEED = ("https://ams.cdn.arkadiumhosted.com/assets/gamesfeed/independent/"
         "daily-crossword/c_{ymd}.xml")
@@ -533,8 +531,8 @@ def backfill(ymds):
             print(f"skip {ymd}: HTTP {err.code}")
             missing += 1
             continue
-        except Exception as err:  # noqa: BLE001 — one bad day shouldn't stop the run
-            print(f"skip {ymd}: {err}")
+        except Exception as err:  # one bad day is reported, not the run's end
+            print(f"skip {ymd}: {type(err).__name__}: {err}")
             missing += 1
             continue
         if puzzle["id"] in have:

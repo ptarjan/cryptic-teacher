@@ -39,9 +39,6 @@ import time
 import urllib.error
 import urllib.request
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import ft_pdf_puzzles as fpp
@@ -49,6 +46,7 @@ import puzzle_integrity
 import downloads
 import reconstruct_grid as rg
 from fetch_puzzle import correct_source_answers, puzzle_path, write_puzzle_file
+
 
 SERIES = "genius"
 CATEGORY = "Guardian Genius"
@@ -833,7 +831,7 @@ def file(write=True, numbers=None, log=print):
             if why and why[0] in ALTERABLE:
                 alt, also = assemble_altered(n, pdf, posts.get(n), date, idx[str(n)]["url"])
                 puzzle, why = (alt, None) if alt else (None, (why[0], f"{why[1]}; altered: {also}"))
-        except Exception as e:  # noqa: BLE001 — a malformed PDF is one puzzle
+        except Exception as e:  # any raise: a malformed PDF is one puzzle
             puzzle, why = None, ("unreadable", f"{type(e).__name__}: {e}"[:160])
         if puzzle is not None:
             if on_disk is None:

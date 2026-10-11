@@ -41,7 +41,6 @@ from pathlib import Path
 import downloads
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
 
 CACHE = downloads.TROVE
 OUT = CACHE / "london_numbers.json"

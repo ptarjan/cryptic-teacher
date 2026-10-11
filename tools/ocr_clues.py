@@ -34,15 +34,13 @@ import itertools
 import math
 import os
 import re
-import sys
 import unicodedata
 from difflib import SequenceMatcher
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import enumeration
 import punctuation
+
+TOOLS = Path(__file__).resolve().parent
 
 #: A "See N" clue, which carries no words of its own.
 SEE_RE = re.compile(r"^see\s+(\d+)", re.IGNORECASE)

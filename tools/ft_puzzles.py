@@ -31,10 +31,6 @@ import json
 import re
 import sys
 import time
-from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import file_times_puzzles as ftp
@@ -50,6 +46,7 @@ from fetch_puzzle import (
     write_puzzle_file,
 )
 from unit_queue import backlog_left
+
 
 SERIES = "ftcryptic"
 #: The blog's category, and the label its records carry into times_grids.

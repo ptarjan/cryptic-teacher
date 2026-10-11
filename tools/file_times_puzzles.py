@@ -29,18 +29,13 @@ import itertools
 import re
 import sys
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import file_blog_puzzles
 import parse_timesforthetimes as tftt
 import series as series_meta
 import times_grids as tg
-from file_blog_puzzles import (  # noqa: F401 -- the filer's checks, as tools/ft_puzzles.py and its test read them
-    in_sequence,
-    retyped,
-    sequence_window,
-)
+# sequence_window as tools/ft_puzzles.py and its test read it: through this module.
+from file_blog_puzzles import in_sequence, sequence_window as sequence_window
+
 
 #: Below this a Weekend Cryptic number is the Sunday Times' (~5,200 in 2026,
 #: one a week); above it, Saturday's Times (~29,600, six a week).

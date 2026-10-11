@@ -49,6 +49,7 @@ from pathlib import Path
 
 import mem_gate
 import series
+import weekly_usage
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -335,7 +336,6 @@ def set_mode(meter):
         (home / FIVE_HOUR).unlink(missing_ok=True)
         print("pacing the weekly meter to the weekly reset")
         return 0
-    import weekly_usage
     hours_left, _ = weekly_usage.resets_in_hours("weekly")
     resets_at = time.time() + hours_left * 3600
     (home / FIVE_HOUR).write_text(f"{resets_at:.0f}\n")
@@ -451,7 +451,6 @@ def cpu_load(state_path):
 def bridge_spend(now=None):
     """(bridge points an hour, burn points per run-hour or None) measured over
     the last SPEND_WINDOW_S; (None, None) when the meter is unread."""
-    import weekly_usage
     now = now or time.time()
     rise = meter_rise(_read(weekly_usage.SAMPLE_CSV_PATH), now - SPEND_WINDOW_S, now)
     if not rise:
@@ -482,7 +481,6 @@ def width(arg=None, floor=1):
     runs_needed = bridge = ratio = pct = hours_left = None
     meter = "weekly"
     try:
-        import weekly_usage
         now = time.time()
         meter = mode(_read(home / FIVE_HOUR),
                      now + weekly_usage.resets_in_hours("weekly")[0] * 3600)
@@ -493,8 +491,8 @@ def width(arg=None, floor=1):
         pct = weekly_usage.usage_pct(meter)
         hours_left, _ = weekly_usage.resets_in_hours(meter)
         runs_needed = paced_need(meter, pct, hours_left, rate, bridge or 0.0, ratio)
-    except Exception as exc:  # noqa: BLE001 — an unread meter leaves the need unknown
-        print(f"width: meter unread: {exc}", file=sys.stderr)
+    except weekly_usage.READ_ERRORS as exc:  # an unread meter leaves the need unknown
+        print(f"width: meter unread: {type(exc).__name__}: {exc}", file=sys.stderr)
     rss = burn_rss_kb()
     mem = mem_cap(_read("/proc/meminfo"), rss)
     load = cpu_load(home / CPU_STATE)
@@ -693,7 +691,6 @@ def width_self_test():
                   f"(want {want})", file=sys.stderr)
             bad += 1
     bad += spend_self_test() + tree_self_test()
-    import weekly_usage
     real = weekly_usage.usage_pct
     def unreadable(_group):
         raise RuntimeError("no reading")

@@ -32,11 +32,10 @@ import datetime
 import json
 import sys
 from pathlib import Path
+import puzzle_paths
 
 TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 
-import puzzle_paths  # noqa: E402
 
 ROOT = TOOLS.parent
 DIR = ROOT / "clues_only"

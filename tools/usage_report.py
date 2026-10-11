@@ -26,8 +26,7 @@ from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import kv  # noqa: E402
+import kv
 
 ROOT = Path(__file__).resolve().parent.parent
 KEY = re.compile(r"^e:(\d{4}-\d{2}-\d{2}):([a-z0-9-]+):")

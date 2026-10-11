@@ -18,10 +18,9 @@ import time
 import urllib.error
 import urllib.request
 from pathlib import Path
+import puzzle_paths
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
-import puzzle_paths
 
 
 def served(series, n):

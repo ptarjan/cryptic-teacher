@@ -10,9 +10,7 @@ fetch. Exits 1 when no cached post covers the puzzle.
 import html.parser
 import json
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from blog_facts import BLOGS, OUT, rendered
 
 BREAKS = {"p", "br", "div", "li", "tr", "h1", "h2", "h3", "h4", "table", "blockquote"}

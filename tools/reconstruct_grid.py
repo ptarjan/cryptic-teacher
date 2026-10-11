@@ -106,8 +106,7 @@ import random
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
+from fetch_puzzle import read_puzzle_file, resolve_puzzle
 
 WHITE, BLACK = True, False
 

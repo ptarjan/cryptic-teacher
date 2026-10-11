@@ -65,12 +65,11 @@ import tempfile
 import threading
 import time
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
-
 import desktop_busy
 from desktop_busy import SSH
+
+TOOLS = Path(__file__).resolve().parent
+
 
 #: The desktop's directory.
 HOME = r"C:\Users\micro\ocrw"
@@ -546,7 +545,7 @@ def serve(priority="idle"):
             try:
                 import acquire_book
                 got = acquire_book._reconstruct_one(req["reconstruct"])
-            except Exception as e:  # noqa: BLE001 -- the Mac searches this one itself and says why
+            except Exception as e:  # any raise: the Mac searches this one itself and says why
                 got = {"error": f"{type(e).__name__}: {e}"}
             done.set()
             beating.join()
@@ -556,7 +555,7 @@ def serve(priority="idle"):
             try:
                 result, back = run_call(req["call"], data, req["args"], req["kwargs"])
                 head = {"result": result}
-            except Exception as e:  # noqa: BLE001 -- the Mac runs this one itself and says why
+            except Exception as e:  # any raise: the Mac runs this one itself and says why
                 head, back = {"error": f"{type(e).__name__}: {e}"}, b""
             out.write(json.dumps({**head, "bytes": len(back)}).encode() + b"\n" + back)
             out.flush()
@@ -564,7 +563,7 @@ def serve(priority="idle"):
         if "edition" in req:
             try:
                 head, back = read_edition_here(req, data, ask_mac)
-            except Exception as e:  # noqa: BLE001 -- the Mac reads this edition itself and says why
+            except Exception as e:  # any raise: the Mac reads this edition itself and says why
                 head, back = {"error": f"{type(e).__name__}: {e}"}, b""
             out.write(json.dumps({**head, "bytes": len(back)}).encode() + b"\n" + back)
             out.flush()
@@ -572,7 +571,7 @@ def serve(priority="idle"):
         try:
             words = ocr_clues.raw_words(Image.open(io.BytesIO(data)), req["which"])
             say({"words": [[float(x0), float(y0), float(x1), float(y1), t] for x0, y0, x1, y1, t in words]})
-        except Exception as e:  # noqa: BLE001 -- the Mac reads this crop itself and says why
+        except Exception as e:  # any raise: the Mac reads this crop itself and says why
             say({"error": f"{type(e).__name__}: {e}"})
 
 
@@ -637,7 +636,7 @@ class Session:
 
     def __init__(self, host):
         self.host = host
-        self.err = tempfile.TemporaryFile()  # noqa: SIM115 -- ssh writes to it for the session's life
+        self.err = tempfile.TemporaryFile()  # ssh's stderr for the session's life; close() closes it
         serve = rf"{HOME}\venv\Scripts\python.exe {code_dir()}\tools\ocr_remote.py serve {priority()}"
         self.proc = subprocess.Popen([*SSH, host, serve], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                      stderr=self.err)
@@ -759,6 +758,7 @@ class Session:
             self.proc.wait(5)
         except (OSError, subprocess.TimeoutExpired):
             pass
+        self.err.close()
 
 
 def ship(host):
@@ -1241,18 +1241,16 @@ def local_slot():
     import fcntl
     while True:
         for i in range(LOCAL_SLOTS):
-            f = open(Path(tempfile.gettempdir()) / f"ocr_remote.local.{i}.lock", "w")  # noqa: SIM115 -- held while the slot is
-            try:
-                fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
-            except BlockingIOError:
-                f.close()
-                continue
-            _HELD.depth = 1
-            try:
-                yield
-            finally:
-                _HELD.depth = 0
-                f.close()
+            with open(Path(tempfile.gettempdir()) / f"ocr_remote.local.{i}.lock", "w") as f:
+                try:
+                    fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                except BlockingIOError:
+                    continue
+                _HELD.depth = 1
+                try:
+                    yield
+                finally:
+                    _HELD.depth = 0
             return
         time.sleep(random.uniform(0.2, 1.0))
 

@@ -18,11 +18,11 @@ import time
 import urllib.request
 from pathlib import Path
 
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, "/Users/pt/github/household/tools")
 import desktop_busy
 import vlm_reader
-import watchlib
+import watchlib  # household's tools/, which tools/vlm_health.sh puts on PYTHONPATH
+
+TOOLS = Path(__file__).resolve().parent
 
 DOWN_FOR = 30 * 60
 STATE = "vlm-health"

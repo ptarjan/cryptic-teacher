@@ -33,8 +33,7 @@ import sys
 import time
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import clueability  # noqa: E402  (same directory, no third-party deps)
+import clueability
 
 TOOLS = Path(__file__).resolve().parent
 DATA = TOOLS / "data"

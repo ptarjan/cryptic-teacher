@@ -19,10 +19,9 @@ tools/acquire_books.sh with no argument is the tick; each unit runs
 import subprocess
 import sys
 from pathlib import Path
+from unit_queue import Unit, main_checkout
 
 TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
-from unit_queue import Unit, main_checkout
 
 LOG = ".books.log"
 SLOTS = 3

@@ -31,13 +31,12 @@ file once discarded: its grid is built again from the copy's answers
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import annotate_check  # noqa: E402
-import clues_only  # noqa: E402
-import provenance  # noqa: E402
-import puzzle_paths  # noqa: E402
-from fetch_puzzle import read_puzzle_file, resolve_puzzle, write_puzzle_file  # noqa: E402
-from groups import entry_id  # noqa: E402
+import annotate_check
+import clues_only
+import provenance
+import puzzle_paths
+from fetch_puzzle import read_puzzle_file, resolve_puzzle, write_puzzle_file
+from groups import entry_id
 
 
 def reopenable(puzzle):

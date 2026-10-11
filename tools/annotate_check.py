@@ -54,30 +54,28 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+from annotate_audit import load_templates, rule_name
+from annotation import assembly, wordplay_letters
+import blog_post
+import fetch_puzzle
+import clue_types
+import corroborate
+import definitions
+import groups
+import provenance
+from groups import entry_id
+import series
+import validate_annotations
+from apply_annotations import (
+    annotate_only, current_view, default_input, move_alteration, normalize, view_path, with_assembly)
+from fetch_puzzle import clued, read_puzzle_file, resolve_puzzle
+from json_merge import dump_lines
+from validate_annotations import letters
+from find_answer_leaks import leaks, light_solutions, names, pieces_of, unname
+from find_renarration import scan
 
 TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
-sys.path.insert(0, str(TOOLS))
-
-from annotate_audit import load_templates, rule_name  # noqa: E402
-from annotation import assembly, wordplay_letters  # noqa: E402
-import blog_post  # noqa: E402
-import fetch_puzzle  # noqa: E402
-import clue_types  # noqa: E402
-import corroborate  # noqa: E402
-import definitions  # noqa: E402
-import groups  # noqa: E402
-import provenance  # noqa: E402
-from groups import entry_id  # noqa: E402
-import series  # noqa: E402
-import validate_annotations  # noqa: E402
-from apply_annotations import (  # noqa: E402
-    annotate_only, current_view, default_input, move_alteration, normalize, view_path, with_assembly)
-from fetch_puzzle import clued, read_puzzle_file, resolve_puzzle  # noqa: E402
-from json_merge import dump_lines  # noqa: E402
-from validate_annotations import letters  # noqa: E402
-from find_answer_leaks import leaks, light_solutions, names, pieces_of, unname  # noqa: E402
-from find_renarration import scan  # noqa: E402
 
 
 def run(args):
@@ -774,7 +772,8 @@ def preview(path, pending):
             _, errors, warnings = validate_annotations.validate_puzzle(puzzle)
         # The refusal above already names the schema's findings by entry id.
         return [e for e in errors if not e.startswith("schema:")], warnings
-    except Exception:  # noqa: BLE001 — a preview never hides the refusal itself
+    except (OSError, ValueError, KeyError, IndexError, TypeError, AttributeError):
+        # An annotation too malformed to validate: the refusal itself still shows.
         return [], []
 
 

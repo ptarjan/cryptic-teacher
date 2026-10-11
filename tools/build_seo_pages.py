@@ -70,29 +70,31 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from urllib.parse import urlparse
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import app_tables  # noqa: E402 — the app's own sentence about each series
-import build_abbreviations  # noqa: E402 — one glossary, rendered into every page that shows it
-import clue_types  # noqa: E402 — the one list of clue types, their labels and blurbs
-import difficulty  # noqa: E402 — the weights, bands and constants /difficulty/ quotes
-import difficulty_check  # noqa: E402 — the held-out scorecard /difficulty/ quotes
-import provenance  # noqa: E402 — solution_detail(), source_url()
-import renamed_ids  # noqa: E402 — the ids commits renamed, for their redirect pages
-import quotes  # noqa: E402 — curl(): clue text is stored straight, shown curled
-import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
-import showcase  # noqa: E402 — which puzzles /showcase/ picks, and why
-from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
+import app_tables  # the app's own sentence about each series
+import build_abbreviations  # one glossary, rendered into every page that shows it
+import clue_types  # the one list of clue types, their labels and blurbs
+import difficulty  # the weights, bands and constants /difficulty/ quotes
+import difficulty_check  # the held-out scorecard /difficulty/ quotes
+import provenance  # solution_detail(), source_url()
+import renamed_ids  # the ids commits renamed, for their redirect pages
+import quotes  # curl(): clue text is stored straight, shown curled
+import series as series_meta  # what each series IS; see tools/series.py
+import showcase  # which puzzles /showcase/ picks, and why
+from fetch_puzzle import (  # one glob, one reader for every tool
     blog_annotation, has_blog_hints, puzzle_files, read_puzzle_file, with_blog_facts)
-import puzzle_paths  # noqa: E402 — one puzzles/ for every tool
-import parallel  # noqa: E402 — the corpus across the cores
-from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
+import puzzle_paths  # one puzzles/ for every tool
+import parallel  # the corpus across the cores
+from stamp_assets import asset_url  # content-hashed asset URLs
 # Which clue a puzzle's card shows, and how to describe it. Imported rather than
 # reimplemented: the alt text has to describe the picture that was actually
 # drawn, and only the generator knows which clue that was.
-from make_og_card import alt_text as card_alt  # noqa: E402
-from make_og_card import DEFAULT_ENTRY, DEFAULT_PUZZLE  # noqa: E402 — the site card's clue
-import page_card  # noqa: E402 — the card of every page that is not a puzzle
-from groups import entry_id  # noqa: E402
+from make_og_card import alt_text as card_alt
+from make_og_card import DEFAULT_ENTRY, DEFAULT_PUZZLE  # the site card's clue
+import page_card  # the card of every page that is not a puzzle
+from groups import entry_id
+# Which (type, key) pairs a clue's indicators give: shared with the burn's
+# indicator cover (tools/indicator_cover.py).
+from indicator_keys import clue_pairs
 
 # Every page card head() linked this run, for make_og.sh --pages to draw.
 PAGE_CARDS = {}
@@ -1658,11 +1660,6 @@ INDICATOR_TYPES = {
                   "<em>tons of soil</em> for <em>sons of toil</em>.",
 }
 assert set(INDICATOR_TYPES) <= set(clue_types.NAMES)
-
-
-# Which (type, key) pairs a clue's indicators give: shared with the burn's
-# indicator cover (tools/indicator_cover.py).
-from indicator_keys import clue_pairs
 
 
 @functools.cache

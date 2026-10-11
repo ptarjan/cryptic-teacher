@@ -30,15 +30,13 @@ import contextlib
 import io
 import json
 import math
-import sys
 from datetime import date
 from pathlib import Path
+import blog_comment_difficulty as B
+import difficulty as D
+import puzzle_paths
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
-import blog_comment_difficulty as B  # noqa: E402
-import difficulty as D  # noqa: E402
-import puzzle_paths  # noqa: E402
 
 OUT = ROOT / "tools" / "data" / "snitch_report.txt"
 #: The components, then counts measured alongside them that are not in the index.

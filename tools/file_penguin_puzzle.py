@@ -105,19 +105,17 @@ import json
 import re
 import sys
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
-import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
-from fetch_puzzle import has_words, puzzle_path, write_puzzle_file  # noqa: E402
+import enumeration  # a clue's printed counts; tools/enumeration.py
+from fetch_puzzle import has_words, puzzle_path, write_puzzle_file
 # One rule for linked answers, spelled once. That module owns both halves of it:
 # which lights a "See N" ties together, and what the group's enumeration is.
-from normalise_linked_enumerations import (enumeration_parts,  # noqa: E402
+from normalise_linked_enumerations import (enumeration_parts,
                                            normalise_record, resolve_groups)
-from series import (BOOK_SERIES, book_number, default_setter,  # noqa: E402
+from series import (BOOK_SERIES, book_number, default_setter,
                     official_key, published, puzzle_id, puzzle_name,
                     scan_url)
-from groups import entry_id  # noqa: E402
+from groups import entry_id
+
 
 def source_url(series, number):
     """The archive.org item these clues were read out of.

@@ -30,15 +30,13 @@ import datetime
 import functools
 import json
 import os
-import sys
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
-
 import canberra_london_numbers
 import downloads
 import fetch_archive_org_editions as fetcher
+
+ROOT = Path(__file__).resolve().parent.parent
+
 
 CACHE = downloads.ARCHIVE_ORG
 #: The archive.org editions' ledger and the Gale Times pages' (one row an

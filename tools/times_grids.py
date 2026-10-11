@@ -32,7 +32,6 @@ import threading
 import time
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import barred_grid as bg
 import fetch_wp_blog
 import downloads

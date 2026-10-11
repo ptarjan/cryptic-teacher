@@ -33,16 +33,14 @@ import os
 import re
 import sys
 from pathlib import Path
+import validate_annotations as va
+from annotate_audit import load_templates, rule_name
+from apply_annotations import normalize
+from fetch_puzzle import read_puzzle_file, write_puzzle_file
+from groups import entry_id
+import puzzle_paths
+from turn_cost import ANNOTATE_PREFIX, CLAUDE_DIR
 
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
-import validate_annotations as va  # noqa: E402
-from annotate_audit import load_templates, rule_name  # noqa: E402
-from apply_annotations import normalize  # noqa: E402
-from fetch_puzzle import read_puzzle_file, write_puzzle_file  # noqa: E402
-from groups import entry_id  # noqa: E402
-import puzzle_paths  # noqa: E402
-from turn_cost import ANNOTATE_PREFIX, CLAUDE_DIR  # noqa: E402
 
 LINE = re.compile(r"^\s*(?:ERROR|warn):\s*(\d+[AD]):\s*(.*?)(?:\s*\[(check_\w+)\])?\s*$")
 TEMPLATES = None
