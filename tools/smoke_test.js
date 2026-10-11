@@ -585,6 +585,40 @@ const APP_BLOCKS = (() => {
   const said = defPlace("Can everyone initially disconnect?", { text: "disconnect", at: 23 }, []);
   assert(/right at the end/.test(said), "a definition before a closing ? ends the clue: " + said);
 }
+// A definition's optional end word is optional with punctuation stuck to it:
+// a token is split on spaces, so the definition quoted in azed-2344 25d ends on
+// "in'", and the closing quote made "in" a word that carries meaning. Every
+// mark a definition can sit inside or after is checked here, not the corpus
+// sweep below, which only finds a quoted case when a sample happens to hold one.
+{
+  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const from = src.indexOf("const EDGE_WORDS");
+  const to = src.indexOf("\n  }\n", src.indexOf("function edgeTokens", from)) + 4;
+  const edgeTokens = new Function(src.slice(from, to) + "\nreturn edgeTokens;")();
+  const edges = (clue, def) => {
+    const toks = clue.split(/\s+/).map((text) => ({ text }));
+    const start = clue.indexOf(def);
+    const first = clue.slice(0, start).split(/\s+/).filter(Boolean).length
+      - (/\S$/.test(clue.slice(0, start)) ? 1 : 0);
+    const span = toks.map((_, n) => n).slice(first, first + def.split(/\s+/).length);
+    return edgeTokens(span, toks).map((n) => toks[n].text).sort().join("|");
+  };
+  const cases = [
+    ["A label stuck in middle of cheese: 'It's right to tuck in'", "It's right to tuck in", "in'"],
+    ["A label stuck in middle of cheese: ‘It’s right to tuck in’", "It’s right to tuck in", "in’"],
+    ["Cheese: \"right to tuck in\"!", "right to tuck in", "in\"!"],
+    ["Cheese (right to tuck in)", "right to tuck in", "in)"],
+    ["'The right to tuck' cheese", "The right to tuck", "'The"],
+    ["Cheese, (the right to tuck in.)", "the right to tuck in", "(the|in.)"],
+  ];
+  for (const [clue, def, want] of cases) {
+    assert(edges(clue, def) === want,
+      `the optional ends of "${def}" in ${clue} are ${want}: ${edges(clue, def)}`);
+  }
+  // A word's own apostrophe still counts: "it's" is not the edge word "its".
+  assert(edges("Cheese right it's", "right it's") === "",
+    "an apostrophe inside a word keeps it a word that carries meaning: " + edges("Cheese right it's", "right it's"));
+}
 // Which puzzle boots is NOT pinned here on purpose: the nightly job adds one
 // every day, and a test that only ever exercises a frozen fixture stops
 // covering the puzzles people actually land on. Everything below therefore
@@ -6099,7 +6133,8 @@ global.realSetTimeout(() => {
   // it, so this picks the CASE and the app alone decides the verdict.
   const EDGE = ("a an the this these those it its one such by of for from with " +
                 "in on at to and that as so s").split(" ");
-  const bare = (s) => String(s).toLowerCase().replace(/[^a-z']/g, "");
+  const bare = (s) => String(s).toLowerCase().replace(/[\u2018\u2019]/g, "'")
+    .replace(/[^a-z']/g, "").replace(/^'+|'+$/g, "");
   let found = null;
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
