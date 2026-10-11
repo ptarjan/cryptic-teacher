@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,71 @@
     "text": "Home of Kronenbourg beer hosting heads of Stella Artois and Carlsberg",
     "enumeration": "6"
    },
-   "solution": "ALSACE"
+   "solution": "ALSACE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ALSACE",
+    "definitions": [
+     {
+      "text": "Home of Kronenbourg",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host takes guests inside, so the drink word holds the other letters within it"
+     },
+     {
+      "text": "heads of",
+      "for": "letter_selection",
+      "note": "heads are what sit at the top, so only the opening letter of each following word is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a type of beer"
+     },
+     {
+      "clueFragment": "Stella Artois",
+      "gives": "SA",
+      "select": "first",
+      "note": "the opening letters of the two brand words"
+     },
+     {
+      "clueFragment": "Carlsberg",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of the lager brand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "SAC",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A beer-lover's note on where Kronenbourg comes from, mentioning two rival lager brands.",
+     "walkthrough": "Kronenbourg is brewed near Strasbourg, so the definition is a plain geographical fact rather than a pun.",
+     "definitionFit": "Alsace is the French region around Strasbourg where the Kronenbourg brewery has long been based."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hosting"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +114,62 @@
     "text": "Notice spiritual class felt void, lacking guidance",
     "enumeration": "6"
    },
-   "solution": "ADRIFT"
+   "solution": "ADRIFT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ADRIFT",
+    "definitions": [
+     {
+      "text": "lacking guidance",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "void",
+      "for": "letter_selection",
+      "note": "something void has been emptied, so the word loses its insides and only its outer letters stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "an ad is a notice, short for advertisement"
+     },
+     {
+      "clueFragment": "spiritual class",
+      "gives": "RI",
+      "note": "RI is religious instruction, a school lesson"
+     },
+     {
+      "clueFragment": "felt",
+      "gives": "FT",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "RI",
+      "FT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices a spiritual class felt empty and aimless.",
+     "walkthrough": "RI, religious instruction, was the old name for a British school subject now usually called RE.",
+     "definitionFit": "A boat adrift floats without steering, so the word describes anything aimless or without direction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Notice"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +189,73 @@
      }
     ]
    },
-   "solution": "SOCCERMOM"
+   "solution": "SOCCERMOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SOCCER MOM",
+    "definitions": [
+     {
+      "text": "active parent",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uplifted",
+      "for": "reversal",
+      "note": "in a down entry, lifting the letters up makes them read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "M is the symbol for mass"
+     },
+     {
+      "clueFragment": "park",
+      "gives": "REC",
+      "note": "a rec is a recreation ground, a public park"
+     },
+     {
+      "clueFragment": "function",
+      "gives": "COS",
+      "note": "cos is the cosine function in trigonometry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOC",
+      "CER",
+      "M",
+      "OM"
+     ],
+     "reversals": [
+      {
+       "from": "MOMRECCOS",
+       "to": "SOCCERMOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A park event, briefly mentioned, lifts the spirits of a busy parent.",
+     "walkthrough": "The four pieces are joined and then the whole string is turned upside down. A 'rec' is British slang for a recreation ground.",
+     "definitionFit": "A soccer mom is the American stereotype of a busy suburban mother ferrying children to sports, an energetic parent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +269,63 @@
     "text": "Artist's hat replaced by autumn time in country house",
     "enumeration": "7"
    },
-   "solution": "COCTEAU"
+   "solution": "COCTEAU",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "COCTEAU",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaced by",
+      "for": "substitution",
+      "note": "one item is swapped out and another put in its place, so a fragment of the house word is exchanged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hat",
+      "gives": "HAT",
+      "note": "taken as written; this is what is taken out"
+     },
+     {
+      "clueFragment": "autumn time",
+      "gives": "OCT",
+      "note": "October, abbreviated, is a month of autumn"
+     },
+     {
+      "clueFragment": "country house",
+      "gives": "CHATEAU",
+      "note": "a chateau is a French country house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OCT",
+      "EAU"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's hat is swapped for something seasonal at a country estate.",
+     "walkthrough": "Take HAT out of CHATEAU and put OCT in its place. The 's here is 'is', joining artist to the wordplay.",
+     "definitionFit": "Jean Cocteau was a French poet, painter and film-maker, so he counts as an artist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hat"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +345,51 @@
      }
     ]
    },
-   "solution": "TWOPIECE"
+   "solution": "TWOPIECE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "TWO-PIECE",
+    "definitions": [
+     {
+      "text": "Clothing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so the spelling follows how it is said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company, as it were",
+      "gives": "TWO",
+      "note": "from the saying 'two's company'"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "PIECE",
+      "soundsLike": "PEACE",
+      "note": "stillness or quiet is peace"
+     }
+    ],
+    "explanation": {
+     "surface": "A garment firm, so to speak, is still in the news.",
+     "walkthrough": "'As it were' flags that company only means TWO via the proverb 'two's company, three's a crowd'.",
+     "definitionFit": "A two-piece is a garment in two parts, such as a suit or bikini, so it is an item of clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +403,63 @@
     "text": "Maestro and wife face losing piano",
     "enumeration": "4"
    },
-   "solution": "WHIZ"
+   "solution": "WHIZ",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WHIZ",
+    "definitions": [
+     {
+      "text": "Maestro",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "to lose something is to be left without it, so one letter drops out of the face word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "face",
+      "gives": "PHIZ",
+      "note": "phiz is an old slang word for the face"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical marking for piano, soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HIZ"
+     ]
+    },
+    "explanation": {
+     "surface": "A conductor and his wife face life without their piano.",
+     "walkthrough": "PHIZ, an old word for face (from physiognomy), loses its P and follows W.",
+     "definitionFit": "A whiz is an expert, someone brilliant at something, as a maestro is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +473,66 @@
     "text": "After sixteen pints, is alcoholic's belly ready for food?",
     "enumeration": "7"
    },
-   "solution": "PECKISH"
+   "solution": "PECKISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PECKISH",
+    "definitions": [
+     {
+      "text": "ready for food",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "belly",
+      "for": "letter_selection",
+      "note": "the belly is the middle of a body, so only the central letter of the word is taken"
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sixteen pints",
+      "gives": "PECK",
+      "note": "a peck is two gallons, sixteen pints"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "alcoholic's",
+      "gives": "H",
+      "select": "middle",
+      "note": "the central letter of the nine-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PECK",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker sixteen pints in wonders whether a big belly can still find room for a meal.",
+     "walkthrough": "A peck is an old dry measure of two gallons, which makes sixteen pints.",
+     "definitionFit": "Peckish is the informal British word for feeling slightly hungry, wanting a snack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "belly"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +546,49 @@
     "text": "Roofless hub in Florida key",
     "enumeration": "5"
    },
-   "solution": "ENTER"
+   "solution": "ENTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENTER",
+    "definitions": [
+     {
+      "text": "key",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Roofless",
+      "for": "deletion",
+      "note": "in a down entry the roof is the top, so the first letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hub in Florida",
+      "gives": "CENTER",
+      "note": "the American spelling of centre, a hub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A building without its roof stands in Florida, on one of the Keys.",
+     "walkthrough": "'In Florida' asks for the American spelling CENTER, which then loses its C. 'Key' wants to be a Florida island; it is a keyboard key.",
+     "definitionFit": "Enter is the keyboard key pressed to confirm a command or start a new line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +602,53 @@
     "text": "Less refined English craft here rendered by Jürgen",
     "enumeration": "8"
    },
-   "solution": "EARTHIER"
+   "solution": "EARTHIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARTHIER",
+    "definitions": [
+     {
+      "text": "Less refined",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "craft",
+      "gives": "ART",
+      "note": "art and craft as skill"
+     },
+     {
+      "clueFragment": "here rendered by Jürgen",
+      "gives": "HIER",
+      "note": "hier is German for here, and Jürgen is a German name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ART",
+      "HIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A German translator renders an English craft piece into something cruder.",
+     "walkthrough": "Jürgen stands for any German speaker, so 'here' must be translated into German.",
+     "definitionFit": "Earthy humour is coarse and down-to-earth, so earthier means cruder or less refined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jürgen"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +662,61 @@
     "text": "Ornate centrepiece in iron company replicated",
     "enumeration": "6"
    },
-   "solution": "ROCOCO"
+   "solution": "ROCOCO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROCOCO",
+    "definitions": [
+     {
+      "text": "Ornate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centrepiece in",
+      "for": "letter_selection",
+      "note": "the centrepiece is what stands in the middle, so only the two central letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "iron",
+      "gives": "RO",
+      "select": "middle",
+      "note": "the two middle letters of the metal word"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "replicated",
+      "gives": "CO",
+      "note": "the company abbreviation repeated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "CO",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "An ironworks firm copies an elaborate centrepiece.",
+     "definitionFit": "Rococo is the eighteenth-century style known for elaborate, highly decorated ornament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "centrepiece"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +730,70 @@
     "text": "Angler knocked back roll and cold drink",
     "enumeration": "8"
    },
-   "solution": "PISCATOR"
+   "solution": "PISCATOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PISCATOR",
+    "definitions": [
+     {
+      "text": "Angler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "a drink knocked back goes down in one, and back also means turned the other way, so the string runs backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roll",
+      "gives": "ROTA",
+      "note": "a rota is a roll or list of duties"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SIP",
+      "note": "a sip is a small drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIS",
+      "C",
+      "ATOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROTACSIP",
+       "to": "PISCATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fisherman downs a bread roll and a cold drink.",
+     "walkthrough": "ROTA, C and SIP are joined, then the whole reads backwards.",
+     "definitionFit": "Piscator is a literary word for a fisherman, from the Latin for fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roll"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +807,50 @@
     "text": "Some peek at Simon's towering bloomer",
     "enumeration": "7"
    },
-   "solution": "MISTAKE"
+   "solution": "MISTAKE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MISTAKE",
+    "definitions": [
+     {
+      "text": "bloomer",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the words is needed, a run of letters spanning them"
+     },
+     {
+      "text": "towering",
+      "for": "reversal",
+      "note": "in a down entry, towering means rising up, so the letters read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peek at Simon's",
+      "gives": "EKATSIM",
+      "note": "the run from the end of peek to the start of Simon"
+     }
+    ],
+    "explanation": {
+     "surface": "A glimpse of Simon's prize bloom, shooting up high.",
+     "walkthrough": "The letters EKATSIM run across 'peek at Simon's'; read upwards they give MISTAKE. 'Bloomer' looks like a flower; it is British slang for a blunder.",
+     "definitionFit": "A bloomer is a blunder in British slang, an embarrassing mistake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomer"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +864,68 @@
     "text": "Maniacal, largely European guards kept fit regularly",
     "enumeration": "8"
    },
-   "solution": "FRENETIC"
+   "solution": "FRENETIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "FRENETIC",
+    "definitions": [
+     {
+      "text": "Maniacal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "largely means mostly but not all, so the word is cut short by its last letter"
+     },
+     {
+      "text": "guards",
+      "for": "container",
+      "note": "guards surround what they protect, so the nationality word encloses the other letters"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter of the phrase is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "FRENCH",
+      "note": "a French person is a European"
+     },
+     {
+      "clueFragment": "kept fit",
+      "gives": "ETI",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREN",
+      "ETI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A frantic European bodyguard keeps fit by training regularly.",
+     "walkthrough": "'Guards' reads as a noun, people protecting someone, but it is a verb meaning surrounds.",
+     "definitionFit": "Frenetic means wildly agitated and frantic, close to a crazed or manic state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guards"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +939,58 @@
     "text": "Lewis's partner westbound discovers old address",
     "enumeration": "6"
    },
-   "solution": "SIRRAH"
+   "solution": "SIRRAH",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SIRRAH",
+    "definitions": [
+     {
+      "text": "old address",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "westbound",
+      "for": "reversal",
+      "note": "in an across entry, heading west means moving right to left, so the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "discovers"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lewis's partner",
+      "gives": "HARRIS",
+      "note": "Lewis and Harris is a single island in the Outer Hebrides"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIRRAH"
+     ],
+     "reversals": [
+      {
+       "from": "HARRIS",
+       "to": "SIRRAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lewis's companion, travelling west, comes across an old home address.",
+     "walkthrough": "Lewis and Harris are two parts of one Scottish island, so Harris is Lewis's partner. 'Address' looks like a place to live; it is a form of speech.",
+     "definitionFit": "Sirrah is an archaic form of address used to a man or boy of lower status."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "address"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +1004,65 @@
     "text": "Journalist on Times entertaining without underlying theme",
     "enumeration": "7"
    },
-   "solution": "SUBTEXT"
+   "solution": "SUBTEXT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SUBTEXT",
+    "definitions": [
+     {
+      "text": "underlying theme",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain guests is to have them in, so the times letters hold another piece"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Journalist",
+      "gives": "SUB",
+      "note": "a sub is a sub-editor on a newspaper"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "TT",
+      "note": "T is the abbreviation for time, here twice"
+     },
+     {
+      "clueFragment": "without",
+      "gives": "EX",
+      "note": "ex means without, as in ex dividend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "T",
+      "EX",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter at The Times hosting a party has no unifying theme.",
+     "walkthrough": "'Times' looks like the newspaper but gives two Ts, which hold EX.",
+     "definitionFit": "Subtext is the meaning that lies beneath the surface of a text or conversation, an implied theme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1082,54 @@
      }
     ]
    },
-   "solution": "MOUNTRUSHMORE"
+   "solution": "MOUNTRUSHMORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOUNT RUSHMORE",
+    "definitions": [
+     {
+      "text": "Rock figureheads at this place",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "launch",
+      "gives": "MOUNT",
+      "note": "to mount a campaign is to launch it"
+     },
+     {
+      "clueFragment": "career",
+      "gives": "RUSH",
+      "note": "to career is to rush headlong"
+     },
+     {
+      "clueFragment": "again",
+      "gives": "MORE",
+      "note": "once more, again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOUNT",
+      "RUSH",
+      "MORE"
+     ]
+    },
+    "explanation": {
+     "surface": "Heads of rock bands relaunch their careers.",
+     "walkthrough": "'Rock figureheads' sounds like rock-band leaders, but means presidential heads carved in rock.",
+     "definitionFit": "Mount Rushmore in South Dakota has the heads of four US presidents carved into its granite cliff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1143,56 @@
     "text": "Sidekick possibly writing song that's suitable",
     "enumeration": "9"
    },
-   "solution": "OPPORTUNE"
+   "solution": "OPPORTUNE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPPORTUNE",
+    "definitions": [
+     {
+      "text": "suitable",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sidekick possibly",
+      "gives": "OPPO",
+      "note": "an oppo is a mate or opposite number, a sidekick for example"
+     },
+     {
+      "clueFragment": "writing",
+      "gives": "R",
+      "note": "one of the three Rs: reading, writing and arithmetic"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "TUNE",
+      "note": "a tune is a song"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPPO",
+      "R",
+      "TUNE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sidekick might be writing a song that fits the occasion.",
+     "walkthrough": "OPPO is informal British for a colleague or partner. Writing is R because it is one of the three Rs.",
+     "definitionFit": "Opportune means well-timed and fitting the circumstances, so convenient or appropriate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writing"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1212,68 @@
      }
     ]
    },
-   "solution": "STARWARS"
+   "solution": "STARWARS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "STAR WARS",
+    "definitions": [
+     {
+      "text": "Film with Ford",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "handling",
+      "for": "container",
+      "note": "to handle something is to hold it, so the celebrities word wraps round the next piece"
+     },
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing goes upwards, so the letters read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Galaxy perhaps",
+      "gives": "STARS",
+      "note": "a galaxy of celebrities is a group of stars"
+     },
+     {
+      "clueFragment": "brutal",
+      "gives": "RAW",
+      "note": "brutal in the sense of raw, crude"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "WAR",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "RAW",
+       "to": "WAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Ford Galaxy, a people carrier, being driven roughly up a hill.",
+     "walkthrough": "'Ford Galaxy' reads as the car; the definition stops at Ford, meaning Harrison Ford, and Galaxy starts the wordplay.",
+     "definitionFit": "Star Wars is the 1977 film in which Harrison Ford played Han Solo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Galaxy"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1293,68 @@
      }
     ]
    },
-   "solution": "TOMATOKETCHUP"
+   "solution": "TOMATOKETCHUP",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TOMATO KETCHUP",
+    "definitions": [
+     {
+      "text": "Dressing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the likewise word encloses the coaster word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "likewise",
+      "gives": "TOO",
+      "note": "too means likewise, also"
+     },
+     {
+      "clueFragment": "coaster",
+      "gives": "MAT",
+      "note": "a coaster is a small mat for a glass"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "KETCH",
+      "note": "a ketch is a two-masted sailing boat"
+     },
+     {
+      "clueFragment": "buoyant",
+      "gives": "UP",
+      "note": "buoyant spirits are up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "MAT",
+      "O",
+      "KETCH",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor's yarn about dressing up, a coastal trader and a boat that floats.",
+     "walkthrough": "'Coaster' and 'vessel' both suggest shipping, but the coaster here is a drinks mat; only vessel is a boat.",
+     "definitionFit": "Tomato ketchup is a sauce, and dressing can mean a sauce or condiment added to food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coaster"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1368,66 @@
     "text": "Tradesman's first question with local: status of windows here?",
     "enumeration": "7"
    },
-   "solution": "TASKBAR"
+   "solution": "TASKBAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TASKBAR",
+    "definitions": [
+     {
+      "text": "status of windows here?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter only of the trade word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tradesman's",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "ASK",
+      "note": "to ask is to question"
+     },
+     {
+      "clueFragment": "local",
+      "gives": "BAR",
+      "note": "the local is your nearby pub, a bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ASK",
+      "BAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A glazier asks at the pub how the windows are coming along.",
+     "walkthrough": "'Windows' looks like glass panes for the tradesman; it means program windows on a computer. A local is British for one's neighbourhood pub.",
+     "definitionFit": "The taskbar on a computer screen shows which program windows are open and active."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "windows"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1441,61 @@
     "text": "Bony thing emptied earlier into decomposed matter",
     "enumeration": "7"
    },
-   "solution": "HUMERUS"
+   "solution": "HUMERUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HUMERUS",
+    "definitions": [
+     {
+      "text": "Bony thing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "an emptied word has lost its middle, leaving only the first and last letters"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something puts it inside, so the pieces sit within the matter word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earlier",
+      "gives": "ER",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "decomposed matter",
+      "gives": "HUMUS",
+      "note": "humus is decayed organic matter in soil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUM",
+      "ER",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Something bony, hollowed out long ago, buried in rotting soil.",
+     "definitionFit": "The humerus is the long bone of the upper arm, so it is quite literally a bone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "emptied"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1509,62 @@
     "text": "Universal greeting about peace, as hippie appears?",
     "enumeration": "6"
    },
-   "solution": "UNSHOD"
+   "solution": "UNSHOD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UNSHOD",
+    "definitions": [
+     {
+      "text": "as hippie appears?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means round the outside, so the greeting word wraps the peace word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Universal",
+      "gives": "U",
+      "note": "U is the film certificate for universal"
+     },
+     {
+      "clueFragment": "greeting",
+      "gives": "NOD",
+      "note": "a nod is a silent greeting"
+     },
+     {
+      "clueFragment": "peace",
+      "gives": "SH",
+      "note": "sh is a call for quiet, peace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "N",
+      "SH",
+      "OD"
+     ]
+    },
+    "explanation": {
+     "surface": "A hippie turns up with a universal salute about peace.",
+     "walkthrough": "U is the British film rating for universal audiences. The definition is a description: hippies were famously barefoot.",
+     "definitionFit": "Hippies were stereotypically barefoot, and unshod means not wearing shoes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "peace"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1578,55 @@
     "text": "Modify Tesla, among others, in spring",
     "enumeration": "6"
    },
-   "solution": "REVISE"
+   "solution": "REVISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REVISE",
+    "definitions": [
+     {
+      "text": "Modify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside the other, so the car word sits within the spring word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tesla, among others",
+      "gives": "EV",
+      "note": "a Tesla is one of many electric vehicles, EVs"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "RISE",
+      "note": "a spring can be a rise, as water rising from the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EV",
+      "ISE"
+     ]
+    },
+    "explanation": {
+     "surface": "Tesla and others update their models in spring.",
+     "walkthrough": "'Tesla' could be the inventor or the magnetic unit; here it is the car maker, an example of an electric vehicle.",
+     "definitionFit": "To revise something is to amend or alter it, which is to modify it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tesla"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1640,55 @@
     "text": "See you collecting university prize",
     "enumeration": "5"
    },
-   "solution": "VALUE"
+   "solution": "VALUE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VALUE",
+    "definitions": [
+     {
+      "text": "prize",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "to collect is to gather in, so the farewell word takes another letter inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See you",
+      "gives": "VALE",
+      "note": "vale is Latin for farewell"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VAL",
+      "U",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A goodbye as someone picks up a university award.",
+     "walkthrough": "'Prize' looks like a noun but is the verb, to prize something.",
+     "definitionFit": "To prize something is to hold it dear, which is to value it highly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prize"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1702,83 @@
     "text": "Deafening silence perhaps after studio finally axes Flash Gordon, Blessed being dismissed separately",
     "enumeration": "8"
    },
-   "solution": "OXYMORON"
+   "solution": "OXYMORON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "deletion"
+    ],
+    "answer": "OXYMORON",
+    "definitions": [
+     {
+      "text": "Deafening silence perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter only of the studio word"
+     },
+     {
+      "text": "being dismissed separately",
+      "for": "deletion",
+      "note": "dismissed means sent away, and separately means the letters go one at a time from different spots"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "studio",
+      "gives": "O",
+      "select": "last",
+      "note": "the closing letter"
+     },
+     {
+      "clueFragment": "axes",
+      "gives": "XY",
+      "note": "the x and y axes of a graph"
+     },
+     {
+      "clueFragment": "Flash",
+      "gives": "MO",
+      "note": "a flash or moment is a mo"
+     },
+     {
+      "clueFragment": "Gordon",
+      "gives": "GORDON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Blessed",
+      "gives": "GOD",
+      "note": "God is the blessed being; these letters leave the name one by one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "XY",
+      "MO",
+      "RON"
+     ]
+    },
+    "explanation": {
+     "surface": "A studio finally scraps Flash Gordon, and the actor Brian Blessed is sacked too.",
+     "walkthrough": "'Blessed being' is GOD, whose G, O and D are removed separately from GORDON to leave RON. Brian Blessed starred in the film Flash Gordon.",
+     "definitionFit": "Deafening silence pairs contradictory terms, which is an example of an oxymoron."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blessed"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1792,43 @@
     "text": "Material Girl",
     "enumeration": "4"
    },
-   "solution": "JEAN"
+   "solution": "JEAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JEAN",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     },
+     {
+      "text": "Girl",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Material",
+      "note": "first meaning: a strong twilled cotton cloth"
+     },
+     {
+      "clueFragment": "Girl",
+      "note": "second meaning: a female first name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as Madonna's song Material Girl; the two words are separate meanings.",
+     "definitionFit": "Jean is a heavy cotton twill fabric used for jeans, and it is also a common woman's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Girl"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1848,65 @@
      }
     ]
    },
-   "solution": "ADLIBBER"
+   "solution": "ADLIBBER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AD-LIBBER",
+    "definitions": [
+     {
+      "text": "One improvises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "slicing",
+      "for": "container",
+      "note": "a blade slicing in goes inside, so the size letter cuts into the tool word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "tool",
+      "gives": "DIBBER",
+      "note": "a dibber is a pointed gardening tool for making holes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "L",
+      "IBBER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone makes do by improvising with a big cutting tool.",
+     "walkthrough": "'Slicing tool' looks like a knife, but slicing is the insertion signal and the tool is a dibber.",
+     "definitionFit": "An ad-libber speaks or performs without preparation, which is to improvise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "slicing"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1920,65 @@
     "text": "Swinish behaviour here possibly finished when first husband gone",
     "enumeration": "6"
    },
-   "solution": "TROUGH"
+   "solution": "TROUGH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "TROUGH",
+    "definitions": [
+     {
+      "text": "Swinish behaviour here possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gone",
+      "for": "deletion",
+      "note": "gone means taken away, so the named letter is removed from the word"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "'first' keeps only the first letter of 'husband'"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finished",
+      "gives": "THROUGH",
+      "note": "through means finished, done"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "select": "first",
+      "note": "H is the abbreviation for husband; the first one in the word goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROUGH"
+     ]
+    },
+    "explanation": {
+     "surface": "A marriage is over once the first husband leaves after behaving like a pig.",
+     "walkthrough": "THROUGH has two Hs; only the first is removed. Pigs eat noisily at a trough, so the definition is a playful description.",
+     "definitionFit": "A trough is the feeding container where pigs gobble their food, so swinish eating happens there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Swinish"
+    }
+   }
   },
   {
    "number": 28,
@@ -461,7 +1992,48 @@
     "text": "Succeeded in French?",
     "enumeration": "8"
    },
-   "solution": "SWEARING"
+   "solution": "SWEARING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEARING",
+    "definitions": [
+     {
+      "text": "French?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "WEARING",
+      "note": "to be in a garment is to be wearing it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEARING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who did well in French class.",
+     "walkthrough": "'Pardon my French' is an apology for bad language, so French can mean swearing.",
+     "definitionFit": "From the idiom 'pardon my French', French is jokingly used for swearing or bad language."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 29,
@@ -475,7 +2047,60 @@
     "text": "Take off connector, bypassing singular engineer",
     "enumeration": "6"
    },
-   "solution": "ASCEND"
+   "solution": "ASCEND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASCEND",
+    "definitions": [
+     {
+      "text": "Take off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bypassing",
+      "for": "container",
+      "note": "a bypass goes round the outside, so the connector word wraps the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "connector",
+      "gives": "AND",
+      "note": "and is a connecting word, a conjunction"
+     },
+     {
+      "clueFragment": "singular",
+      "gives": "S",
+      "note": "S is the abbreviation for singular"
+     },
+     {
+      "clueFragment": "engineer",
+      "gives": "CE",
+      "note": "CE is a civil engineer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SCE",
+      "ND"
+     ]
+    },
+    "explanation": {
+     "surface": "Removing a connector while working around a unique engineer.",
+     "walkthrough": "'Take off' looks like removing something; it is the definition, as an aircraft takes off.",
+     "definitionFit": "When a plane takes off it rises into the air, which is to ascend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   }
  ]
 }
