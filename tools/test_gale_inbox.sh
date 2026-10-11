@@ -62,6 +62,33 @@ broken = {17396: D(1987, 6, 30), 17640: D(1988, 4, 1)}
 check("a broken bracket gives no date for a number", None, g.day_of(17563, broken))
 check("a broken bracket's number is an estimate", False, g.number_on(D(1988, 1, 12), broken)[1])
 
+# Every year Gale holds (1930-2019): dates and numbers in names of the
+# 1950s and the 2000s; No 5,432 only after "No" (a bare 4 digits may be a year).
+for name, want in [("The Times 12 Jan. 1955.pdf", D(1955, 1, 12)), ("2005-03-14 crossword.pdf", D(2005, 3, 14)),
+                   ("19350102 p5.jpg", D(1935, 1, 2)), ("Times 1929-12-31.pdf", None), ("2020-01-02.pdf", None)]:
+    check(f"the date in {name!r}", want, g.name_date(name))
+for name, want in [("Times Crossword Puzzle No 5,432.pdf", 5432), ("No_543.pdf", 543), ("crossword 1955.pdf", None),
+                   ("piano 123.pdf", None), ("No. 23,456 Times.pdf", 23456)]:
+    check(f"the puzzle number in {name!r}", want, g.name_number(name))
+check("the printed run spans every year Gale holds, into the January after (filed brackets)", (D(1930, 2, 1), D(2020, 1, 31)), (g.PRINTED[0], g.PRINTED[-1]))
+# A date in a 43-year gap: the two brackets' counts disagree (holidays the
+# calendar does not skip), so the difference is shared out by position.
+gap = {1: D(1930, 2, 1), 13578: D(1974, 1, 5)}
+lo_up = 1 + g.ISSUE[D(1952, 1, 2)] - g.ISSUE[D(1930, 2, 1)]
+n52, sure52 = g.number_on(D(1952, 1, 2), gap)
+check("a date deep in a gap gets a number between the brackets' counts, an estimate", (True, False),
+      (13578 - (g.ISSUE[D(1974, 1, 5)] - g.ISSUE[D(1952, 1, 2)]) <= n52 <= lo_up, sure52))
+check("a number in such a gap gets no date", None, g.day_of(7000, gap))
+# next_up: No 1 first, the rows the list held before it was widened (1974-99,
+# no scan) in their old order, then 2014-19, 2000-13, the rest, newest first.
+wide = [(D(1955, 3, 1), "no-scan"), (D(1930, 2, 1), g.SCAN_UNFILED), (D(2005, 6, 1), "no-scan"),
+        (D(2016, 5, 2), "no-scan"), (D(1988, 1, 13), "no-scan"), (D(1987, 3, 2), "no-scan"),
+        (D(1988, 1, 12), "no-scan"), (D(1985, 2, 1), g.SCAN_UNFILED), (D(2015, 1, 5), "no-scan"),
+        (D(2010, 1, 4), "no-scan"), (D(1962, 1, 2), "no-scan")]
+check("next_up: No 1, the old list in its order, 2014-19, 2000-13, then the rest, newest first",
+      [D(1930, 2, 1), D(1988, 1, 12), D(1988, 1, 13), D(1987, 3, 2), D(2016, 5, 2), D(2015, 1, 5), D(2010, 1, 4),
+       D(2005, 6, 1), D(1985, 2, 1), D(1962, 1, 2), D(1955, 3, 1)], [d for d, _ in g.next_up(wide, (), None)])
+
 # Staging: pages of one date are one edition, re-laid only when what the
 # inbox holds for it moves.
 inbox, cache, un = Path(sys.argv[1]) / "inbox", Path(sys.argv[1]) / "cache", Path(sys.argv[1]) / "unmatched.json"
@@ -213,13 +240,27 @@ check("an arrived edition is not next up", False, "Tue 12 Jan 1988" in nxt)
 check("a search to copy for the puzzle's number", True,
       """onclick="cp(this,&quot;\\&quot;Crossword Puzzle No 17,564\\&quot;&quot;)">Copy</button>""" in nxt)
 check("the ordering rule is said", True, g.ORDER in nxt)
-check("next up is a pool that refills itself: no Next batch, a Clicked list under it, Refresh", (True, False, True, True),
+saved_rows, g.YEAR_ROWS = g.YEAR_ROWS, 1
+try:
+    big = g.checklist(rows, cache, un, inbox=inbox, docs={}, ledger={}, log=LOG)
+finally:
+    g.YEAR_ROWS = saved_rows
+check("past YEAR_ROWS each year is a count, its rows only in next up", (True, False),
+      ("<tr><td>1988</td><td>3 missing" in big, "<details><summary><b>1988</b>" in big))
+check("next up is one table whose rows never move (a browser agent works down it): no Next batch, no Clicked"
+      " list, Refresh, a count of rows still TO DO", (True, False, False, True, True),
       ('<table id="next">' in nxt, "nextBatch" in html or "Next batch" in html,
-       '<div id="clicked" hidden><h3>Clicked</h3>' in nxt and '<table id="done">' in nxt, 'onclick="location.reload()"' in nxt))
+       '<table id="done">' in nxt or "appendChild(r)" in html, 'onclick="location.reload()"' in nxt,
+       '<b id="left">1</b>' in nxt))
 check("each next-up row carries its place in the pool, so a row unclicked goes back where it was", True,
       all(f'data-i="{i}"' in nxt for i in range(3)))
-check("a clicked row moves to Clicked after MOVE_SECONDS; mark() re-shows then", True,
-      "MOVE=3*1e3" in html and "setTimeout(show,MOVE+50)" in html and "(gone?dn:nx).tBodies[0].appendChild(r)" in html)
+check("a clicked row stays where it is, marked CLICKED; one to fetch says TO DO", (True, True, False),
+      ("CLICKED: downloading" in html, "'TO DO'" in html, "r.hidden=" in html))
+check("plain instructions lead the page: what to click, in order, and when to stop", True,
+      html.index('id="instructions"') < html.index("<h2>Next up") and all(
+          w in html for w in ("first row whose status says <b>TO DO</b>", "starts with <b>Download</b>", "Stop when")))
+check("a Download link says what it fetches", True,
+      "Download Times 1988-01-13 (No 17,564)" in nxt)
 import subprocess, shutil as _sh
 if _sh.which("node"):
     js = html[html.index("<script>") + 8:html.index("</script>")]
@@ -377,7 +418,7 @@ check("a date's link is Gale's title search on that day, month and day zero-padd
 row13 = nxt[nxt.index("13 Jan 1988"):nxt.index("14 Jan 1988")]
 check("each next-up row keeps its Gale link beside Copy: the permalink of a known document, after its Download", True,
       bool(re.search(r'class="dl"[^>]*>Download</a><a class="go" href="https://link\.gale\.com/apps/doc/IF\d+/TTDA[^"]*" '
-                     r'target="gale">Open in Gale</a> <button onclick="cp\(', row13)))
+                     r'target="gale">Open in Gale</a> <button onclick="cp\(', row13.replace("Download Times 1988-01-13 (No 17,564)", "Download"))))
 check("a row whose document is known opens Gale's permalink for it, as its citation prints; else the search",
       ("https://link.gale.com/apps/doc/IF0500470778/TTDA?u=alberta_portal&sid=bookmark-TTDA", None),
       (g.gale_docs.permalink("TTDA", D(1987, 1, 19), {"TTDA/1987-01-19": {"doc": "IF0500470778"}}),
@@ -446,6 +487,26 @@ bare = Path(sys.argv[1]) / "IF0500254930 (1).png"
 Image.new("RGB", (400, 300), "white").save(bare)
 check("and by Gale's bare download name, a second copy's too", "IF0500254930", g.match(bare, held)["docId"])
 bare.unlink()
+# A 1950s and a 2005 download: dated by the citation, whatever the era's
+# title says, and the article it names kept.
+for docid, cite, want in [
+        ("IF0500111111", '"The Times Crossword Puzzle No 8,116." Times, 14 Mar. 1955, p. 9. ', (D(1955, 3, 14), 9)),
+        ("IF0500222222", '"Times Crossword No 23,123." Times, 14 Mar. 2005, p. 22. ', (D(2005, 3, 14), 22))]:
+    era = Path(sys.argv[1]) / f"{docid}.pdf"
+    w = pypdf.PdfWriter()
+    w.add_page(pypdf.PdfReader(buf).pages[0])
+    w.add_page(pypdf.PdfReader(io.BytesIO(pdf(cite + f"The Times Digital Archive, link.gale.com/apps/doc/{docid}/"))).pages[0])
+    w.write(era)
+    m = g.match(era, held)
+    check(f"a {want[0].year} Gale download is dated by its citation, its title and document kept",
+          (want[0], "PDF citation", want[1], cite.split('"')[1].rstrip("."), docid),
+          (m["date"], m["how"], m["page"], m["cited"], m["docId"]))
+    era.unlink()
+check("a 2000s Gale edition is the Gale run's", (fa.GALE, "2005"),
+      (fa.paper_of(Path("GaleTimes2005UKEnglish/2005-03-14")), fa.GALE_ITEM.match("GaleTimes2005UKEnglish").group(1)))
+import gale_docs as _gd
+check("Gale's 2000s TOC: the cryptic, not the Jumbo or Times Two's", 2,
+      _gd.crossword("TTDA", ["Times Jumbo Crossword No 512", "Times Two Crossword No 2,001", "Times Crossword No 23,123"]))
 import provenance
 check("a Times puzzle filed off a Gale page, by its document or the portal, is an OCR'd newspaper page "
       "filed by the archive filer", [("newspaper", fa.TOOL)] * 2,
@@ -547,7 +608,7 @@ console.log(JSON.stringify([rows.map(r=>r.dataset.s),rows[0].badge.innerHTML,ids
 """)
     _r = subprocess.run(["node", str(Path(sys.argv[1]) / "rows.js")], capture_output=True, text=True)
     check("on the page, the arrived row says downloaded and the count moves",
-          [["got", ""], "&#10003; downloaded, checking&hellip;", "4 of 6"], json.loads(_r.stdout or "null") or _r.stderr)
+          [["got", ""], "&#10003; DONE: downloaded, checking&hellip;", "4 of 6"], json.loads(_r.stdout or "null") or _r.stderr)
 _calls, _st = [], Path(sys.argv[1]) / "watcher.sha"
 _run = lambda c, input=None: _calls.append(c)
 check("the sync installs the watcher once, then leaves it until it changes", (True, False, 2),
@@ -722,6 +783,17 @@ finally:
 check("unfiled(scanned=False): the dates with no scan, as the full run classes them, reading no ledger",
       [r for r in full if not r[2]], unscanned_only)
 check("the full run still classes a scanned date", ("2000-01-03", "not-fetched", "item/slug"), full[-1])
+archive_coverage.corpus = lambda series: ({"2000-01-01": 1}, {1: "2000-01-01"})
+archive_coverage.scans = lambda paper: ({"2000-01-03": "item/slug"}, {2000: True})
+archive_coverage.printed_dates = lambda series, today: ["2000-01-01", "2000-01-02", "2000-01-03"]
+archive_coverage.ledger = archive_coverage.failed_fetches = unread
+try:
+    listed = g.wanted(datetime.date(2000, 2, 1))
+finally:
+    (archive_coverage.corpus, archive_coverage.scans, archive_coverage.printed_dates,
+     archive_coverage.ledger, archive_coverage.failed_fetches) = saved_ac
+check("wanted(): every unfiled date, a scanned one too (unread, as SCAN_UNFILED), no filed one",
+      [(D(2000, 1, 2), "no-scan"), (D(2000, 1, 3), g.SCAN_UNFILED)], listed)
 print("FAILS", fails)
 sys.exit(1 if fails else 0)
 PY

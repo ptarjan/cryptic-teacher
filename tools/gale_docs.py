@@ -110,7 +110,8 @@ def crossword(prod, titles, number=None):
     """The index into `titles` of the day's crossword, or None: a title
     naming a crossword, not the Concise or a solution or winners' list;
     the one naming `number` first."""
-    bad = re.compile(r"concise|solution|winners|report on|quick", re.IGNORECASE)
+    # The 2000s also print the Saturday Jumbo and Times Two's quick crossword.
+    bad = re.compile(r"concise|solution|winners|report on|quick|jumbo|times ?two\b|\bt2\b", re.IGNORECASE)
     # Gale's OCR'd titles: "Grossword", "Crossward", "Cross-number" too.
     cands = [i for i, t in enumerate(titles) if KIND.search(t) and not bad.search(t)]
     if number is not None:
