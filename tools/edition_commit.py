@@ -84,11 +84,14 @@ def commit_decided(decided, commit):
 def strayed(puzzle, spaces=True):
     """The lights of a puzzle whose clue ocr_clues.stray flags (a doubled
     word, a stray letter), and with `spaces` those whose clue holds a run
-    of spaces (spaced): either makes the edition due (inputs)."""
+    of spaces (spaced) or breaks a punctuation rule (punctuation.faulted):
+    any makes the edition due (inputs)."""
     import ocr_clues
+    import punctuation
     from groups import entry_id
     return {entry_id(e) for e in puzzle.get("entries") or ()
-            if ocr_clues.stray((e.get("clue") or {}).get("text") or "")} | (spaced(puzzle) if spaces else set())
+            if ocr_clues.stray((e.get("clue") or {}).get("text") or "")} | (
+                spaced(puzzle) | punctuation.faulted(puzzle) if spaces else set())
 
 
 def spaced(puzzle):

@@ -112,6 +112,7 @@ LAYOUT = [
     ("fetching", "tools/puzzle_integrity.py", "checks the puzzles themselves: two puzzles that are the same puzzle, an answer that does not fit its clue’s printed length, two entries that cross and disagree"),
     ("fetching", "tools/quotes.py", "clue text is stored with straight quotes: straightens every write, converts held files, and curls for the static pages and social cards"),
     ("fetching", "tools/quotes_cases.json", "the one table of curl cases that quotes.js and tools/quotes.py are both run over"),
+    ("fetching", "tools/punctuation.py", "the marks no clue's print breaks (\"by.clever\", \"''\" for a double quote, \",.\", \"word , word\"): faults() for the OCR write gate, the vote and edition_commit.strayed; mend() makes the certain mends, offsets moved"),
     ("fetching", "tools/test_quotes.js", "a clue stored with straight quotes shows curled ones, apostrophes and leading elisions included"),
     ("fetching", "tools/test_puzzle_integrity.sh", "proves the two LENGTH exception tables match by nothing looser than the exact sentence they’re keyed on, and that baselining one finding never silences the rest of its puzzle"),
     ("fetching", "tools/test_puzzle_invariants.sh", "proves every puzzle write refuses what the corpus sweep would report"),
@@ -558,6 +559,7 @@ LAYOUT = [
     ("fetching", "tools/test_gale_inbox.sh", "is a page saved into the Gale inbox matched to its date by its name or puzzle number, staged as that date's Times edition with its Gale link, due again when a page is added or replaced for that date and no other, and listed on the checklist; is a Gale download recognised by its name or citation and routed to its paper's inbox, everything else left alone; does the checklist lead with progress, pages to redo and what to search?"),
     ("fetching", "tools/test_canberra_reprint_vote.sh", "does a Canberra Times reprint vote on the archive.org scan's clues like any other reading, only for the London number canberra_london_numbers.py maps it to and only in the Times series, and does a reprint downloaded or read later make that edition due again, and no other?"),
     ("fetching", "tools/test_fold_reprints.sh", "does fold_reprints.rekeyer rename a folded id both as a whole JSON string and as the lead of one, and leave a longer number, a mid-string mention and other ids alone?"),
+    ("fetching", "tools/test_punctuation.sh", "does tools/punctuation.py flag only the marks a reader made and mend only the certain ones, offsets moved, and do the OCR write gate, the write path, strayed(), corrects() and the vote use it?"),
     ("fetching", "tools/test_ocr_vote_checks.sh", "does the clue vote file each word, count, capital and hyphen as the readings print them, and settle a word they all misread on the known word their slips point to; does a reading that lost the clue stay out of its vote, words run together part, and a figure run onto a word go?"),
     ("fetching", "tools/test_prereset_index_lock.sh", "do the pool's concurrent runs commit only their own puzzle?"),
     ("fetching", "tools/test_anagram_ring.sh", "a clue typed anagram gets the anagram ring: app.js deals the whole-answer anagram's fodder, else the longest part-anagram's, and the validator warns (ratcheted as assembly.anagrams) when a clue typed anagram names no fodder"),
@@ -599,6 +601,7 @@ LAYOUT = [
     ("fetching", "tools/test_fifteensquared_index.sh", "do the fifteensquared readers find a category's posts off the index, without opening every cached post, and does tools/ft_puzzles.py's budget count its parse?"),
     ("fetching", "tools/collapse_clue_spaces.py", "one-shot migration (2026-10-11): cut each run of spaces in held clue text"),
     ("fetching", "tools/test_block_confirm.js", "a building block that would cost a hint takes two taps; a free one takes one"),
+    ("fetching", "tools/mend_clue_punctuation.py", "one-shot migration (2026-10-11): punctuation's certain mends in held book clue text, the faults left listed"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

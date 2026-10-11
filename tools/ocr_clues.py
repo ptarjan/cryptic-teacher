@@ -42,6 +42,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import enumeration
+import punctuation
 
 #: A "See N" clue, which carries no words of its own.
 SEE_RE = re.compile(r"^see\s+(\d+)", re.IGNORECASE)
@@ -1622,14 +1623,19 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     back (remarked), unless relay_doubt() finds it is not the clue. Not
     with `keep_known`, whose words are no reading's misread."""
     got = vote(clue, others, keep_known, families, rates, clues, number, count, counted)
-    if got[0] is not None or keep_known:
+    # A vote that breaks a punctuation rule past its certain mends
+    # (punctuation.faults: ";,", "word , word"; a stop before a capital
+    # may end a sentence) tries the print other
+    # readings share instead, and takes it only when that one passes.
+    faulty = got[0] is not None and not keep_known and bool(punctuation.faults(punctuation.mended(got[0]), capitals=False))
+    if got[0] is not None and not faulty or keep_known:
         return got
     if others and isinstance(others[0], str):
         others = [others]
     # Only a clue no other reading prints word for word: one they print
     # held on marks or a word they differ on, which a re-lay would not mend.
     low = [w.lower() for w in marked(clue, breaks=True)]
-    if any(word_for_word(low, ends_joined(rejoin(unglued(theirs, low), low), low)) for theirs in others):
+    if not faulty and any(word_for_word(low, ends_joined(rejoin(unglued(theirs, low), low), low)) for theirs in others):
         return got
     found = relay(clue, others)
     if not found:
@@ -1641,6 +1647,8 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     if again[0] is None:
         return got
     out = remarked(clue, again[0])
+    if faulty and punctuation.faults(punctuation.mended(out), capitals=False):
+        return got
     return got if relay_doubt(clue, text, out, printed) else (out, again[1])
 
 
@@ -1687,6 +1695,8 @@ def relay_doubt(clue, text, out, printed):
     front part of die ship"; "(7) the dock page 8" is the page's)."""
     if suspect(out):
         return "suspect"
+    if len(punctuation.faults(punctuation.mended(out))) > len(punctuation.faults(punctuation.mended(clue))):
+        return "a punctuation fault the laid clue lacks"
     hyphen = r"[A-Za-z]-[A-Za-z]|(?<=[a-z] )-(?=[a-z])"
     bare = re.sub(r"\(\s*\d[^)]*\)", "", clue)
     laid_hyphens = [m for m in re.findall(r"[A-Za-z]+(?:\s?-[A-Za-z]+)+", clue)

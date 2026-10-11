@@ -161,6 +161,7 @@ sys.path.insert(0, str(TOOLS))
 import enumeration
 import file_trove_puzzles as ftp
 import ocr_clues
+import punctuation
 import reconstruct_grid as rg
 import scan_queue
 import series as series_meta
@@ -4420,9 +4421,10 @@ def mend_held(puzzle, path, tool=TOOL):
             or puzzle["entries"] and trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
         return None
     shared = {i for ids in duplicated_clues(old["entries"]) for i in ids}
-    # A held clue's run of spaces (edition_commit.spaced) is cut to one in
+    # A held clue's run of spaces (edition_commit.spaced) is cut to one, and
+    # its punctuation's certain mends made (punctuation.mend_puzzle), in
     # place, annotation and all: the words stand.
-    collapsed = collapse_held_spaces(old)
+    collapsed = {**collapse_held_spaces(old), **punctuation.mend_puzzle(old)}
     stray = strayed(old, spaces=False)
     lost = shared | stray | set(faults(old))
     # A reading that improves() the file replaces it, its words and all.
@@ -4526,15 +4528,18 @@ def corrects(was, now, printed=()):
     article "A" goes before any word, so it needs no such pairing.
     "Frontier cantonment." to "A Frontier cantonment." does; so
     does a change that only drops a stop after a lone letter
-    (lone_stops_dropped), or only cuts a run of spaces to one
-    (spaces_collapsed). A reading that loses a real word, swaps one,
+    (lone_stops_dropped), only cuts a run of spaces to one
+    (spaces_collapsed), or only makes punctuation's certain mends
+    (punctuation.mended: "by.clever" to "by clever"); one that breaks a
+    punctuation rule (punctuation.faults) does not. A reading that loses a real word, swaps one,
     reorders them, or changes other marks only (a held file's quotes are
     straightened, its specks cleaned) does not."""
     if not (was or "").strip() or not ocr_clues.tokens(now or "") or now == was:
         return False
-    if spaces_collapsed(was, now):
+    if spaces_collapsed(was, now) or punctuation.mended(was) == now:
         return True
-    if ocr_clues.suspect(now, printed=printed) or ocr_clues.bled(now, printed) or ocr_clues.stray(now):
+    if ocr_clues.suspect(now, printed=printed) or ocr_clues.bled(now, printed) or ocr_clues.stray(now) \
+            or punctuation.faults(now):
         return False
     if set(now) & SPECK_SYMBOLS - set(was):
         return False
