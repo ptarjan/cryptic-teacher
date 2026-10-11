@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,43 @@
     "text": "Polish PM's projection",
     "enumeration": "4"
    },
-   "solution": "TUSK"
+   "solution": "TUSK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TUSK",
+    "definitions": [
+     {
+      "text": "Polish PM's",
+      "at": 0
+     },
+     {
+      "text": "projection",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Polish PM's",
+      "note": "first meaning: belonging to Donald ..., Prime Minister of Poland"
+     },
+     {
+      "clueFragment": "projection",
+      "note": "second meaning: a long pointed tooth sticking out of an elephant's mouth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The possessive belongs to the first definition: the Polish PM's surname is the answer, read as 'the PM is'.",
+     "definitionFit": "Donald Tusk leads the Polish government, and an elephant's ivory tooth protruding from the mouth is a tusk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "projection"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +104,67 @@
     "text": "Hired gun shuffled around British city",
     "enumeration": "9"
    },
-   "solution": "EDINBURGH"
+   "solution": "EDINBURGH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EDINBURGH",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shuffled",
+      "for": "anagram",
+      "note": "shuffled cards are mixed up, so the two words before it are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something means enclosing it, so the jumble wraps round the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hired gun",
+      "gives": "EDINURGH",
+      "note": "the letters of these two words, rearranged"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the standard abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDIN",
+      "B",
+      "URGH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HIREDGUN",
+       "gives": "EDINURGH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hitman is moved about the country to some British city.",
+     "walkthrough": "'British city' reads as one phrase, but British gives a single letter and the definition is just 'city'.",
+     "definitionFit": "Edinburgh, the Scottish capital, is a city in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hired"
+    }
+   }
   },
   {
    "number": 3,
@@ -97,7 +196,74 @@
    "group": [
     "3-down",
     "11-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EVERY CLOUD HAS A SILVER LINING",
+    "definitions": [
+     {
+      "text": "there's an upside?",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crazy",
+      "for": "anagram",
+      "note": "something crazy is out of its right mind, so the word after it is put into disorder"
+     },
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "a ruined thing is wrecked, so the words before it lose their order too"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L is the learner driver's plate, so a student"
+     },
+     {
+      "clueFragment": "overindulgence",
+      "gives": "OVERINDULGENCE",
+      "note": "taken as written, to be mixed"
+     },
+     {
+      "clueFragment": "hairy Slav is",
+      "gives": "HAIRYSLAVIS",
+      "note": "taken as written, to be mixed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVERYCLOUDHASASILVERLINING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOVERINDULGENCEHAIRYSLAVIS",
+       "gives": "EVERYCLOUDHASASILVERLINING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student caught up in wild excess with a shaggy Slav ends up wrecked, then asks whether there's any bright side.",
+     "walkthrough": "All twenty-six letters, the student's L included, go into one big mix; 'in' just places the student among the rest.",
+     "definitionFit": "The proverb consoles that every misfortune brings some benefit, which is the upside the question asks about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Student"
+    }
+   }
   },
   {
    "number": 4,
@@ -117,7 +283,39 @@
      }
     ]
    },
-   "solution": "TEACOSY"
+   "solution": "TEACOSY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TEA COSY",
+    "definitions": [
+     {
+      "text": "Jasmine's warmer?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jasmine's warmer?",
+      "note": "surface reading: something that keeps a woman called Jasmine warm, like a scarf"
+     },
+     {
+      "clueFragment": "Jasmine's",
+      "note": "setter's reading: jasmine is a kind of brew, and its pot needs a padded cover to stay hot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Jasmine looks like a girl's name; it is the scented infusion, and the warmer is the knitted cover for its pot.",
+     "definitionFit": "A tea cosy is the padded cover put over a teapot to keep the brew inside hot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jasmine's"
+    }
+   }
   },
   {
    "number": 5,
@@ -131,7 +329,51 @@
     "text": "Complex female chosen by artist",
     "enumeration": "7"
    },
-   "solution": "ELECTRA"
+   "solution": "ELECTRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELECTRA",
+    "definitions": [
+     {
+      "text": "Complex female",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chosen",
+      "gives": "ELECT",
+      "note": "elect means chosen, as in 'the president elect'"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, a crossword artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECT",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A tricky woman is picked out by a painter.",
+     "walkthrough": "The Electra complex is the female counterpart of the Oedipus complex, so 'Complex female' is a woman who gave her name to a complex.",
+     "definitionFit": "Electra, the Greek heroine, lends her name to the psychoanalytic complex of a daughter's attachment to her father."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Complex"
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +387,57 @@
     "text": "Strange leader in parliamentary seat",
     "enumeration": "4"
    },
-   "solution": "RUMP"
+   "solution": "RUMP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RUMP",
+    "definitions": [
+     {
+      "text": "seat",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader is the one at the front, so only the opening letter of the next word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strange",
+      "gives": "RUM",
+      "note": "rum is an old British word for odd or strange"
+     },
+     {
+      "clueFragment": "parliamentary",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "An odd politician sits in a seat in the House.",
+     "walkthrough": "'Parliamentary seat' looks like one idea, and the Rump Parliament adds to the illusion; the definition is just 'seat', the backside.",
+     "definitionFit": "Rump is a word for the buttocks, the part of the body one sits on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "parliamentary"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +461,56 @@
    "group": [
     "7-down",
     "1-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNDER THE WEATHER",
+    "definitions": [
+     {
+      "text": "not so good",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carried separately in",
+      "for": "container",
+      "note": "carried in means held inside, and separately says the two go in at different places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scanties",
+      "gives": "UNDERWEAR",
+      "note": "scanties are skimpy knickers, a kind of underclothing"
+     },
+     {
+      "clueFragment": "Articles",
+      "gives": "THETHE",
+      "note": "two definite articles, one inserted after the fifth letter of the host and one before its last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "THE",
+      "WEA",
+      "THE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Items stowed one by one in skimpy underwear are judged not up to standard.",
+     "definitionFit": "Feeling under the weather is an idiom for being slightly unwell, not so good in health."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Articles"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +524,70 @@
     "text": "Urbanite, a Republican, is one into pasta",
     "enumeration": "10"
    },
-   "solution": "PARISIENNE"
+   "solution": "PARISIENNE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PARISIENNE",
+    "definitions": [
+     {
+      "text": "Urbanite",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means ending up inside it, so these pieces sit within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pasta",
+      "gives": "PENNE",
+      "note": "penne are short quill-shaped tubes of pasta"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ARISI",
+      "ENNE"
+     ]
+    },
+    "explanation": {
+     "surface": "A city-dweller, a member of the Republican party, is someone who loves pasta.",
+     "definitionFit": "A Parisienne is a woman from Paris, so a female city-dweller."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 9,
@@ -210,7 +614,63 @@
     "text": "Great man unknown in American rowing club",
     "enumeration": "9"
    },
-   "solution": "ALEXANDER"
+   "solution": "ALEXANDER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ALEXANDER",
+    "definitions": [
+     {
+      "text": "Great man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece goes within the club's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     },
+     {
+      "clueFragment": "rowing club",
+      "gives": "LEANDER",
+      "note": "Leander Club is the famous rowing club at Henley-on-Thames"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "X",
+      "note": "x is the algebraic unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LE",
+      "X",
+      "ANDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A notable figure, a nobody, turns up in an American rowing club.",
+     "walkthrough": "'Great man' is not a vague compliment: it points to Alexander the Great.",
+     "definitionFit": "Alexander the Great, king of Macedon, is the man history calls Great."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Great"
+    }
+   }
   },
   {
    "number": 11,
@@ -247,7 +707,43 @@
     "text": "Refuse to deal with an old bat",
     "enumeration": "7"
    },
-   "solution": "BOYCOTT"
+   "solution": "BOYCOTT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOYCOTT",
+    "definitions": [
+     {
+      "text": "Refuse to deal with",
+      "at": 0
+     },
+     {
+      "text": "an old bat",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refuse to deal with",
+      "note": "first meaning: to shun as a protest"
+     },
+     {
+      "clueFragment": "an old bat",
+      "note": "second meaning: Geoffrey ..., a former Yorkshire and England batsman"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Old bat' sounds like an insult for a grumpy woman; in cricket, a bat is a batsman, and this one is a famous England opener.",
+     "definitionFit": "To boycott is to refuse dealings in protest, and Geoffrey Boycott batted for England in Tests from 1964 to 1982."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bat"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +757,62 @@
     "text": "Democrat in a Murdoch's embrace in Elba?",
     "enumeration": "5"
    },
-   "solution": "IDRIS"
+   "solution": "IDRIS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IDRIS",
+    "definitions": [
+     {
+      "text": "in Elba?",
+      "at": 32,
+      "note": "the actor's first name, the part found before his surname"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "this first in places one piece within a woman's name, the embrace closing round it"
+     },
+     {
+      "text": "embrace",
+      "for": "container",
+      "note": "an embrace wraps arms round someone, so the name holds the letter inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Murdoch's",
+      "gives": "IRIS",
+      "note": "Iris Murdoch, the novelist"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "D",
+      "RIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Democrat is hugged by a Murdoch on the island of Elba.",
+     "walkthrough": "Elba looks like Napoleon's island; it is the actor Idris Elba, and the question mark warns of the trick.",
+     "definitionFit": "Idris Elba is the British actor, so his given name is what comes before Elba."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Elba"
+    }
+   }
   },
   {
    "number": 14,
@@ -293,7 +844,50 @@
    "group": [
     "14-down",
     "9-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COME RAIN OR SHINE",
+    "definitions": [
+     {
+      "text": "whatever the circumstances",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "someone at sea is confused and lost, so the words before it are thrown out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Micronesian hero",
+      "gives": "MICRONESIANHERO",
+      "note": "taken as written, to be mixed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MICRONESIANHERO",
+       "gives": "COMERAINORSHINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Pacific island hero is out on the ocean whatever happens.",
+     "definitionFit": "The idiom means regardless of conditions, literally whatever the weather does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 15,
@@ -326,7 +920,46 @@
     "text": "Notice vice-president marching forward",
     "enumeration": "7"
    },
-   "solution": "ADVANCE"
+   "solution": "ADVANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADVANCE",
+    "definitions": [
+     {
+      "text": "marching forward",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "an ad is a notice in a paper"
+     },
+     {
+      "clueFragment": "vice-president",
+      "gives": "VANCE",
+      "note": "JD Vance, the US vice-president"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A news report notices the vice-president taking part in a march.",
+     "definitionFit": "An advance is a movement onward, as of troops marching forward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Notice"
+    }
+   }
   },
   {
    "number": 17,
@@ -340,7 +973,60 @@
     "text": "Man losing thousand on horse – bad experience",
     "enumeration": "9"
    },
-   "solution": "NIGHTMARE"
+   "solution": "NIGHTMARE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NIGHTMARE",
+    "definitions": [
+     {
+      "text": "bad experience",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means going without it, so a letter is dropped from the man"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "KNIGHT",
+      "note": "a knight is a chess piece, which crosswords call a man"
+     },
+     {
+      "clueFragment": "thousand",
+      "gives": "K",
+      "note": "K is short for a thousand, as in 10K"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "MARE",
+      "note": "a mare is a female horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGHT",
+      "MARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler who loses a thousand betting on a horse has a bad time.",
+     "walkthrough": "The surface suggests a punter's loss; the man is a chess piece.",
+     "definitionFit": "A nightmare is a horrible dream, and by extension any very unpleasant ordeal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 18,
@@ -354,7 +1040,62 @@
     "text": "Weary old bowler perhaps trapping us",
     "enumeration": "7"
    },
-   "solution": "EXHAUST"
+   "solution": "EXHAUST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXHAUST",
+    "definitions": [
+     {
+      "text": "Weary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapping",
+      "for": "container",
+      "note": "trapping means catching and holding, so the bowler closes round the last word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "bowler perhaps",
+      "gives": "HAT",
+      "note": "a bowler is a kind of hat, and perhaps signals an example"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "HA",
+      "US",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired former cricket bowler is catching us out.",
+     "walkthrough": "Bowler suggests cricket; it is the round hard felt hat.",
+     "definitionFit": "To exhaust someone is to tire them out, so the verb is a synonym of weary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bowler"
+    }
+   }
   },
   {
    "number": 19,
@@ -368,7 +1109,39 @@
     "text": "Technique required for piece written with quavers?",
     "enumeration": "7"
    },
-   "solution": "TREMOLO"
+   "solution": "TREMOLO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TREMOLO",
+    "definitions": [
+     {
+      "text": "Technique required for piece written with quavers?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece written with quavers",
+      "note": "surface reading: a score full of eighth notes, quavers in British usage"
+     },
+     {
+      "clueFragment": "quavers?",
+      "note": "setter's reading: quavers as trembles, so the playing method is a rapid wavering of sound"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Quaver is the British name for an eighth note, but it also means a trembling, and the question mark points there.",
+     "definitionFit": "The musical term names a rapid repetition or wavering of a note, a quivering effect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "quavers"
+    }
+   }
   },
   {
    "number": 20,
@@ -382,7 +1155,58 @@
     "text": "Soft angora dicky could be perfect example",
     "enumeration": "7"
    },
-   "solution": "PARAGON"
+   "solution": "PARAGON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PARAGON",
+    "definitions": [
+     {
+      "text": "perfect example",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dicky",
+      "for": "anagram",
+      "note": "dicky is British slang for weak or faulty, so these letters are out of working order"
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soft",
+      "gives": "P",
+      "note": "p is piano, the musical direction for soft"
+     },
+     {
+      "clueFragment": "angora",
+      "gives": "ANGORA",
+      "note": "taken as written, to be mixed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PANGORA",
+       "gives": "PARAGON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soft angora bow tie could be the ideal of style.",
+     "definitionFit": "A paragon is a model of excellence, a person or thing regarded as a flawless example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dicky"
+    }
+   }
   },
   {
    "number": 20,
@@ -396,7 +1220,51 @@
     "text": "Sad-eyed clown cause of seaside venue's failure?",
     "enumeration": "7"
    },
-   "solution": "PIERROT"
+   "solution": "PIERROT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIERROT",
+    "definitions": [
+     {
+      "text": "Sad-eyed clown",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "cause of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seaside venue's",
+      "gives": "PIER",
+      "note": "a pier is a seaside structure with amusements and a theatre"
+     },
+     {
+      "clueFragment": "failure",
+      "gives": "ROT",
+      "note": "rot is decay, and 'cause of' presents it as what makes timbers fail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIER",
+      "ROT"
+     ]
+    },
+    "explanation": {
+     "surface": "A melancholy clown is what brings down a seaside show.",
+     "walkthrough": "The question mark covers reading the answer as two words: decay in the pier's timbers.",
+     "definitionFit": "Pierrot is the white-faced, tearful clown of French pantomime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "failure"
+    }
+   }
   },
   {
    "number": 21,
@@ -410,7 +1278,66 @@
     "text": "Husband noticed area from the east flooded",
     "enumeration": "5"
    },
-   "solution": "AWASH"
+   "solution": "AWASH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AWASH",
+    "definitions": [
+     {
+      "text": "flooded",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the east",
+      "for": "reversal",
+      "note": "reading from the east in an across entry means going right to left, the opposite of normal"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "noticed",
+      "gives": "SAW",
+      "note": "saw means noticed"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAS",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "HSAWA",
+       "to": "AWASH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A husband spotted a region to the east under water.",
+     "definitionFit": "Awash means covered with water, so flooded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "east"
+    }
+   }
   },
   {
    "number": 22,
@@ -424,7 +1351,50 @@
     "text": "Maintain temperature in Dodge?",
     "enumeration": "5"
    },
-   "solution": "AVERT"
+   "solution": "AVERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVERT",
+    "definitions": [
+     {
+      "text": "Dodge",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maintain",
+      "gives": "AVER",
+      "note": "to aver is to state firmly, to maintain"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping the temperature steady in a Dodge car or in Dodge City.",
+     "walkthrough": "Dodge has a capital only because it starts a word that looks like the car brand or the Western town; it is the verb.",
+     "definitionFit": "To avert a danger is to ward it off, to dodge it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dodge"
+    }
+   }
   },
   {
    "number": 23,
@@ -438,7 +1408,61 @@
     "text": "Poet on to interrupt robbery in Bow?",
     "enumeration": "7"
    },
-   "solution": "ELEGIST"
+   "solution": "ELEGIST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ELEGIST",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to interrupt",
+      "for": "container",
+      "note": "interrupting breaks into the middle of something, so one piece is inserted inside another"
+     },
+     {
+      "text": "in Bow?",
+      "for": "deletion",
+      "note": "Bow is in the Cockney East End of London, where speakers drop their aitches"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "robbery",
+      "gives": "HEIST",
+      "note": "a heist is a robbery"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket the on side is the leg side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LEG",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet goes off to disrupt a robbery in the East End.",
+     "walkthrough": "Cockney speech drops the opening H of the robbery word before the cricket side goes inside.",
+     "definitionFit": "An elegist is a poet who writes elegies, mournful poems for the dead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 24,
@@ -462,7 +1486,54 @@
    "group": [
     "24-down",
     "15-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIFE OF RILEY",
+    "definitions": [
+     {
+      "text": "comfortable existence?",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "existence",
+      "gives": "LIFE",
+      "note": "existence is one's span of living"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "OF",
+      "note": "the possessive turned round into the word that expresses belonging"
+     },
+     {
+      "clueFragment": "Old English car company",
+      "gives": "RILEY",
+      "note": "Riley was a British motor manufacturer, long defunct"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIFE",
+      "OF",
+      "RILEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A defunct English carmaker once enjoyed an easy time of it.",
+     "walkthrough": "The setter reuses 'existence' on purpose: the car firm's existence, with the possessive read as 'of', becomes the idiom that the last two words define.",
+     "definitionFit": "Living the life of Riley is an idiom for a carefree, luxurious way of living."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "car"
+    }
+   }
   },
   {
    "number": 25,
@@ -482,7 +1553,56 @@
      }
     ]
    },
-   "solution": "NIELSBOHR"
+   "solution": "NIELSBOHR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NIELS BOHR",
+    "definitions": [
+     {
+      "text": "scientist",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over, so the painter's name and its partner are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holbein's",
+      "gives": "HOLBEINS",
+      "note": "taken as written, the possessive S included"
+     },
+     {
+      "clueFragment": "king's",
+      "gives": "R",
+      "note": "R is rex, the king"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOLBEINSR",
+       "gives": "NIELSBOHR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The painter Holbein upsets a king's scientist.",
+     "walkthrough": "Holbein was Henry VIII's court painter, which makes the king's man look historical.",
+     "definitionFit": "Niels Bohr was the Danish physicist who modelled the atom and won the 1922 Nobel Prize."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "king's"
+    }
+   }
   },
   {
    "number": 26,
@@ -496,7 +1616,59 @@
     "text": "Arab artist appears in current quiz show",
     "enumeration": "5"
    },
-   "solution": "IRAQI"
+   "solution": "IRAQI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IRAQI",
+    "definitions": [
+     {
+      "text": "Arab",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appears in",
+      "for": "container",
+      "note": "turning up in something means being found inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     },
+     {
+      "clueFragment": "quiz show",
+      "gives": "QI",
+      "note": "QI is a BBC panel quiz show hosted by Sandi Toksvig"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RA",
+      "QI"
+     ]
+    },
+    "explanation": {
+     "surface": "An Arab painter features in a television quiz show now airing.",
+     "definitionFit": "An Iraqi is a person from Iraq, an Arab country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 27,
@@ -510,7 +1682,44 @@
     "text": "Legal documents for hearing in Piccadilly hotel",
     "enumeration": "4"
    },
-   "solution": "RITZ"
+   "solution": "RITZ",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RITZ",
+    "definitions": [
+     {
+      "text": "Piccadilly hotel",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for hearing",
+      "for": "homophone",
+      "note": "for hearing means as it strikes the ear, so we go by the spoken word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Legal documents",
+      "gives": "RITZ",
+      "soundsLike": "WRITS",
+      "note": "writs are formal court orders"
+     }
+    ],
+    "explanation": {
+     "surface": "Court papers delivered for a hearing at a grand London hotel.",
+     "walkthrough": "Piccadilly is a main street in central London.",
+     "definitionFit": "The Ritz is the famous luxury hotel on Piccadilly in London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 28,
@@ -524,7 +1733,71 @@
     "text": "P&O regrets securing boat with east European",
     "enumeration": "10"
    },
-   "solution": "PORTUGUESE"
+   "solution": "PORTUGUESE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PORTUGUESE",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing something means holding it fast inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "P&O",
+      "gives": "PO",
+      "note": "the two letters of the shipping company"
+     },
+     {
+      "clueFragment": "regrets",
+      "gives": "RUES",
+      "note": "rues means regrets"
+     },
+     {
+      "clueFragment": "boat",
+      "gives": "TUG",
+      "note": "a tug is a small towing boat"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "E is the abbreviation for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "R",
+      "TUG",
+      "UES",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The ferry firm P&O is sorry about taking on a boat with an East European.",
+     "walkthrough": "P&O is a British ferry and cruise line.",
+     "definitionFit": "A Portuguese person is a native of Portugal, a country in Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boat"
+    }
+   }
   }
  ]
 }
