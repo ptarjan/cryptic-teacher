@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,52 @@
     "text": "Some reached a café, back or front",
     "enumeration": "6"
    },
-   "solution": "FACADE"
+   "solution": "FACADE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "FACADE",
+    "definitions": [
+     {
+      "text": "front",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the letters of the following words are wanted, a run lying inside them"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the hidden run is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reached a café",
+      "gives": "EDACAF",
+      "note": "a run of letters spanning the end of reached and the a café that follows"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone got to a café and is unsure whether they arrived at its rear or its front entrance.",
+     "walkthrough": "Read 'reached a café' backwards and FACADE sits inside it; the accent on café is ignored.",
+     "definitionFit": "A facade is the face of a building, the side presented to the street."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +95,55 @@
     "text": "Lover embraces wife, a timid little creature",
     "enumeration": "4"
    },
-   "solution": "FAWN"
+   "solution": "FAWN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FAWN",
+    "definitions": [
+     {
+      "text": "a timid little creature",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraces",
+      "for": "container",
+      "note": "to embrace is to wrap your arms around, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lover",
+      "gives": "FAN",
+      "note": "a lover of something is a fan of it"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "W",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An admirer hugs his wife, who is described as a shy little thing.",
+     "walkthrough": "The surface makes the wife the timid creature; in fact the whole phrase defines the answer.",
+     "definitionFit": "A fawn is a young deer, a small and notoriously skittish animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lover"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +157,55 @@
     "text": "Criminal changed course, we're told; that's touching",
     "enumeration": "7"
    },
-   "solution": "CONTACT"
+   "solution": "CONTACT",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "CONTACT",
+    "definitions": [
+     {
+      "text": "touching",
+      "at": 44,
+      "note": "the phrase 'that's touching' means the thing that is touching, a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "something we are told is heard rather than read, so it is the spoken sound that counts"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criminal",
+      "gives": "CON",
+      "note": "a con is a convict, a criminal"
+     },
+     {
+      "clueFragment": "changed course",
+      "gives": "TACT",
+      "soundsLike": "TACKED",
+      "note": "a sailing boat that changes course tacks"
+     }
+    ],
+    "explanation": {
+     "surface": "A villain alters his route, and someone finds the story moving.",
+     "walkthrough": "'Touching' pretends to mean emotionally moving; here it means physical contact.",
+     "definitionFit": "Contact is the state of physically touching, as two wires in contact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "touching"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +219,55 @@
     "text": "Supply extremely durable uniform",
     "enumeration": "8"
    },
-   "solution": "DELIVERY"
+   "solution": "DELIVERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DELIVERY",
+    "definitions": [
+     {
+      "text": "Supply",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its outer letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "durable",
+      "gives": "DE",
+      "select": "outer",
+      "note": "first and last letters of durable"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "LIVERY",
+      "note": "livery is the distinctive uniform of servants or staff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "LIVERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A procurement brief asks for very hard-wearing work uniforms.",
+     "definitionFit": "A delivery is a supply of goods brought to someone, as a delivery of coal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +281,43 @@
     "text": "Ruined – by whisky?",
     "enumeration": "8"
    },
-   "solution": "SCOTCHED"
+   "solution": "SCOTCHED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCOTCHED",
+    "definitions": [
+     {
+      "text": "Ruined",
+      "at": 0
+     },
+     {
+      "text": "by whisky",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruined",
+      "note": "first meaning: put an end to, as a plan or rumour is quashed"
+     },
+     {
+      "clueFragment": "by whisky",
+      "note": "second meaning, playful: affected by Scotch whisky, made into a past participle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is invented for the joke: someone ruined by drink has been done in by Scotch.",
+     "definitionFit": "To scotch a plan is to thwart or ruin it; the whimsical second reading treats Scotch whisky as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ruined"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +341,39 @@
      }
     ]
    },
-   "solution": "CARBOOTSALE"
+   "solution": "CARBOOTSALE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CAR BOOT SALE",
+    "definitions": [
+     {
+      "text": "Where one shifts stuff from the estate?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where one shifts stuff from the estate?",
+      "note": "surface reading: the place where unwanted possessions of a country estate or deceased person's estate are cleared"
+     },
+     {
+      "clueFragment": "Where one shifts stuff from the estate?",
+      "note": "setter's reading: an estate is a large car, and people sell goods from the back of their cars at this British market"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "An estate car is the British term for a station wagon; a car boot sale is a gathering where people sell second-hand goods from their car boots (trunks).",
+     "definitionFit": "At such a sale people shift, meaning sell off, their unwanted stuff from the rear of their vehicles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "estate"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +387,39 @@
     "text": "These are up for approval!",
     "enumeration": "6"
    },
-   "solution": "THUMBS"
+   "solution": "THUMBS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THUMBS",
+    "definitions": [
+     {
+      "text": "These are up for approval!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "These are up for approval!",
+      "note": "surface reading: proposals or candidates put forward to be approved"
+     },
+     {
+      "clueFragment": "These are up for approval!",
+      "note": "setter's reading: digits literally raised upward as a gesture that means yes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Up for approval' reads like items under review; it is the gesture of raising them.",
+     "definitionFit": "Giving a thumbs-up, with both digits raised, is the familiar hand signal of approval."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +433,46 @@
     "text": "Don't drop anything in bag",
     "enumeration": "7"
    },
-   "solution": "HOLDALL"
+   "solution": "HOLDALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOLDALL",
+    "definitions": [
+     {
+      "text": "Don't drop anything",
+      "at": 0
+     },
+     {
+      "text": "bag",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don't drop anything",
+      "note": "first meaning: an instruction to keep a grip on everything, split as two words"
+     },
+     {
+      "clueFragment": "bag",
+      "note": "second meaning: a large travelling bag"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is warned not to let anything fall out of a bag.",
+     "definitionFit": "A holdall is a roomy soft travelling bag, so named because it takes everything."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +486,55 @@
     "text": "Single-minded cadet died in explosion",
     "enumeration": "9"
    },
-   "solution": "DEDICATED"
+   "solution": "DEDICATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEDICATED",
+    "definitions": [
+     {
+      "text": "Single-minded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in explosion",
+      "for": "anagram",
+      "note": "an explosion blows things apart, so these letters are scattered and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cadet",
+      "gives": "CADET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "DIED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CADETDIED",
+       "gives": "DEDICATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A determined young officer trainee was killed in a blast.",
+     "definitionFit": "Someone dedicated is wholly committed to one purpose, which is what single-minded describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "explosion"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +548,50 @@
     "text": "Craftily obtain fish by weight",
     "enumeration": "6"
    },
-   "solution": "WANGLE"
+   "solution": "WANGLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WANGLE",
+    "definitions": [
+     {
+      "text": "Craftily obtain",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W is the abbreviation for weight"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "ANGLE",
+      "note": "to angle is to fish with rod and line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting hold of fish sold by weight through some sly dealing.",
+     "walkthrough": "'by' sets the weight beside the fish, and the weight comes first.",
+     "definitionFit": "To wangle something is to get it by scheming or trickery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +605,58 @@
     "text": "Worried, being stupidly bold? True",
     "enumeration": "8"
    },
-   "solution": "TROUBLED"
+   "solution": "TROUBLED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TROUBLED",
+    "definitions": [
+     {
+      "text": "Worried",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stupidly",
+      "for": "anagram",
+      "note": "acting stupidly means doing things wrongly, so these letters fall out of their proper order"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bold",
+      "gives": "BOLD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "True",
+      "gives": "TRUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOLDTRUE",
+       "gives": "TROUBLED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether anxiety comes from foolish overconfidence, and agrees that it does.",
+     "definitionFit": "Troubled and worried are synonyms describing a mind disturbed by anxiety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "True"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +676,65 @@
      }
     ]
    },
-   "solution": "SAUVIGNONBLANC"
+   "solution": "SAUVIGNONBLANC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAUVIGNON BLANC",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amazing",
+      "for": "anagram",
+      "note": "something amazing leaves one bewildered, so these letters are jumbled up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Vulcan's",
+      "gives": "VULCANS",
+      "note": "the setter's name, apostrophe dropped"
+     },
+     {
+      "clueFragment": "gob",
+      "gives": "GOB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INVULCANSGOBAN",
+       "gives": "SAUVIGNONBLANC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter, Vulcan, raves about a wonderful drink in his mouth; gob is British slang for mouth.",
+     "definitionFit": "Sauvignon blanc is a white wine grape and the dry wine made from it, so a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vulcan's"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +748,55 @@
     "text": "Disturbance of ocean may make gulls wonder",
     "enumeration": "11"
    },
-   "solution": "GROUNDSWELL"
+   "solution": "GROUNDSWELL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GROUNDSWELL",
+    "definitions": [
+     {
+      "text": "Disturbance of ocean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "may make",
+      "for": "anagram",
+      "note": "to make something from materials is to build it, so these letters are reshaped into a new word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gulls",
+      "gives": "GULLS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wonder",
+      "gives": "WONDER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GULLSWONDER",
+       "gives": "GROUNDSWELL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seabirds might be puzzled by a rough sea.",
+     "definitionFit": "A groundswell is a deep rolling swell of the sea, often caused by a distant storm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wonder"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +810,39 @@
     "text": "Non-stop talker on car journey?",
     "enumeration": "10"
    },
-   "solution": "MOTORMOUTH"
+   "solution": "MOTORMOUTH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MOTORMOUTH",
+    "definitions": [
+     {
+      "text": "Non-stop talker on car journey?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Non-stop talker on car journey?",
+      "note": "surface reading: a chatterbox passenger who never stops talking during a drive"
+     },
+     {
+      "clueFragment": "Non-stop talker on car journey?",
+      "note": "setter's reading: the slang term for such a talker is a car word joined to the word for the organ of speech"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the car is a playful hint at the first half of the slang word, motor.",
+     "definitionFit": "A motormouth is informal for a person who talks incessantly, as if driven by an engine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "journey"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +862,57 @@
      }
     ]
    },
-   "solution": "MAILORDER"
+   "solution": "MAILORDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAIL ORDER",
+    "definitions": [
+     {
+      "text": "A way to get goods",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, one thing placed under another is written below it, so the piece before this word goes second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protective cover",
+      "gives": "MAIL",
+      "note": "chain mail is protective armour"
+     },
+     {
+      "clueFragment": "proper condition",
+      "gives": "ORDER",
+      "note": "things in proper condition are in good order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAIL",
+      "ORDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Goods arriving in good shape because they were well wrapped in packaging.",
+     "walkthrough": "In a down clue, 'under' puts the condition beneath the cover, so the cover comes first.",
+     "definitionFit": "Mail order is buying goods from a catalogue and having them posted, a method of shopping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +926,47 @@
     "text": "Excess muscle trimmed",
     "enumeration": "4"
    },
-   "solution": "GLUT"
+   "solution": "GLUT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GLUT",
+    "definitions": [
+     {
+      "text": "Excess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trimmed",
+      "for": "deletion",
+      "note": "something trimmed has had its end cut off, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "muscle",
+      "gives": "GLUTE",
+      "note": "the gluteus muscles of the buttock are informally glutes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Too much muscle bulk that a bodybuilder has cut back.",
+     "definitionFit": "A glut is an oversupply, more of something than is needed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trimmed"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +986,47 @@
      }
     ]
    },
-   "solution": "OPENFIRE"
+   "solution": "OPENFIRE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OPEN FIRE",
+    "definitions": [
+     {
+      "text": "One may be burning",
+      "at": 0
+     },
+     {
+      "text": "start attacking the enemy",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One may be burning",
+      "note": "first meaning: a fire in an unenclosed hearth"
+     },
+     {
+      "clueFragment": "start attacking the enemy",
+      "note": "second meaning: the military order to begin shooting"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone eager to go into battle is described as burning to begin.",
+     "walkthrough": "'burning to start' reads as one phrase meaning eager; the break falls after 'burning'.",
+     "definitionFit": "An open fire is a hearth blaze in a room; to open fire is to begin shooting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "burning"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1040,39 @@
     "text": "Steal half this short distance",
     "enumeration": "4"
    },
-   "solution": "INCH"
+   "solution": "INCH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INCH",
+    "definitions": [
+     {
+      "text": "this short distance",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steal half this short distance",
+      "note": "surface reading: take away half of a small span"
+     },
+     {
+      "clueFragment": "Steal half this short distance",
+      "note": "setter's reading: Cockney rhyming slang for steal is the word half followed by the small unit of length being defined"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Half-inch is Cockney rhyming slang for pinch, i.e. steal; so 'steal' is 'half' plus this distance, an inch.",
+     "definitionFit": "An inch is an imperial unit of length, a little over two and a half centimetres, so a short distance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1086,39 @@
     "text": "One will change?",
     "enumeration": "7"
    },
-   "solution": "CODICIL"
+   "solution": "CODICIL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CODICIL",
+    "definitions": [
+     {
+      "text": "One will change?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One will change?",
+      "note": "surface reading: a person who is going to alter something"
+     },
+     {
+      "clueFragment": "One will change?",
+      "note": "setter's reading: a document making an amendment to a last will and testament"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'will' reads as the future auxiliary; it is the legal document, and 'One will change' means a single alteration to a will.",
+     "definitionFit": "A codicil is a supplement to a testament that adds to or alters its provisions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "will"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1132,47 @@
     "text": "Not obstructed, but having picnic stolen?",
     "enumeration": "10"
    },
-   "solution": "UNHAMPERED"
+   "solution": "UNHAMPERED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNHAMPERED",
+    "definitions": [
+     {
+      "text": "Not obstructed",
+      "at": 0
+     },
+     {
+      "text": "having picnic stolen",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not obstructed",
+      "note": "first meaning: free to move without hindrance"
+     },
+     {
+      "clueFragment": "having picnic stolen",
+      "note": "second meaning, playful: relieved of one's picnic basket, a hamper"
+     }
+    ],
+    "explanation": {
+     "surface": "A day out where nothing got in the way, except that the food was taken.",
+     "walkthrough": "A hamper is a wicker picnic basket, so losing it leaves you un-hampered.",
+     "definitionFit": "Unhampered means free of hindrance; to hamper is to obstruct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "picnic"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1192,44 @@
      }
     ]
    },
-   "solution": "ROOTOUT"
+   "solution": "ROOTOUT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ROOT OUT",
+    "definitions": [
+     {
+      "text": "Completely destroy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "judging by sound means the words are matched by how they are pronounced, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way of escape",
+      "gives": "ROOT OUT",
+      "soundsLike": "ROUTE OUT",
+      "note": "a route out is a way of escaping"
+     }
+    ],
+    "explanation": {
+     "surface": "An escape path that sounds like it will wipe something out.",
+     "walkthrough": "This works for speakers who say route to rhyme with root, as most British speakers do.",
+     "definitionFit": "To root out is to eradicate entirely, as weeds are pulled up by the roots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "escape"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1249,49 @@
      }
     ]
    },
-   "solution": "FORMUP"
+   "solution": "FORMUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORM UP",
+    "definitions": [
+     {
+      "text": "prepare for parade",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Class",
+      "gives": "FORM",
+      "note": "a form is a school class in Britain"
+     },
+     {
+      "clueFragment": "out of bed",
+      "gives": "UP",
+      "note": "someone out of bed is up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORM",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A school class is roused early to get ready for a parade.",
+     "definitionFit": "To form up is the drill command for troops to get into ranks, ready to parade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Class"
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1315,66 @@
      }
     ]
    },
-   "solution": "OLDBOYSREUNION"
+   "solution": "OLDBOYSREUNION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OLD BOYS REUNION",
+    "definitions": [
+     {
+      "text": "get-together",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fantastic",
+      "for": "anagram",
+      "note": "something fantastic is fanciful and unreal, so these letters are turned into a fanciful new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You're",
+      "gives": "YOURE",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "blind",
+      "gives": "BLIND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "so",
+      "gives": "SO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YOUREBLINDSONO",
+       "gives": "OLDBOYSREUNION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told they cannot see, so there will be no great party.",
+     "walkthrough": "An old boy is a former pupil of a British school, and such schools hold gatherings for them.",
+     "definitionFit": "An old boys' reunion is a social gathering of former pupils, so a get-together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blind"
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1388,56 @@
     "text": "Unprofitable land, space that's taken up",
     "enumeration": "4"
    },
-   "solution": "MOOR"
+   "solution": "MOOR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "MOOR",
+    "definitions": [
+     {
+      "text": "Unprofitable land",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken up",
+      "for": "reversal",
+      "note": "in a down clue, something taken up is lifted from bottom to top, so it reads backwards"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "space",
+      "gives": "ROOM",
+      "note": "room means space, as in room to move"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROOM",
+       "to": "MOOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Barren ground where all the available room is already occupied.",
+     "definitionFit": "A moor is open uncultivated upland, poor ground that yields little for farming."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1451,55 @@
     "text": "Area of ship shortly burning coal as winter starts",
     "enumeration": "8"
    },
-   "solution": "DECEMBER"
+   "solution": "DECEMBER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DECEMBER",
+    "definitions": [
+     {
+      "text": "as winter starts",
+      "at": 34,
+      "note": "an adverbial phrase for the time of year, standing in for the month name"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "said shortly means cut short, so the last letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Area of ship",
+      "gives": "DECK",
+      "note": "a deck is a floor area of a ship"
+     },
+     {
+      "clueFragment": "burning coal",
+      "gives": "EMBER",
+      "note": "an ember is a glowing piece of coal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "EMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's deck has coals burning in a brazier as the cold season arrives.",
+     "definitionFit": "In the northern hemisphere winter begins in the twelfth month, around the solstice on the 21st."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "shortly"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1513,45 @@
     "text": "A piece of silk I monopolise for garment",
     "enumeration": "6"
    },
-   "solution": "KIMONO"
+   "solution": "KIMONO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KIMONO",
+    "definitions": [
+     {
+      "text": "garment",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A piece of",
+      "for": "hidden_word",
+      "note": "a piece is only part of the whole, so the answer is a run inside the following words"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silk I monopolise",
+      "gives": "KIMONO",
+      "note": "a run of letters across the end of silk, the I, and the start of monopolise"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hogs a length of silk to make clothing from it.",
+     "definitionFit": "A kimono is a long, wide-sleeved Japanese robe, a garment often made of silk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "monopolise"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1571,47 @@
      }
     ]
    },
-   "solution": "ROLYPOLY"
+   "solution": "ROLYPOLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROLY-POLY",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roland informally",
+      "gives": "ROLY",
+      "note": "Roly is a pet form of the name Roland"
+     },
+     {
+      "clueFragment": "at old college",
+      "gives": "POLY",
+      "note": "a poly was a polytechnic, a British college type abolished in 1992"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROLY",
+      "POLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Describes a man named Roland, nicknamed affectionately, when he was a student.",
+     "walkthrough": "'Sweet' pretends to describe Roland; it is the British word for a dessert. Roly-poly is a rolled suet pudding with jam.",
+     "definitionFit": "Roly-poly pudding is a classic British dessert, and sweet is British for pudding course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +1625,66 @@
     "text": "Criminal three packing a gun once in America",
     "enumeration": "6"
    },
-   "solution": "HEATER"
+   "solution": "HEATER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HEATER",
+    "definitions": [
+     {
+      "text": "gun once in America",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked, so these letters are bent out of their order"
+     },
+     {
+      "text": "packing",
+      "for": "container",
+      "note": "packing a thing means holding it inside, so one piece is put within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "three",
+      "gives": "HETER",
+      "note": "the letters of three rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "A",
+      "TER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THREE",
+       "gives": "HETER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Three gangsters are carrying a gun, as in an old American crime film; packing is slang for armed.",
+     "definitionFit": "Heater was dated US slang for a handgun, common in 1930s gangster talk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "packing"
+    }
+   }
   }
  ]
 }
