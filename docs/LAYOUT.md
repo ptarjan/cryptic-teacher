@@ -27,6 +27,10 @@ does not match the table.
 index.html, style.css, app.js                 the app (vanilla HTML/CSS/JS)
 analytics.js                                  the one shared GA snippet every page loads, so
                                               there is exactly one id
+landing.js                                    on a puzzle answers page, marks the clue a search
+                                              visitor came for (Google's text fragment, or
+                                              #12-across) and offers the rest of the crossword
+                                              with hints under it
 quotes.js                                     curls the straight quotes clue text is stored
                                               with, for display (tools/quotes.py stores them
                                               straight)
@@ -881,6 +885,13 @@ tools/page_card.py                            fills og_page_card.html from a pag
                                               every page
 tools/test_og_tags.js                         every generated page carries a full, valid social
                                               card, and no non-puzzle page borrows the site card
+tools/test_clue_landing.js                    does a search visitor land on the clue they
+                                              typed? landing.js must mark the clue Google's
+                                              text fragment scrolled to (or a #12-across
+                                              anchor) and put the solve-with-hints line under
+                                              it, leave reloads, other referrers and readers
+                                              who scrolled first alone, and report only names
+                                              on sync/events.js's list
 tools/test_difficulty_page.sh                 can /difficulty/ describe a rating other than the
                                               one the badges show? It must refuse to build when
                                               its prose and difficulty.WEIGHTS name different

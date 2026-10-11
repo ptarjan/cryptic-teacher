@@ -61,6 +61,11 @@
     "hint-indicators", "hint-definition", "hint-type",
     "hint-blocks", "hint-walkthrough", "hint-answer",
     "check", "entry", "half", "done",
-    "picker", "stats", "sync", "notify", "feedback"
+    "picker", "stats", "sync", "notify", "feedback",
+    // Sent by landing.js, not app.js: on a /puzzles/<id>/ answers page, the
+    // clue a search visitor came for was found and marked, and its "solve the
+    // rest with hints" line was followed. The second over the first is how
+    // many answer-seekers the solver turns into solvers.
+    "clue-landed", "clue-hint"
   ]);
 });

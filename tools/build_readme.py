@@ -49,6 +49,7 @@ LAYOUT_DOC = REPO / "docs" / "LAYOUT.md"
 LAYOUT = [
     ("", "index.html, style.css, app.js", "the app (vanilla HTML/CSS/JS)"),
     ("", "analytics.js", "the one shared GA snippet every page loads, so there is exactly one id"),
+    ("", "landing.js", "on a puzzle answers page, marks the clue a search visitor came for (Google's text fragment, or #12-across) and offers the rest of the crossword with hints under it"),
     ("", "quotes.js", "curls the straight quotes clue text is stored with, for display (tools/quotes.py stores them straight)"),
     ("", "qr.js", "the QR encoder, drawn in the page: the sync code is the account, so it is never handed to an image service"),
     ("", "vendor/", "the one dependency shipped to the browser: jsQR, pinned by filename and sha256, fetched only when someone scans a code"),
@@ -289,6 +290,7 @@ LAYOUT = [
     ("building and checking the site", "tools/og_page_card.html", "source for og/page/<slug>.png, the card of every page that is not a puzzle"),
     ("building and checking the site", "tools/page_card.py", "fills og_page_card.html from a page’s title and description; build_seo_pages.head() links one for every page"),
     ("building and checking the site", "tools/test_og_tags.js", "every generated page carries a full, valid social card, and no non-puzzle page borrows the site card"),
+    ("building and checking the site", "tools/test_clue_landing.js", "does a search visitor land on the clue they typed? landing.js must mark the clue Google's text fragment scrolled to (or a #12-across anchor) and put the solve-with-hints line under it, leave reloads, other referrers and readers who scrolled first alone, and report only names on sync/events.js's list"),
     ("building and checking the site", "tools/test_difficulty_page.sh", "can /difficulty/ describe a rating other than the one the badges show? It must refuse to build when its prose and difficulty.WEIGHTS name different components, quote the scorecard only while it matches today's weights, and leave no {{placeholder}} unfilled"),
     ("building and checking the site", "tools/test_series_hub.sh", "does /puzzles/ describe each series without counting it? A series blurb with a count or puzzle number must be refused, the hub must not print a series' puzzle total, and each series with enough rated puzzles gets a difficulty strip whose median sits where its middle puzzle is"),
     ("building and checking the site", "tools/test_sitemaps.sh", "do new puzzles get found fast? /sitemap.xml must be a sitemap index (the URL Search Console holds) over a small sitemap-recent.xml, carrying the last RECENT_DAYS of puzzles and every page that changes daily, and the archive parts holding the rest, each puzzle in exactly one. The homepage links every series page and each printing paper's newest puzzle, /puzzles/ links no puzzle; and a puzzle page pages Newer/Older within its own series and links the series' landing page"),
