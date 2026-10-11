@@ -45,6 +45,11 @@ RULES_SEEN = 0.8
 #: Lights and blocks must be split by a gap at least this wide in pair score.
 MIN_GAP = 0.15
 SIZES = (9, 11, 13, 15, 17, 19, 21, 23, 27)
+#: lattice() reads a crop at this width (a laid-out grid's, GRID_WIDTH) and
+#: wants this many neighbouring white-cell pairs each way: a 15x15 grid has
+#: ~100, a photo under ten.
+LATTICE_WIDTH = 720
+LATTICE_PAIRS = 30
 
 
 def otsu(gray):
@@ -153,9 +158,11 @@ def steps(pos):
     return out
 
 
-def read_grid(path):
-    """(rows, None) or (None, why): see the module docstring."""
-    gray = np.asarray(Image.open(path).convert("L"), dtype=np.uint8)
+def white_cells(gray):
+    """Steps 1-3's start on a grey image: ((ink, not_paper, box, walls,
+    step, patches, side, across, down), None), `across` and `down` the
+    (dy, dx) of each pair of cell-sized paper patches a cell apart, or
+    (None, why) when no lattice of white cells shows."""
     cut = otsu(gray)
     ink = gray < cut
     # Paper is only what is clearly paper: a faint rule between two white
@@ -195,6 +202,31 @@ def read_grid(path):
             if abs(b[2] - a[2]) < 0.3 * p0 and 0.7 * p0 < b[1] - a[1] < 1.4 * p0]
     if len(across) < 10 or len(down) < 10:
         return None, "too few neighbouring white cells to measure the lattice"
+    return (ink, not_paper, box, walls, step, patches, side, across, down), None
+
+
+def lattice(img, width=LATTICE_WIDTH):
+    """Whether a PIL image (a crop round one patch of ink) shows a
+    crossword's lattice: at least LATTICE_PAIRS pairs of cell-sized paper
+    patches a cell apart, across and down, read at `width` px wide. A photo
+    or an advert can be as square and as big as a grid, but its paper is no
+    lattice of like cells."""
+    gray = img.convert("L")
+    if gray.width > width:
+        gray = gray.resize((width, max(1, round(gray.height * width / gray.width))), Image.LANCZOS)
+    got, _ = white_cells(np.asarray(gray, dtype=np.uint8))
+    return bool(got) and min(len(got[7]), len(got[8])) >= LATTICE_PAIRS
+
+
+def read_grid(path):
+    """(rows, None) or (None, why): see the module docstring."""
+    got, why = white_cells(np.asarray(Image.open(path).convert("L"), dtype=np.uint8))
+    if got is None:
+        return None, why
+    ink, not_paper, (x0, y0, x1, y1), walls, step, patches, side, across, down = got
+    h, w = y1 - y0, x1 - x0
+    h, w = min(h, ink.shape[0] - y0), min(w, ink.shape[1] - x0)
+    sh, sw = walls.shape
     m = np.array([[np.median([d[0] for d in down]), np.median([d[0] for d in across])],
                   [np.median([d[1] for d in down]), np.median([d[1] for d in across])]])
     seed = min(patches, key=lambda c: c[1] + c[2])
