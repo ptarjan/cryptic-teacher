@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,68 @@
     "text": "Rejecting extremists, Boris plugs new unknown faction",
     "enumeration": "8"
    },
-   "solution": "MINORITY"
+   "solution": "MINORITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "MINORITY",
+    "definitions": [
+     {
+      "text": "faction",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rejecting extremists",
+      "for": "letter_selection",
+      "note": "throwing out the extremes means losing the first and last letters of the name that follows"
+     },
+     {
+      "text": "plugs",
+      "for": "container",
+      "note": "a plug fills a hole, so this piece goes into the middle of the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boris",
+      "gives": "ORI",
+      "select": "middle",
+      "note": "Boris with its outer letters dropped"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "MINT",
+      "note": "in mint condition means brand new"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "algebra uses x, y and z for unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIN",
+      "ORI",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "Boris Johnson, turning away from the hardliners, backs some new faction of unknown purpose.",
+     "walkthrough": "MINT plus Y makes MINTY, and ORI is pushed into its middle to give MIN-ORI-TY.",
+     "definitionFit": "A minority is a smaller group within a larger body, which is what a faction is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Boris"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +111,47 @@
     "text": "Choked on artist's scarf from India",
     "enumeration": "6"
    },
-   "solution": "MADRAS"
+   "solution": "MADRAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MADRAS",
+    "definitions": [
+     {
+      "text": "scarf from India",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Choked",
+      "gives": "MAD",
+      "note": "choked is British slang for upset or angry, as is mad"
+     },
+     {
+      "clueFragment": "artist's",
+      "gives": "RAS",
+      "note": "RA is a Royal Academician, an artist; RA's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAD",
+      "RAS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone choking on a painter's Indian scarf.",
+     "walkthrough": "Choked here is the British informal sense of upset, not the breathing one.",
+     "definitionFit": "Madras is a bright cotton cloth named after the Indian city, and also a headscarf made of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Choked"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +165,60 @@
     "text": "Driver's sidekick directed van to Riga",
     "enumeration": "9"
    },
-   "solution": "NAVIGATOR"
+   "solution": "NAVIGATOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NAVIGATOR",
+    "definitions": [
+     {
+      "text": "Driver's sidekick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "directed",
+      "for": "anagram",
+      "note": "to direct can mean to arrange or manage, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "van",
+      "gives": "VAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Riga",
+      "gives": "RIGA",
+      "note": "the Latvian capital, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VANTORIGA",
+       "gives": "NAVIGATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A passenger pointing a van driver towards Riga.",
+     "definitionFit": "In rallying and on road trips the navigator sits beside the driver reading the route."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "directed"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +232,60 @@
     "text": "Country sport - two codes, including amateur",
     "enumeration": "5"
    },
-   "solution": "RURAL"
+   "solution": "RURAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RURAL",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means holding something inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sport - two codes",
+      "gives": "RU",
+      "note": "rugby has two codes: Rugby Union, RU..."
+     },
+     {
+      "clueFragment": "sport - two codes",
+      "gives": "RL",
+      "note": "...and Rugby League, RL"
+     },
+     {
+      "clueFragment": "amateur",
+      "gives": "A",
+      "note": "A is a standard abbreviation for amateur"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "RAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A country sport that splits into two codes and admits amateurs.",
+     "walkthrough": "Rugby is played in two codes, union and league; the A goes inside RL.",
+     "definitionFit": "Country used as an adjective, as in country life, means rural, belonging to the countryside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "codes"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +299,68 @@
     "text": "Foremost of recommendations in report is support for growth",
     "enumeration": "7"
    },
-   "solution": "TRELLIS"
+   "solution": "TRELLIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TRELLIS",
+    "definitions": [
+     {
+      "text": "support for growth",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foremost of",
+      "for": "letter_selection",
+      "note": "foremost means the very front, so only the opening letter of the next word is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the selected letter inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recommendations",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of recommendations"
+     },
+     {
+      "clueFragment": "report",
+      "gives": "TELL",
+      "note": "to report something is to tell it"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRELL",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A report whose leading recommendation is to support growth, read like economic policy.",
+     "walkthrough": "The surface is about economic growth; the definition is about plants.",
+     "definitionFit": "A trellis is a lattice frame on which climbing plants are trained as they grow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "growth"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +380,56 @@
      }
     ]
    },
-   "solution": "OPENUP"
+   "solution": "OPENUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPEN UP",
+    "definitions": [
+     {
+      "text": "show feelings",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "presses",
+      "for": "container",
+      "note": "something that presses another holds it tightly, so one piece is squeezed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Publisher",
+      "gives": "OUP",
+      "note": "Oxford University Press"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PEN",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A publishing house leaning on an author to write more emotionally.",
+     "walkthrough": "OUP, Oxford University Press, is a common crossword publisher.",
+     "definitionFit": "To open up is an idiom for speaking freely about one's emotions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "presses"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +449,72 @@
      }
     ]
    },
-   "solution": "PEPPERPOT"
+   "solution": "PEPPERPOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PEPPER POT",
+    "definitions": [
+     {
+      "text": "which seasons?",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down clue, being supported means something sits beneath, so the next part comes after"
+     },
+     {
+      "text": "from the south",
+      "for": "reversal",
+      "note": "in a down clue, reading from the south means reading upwards, from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guardiola",
+      "gives": "PEP",
+      "note": "Pep Guardiola, the football manager"
+     },
+     {
+      "clueFragment": "leading",
+      "gives": "TOP",
+      "note": "leading means top"
+     },
+     {
+      "clueFragment": "agent",
+      "gives": "REP",
+      "note": "a rep is a sales agent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEP",
+      "PERPOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOPREP",
+       "to": "PERPOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pep Guardiola backed by a top agent, followed by a puzzle about which seasons he will manage.",
+     "walkthrough": "Seasons looks like football seasons; it is the verb, adding flavour to food.",
+     "definitionFit": "A pepper pot is a shaker used to season food, so it is a thing that seasons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seasons"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +528,67 @@
     "text": "Head of Nasa died after instrument exposed to radiation",
     "enumeration": "5"
    },
-   "solution": "NUKED"
+   "solution": "NUKED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NUKED",
+    "definitions": [
+     {
+      "text": "exposed to radiation",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head is the top, which in a word is its opening letter"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means the following piece comes later in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nasa",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter of Nasa"
+     },
+     {
+      "clueFragment": "instrument",
+      "gives": "UKE",
+      "note": "a uke is a ukulele"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d is the abbreviation for died"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "UKE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "The head of Nasa dying after equipment was exposed to radiation.",
+     "walkthrough": "Instrument sounds scientific beside Nasa, but it is a musical one.",
+     "definitionFit": "Nuked means struck with nuclear energy, or informally microwaved, both involving radiation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "instrument"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +602,55 @@
     "text": "Survey men wearing particular type of hat",
     "enumeration": "8"
    },
-   "solution": "PANORAMA"
+   "solution": "PANORAMA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PANORAMA",
+    "definitions": [
+     {
+      "text": "Survey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "a wearer is inside what they wear, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "particular type of hat",
+      "gives": "PANAMA",
+      "note": "a Panama is a straw hat"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR is other ranks, ordinary soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "OR",
+      "AMA"
+     ]
+    },
+    "explanation": {
+     "surface": "A survey of men who wear one particular kind of hat.",
+     "walkthrough": "Men as OR, other ranks, is a crossword staple.",
+     "definitionFit": "A panorama is a wide, complete view or overview of a subject, much like a survey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Survey"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +664,68 @@
     "text": "United no longer tried to fool ref when picking up yellow card at the start",
     "enumeration": "8"
    },
-   "solution": "DIVORCED"
+   "solution": "DIVORCED",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "DIVORCED",
+    "definitions": [
+     {
+      "text": "United no longer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picking up",
+      "for": "container",
+      "note": "picking something up means holding it, so these letters go inside the first word"
+     },
+     {
+      "text": "at the start",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tried to fool ref",
+      "gives": "DIVED",
+      "note": "a footballer who dives fakes a foul to fool the referee"
+     },
+     {
+      "clueFragment": "yellow",
+      "gives": "OR",
+      "note": "or is gold or yellow in heraldry"
+     },
+     {
+      "clueFragment": "card",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of card"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIV",
+      "ORC",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Manchester United are now so honest that they no longer dive, even when shown an early yellow card.",
+     "walkthrough": "United reads as the football club; it is the adjective, joined together.",
+     "definitionFit": "Divorced describes a couple whose marriage has been legally dissolved, so they are no longer joined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +739,60 @@
     "text": "Verbal dig between partners",
     "enumeration": "6"
    },
-   "solution": "SPOKEN"
+   "solution": "SPOKEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPOKEN",
+    "definitions": [
+     {
+      "text": "Verbal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "between",
+      "for": "container",
+      "note": "between means flanked on both sides, so this word goes inside the outer pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partners",
+      "gives": "S",
+      "note": "in bridge South partners North"
+     },
+     {
+      "clueFragment": "dig",
+      "gives": "POKE",
+      "note": "a dig is a poke or prod"
+     },
+     {
+      "clueFragment": "partners",
+      "gives": "N",
+      "note": "North, South's bridge partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "POKE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A cutting remark passed between a couple.",
+     "walkthrough": "Partners are the bridge pairs North and South; verbal dig looks like one phrase but splits into definition and wordplay.",
+     "definitionFit": "Verbal can mean expressed in speech rather than writing, which is what spoken means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dig"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +806,50 @@
     "text": "What gets some petty, antagonistic types going?",
     "enumeration": "4"
    },
-   "solution": "SPAT"
+   "solution": "SPAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "SPAT",
+    "definitions": [
+     {
+      "text": "What gets some petty, antagonistic types going?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going",
+      "for": "letter_selection",
+      "note": "what gets words going is their opening, so the first letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some petty, antagonistic types",
+      "gives": "SPAT",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what sets off small-minded, quarrelsome people.",
+     "walkthrough": "The whole clue is both the definition and the wordplay: the letters that start those four words also name what such people get into.",
+     "definitionFit": "A spat is a petty quarrel, exactly what antagonistic types would start."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +863,57 @@
     "text": "Want naked setter's heavenly body?",
     "enumeration": "5"
    },
-   "solution": "ANGEL"
+   "solution": "ANGEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ANGEL",
+    "definitions": [
+     {
+      "text": "heavenly body",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naked",
+      "for": "letter_selection",
+      "note": "naked means stripped of its covering, so the outer letters come off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Want",
+      "gives": "AN",
+      "select": "middle",
+      "note": "want with its outer letters stripped"
+     },
+     {
+      "clueFragment": "setter's",
+      "gives": "GEL",
+      "note": "gel is a substance that sets; the apostrophe s reads as is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "GEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asking whether they may have the crossword setter's naked, heavenly body.",
+     "walkthrough": "The setter is not the puzzle's author but something that sets, like hair gel or jelly.",
+     "definitionFit": "An angel is a being of heaven, so a heavenly body in a playful second sense of the astronomical phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "setter's"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +939,52 @@
      }
     ]
    },
-   "solution": "LIPREADER"
+   "solution": "LIPREADER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "LIP-READER",
+    "definitions": [
+     {
+      "text": "Who won't need subtitles in remake of Pale Rider?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "remake of",
+      "for": "anagram",
+      "note": "a remake makes something again in a new form, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pale Rider",
+      "gives": "PALERIDER",
+      "note": "the Clint Eastwood western, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PALERIDER",
+       "gives": "LIPREADER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking who could watch a remake of the western Pale Rider without subtitles.",
+     "walkthrough": "The whole clue defines the answer while its last words supply the letters.",
+     "definitionFit": "A deaf viewer who reads lips can follow speech on screen without captions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "remake"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +998,55 @@
     "text": "Loads rifles, taking time",
     "enumeration": "6"
    },
-   "solution": "STACKS"
+   "solution": "STACKS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STACKS",
+    "definitions": [
+     {
+      "text": "Loads",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking in means absorbing, so the extra letter goes inside the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rifles",
+      "gives": "SACKS",
+      "note": "to rifle or sack is to plunder"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "ACKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loading guns, taking their time over it.",
+     "walkthrough": "Loads and rifles look like gun talk; rifles is the verb, to plunder.",
+     "definitionFit": "Stacks is informal for a great quantity, just as loads is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rifles"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1060,64 @@
     "text": "Row of books, one with green jacket",
     "enumeration": "9"
    },
-   "solution": "COMMOTION"
+   "solution": "COMMOTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COMMOTION",
+    "definitions": [
+     {
+      "text": "Row",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with green jacket",
+      "for": "container",
+      "note": "a jacket is worn around the body, so the colour word wraps around the rest"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green",
+      "gives": "COMMON",
+      "note": "a green is a village common"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "Old Testament books"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMM",
+      "OTI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A row of books, one of them in a green dust jacket.",
+     "walkthrough": "Row reads as a line of books on a shelf, but here it means a noisy quarrel.",
+     "definitionFit": "A row, rhyming with cow, is a noisy disturbance, which is a commotion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1131,53 @@
     "text": "Pub much obliged for an order",
     "enumeration": "7"
    },
-   "solution": "TAPROOM"
+   "solution": "TAPROOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAPROOM",
+    "definitions": [
+     {
+      "text": "Pub",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "much obliged",
+      "gives": "TA",
+      "note": "ta is British informal thanks"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "an order",
+      "gives": "OM",
+      "note": "the Order of Merit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "PRO",
+      "OM"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub where the staff are thanked for every order.",
+     "walkthrough": "The OM is the Order of Merit, a British honour.",
+     "definitionFit": "A taproom is the bar of a pub or inn where beer is served from the tap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1201,55 @@
      }
     ]
    },
-   "solution": "ONTHEMEND"
+   "solution": "ONTHEMEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ON THE MEND",
+    "definitions": [
+     {
+      "text": "Getting better",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so this piece is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "their treat",
+      "gives": "ONTHEM",
+      "note": "when it is their treat, it is on them"
+     },
+     {
+      "clueFragment": "outcome",
+      "gives": "END",
+      "note": "the end is the outcome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONTHEM",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recovering nicely after being treated, with the bill paid by others.",
+     "walkthrough": "Treat sounds medical next to getting better, but it is a paid-for treat.",
+     "definitionFit": "On the mend is an idiom for recovering from illness or injury."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "treat"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1263,49 @@
     "text": "Drug addict celebrity reveals identity online",
     "enumeration": "8"
    },
-   "solution": "USERNAME"
+   "solution": "USERNAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USERNAME",
+    "definitions": [
+     {
+      "text": "identity online",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "reveals"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drug addict",
+      "gives": "USER",
+      "note": "a user takes drugs"
+     },
+     {
+      "clueFragment": "celebrity",
+      "gives": "NAME",
+      "note": "a big name is a celebrity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USER",
+      "NAME"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous person with a drug habit being exposed on the internet.",
+     "definitionFit": "A username is the handle by which a person is known on a website or service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reveals"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1319,53 @@
     "text": "Economises with shellfish, reducing temperature?",
     "enumeration": "7"
    },
-   "solution": "SCRIMPS"
+   "solution": "SCRIMPS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SCRIMPS",
+    "definitions": [
+     {
+      "text": "Economises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reducing temperature",
+      "for": "substitution",
+      "note": "bringing the heat down swaps the letter for hot with the one for cold"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shellfish",
+      "gives": "SHRIMPS",
+      "note": "shrimps are small shellfish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "RIMPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Saving money by serving shellfish and turning the heating down.",
+     "walkthrough": "H (hot) in the shellfish is replaced by C (cold), as on a tap.",
+     "definitionFit": "To scrimp is to be thrifty, cutting spending to save money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "temperature"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1379,55 @@
     "text": "Deliver large skewers for butcher",
     "enumeration": "4"
    },
-   "solution": "SLAY"
+   "solution": "SLAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLAY",
+    "definitions": [
+     {
+      "text": "butcher",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skewers",
+      "for": "container",
+      "note": "a skewer runs through meat, so one piece pierces the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deliver",
+      "gives": "SAY",
+      "note": "to deliver a speech is to say it"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "L",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "A delivery of big skewers for the local butcher.",
+     "walkthrough": "Butcher is a verb here, to kill savagely, not the shopkeeper.",
+     "definitionFit": "To butcher people is to kill them brutally, which is to slay them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "butcher"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1441,42 @@
     "text": "Being somewhat somnolent it yawned",
     "enumeration": "6"
    },
-   "solution": "ENTITY"
+   "solution": "ENTITY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTITY",
+    "definitions": [
+     {
+      "text": "Being",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only part of, so the letters lie inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "somnolent it yawned",
+      "gives": "ENTITY",
+      "note": "found across somnolENT IT Yawned"
+     }
+    ],
+    "explanation": {
+     "surface": "A drowsy creature giving a yawn.",
+     "definitionFit": "An entity is a thing with its own existence, a being in the noun sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Being"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1490,59 @@
     "text": "Dance music has old German prince shaking his tail",
     "enumeration": "7"
    },
-   "solution": "ELECTRO"
+   "solution": "ELECTRO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELECTRO",
+    "definitions": [
+     {
+      "text": "Dance music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shaking his tail",
+      "for": "anagram",
+      "note": "shaking jumbles things, and the tail is the end, so only the closing letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old German prince",
+      "gives": "ELECTOR",
+      "note": "an Elector was a prince entitled to choose the Holy Roman Emperor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECT",
+      "RO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OR",
+       "gives": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old German prince wiggling his behind on the dance floor.",
+     "walkthrough": "Only the last two letters of the prince's title are mixed.",
+     "definitionFit": "Electro is a style of electronic dance music with a strong drum-machine beat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1556,62 @@
     "text": "Filthy dog evacuated stinky kennels",
     "enumeration": "6"
    },
-   "solution": "SMUTTY"
+   "solution": "SMUTTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SMUTTY",
+    "definitions": [
+     {
+      "text": "Filthy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evacuated",
+      "for": "letter_selection",
+      "note": "something evacuated is emptied out, leaving only its outside letters"
+     },
+     {
+      "text": "kennels",
+      "for": "container",
+      "note": "a kennel houses a dog, so the dog word goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stinky",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the emptied word keeps only its outside letters"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "MUTT",
+      "note": "a mutt is a mongrel dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MUTT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A dirty dog relieving itself in smelly kennels.",
+     "walkthrough": "Stinky, emptied, leaves S and Y, which house the dog.",
+     "definitionFit": "Smutty can mean literally dirty with soot as well as obscene, both senses of filthy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kennels"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1625,63 @@
     "text": "Reason to sing about beer? I must be drunk",
     "enumeration": "9"
    },
-   "solution": "RATIONALE"
+   "solution": "RATIONALE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RATIONALE",
+    "definitions": [
+     {
+      "text": "Reason",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must be drunk",
+      "for": "container",
+      "note": "a drink is swallowed, so this letter is taken into the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to sing about",
+      "gives": "RATON",
+      "note": "to sing, to inform, is to rat on someone"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is beer"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT",
+      "I",
+      "ON",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker explaining why they sing about beer: they must be drunk.",
+     "walkthrough": "Sing is criminal slang for informing on someone; 'drunk' here means swallowed, so the letter I is taken in.",
+     "definitionFit": "A rationale is the set of reasons or logic behind a decision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sing"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1695,55 @@
     "text": "Politician enters Vietnamese holiday draw",
     "enumeration": "5"
    },
-   "solution": "TEMPT"
+   "solution": "TEMPT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TEMPT",
+    "definitions": [
+     {
+      "text": "draw",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "entering means going inside, so this piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vietnamese holiday",
+      "gives": "TET",
+      "note": "Tet is the Vietnamese lunar new year festival"
+     },
+     {
+      "clueFragment": "Politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "MP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician entering a holiday prize draw in Vietnam.",
+     "walkthrough": "Draw looks like a lottery noun but is the verb, to attract.",
+     "definitionFit": "To tempt someone is to draw or entice them towards something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "draw"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1757,63 @@
     "text": "Foster finally made Byzantine castle in Spain",
     "enumeration": "5"
    },
-   "solution": "DREAM"
+   "solution": "DREAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DREAM",
+    "definitions": [
+     {
+      "text": "castle in Spain",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the final letter of the name is kept"
+     },
+     {
+      "text": "Byzantine",
+      "for": "anagram",
+      "note": "Byzantine means intricate and convoluted, so these letters are tangled up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foster",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of Foster"
+     },
+     {
+      "clueFragment": "made",
+      "gives": "MADE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RMADE",
+       "gives": "DREAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The architect Norman Foster designing a Byzantine-style castle in Spain.",
+     "walkthrough": "A castle in Spain is an old idiom for a daydream, an unrealistic hope.",
+     "definitionFit": "A castle in Spain, like a castle in the air, is a fanciful scheme, a dream."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "castle"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1827,56 @@
     "text": "Case of Drambuie for all that come out",
     "enumeration": "5"
    },
-   "solution": "DEBUT"
+   "solution": "DEBUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DEBUT",
+    "definitions": [
+     {
+      "text": "come out",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Case of",
+      "for": "letter_selection",
+      "note": "the case is the outside, so only the first and last letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drambuie",
+      "gives": "DE",
+      "select": "outer",
+      "note": "outside letters of Drambuie"
+     },
+     {
+      "clueFragment": "for all that",
+      "gives": "BUT",
+      "note": "for all that means nevertheless, which is but"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "BUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A crate of whisky liqueur ordered for everyone who turns up.",
+     "walkthrough": "Drambuie is a Scotch whisky liqueur.",
+     "definitionFit": "To debut is to make a first public appearance, as a debutante comes out into society."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Case"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1890,47 @@
     "text": "Cockney's hurt by stone in nasty place",
     "enumeration": "6"
    },
-   "solution": "ARMPIT"
+   "solution": "ARMPIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARMPIT",
+    "definitions": [
+     {
+      "text": "nasty place",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cockney's hurt",
+      "gives": "ARM",
+      "note": "harm said with the dropped H of a Cockney accent"
+     },
+     {
+      "clueFragment": "stone",
+      "gives": "PIT",
+      "note": "a pit is the stone of a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARM",
+      "PIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Cockney injured by a stone thrown at a rough spot.",
+     "walkthrough": "Cockney speech, from East London, famously drops the H at the start of words.",
+     "definitionFit": "The armpit of somewhere is slang for its most unpleasant, squalid part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1944,59 @@
     "text": "Best and last to be roughed up, like third pig's house?",
     "enumeration": "8"
    },
-   "solution": "STABLEST"
+   "solution": "STABLEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STABLEST",
+    "definitions": [
+     {
+      "text": "like third pig's house?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "roughed up",
+      "for": "anagram",
+      "note": "roughing up knocks things about, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best",
+      "gives": "BEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "last",
+      "gives": "LAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BESTLAST",
+       "gives": "STABLEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The wolf vowing to rough up the best and last of the Three Little Pigs.",
+     "walkthrough": "In the fairy tale the third pig builds of brick, the one house the wolf cannot blow down.",
+     "definitionFit": "The brick house was the most solid and secure of the three, so the steadiest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "roughed"
+    }
+   }
   },
   {
    "number": 28,
@@ -493,7 +2016,55 @@
      }
     ]
    },
-   "solution": "EXTEND"
+   "solution": "EXTEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXTEND",
+    "definitions": [
+     {
+      "text": "Carry On",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is on",
+      "for": "charade",
+      "note": "in an across clue, being on something means sitting after it, so this piece comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "late",
+      "gives": "EX",
+      "note": "late means former, as ex does"
+     },
+     {
+      "clueFragment": "Nurse",
+      "gives": "TEND",
+      "note": "to nurse is to tend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TEND"
+     ]
+    },
+    "explanation": {
+     "surface": "The film Carry On Nurse being shown late at night.",
+     "walkthrough": "Carry On Nurse is a 1959 British comedy film; the title splits into definition and wordplay.",
+     "definitionFit": "To extend something is to make it go on longer, to carry it on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nurse"
+    }
+   }
   },
   {
    "number": 29,
@@ -513,7 +2084,59 @@
      }
     ]
    },
-   "solution": "HOTTODDY"
+   "solution": "HOTTODDY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOT TODDY",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "full of",
+      "for": "container",
+      "note": "something full of a thing holds it inside, so the other piece is placed within"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bedtime bottle",
+      "gives": "HOTTY",
+      "note": "a hottie or hotty is informal for a hot-water bottle"
+     },
+     {
+      "clueFragment": "rum",
+      "gives": "ODD",
+      "note": "rum means odd or strange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOTT",
+      "ODD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking a nightcap from a bottle of rum at bedtime.",
+     "walkthrough": "Rum looks like the drink but is the adjective, strange; a hottie is a hot-water bottle.",
+     "definitionFit": "A hot toddy is a warm drink of spirits, water, honey and lemon, often taken at night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rum"
+    }
+   }
   }
  ]
 }
