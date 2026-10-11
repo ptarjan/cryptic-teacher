@@ -23,8 +23,15 @@
   }
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-11",
+  "check": "28 entries, 58 crossings, 0 conflicts",
+  "officialKey": "never"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,6 +44,63 @@
    "clue": {
     "text": "Something hanging around front of cave — at least it might be",
     "enumeration": "10"
+   },
+   "solution": "STALACTITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "STALACTITE",
+    "definitions": [
+     {
+      "text": "Something hanging around front of cave — at least it might be",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is where it starts, so only its opening letter is kept"
+     },
+     {
+      "text": "might be",
+      "for": "anagram",
+      "note": "'might be' hints that the words could become something else once their letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cave",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of cave"
+     },
+     {
+      "clueFragment": "at least it",
+      "gives": "ATLEASTIT",
+      "note": "taken as written, to be mixed with the letter from cave"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CATLEASTIT",
+       "gives": "STALACTITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone peers at a thing dangling by a cave mouth and guesses what, at the very least, it might be.",
+     "walkthrough": "The whole clue is the definition, and it also supplies the letters: 'at least it' plus the front of cave rearrange to give STALACTITE.",
+     "definitionFit": "A stalactite is a mineral icicle that hangs from a cave roof, so it is just the thing found dangling near a cave entrance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
    }
   },
   {
@@ -50,6 +114,50 @@
    "clue": {
     "text": "Part of our capital, thus, goes on small house",
     "enumeration": "4"
+   },
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "Part of our capital",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "goes on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "so means thus, as in 'do it so'"
+     },
+     {
+      "clueFragment": "small house",
+      "gives": "HO",
+      "note": "ho. is the abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "A tour of the capital moves on to look at a little cottage.",
+     "walkthrough": "In a down clue 'goes on' sets the second piece on top of the first, so SO comes first. 'Our capital' is London for this British paper.",
+     "definitionFit": "Soho is a district of London's West End, known for theatres, restaurants and nightlife, so a part of the capital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
    }
   },
   {
@@ -63,6 +171,64 @@
    "clue": {
     "text": "Circus performer's sack grabbed by a lion, say",
     "enumeration": "7"
+   },
+   "solution": "ACROBAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACROBAT",
+    "definitions": [
+     {
+      "text": "Circus performer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbed by",
+      "for": "container",
+      "note": "something grabbed is held tightly in a grip, so it ends up inside the holder"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lion, say",
+      "gives": "CAT",
+      "note": "a lion is an example of a big cat"
+     },
+     {
+      "clueFragment": "sack",
+      "gives": "ROB",
+      "note": "to sack a town is to plunder or rob it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "ROB",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A circus act's bag is snatched by one of the lions in the ring.",
+     "walkthrough": "The 's stands for 'is'. 'Sack' looks like a bag, but it is the verb meaning plunder.",
+     "definitionFit": "An acrobat performs gymnastic feats such as tumbling and trapeze work, a staple act of the circus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sack"
+    }
    }
   },
   {
@@ -76,6 +242,58 @@
    "clue": {
     "text": "Fools joining one group of people making a killing",
     "enumeration": "13"
+   },
+   "solution": "ASSASSINATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSASSINATION",
+    "definitions": [
+     {
+      "text": "making a killing",
+      "at": 34,
+      "note": "a noun phrase here: the act of killing someone"
+     }
+    ],
+    "linkWords": [
+     "joining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fools",
+      "gives": "ASSASS",
+      "note": "two fools, each an ass"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "group of people",
+      "gives": "NATION",
+      "note": "a nation is a people united by country or culture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSASS",
+      "I",
+      "NATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Idiots signing up to a gang of profiteers raking in money.",
+     "walkthrough": "'Making a killing' wants to mean earning a fortune; it is taken literally, as a murder.",
+     "definitionFit": "Assassination is the murder of a prominent person, literally the making of a killing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "killing"
+    }
    }
   },
   {
@@ -89,6 +307,56 @@
    "clue": {
     "text": "Live among giants, very high people",
     "enumeration": "8"
+   },
+   "solution": "TIBETANS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIBETANS",
+    "definitions": [
+     {
+      "text": "very high people",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "to be among others is to be surrounded by them, so a piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "giants",
+      "gives": "TITANS",
+      "note": "the Titans were the giant elder gods of Greek myth"
+     },
+     {
+      "clueFragment": "Live",
+      "gives": "BE",
+      "note": "to be is to exist or live"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "BE",
+      "TANS"
+     ]
+    },
+    "explanation": {
+     "surface": "Living among giants makes you think of extremely tall people.",
+     "walkthrough": "'Very high' suggests tall or intoxicated; it refers to altitude, since Tibet is a high plateau.",
+     "definitionFit": "Tibetans live on the Tibetan plateau, the highest on Earth at around 4,500 metres above sea level."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "high"
+    }
    }
   },
   {
@@ -102,6 +370,64 @@
    "clue": {
     "text": "After short time, parrot turned up in holiday area",
     "enumeration": "5"
+   },
+   "solution": "TYROL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TYROL",
+    "definitions": [
+     {
+      "text": "holiday area",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turned up means read from the bottom upwards, so backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short time",
+      "gives": "T",
+      "note": "t is the abbreviation for time"
+     },
+     {
+      "clueFragment": "parrot",
+      "gives": "LORY",
+      "note": "a lory is a brightly coloured parrot of Australasia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "YROL"
+     ],
+     "reversals": [
+      {
+       "from": "LORY",
+       "to": "YROL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pet parrot appears briefly at a holiday resort.",
+     "walkthrough": "'After' puts the reversed parrot behind the T.",
+     "definitionFit": "The Tyrol is an Alpine region of Austria and Italy, popular for skiing and walking holidays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parrot"
+    }
    }
   },
   {
@@ -115,6 +441,61 @@
    "clue": {
     "text": "Statistical information turned over at short notice",
     "enumeration": "4"
+   },
+   "solution": "DATA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DATA",
+    "definitions": [
+     {
+      "text": "Statistical information",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned over",
+      "for": "reversal",
+      "note": "something turned over is flipped end to end, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "short notice",
+      "gives": "AD",
+      "note": "a notice in a paper is an advertisement, shortened to ad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "TA"
+     ],
+     "reversals": [
+      {
+       "from": "ATAD",
+       "to": "DATA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Figures that were handed over in a hurry, with little warning.",
+     "walkthrough": "'At short notice' looks like a set phrase meaning hurriedly; it is two pieces, 'at' plus a shortened advertisement.",
+     "definitionFit": "Data are facts and figures collected for analysis, which is what statistical information consists of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "notice"
+    }
    }
   },
   {
@@ -128,6 +509,64 @@
    "clue": {
     "text": "One person in 6 changed, becoming intransigent",
     "enumeration": "7"
+   },
+   "solution": "ADAMANT",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "ADAMANT",
+    "definitions": [
+     {
+      "text": "intransigent",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is enclosed by it, so a piece goes inside the other"
+     },
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed means altered, so the combined letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "6",
+      "gives": "DATA",
+      "note": "the answer to 6 across"
+     },
+     {
+      "clueFragment": "One person",
+      "gives": "MAN",
+      "note": "a man is one person"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DAMANTA",
+       "gives": "ADAMANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One member of a group, changed by the figures, refuses to budge.",
+     "definitionFit": "Adamant means refusing to change one's mind, and intransigent means unwilling to compromise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "person"
+    }
    }
   },
   {
@@ -141,6 +580,53 @@
    "clue": {
     "text": "Hit an alien ordered to exterminate",
     "enumeration": "10"
+   },
+   "solution": "ANNIHILATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANNIHILATE",
+    "definitions": [
+     {
+      "text": "exterminate",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means put into a new arrangement, so the letters are reshuffled"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit an alien",
+      "gives": "HITANALIEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HITANALIEN",
+       "gives": "ANNIHILATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A command to shoot the alien and wipe it out, straight from a sci-fi film.",
+     "definitionFit": "To annihilate is to destroy completely, as exterminate means to wipe out entirely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
    }
   },
   {
@@ -154,6 +640,64 @@
    "clue": {
     "text": "Most of royal family accepting king as deity",
     "enumeration": "5"
+   },
+   "solution": "HORUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HORUS",
+    "definitions": [
+     {
+      "text": "deity",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Most of",
+      "for": "deletion",
+      "note": "most of something is all but a bit of it, so the last letter is dropped"
+     },
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "to accept is to take in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "royal family",
+      "gives": "HOUSE",
+      "note": "a royal dynasty is called a house, as in the House of Windsor"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R stands for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "R",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Most of a royal family treating their king as though he were a god.",
+     "walkthrough": "HOUSE loses its last letter to leave HOUS, and R goes inside it to make HORUS.",
+     "definitionFit": "Horus is the falcon-headed sky god of ancient Egyptian religion, so he is a deity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accepting"
+    }
    }
   },
   {
@@ -167,6 +711,55 @@
    "clue": {
     "text": "Stupid person in prison, with support at home",
     "enumeration": "9"
+   },
+   "solution": "BIRDBRAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BIRDBRAIN",
+    "definitions": [
+     {
+      "text": "Stupid person",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "BIRD",
+      "note": "bird is British slang for prison, from rhyming slang bird-lime for time"
+     },
+     {
+      "clueFragment": "with support",
+      "gives": "BRA",
+      "note": "a bra is a supporting undergarment; 'with' just adds it on"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIRD",
+      "BRA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A dim inmate behind bars, leaning on help from the family at home.",
+     "definitionFit": "A birdbrain is an informal insult for a foolish person, suggesting a brain the size of a bird's."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
    }
   },
   {
@@ -190,6 +783,70 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "BIGBANGTHEORY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BIG BANG THEORY",
+    "definitions": [
+     {
+      "text": "that suggests how it all started",
+      "at": 32,
+      "note": "a relative clause standing for the theory itself"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Major",
+      "gives": "BIG",
+      "note": "major means big"
+     },
+     {
+      "clueFragment": "report",
+      "gives": "BANG",
+      "note": "a report is the sound of an explosion or gunshot, a bang"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Circle",
+      "gives": "O",
+      "note": "the letter O is circle-shaped"
+     },
+     {
+      "clueFragment": "Line",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway, a rail line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIG",
+      "BANG",
+      "THE",
+      "O",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A big news story about London Underground's Circle Line and how it came to be built.",
+     "walkthrough": "The Circle Line is a London Underground route, but here circle and line are separate pieces. 'On' just joins the halves.",
+     "definitionFit": "The Big Bang theory is the scientific account of the universe beginning from a single hot, dense point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "report"
+    }
    }
   },
   {
@@ -201,7 +858,7 @@
    },
    "length": 13,
    "clue": {
-    "text": "Aspresident, your source of news is informal! network",
+    "text": "As president, your source of news is informal network",
     "enumeration": "4,9",
     "separators": [
      {
@@ -209,6 +866,51 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "BUSHTELEGRAPH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUSH TELEGRAPH",
+    "definitions": [
+     {
+      "text": "informal network",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As president",
+      "gives": "BUSH",
+      "note": "George Bush, father or son, was US president"
+     },
+     {
+      "clueFragment": "your source of news",
+      "gives": "TELEGRAPH",
+      "note": "the puzzle comes from the Telegraph, the solver's own newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUSH",
+      "TELEGRAPH"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper jokes that a president hears the news by gossip rather than by reading it.",
+     "walkthrough": "The setter's paper is the Daily Telegraph, a British daily, so 'your source of news' points to its name.",
+     "definitionFit": "The bush telegraph is the grapevine: news passed rapidly by word of mouth, a phrase from the Australian outback."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "president"
+    }
    }
   },
   {
@@ -228,6 +930,48 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "CLOSEDBOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLOSED BOOK",
+    "definitions": [
+     {
+      "text": "a mystery",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finished",
+      "gives": "CLOSED",
+      "note": "something finished is closed, as a case or deal"
+     },
+     {
+      "clueFragment": "reading",
+      "gives": "BOOK",
+      "note": "a book is reading matter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLOSED",
+      "BOOK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has just finished a whodunnit.",
+     "walkthrough": "'A mystery' looks like the detective novel being read; it is the definition, meaning something not understood.",
+     "definitionFit": "A closed book is a subject or person one knows nothing about, something that remains a mystery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mystery"
+    }
    }
   },
   {
@@ -241,6 +985,40 @@
    "clue": {
     "text": "People whose capital is held by brigands",
     "enumeration": "8"
+   },
+   "solution": "LATVIANS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LATVIANS",
+    "definitions": [
+     {
+      "text": "People whose capital is held by brigands",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People whose capital is held by brigands",
+      "note": "surface reading: a nation whose chief city is under the control of bandits"
+     },
+     {
+      "clueFragment": "brigands",
+      "note": "setter's reading: the capital city's name sits inside the letters of the word brigands, at its second to fifth letters"
+     }
+    ],
+    "explanation": {
+     "surface": "A lawless country whose capital has fallen to bandits.",
+     "walkthrough": "Nobody holds the city by force: RIGA is hidden in bRIGAnds, and Riga is the capital of Latvia.",
+     "definitionFit": "Latvians are the people of Latvia, whose capital Riga is the city spelt out inside the word brigands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "held"
+    }
    }
   },
   {
@@ -254,6 +1032,55 @@
    "clue": {
     "text": "Ring telephone on vehicle",
     "enumeration": "6"
+   },
+   "solution": "CARTEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARTEL",
+    "definitions": [
+     {
+      "text": "Ring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry, one thing on another comes after it, so the piece named first is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "telephone",
+      "gives": "TEL",
+      "note": "tel. is the standard abbreviation for telephone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "TEL"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to call someone using the phone in the car.",
+     "walkthrough": "'Ring' looks like a verb about phoning; it is the noun for a group of conspirators acting together.",
+     "definitionFit": "A ring in the sense of a price-fixing or criminal gang is a cartel, a group of firms or dealers colluding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ring"
+    }
    }
   },
   {
@@ -267,6 +1094,76 @@
    "clue": {
     "text": "Disparage Don's article in book with odd title",
     "enumeration": "8"
+   },
+   "solution": "BELITTLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BELITTLE",
+    "definitions": [
+     {
+      "text": "Disparage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd",
+      "for": "anagram",
+      "note": "odd means strange or irregular, so the letters come out in an unusual order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is enclosed by it, so a piece goes inside the rest"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "b. is the abbreviation for book"
+     },
+     {
+      "clueFragment": "title",
+      "gives": "TITLE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Don's article",
+      "gives": "EL",
+      "note": "a Don is a Spanish gentleman, and el is the Spanish word for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EL",
+      "ITTLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TITLE",
+       "gives": "ITTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university lecturer pans a book with a strange name in his article.",
+     "walkthrough": "'Don' looks like an Oxbridge academic; here it is the Spanish title, so his article is the Spanish definite article.",
+     "definitionFit": "To belittle is to make someone or something seem unimportant, which is what disparaging does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Don's"
+    }
    }
   },
   {
@@ -278,8 +1175,66 @@
    },
    "length": 6,
    "clue": {
-    "text": "17' Islander putting poles around a gigantic bird",
+    "text": "Islander putting poles around a gigantic bird",
     "enumeration": "6"
+   },
+   "solution": "SAMOAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAMOAN",
+    "definitions": [
+     {
+      "text": "Islander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "placed around means set on either side, so the remaining pieces sit between them"
+     }
+    ],
+    "linkWords": [
+     "putting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poles",
+      "gives": "SN",
+      "note": "the two poles are south and north, S and N"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gigantic bird",
+      "gives": "MOA",
+      "note": "the moa was a huge flightless bird of New Zealand, now extinct"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "MOA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A Pacific islander fences in a huge bird between two posts.",
+     "walkthrough": "The stray '17'' at the start is a print error. S and N go round A plus MOA to give SAMOAN.",
+     "definitionFit": "A Samoan is a native of Samoa, a group of islands in the South Pacific, so an islander."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poles"
+    }
    }
   },
   {
@@ -293,6 +1248,65 @@
    "clue": {
     "text": "Get wrong message, in a way, as I'm upset by cut",
     "enumeration": "7"
+   },
+   "solution": "MISHEAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MISHEAR",
+    "definitions": [
+     {
+      "text": "Get wrong message, in a way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means knocked over, and in a down entry that turns the letters upside down"
+     }
+    ],
+    "linkWords": [
+     "as",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written, without the apostrophe"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "SHEAR",
+      "note": "to shear is to cut, as with sheep's wool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "SHEAR"
+     ],
+     "reversals": [
+      {
+       "from": "IM",
+       "to": "MI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone misreads a note, upset about a pay cut.",
+     "walkthrough": "'In a way' admits that misunderstanding a spoken message is only one way of getting it wrong.",
+     "definitionFit": "To mishear is to catch spoken words wrongly, so one way of getting a message wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
    }
   },
   {
@@ -306,6 +1320,48 @@
    "clue": {
     "text": "Officer material, soldier defending colony",
     "enumeration": "8"
+   },
+   "solution": "SERGEANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SERGEANT",
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "material",
+      "gives": "SERGE",
+      "note": "serge is a hard-wearing twilled woollen cloth, often used for uniforms"
+     },
+     {
+      "clueFragment": "soldier defending colony",
+      "gives": "ANT",
+      "note": "soldier ants are the caste that guards an ant colony"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SERGE",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Cloth for an officer's uniform, and a trooper standing guard over a settlement.",
+     "walkthrough": "'Officer material' reads as a phrase for someone fit to be promoted; the definition is 'Officer' alone, and material is the cloth.",
+     "definitionFit": "A sergeant is a non-commissioned officer in the army or a police officer of that rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "soldier"
+    }
    }
   },
   {
@@ -319,6 +1375,55 @@
    "clue": {
     "text": "Bail due to be adjusted — that's within scope of hearing",
     "enumeration": "7"
+   },
+   "solution": "AUDIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AUDIBLE",
+    "definitions": [
+     {
+      "text": "within scope of hearing",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be adjusted",
+      "for": "anagram",
+      "note": "something adjusted is altered and rearranged, so the letters change their order"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bail due",
+      "gives": "BAILDUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BAILDUE",
+       "gives": "AUDIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A court official mentions bail is due for review at a hearing.",
+     "walkthrough": "'Hearing' sounds like a court session; it means the sense of hearing.",
+     "definitionFit": "Audible means able to be heard, so within the range the ear can pick up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hearing"
+    }
    }
   },
   {
@@ -332,6 +1437,41 @@
    "clue": {
     "text": "Treated differently, being famous",
     "enumeration": "13"
+   },
+   "solution": "DISTINGUISHED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISTINGUISHED",
+    "definitions": [
+     {
+      "text": "Treated differently",
+      "at": 0
+     },
+     {
+      "text": "being famous",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Treated differently",
+      "note": "first meaning: told apart, set apart from others"
+     },
+     {
+      "clueFragment": "being famous",
+      "note": "second meaning: eminent, celebrated"
+     }
+    ],
+    "explanation": {
+     "surface": "Celebrities complain that fame makes people treat them differently.",
+     "definitionFit": "Distinguished is both the past tense of distinguish (to differentiate) and an adjective meaning eminent and respected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -345,6 +1485,51 @@
    "clue": {
     "text": "Russian author's goes over line",
     "enumeration": "5"
+   },
+   "solution": "GOGOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOGOL",
+    "definitions": [
+     {
+      "text": "Russian author",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goes",
+      "gives": "GOGO",
+      "note": "goes as a plural noun means turns or attempts, so two of them, GO and GO"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "l. is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOGO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian writer crosses a line.",
+     "walkthrough": "'Goes' looks like a verb; read as a plural noun it is two GOs. In a down clue 'over' places them above L.",
+     "definitionFit": "Nikolai Gogol was a nineteenth-century Russian writer, author of Dead Souls and The Overcoat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "goes"
+    }
    }
   },
   {
@@ -358,6 +1543,47 @@
    "clue": {
     "text": "Boss of establishment where breeding is essential",
     "enumeration": "4"
+   },
+   "solution": "STUD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STUD",
+    "definitions": [
+     {
+      "text": "Boss",
+      "at": 0
+     },
+     {
+      "text": "establishment where breeding is essential",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boss",
+      "note": "first meaning: a raised knob or ornamental ..."
+     },
+     {
+      "clueFragment": "establishment where breeding is essential",
+      "note": "second meaning: a farm where horses are kept for breeding"
+     }
+    ],
+    "explanation": {
+     "surface": "The head of a posh institution where good breeding matters.",
+     "walkthrough": "'Boss' reads as the head of the establishment, and 'breeding' as good manners; both are other senses.",
+     "definitionFit": "A stud is both a decorative knob, called a boss, and a farm keeping animals, especially horses, for breeding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boss"
+    }
    }
   },
   {
@@ -371,6 +1597,54 @@
    "clue": {
     "text": "When one normally sleeps nearby, in open",
     "enumeration": "9"
+   },
+   "solution": "OVERNIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OVERNIGHT",
+    "definitions": [
+     {
+      "text": "When one normally sleeps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is enclosed by it, so a piece sits inside the outer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "open",
+      "gives": "OVERT",
+      "note": "overt means open, not concealed"
+     },
+     {
+      "clueFragment": "nearby",
+      "gives": "NIGH",
+      "note": "nigh is an old word for near"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "NIGH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A camper describes sleeping close by, out in the open air.",
+     "definitionFit": "Overnight means during the night, the time when people are usually asleep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "open"
+    }
    }
   },
   {
@@ -384,6 +1658,46 @@
    "clue": {
     "text": "Complete round-the-world trip, otherwise just part",
     "enumeration": "5"
+   },
+   "solution": "ORBIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORBIT",
+    "definitions": [
+     {
+      "text": "Complete round-the-world trip",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "otherwise",
+      "gives": "OR",
+      "note": "or, as in 'do it or else', means otherwise"
+     },
+     {
+      "clueFragment": "just part",
+      "gives": "BIT",
+      "note": "a bit is just a part of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "BIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller debates going all the way round the globe or only doing a section.",
+     "definitionFit": "To orbit is to circle a planet; a spacecraft orbiting the Earth completes a circuit of the globe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "otherwise"
+    }
    }
   },
   {
@@ -397,6 +1711,50 @@
    "clue": {
     "text": "Get annoyed after king goes into church",
     "enumeration": "4"
+   },
+   "solution": "KIRK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KIRK",
+    "definitions": [
+     {
+      "text": "church",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "goes into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "Get annoyed",
+      "gives": "IRK",
+      "note": "irk means annoy; the setter stretches it to cover getting annoyed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "IRK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loses their temper when the king turns up at the service.",
+     "walkthrough": "'After' puts IRK behind K. 'Goes into' looks like a container signal but only links the wordplay to the definition.",
+     "definitionFit": "Kirk is the Scottish word for a church, as in the Kirk, the Church of Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
    }
   },
   {
@@ -408,8 +1766,53 @@
    },
    "length": 10,
    "clue": {
-    "text": "Oneslumbering deeply, as he might be",
+    "text": "One slumbering deeply, as he might be",
     "enumeration": "10"
+   },
+   "solution": "SLEEPYHEAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SLEEPYHEAD",
+    "definitions": [
+     {
+      "text": "One slumbering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "might be",
+      "for": "anagram",
+      "note": "'might be' suggests the words could turn into something else when their letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deeply, as he",
+      "gives": "DEEPLYASHE",
+      "note": "taken as written, ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEEPLYASHE",
+       "gives": "SLEEPYHEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sound asleep, as a man might well be.",
+     "walkthrough": "'Deeply' seems to describe the slumber, but it starts the letters to rearrange; the definition is just 'One slumbering'.",
+     "definitionFit": "Sleepyhead is an affectionate name for a drowsy person, the kind of person who is dozing off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deeply"
+    }
    }
   }
  ]
