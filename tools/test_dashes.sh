@@ -124,5 +124,92 @@ record = {"clues": {"across": [{"clue": {"text": "Beer - or punch..."}}], "down"
 check("clues-only records are normalised too", "Beer — or punch…",
       dashes.normalise_clues_only(record)["clues"]["across"][0]["clue"]["text"])
 
+# Annotation fields quote the clue, and spell its dashes and ellipses as it does.
+import apply_annotations
+import definitions
+import enumeration
+
+def fresh(text, ann):
+    return {"id": "t-2", "entries": [{"number": 4, "direction": "down", "clue": {"text": text}, "annotation": ann}]}
+
+# The migration: a spaced " - " link word must not be matched to the hyphen inside "Non-U".
+old = fresh("Non-U eats, the first - they go", {
+    "definitions": [{"text": "they go", "at": 24}],
+    "indicators": [{"text": "Non-U", "for": "deletion"}],
+    "linkWords": ["-"],
+    "blocks": [{"clueFragment": "the first"}, {"clueFragment": "eats,"}],
+})
+e = dashes.normalise(old)["entries"][0]
+check("a dash link word follows the spaced dash, not a hyphen in a word", ["—"], e["annotation"]["linkWords"])
+check("the hyphenated indicator stays", "Non-U", e["annotation"]["indicators"][0]["text"])
+d = e["annotation"]["definitions"][0]
+check("the definition still sits at its at", "they go", e["clue"]["text"][d["at"]:d["at"] + 7])
+check("enumeration.find_words skips a hyphen inside a word", 15, enumeration.find_words("Non-U eats, ab - c", "-"))
+check("find_words falls back to the first copy", 3, enumeration.find_words("Non-U", "-"))
+
+# A clue already stored right with its annotation left behind is mended by a re-run.
+ANN_CASES = [
+    # (what, annotation with the stale quote, where to read it, clue, want)
+    ("link word '-'", {"linkWords": ["-"]}, lambda a: a["linkWords"][0],
+     "Good artist all-round — one with drawing ability", "—"),
+    ("link word '--'", {"linkWords": ["--"]}, lambda a: a["linkWords"][0],
+     "Good artist all-round — one with drawing ability", "—"),
+    ("link word en dash", {"linkWords": ["–"]}, lambda a: a["linkWords"][0],
+     "Large ox — it's a devil", "—"),
+    ("link word '...'", {"linkWords": ["..."]}, lambda a: a["linkWords"][0],
+     "Bar open to gin… or punch", "…"),
+    ("indicator across a dash", {"indicators": [{"text": "settled - stamp"}]}, lambda a: a["indicators"][0]["text"],
+     "Job settled — stamp not", "settled — stamp"),
+    ("definition across an ellipsis", {"definitions": [{"text": "not ... required"}]},
+     lambda a: a["definitions"][0]["text"], "Job not … required", "not … required"),
+    ("block fragment with stops", {"blocks": [{"clueFragment": "gin..."}]}, lambda a: a["blocks"][0]["clueFragment"],
+     "Bar open to gin…", "gin…"),
+    ("anagram fodder across a dash", {"assembly": {"anagrams": [{"fodder": "ox - it"}]}},
+     lambda a: a["assembly"]["anagrams"][0]["fodder"], "Large ox — it's a devil", "ox — it"),
+    ("misdirected word", {"features": {"misdirectedWord": "devil..."}}, lambda a: a["features"]["misdirectedWord"],
+     "Large ox — it's a devil…", "devil…"),
+]
+for what, ann, get, text, want in ANN_CASES:
+    pz = fresh(text, ann)
+    flags = []
+    puzzle_integrity.check_dashes(pz, flags)
+    check(f"{what}: DASH flags the stale quote", ["DASH"], [f[0] for f in flags])
+    out = dashes.normalise(pz)
+    check(f"{what}: normalise mends it though the clue was right", want, get(out["entries"][0]["annotation"]))
+    check(f"{what}: the clue is untouched", text, out["entries"][0]["clue"]["text"])
+    flags = []
+    puzzle_integrity.check_dashes(out, flags)
+    check(f"{what}: mirror, the mended puzzle passes DASH", [], flags)
+    check(f"{what}: a mended puzzle is returned as itself", True, dashes.normalise(out) is out)
+
+# Left alone: quotes that are the clue's own words.
+KEEP = [
+    ("a hyphenated word", "all-round", "Good artist all-round — one"),
+    ("the house dash", "—", "Good artist all-round — one"),
+    ("a dash with its space", "— ", "me — or the king"),
+    ("a word inside a word (hidden fodder)", "ndup", "round up"),
+    ("two stops (a speck)", "..", "row .."),
+    ("a blank run", "----", "down to a ---- sea"),
+]
+for what, phrase, text in KEEP:
+    check(f"quote keeps {what}", phrase, dashes.quote(phrase, text))
+pz = fresh("Pot - boiler", {"linkWords": ["-"]})
+check("a clue not yet normalised: its '-' link word follows it to the house dash", ["—"],
+      dashes.normalise(pz)["entries"][0]["annotation"]["linkWords"])
+
+# The annotate path (apply_annotations.normalize, used by annotate_check and
+# apply_annotations) spells a new annotation's words the clue's way, so a
+# '-' link word cannot be written again.
+check("respell: '-' is the clue's dash", "—", definitions.respell("-", "Good artist all-round — one"))
+check("respell: '...' is the clue's ellipsis", "…", definitions.respell("...", "Bar open to gin…"))
+check("respell: a hyphenated word stays", "all-round",
+      definitions.respell("all-round", "Good artist all-round — one"))
+got = apply_annotations.in_clue_spelling(
+    {"linkWords": ["-"], "indicators": [{"text": "all-round"}], "blocks": [{"clueFragment": "gin..."}]},
+    "Good artist all-round — one with gin…")
+check("in_clue_spelling: link word", ["—"], got["linkWords"])
+check("in_clue_spelling: indicator", "all-round", got["indicators"][0]["text"])
+check("in_clue_spelling: block", "gin…", got["blocks"][0]["clueFragment"])
+
 raise SystemExit(fails)
 PY
