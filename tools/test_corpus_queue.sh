@@ -57,14 +57,29 @@ fake = Path(os.environ["HOME"]) / "pass.sh"
 args = Path(os.environ["HOME"]) / "args"
 q.FULL_PASS = fake
 q.CHAIN = ["true"]
+# A stand-in for the bridge's tools/track-job.sh --run: starts the command
+# detached in its own session, registers it as a file in the registry
+# directory, prints its pid.
+reg = Path(os.environ["HOME"]) / "tracked-jobs"
+reg.mkdir()
+os.environ["TRACKED_JOBS_DIR"] = str(reg)
+tj = Path(os.environ["HOME"]) / "track-job.sh"
+tj.write_text(f"""#!/bin/bash
+echo "$@" > {os.environ["HOME"]}/tj-args
+while [ "$1" != "--" ]; do shift; done; shift
+setsid "$@" >> {os.environ["HOME"]}/pass.log 2>&1 < /dev/null &
+echo '{{"pid": '$!', "exit_file": "{reg}/'$!'.exit"}}' > {reg}/$!.json
+echo $!
+""")
+tj.chmod(0o755)
+q.TRACK_JOB = str(tj)
 def wait_end(pid):
-    """The pass is this process's child here (the tick's in use exits first).
-    Its pid comes from running.json: launch()'s Popen, collected, may already
-    have reaped a pass that ended, and running() then calls it gone."""
-    try:
-        os.waitpid(pid, 0)
-    except ChildProcessError:
-        pass
+    """The pass is not this process's child (track-job started it): wait for
+    its leader to be gone, as the tick's liveness check sees it."""
+    for _ in range(300):
+        if q.proc_start(pid) is None:
+            return
+        time.sleep(0.1)
 def run_pass(body):
     """Start a pass running `body`, let it end, and reap it as the next tick does first."""
     fake.write_text(f'echo "$@" > {args}\n' + body)
@@ -74,6 +89,14 @@ def run_pass(body):
     return q.load_state()
 st = run_pass("exit 0")
 assert args.read_text().strip() == "", "the pass takes no arguments: no edition list"
+tjargs = (Path(os.environ["HOME"]) / "tj-args").read_text()
+assert "--restart" in tjargs and "--run" in tjargs and f"--log {q.LOG}" in tjargs, tjargs
+assert list(reg.glob("*.json")) == [], "an ordinary end deregisters the job: no exit wake"
+for _ in range(100):
+    if not list(reg.glob("*.exit")):
+        break
+    time.sleep(0.1)
+assert list(reg.glob("*.exit")) == [], "and leaves no exit file behind"
 assert st["lastExit"]["rc"] == 0 and st["deadLaunches"] == 0, st
 # (mirror) a pass that writes its row before launch() has its pid's start time
 # still made progress: the marks are taken before it runs.
@@ -89,6 +112,30 @@ assert q.tick(False) == "held" and "held" in woken[-1], woken
 q.main(["release"])
 assert run_pass("exit 0")["deadLaunches"] == 0, "a released pass starts again"
 
+# A failed pass stays registered, so track-job's exit wake tells the room.
+for f in reg.glob("*"):
+    f.unlink()
+assert run_pass("exit 3")["lastExit"]["rc"] == 3 and len(list(reg.glob("*.json"))) == 1
+for f in reg.glob("*"):
+    f.unlink()
+
+# A pass relaunched by the bridge after a restart is nobody's child: `begin`
+# records its session in running.json, keeping the dead launch's ledger marks
+# and start time; and it does not run beside a live pass.
+dead = {"name": "full_pass", "pid": 999999, "start": "1", "ledgers": {"x": [1, 2]}, "launched": "then"}
+q.RUNNING.write_text(json.dumps(dead))
+def begin():
+    r = subprocess.run(["python3", "tools/corpus_queue.py", "begin"], start_new_session=True)
+    return r.returncode
+assert begin() == 0
+rec = json.loads(q.RUNNING.read_text())
+assert rec["pid"] != 999999 and rec["ledgers"] == {"x": [1, 2]} and rec["launched"] == "then", rec
+live = subprocess.Popen(["sleep", "30"], start_new_session=True)
+q.RUNNING.write_text(json.dumps({"name": "full_pass", "pid": live.pid, "start": q.proc_start(live.pid)}))
+assert begin() == 3, "another live pass: this one does not start"
+assert json.loads(q.RUNNING.read_text())["pid"] == live.pid
+live.kill(); live.wait()
+q.RUNNING.unlink()
 # A pass that finished having fetched starts the next at once; one that
 # fetched nothing, or did not finish, leaves it to the hourly tick.
 st = run_pass(f"echo edition >> {q.FETCHED[0]}; exit 0")
@@ -116,6 +163,17 @@ for _ in range(100):
     time.sleep(0.1)
 pid, sid = map(int, marker.read_text().split())
 assert sid != leader.pid and pid == sid, (pid, sid, leader.pid)
+
+# stop: under track-job's wrapper (its command line names deprioritize.sh) the
+# TERM goes to the command it runs, which gets its grace to commit; the wrapper
+# then ends by itself.
+termed = Path(os.environ["HOME"]) / "termed"
+w = subprocess.Popen(["bash", "-c", 'bash -c "trap \\"sleep 1; echo ok > $1; exit 0\\" TERM; sleep 30 & wait" x "$1"; echo wrapper-done',
+                      "deprioritize.sh", str(termed)], start_new_session=True)
+time.sleep(1)
+q.end_session(w.pid, grace=2, leader_grace=10)
+assert termed.read_text().strip() == "ok", "the command got its TERM and its grace"
+assert w.wait(5) == 0, "and the wrapper ended with it, not killed first"
 
 # An edition-list job has nowhere to go: no queue file, no job argument.
 assert not (q.ROOT / "tools" / "data" / "corpus_queue.json").exists(), "edition-list jobs are gone; never bring them back"

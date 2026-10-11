@@ -36,6 +36,20 @@ ledger row read or a scan fetched (FETCHED) is a dead launch; DEAD_LAUNCHES in a
 tell the room. The pass is its own session; when its leader is gone the
 tick kills whatever of the session is left before it starts anything.
 
+The pass runs under the bridge's tools/track-job.sh --run --restart (launch()):
+a lane in the room's status while it runs, and a bridge restart that kills it
+relaunches the same command, log and label. The session leader is track-job's
+wrapper, and running.json's pid is that wrapper's (the pid track-job prints,
+which is also the session id). The relaunched pass is not launch()'s child, so
+the pass records itself: `begin` (its first step) writes running.json for its
+own session, keeping the dead launch's ledger marks so the pass still counts
+as one launch, and refuses to run beside another live pass (the hourly tick
+may have started one in the gap). Resuming rather than redoing is the pass's
+own: tools/durable.sh salvages what the killed run filed, and each filer skips
+what is already filed. track-job wakes the room when a job ends and cannot be
+quietened, so an ordinary end (exit 0) deregisters the job first (`finish`):
+only a failed or killed pass wakes the room.
+
 A stop is graceful: the pass's leader gets SIGTERM and up to STOP_GRACE
 seconds to end, which it spends ending its filer and committing what it
 filed (tools/durable.sh); only then is the rest of its session killed.
@@ -67,6 +81,8 @@ LEDGERS = [downloads.ARCHIVE_ORG / "filed.jsonl", downloads.GALE_LEDGER, downloa
 #: clue zones, is a new directory in them).
 FETCHED = [downloads.ARCHIVE_ORG / "done.tsv", downloads.TROVE, downloads.TROVE_CLUES]
 WAKE_SH = os.environ.get("WAKE_SH", "/Users/pt/github/household/tools/wake.sh")
+TRACK_JOB = os.environ.get("TRACK_JOB", str(Path(WAKE_SH).parent / "track-job.sh"))
+LABEL = "corpus OCR full pass"
 ROOM = "cryptic-crosswords"
 NAME = "full_pass"
 STALL_MINUTES = 60
@@ -116,6 +132,13 @@ def session_of(pid):
         return None
 
 
+def ppid_of(pid):
+    try:
+        return int(Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[1])
+    except (OSError, IndexError, ValueError):
+        return None
+
+
 def session_pids(sid):
     """Every live process in session `sid`."""
     out = []
@@ -136,10 +159,17 @@ def end_session(sid, grace=10, leader_grace=0):
     if sid == os.getsid(0):
         return []
     if leader_grace and proc_start(sid) is not None:
+        # The leader is track-job's wrapper, which a TERM kills outright; the
+        # command it runs (which passes TERM to the pass and waits) is its child.
         try:
-            os.kill(sid, signal.SIGTERM)
-        except ProcessLookupError:
-            pass
+            wrapped = b"deprioritize.sh" in Path(f"/proc/{sid}/cmdline").read_bytes()
+        except OSError:
+            wrapped = False
+        for pid in [p for p in session_pids(sid) if ppid_of(p) == sid] if wrapped else [sid]:
+            try:
+                os.kill(pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
         for _ in range(leader_grace * 10):
             if proc_start(sid) is None:
                 break
@@ -214,12 +244,81 @@ def wake(text, dry):
 
 
 def command():
-    """What launch() runs: the full pass, its exit status kept in EXIT, then
-    CHAIN. A TERM to it (stop) is passed on to the pass, which commits what
-    it filed before it exits, and waited for."""
-    wrapper = ('bash "$1" & p=$!; trap \'kill -TERM "$p" 2>/dev/null\' TERM INT HUP; wait "$p"; rc=$?; '
-               'while kill -0 "$p" 2>/dev/null; do wait "$p"; rc=$?; done; echo "$rc" > "$2"; shift 2; "$@"')
-    return ["bash", "-c", wrapper, NAME, str(FULL_PASS), str(EXIT), *CHAIN]
+    """What track-job runs: `begin` (records the pass as running; 3 means
+    another pass is, and this one ends quietly), the full pass, `finish` (its
+    exit status kept in EXIT, the job deregistered on exit 0), then CHAIN. A
+    TERM to it (stop) is passed on to the pass, which commits what it filed
+    before it exits, and waited for."""
+    wrapper = ('python3 "$3" begin; b=$?; [ "$b" = 3 ] && exit 0; [ "$b" = 0 ] || exit "$b"; '
+               'bash "$1" & p=$!; trap \'kill -TERM "$p" 2>/dev/null\' TERM INT HUP; wait "$p"; rc=$?; '
+               'while kill -0 "$p" 2>/dev/null; do wait "$p"; rc=$?; done; python3 "$3" finish "$rc"; shift 3; "$@"')
+    return ["bash", "-c", wrapper, NAME, str(FULL_PASS), str(EXIT), str(Path(__file__).resolve()), *CHAIN]
+
+
+def tracked_jobs_dir():
+    d = os.environ.get("TRACKED_JOBS_DIR") or (os.path.join(os.environ["STATE_DIR"], "tracked-jobs")
+                                               if os.environ.get("STATE_DIR") else None)
+    return Path(d) if d else None
+
+
+def untrack(sid):
+    """Stop track-job's bridge watching the job whose wrapper is pid `sid`, so
+    its end does not wake the room (deleting its registry file is the
+    documented way). Its exit-status file, written as it ends, is removed once
+    the wrapper is gone."""
+    d = tracked_jobs_dir()
+    if not d or not d.is_dir():
+        return
+    for path in d.glob("*.json"):
+        try:
+            job = json.loads(path.read_text())
+        except (OSError, ValueError):
+            continue
+        if job.get("pid") != sid:
+            continue
+        path.unlink(missing_ok=True)
+        exit_file = job.get("exit_file")
+        if exit_file and not os.fork():
+            os.setsid()
+            for _ in range(600):
+                if proc_start(sid) is None:
+                    break
+                time.sleep(1)
+            Path(exit_file).unlink(missing_ok=True)
+            os._exit(0)
+
+
+def begin():
+    """The pass's first step: make running.json name this session (the leader
+    track-job started, or started again after a bridge restart). Returns 3 when
+    another pass is alive: only one corpus job runs."""
+    sid = os.getsid(0)
+    start = proc_start(sid)
+    try:
+        old = json.loads(RUNNING.read_text())
+    except (OSError, ValueError):
+        old = {}
+    if old.get("pid") != sid and proc_start(old.get("pid", 0)) == old.get("start") and old.get("start"):
+        print(f"another full pass is running (pid {old['pid']}); this one does not start")
+        untrack(sid)
+        return 3
+    if old.get("pid") == sid:
+        return 0
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    EXIT.unlink(missing_ok=True)
+    RUNNING.write_text(json.dumps({
+        "name": NAME, "pid": sid, "start": start, "ledgers": old.get("ledgers") or ledger_marks(),
+        "launched": old.get("launched") or datetime.datetime.now().astimezone().isoformat(timespec="seconds")}))
+    return 0
+
+
+def finish(rc):
+    """The pass's exit status goes to EXIT. An ordinary end (0) is not news:
+    deregister the job so track-job's exit wake does not fire; a failed one
+    stays registered and wakes the room."""
+    EXIT.write_text(f"{rc}\n")
+    if rc == 0:
+        untrack(os.getsid(0))
 
 
 def chain():
@@ -228,37 +327,49 @@ def chain():
     starts the next pass if this one finished having fetched something.
     Returns in the parent at once."""
     leader = os.getppid()
+    sid = os.getsid(0)
     if os.fork():
         return
     os.setsid()
+    try:  # the session leader is track-job's wrapper, which outlives the command by a moment
+        wait_for = [leader] + ([sid] if json.loads(RUNNING.read_text()).get("pid") == sid else [])
+    except (OSError, ValueError):
+        wait_for = [leader]
     for _ in range(CHAIN_WAIT * 10):
-        if proc_start(leader) is None:
+        if all(proc_start(p) is None for p in wait_for):
             break
         time.sleep(0.1)
     os.execvp(CHAINED_TICK[0], CHAINED_TICK)
 
 
 def launch(dry):
+    """Start the pass under track-job --run --restart. Returns False if track-job did not start it."""
     if dry:
-        print(f"[dry run] would start {' '.join(command())}")
-        return
+        print(f"[dry run] would start {TRACK_JOB} --restart ... -- {' '.join(command())}")
+        return True
     for line in downloads.migrate():  # nothing is running: no job holds an old path
         print(line)
     STATE_DIR.mkdir(parents=True, exist_ok=True)
     EXIT.unlink(missing_ok=True)
     env = {k: v for k, v in os.environ.items() if k not in ("CT_IN_WORKTREE", "CT_MAIN_CHECKOUT")}
     marks = ledger_marks()  # before the pass can write a row
-    with open(LOG, "a") as log:
-        p = subprocess.Popen(command(), stdout=log, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
-                             start_new_session=True, env=env, cwd=ROOT)
+    done = subprocess.run([TRACK_JOB, "--log", str(LOG), "--restart", ROOM, "--run", LABEL,
+                           f"tail -n 1 {LOG}", "--", *command()],
+                          stdout=subprocess.PIPE, stdin=subprocess.DEVNULL, env=env, cwd=ROOT, text=True)
+    pid = done.stdout.strip()
+    if done.returncode or not pid.isdigit():
+        print(f"track-job did not start the full pass (exit {done.returncode}): {pid!r}", file=sys.stderr)
+        return False
+    pid = int(pid)  # the wrapper: the session leader, alive as long as the pass
     for _ in range(50):
-        start = proc_start(p.pid)
+        start = proc_start(pid)
         if start:
             break
         time.sleep(0.1)
-    RUNNING.write_text(json.dumps({"name": NAME, "pid": p.pid, "start": start, "ledgers": marks,
+    RUNNING.write_text(json.dumps({"name": NAME, "pid": pid, "start": start, "ledgers": marks,
                                    "launched": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}))
-    print(f"started the full pass (pid {p.pid}); log {LOG}")
+    print(f"started the full pass (pid {pid}); log {LOG}")
+    return True
 
 
 def stall_check(run, state, dry):
@@ -349,8 +460,7 @@ def tick(dry, chained=False):
     if held:
         print(f"a scan filer holds {held}; nothing started")
         return "busy"
-    launch(dry)
-    return "started"
+    return "started" if launch(dry) else "failed"
 
 
 def status():
@@ -374,6 +484,8 @@ def main(argv=None):
     t.add_argument("--dry-run", action="store_true")
     t.add_argument("--chained", action="store_true", help="only after a pass that finished having fetched")
     sub.add_parser("chain", help="the pass's last step: start the next pass once it has exited, if it fetched")
+    sub.add_parser("begin", help="(the pass's first step) record this session as the running pass")
+    sub.add_parser("finish", help="(the pass's exit step) record its exit status").add_argument("rc", type=int)
     sub.add_parser("status")
     sub.add_parser("adopt").add_argument("pid", type=int)
     sub.add_parser("stop", help="kill the running pass and everything it started, and hold it")
@@ -385,6 +497,10 @@ def main(argv=None):
         tick(args.dry_run, args.chained)
     elif args.cmd == "chain":
         chain()
+    elif args.cmd == "begin":
+        sys.exit(begin())
+    elif args.cmd == "finish":
+        finish(args.rc)
     elif args.cmd == "adopt":
         start = proc_start(args.pid)
         if not start:

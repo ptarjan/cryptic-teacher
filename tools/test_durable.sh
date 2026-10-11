@@ -205,6 +205,14 @@ fake.write_text('trap \'sleep 2; echo committed > "$HOME/committed"; exit 143\' 
                 'echo up > "$HOME/up"\nwhile :; do sleep 1 & wait $!; done\n')
 q.FULL_PASS, q.CHAIN = fake, ["true"]
 q.wake = lambda text, dry: None
+# Not the bridge's track-job.sh: a real one would register the fake pass with the room.
+tj = home / "track-job.sh"
+tj.write_text('#!/bin/bash\nwhile [ "$1" != "--" ]; do shift; done; shift\n'
+              'setsid "$@" >> "$HOME/pass.log" 2>&1 < /dev/null &\necho $!\n')
+tj.chmod(0o755)
+q.TRACK_JOB = str(tj)
+os.environ.pop("STATE_DIR", None)
+os.environ.pop("TRACKED_JOBS_DIR", None)
 q.launch(False)
 for _ in range(100):
     if (home / "up").exists():
