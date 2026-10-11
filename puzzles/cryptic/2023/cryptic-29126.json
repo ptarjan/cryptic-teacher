@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,66 @@
      }
     ]
    },
-   "solution": "DROPDEAD"
+   "solution": "DROPDEAD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DROP DEAD",
+    "definitions": [
+     {
+      "text": "very unwelcome advice",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept",
+      "for": "container",
+      "note": "something kept is held inside, so the father figure holds the letter"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don't play",
+      "gives": "DROP",
+      "note": "a player who is dropped is left out of the team"
+     },
+     {
+      "clueFragment": "the old man",
+      "gives": "DAD",
+      "note": "old man is slang for father"
+     },
+     {
+      "clueFragment": "'e",
+      "gives": "E",
+      "note": "the letter itself, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROP",
+      "D",
+      "E",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A father, here in dropped-aitch dialect, keeps nagging his child not to play, and his advice is thoroughly unwelcome.",
+     "walkthrough": "The apostrophe in 'e is the dropped H of he, which leaves just the letter to be kept inside the father.",
+     "definitionFit": "Telling someone to drop dead is a rude dismissal, jokingly framed here as advice nobody wants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +115,63 @@
     "text": "Bother — nearly late for lift",
     "enumeration": "4"
    },
-   "solution": "DRAT"
+   "solution": "DRAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "DRAT",
+    "definitions": [
+     {
+      "text": "Bother",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "lift",
+      "for": "reversal",
+      "note": "in a down clue, lifting something makes it read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "late",
+      "gives": "TARDY",
+      "note": "tardy means late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAT"
+     ],
+     "reversals": [
+      {
+       "from": "TARD",
+       "to": "DRAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is annoyed at being almost too late to catch a lift.",
+     "walkthrough": "TARDY loses its last letter to give TARD, which is then read upwards.",
+     "definitionFit": "Both are mild exclamations of annoyance, interjections used when something goes wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +185,83 @@
     "text": "Blades score midway through — no way back for Arsenal",
     "enumeration": "4"
    },
-   "solution": "OARS"
+   "solution": "OARS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "OARS",
+    "definitions": [
+     {
+      "text": "Blades",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "midway through",
+      "for": "letter_selection",
+      "note": "midway through points to the central letter of the word"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the word for way is read in the opposite direction"
+     },
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "no means the reversed string is removed from the team name"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "score",
+      "gives": "O",
+      "select": "middle",
+      "note": "the middle of the five letters"
+     },
+     {
+      "clueFragment": "Arsenal",
+      "gives": "ARSENAL",
+      "note": "the football club, taken as written"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "LANE",
+      "note": "a lane is a way or road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "ARS"
+     ],
+     "reversals": [
+      {
+       "from": "LANE",
+       "to": "ENAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football report: the Blades (Sheffield United's nickname) score halfway through, and Arsenal can't come back.",
+     "walkthrough": "The Blades is Sheffield United's nickname, which makes the first word look like a team; it is the definition.",
+     "definitionFit": "The blade is the flat end of an oar, so blades is rowing slang for the oars themselves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blades"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +275,73 @@
     "text": "Picked up taps oddly found in outbuilding — they may need plumbing",
     "enumeration": "6"
    },
-   "solution": "DEPTHS"
+   "solution": "DEPTHS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "DEPTHS",
+    "definitions": [
+     {
+      "text": "they may need plumbing",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly takes the first, third and further odd-numbered letters"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "found in means sitting inside the outer word"
+     },
+     {
+      "text": "Picked up",
+      "for": "reversal",
+      "note": "in a down clue, picking something up turns it to read from the bottom upward"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outbuilding",
+      "gives": "SHED",
+      "note": "a shed is an outbuilding"
+     },
+     {
+      "clueFragment": "taps",
+      "gives": "TP",
+      "select": "alternate",
+      "note": "first and third letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEPTHS"
+     ],
+     "reversals": [
+      {
+       "from": "SHTPED",
+       "to": "DEPTHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plumber finds taps in a garden shed which need fitting.",
+     "walkthrough": "'Plumbing' is the trap: here it means measuring depth with a plumb line, not pipework.",
+     "definitionFit": "To plumb is to sound or measure the depth of water, so deep places are what get plumbed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plumbing"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +361,53 @@
      }
     ]
    },
-   "solution": "ADIPOSETISSUE"
+   "solution": "ADIPOSETISSUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADIPOSE TISSUE",
+    "definitions": [
+     {
+      "text": "fat",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests the letters are turned around and reset in a new order"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piteous asides",
+      "gives": "PITEOUSASIDES",
+      "note": "the thirteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PITEOUSASIDES",
+       "gives": "ADIPOSETISSUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone makes pitiful little remarks about being overweight.",
+     "definitionFit": "Adipose tissue is the body's fat-storing tissue, the medical name for fat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "asides"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +421,67 @@
     "text": "Repeated phrase over in American state — definitely",
     "enumeration": "6"
    },
-   "solution": "AFFIRM"
+   "solution": "AFFIRM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "AFFIRM",
+    "definitions": [
+     {
+      "text": "state — definitely",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over means turned over, so the word reads backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the turned word inside the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "AM",
+      "note": "standard abbreviation for American"
+     },
+     {
+      "clueFragment": "Repeated phrase",
+      "gives": "RIFF",
+      "note": "a riff is a repeated musical phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FFIR",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "RIFF",
+       "to": "FFIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slogan is repeated all over one American state.",
+     "walkthrough": "'American state' looks like one unit, but state belongs to the definition.",
+     "definitionFit": "To affirm is to declare or assert something firmly, i.e. to state it positively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +495,62 @@
     "text": "It's true corporation employs old dogsbody",
     "enumeration": "8"
    },
-   "solution": "FACTOTUM"
+   "solution": "FACTOTUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FACTOTUM",
+    "definitions": [
+     {
+      "text": "dogsbody",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "employs",
+      "for": "container",
+      "note": "to employ is to take on, so the combined words take in the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's true",
+      "gives": "FACT",
+      "note": "a fact is something true"
+     },
+     {
+      "clueFragment": "corporation",
+      "gives": "TUM",
+      "note": "corporation is old slang for a pot belly"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FACT",
+      "O",
+      "TUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm declares it really does keep an elderly gofer on the payroll.",
+     "walkthrough": "Corporation as a pot belly is a dated joke the clue hides behind the business sense.",
+     "definitionFit": "A factotum is a servant or employee who does all kinds of menial jobs, the same as a dogsbody."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +564,53 @@
     "text": "Ban tuition for developing medical procedure",
     "enumeration": "10"
    },
-   "solution": "INTUBATION"
+   "solution": "INTUBATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTUBATION",
+    "definitions": [
+     {
+      "text": "medical procedure",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developing",
+      "for": "anagram",
+      "note": "something developing is changing form, so the letters change their order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ban tuition",
+      "gives": "BANTUITION",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BANTUITION",
+       "gives": "INTUBATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call to stop teaching a new surgical technique.",
+     "definitionFit": "Intubation, putting a tube into the windpipe, is a medical procedure, often done before surgery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tuition"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +630,44 @@
      }
     ]
    },
-   "solution": "MONEYORDER"
+   "solution": "MONEYORDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MONEY ORDER",
+    "definitions": [
+     {
+      "text": "Could be my one",
+      "at": 0
+     },
+     {
+      "text": "guarantee of getting paid",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Could be my one",
+      "note": "first meaning, cryptic: a rearrangement of the letters of 'my one' is one ordering of the word for cash"
+     },
+     {
+      "clueFragment": "guarantee of getting paid",
+      "note": "second meaning: a prepaid payment slip bought from a post office"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone muses that a slip of paper might be their assurance of payment.",
+     "walkthrough": "Read cryptically, 'my one' is a reordering of MONEY, which makes it a money order in the literal sense.",
+     "definitionFit": "A money order is a prepaid payment document, so the payee is assured the funds exist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +681,72 @@
     "text": "Empress with a hold on power last to get stripped",
     "enumeration": "9"
    },
-   "solution": "AGRIPPINA"
+   "solution": "AGRIPPINA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AGRIPPINA",
+    "definitions": [
+     {
+      "text": "Empress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped",
+      "for": "deletion",
+      "note": "stripped means the outer layer is removed, so first and last letters go"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "on",
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hold",
+      "gives": "GRIP",
+      "note": "a grip is a hold"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     },
+     {
+      "clueFragment": "last",
+      "gives": "FINAL",
+      "note": "final means last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GRIP",
+      "P",
+      "INA"
+     ]
+    },
+    "explanation": {
+     "surface": "An empress clinging to power is finally to be deposed.",
+     "walkthrough": "FINAL loses its outer letters to leave INA. Agrippina the Younger was a Roman empress, mother of Nero.",
+     "definitionFit": "Agrippina the Younger was a Roman empress, the wife of Claudius and mother of Nero."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stripped"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +774,52 @@
      }
     ]
    },
-   "solution": "AWAYFROMITALL"
+   "solution": "AWAYFROMITALL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AWAY FROM IT ALL",
+    "definitions": [
+     {
+      "text": "in solitary?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "release",
+      "for": "anagram",
+      "note": "released letters are set free to fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Formally await",
+      "gives": "FORMALLYAWAIT",
+      "note": "the thirteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FORMALLYAWAIT",
+       "gives": "AWAYFROMITALL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner in solitary confinement waits officially for release.",
+     "walkthrough": "The question mark flags the definition: a prisoner in solitary is cut off, though the phrase usually means a peaceful retreat.",
+     "definitionFit": "Someone in solitary confinement is isolated from everyone and everything, a grim version of a getaway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "release"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +839,55 @@
      }
     ]
    },
-   "solution": "CUTIN"
+   "solution": "CUTIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CUT IN",
+    "definitions": [
+     {
+      "text": "failed to observe queuing etiquette",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing head",
+      "for": "deletion",
+      "note": "losing its head means the first letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "president",
+      "gives": "PUTIN",
+      "note": "Vladimir Putin, president of Russia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "UTIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A president is caught and beheaded; separately someone pushes into a queue.",
+     "walkthrough": "The president is Russia's, the most familiar head of state with a five-letter surname.",
+     "definitionFit": "To cut in is to push into a queue ahead of others, a breach of orderly waiting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 12,
@@ -249,7 +911,77 @@
      }
     ]
    },
-   "solution": "THROWAWOBBLY"
+   "solution": "THROWAWOBBLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "THROW A WOBBLY",
+    "definitions": [
+     {
+      "text": "get very angry",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first takes only the opening letter of the word before it"
+     },
+     {
+      "text": "blow",
+      "for": "anagram",
+      "note": "to blow something is to wreck it, so the letters before it are scattered"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cast",
+      "gives": "THROW",
+      "note": "to cast is to throw"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "A",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "Blow-by",
+      "gives": "BLOWBY",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THROW",
+      "A",
+      "WOBBLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BLOWBY",
+       "gives": "WOBBLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detailed account of a fight, beginning after a punch is thrown.",
+     "walkthrough": "'Blow-by-blow' looks like one phrase, but its last word is the signal to rearrange the first two. 'After' puts THROW in front of the rest.",
+     "definitionFit": "Throwing a wobbly is British slang for having a tantrum or losing one's temper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blow"
+    }
+   }
   },
   {
    "number": 13,
@@ -269,7 +1001,39 @@
      }
     ]
    },
-   "solution": "HEDGEFUNDS"
+   "solution": "HEDGEFUNDS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HEDGE FUNDS",
+    "definitions": [
+     {
+      "text": "Green investments?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Green investments?",
+      "note": "surface reading: environmentally friendly places to put one's savings"
+     },
+     {
+      "clueFragment": "Green investments?",
+      "note": "setter's reading: money put towards planting leafy boundaries, which are literally green"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Green suggests eco-friendly finance; the answer is speculative funds, yet read literally it is money for planting a garden boundary.",
+     "definitionFit": "Hedge funds are pooled investment vehicles; a hedge is also a green row of shrubs, hence the pun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 14,
@@ -293,7 +1057,50 @@
      }
     ]
    },
-   "solution": "FARANDWIDE"
+   "solution": "FARANDWIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FAR AND WIDE",
+    "definitions": [
+     {
+      "text": "everywhere",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After storm",
+      "for": "anagram",
+      "note": "a storm throws things into disarray, so after it the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dawned fair",
+      "gives": "DAWNEDFAIR",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DAWNEDFAIR",
+       "gives": "FARANDWIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a night of storms, the morning broke bright across the land.",
+     "definitionFit": "Far and wide means over a great area, in all directions, so the same as everywhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 15,
@@ -307,7 +1114,58 @@
     "text": "Marketplace at side of garage — park here",
     "enumeration": "4"
    },
-   "solution": "EBAY"
+   "solution": "EBAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EBAY",
+    "definitions": [
+     {
+      "text": "Marketplace",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "side of",
+      "for": "letter_selection",
+      "note": "side of points to an edge letter, here the closing one"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garage",
+      "gives": "E",
+      "select": "last",
+      "note": "its last letter"
+     },
+     {
+      "clueFragment": "park here",
+      "gives": "BAY",
+      "note": "a parking bay is where one parks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "BAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Directions to a market held beside a garage, with parking on site.",
+     "definitionFit": "eBay is an online marketplace where people buy and sell goods by auction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "garage"
+    }
+   }
   },
   {
    "number": 16,
@@ -321,7 +1179,67 @@
     "text": "Ant and Dec finally speak after two pages",
     "enumeration": "10"
    },
-   "solution": "LEAFCUTTER"
+   "solution": "LEAFCUTTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEAFCUTTER",
+    "definitions": [
+     {
+      "text": "Ant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally takes only the closing letter of the name"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two pages",
+      "gives": "LEAF",
+      "note": "a leaf of a book has two pages, front and back"
+     },
+     {
+      "clueFragment": "Dec",
+      "gives": "C",
+      "select": "last",
+      "note": "its last letter"
+     },
+     {
+      "clueFragment": "speak",
+      "gives": "UTTER",
+      "note": "to utter is to speak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAF",
+      "C",
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Ant and Dec, a famous British TV presenting duo, take turns to speak after a couple of pages of script.",
+     "walkthrough": "Ant and Dec are a famous British TV double act, so Ant reads as a name; it is the definition, an insect.",
+     "definitionFit": "A leafcutter is a kind of ant that cuts leaves to cultivate fungus in its nest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ant"
+    }
+   }
   },
   {
    "number": 17,
@@ -335,7 +1253,62 @@
     "text": "It used to be played for a year out of season",
     "enumeration": "8"
    },
-   "solution": "PSALTERY"
+   "solution": "PSALTERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PSALTERY",
+    "definitions": [
+     {
+      "text": "It used to be played",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "container",
+      "note": "being out of the season word means wrapping around its outside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for a",
+      "gives": "PER",
+      "note": "per means for each, as in per annum"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "season",
+      "gives": "SALT",
+      "note": "to season food is to salt it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "SALT",
+      "ER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Something, perhaps a sport, used to be played for a year outside its proper season.",
+     "walkthrough": "'Played' suggests a game, but it is a musical instrument; 'for a' is the Latin-derived per of per annum.",
+     "definitionFit": "A psaltery is an ancient stringed instrument plucked like a zither, no longer in common use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "season"
+    }
+   }
   },
   {
    "number": 18,
@@ -355,7 +1328,69 @@
      }
     ]
    },
-   "solution": "GRASSWIDOW"
+   "solution": "GRASSWIDOW",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GRASS WIDOW",
+    "definitions": [
+     {
+      "text": "her husband's often away",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to visit",
+      "for": "container",
+      "note": "a visitor goes inside, so this word enters the exclamation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gross",
+      "gives": "GR",
+      "note": "GR is the abbreviation for gross, 144"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "ASS",
+      "note": "ass is US slang for the backside"
+     },
+     {
+      "clueFragment": "It's fantastic!",
+      "gives": "WOW",
+      "note": "an exclamation of delight"
+     },
+     {
+      "clueFragment": "Instinct",
+      "gives": "ID",
+      "note": "the id is the instinctive part of the psyche in Freud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "ASS",
+      "W",
+      "ID",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is ogling a disgusting backside and finds it great, against their better instincts.",
+     "walkthrough": "The bracketed definition is a description of the woman rather than a synonym.",
+     "definitionFit": "A grass widow is a woman whose husband is frequently absent, for work or sport, leaving her alone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Gross"
+    }
+   }
   },
   {
    "number": 19,
@@ -369,7 +1404,43 @@
     "text": "Two keen to reveal like Harry and Meghan?",
     "enumeration": "4"
    },
-   "solution": "WOKE"
+   "solution": "WOKE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "WOKE",
+    "definitions": [
+     {
+      "text": "like Harry and Meghan?",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to reveal",
+      "for": "hidden_word",
+      "note": "to reveal means the letters are uncovered inside the phrase in front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two keen",
+      "gives": "WOKE",
+      "note": "spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A pair eager to tell all about the royal couple who left Britain.",
+     "walkthrough": "Prince Harry and Meghan Markle have been labelled woke by critics, hence the question mark.",
+     "definitionFit": "Woke is an adjective for being alert to social injustice, a label often given to the Sussexes by tabloids."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Two"
+    }
+   }
   },
   {
    "number": 20,
@@ -383,7 +1454,69 @@
     "text": "Spoilsports! Initially one stops Charles doing what he likes",
     "enumeration": "6"
    },
-   "solution": "SKIING"
+   "solution": "SKIING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SKIING",
+    "definitions": [
+     {
+      "text": "doing what he likes",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially takes the opening letter of the exclaimed word"
+     },
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "something that stops a gap plugs it, so it sits inside the royal title"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spoilsports",
+      "gives": "S",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "Charles",
+      "gives": "KING",
+      "note": "Charles III is King"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "K",
+      "I",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebuke to killjoys who stop King Charles enjoying himself.",
+     "walkthrough": "S, then I inside KING. King Charles has long been a keen skier, which makes the definition fair.",
+     "definitionFit": "Charles is a known keen skier who often holidayed at Klosters, so skiing is something he likes doing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Spoilsports"
+    }
+   }
   },
   {
    "number": 21,
@@ -397,7 +1530,49 @@
     "text": "Cons getting signs of approval — nonsense!",
     "enumeration": "12"
    },
-   "solution": "FIDDLESTICKS"
+   "solution": "FIDDLESTICKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIDDLESTICKS",
+    "definitions": [
+     {
+      "text": "nonsense!",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cons",
+      "gives": "FIDDLES",
+      "note": "fiddles are swindles or cons"
+     },
+     {
+      "clueFragment": "signs of approval",
+      "gives": "TICKS",
+      "note": "a tick marks something as correct"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIDDLES",
+      "TICKS"
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated reaction to swindlers being given approval.",
+     "definitionFit": "Fiddlesticks is an old-fashioned exclamation meaning rubbish or nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cons"
+    }
+   }
   },
   {
    "number": 22,
@@ -415,7 +1590,65 @@
    "group": [
     "22-down",
     "23-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MASTHEAD",
+    "definitions": [
+     {
+      "text": "it's on the front page",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so that letter goes out of the place name"
+     },
+     {
+      "text": "going west",
+      "for": "anagram",
+      "note": "going west means being ruined, so the letters left are broken up and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President",
+      "gives": "P",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Hampstead",
+      "gives": "HAMPSTEAD",
+      "note": "the north London district, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASTHEAD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAMSTEAD",
+       "gives": "MASTHEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Front-page news: the President moves out of Hampstead, a wealthy London suburb, to head west.",
+     "walkthrough": "'Going west' looks like a direction for a reversal, but reading HAMSTEAD backwards fails; it is slang for being wrecked, so the letters are rearranged.",
+     "definitionFit": "A masthead is the newspaper's title printed across the top of its front page."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "west"
+    }
+   }
   },
   {
    "number": 23,
@@ -442,7 +1675,53 @@
     "text": "Simple — water's receding",
     "enumeration": "5"
    },
-   "solution": "NAIVE"
+   "solution": "NAIVE",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NAIVE",
+    "definitions": [
+     {
+      "text": "Simple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receding",
+      "for": "reversal",
+      "note": "receding means moving back, so the brand reads from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "water",
+      "gives": "EVIAN",
+      "note": "Evian is a brand of bottled mineral water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAIVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVIAN",
+       "to": "NAIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An observation that the tide going out is a simple matter.",
+     "definitionFit": "Naive means artless or unsophisticated, which is one sense of simple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "water"
+    }
+   }
   },
   {
    "number": 25,
@@ -456,7 +1735,58 @@
     "text": "Time to rule heartlessly — destroy!",
     "enumeration": "9"
    },
-   "solution": "ERADICATE"
+   "solution": "ERADICATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ERADICATE",
+    "definitions": [
+     {
+      "text": "destroy!",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartlessly",
+      "for": "deletion",
+      "note": "without a heart means the central letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     },
+     {
+      "clueFragment": "rule",
+      "gives": "DICTATE",
+      "note": "to dictate is to rule autocratically"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERA",
+      "DICATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tyrant announces the moment for ruthless rule and annihilation.",
+     "walkthrough": "DICTATE loses its middle T to give DICATE.",
+     "definitionFit": "To eradicate is to wipe out completely, so to destroy utterly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heartlessly"
+    }
+   }
   },
   {
    "number": 26,
@@ -470,7 +1800,60 @@
     "text": "Crow singing to female rather softly — recital ends",
     "enumeration": "6"
    },
-   "solution": "SHERYL"
+   "solution": "SHERYL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHERYL",
+    "definitions": [
+     {
+      "text": "Crow singing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends",
+      "for": "letter_selection",
+      "note": "ends picks out the final letter of each of the words before it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "SHE",
+      "note": "she is the female pronoun"
+     },
+     {
+      "clueFragment": "rather softly — recital",
+      "gives": "RYL",
+      "select": "last",
+      "note": "the last letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "RYL"
+     ]
+    },
+    "explanation": {
+     "surface": "A crow sings quietly to a hen, its little recital fading out.",
+     "walkthrough": "Crow reads as a bird, but it is the American singer Sheryl Crow.",
+     "definitionFit": "Sheryl Crow is an American singer-songwriter, so her first name completes the singing Crow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crow"
+    }
+   }
   },
   {
    "number": 27,
@@ -484,7 +1867,55 @@
     "text": "Badly affected blonde's retired",
     "enumeration": "8"
    },
-   "solution": "BLIGHTED"
+   "solution": "BLIGHTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLIGHTED",
+    "definitions": [
+     {
+      "text": "Badly affected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s",
+      "for": "container",
+      "note": "read as is, saying the fair-haired one has gone to rest, so is lying in what the next word suggests"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retired",
+      "gives": "BED",
+      "note": "someone who has retired for the night has gone to bed"
+     },
+     {
+      "clueFragment": "blonde",
+      "gives": "LIGHT",
+      "note": "blonde hair is light in colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LIGHT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A fair-haired person has gone to bed early, feeling poorly.",
+     "walkthrough": "Read 'blonde's retired' as the blonde is tucked up for the night, which is how one word ends up inside the other.",
+     "definitionFit": "Blighted means spoiled or harmed, as crops are by blight, so badly affected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retired"
+    }
+   }
   }
  ]
 }
