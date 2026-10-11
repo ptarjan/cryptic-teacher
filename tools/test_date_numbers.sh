@@ -138,10 +138,62 @@ print("MIRROR", ok and len(got) == len(cases))
 print("PICKER", picker and len(got) == len(cases))
 PY
 )
+# Heading: the date shows once. The puzzle file's name holds the day for a
+# date-keyed paper ("Metro cryptic crossword, 11 October 2026"), so the app's
+# heading (headingParts() in app.js, lifted out and run in node) must not
+# append it again, and neither may a static answer page's <title> or <h1>.
+heading=$(cd "$REPO" && PYTHONPATH="$REPO/tools" python3 - <<'PY' 2>&1
+import json, re, subprocess
+import series as S
+import build_seo_pages as B
+dated = sorted(k for k in S.SERIES if "numberIsDate" in S.meta(k))
+cases = []
+for k in dated:
+    num = int("20261011"[len(S.meta(k)["numberIsDate"]):])
+    day = S.number_date(k, num)
+    iso = day.isoformat()
+    long, wd = f"{day.day} {day:%B %Y}", f"{day:%A} {day.day} {day:%B %Y}"
+    for name in (f"{S.publisher(k)} cryptic crossword, {long}",
+                 f"{S.publisher(k)} cryptic crossword, {wd} (English cryptic)"):
+        cases.append({"series": k, "number": num, "date": iso, "name": name})
+cases.append({"series": "cryptic", "number": 30127, "date": "2026-10-02", "name": "Cryptic No 30,127"})
+js = r"""
+const src = require("fs").readFileSync("app.js", "utf8");
+const cut = (a, b) => { const s = src.indexOf(a), e = src.indexOf(b, s); return src.slice(s, src.indexOf("\n  }\n", e) + 4); };
+const body = cut("  const WEEKDAYS", "function puzzleDate") + cut("  function puzzleDate", "function puzzleDate")
+  + cut("  function headingParts", "function headingParts");
+const f = new Function(body + "; return headingParts;")();
+// The same string the app writes into #puzzle-title.
+console.log(JSON.stringify(JSON.parse(process.argv[1]).map((p) => {
+  const h = f(p.name, p); return h.name + " · " + h.date; })));
+"""
+got = json.loads(subprocess.run(["node", "-e", js, json.dumps(cases)],
+                                capture_output=True, text=True, check=True).stdout)
+DATE = re.compile(r"\b\d{1,2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* \d{4}\b")
+ok = True
+for c, h in zip(cases, got):
+    if len(DATE.findall(h)) != 1:
+        ok = False
+        print(f"BAD heading {c['series']}: {h!r} does not hold its date exactly once")
+for key in dated:
+    num = int("20261011"[len(S.meta(key)["numberIsDate"]):])
+    puz = {"id": f"{key}-{num}", "series": key, "number": num, "setter": None,
+           "date": S.number_date(key, num).isoformat(), "name": "x", "entries": [],
+           "dimensions": {"cols": 15, "rows": 15}}
+    page = B.puzzle_page(puz, {"annotated": True}, None, None)
+    for t in re.findall(r"<title>(.*?)</title>|<h1>(.*?)</h1>", page):
+        t = "".join(t)
+        if len(DATE.findall(t)) != 1:
+            ok = False
+            print(f"BAD page heading {key}: {t!r}")
+print("HEADING", ok and len(got) == len(cases))
+PY
+)
 out="$out
-$mirror"
+$mirror
+$heading"
 echo "$out"
-for k in SOME PAGES ROWS NAMES PLAIN MIRROR PICKER; do
+for k in SOME PAGES ROWS NAMES PLAIN MIRROR PICKER HEADING; do
   grep -qx "$k True" <<<"$out" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"

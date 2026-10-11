@@ -6735,6 +6735,23 @@
     return { iso: p.date, day, short: day.slice(0, 3),
              words: dayWords(y, m, d, false), shortWords: dayWords(y, m, d, true) };
   }
+  // The puzzle heading's name and date. A date-keyed paper (Metro, the Canberra
+  // Times) prints no number, so the file's name already holds the day
+  // ("Metro cryptic crossword, 11 October 2026") and the heading appended it a
+  // second time. Where the name carries the puzzle's own day, take it out of
+  // the name and show it once, short, after the " · ": "Metro cryptic
+  // crossword · Sun 11 Oct 2026". Any other name keeps the day in full.
+  function headingParts(name, p) {
+    const when = puzzleDate(p);
+    const full = when.day ? when.day + " " + when.words : when.words;
+    if (!when.iso || p.year !== undefined) return { name, date: full };
+    const t = new Date(p.date);
+    const [y, m, d] = [t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate()];
+    const re = new RegExp(`,?\\s*(?:(?:${WEEKDAYS.join("|")}),?\\s+)?${d} ${MONTHS[m]} ${y}`, "i");
+    if (!re.test(name)) return { name, date: full };
+    return { name: name.replace(re, "").replace(/\s+/g, " ").trim(),
+             date: when.short + " " + when.shortWords };
+  }
   // The half of a puzzle's search text that cannot change while the page is
   // open: every word in it is read off INDEX, which is loaded once and never
   // written to. Built on first use and kept for the life of the page — nothing
@@ -7364,10 +7381,11 @@
     // Saturday prize before they wonder why it is fighting back.
     const when = puzzleDate(meta);
     const setter = P.setter || "";
+    const heading = headingParts(P.name, meta);
     $("puzzle-title").innerHTML =
-      esc(P.name) +
+      esc(heading.name) +
       (setter ? ` — set by <em>${esc(setter)}</em>` : "") +
-      (when.words ? ` <span class="muted">· ${when.day ? when.day + " " : ""}${when.words}</span>` : "") +
+      (when.words ? ` <span class="muted">· ${heading.date}</span>` : "") +
       (meta.annotated ? "" : " " + hintsBadge(false, P.blog && entries.some((e) => e.blog) && P.blog.name)) +
       // Prize puzzles publish their answers about a week late, and this site
       // solves them in the meantime rather than leaving its newest puzzle
