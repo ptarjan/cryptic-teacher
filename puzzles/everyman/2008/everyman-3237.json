@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Sail to Panama's capital? Brave",
     "enumeration": "10"
    },
-   "solution": "TOPGALLANT"
+   "solution": "TOPGALLANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TOPGALLANT",
+    "definitions": [
+     {
+      "text": "Sail",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is the head letter of a word, so only the start of the place name is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Panama's",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of Panama"
+     },
+     {
+      "clueFragment": "Brave",
+      "gives": "GALLANT",
+      "note": "gallant means brave or valiant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "P",
+      "GALLANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A query about a sailing trip to Panama City, followed by a bold verdict on the voyage.",
+     "walkthrough": "TO + P + GALLANT. 'Panama's capital' tempts you towards Panama City; here it is just the initial letter.",
+     "definitionFit": "A topgallant is the sail set above the topsail on a square-rigged mast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 1,
@@ -81,7 +139,58 @@
      }
     ]
    },
-   "solution": "ACTIONSTATIONS"
+   "solution": "ACTIONSTATIONS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACTION STATIONS",
+    "definitions": [
+     {
+      "text": "Military command to be ready",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one word sitting outside another wraps around it, holding it within"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cases",
+      "gives": "ACTIONS",
+      "note": "legal cases are actions in court"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "STATION",
+      "note": "a station is a military base or post"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACTION",
+      "STATION",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An order for troops to prepare, with equipment cases stacked around the camp.",
+     "walkthrough": "The wrap leaves only the final S of the outer word beyond the inner one, so the split falls very late.",
+     "definitionFit": "Action stations is the order for troops or crew to take up positions ready for battle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cases"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +204,62 @@
     "text": "Girl entertaining American tenor at the top of her voice?",
     "enumeration": "7"
    },
-   "solution": "LUSTILY"
+   "solution": "LUSTILY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LUSTILY",
+    "definitions": [
+     {
+      "text": "at the top of her voice",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain a guest is to take them in, so one part holds the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "LILY",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "abbreviation for the United States"
+     },
+     {
+      "clueFragment": "tenor",
+      "gives": "T",
+      "note": "T is the abbreviation for tenor in music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "US",
+      "T",
+      "ILY"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman hosting a US singer belts out her song as loudly as she can.",
+     "walkthrough": "The question mark flags that the definition is an adverb, describing how something is done rather than a voice itself.",
+     "definitionFit": "Doing something lustily means with vigour and gusto, as when singing very loudly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tenor"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +273,60 @@
     "text": "Turning brown, Russian river, as is to be expected",
     "enumeration": "7"
    },
-   "solution": "NATURAL"
+   "solution": "NATURAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NATURAL",
+    "definitions": [
+     {
+      "text": "as is to be expected",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turning",
+      "for": "reversal",
+      "note": "turning a word around makes it read from back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brown",
+      "gives": "TAN",
+      "note": "tan is a light brown"
+     },
+     {
+      "clueFragment": "Russian river",
+      "gives": "URAL",
+      "note": "the Ural flows through Russia and Kazakhstan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAT",
+      "URAL"
+     ],
+     "reversals": [
+      {
+       "from": "TAN",
+       "to": "NAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian river is turning brown, which is just what one would predict.",
+     "definitionFit": "Natural can mean normal or expected, as in 'it's only natural that he was upset'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turning"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +340,48 @@
     "text": "Type of music demonstrated by single on radio",
     "enumeration": "4"
    },
-   "solution": "SOUL"
+   "solution": "SOUL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SOUL",
+    "definitions": [
+     {
+      "text": "Type of music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on radio",
+      "for": "homophone",
+      "note": "what is on the radio is heard rather than read, so a word that sounds the same counts"
+     }
+    ],
+    "linkWords": [
+     "demonstrated by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "SOUL",
+      "soundsLike": "SOLE",
+      "note": "sole means single or only"
+     }
+    ],
+    "explanation": {
+     "surface": "A genre of music being showcased by a record released as a single on the radio.",
+     "walkthrough": "'Single' suggests a record in the surface; here it means only one.",
+     "definitionFit": "Soul is the genre of African-American popular music rooted in gospel and rhythm and blues."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "single"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +395,46 @@
     "text": "Mistaken about eccentric",
     "enumeration": "5"
    },
-   "solution": "OUTRE"
+   "solution": "OUTRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTRE",
+    "definitions": [
+     {
+      "text": "eccentric",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mistaken",
+      "gives": "OUT",
+      "note": "out can mean wrong, as in 'your figures are out'"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has got it wrong about a person who is odd.",
+     "definitionFit": "Outré describes something unconventional or bizarre, beyond the bounds of propriety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +454,53 @@
      }
     ]
    },
-   "solution": "LEDASTRAY"
+   "solution": "LEDASTRAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LED ASTRAY",
+    "definitions": [
+     {
+      "text": "taught bad habits",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means in some unspecified way, so the letters are arranged in some other way"
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tears, lady",
+      "gives": "TEARSLADY",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEARSLADY",
+       "gives": "LEDASTRAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weeping woman who has been corrupted into bad ways.",
+     "definitionFit": "To be led astray is to be drawn into wrongdoing by others' influence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tears"
+    }
+   }
   },
   {
    "number": 9,
@@ -205,7 +548,66 @@
     "text": "Modelled at ancient city (date uncertain), wet through",
     "enumeration": "9"
    },
-   "solution": "SATURATED"
+   "solution": "SATURATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SATURATED",
+    "definitions": [
+     {
+      "text": "wet through",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncertain",
+      "for": "anagram",
+      "note": "uncertain means not fixed, so the letters are not settled in their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Modelled",
+      "gives": "SAT",
+      "note": "an artist's model sits, so modelled is sat"
+     },
+     {
+      "clueFragment": "ancient city",
+      "gives": "UR",
+      "note": "Ur is the ancient Sumerian city"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "ATED",
+      "note": "the letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "UR",
+      "ATED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DATE",
+       "gives": "ATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An archaeologist posed at a dig of uncertain date and got soaked.",
+     "definitionFit": "Something saturated is soaked so thoroughly it can hold no more liquid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Modelled"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +631,61 @@
      }
     ]
    },
-   "solution": "MISSOTISREGRETS"
+   "solution": "MISSOTISREGRETS",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "MISS OTIS REGRETS",
+    "definitions": [
+     {
+      "text": "song",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the numeral is held inside the other letters"
+     },
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over or disturbed, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reg's sister most",
+      "gives": "REGSSISTERMOST",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REGSSISTERMOSTI",
+       "gives": "MISSOTISREGRETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Reg's sister is most upset over a particular song.",
+     "definitionFit": "Miss Otis Regrets is a Cole Porter song from 1934."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +699,43 @@
     "text": "Please pay in full",
     "enumeration": "7"
    },
-   "solution": "SATISFY"
+   "solution": "SATISFY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SATISFY",
+    "definitions": [
+     {
+      "text": "Please",
+      "at": 0
+     },
+     {
+      "text": "pay in full",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Please",
+      "note": "first meaning: to gratify or content someone"
+     },
+     {
+      "clueFragment": "pay in full",
+      "note": "second meaning: to discharge a debt or claim completely"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Please' reads as a polite request for payment; it is the verb meaning to gratify.",
+     "definitionFit": "To satisfy is both to give contentment and to settle a creditor's claim in full."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Please"
+    }
+   }
   },
   {
    "number": 13,
@@ -263,7 +755,49 @@
      }
     ]
    },
-   "solution": "SIDEISSUE"
+   "solution": "SIDEISSUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIDE ISSUE",
+    "definitions": [
+     {
+      "text": "Incidental minor matter",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fringe",
+      "gives": "SIDE",
+      "note": "a side is an edge or fringe"
+     },
+     {
+      "clueFragment": "publication",
+      "gives": "ISSUE",
+      "note": "an issue is an edition of a publication"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDE",
+      "ISSUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A trivial story buried in an alternative magazine.",
+     "definitionFit": "A side issue is a secondary point that distracts from the main question."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fringe"
+    }
+   }
   },
   {
    "number": 14,
@@ -277,7 +811,55 @@
     "text": "Front runner eclipsing northern rowing club",
     "enumeration": "7"
    },
-   "solution": "LEANDER"
+   "solution": "LEANDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEANDER",
+    "definitions": [
+     {
+      "text": "rowing club",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eclipsing",
+      "for": "container",
+      "note": "eclipsing means covering over, so one part is enclosed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Front runner",
+      "gives": "LEADER",
+      "note": "the leader is the one in front"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "N",
+      "DER"
+     ]
+    },
+    "explanation": {
+     "surface": "The race leader overshadows a rival from the north.",
+     "walkthrough": "Leander Club at Henley-on-Thames is one of the oldest and most famous rowing clubs in England.",
+     "definitionFit": "Leander is the name of a celebrated rowing club based at Henley-on-Thames."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 15,
@@ -315,7 +897,50 @@
     "text": "Make a speech, medical broadcast",
     "enumeration": "7"
    },
-   "solution": "DECLAIM"
+   "solution": "DECLAIM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECLAIM",
+    "definitions": [
+     {
+      "text": "Make a speech",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast also means scattered widely, as seed is, so the letters are spread into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medical",
+      "gives": "MEDICAL",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEDICAL",
+       "gives": "DECLAIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor gives a talk on a health programme.",
+     "definitionFit": "To declaim is to speak or recite rhetorically, as in delivering an oration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +954,50 @@
     "text": "Cap, uncommon on metro",
     "enumeration": "7"
    },
-   "solution": "MONTERO"
+   "solution": "MONTERO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MONTERO",
+    "definitions": [
+     {
+      "text": "Cap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncommon",
+      "for": "anagram",
+      "note": "uncommon means unusual, so the letters take an unusual arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on metro",
+      "gives": "ONMETRO",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONMETRO",
+       "gives": "MONTERO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rare sight: a hat worn on the underground railway.",
+     "definitionFit": "A montero is a Spanish huntsman's cap with flaps that cover the ears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cap"
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1011,49 @@
     "text": "Immediate amount of money girl wanted",
     "enumeration": "7"
    },
-   "solution": "SUMMARY"
+   "solution": "SUMMARY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUMMARY",
+    "definitions": [
+     {
+      "text": "Immediate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "wanted"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amount of money",
+      "gives": "SUM",
+      "note": "a sum is an amount of money"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "MARY",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUM",
+      "MARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman needs some cash straight away.",
+     "definitionFit": "Summary as an adjective means done at once without formalities, as in summary dismissal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Immediate"
+    }
+   }
   },
   {
    "number": 18,
@@ -363,7 +1073,54 @@
      }
     ]
    },
-   "solution": "STEPOUT"
+   "solution": "STEPOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STEP OUT",
+    "definitions": [
+     {
+      "text": "Have a busy social life",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one part coming after another places it later in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "move",
+      "gives": "STEP",
+      "note": "a step is a single movement of the foot"
+     },
+     {
+      "clueFragment": "abroad",
+      "gives": "OUT",
+      "note": "abroad can mean out and about, out of doors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEP",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enjoys lots of parties after emigrating.",
+     "walkthrough": "'Abroad' suggests a foreign country; its older sense is out of the house.",
+     "definitionFit": "To step out is to go out socially, often to parties or on dates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 19,
@@ -383,7 +1140,39 @@
      }
     ]
    },
-   "solution": "ITALIANVERMOUTH"
+   "solution": "ITALIANVERMOUTH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ITALIAN VERMOUTH",
+    "definitions": [
+     {
+      "text": "This is it",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This is it",
+      "note": "surface reading: a statement that the moment has come"
+     },
+     {
+      "clueFragment": "it",
+      "note": "setter's reading: 'it' is the bar abbreviation in 'gin and it', naming a fortified wine"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In a 'gin and it', the 'it' is short for a sweet fortified wine from Italy; the clue simply defines that abbreviation.",
+     "definitionFit": "The drinker's shorthand 'it' stands for the sweet red aromatised wine of Italy mixed with gin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 20,
@@ -397,7 +1186,61 @@
     "text": "Girl a long time touring heart of Kenya",
     "enumeration": "5"
    },
-   "solution": "AGNES"
+   "solution": "AGNES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AGNES",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart of",
+      "for": "letter_selection",
+      "note": "the heart of a word is its middle, so only its central letter is kept"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring means travelling around, so one part goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a long time",
+      "gives": "AGES",
+      "note": "ages means a long time"
+     },
+     {
+      "clueFragment": "Kenya",
+      "gives": "N",
+      "select": "middle",
+      "note": "the central letter of Kenya"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "N",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman spends a long time travelling around Kenya.",
+     "definitionFit": "Agnes is a female first name, and crosswords routinely define any such forename simply as a girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 21,
@@ -411,7 +1254,43 @@
     "text": "Why Drogheda contains a health spa",
     "enumeration": "5"
    },
-   "solution": "HYDRO"
+   "solution": "HYDRO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HYDRO",
+    "definitions": [
+     {
+      "text": "a health spa",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "hidden_word",
+      "note": "the words contain the answer within them, spanning the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Why Drogheda",
+      "gives": "HYDRO",
+      "note": "the letters run from inside the first word into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about why an Irish town has a spa.",
+     "walkthrough": "Drogheda is a town in County Louth, Ireland.",
+     "definitionFit": "A hydro is a hotel or establishment offering water treatments for health, a hydropathic spa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Why"
+    }
+   }
   },
   {
    "number": 22,
@@ -431,7 +1310,69 @@
      }
     ]
    },
-   "solution": "SANANGELO"
+   "solution": "SANANGELO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "SAN ANGELO",
+    "definitions": [
+     {
+      "text": "here in Texas",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle, so only the central pair of letters is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one part inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resort",
+      "gives": "SO",
+      "select": "middle",
+      "note": "the middle two letters of resort"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "AN",
+      "note": "the indefinite article, in its form before a vowel"
+     },
+     {
+      "clueFragment": "backer",
+      "gives": "ANGEL",
+      "note": "an angel is a financial backer, especially of a theatre show"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AN",
+      "ANGEL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A financial supporter is found in the middle of a holiday town in Texas.",
+     "walkthrough": "'A' must be read as its pre-vowel form, and 'centre' here is the middle two letters of a six-letter word.",
+     "definitionFit": "San Angelo is a city in west-central Texas, so it is a place found here in that state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 23,
@@ -445,7 +1386,42 @@
     "text": "Some controversy, no doubt, in council meeting",
     "enumeration": "5"
    },
-   "solution": "SYNOD"
+   "solution": "SYNOD",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SYNOD",
+    "definitions": [
+     {
+      "text": "council meeting",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of the following words means only part of their letters are used, in a run"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "controversy, no doubt",
+      "gives": "SYNOD",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A church council meeting where there is bound to be argument.",
+     "definitionFit": "A synod is an assembly of clergy and church officials that meets to decide church affairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 24,
@@ -459,7 +1435,49 @@
     "text": "Language contrary? Not half!",
     "enumeration": "4"
    },
-   "solution": "ERSE"
+   "solution": "ERSE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ERSE",
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not half",
+      "for": "deletion",
+      "note": "not half means one half is lost, so the first half of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contrary",
+      "gives": "PERVERSE",
+      "note": "perverse means contrary or obstinate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks if a language is awkward and gets the British reply 'not half!', meaning very much so.",
+     "walkthrough": "'Not half!' is British slang for 'absolutely'; here it says to drop half of PERVERSE, leaving its second four letters.",
+     "definitionFit": "Erse is an old name for the Gaelic language of Scotland or Ireland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 25,
