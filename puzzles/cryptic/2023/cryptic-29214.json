@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,52 @@
     "text": "Flair seen in Michelangelo's centrepiece",
     "enumeration": "4"
    },
-   "solution": "ELAN"
+   "solution": "ELAN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ELAN",
+    "definitions": [
+     {
+      "text": "Flair",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centrepiece",
+      "for": "letter_selection",
+      "note": "the centrepiece of a word is its middle, so only the central letters of the artist's name are kept"
+     }
+    ],
+    "linkWords": [
+     "seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Michelangelo's",
+      "gives": "ELAN",
+      "select": "middle",
+      "note": "the four letters at the exact centre of the twelve-letter name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An art critic admiring the stylish flourish at the heart of a Michelangelo work.",
+     "walkthrough": "MICHELANGELO has twelve letters, so its middle four (positions five to eight) are taken.",
+     "definitionFit": "Elan is a borrowed French word for dash, verve or stylish energy, a close synonym of flair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "centrepiece"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +95,61 @@
     "text": "North of Land's End, fish moved effortlessly",
     "enumeration": "6"
    },
-   "solution": "SKATED"
+   "solution": "SKATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SKATED",
+    "definitions": [
+     {
+      "text": "moved effortlessly",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "North of",
+      "for": "charade",
+      "note": "in a down clue one piece sitting north of another is placed above it, so it comes first"
+     },
+     {
+      "text": "End",
+      "for": "letter_selection",
+      "note": "'End' keeps only the last letter of 'Land'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "SKATE",
+      "note": "a skate is a flat ray-like fish"
+     },
+     {
+      "clueFragment": "Land",
+      "gives": "D",
+      "select": "last",
+      "note": "the end of the word Land is its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKATE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Somewhere just north of Land's End, the tip of Cornwall, a fish glided along.",
+     "walkthrough": "Land's End looks like the Cornish headland, but it just means the final letter of Land.",
+     "definitionFit": "To skate is to glide smoothly over ice, so skated describes moving along with apparent ease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Land's"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +173,53 @@
      }
     ]
    },
-   "solution": "HANDMEDOWN"
+   "solution": "HANDMEDOWN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "HAND-ME-DOWN",
+    "definitions": [
+     {
+      "text": "Odd when man changes into this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes into",
+      "for": "anagram",
+      "note": "changing into something means turning into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Odd when man",
+      "gives": "ODDWHENMAN",
+      "note": "all ten letters of these three words are used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ODDWHENMAN",
+       "gives": "HANDMEDOWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looking strange when a grown man puts on an outgrown garment.",
+     "walkthrough": "The whole clue is both wordplay and definition: a man in an older sibling's cast-off clothes may well look odd.",
+     "definitionFit": "A hand-me-down is a garment passed on from one wearer to another, often ill-fitting and so odd-looking on its new owner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +233,54 @@
     "text": "Financial supporters replacing leader with East German socialist",
     "enumeration": "6"
    },
-   "solution": "ENGELS"
+   "solution": "ENGELS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ENGELS",
+    "definitions": [
+     {
+      "text": "German socialist",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacing leader with",
+      "for": "substitution",
+      "note": "the first letter of the word for backers is swapped out and the compass point put in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Financial supporters",
+      "gives": "ANGELS",
+      "note": "angels are investors who back theatre productions or start-ups"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "E is the standard abbreviation for East"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NGELS"
+     ]
+    },
+    "explanation": {
+     "surface": "Investors ditching their head and installing a socialist from East Germany.",
+     "walkthrough": "The A of ANGELS gives way to E. 'East German' looks like one phrase, but East is the swapped-in letter and German belongs to the definition.",
+     "definitionFit": "Friedrich Engels was the German political thinker who co-wrote the Communist Manifesto with Marx."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "East"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +294,52 @@
     "text": "Standard statement of support for barrier",
     "enumeration": "8"
    },
-   "solution": "STOCKADE"
+   "solution": "STOCKADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "STOCKADE",
+    "definitions": [
+     {
+      "text": "barrier",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "statement of",
+      "for": "homophone",
+      "note": "a statement is something said, so the following word is given by how it sounds when spoken"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Standard",
+      "gives": "STOCK",
+      "note": "stock as an adjective means standard or regular, as in a stock answer"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "ADE",
+      "soundsLike": "AID",
+      "note": "aid is help or support; spelt differently to match the sound"
+     }
+    ],
+    "explanation": {
+     "surface": "A routine pledge of backing offered in favour of a barrier.",
+     "definitionFit": "A stockade is a defensive enclosure or fence of upright stakes, which serves as a barrier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "statement"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +353,44 @@
     "text": "Piece knocked off eg marble counter",
     "enumeration": "4"
    },
-   "solution": "CHIP"
+   "solution": "CHIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHIP",
+    "definitions": [
+     {
+      "text": "Piece knocked off eg marble",
+      "at": 0
+     },
+     {
+      "text": "counter",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piece knocked off eg marble",
+      "note": "first meaning: a small fragment broken off stone or china"
+     },
+     {
+      "clueFragment": "counter",
+      "note": "second meaning: a token used for betting in a casino"
+     }
+    ],
+    "explanation": {
+     "surface": "A fragment broken off a marble kitchen worktop.",
+     "walkthrough": "'Marble counter' reads as a worktop, but the clue splits after marble: counter is the second meaning on its own.",
+     "definitionFit": "A chip is both a small flake broken from a hard surface and a gambling token standing for money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +404,71 @@
     "text": "One covers two miles in ten, going astray on the way",
     "enumeration": "8"
    },
-   "solution": "IMMINENT"
+   "solution": "IMMINENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "IMMINENT",
+    "definitions": [
+     {
+      "text": "on the way",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers",
+      "for": "charade",
+      "note": "in a down clue a piece that covers another lies on top of it, so it is written first"
+     },
+     {
+      "text": "going astray",
+      "for": "anagram",
+      "note": "letters going astray wander from their places and end up in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "two miles",
+      "gives": "MM",
+      "note": "M is the abbreviation for mile, twice over"
+     },
+     {
+      "clueFragment": "in ten",
+      "gives": "INTEN",
+      "note": "these five letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MM",
+      "INENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTEN",
+       "gives": "INENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner who covers two miles in ten minutes keeps getting lost en route.",
+     "definitionFit": "Something imminent is about to happen, so it is coming soon or on the way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ten"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +482,55 @@
     "text": "A name attached? Just the opposite",
     "enumeration": "4"
    },
-   "solution": "ANON"
+   "solution": "ANON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANON",
+    "definitions": [
+     {
+      "text": "Just the opposite",
+      "at": 17,
+      "note": "the wordplay spells out 'a name attached', and the answer means the reverse: without a name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "attached",
+      "gives": "ON",
+      "note": "on as in fixed on or stuck to something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether a label carries a name, answered with a contrary twist.",
+     "walkthrough": "The wordplay builds a word that literally reads 'a name attached', while its meaning is nameless, so the definition is the clue's closing twist.",
+     "definitionFit": "Anon is short for anonymous, used for a writer whose name is unknown, the reverse of having a name attached."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "opposite"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +554,47 @@
      }
     ]
    },
-   "solution": "LIKEASNOT"
+   "solution": "LIKEASNOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIKE AS NOT",
+    "definitions": [
+     {
+      "text": "Contemptible?",
+      "at": 0
+     },
+     {
+      "text": "quite probable",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Contemptible?",
+      "note": "first meaning, read whimsically: resembling a snot, slang for a contemptible person"
+     },
+     {
+      "clueFragment": "quite probable",
+      "note": "second meaning: the phrase likely as not, meaning probably"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks if a thing is despicable, and the reply is that it very likely is.",
+     "walkthrough": "Split as LIKE A SNOT, the phrase describes someone resembling a snot, a British slang term for a nasty, contemptible person.",
+     "definitionFit": "Like as not is an idiom meaning probably or with even odds, matching quite probable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Contemptible"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +614,63 @@
      }
     ]
    },
-   "solution": "HEMEN"
+   "solution": "HEMEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HE-MEN",
+    "definitions": [
+     {
+      "text": "muscular types",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "a word placed outside others wraps around them, enclosing them inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "HEN",
+      "note": "a hen is a female bird"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EM",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A European man accompanied by a woman, alongside some bodybuilders.",
+     "definitionFit": "He-men are strongly built, macho men, so they are muscular types."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "female"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +684,42 @@
     "text": "Reported as reporter, say",
     "enumeration": "5"
    },
-   "solution": "NOTED"
+   "solution": "NOTED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOTED",
+    "definitions": [
+     {
+      "text": "Reported",
+      "at": 0
+     },
+     {
+      "text": "as reporter, say",
+      "at": 9,
+      "note": "written down, as a reporter does with notes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reported",
+      "note": "first meaning: remarked upon or mentioned"
+     },
+     {
+      "clueFragment": "as reporter, say",
+      "note": "second meaning: jotted down, the way a reporter takes down what is said"
+     }
+    ],
+    "explanation": {
+     "surface": "A news item said to have been relayed in the manner of a journalist.",
+     "definitionFit": "Noted means both observed or remarked and recorded in writing, a journalist's everyday task."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +733,51 @@
     "text": "Means to test rule – I expect no changes",
     "enumeration": "9"
    },
-   "solution": "EXCEPTION"
+   "solution": "EXCEPTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXCEPTION",
+    "definitions": [
+     {
+      "text": "Means to test rule",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "changes here tells us the preceding letters are altered into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I expect no",
+      "gives": "IEXPECTNO",
+      "note": "all nine letters are reworked"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IEXPECTNO",
+       "gives": "EXCEPTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confident a regulation will stay unaltered.",
+     "walkthrough": "'I expect no changes' reads as a complete sentence, which hides that its last word is the shuffle signal.",
+     "definitionFit": "The saying goes that the exception proves, in its old sense of tests, the rule."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +791,37 @@
     "text": "Property of some numbers – remove pairs and one remains",
     "enumeration": "7"
    },
-   "solution": "ODDNESS"
+   "solution": "ODDNESS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ODDNESS",
+    "definitions": [
+     {
+      "text": "Property of some numbers – remove pairs and one remains",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Property of some numbers",
+      "note": "surface reading: a feature belonging to certain numbers, perhaps in a maths lesson"
+     },
+     {
+      "clueFragment": "remove pairs and one remains",
+      "note": "setter's reading: the test for an uneven number, where grouping into twos always leaves a single item over"
+     }
+    ],
+    "explanation": {
+     "surface": "A maths teacher describing a feature of certain numbers.",
+     "definitionFit": "A number lacking divisibility by two leaves a remainder of one when split into pairs; this quality is its oddity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +835,54 @@
     "text": "After defensive blunder, initially, was captain viewed in inappropriate way?",
     "enumeration": "5"
    },
-   "solution": "OGLED"
+   "solution": "OGLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OGLED",
+    "definitions": [
+     {
+      "text": "viewed in inappropriate way",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "the captaincy piece comes after the blunder piece, so they are written in that order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defensive blunder, initially",
+      "gives": "OG",
+      "note": "the initials of own goal, a defender's error in football"
+     },
+     {
+      "clueFragment": "was captain",
+      "gives": "LED",
+      "note": "a captain leads the team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OG",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "Following an early defensive howler, the team's skipper faced unfair scrutiny.",
+     "walkthrough": "An own goal, abbreviated OG, is a defender putting the ball in their own net.",
+     "definitionFit": "To ogle is to stare at someone with obvious sexual interest, an improper way of looking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "viewed"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +896,60 @@
     "text": "Lacking direction, I am trapped in area? Not so",
     "enumeration": "7"
    },
-   "solution": "AIMLESS"
+   "solution": "AIMLESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AIMLESS",
+    "definitions": [
+     {
+      "text": "Lacking direction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped in",
+      "for": "container",
+      "note": "something trapped in another thing is held inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "I am",
+      "gives": "IM",
+      "note": "I'm is the contraction of I am"
+     },
+     {
+      "clueFragment": "Not so",
+      "gives": "LESS",
+      "note": "less means not so much, as in less happy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "IM",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A lost person admitting they are stuck somewhere, then doubting it.",
+     "walkthrough": "The contraction sits between A and LESS, which together are the 'area? Not so' that traps it.",
+     "definitionFit": "Aimless means without purpose or goal, so lacking direction in life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trapped"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +963,57 @@
     "text": "What makes Brendan tick, increasing learning",
     "enumeration": "10"
    },
-   "solution": "MEMORISING"
+   "solution": "MEMORISING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEMORISING",
+    "definitions": [
+     {
+      "text": "learning",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "What makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brendan",
+      "gives": "ME",
+      "note": "Brendan is this puzzle's setter, who would call himself me"
+     },
+     {
+      "clueFragment": "tick",
+      "gives": "MO",
+      "note": "a tick is a moment, informally a mo"
+     },
+     {
+      "clueFragment": "increasing",
+      "gives": "RISING",
+      "note": "rising means going up or increasing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "MO",
+      "RISING"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter musing on what motivates him: growing knowledge.",
+     "walkthrough": "'What makes Brendan tick' reads as an idiom for motivation, but it just joins the setter, ME, to a moment, MO.",
+     "definitionFit": "Memorising is learning by heart, committing facts to memory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tick"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1027,45 @@
     "text": "People in America pursue legal redress in hearing",
     "enumeration": "5"
    },
-   "solution": "SIOUX"
+   "solution": "SIOUX",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SIOUX",
+    "definitions": [
+     {
+      "text": "People in America",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in hearing",
+      "for": "homophone",
+      "note": "in hearing means as something sounds to a listener, not as it is spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pursue legal redress",
+      "gives": "SIOUX",
+      "soundsLike": "SUE",
+      "note": "to sue is to seek redress through the courts"
+     }
+    ],
+    "explanation": {
+     "surface": "An American community taking a case to a court hearing.",
+     "walkthrough": "'Hearing' looks like a court session in this legal scene, but it is the sound signal.",
+     "definitionFit": "The Sioux are a group of Native American peoples of the Great Plains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1079,54 @@
     "text": "Turn off none? That's plain",
     "enumeration": "5"
    },
-   "solution": "LLANO"
+   "solution": "LLANO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LLANO",
+    "definitions": [
+     {
+      "text": "plain",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turn",
+      "for": "anagram",
+      "note": "to turn the letters is to twist them about into a different order"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "off none",
+      "gives": "ALLON",
+      "note": "if none are off, then all are on"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALLON",
+       "gives": "LLANO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction about switches: turn none of them off, simple as that.",
+     "walkthrough": "The fodder has to be worked out first: 'off none' means the opposite state, ALL ON, and those letters are rearranged.",
+     "definitionFit": "A llano is a broad grassy plain, especially in northern South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plain"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1140,55 @@
     "text": "What could be wrong as a rule in a concerning Roman emperor",
     "enumeration": "8"
    },
-   "solution": "AURELIAN"
+   "solution": "AURELIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AURELIAN",
+    "definitions": [
+     {
+      "text": "concerning Roman emperor",
+      "at": 35,
+      "note": "used adjectivally, relating to the emperor Aurelius or Aurelian"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be wrong",
+      "for": "anagram",
+      "note": "a phrase that could be wrong is in a faulty order, so its letters are set right in another arrangement"
+     }
+    ],
+    "linkWords": [
+     "What",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a rule in a",
+      "gives": "ARULEINA",
+      "note": "all eight letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARULEINA",
+       "gives": "AURELIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historian querying what was amiss with some regulation about an ancient ruler.",
+     "definitionFit": "Aurelian was a third-century Roman emperor, and the word also serves as an adjective for things relating to him or to Marcus Aurelius."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rule"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1202,45 @@
     "text": "Emphatically not just any part of Athens – it's in Parthenon",
     "enumeration": "3"
    },
-   "solution": "THE"
+   "solution": "THE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THE",
+    "definitions": [
+     {
+      "text": "Emphatically not just any",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "part of a word is a run of its letters, so the answer lies inside the city's name"
+     }
+    ],
+    "linkWords": [
+     "it's in Parthenon"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Athens",
+      "gives": "THE",
+      "note": "the second to fourth letters of the city's name"
+     }
+    ],
+    "explanation": {
+     "surface": "A tourist insisting the famous temple is no ordinary bit of the Greek capital.",
+     "walkthrough": "The same letters also sit inside Parthenon, a confirming flourish.",
+     "definitionFit": "Stressed as 'thee', the definite article marks the one and only, best of its kind, rather than just any."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1254,75 @@
     "text": "Many notes after poor term, one's performance raised",
     "enumeration": "8"
    },
-   "solution": "TREMOLOS"
+   "solution": "TREMOLOS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "reversal"
+    ],
+    "answer": "TREMOLOS",
+    "definitions": [
+     {
+      "text": "Many notes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poor",
+      "for": "anagram",
+      "note": "something poor is in bad shape, so those letters are rearranged"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising a word means reading it upwards, so it runs backwards"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "term",
+      "gives": "TERM",
+      "note": "the four letters are reworked"
+     },
+     {
+      "clueFragment": "one's performance",
+      "gives": "SOLO",
+      "note": "a solo is a performance by one person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREM",
+      "OLOS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TERM",
+       "gives": "TREM"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "SOLO",
+       "to": "OLOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician's playing improved after a bad school term.",
+     "definitionFit": "A tremolo is a rapidly repeated note or wavering effect, so tremolos comprise many notes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1336,46 @@
     "text": "Some trouble – but only some – for transport system",
     "enumeration": "5"
    },
-   "solution": "METRO"
+   "solution": "METRO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "METRO",
+    "definitions": [
+     {
+      "text": "transport system",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but only some",
+      "for": "hidden_word",
+      "note": "only some means just a portion, so the answer is a run of letters inside the words before it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some trouble",
+      "gives": "METRO",
+      "note": "the letters run across the end of Some and the start of trouble"
+     }
+    ],
+    "explanation": {
+     "surface": "A commuter grumbling that there's a little trouble on the city railway.",
+     "walkthrough": "The repeated 'some' is a playful hint that the answer straddles the first word.",
+     "definitionFit": "A metro is an underground or urban railway, a city transport system."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1389,53 @@
     "text": "Make mad, awfully enraged or otherwise angered",
     "enumeration": "7"
    },
-   "solution": "DERANGE"
+   "solution": "DERANGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DERANGE",
+    "definitions": [
+     {
+      "text": "Make mad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "awfully suggests something badly done, so the following letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "or otherwise angered"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enraged",
+      "gives": "ENRAGED",
+      "note": "these seven letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENRAGED",
+       "gives": "DERANGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of driving someone crazy, leaving them furious or cross.",
+     "walkthrough": "The tail is a second route: 'otherwise angered' is the same seven letters, giving the solver two anagrams to choose from.",
+     "definitionFit": "To derange is to drive someone insane, upsetting the balance of their mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1449,60 @@
     "text": "Party vote following piece of text that's contradictory",
     "enumeration": "7"
    },
-   "solution": "PARADOX"
+   "solution": "PARADOX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARADOX",
+    "definitions": [
+     {
+      "text": "that's contradictory",
+      "at": 35,
+      "note": "the answer is a noun: something self-contradictory"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "the party and vote pieces follow the text piece, so they are written after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece of text",
+      "gives": "PARA",
+      "note": "para is short for paragraph"
+     },
+     {
+      "clueFragment": "Party",
+      "gives": "DO",
+      "note": "a do is a party or social event"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "X",
+      "note": "a cross marks a vote on a ballot paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARA",
+      "DO",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A political party's ballot result seeming inconsistent with its manifesto wording.",
+     "definitionFit": "A paradox is a statement or situation that appears to contradict itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1516,67 @@
     "text": "Sham work without fee turned up",
     "enumeration": "6"
    },
-   "solution": "PSEUDO"
+   "solution": "PSEUDO",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "PSEUDO",
+    "definitions": [
+     {
+      "text": "Sham",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so one piece wraps around the other"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turning something up flips it to read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a musical work"
+     },
+     {
+      "clueFragment": "fee",
+      "gives": "DUES",
+      "note": "dues are fees paid, as for membership"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "SEUD",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "ODUESP",
+       "to": "PSEUDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fake piece of work produced without charge, then discovered.",
+     "walkthrough": "'Without' looks like it means lacking, but here it means outside.",
+     "definitionFit": "Pseudo means fake or pretended, not genuine, the same as sham."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1590,44 @@
     "text": "Tediously persist, in a word, as monster",
     "enumeration": "6"
    },
-   "solution": "DRAGON"
+   "solution": "DRAGON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRAGON",
+    "definitions": [
+     {
+      "text": "Tediously persist, in a word",
+      "at": 0
+     },
+     {
+      "text": "monster",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tediously persist, in a word",
+      "note": "first meaning: ..., written as a single word"
+     },
+     {
+      "clueFragment": "monster",
+      "note": "second meaning: a fire-breathing mythical beast"
+     }
+    ],
+    "explanation": {
+     "surface": "A beast that keeps going on and on, boringly.",
+     "definitionFit": "A dragon is a mythical winged reptile, a monster of legend; drag on means to go on far too long."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1655,70 @@
    "group": [
     "24-across",
     "28-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WILD GOOSE CHASE",
+    "definitions": [
+     {
+      "text": "futile quest",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round the bend",
+      "for": "anagram",
+      "note": "round the bend means crazy, so the letters go wild and are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the writer's name goes around the jumbled letters"
+     }
+    ],
+    "linkWords": [
+     "it's a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "WILDE",
+      "note": "Oscar Wilde, the Irish playwright"
+     },
+     {
+      "clueFragment": "chaos goes",
+      "gives": "CHAOSGOES",
+      "note": "these nine letters are reworked"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WILD",
+      "GOOSECHAS",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHAOSGOES",
+       "gives": "GOOSECHAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer caught up in mayhem goes mad, chasing something hopeless.",
+     "walkthrough": "'Goes round the bend' reads as one phrase, but goes belongs to the fodder and only 'round the bend' is the signal.",
+     "definitionFit": "A wild goose chase is an idiom for a hopeless pursuit of something unattainable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "goes"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1732,47 @@
     "text": "It adds fuel to flame in Scottish town",
     "enumeration": "4"
    },
-   "solution": "WICK"
+   "solution": "WICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WICK",
+    "definitions": [
+     {
+      "text": "It adds fuel to flame",
+      "at": 0
+     },
+     {
+      "text": "Scottish town",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It adds fuel to flame",
+      "note": "first meaning: the cord of a candle or lamp that draws fuel up to burn"
+     },
+     {
+      "clueFragment": "Scottish town",
+      "note": "second meaning: a town in Caithness in the far north of Scotland"
+     }
+    ],
+    "explanation": {
+     "surface": "Something stoking passions in a Scottish community.",
+     "walkthrough": "'Adds fuel to the flame' is an idiom for worsening a quarrel, but here it is literal.",
+     "definitionFit": "A wick carries molten wax or oil to the flame by capillary action; Wick is also a Highland coastal town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fuel"
+    }
+   }
   },
   {
    "number": 25,
@@ -465,7 +1786,43 @@
     "text": "Gloomy tone between chess opponents?",
     "enumeration": "4"
    },
-   "solution": "GREY"
+   "solution": "GREY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GREY",
+    "definitions": [
+     {
+      "text": "Gloomy",
+      "at": 0
+     },
+     {
+      "text": "tone between chess opponents?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gloomy",
+      "note": "first meaning: dull and overcast"
+     },
+     {
+      "clueFragment": "tone between chess opponents?",
+      "note": "second meaning: the shade midway between the black and white sides"
+     }
+    ],
+    "explanation": {
+     "surface": "A dismal atmosphere hanging over two chess players.",
+     "definitionFit": "Grey lies between black and white, the colours of the two sides in chess, and also means dreary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tone"
+    }
+   }
   },
   {
    "number": 26,
@@ -479,7 +1836,42 @@
     "text": "Sharply strike",
     "enumeration": "5"
    },
-   "solution": "SMACK"
+   "solution": "SMACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SMACK",
+    "definitions": [
+     {
+      "text": "Sharply",
+      "at": 0
+     },
+     {
+      "text": "strike",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sharply",
+      "note": "first meaning: ... as an adverb, meaning abruptly or directly, as in ... into a wall"
+     },
+     {
+      "clueFragment": "strike",
+      "note": "second meaning: to hit with an open hand"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as an instruction to hit hard, but the two words are separate meanings.",
+     "definitionFit": "Smack works as an informal adverb for squarely or abruptly and as a verb for slapping or hitting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sharply"
+    }
+   }
   },
   {
    "number": 27,
@@ -493,7 +1885,39 @@
     "text": "What's flown by a test pilot?",
     "enumeration": "4"
    },
-   "solution": "KITE"
+   "solution": "KITE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "KITE",
+    "definitions": [
+     {
+      "text": "What's flown by a test pilot?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What's flown by a test pilot?",
+      "note": "surface reading: an experimental aircraft taken up by an aviator"
+     },
+     {
+      "clueFragment": "test pilot",
+      "note": "setter's reading: someone testing opinion, which is done by flying a trial balloon of a kind on a string"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about the aircraft a test pilot takes up.",
+     "definitionFit": "To fly a kite is an idiom for floating an idea to test reactions, and a kite is literally flown on a string."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pilot"
+    }
+   }
   },
   {
    "number": 28,
@@ -530,7 +1954,55 @@
      }
     ]
    },
-   "solution": "ODDONEOUT"
+   "solution": "ODDONEOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODD ONE OUT",
+    "definitions": [
+     {
+      "text": "Nonconformist",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not even",
+      "gives": "ODD",
+      "note": "an odd number is one that is not even"
+     },
+     {
+      "clueFragment": "a single",
+      "gives": "ONE",
+      "note": "a single is one"
+     },
+     {
+      "clueFragment": "way to escape",
+      "gives": "OUT",
+      "note": "an out is a way out of a situation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODD",
+      "ONE",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel without a single means of getting away.",
+     "definitionFit": "The odd one out is the person or thing that differs from the rest, which a nonconformist does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "even"
+    }
+   }
   }
  ]
 }
