@@ -691,8 +691,10 @@
   }
 
   // The series whose stored number is the print date (tools/series.py
-  // numberIsDate), each with its kind ("Cryptic"): the number is shown as the
-  // day it names, and the picker row's title slot says the kind.
+  // numberIsDate), each with its row name ("Metro Cryptic", series.py
+  // date_numbered()): the number is shown as the day it names, and the picker
+  // row's title slot names the paper. The kind alone ("Cryptic") made every
+  // Metro row look like the same unnamed puzzle.
   const DATE_NUMBERED = INDEX.dateNumbered || {};
   const isDateNumbered = (p) => Object.hasOwn(DATE_NUMBERED, p.series) && !!p.date;
 
@@ -7000,8 +7002,8 @@
     // read at a glance where a trailing full "Saturday" would just be length.
     const d = dd.short ? `${dd.short} ${dd.shortWords}` : dd.shortWords;
     // The date column carries the date on every row. A date-keyed paper prints
-    // no number, so its title slot says the kind instead ("Cryptic"), as
-    // hub_row in build_seo_pages.py does.
+    // no number, so its title slot names the paper instead ("Metro Cryptic"),
+    // as hub_row in build_seo_pages.py does.
     const title = isDateNumbered(p) ? DATE_NUMBERED[p.series] : displayNumber(p);
     const btn = document.createElement("button");
     // Order here is the grid's, not the eye's: the badges are markup-last but
