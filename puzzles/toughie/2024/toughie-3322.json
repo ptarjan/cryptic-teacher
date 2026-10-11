@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Huge deficit almost the whole company faces",
     "enumeration": "8"
    },
-   "solution": "COLOSSAL"
+   "solution": "COLOSSAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "COLOSSAL",
+    "definitions": [
+     {
+      "text": "Huge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite complete, so the final letter is cut off"
+     },
+     {
+      "text": "faces",
+      "for": "charade",
+      "note": "to face something is to stand in front of it, so this piece comes first in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the standard abbreviation for company"
+     },
+     {
+      "clueFragment": "deficit",
+      "gives": "LOSS",
+      "note": "a deficit is a shortfall or loss"
+     },
+     {
+      "clueFragment": "the whole",
+      "gives": "ALL",
+      "note": "the whole of something is all of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "LOSS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm is staring at an enormous shortfall that wipes out almost everything it has.",
+     "walkthrough": "'faces' is not a verb about confronting the loss; it says the company stands at the front.",
+     "definitionFit": "Colossal is a straightforward synonym for huge, enormous or gigantic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "faces"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +109,51 @@
     "text": "Worries about son's pet",
     "enumeration": "6"
    },
-   "solution": "CARESS"
+   "solution": "CARESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARESS",
+    "definitions": [
+     {
+      "text": "pet",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "about",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worries",
+      "gives": "CARES",
+      "note": "worries are cares"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent frets over their boy's beloved animal.",
+     "walkthrough": "'pet' looks like a noun, the son's animal, but it is the verb meaning to stroke fondly.",
+     "definitionFit": "To pet someone is to stroke them affectionately, which is exactly what a caress does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pet"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +167,60 @@
     "text": "Look into changing application",
     "enumeration": "6"
    },
-   "solution": "LOTION"
+   "solution": "LOTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "LOTION",
+    "definitions": [
+     {
+      "text": "application",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing",
+      "for": "anagram",
+      "note": "changing the word that follows means rearranging its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo is an old word meaning look or behold"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "INTO",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "TION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTO",
+       "gives": "TION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to research a change to a job or form application.",
+     "definitionFit": "A lotion is something applied to the skin, so it is an application in the cosmetic sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "application"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +234,51 @@
     "text": "Second opinion in the post",
     "enumeration": "5"
    },
-   "solution": "STAKE"
+   "solution": "STAKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAKE",
+    "definitions": [
+     {
+      "text": "post",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "opinion",
+      "gives": "TAKE",
+      "note": "your take on something is your opinion of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone seeks a second opinion by letter or in the mail.",
+     "walkthrough": "'post' suggests mail, but here it is a wooden pole.",
+     "definitionFit": "A stake is a pointed wooden pole driven into the ground, a kind of post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +292,55 @@
     "text": "Leaders in athletic tournament induce effort",
     "enumeration": "7"
    },
-   "solution": "ATTEMPT"
+   "solution": "ATTEMPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ATTEMPT",
+    "definitions": [
+     {
+      "text": "effort",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders in",
+      "for": "letter_selection",
+      "note": "the leaders of words are their opening letters, so only those are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "athletic tournament",
+      "gives": "AT",
+      "select": "first",
+      "note": "the opening letters of these two words"
+     },
+     {
+      "clueFragment": "induce",
+      "gives": "TEMPT",
+      "note": "to tempt someone is to induce or entice them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TEMPT"
+     ]
+    },
+    "explanation": {
+     "surface": "Those at the top of an athletics competition coax extra effort out of the competitors.",
+     "definitionFit": "An attempt is a try at something, an effort to achieve it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaders"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +354,73 @@
     "text": "Orchestra abandoning principal members in Royal Albert Hall upset accompanist?",
     "enumeration": "6"
    },
-   "solution": "ESCORT"
+   "solution": "ESCORT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ESCORT",
+    "definitions": [
+     {
+      "text": "accompanist?",
+      "at": 66
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoning",
+      "for": "deletion",
+      "note": "abandoning things means leaving them behind, so these letters are removed"
+     },
+     {
+      "text": "principal members",
+      "for": "letter_selection",
+      "note": "the principal members of a phrase are the first letters of its words"
+     },
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and thrown into disorder, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orchestra",
+      "gives": "ORCHESTRA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Royal Albert Hall",
+      "gives": "RAH",
+      "select": "first",
+      "note": "the first letter of each of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESCORT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OCESTR",
+       "gives": "ESCORT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An orchestra walks out of a concert, leaving the Royal Albert Hall's performer stranded and upset.",
+     "walkthrough": "Remove R, A and H from ORCHESTRA to leave OCESTR, then rearrange. The Royal Albert Hall is a famous London concert venue. The question mark flags that this accompanist is not a musician.",
+     "definitionFit": "An escort accompanies someone, so it is an accompanist in a non-musical sense, a playful misdirection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "accompanist"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +434,74 @@
     "text": "Journalists can't supply the first bit of editorial content",
     "enumeration": "9"
    },
-   "solution": "SUBSTANCE"
+   "solution": "SUBSTANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SUBSTANCE",
+    "definitions": [
+     {
+      "text": "content",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the first bit of",
+      "for": "letter_selection",
+      "note": "the first bit of a word is its opening letter"
+     },
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "read as 'supple-y', bendy and pliable, so the letters before it are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Journalists",
+      "gives": "SUBS",
+      "note": "subs are sub-editors, newspaper journalists"
+     },
+     {
+      "clueFragment": "can't",
+      "gives": "CANT",
+      "note": "taken as written without the apostrophe"
+     },
+     {
+      "clueFragment": "editorial",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUBS",
+      "TANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANTE",
+       "gives": "TANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reporters are unable to provide even a scrap of an opinion piece.",
+     "walkthrough": "'supply' looks like a verb meaning provide, but read as an adverb from supple it signals rearranging CANT plus E.",
+     "definitionFit": "The substance of something is its content or essential matter, as in the substance of an argument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +515,51 @@
     "text": "Pick up extra present for those attending",
     "enumeration": "8"
    },
-   "solution": "OVERHEAR"
+   "solution": "OVERHEAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "OVERHEAR",
+    "definitions": [
+     {
+      "text": "Pick up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for those attending",
+      "for": "homophone",
+      "note": "those attending an event take it in by ear, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra",
+      "gives": "OVER",
+      "note": "in cricket an over can mean surplus or left over, extra"
+     },
+     {
+      "clueFragment": "present",
+      "gives": "HEAR",
+      "soundsLike": "HERE",
+      "note": "present at a roll call means here; it sounds like the verb for listening"
+     }
+    ],
+    "explanation": {
+     "surface": "A bonus gift is set aside for the people who come along to an event.",
+     "walkthrough": "'present' looks like a gift, but it means here, as answered at a roll call.",
+     "definitionFit": "To pick up a remark is to catch it by chance, which is what you do when you overhear it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +573,60 @@
     "text": "Restrained tense king who wasn't prepared to relinquish line",
     "enumeration": "8"
    },
-   "solution": "TETHERED"
+   "solution": "TETHERED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TETHERED",
+    "definitions": [
+     {
+      "text": "Restrained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to relinquish",
+      "for": "deletion",
+      "note": "to relinquish something is to give it up, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     },
+     {
+      "clueFragment": "king who wasn't prepared",
+      "gives": "ETHELRED",
+      "note": "the English king Ethelred the Unready"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ETHERED"
+     ]
+    },
+    "explanation": {
+     "surface": "An anxious king held back from giving up his claim to the throne.",
+     "walkthrough": "Ethelred the Unready was a 10th-century English king; drop the L from his name and put T in front.",
+     "definitionFit": "Tethered means tied up with a rope, so held back or restrained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +640,65 @@
     "text": "Takes away cold soup perhaps without coming back",
     "enumeration": "8"
    },
-   "solution": "RETRACTS"
+   "solution": "RETRACTS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "RETRACTS",
+    "definitions": [
+     {
+      "text": "Takes away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without here means outside, so one piece sits around the other"
+     },
+     {
+      "text": "coming back",
+      "for": "reversal",
+      "note": "coming back means travelling in the opposite direction, so the result is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soup perhaps",
+      "gives": "STARTER",
+      "note": "soup is an example of a starter, the first course"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETRACTS"
+     ],
+     "reversals": [
+      {
+       "from": "STCARTER",
+       "to": "RETRACTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A waiter removes a chilled soup without it being sent back.",
+     "walkthrough": "C goes inside STARTER after ST, and the whole is then reversed.",
+     "definitionFit": "To retract a statement or offer is to withdraw it, taking it away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +712,45 @@
     "text": "Purpose of article",
     "enumeration": "6"
    },
-   "solution": "OBJECT"
+   "solution": "OBJECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OBJECT",
+    "definitions": [
+     {
+      "text": "Purpose",
+      "at": 0
+     },
+     {
+      "text": "article",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Purpose",
+      "note": "first meaning: an aim or goal"
+     },
+     {
+      "clueFragment": "article",
+      "note": "second meaning: a thing or item"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests the aim of a piece of writing; the two words are separate meanings of one word.",
+     "definitionFit": "Object means both an aim, as in the object of the exercise, and a physical thing or item."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +764,67 @@
     "text": "Unexpected answer held up progress initially",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SNAP",
+    "definitions": [
+     {
+      "text": "Unexpected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held up",
+      "for": "reversal",
+      "note": "in a down entry, held up means raised from bottom to top, so the word is read upwards"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "ANS",
+      "note": "ANS is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "progress",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNA",
+      "P"
+     ],
+     "reversals": [
+      {
+       "from": "ANS",
+       "to": "SNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A surprise response stalled the early stages of a project.",
+     "definitionFit": "Snap as an adjective means sudden and without warning, as in a snap election."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +838,44 @@
     "text": "Mouthpiece of bagpipes pokes mandolinist",
     "enumeration": "9"
    },
-   "solution": "SPOKESMAN"
+   "solution": "SPOKESMAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SPOKESMAN",
+    "definitions": [
+     {
+      "text": "Mouthpiece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "the answer is made of letters belonging to the following words, sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bagpipes pokes mandolinist",
+      "gives": "SPOKESMAN",
+      "note": "found running across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A musician jabs a mandolin player with the part of the bagpipes that is blown into.",
+     "walkthrough": "'Mouthpiece' looks like part of the bagpipes, but it is a person who speaks for others.",
+     "definitionFit": "A mouthpiece is a person who speaks on behalf of another, which is a spokesman's role."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mouthpiece"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +895,56 @@
      }
     ]
    },
-   "solution": "TEHEE"
+   "solution": "TEHEE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TE-HEE",
+    "definitions": [
+     {
+      "text": "I'm amused",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "stops here means plugs, as a stopper fills a gap inside something"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where some drive",
+      "gives": "TEE",
+      "note": "golfers drive off from the tee"
+     },
+     {
+      "clueFragment": "that man",
+      "gives": "HE",
+      "note": "he is the pronoun for that man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "HE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone laughs at a man who stops where other people are driving.",
+     "walkthrough": "'drive' suggests a road, but it is a golf shot.",
+     "definitionFit": "Tee-hee is a giggle, the sound someone makes to show they are amused."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +958,41 @@
     "text": "Plant in perfect condition",
     "enumeration": "4"
    },
-   "solution": "MINT"
+   "solution": "MINT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MINT",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     },
+     {
+      "text": "in perfect condition",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plant",
+      "note": "first meaning: an aromatic herb"
+     },
+     {
+      "clueFragment": "in perfect condition",
+      "note": "second meaning: as new, like a coin freshly struck"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a gardener's note about a healthy plant; the two parts are separate meanings.",
+     "definitionFit": "Mint is a herb, and an item in mint condition is pristine, as good as new."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1006,51 @@
     "text": "Football players look forward to meeting of two sides?",
     "enumeration": "9"
    },
-   "solution": "INTERFACE"
+   "solution": "INTERFACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTERFACE",
+    "definitions": [
+     {
+      "text": "meeting of two sides?",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Football players",
+      "gives": "INTER",
+      "note": "Inter Milan is an Italian football team"
+     },
+     {
+      "clueFragment": "look forward",
+      "gives": "FACE",
+      "note": "to face is to look forward or towards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "FACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A football team is eager for a match between two sides.",
+     "walkthrough": "'look forward to meeting' reads as a phrase about anticipation, but it splits into a clue piece and the definition.",
+     "definitionFit": "An interface is the boundary where two systems or surfaces meet; the question mark flags the playful wording."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "meeting"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1064,43 @@
     "text": "Flat fare that provides better features?",
     "enumeration": "7"
    },
-   "solution": "PANCAKE"
+   "solution": "PANCAKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PANCAKE",
+    "definitions": [
+     {
+      "text": "Flat fare",
+      "at": 0
+     },
+     {
+      "text": "that provides better features?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flat fare",
+      "note": "first meaning: a thin, flat item of food made from batter"
+     },
+     {
+      "clueFragment": "that provides better features?",
+      "note": "second meaning: a thick cosmetic foundation that improves the look of the face"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'fare' could suggest a ticket price, but it is food; the second half is a cryptic hint at stage make-up.",
+     "definitionFit": "A pancake is flat batter food, and pancake make-up is a foundation applied to improve facial appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fare"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1114,66 @@
     "text": "Article spreading unorthodox beliefs likely to be accomplished",
     "enumeration": "8"
    },
-   "solution": "FEASIBLE"
+   "solution": "FEASIBLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FEASIBLE",
+    "definitions": [
+     {
+      "text": "likely to be accomplished",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unorthodox",
+      "for": "anagram",
+      "note": "unorthodox means not in the usual form, so the letters are rearranged"
+     },
+     {
+      "text": "spreading",
+      "for": "container",
+      "note": "the letters spread out around a single item, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beliefs",
+      "gives": "BELIEFS",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "A",
+      "SIBLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BELIEFS",
+       "gives": "FESIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece spreads heretical ideas that seem quite plausible.",
+     "definitionFit": "Feasible means practicable, capable of being done, which is likely to be accomplished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1187,64 @@
     "text": "EU work set back discussion",
     "enumeration": "8"
    },
-   "solution": "DIALOGUE"
+   "solution": "DIALOGUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DIALOGUE",
+    "definitions": [
+     {
+      "text": "discussion",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means in the opposite direction, so the whole string is read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "EU",
+      "gives": "EU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "GO",
+      "note": "a machine that goes is working"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "LAID",
+      "note": "set as in placed, like a table laid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIALOGUE"
+     ],
+     "reversals": [
+      {
+       "from": "EUGOLAID",
+       "to": "DIALOGUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Work on European Union business was delayed by talks.",
+     "definitionFit": "A dialogue is a conversation between parties, a discussion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1258,72 @@
     "text": "Letter from Scot on vacation in English mansion",
     "enumeration": "7"
    },
-   "solution": "EPISTLE"
+   "solution": "EPISTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EPISTLE",
+    "definitions": [
+     {
+      "text": "Letter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "on vacation means emptied out, so only the outside letters stay"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "mansion",
+      "gives": "PILE",
+      "note": "a pile is a grand stately house"
+     },
+     {
+      "clueFragment": "Scot",
+      "gives": "ST",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PI",
+      "ST",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A holidaying Scot sends a letter from a stately home in England.",
+     "walkthrough": "A pile is British slang for a large imposing house; ST goes inside it, after E.",
+     "definitionFit": "An epistle is a formal or literary letter, such as those in the New Testament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1337,42 @@
     "text": "Carve piece of sweet chestnut",
     "enumeration": "4"
    },
-   "solution": "ETCH"
+   "solution": "ETCH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ETCH",
+    "definitions": [
+     {
+      "text": "Carve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piece of",
+      "for": "hidden_word",
+      "note": "a piece of the following words is a run of their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweet chestnut",
+      "gives": "ETCH",
+      "note": "found across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone cuts a portion of a sweet chestnut tree or nut.",
+     "definitionFit": "To etch is to engrave or cut lines into a surface, a kind of carving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Carve"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1386,56 @@
     "text": "Worry about paper plates",
     "enumeration": "4"
    },
-   "solution": "FRET"
+   "solution": "FRET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRET",
+    "definitions": [
+     {
+      "text": "Worry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plates",
+      "for": "container",
+      "note": "to plate something is to coat it all over, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper",
+      "gives": "FT",
+      "note": "the FT is the Financial Times newspaper"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is anxious over the crockery made of paper.",
+     "walkthrough": "'plates' looks like a noun for dishes but is a verb meaning coats.",
+     "definitionFit": "To fret is to worry anxiously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plates"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1455,50 @@
      }
     ]
    },
-   "solution": "FANMAIL"
+   "solution": "FANMAIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "FAN MAIL",
+    "definitions": [
+     {
+      "text": "adoring letters",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "received",
+      "for": "homophone",
+      "note": "received here means heard by a listener, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cool",
+      "gives": "FAN",
+      "note": "to fan is to cool"
+     },
+     {
+      "clueFragment": "bloke",
+      "gives": "MAIL",
+      "soundsLike": "MALE",
+      "note": "a bloke is a male; the word sounds like post"
+     }
+    ],
+    "explanation": {
+     "surface": "A relaxed man is given letters from admirers.",
+     "walkthrough": "Bloke is British slang for a man.",
+     "definitionFit": "Fan mail is the letters a celebrity gets from adoring admirers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "received"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1512,46 @@
     "text": "Sailor ordered to go somewhere other than this place",
     "enumeration": "6"
    },
-   "solution": "ABSENT"
+   "solution": "ABSENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABSENT",
+    "definitions": [
+     {
+      "text": "somewhere other than this place",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB is an able-bodied seaman"
+     },
+     {
+      "clueFragment": "ordered to go",
+      "gives": "SENT",
+      "note": "someone sent away has been ordered to go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "SENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman is commanded to leave for another location.",
+     "definitionFit": "Absent means not present, so somewhere other than here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1565,60 @@
     "text": "Spooner's disheartened and confused woman?",
     "enumeration": "6"
    },
-   "solution": "PERSON"
+   "solution": "PERSON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PERSON",
+    "definitions": [
+     {
+      "text": "woman?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "deletion",
+      "note": "to lose heart is to lose the middle, so the central letter goes"
+     },
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused means muddled, so the remaining letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spooner",
+      "gives": "SPOONER",
+      "note": "the name itself, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERSON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPONER",
+       "gives": "PERSON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It looks like a spoonerism of some depressed, bewildered woman.",
+     "walkthrough": "'Spooner's' promises a spoonerism, but the name is the fodder: remove its middle O to get SPONER, then rearrange.",
+     "definitionFit": "A woman is an example of a human being; the question mark signals definition by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spooner's"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1638,45 @@
      }
     ]
    },
-   "solution": "SOLAR"
+   "solution": "SOLAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SOLAR",
+    "definitions": [
+     {
+      "text": "from The Sun",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "produced by reporter",
+      "for": "homophone",
+      "note": "a reporter speaking aloud on air makes the words sound, so spelling follows the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two notes",
+      "gives": "SOLAR",
+      "soundsLike": "SOH LAH",
+      "note": "soh and lah are notes of the sol-fa scale"
+     }
+    ],
+    "explanation": {
+     "surface": "A journalist on The Sun newspaper produces a couple of brief memos.",
+     "walkthrough": "The Sun is a British tabloid, which makes 'reporter' feel natural, but the sun is the star. In a non-rhotic accent the two notes sound like the answer.",
+     "definitionFit": "Solar means relating to or coming from the sun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sun"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1690,43 @@
     "text": "Artist who has an arresting power?",
     "enumeration": "9"
    },
-   "solution": "CONSTABLE"
+   "solution": "CONSTABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONSTABLE",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     },
+     {
+      "text": "who has an arresting power?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "note": "first meaning: the English landscape painter John ..."
+     },
+     {
+      "clueFragment": "who has an arresting power?",
+      "note": "second meaning: a police officer, who can arrest people"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'arresting' suggests striking art, tying the two halves together, but it means making arrests.",
+     "definitionFit": "John Constable painted The Hay Wain, and a constable is a police officer with powers of arrest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "arresting"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1740,55 @@
     "text": "What may join group of players up?",
     "enumeration": "5"
    },
-   "solution": "TENON"
+   "solution": "TENON",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TENON",
+    "definitions": [
+     {
+      "text": "What may join",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means read from bottom to top, backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group of players",
+      "gives": "NONET",
+      "note": "a nonet is a group of nine musicians"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENON"
+     ],
+     "reversals": [
+      {
+       "from": "NONET",
+       "to": "TENON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It asks who might sign up to a band of musicians.",
+     "walkthrough": "'join' suggests joining a band, but it is woodworking.",
+     "definitionFit": "A tenon is the projecting piece of wood that fits into a mortise to join two parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1802,68 @@
     "text": "Bishop mocked endlessly about being short of money",
     "enumeration": "6"
    },
-   "solution": "BEGGAR"
+   "solution": "BEGGAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "BEGGAR",
+    "definitions": [
+     {
+      "text": "being short of money",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without its end, so the last letter is cut"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned round, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "mocked",
+      "gives": "RAGGED",
+      "note": "to rag someone is to tease or mock them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EGGAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAGGE",
+       "to": "EGGAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman is ridiculed without end for being hard up.",
+     "walkthrough": "'being' looks like a verb, but it is a noun: a creature who has no money.",
+     "definitionFit": "A beggar is a person with no money who asks others for it, a being who is penniless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "being"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1877,66 @@
     "text": "Unfortunate lapses during breaks causing no problems",
     "enumeration": "8"
    },
-   "solution": "PAINLESS"
+   "solution": "PAINLESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PAINLESS",
+    "definitions": [
+     {
+      "text": "causing no problems",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unfortunate",
+      "for": "anagram",
+      "note": "something unfortunate has gone wrong, so the letters fall out of order"
+     },
+     {
+      "text": "breaks",
+      "for": "container",
+      "note": "breaks means splits into, so one piece forces its way inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lapses",
+      "gives": "LAPSES",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "during",
+      "gives": "IN",
+      "note": "in means during, as in in the night"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "IN",
+      "LESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAPSES",
+       "gives": "PALESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Regrettable slip-ups on rest breaks turn out to be harmless.",
+     "definitionFit": "Painless means without pain or difficulty, so causing no trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breaks"
+    }
+   }
   },
   {
    "number": 29,
@@ -471,7 +1950,39 @@
     "text": "One plus one is prime",
     "enumeration": "6"
    },
-   "solution": "ELEVEN"
+   "solution": "ELEVEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ELEVEN",
+    "definitions": [
+     {
+      "text": "One plus one is prime",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One plus one",
+      "note": "surface reading: simple arithmetic, one plus one equals two, the first prime"
+     },
+     {
+      "clueFragment": "is prime",
+      "note": "setter's reading: the digit one written beside another one makes a two-digit prime number"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The sum suggests two, but 'plus' means placing the digits side by side, giving 11.",
+     "definitionFit": "Two ones written together make the number 11, which is a prime number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plus"
+    }
+   }
   },
   {
    "number": 30,
@@ -485,7 +1996,73 @@
     "text": "Factory working round clock ultimately makes school food",
     "enumeration": "8"
    },
-   "solution": "PLANKTON"
+   "solution": "PLANKTON",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PLANKTON",
+    "definitions": [
+     {
+      "text": "school food",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so one piece goes around another"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Factory",
+      "gives": "PLANT",
+      "note": "a plant is an industrial factory"
+     },
+     {
+      "clueFragment": "clock",
+      "gives": "K",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN",
+      "K",
+      "T",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A factory works round the clock to produce school dinners.",
+     "walkthrough": "'school food' suggests school dinners, but the school is a shoal of fish.",
+     "definitionFit": "Plankton are tiny organisms drifting in the sea, eaten by shoals of fish and whales."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "school"
+    }
+   }
   }
  ]
 }
