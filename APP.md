@@ -49,6 +49,16 @@ Terms used below:
   leads as the plain button; the rest of its tier are quiet ghost buttons. A rung keeps its ladder number
   whichever order it is taken in, so gaps in the numbering show what was
   skipped.
+- **A building block that costs a hint takes two taps.** Paul: "If a building
+  blocks can't be free it should make me click twice to confirm I want it."
+  `blocksCost` in `app.js` decides: the group is unsolved, and the tap either
+  opens the blocks rung outright (no question to answer first) or is "Just
+  tell me" on a blocks question that opens the rung or takes back one already
+  earned. The first such tap relabels that button "Tap again to reveal · costs
+  a hint" in red; the same button again reveals. A click elsewhere, focus
+  moving away, or 4 seconds puts it back. Free taps (a question to answer, a
+  rung already paid for, a solved clue) stay one tap.
+  `tools/test_block_confirm.js` covers it.
 - **Revealed rungs are a set, not a count.** `hintsShown` maps entryKey to rung
   keys. An integer can only say "the first N", which would force every lower
   rung open with any higher one. Do not reintroduce a scalar.

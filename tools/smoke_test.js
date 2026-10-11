@@ -1081,7 +1081,19 @@ function isAsking(body) {
 // guessing itself is tested at the end, on its own.
 function takeRung(btn) {
   btn.onclick();
-  if (isAsking(registry["hint-body"])) registry["guess-tell"].onclick();
+  confirmArmed();
+  if (isAsking(registry["hint-body"])) { registry["guess-tell"].onclick(); confirmArmed(); }
+}
+// A building block that costs a hint takes a second tap (app.js blocksCost):
+// the first only arms the button and relabels it. This makes the second tap,
+// on whichever button is armed, so the lazy climbs below still buy their rung.
+const ARMED = /^Tap again to reveal · costs a hint$/;
+function confirmArmed() {
+  const row = registry["hint-next"].children.find((b) => ARMED.test(b.textContent || ""));
+  if (row) return row.onclick(), true;
+  if (/data-arm="blocks-tell" class="[^"]*arm-cost/.test(registry["hint-body"].innerHTML))
+    return registry["guess-tell"].onclick(), true;
+  return false;
 }
 
 // A button that moves the ladder on: a numbered rung, or the rest of a rung
@@ -2266,10 +2278,11 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     const rung = registry["hint-next"].children.find((b) => CLIMBABLE(b) && /building blocks/.test(b.textContent));
     if (assert(rung, `${pid} ${eid}: the carrier makes a building-blocks rung: ${btnNames()}`)) {
       rung.onclick();
+      confirmArmed();
       const ask = registry["hint-body"].innerHTML;
       assert(!ask.includes(`<span class="gives">${answer}</span>`),
         `${pid} ${eid}: the question does not name ${answer}: ${ask}`);
-      if (isAsking(registry["hint-body"])) registry["guess-tell"].onclick();
+      if (isAsking(registry["hint-body"])) { registry["guess-tell"].onclick(); confirmArmed(); }
       const body = registry["hint-body"].innerHTML;
       assert(/hidden (?:backwards )?in /.test(body) && !body.includes(`<span class="gives">${answer}</span>`),
         `${pid} ${eid}: the carrier shows its note and holds back ${answer}: ${body}`);
@@ -6057,7 +6070,7 @@ global.realSetTimeout(() => {
       const tell = registry["guess-tell"];
       if (tell && tell.onclick) { const fn = tell.onclick; tell.onclick = null; fn(); continue; }
       const b = registry["hint-next"].children.find(
-        (x) => x.onclick && !x.disabled && /^\d+ · /.test(x.textContent || ""));
+        (x) => x.onclick && !x.disabled && (/^\d+ · /.test(x.textContent || "") || ARMED.test(x.textContent || "")));
       if (!b) break;
       b.onclick();
     }
