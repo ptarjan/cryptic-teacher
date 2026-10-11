@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,50 @@
     "text": "Wine that in test is tastiest",
     "enumeration": "4"
    },
-   "solution": "ASTI"
+   "solution": "ASTI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ASTI",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "'in' tells you the answer sits inside the following word, already spelt out in its letters"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test",
+      "note": "surface padding for the wine-tasting picture; gives no letters"
+     },
+     {
+      "clueFragment": "tastiest",
+      "gives": "ASTI",
+      "note": "the four letters after the opening T of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A wine-tasting verdict: the bottle that came top in the test was the most delicious.",
+     "walkthrough": "ASTI sits inside tASTIest.",
+     "definitionFit": "Asti is a sparkling white wine from Piedmont in northern Italy, named after its town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +92,51 @@
     "text": "A song I composed recalled city in Asia",
     "enumeration": "6"
    },
-   "solution": "SAIGON"
+   "solution": "SAIGON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAIGON",
+    "definitions": [
+     {
+      "text": "recalled city in Asia",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "composed",
+      "for": "anagram",
+      "note": "something composed has been put together, so the letters are arranged into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A song I",
+      "gives": "ASONGI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASONGI",
+       "gives": "SAIGON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A songwriter's tune brings back memories of a city in Asia.",
+     "walkthrough": "'Recalled' belongs to the definition: the city was renamed Ho Chi Minh City in 1976, so Saigon is a remembered name.",
+     "definitionFit": "Saigon was the former name of Vietnam's largest city, now officially Ho Chi Minh City."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +150,55 @@
     "text": "A quartet playing without one again",
     "enumeration": "4"
    },
-   "solution": "ANEW"
+   "solution": "ANEW",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANEW",
+    "definitions": [
+     {
+      "text": "again",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without one",
+      "for": "deletion",
+      "note": "'without one' asks you to drop a single member of the group just named"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quartet playing",
+      "gives": "NEWS",
+      "note": "the four players at a bridge table are North, East, West and South"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NEW"
+     ]
+    },
+    "explanation": {
+     "surface": "A string quartet has to perform again a man short.",
+     "walkthrough": "'Quartet playing' suggests musicians, but the four seats at bridge are the compass points N, E, W, S; dropping one of them (S) leaves NEW.",
+     "definitionFit": "Doing something anew means doing it once more, from a fresh start."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quartet"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +212,65 @@
     "text": "Courage – it's needed after rents going up",
     "enumeration": "6"
    },
-   "solution": "SPIRIT"
+   "solution": "SPIRIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SPIRIT",
+    "definitions": [
+     {
+      "text": "Courage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the word is read from the bottom of the column, back to front"
+     }
+    ],
+    "linkWords": [
+     "needed after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rents",
+      "gives": "SPIR",
+      "note": "rents are tears, RIPS, which read upwards becomes this"
+     },
+     {
+      "clueFragment": "it's",
+      "gives": "IT",
+      "note": "the word it, with the 's as part of the link 'it is needed'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIR",
+      "IT"
+     ],
+     "reversals": [
+      {
+       "from": "RIPS",
+       "to": "SPIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant is told it takes nerve to face rising rents.",
+     "walkthrough": "Rents here are tears in fabric, not payments to a landlord. 'Needed after' places IT after the reversed tears.",
+     "definitionFit": "Spirit as in pluck or mettle: bravery and resolve in the face of difficulty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rents"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +284,61 @@
     "text": "Musician in band with a string that's broken",
     "enumeration": "8"
    },
-   "solution": "ORGANIST"
+   "solution": "ORGANIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORGANIST",
+    "definitions": [
+     {
+      "text": "Musician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "a broken thing has come apart, so these letters are reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "band",
+      "gives": "O",
+      "note": "a ring-shaped band is drawn as the letter O"
+     },
+     {
+      "clueFragment": "a string",
+      "gives": "ASTRING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OASTRING",
+       "gives": "ORGANIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band's guitarist plays on despite a snapped string.",
+     "walkthrough": "'Band' looks like a group of musicians; it is a ring, O, mixed in with the letters of 'a string'.",
+     "definitionFit": "An organist is a musician who plays the organ, typically in a church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +352,50 @@
     "text": "Section of stadium – work to prepare ground comes to complete halt",
     "enumeration": "10"
    },
-   "solution": "STANDSTILL"
+   "solution": "STANDSTILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STANDSTILL",
+    "definitions": [
+     {
+      "text": "complete halt",
+      "at": 53
+     }
+    ],
+    "linkWords": [
+     "comes to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Section of stadium",
+      "gives": "STANDS",
+      "note": "the stands are a stadium's banks of spectator seating"
+     },
+     {
+      "clueFragment": "work to prepare ground",
+      "gives": "TILL",
+      "note": "to till is to plough or dig soil before planting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STANDS",
+      "TILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Groundwork at a stadium stand grinds to a stop.",
+     "walkthrough": "'Ground' suggests a sports ground, matching the stadium, but here it is farm soil.",
+     "definitionFit": "A standstill is a situation in which all movement or progress has stopped entirely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +409,62 @@
     "text": "Killer since caught in dope offence",
     "enumeration": "8"
    },
-   "solution": "ASSASSIN"
+   "solution": "ASSASSIN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ASSASSIN",
+    "definitions": [
+     {
+      "text": "Killer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught in",
+      "for": "container",
+      "note": "something caught in a trap is held inside it, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dope",
+      "gives": "ASS",
+      "note": "a dope is a fool, an ass"
+     },
+     {
+      "clueFragment": "since",
+      "gives": "AS",
+      "note": "as can mean since, giving a reason"
+     },
+     {
+      "clueFragment": "offence",
+      "gives": "SIN",
+      "note": "a sin is a moral offence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "S",
+      "ASS",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A murderer has been arrested for a drugs crime.",
+     "walkthrough": "'Dope offence' reads as a drugs charge; dope is a fool and the offence is a sin, with the word for since slipped between them.",
+     "definitionFit": "An assassin is a murderer, especially one who kills a prominent person for political motives or pay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +478,54 @@
     "text": "Kind of creature that is protected by glasses",
     "enumeration": "7"
    },
-   "solution": "SPECIES"
+   "solution": "SPECIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPECIES",
+    "definitions": [
+     {
+      "text": "Kind of creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protected by",
+      "for": "container",
+      "note": "a thing protected by something is surrounded by it, so one piece is wrapped in the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "glasses",
+      "gives": "SPECS",
+      "note": "specs is short for spectacles"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e., Latin id est, means that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPEC",
+      "IE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A creature whose eyes are shielded by goggles.",
+     "definitionFit": "A species is a class of organisms that can interbreed, a biological sort of animal or plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "glasses"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +539,53 @@
     "text": "Egalitarian goal, one accepted by political group",
     "enumeration": "6"
    },
-   "solution": "PARITY"
+   "solution": "PARITY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARITY",
+    "definitions": [
+     {
+      "text": "Egalitarian goal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted by",
+      "for": "container",
+      "note": "something accepted by a group is taken into it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "political group",
+      "gives": "PARTY",
+      "note": "a political party"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "I",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A political party adopts equality as one of its aims.",
+     "definitionFit": "Parity means equality of status or pay, which is what egalitarians strive for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +599,44 @@
     "text": "Editing letter that contains this slightly shocking sensation",
     "enumeration": "6"
    },
-   "solution": "TINGLE"
+   "solution": "TINGLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TINGLE",
+    "definitions": [
+     {
+      "text": "slightly shocking sensation",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that contains this",
+      "for": "hidden_word",
+      "note": "the clue says the words in front hold the answer inside them, spelt out across the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Editing letter",
+      "gives": "TINGLE",
+      "note": "the letters run across the end of the first word into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An editor tidying a letter finds something faintly scandalous in it.",
+     "walkthrough": "TINGLE spans ediTING LEtter. 'Slightly shocking' suggests racy content, but it is a mild electric prickle.",
+     "definitionFit": "A tingle is a light prickling or stinging feeling, like a small electric shock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shocking"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +650,47 @@
     "text": "Buckle isn't what belligerent Indian wore",
     "enumeration": "8"
    },
-   "solution": "WARPAINT"
+   "solution": "WARPAINT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WARPAINT",
+    "definitions": [
+     {
+      "text": "what belligerent Indian wore",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Buckle",
+      "gives": "WARP",
+      "note": "to buckle is to bend or warp out of shape"
+     },
+     {
+      "clueFragment": "isn't",
+      "gives": "AINT",
+      "note": "ain't is a colloquial form of isn't"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WARP",
+      "AINT"
+     ]
+    },
+    "explanation": {
+     "surface": "A buckle wasn't part of a fighting Native American's dress.",
+     "walkthrough": "'Buckle' looks like a belt fastening but is a verb meaning bend.",
+     "definitionFit": "War paint was the face and body paint Native American warriors put on before going into battle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Buckle"
+    }
+   }
   },
   {
    "number": 12,
@@ -192,7 +710,44 @@
      }
     ]
    },
-   "solution": "IDENTICALTWINS"
+   "solution": "IDENTICALTWINS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IDENTICAL TWINS",
+    "definitions": [
+     {
+      "text": "Undistinguished pair",
+      "at": 0
+     },
+     {
+      "text": "who share an annual celebration",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Undistinguished pair",
+      "note": "first meaning: two people who cannot be told apart"
+     },
+     {
+      "clueFragment": "who share an annual celebration",
+      "note": "second meaning: siblings with the same birthday"
+     }
+    ],
+    "explanation": {
+     "surface": "An unremarkable couple who mark their anniversary together.",
+     "walkthrough": "'Undistinguished' usually means mediocre; here it means not distinguishable from each other.",
+     "definitionFit": "Identical twins look alike, so cannot be distinguished, and were born on the same day, so share a birthday."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Undistinguished"
+    }
+   }
   },
   {
    "number": 13,
@@ -206,7 +761,52 @@
     "text": "Oddly comedic art for party in US",
     "enumeration": "10"
    },
-   "solution": "DEMOCRATIC"
+   "solution": "DEMOCRATIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEMOCRATIC",
+    "definitions": [
+     {
+      "text": "for party in US",
+      "at": 18,
+      "note": "adjective: belonging to one of the two main American parties"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "anagram",
+      "note": "done oddly means done in a strange way, so these letters come out in an unusual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comedic art",
+      "gives": "COMEDICART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COMEDICART",
+       "gives": "DEMOCRATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Strangely funny artwork is put on for a party in America.",
+     "walkthrough": "'Oddly' looks like a letter-selection signal for alternate letters, but those would be far too short; it shuffles the whole phrase.",
+     "definitionFit": "The Democratic Party is one of the two major political parties in the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 14,
@@ -220,7 +820,64 @@
     "text": "Conscious a conflict leads to peace, ultimately",
     "enumeration": "5"
    },
-   "solution": "AWARE"
+   "solution": "AWARE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AWARE",
+    "definitions": [
+     {
+      "text": "Conscious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end, so only the closing letter of the word is used"
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "conflict",
+      "gives": "WAR",
+      "note": "a war is a conflict"
+     },
+     {
+      "clueFragment": "peace",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A thoughtful observation that war eventually brings peace.",
+     "walkthrough": "'Leads to' simply places the first pieces before the last letter of 'peace'.",
+     "definitionFit": "To be aware is to have knowledge or perception of something, to be mindful of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +891,54 @@
     "text": "Surrounded by support, including large number of Romans",
     "enumeration": "4"
    },
-   "solution": "AMID"
+   "solution": "AMID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMID",
+    "definitions": [
+     {
+      "text": "Surrounded by",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "a thing including another holds it within, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "AID",
+      "note": "aid is help or support"
+     },
+     {
+      "clueFragment": "large number of Romans",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "M",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A help effort involving many people in ancient Rome.",
+     "definitionFit": "Amid is a preposition meaning in the middle of, encircled by others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Romans"
+    }
+   }
   },
   {
    "number": 16,
@@ -248,7 +952,62 @@
     "text": "Offering fishing south of Land's End",
     "enumeration": "8"
    },
-   "solution": "DANGLING"
+   "solution": "DANGLING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DANGLING",
+    "definitions": [
+     {
+      "text": "Offering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that letter is kept"
+     },
+     {
+      "text": "south of",
+      "for": "charade",
+      "note": "in a down clue, south of means placed underneath, so it comes later in the column"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Land's",
+      "gives": "D",
+      "select": "last",
+      "note": "the closing letter of the word land"
+     },
+     {
+      "clueFragment": "fishing",
+      "gives": "ANGLING",
+      "note": "angling is fishing with rod and line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ANGLING"
+     ]
+    },
+    "explanation": {
+     "surface": "A tour company advertising fishing trips near Cornwall's westernmost tip.",
+     "walkthrough": "Land's End is the far south-west point of England in Cornwall; read literally it is the last letter of 'land'.",
+     "definitionFit": "Dangling something before someone, like a carrot, is holding it out as an enticing offer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 17,
@@ -262,7 +1021,42 @@
     "text": "Rod teachers employed in school",
     "enumeration": "5"
    },
-   "solution": "STAFF"
+   "solution": "STAFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAFF",
+    "definitions": [
+     {
+      "text": "Rod",
+      "at": 0
+     },
+     {
+      "text": "teachers employed in school",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rod",
+      "note": "first meaning: a stick or pole"
+     },
+     {
+      "clueFragment": "teachers employed in school",
+      "note": "second meaning: the personnel of an institution"
+     }
+    ],
+    "explanation": {
+     "surface": "A reminder of when teachers in schools wielded the cane.",
+     "definitionFit": "A staff is a long walking stick, and the staff of a school are its employed teachers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rod"
+    }
+   }
   },
   {
    "number": 18,
@@ -276,7 +1070,58 @@
     "text": "Fellow put on suit for part of party",
     "enumeration": "7"
    },
-   "solution": "FACTION"
+   "solution": "FACTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FACTION",
+    "definitions": [
+     {
+      "text": "part of party",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "in a down clue, put on means set on top, so this piece comes first in the column"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "ACTION",
+      "note": "a lawsuit is a legal action"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ACTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A man dresses up in a suit for a party.",
+     "walkthrough": "'Suit' and 'party' suggest clothes and a social event; the suit is legal and the party political.",
+     "definitionFit": "A faction is a dissenting group or clique within a larger political party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 19,
@@ -290,7 +1135,44 @@
     "text": "Understand small piece in plane, say",
     "enumeration": "4"
    },
-   "solution": "TWIG"
+   "solution": "TWIG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TWIG",
+    "definitions": [
+     {
+      "text": "Understand",
+      "at": 0
+     },
+     {
+      "text": "small piece in plane, say",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Understand",
+      "note": "first meaning: grasp, catch on, in informal British use"
+     },
+     {
+      "clueFragment": "small piece in plane, say",
+      "note": "second meaning: a slender shoot of a tree, such as a plane tree"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone trying to grasp what a tiny aircraft component does.",
+     "walkthrough": "The plane is a tree, not an aircraft; 'say' marks it as one example. To twig is British slang for to realise.",
+     "definitionFit": "A twig is a small branch of a tree, and twigging something means suddenly grasping it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 20,
@@ -310,7 +1192,53 @@
      }
     ]
    },
-   "solution": "CONFERENCECALL"
+   "solution": "CONFERENCECALL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONFERENCE CALL",
+    "definitions": [
+     {
+      "text": "Virtual meeting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reorganised",
+      "for": "anagram",
+      "note": "reorganised means arranged again in a new way, so these letters take a different order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "France once cell",
+      "gives": "FRANCEONCECELL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FRANCEONCECELL",
+       "gives": "CONFERENCECALL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wartime French Resistance cell regroups and meets remotely.",
+     "definitionFit": "A conference call is a telephone or video call linking several participants who are not physically together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cell"
+    }
+   }
   },
   {
    "number": 21,
@@ -324,7 +1252,56 @@
     "text": "Elected politician in nearby country or group of countries",
     "enumeration": "6"
    },
-   "solution": "EMPIRE"
+   "solution": "EMPIRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMPIRE",
+    "definitions": [
+     {
+      "text": "group of countries",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits within it, so the first piece is placed inside the second"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nearby country",
+      "gives": "EIRE",
+      "note": "Eire is the Irish name for Ireland, Britain's neighbour"
+     },
+     {
+      "clueFragment": "Elected politician",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MP",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A British MP working in neighbouring Ireland or across a bloc of nations.",
+     "definitionFit": "An empire is a set of nations or territories ruled by a single sovereign power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -344,7 +1321,51 @@
      }
     ]
    },
-   "solution": "COSTAR"
+   "solution": "COSTAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CO-STAR",
+    "definitions": [
+     {
+      "text": "do this to share the limelight",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one of several arrangements, so the letters may be put in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actors",
+      "gives": "ACTORS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTORS",
+       "gives": "COSTAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Performers may agree to equal billing so neither steals the spotlight.",
+     "walkthrough": "The whole clue also describes what actors do; the first word is both subject and fodder.",
+     "definitionFit": "To co-star is to appear as one of two or more leading performers with equal prominence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Actors"
+    }
+   }
   },
   {
    "number": 23,
@@ -358,7 +1379,50 @@
     "text": "Follows target in alley in greatly agitated state",
     "enumeration": "8"
    },
-   "solution": "TAILSPIN"
+   "solution": "TAILSPIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAILSPIN",
+    "definitions": [
+     {
+      "text": "greatly agitated state",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Follows",
+      "gives": "TAILS",
+      "note": "to tail someone is to follow them covertly"
+     },
+     {
+      "clueFragment": "target in alley",
+      "gives": "PIN",
+      "note": "the pins are the targets in a bowling alley"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAILS",
+      "PIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective shadows a suspect down an alley in a frantic state.",
+     "walkthrough": "The alley is a bowling alley, where the targets are skittle-shaped pins.",
+     "definitionFit": "A tailspin is an aircraft's spiralling dive, used figuratively for a state of panic or chaos."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alley"
+    }
+   }
   },
   {
    "number": 24,
@@ -372,7 +1436,61 @@
     "text": "Unfashionable female admirer upset",
     "enumeration": "4"
    },
-   "solution": "NAFF"
+   "solution": "NAFF",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NAFF",
+    "definitions": [
+     {
+      "text": "Unfashionable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned over, and in a down clue that turns the letters to read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "admirer",
+      "gives": "FAN",
+      "note": "a fan is an admirer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAF",
+      "F"
+     ],
+     "reversals": [
+      {
+       "from": "FFAN",
+       "to": "NAFF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is upset that her devotee is dowdy.",
+     "walkthrough": "Naff is British slang for tacky or uncool.",
+     "definitionFit": "Naff describes something lacking style or taste, cheap-looking and out of fashion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 25,
@@ -386,7 +1504,48 @@
     "text": "For example, fly within breakaway formation",
     "enumeration": "6"
    },
-   "solution": "INSECT"
+   "solution": "INSECT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSECT",
+    "definitions": [
+     {
+      "text": "For example, fly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "within",
+      "gives": "IN",
+      "note": "in means within"
+     },
+     {
+      "clueFragment": "breakaway formation",
+      "gives": "SECT",
+      "note": "a sect is a group that has split from a larger body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SECT"
+     ]
+    },
+    "explanation": {
+     "surface": "An example of flying in a breakaway formation, like aircraft or birds.",
+     "walkthrough": "'Fly' reads as a verb about formation flying; it is the noun, the insect.",
+     "definitionFit": "A fly is one example of an insect, the six-legged creatures, hence the 'for example'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 26,
@@ -400,7 +1559,53 @@
     "text": "Most of KGB, reportedly, is secretive",
     "enumeration": "4"
    },
-   "solution": "CAGY"
+   "solution": "CAGY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "homophone"
+    ],
+    "answer": "CAGY",
+    "definitions": [
+     {
+      "text": "secretive",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Most of",
+      "for": "deletion",
+      "note": "most of means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is said, so the letter names are heard rather than read"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "KGB",
+      "gives": "CAGY",
+      "soundsLike": "KAY GEE",
+      "note": "the initials less their last letter, spoken as letter names"
+     }
+    ],
+    "explanation": {
+     "surface": "Most of the Soviet spy agency is said to be tight-lipped.",
+     "walkthrough": "The KGB was the Soviet secret police, which fits 'secretive' perfectly in the surface.",
+     "definitionFit": "Cagy (or cagey) means reluctant to give information, guarded and evasive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 27,
@@ -414,7 +1619,50 @@
     "text": "Person straying with second less than perfect shot",
     "enumeration": "6"
    },
-   "solution": "SINNER"
+   "solution": "SINNER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINNER",
+    "definitions": [
+     {
+      "text": "Person straying",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "less than perfect shot",
+      "gives": "INNER",
+      "note": "in archery or shooting, the inner is the ring just outside the bullseye"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "INNER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wandering off with a second-rate attempt.",
+     "walkthrough": "On a target the bull is the perfect hit; a shot in the next ring is an inner.",
+     "definitionFit": "A sinner is one who strays from the path of moral righteousness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 28,
@@ -428,7 +1676,75 @@
     "text": "Spanish dance ends off fiesta with new energy",
     "enumeration": "8"
    },
-   "solution": "FANDANGO"
+   "solution": "FANDANGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "FANDANGO",
+    "definitions": [
+     {
+      "text": "Spanish dance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends off",
+      "for": "letter_selection",
+      "note": "the ends of a word are its first and last letters, so only those two are kept"
+     },
+     {
+      "text": "with",
+      "for": "container",
+      "note": "with here does double duty, being both the inserted word and the sign that it sits among those letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fiesta",
+      "gives": "FA",
+      "select": "outer",
+      "note": "the first and last letters of this word"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means with, together with"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "GO",
+      "note": "go means energy, vigour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AND",
+      "A",
+      "N",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A lively Spanish dance closes the festival with fresh vigour.",
+     "walkthrough": "The word for 'with' is held between the two outer letters of 'fiesta' rather than simply following them. 'Off' is read as 'of'; go is a common crossword word for energy.",
+     "definitionFit": "The fandango is a lively Spanish courtship dance in triple time, performed with castanets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ends"
+    }
+   }
   }
  ]
 }
