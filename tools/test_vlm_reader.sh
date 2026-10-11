@@ -59,6 +59,38 @@ calls.clear()
 check("ask returns the reply", "ACROSS\n1 Clue (5)", vlm.ask(img, "read it"))
 check("a second ask of the same image is the cache's", ("ACROSS\n1 Clue (5)", 1),
       (vlm.ask(img, "read it"), len(calls)))
+
+# Another model loaded and ready (#local-model's chat model) is not evicted:
+# the ask yields as for a game, sends nothing, and is asked again later.
+sent = []
+running = [[]]
+def fake_running(req, timeout=None):
+    sent.append(req.full_url)
+    if req.full_url.endswith("/running"):
+        return io.BytesIO(json.dumps({"running": running[0]}).encode())
+    return io.BytesIO(json.dumps({"choices": [{"message": {"content": "R"}}]}).encode())
+urllib.request.urlopen = fake_running
+img2 = Image.new("L", (400, 300), 0)
+def try_ask(loaded):
+    running[0] = loaded
+    vlm._CHAT[0] = float("-inf")
+    sent.clear()
+    try:
+        vlm.ask(img2, f"p{len(loaded)}{loaded and loaded[0]['model']}{loaded and loaded[0]['state']}")
+        return "asked" if any(u.endswith("/chat/completions") for u in sent) else "cache"
+    except RuntimeError as e:
+        return "yields" if "yields" in str(e) and not any(u.endswith("/chat/completions") for u in sent) else str(e)
+check("another model loaded and ready: no ask is sent, the ask yields",
+      "yields", try_ask([{"model": "qwen3.8-27b", "state": "ready"}]))
+check("the same model loaded, nothing loaded, or the other still starting: the ask is sent",
+      ["asked"] * 3, [try_ask([{"model": vlm.MODEL, "state": "ready"}]), try_ask([]),
+                      try_ask([{"model": "qwen3.8-27b", "state": "starting"}])])
+running[0] = [{"model": "qwen3.8-27b", "state": "ready"}]
+vlm._CHAT[0] = float("-inf")
+first = vlm.chat_model()
+running[0] = []
+check("the loaded-model check stands for CHAT_EVERY seconds, then reads again", ("qwen3.8-27b", "qwen3.8-27b", None),
+      (first, vlm.chat_model(), (vlm._CHAT.__setitem__(0, float("-inf")), vlm.chat_model())[1]))
 urllib.request.urlopen = real
 
 # The desktop sends the bytes png() makes here, so the Mac keys its cache
@@ -146,7 +178,7 @@ go(False)
 check("the VLM down again leaves its reading standing", [False, True], reads)
 vlm.version = lambda: "v2"
 go(True)
-check("a new VLM model alone reads nothing again (--reread does)", [False, True], reads)
+check("a new VLM model reads the edition again, at the whole-corpus rank", [False, True, True], reads)
 # The VLM gone during an edition: that edition is filed as read without it.
 state = {"up": True}
 def dies(d, found, hit, sol):
