@@ -393,7 +393,9 @@ def flagged_requests():
 #: word or its "?" ("for her7", "say?14") and letter read as its figure
 #: that the vote put back ("to0", "Result0f"), refused as a digit inside
 #: a word, and its last letter read as a bracket the clue never opened
-#: ("vita)"), dropped once the vote puts the letter back.
+#: ("vita)"), dropped once the vote puts the letter back. The entry for "a
+#: stray letter" is unstrayed()'s lone letter read for the one short word
+#: the readings print between its neighbours ("throws d sprightly").
 VOTE_MENDED = (
     ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
                                    "start is lost: other readings have")),
@@ -411,6 +413,7 @@ VOTE_MENDED = (
     ("2026-10-11T04:40:00+00:00", ("a digit inside a word",)),
     ("2026-10-11T05:00:00+00:00", ("a bracket never closed or opened",)),
     ("2026-10-11T06:19:00+00:00", ("a stray mark inside a word",)),
+    ("2026-10-11T06:35:00+00:00", ("a stray letter",)),
 )
 
 

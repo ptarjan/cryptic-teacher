@@ -2960,6 +2960,14 @@ def unstrayed(text, theirs):
                         not case or all(c in cs[i:i + len(want)] for c in mid)):
                     return True
         return False
+
+    def between(left, right):
+        """The words a reading prints alone between `left` and `right`, or
+        between its misreads of them (PRINTS_SIMILAR)."""
+        def at(ws, j, w):
+            return w is None and not 0 <= j < len(ws) or w is not None and 0 <= j < len(ws) and (
+                ws[j] == w.lower() or similar(ws[j], w.lower()) >= PRINTS_SIMILAR)
+        return {cs[i] for ws, cs in zip(seqs, caps) for i in range(len(ws)) if at(ws, i - 1, left) and at(ws, i + 1, right)}
     for _ in range(len((text or "").split())):
         flags = strays(text)
         if not flags:
@@ -2979,6 +2987,12 @@ def unstrayed(text, theirs):
                 break
             if why == "a stray letter" and printed(left, [word.upper()], right, case=True):
                 mended = raw[:k] + [raw[k].replace(word, word.upper(), 1)] + raw[k + 1:]
+                break
+            # The letter is a short word misread ("throws d sprightly" where a reading has "throws a sprightly").
+            words = {w for w in between(left, right) if w.lower() != word.lower() and known(w.lower())} \
+                if why == "a stray letter" else set()
+            if len({w.lower() for w in words}) == 1:
+                mended = raw[:k] + [raw[k].replace(word, min(words, key=str.islower), 1)] + raw[k + 1:]
                 break
         if mended is None:
             break
