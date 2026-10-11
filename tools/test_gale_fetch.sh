@@ -102,7 +102,7 @@ told = []
 #    refusal came after) it waits out the window (WINDOW_SEED, or the
 #    shortest a recovery showed), then counts afresh.
 assert gf.learned(limits_file([480, 520], [5 * 3600.0])) == (432, 5 * 3600.0)
-assert gf.learned(limits_file()) == (gf.CAP_SEED, gf.WINDOW_SEED)
+assert gf.learned(limits_file()) == (None, gf.WINDOW_SEED)
 clock, starts, stored, kw = harness(refusals=[400])
 cap = gf.learned(kw["limits"])[0]
 n, why = gf.run(limit=900, **kw)
@@ -118,14 +118,22 @@ assert 5 <= per3 <= gf.WINDOW_MAX, per3
 assert len(set(round(g, 3) for g in gaps)) > 100, "the gap is jittered"
 assert len(set(stored)) == 900, "no document twice"
 print(f"pace: {per3:.1f} downloads per 3 min, max {most} in any {gf.WINDOW:.0f}s, {len(rests)} rests")
-# Downloads made elsewhere count: a window seeded with the browser's 440 lets
-# 10 more through, then waits out the window.
-clock, starts, stored, kw = harness()
+# Downloads made elsewhere count: with a cap of 450 (a refusal at 500), a
+# window seeded with the browser's 440 lets 10 more through, then waits out
+# the window.
+clock, starts, stored, kw = harness(refusals=[500])
 gf.new_window(kw["limits"], clock() - 3600, 440)
 gf.run(limit=12, **kw)
 gaps = [b - a for a, b in zip(starts, starts[1:])]
 assert max(range(len(gaps)), key=gaps.__getitem__) == 9 and max(gaps) >= gf.WINDOW_SEED - 3600 - 600, gaps
 assert json.loads(kw["limits"].read_text())["window"]["before"] == 0, "a new window after the wait"
+# With no cap (no refusal yet) nothing waits and the window is never ended,
+# however long: a refusal then records the whole count.
+clock, starts, stored, kw = harness()
+gf.new_window(kw["limits"], clock() - 10 * 3600, 440)
+gf.run(limit=30, **kw)
+assert max(b - a for a, b in zip(starts, starts[1:])) < 3600
+assert gf.in_window(kw["limits"], kw["fetched"], clock())[1] == 470
 
 # 2. Stops at a captcha or a short PDF, having stored only before it.
 for bad, said in ((b"<html>Please complete the CAPTCHA</html>", "captcha"),

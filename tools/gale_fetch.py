@@ -24,7 +24,7 @@ session (Paul's browser agent, 2026-10-11: caps hit after ~475-500
 downloads; a fresh session right after one was still blocked; a cap hit at
 09:29 UTC was open again by 16:00). LIMITS holds the current count window
 (its start, and downloads in it made elsewhere, e.g. by the browser), each
-refusal and each recovery. At the cap (CAP_SEED, until a refusal teaches
+refusal and each recovery. At the cap (none until a refusal teaches
 CAP_SHARE of the fewest downloads one came after) it waits until the
 window's start plus the window length (WINDOW_SEED, until a recovery
 teaches a shorter one), then starts a new window.
@@ -79,10 +79,11 @@ PAUSE = (0.05, (60.0, 180.0))
 WINDOW, WINDOW_MAX = 180.0, 15
 #: The count window, each refusal, recovery and re-login.
 LIMITS = Path(os.path.expanduser("~/.cache/gale_inbox/limits.json"))
-#: Downloads per window until a refusal is recorded (Paul's caps came at
-#: ~475-500), and how long a window lasts until a recovery says (a cap
-#: at 09:29 UTC was open by 16:00).
-CAP_SEED, WINDOW_SEED = 450, 6.5 * 3600
+#: No cap until a refusal is recorded (Paul 2026-10-11: learn the limit; a
+#: refusal costs no more than waiting), and how long a window lasts until a
+#: recovery says (a cap at 09:29 UTC was open by 16:00). With no cap the
+#: window is never ended, so a refusal records the whole count.
+CAP_SEED, WINDOW_SEED = None, 6.5 * 3600
 #: The learned cap is this share of the fewest downloads in a window a
 #: refusal came after, and never below CAP_FLOOR.
 CAP_SHARE, CAP_FLOOR = 0.9, 50
@@ -433,6 +434,8 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
         cap, span = learned(limits)
         now = pacer.clock()
         start, count = in_window(limits, fetched, now)
+        if cap is None:
+            return
         if count >= cap and start + span > now:
             log(f"{count} downloads in the window since {iso(start)}, the cap is {cap}: waiting until"
                 f" {iso(start + span)}")

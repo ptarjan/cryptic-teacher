@@ -1891,11 +1891,11 @@ tools/gale_fetch.py                           downloads every wanted Times editi
                                               most 15 in 3 minutes) and lays each out at once
                                               as its date's edition (no inbox, match or
                                               set-aside), the PDF kept on the Mac; counts
-                                              downloads per window across sessions (seeded at
-                                              450, the browser's included), retries a
-                                              logged-out session at once, records each Gale
-                                              refusal with its count and pace and probes every
-                                              30 min to time the reset
+                                              downloads per window across sessions (the
+                                              browser's included; no cap until the first
+                                              refusal), retries a logged-out session at once,
+                                              records each Gale refusal with its count and pace
+                                              and probes every 30 min to time the reset
                                               (~/.cache/gale_inbox/limits.json), learning the
                                               cap and window from them; stops and wakes the
                                               room at a captcha, a wrong PDF, a refusal no
