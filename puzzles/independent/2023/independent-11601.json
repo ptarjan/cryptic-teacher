@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,42 @@
     "text": "Block of zinc is easily cut into",
     "enumeration": "6"
    },
-   "solution": "INCISE"
+   "solution": "INCISE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INCISE",
+    "definitions": [
+     {
+      "text": "cut into",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Block of",
+      "for": "hidden_word",
+      "note": "a block is a solid run cut out of something larger, so the answer is a continuous run of letters in the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zinc is easily",
+      "gives": "INCISE",
+      "note": "the run starts after the Z of zinc and stops after the E of easily"
+     }
+    ],
+    "explanation": {
+     "surface": "A metalworker notes that a slab of zinc is soft enough to cut with ease.",
+     "definitionFit": "To incise is to carve or engrave a mark into a surface with a sharp tool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Block"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +85,61 @@
     "text": "Spoil most of river, clogged off and on",
     "enumeration": "7"
    },
-   "solution": "INDULGE"
+   "solution": "INDULGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INDULGE",
+    "definitions": [
+     {
+      "text": "Spoil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word means all but its final letter, so the river loses its tail"
+     },
+     {
+      "text": "off and on",
+      "for": "letter_selection",
+      "note": "switching off then on again picks every other letter of the word it describes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "INDUS",
+      "note": "the Indus is the great river of Pakistan"
+     },
+     {
+      "clueFragment": "clogged",
+      "gives": "LGE",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of clogged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDU",
+      "LGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a river has been ruined by repeated blockages.",
+     "definitionFit": "To indulge a child is to give in to every wish, which is what spoiling one means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spoil"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +159,59 @@
      }
     ]
    },
-   "solution": "CRYUP"
+   "solution": "CRYUP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CRY UP",
+    "definitions": [
+     {
+      "text": "praise",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "largely means for the most part, so the island's name is cut short by its last letter"
+     },
+     {
+      "text": "concocted",
+      "for": "anagram",
+      "note": "something concocted is cooked up from mixed ingredients, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cyprus",
+      "gives": "CYPRUS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRYUP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CYPRU",
+       "gives": "CRYUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tourist-board praise for Cyprus that is mostly made up.",
+     "definitionFit": "To cry something up is to talk it up or extol it loudly, a verb phrase for praising."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concocted"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +225,57 @@
     "text": "Regular payment of gratuity in dispatch",
     "enumeration": "7"
    },
-   "solution": "STIPEND"
+   "solution": "STIPEND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STIPEND",
+    "definitions": [
+     {
+      "text": "Regular payment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it, so the gratuity goes within the dispatch"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dispatch",
+      "gives": "SEND",
+      "note": "to dispatch something is to send it"
+     },
+     {
+      "clueFragment": "gratuity",
+      "gives": "TIP",
+      "note": "a gratuity is a tip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TIP",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "An office worker's wage arrives with a bonus tucked into the post.",
+     "definitionFit": "A stipend is a fixed salary or allowance paid at set intervals, as to a clergyman or student."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dispatch"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +289,45 @@
     "text": "Picked up kissed Cockney lass that's very sweet",
     "enumeration": "6"
    },
-   "solution": "NECTAR"
+   "solution": "NECTAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NECTAR",
+    "definitions": [
+     {
+      "text": "that's very sweet",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Picked up",
+      "for": "homophone",
+      "note": "picked up means caught by the ear, so the answer sounds like the phrase rather than being spelt like it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kissed Cockney lass",
+      "gives": "NECTAR",
+      "soundsLike": "NECKED 'ER",
+      "note": "kissed is necked, and a Cockney drops the H from her, the lass"
+     }
+    ],
+    "explanation": {
+     "surface": "An East End romance described as a sweet moment.",
+     "walkthrough": "To neck is British slang for to kiss passionately; the Cockney accent drops initial H, so 'her' becomes 'er.",
+     "definitionFit": "Nectar is the sugary fluid of flowers, and by extension any drink or thing that is deliciously sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Picked"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +347,62 @@
      }
     ]
    },
-   "solution": "ELGRECO"
+   "solution": "ELGRECO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EL GRECO",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not means excluding, so the letter named next is taken away from the composer"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "composer",
+      "gives": "ELGAR",
+      "note": "Sir Edward Elgar, English composer"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter to be removed"
+     },
+     {
+      "clueFragment": "novelist",
+      "gives": "ECO",
+      "note": "Umberto Eco, Italian novelist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELGR",
+      "ECO"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter is after a musician rather than a writer for some project.",
+     "definitionFit": "El Greco was the Cretan-born painter who worked in Toledo, famous for elongated figures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wants"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +416,53 @@
     "text": "Earthling's ill nature dealt with",
     "enumeration": "9"
    },
-   "solution": "TELLURIAN"
+   "solution": "TELLURIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TELLURIAN",
+    "definitions": [
+     {
+      "text": "Earthling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dealt with",
+      "for": "anagram",
+      "note": "cards dealt out are shuffled first, so these letters are redistributed"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ill nature",
+      "gives": "ILLNATURE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ILLNATURE",
+       "gives": "TELLURIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's bad temper has been handled at last.",
+     "definitionFit": "Tellurian, from Latin tellus (earth), describes an inhabitant of the planet Earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Earthling's"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +476,43 @@
     "text": "Current lead",
     "enumeration": "7"
    },
-   "solution": "RUNNING"
+   "solution": "RUNNING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUNNING",
+    "definitions": [
+     {
+      "text": "Current",
+      "at": 0
+     },
+     {
+      "text": "lead",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current",
+      "note": "first meaning: ongoing"
+     },
+     {
+      "clueFragment": "lead",
+      "note": "second meaning: managing or being in charge"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The pair reads like electrical terms (current, a lead), but neither is about wiring.",
+     "definitionFit": "Running means continuing at present and also directing or operating something, so it covers both senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +536,51 @@
      }
     ]
    },
-   "solution": "WATCHTHECLOCK"
+   "solution": "WATCHTHECLOCK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WATCH THE CLOCK",
+    "definitions": [
+     {
+      "text": "work minimally?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "messed up",
+      "for": "anagram",
+      "note": "something messed up has been thrown into disorder, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Check what clot",
+      "gives": "CHECKWHATCLOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHECKWHATCLOT",
+       "gives": "WATCHTHECLOCK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A manager tells someone to look at what an idiot has botched at work.",
+     "walkthrough": "'Check' looks like the definition, and fits a clock-watcher, but it is part of the fodder.",
+     "definitionFit": "Someone who watches the clock is eager for the end of the shift, doing as little as possible meanwhile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 9,
@@ -187,7 +600,44 @@
      }
     ]
    },
-   "solution": "DDAY"
+   "solution": "DDAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "D-DAY",
+    "definitions": [
+     {
+      "text": "date of major operation",
+      "at": 46
+     }
+    ],
+    "linkWords": [
+     "required for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Signature of US actress possibly",
+      "gives": "DDAY",
+      "note": "Doris Day, the American actress and singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DDAY"
+     ]
+    },
+    "explanation": {
+     "surface": "An autograph from a Hollywood star is needed for some important appointment.",
+     "definitionFit": "D-Day, 6 June 1944, was the date of the Allied landings in Normandy, the largest seaborne invasion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Signature"
+    }
+   }
   },
   {
    "number": 10,
@@ -207,7 +657,51 @@
      }
     ]
    },
-   "solution": "ILANGILANG"
+   "solution": "ILANGILANG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ILANG-ILANG",
+    "definitions": [
+     {
+      "text": "oil",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unexpectedly",
+      "for": "anagram",
+      "note": "an unexpected result comes out differently from what was planned, so the letters land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gaining all",
+      "gives": "GAININGALL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GAININGALL",
+       "gives": "ILANGILANG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speculator suddenly acquires the whole oil supply.",
+     "walkthrough": "'Oil' looks like the object of gaining, but it is the definition.",
+     "definitionFit": "Ylang-ylang, also spelt ilang-ilang, is a fragrant essential oil from a tropical tree, used in perfumes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oil"
+    }
+   }
   },
   {
    "number": 11,
@@ -221,7 +715,57 @@
     "text": "Pass through circuits between earths",
     "enumeration": "6"
    },
-   "solution": "ELAPSE"
+   "solution": "ELAPSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ELAPSE",
+    "definitions": [
+     {
+      "text": "Pass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "between",
+      "for": "container",
+      "note": "something between two things is flanked by them, so the circuits sit inside the pair of earths"
+     }
+    ],
+    "linkWords": [
+     "through"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earths",
+      "gives": "EE",
+      "note": "E is the abbreviation for earth, as on plugs; two of them"
+     },
+     {
+      "clueFragment": "circuits",
+      "gives": "LAPS",
+      "note": "circuits of a track are laps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LAPS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An electrician's note about current running through circuits between earth wires.",
+     "definitionFit": "Time is said to elapse when it goes by, the same as time passing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "earths"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +779,76 @@
     "text": "Heartless brummie bent on first pair of Charlie's Angels",
     "enumeration": "8"
    },
-   "solution": "CHERUBIM"
+   "solution": "CHERUBIM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CHERUBIM",
+    "definitions": [
+     {
+      "text": "Angels",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heartless",
+      "for": "deletion",
+      "note": "without a heart means the middle letter of the word goes"
+     },
+     {
+      "text": "bent",
+      "for": "anagram",
+      "note": "bent means twisted out of shape, so the remaining letters are rearranged"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on means placed after, so the twisted word follows the opening letters"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first pair of Charlie",
+      "gives": "CH",
+      "note": "the first two letters of Charlie"
+     },
+     {
+      "clueFragment": "brummie",
+      "gives": "BRUMMIE",
+      "note": "taken as written; one of its two central Ms is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "ERUBIM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BRUMIE",
+       "gives": "ERUBIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel Birmingham native is obsessed with the trio from the TV show Charlie's Angels.",
+     "walkthrough": "A Brummie is someone from Birmingham. 'Charlie's Angels' reads as one title, but 'Angels' alone is the definition.",
+     "definitionFit": "Cherubim is the plural of cherub, an order of angels in Christian and Jewish tradition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Angels"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +862,64 @@
     "text": "Restoring mostly obscure domestic chore without resistance",
     "enumeration": "14"
    },
-   "solution": "RECONDITIONING"
+   "solution": "RECONDITIONING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RECONDITIONING",
+    "definitions": [
+     {
+      "text": "Restoring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter of the obscure word is dropped"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the letter for resistance is taken out of the chore"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obscure",
+      "gives": "RECONDITE",
+      "note": "recondite means obscure or little known"
+     },
+     {
+      "clueFragment": "domestic chore",
+      "gives": "IRONING",
+      "note": "pressing clothes is a household task"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECONDIT",
+      "IONING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is fixing up a house while avoiding an unclear household job.",
+     "definitionFit": "Reconditioning an engine or appliance means overhauling it to good working order again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Restoring"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +933,55 @@
     "text": "Spanning two rivers, open stretch",
     "enumeration": "9"
    },
-   "solution": "OVEREXERT"
+   "solution": "OVEREXERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OVEREXERT",
+    "definitions": [
+     {
+      "text": "stretch",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spanning",
+      "for": "container",
+      "note": "spanning means stretching across, so the word for open reaches around the rivers"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "open",
+      "gives": "OVERT",
+      "note": "overt means done openly"
+     },
+     {
+      "clueFragment": "two rivers",
+      "gives": "EXER",
+      "note": "the Exe is a Devon river, and R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "EXER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A bridge crossing two rivers carries an open expanse of road.",
+     "definitionFit": "To overexert oneself is to push too hard, as in overstretching one's strength."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stretch"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +995,65 @@
     "text": "Irresistibly one-sided grovelling — why me getting sacked?",
     "enumeration": "14"
    },
-   "solution": "OVERWHELMINGLY"
+   "solution": "OVERWHELMINGLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OVERWHELMINGLY",
+    "definitions": [
+     {
+      "text": "Irresistibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one-sided",
+      "for": "deletion",
+      "note": "having only one side means an edge has been lost, here the opening letter"
+     },
+     {
+      "text": "sacked",
+      "for": "anagram",
+      "note": "sacked as in ransacked, a place turned upside down, so the letters are thrown about"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grovelling",
+      "gives": "GROVELLING",
+      "note": "taken as written, then its first letter is lost"
+     },
+     {
+      "clueFragment": "why me",
+      "gives": "WHYME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROVELLINGWHYME",
+       "gives": "OVERWHELMINGLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An employee who just lost their job bemoans their fate in one-sided, self-pitying fashion.",
+     "walkthrough": "'Irresistibly one-sided' reads as the definition, but 'one-sided' acts on grovelling.",
+     "definitionFit": "Overwhelmingly means with a force too great to resist, such as a landslide vote."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sacked"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +1067,54 @@
     "text": "Stage musical welcomes international actor",
     "enumeration": "7"
    },
-   "solution": "OLIVIER"
+   "solution": "OLIVIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OLIVIER",
+    "definitions": [
+     {
+      "text": "actor",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomes",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so the musical's name holds the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stage musical",
+      "gives": "OLIVER",
+      "note": "Oliver! is Lionel Bart's stage musical"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLIV",
+      "I",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A West End show takes on a star from abroad.",
+     "definitionFit": "Laurence Olivier was among the most celebrated English stage and film actors of the twentieth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "international"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1134,48 @@
      }
     ]
    },
-   "solution": "WEEFREE"
+   "solution": "WEEFREE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WEE FREE",
+    "definitions": [
+     {
+      "text": "Religious separatist",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number one",
+      "gives": "WEE",
+      "note": "number one is a nursery euphemism for a wee"
+     },
+     {
+      "clueFragment": "missing",
+      "gives": "FREE",
+      "note": "free of something means without it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEE",
+      "FREE"
+     ]
+    },
+    "explanation": {
+     "surface": "A query whether a breakaway believer lacks a leader.",
+     "walkthrough": "The Wee Frees are the Free Church of Scotland, which stayed out of a 1900 union; the wordplay reads it as free of wee.",
+     "definitionFit": "A Wee Free is a member of the small Free Church of Scotland that refused to merge, a separatist body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1189,59 @@
     "text": "One maltreats half-hearted wife, ever gutted",
     "enumeration": "7"
    },
-   "solution": "MISUSER"
+   "solution": "MISUSER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MISUSER",
+    "definitions": [
+     {
+      "text": "One maltreats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-hearted",
+      "for": "deletion",
+      "note": "with half the heart gone, one of the two middle letters is removed"
+     },
+     {
+      "text": "gutted",
+      "for": "deletion",
+      "note": "a gutted thing has had its insides removed, leaving only its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "MISSUS",
+      "note": "missus is informal for wife"
+     },
+     {
+      "clueFragment": "ever",
+      "gives": "EVER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISUS",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An abusive husband's wife is losing heart, eternally broken.",
+     "definitionFit": "A misuser is a person who uses something wrongly or treats it badly, the noun for one who maltreats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1261,51 @@
      }
     ]
    },
-   "solution": "LEGSLIP"
+   "solution": "LEGSLIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEG SLIP",
+    "definitions": [
+     {
+      "text": "body in field?",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "identify"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Limbs",
+      "gives": "LEGS",
+      "note": "legs are limbs"
+     },
+     {
+      "clueFragment": "cheek",
+      "gives": "LIP",
+      "note": "lip means cheek, insolence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEGS",
+      "LIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A forensic scene: limbs and a face help name a corpse found in a field.",
+     "walkthrough": "In cricket, leg slip is a fielding position close behind the batsman on the leg side, so the 'body' is a fielder.",
+     "definitionFit": "The fielder stationed at leg slip is a person standing in the field, hence a body in the field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1319,50 @@
     "text": "Measure reservoir in coastal village",
     "enumeration": "8"
    },
-   "solution": "SIZEWELL"
+   "solution": "SIZEWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIZEWELL",
+    "definitions": [
+     {
+      "text": "coastal village",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Measure",
+      "gives": "SIZE",
+      "note": "to size something is to measure it"
+     },
+     {
+      "clueFragment": "reservoir",
+      "gives": "WELL",
+      "note": "a well is a reservoir of water underground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIZE",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gauges a water supply in a village by the sea.",
+     "walkthrough": "Sizewell is a village on the Suffolk coast in eastern England, known for its nuclear power stations.",
+     "definitionFit": "Sizewell is a small seaside settlement in Suffolk, so it is a village on the coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reservoir"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1376,66 @@
     "text": "Wild dogs ultimately mean to show no sign of hesitation",
     "enumeration": "6"
    },
-   "solution": "SAVAGE"
+   "solution": "SAVAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "SAVAGE",
+    "definitions": [
+     {
+      "text": "Wild",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the last letter of the dogs is kept"
+     },
+     {
+      "text": "to show no",
+      "for": "deletion",
+      "note": "to show no sign means that sign is absent, so it is removed from the word for mean"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dogs",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of dogs"
+     },
+     {
+      "clueFragment": "mean",
+      "gives": "AVERAGE",
+      "note": "the mean is the average"
+     },
+     {
+      "clueFragment": "sign of hesitation",
+      "gives": "ER",
+      "note": "er is the sound of someone hesitating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AVAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Feral dogs eventually intend to attack without pausing.",
+     "definitionFit": "Savage and wild both describe an untamed, fierce animal or person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1449,61 @@
     "text": "Space below centre of driving belt",
     "enumeration": "5"
    },
-   "solution": "VROOM"
+   "solution": "VROOM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "VROOM",
+    "definitions": [
+     {
+      "text": "belt",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letter, so only that one is kept"
+     },
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "in a down answer, below means the space word comes underneath, after the kept letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "driving",
+      "gives": "V",
+      "select": "middle",
+      "note": "the fourth of seven letters in driving"
+     },
+     {
+      "clueFragment": "Space",
+      "gives": "ROOM",
+      "note": "room means space"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ROOM"
+     ]
+    },
+    "explanation": {
+     "surface": "Talk of the room beneath the drive belt in an engine.",
+     "walkthrough": "'Driving belt' reads as a machine part, but 'belt' alone is the definition, meaning to speed.",
+     "definitionFit": "To vroom is to drive off fast with a roaring engine, and to belt along is to go very fast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "belt"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1517,66 @@
     "text": "Absurd scare stops Scottish town's jokes",
     "enumeration": "10"
    },
-   "solution": "WISECRACKS"
+   "solution": "WISECRACKS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WISECRACKS",
+    "definitions": [
+     {
+      "text": "jokes",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Absurd",
+      "for": "anagram",
+      "note": "absurd means nonsensical, so these letters are put into a senseless new order"
+     },
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "a stopper plugs a hole, so the shuffled word goes inside the town's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish town's",
+      "gives": "WICKS",
+      "note": "Wick is a town in Caithness, plus the possessive S"
+     },
+     {
+      "clueFragment": "scare",
+      "gives": "SCARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WI",
+      "SECRA",
+      "CKS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCARE",
+       "gives": "SECRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ridiculous panic halts a Highland town's comedy.",
+     "definitionFit": "Wisecracks are smart, flippant remarks made to amuse, which is a kind of joke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stops"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1590,61 @@
     "text": "Goggles regularly covering left eye up",
     "enumeration": "4"
    },
-   "solution": "OGLE"
+   "solution": "OGLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OGLE",
+    "definitions": [
+     {
+      "text": "eye up",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of the goggles is kept"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "to cover something is to wrap over it, so the kept letters go round the letter for left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Goggles",
+      "gives": "OGE",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of Goggles"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OG",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer's goggles keep sliding over one eye.",
+     "definitionFit": "To ogle someone is to stare at them with obvious desire, which is to eye them up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eye"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1658,62 @@
     "text": "What a Rechabite getting into wine could become?",
     "enumeration": "6"
    },
-   "solution": "RATTED"
+   "solution": "RATTED",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "container"
+    ],
+    "answer": "RATTED",
+    "definitions": [
+     {
+      "text": "What a Rechabite getting into wine could become?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "getting into means going inside, so the pieces before it are placed within the wine"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "red is a wine"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Rechabite",
+      "gives": "TT",
+      "note": "a Rechabite is a member of a temperance society, so teetotal, TT"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ATT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry question about what happens when a sworn abstainer takes to drink.",
+     "walkthrough": "The whole clue is both wordplay and definition: a teetotaller drinking wine might end up drunk. Ratted is British slang for very drunk.",
+     "definitionFit": "A teetotaller who starts on the wine could get thoroughly drunk, which is what ratted means in British slang."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Rechabite"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1733,47 @@
      }
     ]
    },
-   "solution": "DRUMUP"
+   "solution": "DRUMUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRUM UP",
+    "definitions": [
+     {
+      "text": "Petition",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "gives": "DRUM",
+      "note": "drum is old slang for a house or dwelling"
+     },
+     {
+      "clueFragment": "before judge",
+      "gives": "UP",
+      "note": "a defendant up before the bench is in court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRUM",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A petition is brought before the House of Commons and a judge.",
+     "walkthrough": "'House' suggests Parliament, but here it is the slang word for a home; up means appearing in court.",
+     "definitionFit": "To drum up support or business is to canvass actively for it, as petitioning does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "House"
+    }
+   }
   }
  ]
 }
