@@ -487,17 +487,20 @@ def lay_out_fetched(day, doc, data, entry, cache=CACHE):
     """Lay out the page PDF `data` tools/gale_fetch.py downloaded for `day`
     (Gale document `doc`, gale_docs cache `entry`) as that date's edition,
     as stage does a matched file, its match taken from what the download
-    already knew. Returns the edition dir."""
+    already knew. Returns the edition dir. It is laid out in a hidden dir
+    beside the year dirs, not in one, so a sync's stage running meanwhile
+    (which clears a year dir's strays) never sees it half done; the rename
+    moves it in whole."""
     import tempfile
     d = cache / ITEM.format(day.year) / day.isoformat()
     name = f"GALE_{doc}.pdf"
     with tempfile.TemporaryDirectory() as t:
         (Path(t) / name).write_bytes(data)
         read = images(Path(t) / name)
-    tmp = d.with_name(d.name + ".new")
-    if tmp.exists():
-        shutil.rmtree(tmp)
-    tmp.mkdir(parents=True)
+    d.parent.mkdir(parents=True, exist_ok=True)
+    work = Path(tempfile.mkdtemp(prefix=".gale_fetch-", dir=cache))
+    tmp = work / d.name
+    tmp.mkdir()
     leaves, grid = [], False
     for img, _ in read:
         page, found = scaled(img)
@@ -514,6 +517,7 @@ def lay_out_fetched(day, doc, data, entry, cache=CACHE):
     if d.exists():
         shutil.rmtree(d)
     tmp.rename(d)
+    work.rmdir()
     return d
 
 

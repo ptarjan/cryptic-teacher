@@ -241,7 +241,7 @@ def resolve(prod, rows, out=sys.stdout, gale=None, cache=CACHE, limit=PER_TICK, 
     added = 0
     for key, (day, number, how) in list(todo.items())[:limit]:
         if until is not None and time.monotonic() > until:
-            print(f"gale_docs: out of time; the rest next tick", file=out)
+            print("gale_docs: out of time; the rest next tick", file=out)
             break
         gale = gale or Gale(deadline=None if until is None else until + LOOKUP_GRACE)
         try:
@@ -256,11 +256,23 @@ def resolve(prod, rows, out=sys.stdout, gale=None, cache=CACHE, limit=PER_TICK, 
         docs[key] = e
         added += "doc" in e
         print(f"gale_docs: {key}: " + (f"{e['doc']} {e['title']}" if "doc" in e else e["why"]), file=out)
-        cache.parent.mkdir(parents=True, exist_ok=True)
+        keep(key, e, cache)
+    return added
+
+
+def keep(key, e, cache=CACHE):
+    """Set `key` to `e` in `cache`, whole or not at all, under its own lock:
+    the sync (the Listener's rows) and tools/gale_fetch.py (the Times')
+    both write it, and each keeps the other's entries."""
+    import fcntl
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    with open(cache.with_suffix(".lock"), "w") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        docs = load(cache)
+        docs[key] = e
         tmp = cache.with_suffix(".tmp")
         tmp.write_text(json.dumps(docs, indent=0, sort_keys=True))
         tmp.replace(cache)
-    return added
 
 
 if __name__ == "__main__":
