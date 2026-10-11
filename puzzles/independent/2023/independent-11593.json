@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Competent assistant cuts wire",
     "enumeration": "7"
    },
-   "solution": "CAPABLE"
+   "solution": "CAPABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAPABLE",
+    "definitions": [
+     {
+      "text": "Competent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "something that cuts into a word splits it and sits inside the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wire",
+      "gives": "CABLE",
+      "note": "a cable is an insulated wire"
+     },
+     {
+      "clueFragment": "assistant",
+      "gives": "PA",
+      "note": "PA is a personal assistant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "PA",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A capable helper snips through a wire, perhaps defusing something.",
+     "walkthrough": "'Cuts' suggests snipping, but here the assistant splits the wire word and sits inside it.",
+     "definitionFit": "Capable and competent are synonyms, both describing someone able to do a job well."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +104,66 @@
      }
     ]
    },
-   "solution": "CHATSHOW"
+   "solution": "CHATSHOW",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CHAT SHOW",
+    "definitions": [
+     {
+      "text": "programme",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "runs",
+      "for": "anagram",
+      "note": "colours that run in the wash bleed and mix, so the letters are jumbled"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "placing one piece after another fixes their order in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold on taps"
+     },
+     {
+      "clueFragment": "Hot wash",
+      "gives": "HOTWASH",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HATSHOW"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOTWASH",
+       "gives": "HATSHOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A laundry mishap: a hot wash makes colours run after a cold one.",
+     "walkthrough": "The surface reads like washing-machine instructions; 'runs' is the colour-bleeding sense, signalling the rearrangement.",
+     "definitionFit": "A chat show is a type of television programme built around interviews with guests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +177,49 @@
     "text": "French film company of course European",
     "enumeration": "5"
    },
-   "solution": "PATHE"
+   "solution": "PATHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PATHE",
+    "definitions": [
+     {
+      "text": "French film company",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "course",
+      "gives": "PATH",
+      "note": "a path is a course or route"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PATH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A French film company that is, naturally, European.",
+     "definitionFit": "Pathé is a long-established French film production and distribution company, famous for its newsreels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +233,44 @@
     "text": "Rabbit that's divided for burger",
     "enumeration": "3"
    },
-   "solution": "BUN"
+   "solution": "BUN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUN",
+    "definitions": [
+     {
+      "text": "Rabbit",
+      "at": 0
+     },
+     {
+      "text": "that's divided for burger",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rabbit",
+      "note": "first meaning: a pet name or dialect word for a rabbit, as in bunny"
+     },
+     {
+      "clueFragment": "that's divided for burger",
+      "note": "second meaning: the bread roll split in two to hold a burger"
+     }
+    ],
+    "explanation": {
+     "surface": "A rabbit being cut up for a burger, a grim menu item.",
+     "walkthrough": "The surface suggests butchery; in fact the second half describes the bread roll sliced open around a patty.",
+     "definitionFit": "Bun is an informal name for a rabbit, and also the soft roll that is sliced open to hold a burger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rabbit"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +284,46 @@
     "text": "Earth dead? Cheer up",
     "enumeration": "5"
    },
-   "solution": "ELATE"
+   "solution": "ELATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELATE",
+    "definitions": [
+     {
+      "text": "Cheer up",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Earth",
+      "gives": "E",
+      "note": "E is an abbreviation for earth, as on electrical plugs"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "LATE",
+      "note": "the late someone is someone who has died"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy question about the planet's death, followed by a brisk instruction to cheer up.",
+     "definitionFit": "To elate is to fill with high spirits, which is a transitive way of saying to cheer someone up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dead"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +337,62 @@
     "text": "Witch costume for TV returned looking the worse for wear",
     "enumeration": "7"
    },
-   "solution": "HAGGARD"
+   "solution": "HAGGARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HAGGARD",
+    "definitions": [
+     {
+      "text": "looking the worse for wear",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word is read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Witch",
+      "gives": "HAG",
+      "note": "a hag is an ugly old witch"
+     },
+     {
+      "clueFragment": "costume for TV",
+      "gives": "DRAG",
+      "note": "TV is short for transvestite, whose costume is drag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAG",
+      "GARD"
+     ],
+     "reversals": [
+      {
+       "from": "DRAG",
+       "to": "GARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A witch costume sent back to the TV wardrobe department because it looks tatty.",
+     "walkthrough": "TV is not television here but the old abbreviation for transvestite, whose costume is the one turned round.",
+     "definitionFit": "Haggard describes a face looking exhausted and worn, as if from fatigue or worry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "TV"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +406,77 @@
     "text": "US lawyer uncovered case of youth uprising in state capital",
     "enumeration": "9"
    },
-   "solution": "HYDERABAD"
+   "solution": "HYDERABAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "HYDERABAD",
+    "definitions": [
+     {
+      "text": "state capital",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "the case of a word is its outside, so only its two end letters are kept"
+     },
+     {
+      "text": "uprising",
+      "for": "reversal",
+      "note": "in a down entry, rising up means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US lawyer",
+      "gives": "DA",
+      "note": "a DA is a District Attorney in the US"
+     },
+     {
+      "clueFragment": "uncovered",
+      "gives": "BARED",
+      "note": "bared means stripped of covering"
+     },
+     {
+      "clueFragment": "youth",
+      "gives": "YH",
+      "select": "outer",
+      "note": "the first and last letters of youth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HY",
+      "DERAB",
+      "AD"
+     ],
+     "reversals": [
+      {
+       "from": "DABAREDYH",
+       "to": "HYDERABAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US lawyer exposes a case concerning a youth uprising in some state capital.",
+     "walkthrough": "'Case' and 'uprising' read as legal and political nouns, but one keeps the outside letters and the other turns the down entry upside down.",
+     "definitionFit": "Hyderabad is the capital city of the Indian state of Telangana."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +490,57 @@
     "text": "Gross affluence meets demonstration stopping oil",
     "enumeration": "11"
    },
-   "solution": "GREASEPROOF"
+   "solution": "GREASEPROOF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREASEPROOF",
+    "definitions": [
+     {
+      "text": "stopping oil",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "meets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gross",
+      "gives": "GR",
+      "note": "gr. is an abbreviation for gross"
+     },
+     {
+      "clueFragment": "affluence",
+      "gives": "EASE",
+      "note": "ease is comfort and affluence, as in a life of ease"
+     },
+     {
+      "clueFragment": "demonstration",
+      "gives": "PROOF",
+      "note": "a proof is a demonstration that something is true"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "EASE",
+      "PROOF"
+     ]
+    },
+    "explanation": {
+     "surface": "Vulgar wealth confronts a protest blockading an oil pipeline.",
+     "walkthrough": "'Stopping oil' reads like a protest's aim, but it is the definition: the paper that grease cannot get through.",
+     "definitionFit": "Greaseproof paper resists fat and oil soaking through it, so it stops oil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "demonstration"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +554,65 @@
     "text": "Gas surprisingly clean yet ultimately non-renewable",
     "enumeration": "9"
    },
-   "solution": "ACETYLENE"
+   "solution": "ACETYLENE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ACETYLENE",
+    "definitions": [
+     {
+      "text": "Gas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "a surprising result is an unexpected arrangement, so these letters are reworked"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the last letter of the following word only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clean yet",
+      "gives": "CLEANYET",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "non-renewable",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of non-renewable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACETYLENE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLEANYETE",
+       "gives": "ACETYLENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An energy-policy remark about a fuel that burns clean but cannot be renewed.",
+     "definitionFit": "Acetylene is a flammable hydrocarbon gas used in welding torches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "surprisingly"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +632,57 @@
      }
     ]
    },
-   "solution": "DEARME"
+   "solution": "DEARME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEAR ME",
+    "definitions": [
+     {
+      "text": "How awful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Britain"
+     },
+     {
+      "clueFragment": "limb",
+      "gives": "ARM",
+      "note": "an arm is a limb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "ARM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A horrified reaction to discovering a severed limb in a river.",
+     "definitionFit": "Dear me is an exclamation of dismay, used just like how awful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finding"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +710,62 @@
    "group": [
     "9-across",
     "26-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTONY AND CLEOPATRA",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Working",
+      "for": "anagram",
+      "note": "something working is in operation, shaken into action, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea lady",
+      "gives": "TEALADY",
+      "note": "part of the letters to be rearranged"
+     },
+     {
+      "clueFragment": "apron on can't",
+      "gives": "APRONONCANT",
+      "note": "the rest of the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTONYANDCLEOPATRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEALADYAPRONONCANT",
+       "gives": "ANTONYANDCLEOPATRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tea lady at work in her apron is unable to perform a role on stage.",
+     "walkthrough": "'Play' looks like a verb about being unable to act; it is a noun naming the Shakespeare tragedy.",
+     "definitionFit": "Antony and Cleopatra is a tragedy by Shakespeare, so it is an example of a play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 10,
@@ -213,7 +779,49 @@
     "text": "Injection treatment partly using same needles in recession",
     "enumeration": "5"
    },
-   "solution": "ENEMA"
+   "solution": "ENEMA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ENEMA",
+    "definitions": [
+     {
+      "text": "Injection treatment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "partly means only part of the following words is used, sitting inside them"
+     },
+     {
+      "text": "in recession",
+      "for": "reversal",
+      "note": "something in recession goes backwards, so the letters are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "using same needles",
+      "gives": "AMENE",
+      "note": "letters running across same and needles"
+     }
+    ],
+    "explanation": {
+     "surface": "A worry about clinics reusing needles for injections during an economic downturn.",
+     "walkthrough": "'Recession' sounds economic but just signals reading backwards.",
+     "definitionFit": "An enema is liquid injected into the rectum as a medical treatment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recession"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +835,65 @@
     "text": "Mini in street brought to suit couple",
     "enumeration": "11"
    },
-   "solution": "SWEETHEARTS"
+   "solution": "SWEETHEARTS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SWEETHEARTS",
+    "definitions": [
+     {
+      "text": "couple",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word placed in another is put inside it"
+     }
+    ],
+    "linkWords": [
+     "brought to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the abbreviation for street"
+     },
+     {
+      "clueFragment": "Mini",
+      "gives": "WEE",
+      "note": "wee means tiny, mini"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "HEARTS",
+      "note": "hearts is one of the four suits in a pack of cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "T",
+      "HEARTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Mini car parked in the street is brought round to suit a couple.",
+     "walkthrough": "Mini looks like the car but means small; wee is Scottish and informal for little.",
+     "definitionFit": "A pair of sweethearts are two people romantically attached, which is a couple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mini"
+    }
+   }
   },
   {
    "number": 12,
@@ -247,7 +913,61 @@
      }
     ]
    },
-   "solution": "THREEMASTER"
+   "solution": "THREEMASTER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "THREE-MASTER",
+    "definitions": [
+     {
+      "text": "sailing ship",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "a word that holds something has it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the is the definite article"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on, concerning"
+     },
+     {
+      "clueFragment": "captain",
+      "gives": "MASTER",
+      "note": "the master is the captain of a merchant ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "RE",
+      "E",
+      "MASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article about a captain aboard a sailing ship.",
+     "definitionFit": "A three-master is a sailing vessel with three masts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +981,55 @@
     "text": "From behind, Juan's very tasty!",
     "enumeration": "3"
    },
-   "solution": "YUM"
+   "solution": "YUM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "YUM",
+    "definitions": [
+     {
+      "text": "tasty!",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "From behind",
+      "for": "reversal",
+      "note": "reading from behind means starting at the end, so the letters go backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Juan's very",
+      "gives": "MUY",
+      "note": "muy is Spanish for very, the word a Juan would use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YUM"
+     ],
+     "reversals": [
+      {
+       "from": "MUY",
+       "to": "YUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eyeing Juan from behind and approving loudly.",
+     "walkthrough": "Juan stands for a Spanish speaker, so his very is the Spanish word, read backwards.",
+     "definitionFit": "Yum is an exclamation said about delicious food, so it works as an interjection meaning tasty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Juan's"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +1043,53 @@
     "text": "Fellow leaves first of two shellfish",
     "enumeration": "5"
    },
-   "solution": "ORMER"
+   "solution": "ORMER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ORMER",
+    "definitions": [
+     {
+      "text": "shellfish",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "when someone leaves they are no longer there, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first of two",
+      "gives": "FORMER",
+      "note": "the former is the first of two things mentioned"
+     },
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORMER"
+     ]
+    },
+    "explanation": {
+     "surface": "One of two people departs first, leaving the shellfish behind.",
+     "walkthrough": "FORMER loses its F.",
+     "definitionFit": "An ormer is an abalone, an edible mollusc found around the Channel Islands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +1109,57 @@
      }
     ]
    },
-   "solution": "MINIMREST"
+   "solution": "MINIMREST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINIM REST",
+    "definitions": [
+     {
+      "text": "hiatus at concert",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tiny",
+      "gives": "MINI",
+      "note": "mini means tiny"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "spider, say",
+      "gives": "REST",
+      "note": "in snooker a spider is a kind of rest for the cue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINI",
+      "M",
+      "REST"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny male spider crawls on stage and halts a concert.",
+     "walkthrough": "The spider is not the animal: in snooker it is a raised cue support, one of several kinds of rest.",
+     "definitionFit": "A minim rest is a musical notation for a silence lasting two beats, a pause in a performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spider"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1173,67 @@
     "text": "Jazz musician possibly bitter accepting work in oil company",
     "enumeration": "8"
    },
-   "solution": "BEBOPPER"
+   "solution": "BEBOPPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEBOPPER",
+    "definitions": [
+     {
+      "text": "Jazz musician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting something means taking it in, so it goes inside"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "possibly bitter",
+      "gives": "BEER",
+      "note": "bitter is a kind of beer, hence possibly"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     },
+     {
+      "clueFragment": "oil company",
+      "gives": "BP",
+      "note": "BP is a major oil company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "B",
+      "OP",
+      "P",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A jazz player, perhaps embittered, takes a job at an oil firm.",
+     "walkthrough": "Bitter is a British draught ale, so 'possibly' marks it as an example of the drink; the work goes into the company, and both go into the drink.",
+     "definitionFit": "A bebopper is a player of bebop, a fast, complex style of jazz."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bitter"
+    }
+   }
   },
   {
    "number": 16,
@@ -329,7 +1253,60 @@
      }
     ]
    },
-   "solution": "BUFFETCAR"
+   "solution": "BUFFETCAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUFFET CAR",
+    "definitions": [
+     {
+      "text": "Train service",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "placing one piece after another fixes their order in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strike",
+      "gives": "BUFFET",
+      "note": "to buffet is to strike repeatedly"
+     },
+     {
+      "clueFragment": "more or less",
+      "gives": "CA",
+      "note": "ca. is circa, meaning approximately"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUFFET",
+      "CA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A rail service resumes running after a strike, more or less.",
+     "walkthrough": "The rail-strike picture is a decoy; train service is the definition, a carriage serving food.",
+     "definitionFit": "A buffet car is a railway carriage where refreshments are served, a service on a train."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 17,
@@ -343,7 +1320,53 @@
     "text": "See great changes in cheap accommodation",
     "enumeration": "8"
    },
-   "solution": "STEERAGE"
+   "solution": "STEERAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEERAGE",
+    "definitions": [
+     {
+      "text": "cheap accommodation",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "the letters undergo changes, being rearranged into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See great",
+      "gives": "SEEGREAT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEGREAT",
+       "gives": "STEERAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Budget travellers notice big improvements in their lodgings.",
+     "definitionFit": "Steerage was the cheapest passenger class on a ship, the lowest-priced berths."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 18,
@@ -357,7 +1380,53 @@
     "text": "On short rations as commanded by Iron Duke",
     "enumeration": "8"
    },
-   "solution": "UNDERFED"
+   "solution": "UNDERFED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDERFED",
+    "definitions": [
+     {
+      "text": "On short rations",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as commanded by",
+      "gives": "UNDER",
+      "note": "under someone means commanded by them"
+     },
+     {
+      "clueFragment": "Iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "FE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops serving under the Iron Duke, Wellington, going hungry.",
+     "walkthrough": "The Iron Duke was the Duke of Wellington's nickname, but here iron and duke are separate abbreviations.",
+     "definitionFit": "Underfed means given too little food, which is what being on short rations amounts to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Iron"
+    }
+   }
   },
   {
    "number": 19,
@@ -371,7 +1440,56 @@
     "text": "Deliveries trainee's left in full view",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "in full view",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left",
+      "for": "letter_selection",
+      "note": "the leftmost end of a word is its first letter, the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deliveries",
+      "gives": "OVER",
+      "note": "in cricket an over is a set of six deliveries"
+     },
+     {
+      "clueFragment": "trainee's",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of trainee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee bowler's deliveries have been left out in the open.",
+     "walkthrough": "An over in cricket is six balls bowled; left here means the left-hand end, not departed.",
+     "definitionFit": "Overt means open and not concealed, plainly visible to everyone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 20,
@@ -385,7 +1503,58 @@
     "text": "Perishing with convulsive twitch after electrical discharge",
     "enumeration": "6"
    },
-   "solution": "ARCTIC"
+   "solution": "ARCTIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARCTIC",
+    "definitions": [
+     {
+      "text": "Perishing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "placing one piece after another fixes their order in the answer"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electrical discharge",
+      "gives": "ARC",
+      "note": "an arc is a luminous electrical discharge"
+     },
+     {
+      "clueFragment": "convulsive twitch",
+      "gives": "TIC",
+      "note": "a tic is an involuntary twitch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARC",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dying, twitching convulsively after an electric shock.",
+     "walkthrough": "Perishing reads as dying but is the British colloquial sense of bitterly cold.",
+     "definitionFit": "Perishing is British slang for extremely cold, the same idea as arctic used loosely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Perishing"
+    }
+   }
   },
   {
    "number": 21,
@@ -399,7 +1568,56 @@
     "text": "Old Russian satellite turns in outermost circle",
     "enumeration": "3"
    },
-   "solution": "RIM"
+   "solution": "RIM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "RIM",
+    "definitions": [
+     {
+      "text": "outermost circle",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns",
+      "for": "reversal",
+      "note": "something that turns faces the other way, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old Russian satellite",
+      "gives": "MIR",
+      "note": "Mir was the Soviet and Russian space station"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIM"
+     ],
+     "reversals": [
+      {
+       "from": "MIR",
+       "to": "RIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old Russian space station orbiting in the outermost ring.",
+     "definitionFit": "A rim is the outer edge of something round, its outermost circle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 22,
@@ -423,7 +1641,50 @@
      }
     ]
    },
-   "solution": "AHEADOFTIME"
+   "solution": "AHEADOFTIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AHEAD OF TIME",
+    "definitions": [
+     {
+      "text": "prematurely",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "magazine's boss",
+      "gives": "HEADOFTIME",
+      "note": "Time is a news magazine, and its boss is its head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "HEADOFTIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine editor responds too soon.",
+     "walkthrough": "The magazine is Time, so the head of Time is its boss.",
+     "definitionFit": "Ahead of time means before the expected moment, which is what prematurely means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "magazine's"
+    }
+   }
   },
   {
    "number": 23,
@@ -437,7 +1698,58 @@
     "text": "Leaving university, compulsion becomes habit",
     "enumeration": "5"
    },
-   "solution": "DRESS"
+   "solution": "DRESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DRESS",
+    "definitions": [
+     {
+      "text": "habit",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaving",
+      "for": "deletion",
+      "note": "whatever is leaving goes away, so that letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "compulsion",
+      "gives": "DURESS",
+      "note": "duress is compulsion by threats"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RESS"
+     ]
+    },
+    "explanation": {
+     "surface": "After leaving college, a compulsion hardens into a habit.",
+     "walkthrough": "Habit is not a routine but clothing, such as a nun's or riding habit.",
+     "definitionFit": "A habit is a distinctive garment, such as a monk's robe, so it is a kind of dress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1763,44 @@
     "text": "Lead in paint Rothko has absorbed",
     "enumeration": "5"
    },
-   "solution": "INTRO"
+   "solution": "INTRO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INTRO",
+    "definitions": [
+     {
+      "text": "Lead",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has absorbed",
+      "for": "hidden_word",
+      "note": "something absorbed is taken inside, so the answer sits within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paint Rothko",
+      "gives": "INTRO",
+      "note": "letters running across paint and Rothko"
+     }
+    ],
+    "explanation": {
+     "surface": "Mark Rothko's paint has soaked up lead, a toxic pigment.",
+     "walkthrough": "Lead looks like the metal in paint; it is the verb-noun sense of an opening.",
+     "definitionFit": "An intro is the opening of a song or article, which is the lead-in or lead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lead"
+    }
+   }
   },
   {
    "number": 25,
@@ -465,7 +1814,55 @@
     "text": "Sound chirpy pretty close to defeat",
     "enumeration": "5"
    },
-   "solution": "TWEET"
+   "solution": "TWEET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TWEET",
+    "definitions": [
+     {
+      "text": "Sound chirpy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pretty",
+      "gives": "TWEE",
+      "note": "twee means overly pretty or quaint"
+     },
+     {
+      "clueFragment": "defeat",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of defeat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWEE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sounding cheerful when they are on the verge of losing.",
+     "definitionFit": "To tweet is to make the high chirping call of a small bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pretty"
+    }
+   }
   },
   {
    "number": 26,
@@ -492,7 +1889,58 @@
     "text": "A year ending in December is what you'd expect",
     "enumeration": "3"
    },
-   "solution": "PAR"
+   "solution": "PAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PAR",
+    "definitions": [
+     {
+      "text": "what you'd expect",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of a word is its last letter, the only one used"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A year",
+      "gives": "PA",
+      "note": "p.a. is per annum, meaning a year"
+     },
+     {
+      "clueFragment": "December",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of December"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A year that finishes in December is just the normal state of affairs.",
+     "definitionFit": "Par is the normal or expected standard, as in 'par for the course'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "year"
+    }
+   }
   },
   {
    "number": 28,
@@ -506,7 +1954,60 @@
     "text": "Whip near Keir regularly is party manager",
     "enumeration": "7"
    },
-   "solution": "CATERER"
+   "solution": "CATERER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CATERER",
+    "definitions": [
+     {
+      "text": "party manager",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at fixed intervals, so every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whip",
+      "gives": "CAT",
+      "note": "a cat o' nine tails is a whip"
+     },
+     {
+      "clueFragment": "near Keir",
+      "gives": "ERER",
+      "select": "alternate",
+      "note": "the even letters of near Keir"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "ERER"
+     ]
+    },
+    "explanation": {
+     "surface": "The party whip, sitting near Keir Starmer, runs the party.",
+     "walkthrough": "Whip and party suggest Labour politics around Keir Starmer, but the party is a social one with food.",
+     "definitionFit": "A caterer supplies and manages the food and drink for a party or event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Whip"
+    }
+   }
   },
   {
    "number": 29,
@@ -520,7 +2021,40 @@
     "text": "Employer of Bob Marley visits",
     "enumeration": "7"
    },
-   "solution": "SCROOGE"
+   "solution": "SCROOGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SCROOGE",
+    "definitions": [
+     {
+      "text": "Employer of Bob Marley visits",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Employer of Bob Marley visits",
+      "note": "surface reading: someone who hires the reggae star Bob Marley when he comes calling"
+     },
+     {
+      "clueFragment": "Employer of Bob Marley visits",
+      "note": "setter's reading: in A Christmas Carol, the boss of Bob Cratchit, who is visited by the ghost of Jacob Marley"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who employs the reggae singer Bob Marley on his tours.",
+     "walkthrough": "Bob and Marley are separate: Bob Cratchit is the clerk, and Marley is the dead partner whose ghost visits on Christmas Eve.",
+     "definitionFit": "In Dickens's A Christmas Carol the miser employs clerk Bob Cratchit and is haunted by his former partner Marley."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Marley"
+    }
+   }
   }
  ]
 }
