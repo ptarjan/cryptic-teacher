@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Wild solution, with a degree of overlap, is something to have on hand",
     "enumeration": "8"
    },
-   "solution": "MANICURE"
+   "solution": "MANICURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MANICURE",
+    "definitions": [
+     {
+      "text": "something to have on hand",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with a degree of overlap",
+      "for": "deletion",
+      "note": "overlap means the two words share a letter where they meet, so one copy of that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wild",
+      "gives": "MANIC",
+      "note": "wild, frenzied"
+     },
+     {
+      "clueFragment": "solution",
+      "gives": "CURE",
+      "note": "a solution to a problem or illness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANI",
+      "CURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist recommends a strong solution to keep handy, apparently with some overlap in its uses.",
+     "walkthrough": "The two words share their C where they join, so it is written only once: MANI-CURE.",
+     "definitionFit": "A manicure is a cosmetic treatment of the fingernails, literally something you have done on your hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "solution"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,49 @@
     "text": "Be uncertain about atmospheric dampness and what it may cause",
     "enumeration": "8"
    },
-   "solution": "MISTRUST"
+   "solution": "MISTRUST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MISTRUST",
+    "definitions": [
+     {
+      "text": "Be uncertain about",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "atmospheric dampness",
+      "gives": "MIST",
+      "note": "mist is fine water droplets in the air"
+     },
+     {
+      "clueFragment": "what it may cause",
+      "gives": "RUST",
+      "note": "damp causes iron to rust"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIST",
+      "RUST"
+     ]
+    },
+    "explanation": {
+     "surface": "Doubts about the damp air and the corrosion it might bring.",
+     "definitionFit": "To mistrust is to doubt or be suspicious of something, i.e. to feel unsure about it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dampness"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +155,73 @@
     "text": "Most of the booze overturned in the dark",
     "enumeration": "5"
    },
-   "solution": "NIGHT"
+   "solution": "NIGHT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "NIGHT",
+    "definitions": [
+     {
+      "text": "dark",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Most of",
+      "for": "deletion",
+      "note": "most of a word is all but its final letter"
+     },
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "turned over in a down clue means the letters are read from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "TH",
+      "note": "the without its last letter"
+     },
+     {
+      "clueFragment": "booze",
+      "gives": "GIN",
+      "note": "gin is alcoholic drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "I",
+      "G",
+      "H",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "THGIN",
+       "to": "NIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Most of the drink gets knocked over in the darkness.",
+     "walkthrough": "'the' looks like part of 'in the dark', but it is fodder: most of it plus GIN, all reversed.",
+     "definitionFit": "Night and dark are used interchangeably, as in 'after dark' meaning after nightfall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "the"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +235,49 @@
     "text": "Conservative drive for discipline",
     "enumeration": "7"
    },
-   "solution": "CHASTEN"
+   "solution": "CHASTEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHASTEN",
+    "definitions": [
+     {
+      "text": "discipline",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "drive",
+      "gives": "HASTEN",
+      "note": "to drive on or hurry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HASTEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative campaign for stricter discipline.",
+     "definitionFit": "To chasten is to discipline or correct someone, especially by punishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +291,67 @@
     "text": "Uphill standard must accommodate motorway slope",
     "enumeration": "4"
    },
-   "solution": "RAMP"
+   "solution": "RAMP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RAMP",
+    "definitions": [
+     {
+      "text": "slope",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Uphill",
+      "for": "reversal",
+      "note": "going uphill in a down answer means the letters run from the bottom up"
+     },
+     {
+      "text": "must accommodate",
+      "for": "container",
+      "note": "to accommodate is to house, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "standard",
+      "gives": "PAR",
+      "note": "par is the standard level"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "M as in M1, a British motorway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "M",
+      "P"
+     ],
+     "reversals": [
+      {
+       "from": "PMAR",
+       "to": "RAMP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rule about steep roads: a motorway gradient must meet a standard.",
+     "walkthrough": "PAR read upwards is RAP, which takes M inside.",
+     "definitionFit": "A ramp is an inclined surface joining two levels, a slope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Uphill"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +365,50 @@
     "text": "Part of hooter having indecisive sound after a month",
     "enumeration": "6"
    },
-   "solution": "SEPTUM"
+   "solution": "SEPTUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEPTUM",
+    "definitions": [
+     {
+      "text": "Part of hooter",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a month",
+      "gives": "SEPT",
+      "note": "abbreviation for September"
+     },
+     {
+      "clueFragment": "indecisive sound",
+      "gives": "UM",
+      "note": "the noise of someone hesitating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEPT",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A car horn makes a hesitant noise after a month of use.",
+     "walkthrough": "'after' places the hesitation sound behind the month. Hooter is British slang for the nose, not a car horn here.",
+     "definitionFit": "The septum is the wall of cartilage dividing the two nostrils, a part of the nose (slang hooter)."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hooter"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +428,70 @@
      }
     ]
    },
-   "solution": "EVILEYE"
+   "solution": "EVILEYE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EVIL EYE",
+    "definitions": [
+     {
+      "text": "bad influence",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held up",
+      "for": "reversal",
+      "note": "held up in a down answer means lifted, so the letters read upwards"
+     }
+    ],
+    "linkWords": [
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "abbreviation for European"
+     },
+     {
+      "clueFragment": "historical article",
+      "gives": "YE",
+      "note": "the old form of 'the', as in 'Ye Olde'"
+     },
+     {
+      "clueFragment": "to be",
+      "gives": "LIVE",
+      "note": "to live is to be, to exist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVIL",
+      "EY",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EYELIVE",
+       "to": "EVILEYE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European history piece is held up as a harmful influence.",
+     "walkthrough": "E, YE and LIVE are joined and the whole lot is turned upwards.",
+     "definitionFit": "The evil eye is a supposed curse cast by a look, a malign influence on whoever receives it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +511,57 @@
      }
     ]
    },
-   "solution": "THETATLER"
+   "solution": "THETATLER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "THE TATLER",
+    "definitions": [
+     {
+      "text": "society magazine",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fourth time rejected",
+      "for": "deletion",
+      "note": "time is the abbreviation T, and rejecting the fourth occurrence of it removes one such letter"
+     },
+     {
+      "text": "rubbished",
+      "for": "anagram",
+      "note": "something rubbished is trashed and messed up, so the remaining letters get jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That letter",
+      "gives": "THATLETTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THATLETER",
+       "gives": "THETATLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter to a society magazine is rejected for the fourth time and binned.",
+     "walkthrough": "THAT LETTER has four Ts; drop the fourth and rearrange the rest.",
+     "definitionFit": "The Tatler is a long-running British magazine covering high society and fashion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +575,55 @@
     "text": "Help secured by knights, say, yet to win",
     "enumeration": "6"
    },
-   "solution": "MAIDEN"
+   "solution": "MAIDEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAIDEN",
+    "definitions": [
+     {
+      "text": "yet to win",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "secured by means held fast within, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knights, say",
+      "gives": "MEN",
+      "note": "knights are chess pieces, which are called men"
+     },
+     {
+      "clueFragment": "Help",
+      "gives": "AID",
+      "note": "aid is help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AID",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Help for knights who have not yet won a joust.",
+     "walkthrough": "Knights are chess pieces, and chess pieces are collectively called men; 'yet to win' is racing jargon.",
+     "definitionFit": "A maiden in horse racing is a horse that has never won a race."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "knights"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +637,56 @@
     "text": "Writer with an oddball description of peaceful times?",
     "enumeration": "8"
    },
-   "solution": "INTERWAR"
+   "solution": "INTERWAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTERWAR",
+    "definitions": [
+     {
+      "text": "description of peaceful times?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddball",
+      "for": "anagram",
+      "note": "an oddball is eccentric and out of the ordinary, so the letters are put in a strange order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "WRITER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WRITERAN",
+       "gives": "INTERWAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eccentric writer describes an era of peace.",
+     "walkthrough": "The question mark admits the definition is loose: the period between wars is peaceful only by comparison.",
+     "definitionFit": "Interwar describes the years between two wars, especially 1918–39, a period without major conflict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "oddball"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +700,56 @@
     "text": "Very important article about married railway worker",
     "enumeration": "9"
    },
-   "solution": "SIGNALMAN"
+   "solution": "SIGNALMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIGNALMAN",
+    "definitions": [
+     {
+      "text": "railway worker",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very important",
+      "gives": "SIGNAL",
+      "note": "signal as an adjective means notable, outstanding"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "standard abbreviation for married"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIGNAL",
+      "M",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An important newspaper piece about a married man who works on the railways.",
+     "walkthrough": "'Signal' as an adjective, as in a signal achievement, means very important; 'about' here only places the article beside married, an unusually loose use.",
+     "definitionFit": "A signalman operates the signals and points from a signal box, a classic railway job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +763,66 @@
     "text": "Warrior tribe held back in reserve at first",
     "enumeration": "5"
    },
-   "solution": "ICENI"
+   "solution": "ICENI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ICENI",
+    "definitions": [
+     {
+      "text": "Warrior tribe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held back",
+      "for": "reversal",
+      "note": "something held back is pulled the other way, so the little word before it is read right to left"
+     },
+     {
+      "text": "at first",
+      "for": "charade",
+      "note": "at first puts the word it follows at the front of the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reserve",
+      "gives": "ICE",
+      "note": "ice is a cool, distant manner, i.e. reserve"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written, then turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE",
+      "NI"
+     ],
+     "reversals": [
+      {
+       "from": "IN",
+       "to": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warlike tribe keeps its reserves back at the start of battle.",
+     "walkthrough": "The Iceni were the ancient British tribe led by Boudicca.",
+     "definitionFit": "The Iceni were an Iron Age people of East Anglia who rose against Rome, a tribe famed for war."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reserve"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +836,61 @@
     "text": "What 14 will do: decay at end of use",
     "enumeration": "6"
    },
-   "solution": "ROTATE"
+   "solution": "ROTATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ROTATE",
+    "definitions": [
+     {
+      "text": "What 14 will do",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decay",
+      "gives": "ROT",
+      "note": "to rot is to decay"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "use",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROT",
+      "AT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on how a spinning wheel ages: it decays once it is out of use.",
+     "definitionFit": "14 is the spinning wheel, and turning round on its axle is exactly what a wheel does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "decay"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +904,77 @@
     "text": "Evening music found in Sweden before enthralling another Scandinavian on the rebound",
     "enumeration": "8"
    },
-   "solution": "SERENADE"
+   "solution": "SERENADE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "SERENADE",
+    "definitions": [
+     {
+      "text": "Evening music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the rebound",
+      "for": "reversal",
+      "note": "rebounding means bouncing back, so the Scandinavian is read backwards"
+     },
+     {
+      "text": "enthralling",
+      "for": "container",
+      "note": "to enthral is to hold captive, so one word holds the other inside it"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweden",
+      "gives": "S",
+      "note": "international vehicle code for Sweden"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "old word for before"
+     },
+     {
+      "clueFragment": "another Scandinavian",
+      "gives": "DANE",
+      "note": "a person from Denmark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ER",
+      "ENAD",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EDANERE",
+       "to": "ERENADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Swede falls for a rebounding Dane and courts them with music at night.",
+     "walkthrough": "'Evening music' is literal: the word comes from Italian sereno, the open evening sky.",
+     "definitionFit": "A serenade is music sung or played at night, traditionally under a lover's window."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enthralling"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +994,60 @@
      }
     ]
    },
-   "solution": "SPINNINGWHEEL"
+   "solution": "SPINNINGWHEEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPINNING-WHEEL",
+    "definitions": [
+     {
+      "text": "This offers something to help with knitting",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "standard abbreviation for son"
+     },
+     {
+      "clueFragment": "fixing",
+      "gives": "PINNING",
+      "note": "fixing in place, as with a pin"
+     },
+     {
+      "clueFragment": "weak",
+      "gives": "W",
+      "note": "abbreviation for weak"
+     },
+     {
+      "clueFragment": "part of foot",
+      "gives": "HEEL",
+      "note": "the back of the foot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PINNING",
+      "W",
+      "HEEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A son straps up a weak heel, then turns to knitting.",
+     "walkthrough": "The question mark ends the wordplay; the definition is a cryptic description.",
+     "definitionFit": "A spinning wheel twists fibre into yarn, supplying the wool that is then knitted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "knitting"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1061,66 @@
     "text": "Writerly folk failing to start vote to discard books again and again",
     "enumeration": "9"
    },
-   "solution": "ITERATIVE"
+   "solution": "ITERATIVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ITERATIVE",
+    "definitions": [
+     {
+      "text": "again and again",
+      "at": 53,
+      "note": "adverbial phrase defining an adjective; read as 'happening again and again'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing to start",
+      "for": "deletion",
+      "note": "failing to start means the first letter never appears"
+     },
+     {
+      "text": "to discard",
+      "for": "deletion",
+      "note": "discarding throws something out, here the abbreviation for a set of scriptures"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writerly folk",
+      "gives": "LITERATI",
+      "note": "the literati are literary people"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "VOTE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "the Old Testament, the books removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITERATI",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "Literary types keep failing to start voting, discarding books repeatedly.",
+     "walkthrough": "LITERATI loses L; VOTE loses OT, leaving VE.",
+     "definitionFit": "Iterative describes a process that repeats, done over and over in cycles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1134,60 @@
     "text": "Like an emperor, note, one Iran scrapped",
     "enumeration": "8"
    },
-   "solution": "NERONIAN"
+   "solution": "NERONIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "NERONIAN",
+    "definitions": [
+     {
+      "text": "Like an emperor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scrapped",
+      "for": "anagram",
+      "note": "something scrapped is broken up, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N for note"
+     },
+     {
+      "clueFragment": "one Iran",
+      "gives": "ONEIRAN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ERONIAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONEIRAN",
+       "gives": "ERONIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An imperial style, noted after one Iranian regime was scrapped.",
+     "definitionFit": "Neronian means in the manner of Nero, the Roman emperor famed for tyranny and excess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Iran"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1201,55 @@
     "text": "Left after meal to pen book still topping the lists?",
     "enumeration": "8"
    },
-   "solution": "UNBEATEN"
+   "solution": "UNBEATEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNBEATEN",
+    "definitions": [
+     {
+      "text": "still topping the lists?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to pen",
+      "for": "container",
+      "note": "to pen is to enclose, as in a sheep pen, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left after meal",
+      "gives": "UNEATEN",
+      "note": "food left after a meal is uneaten"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "B",
+      "EATEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Leftovers after a meal are used to write a book that stays a bestseller.",
+     "walkthrough": "B goes inside UNEATEN after the first two letters.",
+     "definitionFit": "A team that is unbeaten has not lost, so is likely still top of the league table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1269,85 @@
      }
     ]
    },
-   "solution": "ELDERBRETHREN"
+   "solution": "ELDERBRETHREN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ELDER BRETHREN",
+    "definitions": [
+     {
+      "text": "Lighthouse overseers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "something working is in operation, its parts moving, so these letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the reworked number inside the navy abbreviation"
+     },
+     {
+      "text": "standing beside",
+      "for": "charade",
+      "note": "standing beside puts the tree next to the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "ELDER",
+      "note": "the elder is a shrub or small tree"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "abbreviation for British"
+     },
+     {
+      "clueFragment": "navy",
+      "gives": "RN",
+      "note": "Royal Navy"
+     },
+     {
+      "clueFragment": "three",
+      "gives": "ETHRE",
+      "note": "the letters of three rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELDER",
+      "B",
+      "R",
+      "ETHRE",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THREE",
+       "gives": "ETHRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Three lighthouse inspectors serve in the British navy, posed beside a tree.",
+     "walkthrough": "Trinity House is the body that runs lighthouses in England and Wales; its senior members bear this title.",
+     "definitionFit": "The Elder Brethren are the governing members of Trinity House, the body responsible for lighthouses in England and Wales."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1361,49 @@
     "text": "Remove top from bowl made of wood",
     "enumeration": "7"
    },
-   "solution": "DISHELM"
+   "solution": "DISHELM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISHELM",
+    "definitions": [
+     {
+      "text": "Remove top from",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bowl",
+      "gives": "DISH",
+      "note": "a dish is a bowl"
+     },
+     {
+      "clueFragment": "wood",
+      "gives": "ELM",
+      "note": "elm is a timber tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISH",
+      "ELM"
+     ]
+    },
+    "explanation": {
+     "surface": "Take the lid off a wooden bowl.",
+     "definitionFit": "To dishelm is an archaic verb for removing someone's helmet, the protective covering on the head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1417,41 @@
     "text": "Evict number of people",
     "enumeration": "7"
    },
-   "solution": "TURNOUT"
+   "solution": "TURNOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TURNOUT",
+    "definitions": [
+     {
+      "text": "Evict",
+      "at": 0
+     },
+     {
+      "text": "number of people",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evict",
+      "note": "first meaning"
+     },
+     {
+      "clueFragment": "number of people",
+      "note": "second meaning: the attendance at an event"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrasal verb 'turn out' and the noun for attendance share their letters.",
+     "definitionFit": "To turn out someone is to evict them; a turnout is the count of those who attend, as at an election."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1465,61 @@
     "text": "Papers about type of speech not entirely found in Cyprus?",
     "enumeration": "6"
    },
-   "solution": "ISLAND"
+   "solution": "ISLAND",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ISLAND",
+    "definitions": [
+     {
+      "text": "found in Cyprus?",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "not entirely means a word is cut short by its final letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the papers wrap the shortened word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Papers",
+      "gives": "ID",
+      "note": "ID, identity papers"
+     },
+     {
+      "clueFragment": "type of speech",
+      "gives": "SLANG",
+      "note": "slang is informal speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SLAN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Documents on a partial dialect found in Cyprus.",
+     "walkthrough": "The question mark marks Cyprus as an example of the answer rather than a synonym.",
+     "definitionFit": "Cyprus is an island in the eastern Mediterranean, so an island is what you find there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Papers"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1533,40 @@
     "text": "Last performance — effectively as Desmond, N?",
     "enumeration": "8"
    },
-   "solution": "SWANSONG"
+   "solution": "SWANSONG",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SWANSONG",
+    "definitions": [
+     {
+      "text": "Last performance",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "effectively as Desmond, N?",
+      "note": "surface reading: a character called Desmond, perhaps on stage"
+     },
+     {
+      "clueFragment": "effectively as Desmond, N?",
+      "note": "setter's reading: the film star who played Norma Desmond in Sunset Boulevard, written surname first with initial, as in a cast list"
+     }
+    ],
+    "explanation": {
+     "surface": "A final performance, given in the role of someone listed as Desmond, N.",
+     "walkthrough": "Gloria Swanson played Norma Desmond in Sunset Boulevard. 'Desmond, N' is a name in surname-initial form, so the actress appears the same way: surname then her initial G.",
+     "definitionFit": "A swan song is someone's final performance, from the legend that swans sing just before dying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Desmond"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1580,49 @@
     "text": "Grand Dickensian character showing resentment",
     "enumeration": "6"
    },
-   "solution": "GRUDGE"
+   "solution": "GRUDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRUDGE",
+    "definitions": [
+     {
+      "text": "resentment",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grand",
+      "gives": "G",
+      "note": "G is short for grand, a thousand"
+     },
+     {
+      "clueFragment": "Dickensian character",
+      "gives": "RUDGE",
+      "note": "Barnaby Rudge, title character of a Dickens novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RUDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand Dickens character displays bitterness.",
+     "definitionFit": "A grudge is a lasting feeling of resentment against someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grand"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1646,54 @@
    "group": [
     "24-down",
     "25-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEATH STAR",
+    "definitions": [
+     {
+      "text": "planet destroyer",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rebuilding",
+      "for": "anagram",
+      "note": "rebuilding puts the parts together in a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Head start",
+      "gives": "HEADSTART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEADSTART",
+       "gives": "DEATHSTAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting a head start on rebuilding a superweapon.",
+     "walkthrough": "In Return of the Jedi the Empire is rebuilding the second Death Star, so the surface fits the film.",
+     "definitionFit": "The Death Star is the Star Wars battle station that destroys the planet Alderaan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1720,71 @@
     "text": "I start to loosen in time, becoming nimble",
     "enumeration": "5"
    },
-   "solution": "AGILE"
+   "solution": "AGILE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AGILE",
+    "definitions": [
+     {
+      "text": "nimble",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, so only that is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pair inside the word for time"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "loosen",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of loosen"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "I",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loosening up over time finds themselves getting nimbler.",
+     "walkthrough": "I and L go inside AGE.",
+     "definitionFit": "Agile and nimble are synonyms: quick and light in movement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loosen"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1798,62 @@
     "text": "A powerful car tails off? My trip needs something much more powerful",
     "enumeration": "9"
    },
-   "solution": "ASTRONAUT"
+   "solution": "ASTRONAUT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ASTRONAUT",
+    "definitions": [
+     {
+      "text": "My trip needs something much more powerful",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tails off",
+      "for": "deletion",
+      "note": "with their tails off, the two words lose their final letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "powerful",
+      "gives": "STRONG",
+      "note": "powerful means strong"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "AUTO",
+      "note": "auto is a car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "STRON",
+      "AUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A boast that a powerful car runs out, but a much bigger trip needs more power.",
+     "walkthrough": "Both STRONG and AUTO lose their last letter. The definition is spoken by the answer: a space traveller's trip needs a rocket, far more powerful than any car.",
+     "definitionFit": "An astronaut travels into space, a journey that needs a rocket, far more powerful than any car."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "car"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1867,55 @@
     "text": "Imagines quantities of Scotch without English",
     "enumeration": "6"
    },
-   "solution": "DREAMS"
+   "solution": "DREAMS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREAMS",
+    "definitions": [
+     {
+      "text": "Imagines",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so one piece wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quantities of Scotch",
+      "gives": "DRAMS",
+      "note": "a dram is a measure of whisky"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "E",
+      "AMS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fantasises about plenty of Scotch whisky without any English involvement.",
+     "walkthrough": "'without' looks like 'lacking', but here it means outside: DRAMS goes round E.",
+     "definitionFit": "To dream is to imagine or fantasise, so dreams matches imagines as a third-person verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 29,
@@ -472,7 +1929,66 @@
     "text": "Irritation I overlooked in environmentally aware German girl",
     "enumeration": "8"
    },
-   "solution": "GRETCHEN"
+   "solution": "GRETCHEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GRETCHEN",
+    "definitions": [
+     {
+      "text": "German girl",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooked",
+      "for": "deletion",
+      "note": "something overlooked is left out, so that letter is removed"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the shortened irritation inside the green word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irritation",
+      "gives": "ITCH",
+      "note": "an itch is an irritation"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter removed"
+     },
+     {
+      "clueFragment": "environmentally aware",
+      "gives": "GREEN",
+      "note": "green means ecologically minded"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRE",
+      "TCH",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "An irritation goes unnoticed in an eco-conscious German girl.",
+     "walkthrough": "'Environmentally aware' is the political sense of green, as in the Green Party.",
+     "definitionFit": "Gretchen is a German girl's name, a diminutive of Margarete, as in Goethe's Faust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Irritation"
+    }
+   }
   }
  ]
 }
