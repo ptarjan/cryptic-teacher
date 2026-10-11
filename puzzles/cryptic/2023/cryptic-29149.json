@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "By-product of the greatest possible tofu spread to consume",
     "enumeration": "7"
    },
-   "solution": "FALLOUT"
+   "solution": "FALLOUT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FALLOUT",
+    "definitions": [
+     {
+      "text": "By-product",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spread",
+      "for": "anagram",
+      "note": "something spread is laid out loosely, so the letters of the bean curd get scattered into a new order"
+     },
+     {
+      "text": "to consume",
+      "for": "container",
+      "note": "to consume is to take inside, so the scrambled letters swallow the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tofu",
+      "gives": "TOFU",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "the greatest possible",
+      "gives": "ALL",
+      "note": "as in 'with all speed', the most there can be"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ALL",
+      "OUT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOFU",
+       "gives": "FOUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook spreads tofu thickly and wonders what the by-product of eating it all will be.",
+     "walkthrough": "'The greatest possible' is ALL as in 'with all speed'; the spread tofu wraps around it.",
+     "definitionFit": "Fallout is a secondary consequence or side effect of an event, which is what a by-product is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +110,49 @@
     "text": "Opened a cafe in retirement — it's in front",
     "enumeration": "6"
    },
-   "solution": "FACADE"
+   "solution": "FACADE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "FACADE",
+    "definitions": [
+     {
+      "text": "it's in front",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of words, spanning their boundaries"
+     },
+     {
+      "text": "retirement",
+      "for": "reversal",
+      "note": "retiring means going back, so the letters are taken from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opened a cafe",
+      "gives": "EDACAF",
+      "note": "the letters straddling the end of 'Opened', all of 'a' and most of 'cafe'"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone opened a cafe after retiring, and points out where it stands: right at the front.",
+     "walkthrough": "Read 'Opened a cafe' backwards and FACADE appears in the middle.",
+     "definitionFit": "A facade is the principal face of a building, the part that stands at the front."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +166,77 @@
     "text": "50 blue films essentially casting unknown, getting award",
     "enumeration": "6"
    },
-   "solution": "LAUREL"
+   "solution": "LAUREL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "LAUREL",
+    "definitions": [
+     {
+      "text": "award",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "casting",
+      "for": "deletion",
+      "note": "to cast something off is to throw it away, so the unknown letter is discarded"
+     },
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is taken to be its heart, the letter in its centre"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "AZURE",
+      "note": "azure is a clear sky blue"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Z",
+      "note": "x, y and z are the algebraist's unknowns"
+     },
+     {
+      "clueFragment": "films",
+      "gives": "L",
+      "select": "middle",
+      "note": "the central letter of the five-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AURE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Fifty blue movies, all cast with unknown actors, somehow win a prize.",
+     "walkthrough": "'Blue films' suggests adult movies, but blue is a colour and films supplies only its middle letter; algebra's unknowns are x, y and z.",
+     "definitionFit": "A laurel wreath was the classical honour for victors, so laurels stand for an award or distinction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +250,77 @@
     "text": "Barking police service I see being cut twice — superintendent initially ignores alarm bells?",
     "enumeration": "10"
    },
-   "solution": "OVERSLEEPS"
+   "solution": "OVERSLEEPS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "anagram"
+    ],
+    "answer": "OVERSLEEPS",
+    "definitions": [
+     {
+      "text": "ignores alarm bells?",
+      "at": 72
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being cut twice",
+      "for": "deletion",
+      "note": "cutting removes something, and doing it twice means each of the letters goes on two occasions"
+     },
+     {
+      "text": "Barking",
+      "for": "anagram",
+      "note": "barking is slang for mad, and mad letters are jumbled out of order"
+     },
+     {
+      "text": "initially",
+      "for": "charade",
+      "note": "the first letter of the officer's title is taken and added to the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police service",
+      "gives": "POLICESERVICE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I see",
+      "gives": "IC",
+      "note": "I as written, and 'see' sounds like the letter C; both are removed twice"
+     },
+     {
+      "clueFragment": "superintendent",
+      "gives": "S",
+      "note": "first letter of the senior officer's title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERSLEEPS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POLESERVES",
+       "gives": "OVERSLEEPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daft police force where the superintendent pays no attention to warnings.",
+     "walkthrough": "Strike I and C twice from POLICE SERVICE to leave POLESERVE, add S, and rearrange. The definition plays on alarm bells as warnings: someone who oversleeps literally ignores the alarm clock.",
+     "definitionFit": "Someone who oversleeps fails to wake when the alarm rings, so in a sense ignores it; the question mark flags the pun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Barking"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +344,61 @@
    "group": [
     "4-down",
     "15-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TABLE TENNIS BAT",
+    "definitions": [
+     {
+      "text": "You can play a game with this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused letters are muddled, so the words before it are put in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "iPad, for example",
+      "gives": "TABLET",
+      "note": "an iPad is one kind of tablet computer"
+     },
+     {
+      "clueFragment": "I bet nan's",
+      "gives": "IBETNANS",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABLET",
+      "ENNISBAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IBETNANS",
+       "gives": "ENNISBAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gran is baffled by the idea of playing games on an iPad.",
+     "walkthrough": "TABLET is followed by the rearranged I BET NAN'S to build TABLE TENNIS BAT.",
+     "definitionFit": "A table tennis bat is the paddle used to play ping-pong, so it is equipment for a game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "iPad"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +412,64 @@
     "text": "Extremely full glasses with wine being knocked down",
     "enumeration": "7"
    },
-   "solution": "FLOORED"
+   "solution": "FLOORED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FLOORED",
+    "definitions": [
+     {
+      "text": "knocked down",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outermost letters are kept"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "full",
+      "gives": "FL",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "glasses",
+      "gives": "OO",
+      "note": "two round lenses look like a pair of Os"
+     },
+     {
+      "clueFragment": "with wine",
+      "gives": "RED",
+      "note": "red is a type of wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "OO",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "Drinkers fill their glasses with wine until they fall over.",
+     "definitionFit": "To be floored is to be knocked to the ground, as a boxer is, or figuratively stunned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "glasses"
+    }
+   }
   },
   {
    "number": 5,
@@ -141,7 +497,50 @@
    "group": [
     "5-down",
     "23-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FULL STEAM AHEAD",
+    "definitions": [
+     {
+      "text": "with maximum effort",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked",
+      "for": "anagram",
+      "note": "worked material is kneaded and reshaped, so the letters before it are remade into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female adult has",
+      "gives": "FEMALEADULTHAS",
+      "note": "all fourteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FEMALEADULTHAS",
+       "gives": "FULLSTEAMAHEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grown woman has toiled as hard as she possibly could.",
+     "definitionFit": "Full steam ahead was the order for a steamship's top speed, so idiomatically it means with all possible energy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worked"
+    }
+   }
   },
   {
    "number": 6,
@@ -155,7 +554,55 @@
     "text": "Sign on without me",
     "enumeration": "4"
    },
-   "solution": "OMEN"
+   "solution": "OMEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OMEN",
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "in its old sense, without means outside, so one word is placed around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written, split to hold the other piece"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "ME",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a friend to sign up and carry on, leaving them out.",
+     "walkthrough": "'Without' reads as 'lacking' but here means outside: ON goes outside ME.",
+     "definitionFit": "An omen is a sign or portent foretelling some future event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +616,50 @@
     "text": "I go and learn about local",
     "enumeration": "8"
    },
-   "solution": "REGIONAL"
+   "solution": "REGIONAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REGIONAL",
+    "definitions": [
+     {
+      "text": "local",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "letters turned about are moved around, so they come out in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I go and learn",
+      "gives": "IGOLEARN",
+      "note": "the letters of I, go and learn, with 'and' joining them"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IGOLEARN",
+       "gives": "REGIONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets off to find out about their own neighbourhood.",
+     "definitionFit": "Regional and local both describe something belonging to a particular area rather than the whole country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +673,43 @@
     "text": "Zealots found blocking road, ie hard shoulder",
     "enumeration": "8"
    },
-   "solution": "DIEHARDS"
+   "solution": "DIEHARDS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DIEHARDS",
+    "definitions": [
+     {
+      "text": "Zealots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found blocking",
+      "for": "hidden_word",
+      "note": "something found blocking a passage is sitting inside it, so the answer lies within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road, ie hard shoulder",
+      "gives": "DIEHARDS",
+      "note": "spanning the end of the first word, the whole of the next two and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Protesters have been spotted obstructing the motorway, even on the hard shoulder.",
+     "walkthrough": "A hard shoulder is the emergency lane at the edge of a British motorway.",
+     "definitionFit": "Diehards are people stubbornly devoted to a cause, so they are zealots."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 9,
@@ -197,7 +723,56 @@
     "text": "Triumph Engineering's first car",
     "enumeration": "5"
    },
-   "solution": "COUPE"
+   "solution": "COUPE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COUPE",
+    "definitions": [
+     {
+      "text": "car",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "only the opening letter of the preceding word is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Triumph",
+      "gives": "COUP",
+      "note": "a coup is a striking success"
+     },
+     {
+      "clueFragment": "Engineering's",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A boast that the Triumph motor company produced its first car.",
+     "walkthrough": "Triumph was a British car maker, which makes the word look like a brand rather than a success.",
+     "definitionFit": "A coupe is a two-door car with a fixed roof, so it is a type of car."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Triumph"
+    }
+   }
   },
   {
    "number": 10,
@@ -217,7 +792,61 @@
      }
     ]
    },
-   "solution": "BALDEAGLE"
+   "solution": "BALDEAGLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BALD EAGLE",
+    "definitions": [
+     {
+      "text": "Iconic American",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "something done occasionally happens now and then, so every other letter is kept"
+     },
+     {
+      "text": "on board",
+      "for": "container",
+      "note": "being on board a ship puts you inside it, so the selected letters go within the vessel"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Darwin's ship",
+      "gives": "BEAGLE",
+      "note": "HMS Beagle carried Charles Darwin around the world"
+     },
+     {
+      "clueFragment": "sailed",
+      "gives": "ALD",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ALD",
+      "EAGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous American now and then sailed aboard Darwin's vessel.",
+     "definitionFit": "The bald eagle is the national bird of the United States and appears on its seal, making it an American icon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Iconic"
+    }
+   }
   },
   {
    "number": 11,
@@ -237,7 +866,39 @@
      }
     ]
    },
-   "solution": "DRESSSENSE"
+   "solution": "DRESSSENSE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DRESS SENSE",
+    "definitions": [
+     {
+      "text": "It ought to stop someone getting into a bad habit",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It ought to stop someone getting into a bad habit",
+      "note": "surface reading: a quality that keeps a person from picking up a harmful routine"
+     },
+     {
+      "clueFragment": "a bad habit",
+      "note": "setter's reading: a habit is also a garment, as a monk wears, so a bad habit is an unflattering outfit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads like advice about vices; 'getting into' means putting on clothes, and 'habit' is clothing.",
+     "definitionFit": "Good taste in clothing is what keeps a person from wearing something unflattering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 12,
@@ -251,7 +912,55 @@
     "text": "It's needed to make tofu fritters go crispy — by all conclusions, ace",
     "enumeration": "4"
    },
-   "solution": "SOYA"
+   "solution": "SOYA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SOYA",
+    "definitions": [
+     {
+      "text": "It's needed to make tofu",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by all conclusions",
+      "for": "letter_selection",
+      "note": "the conclusion of each word is its final letter, taken from every word in turn"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fritters go crispy",
+      "gives": "SOY",
+      "select": "last",
+      "note": "the final letter of each of the three words"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is the card abbreviation for ace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOY",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for a cook: frying tofu fritters until crisp needs one essential ingredient, and the result is excellent.",
+     "definitionFit": "Tofu is curd pressed from soya milk, so soya beans are its essential ingredient."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conclusions"
+    }
+   }
   },
   {
    "number": 13,
@@ -265,7 +974,61 @@
     "text": "Ending part of News at Ten's introduction covers Sunak changing sides",
     "enumeration": "10"
    },
-   "solution": "ABOLISHING"
+   "solution": "ABOLISHING",
+   "annotation": {
+    "type": [
+     "substitution",
+     "container"
+    ],
+    "answer": "ABOLISHING",
+    "definitions": [
+     {
+      "text": "Ending",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing sides",
+      "for": "substitution",
+      "note": "switching sides means swapping right for left, so one letter is exchanged for the other"
+     },
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "something that covers another wraps around it, so the first piece goes outside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of News at Ten's introduction",
+      "gives": "ABONG",
+      "note": "the ITV News at Ten opens with the bongs of Big Ben; one of them is a bong"
+     },
+     {
+      "clueFragment": "Sunak",
+      "gives": "RISHI",
+      "note": "Rishi Sunak, the former UK prime minister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABO",
+      "LISHI",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "A news programme's opening segment features the prime minister switching parties.",
+     "walkthrough": "Changing sides swaps R (right) for L (left) in the former prime minister's first name. ITV's News at Ten opens to the bongs of Big Ben.",
+     "definitionFit": "Abolishing something puts an end to it, so the participle means ending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +1042,44 @@
     "text": "It's the windward side, if drilled verbally",
     "enumeration": "12"
    },
-   "solution": "WEATHERBOARD"
+   "solution": "WEATHERBOARD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WEATHERBOARD",
+    "definitions": [
+     {
+      "text": "It's the windward side",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "verbally",
+      "for": "homophone",
+      "note": "spoken words are judged by their sound rather than their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if drilled",
+      "gives": "WEATHERBOARD",
+      "soundsLike": "WHETHER BORED",
+      "note": "'if' is whether; drilled is bored"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tells you that one side faces the wind, if you've done your training.",
+     "definitionFit": "On a ship, the weatherboard is the side facing the wind, so it is the windward side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drilled"
+    }
+   }
   },
   {
    "number": 15,
@@ -312,7 +1112,75 @@
     "text": "Major vessel docked — assuming ship regularly mends manifold",
     "enumeration": "8"
    },
-   "solution": "ASSORTED"
+   "solution": "ASSORTED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ASSORTED",
+    "definitions": [
+     {
+      "text": "manifold",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "docked",
+      "for": "deletion",
+      "note": "a docked tail is cut short, so the word loses its final letter"
+     },
+     {
+      "text": "assuming",
+      "for": "container",
+      "note": "to assume is to take on, so the first piece takes the vessel inside it"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is picked out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Major vessel",
+      "gives": "AORTA",
+      "note": "the aorta is the body's main artery"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is steamship"
+     },
+     {
+      "clueFragment": "mends",
+      "gives": "ED",
+      "select": "alternate",
+      "note": "second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SS",
+      "ORT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A big ship is in dock, and presumably its crew are carrying out all sorts of repairs.",
+     "walkthrough": "The vessel is a blood vessel, not a boat: AORTA loses its last letter and takes in SS.",
+     "definitionFit": "Manifold means many and various, as in assorted items of differing kinds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 17,
@@ -326,7 +1194,74 @@
     "text": "Doctor Watson to visit Burma on vacation — it's a hot country",
     "enumeration": "8"
    },
-   "solution": "BOTSWANA"
+   "solution": "BOTSWANA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BOTSWANA",
+    "definitions": [
+     {
+      "text": "it's a hot country",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the name is rearranged"
+     },
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "vacated means emptied, so only the outer letters remain"
+     },
+     {
+      "text": "to visit",
+      "for": "container",
+      "note": "a visitor goes inside, so the rearranged name enters the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Burma",
+      "gives": "BA",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "Watson",
+      "gives": "WATSON",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OTSWAN",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WATSON",
+       "gives": "OTSWAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Holmes's companion Dr Watson goes travelling in a hot Asian country.",
+     "walkthrough": "'Doctor Watson' looks like the Sherlock Holmes character, but Doctor is a verb.",
+     "definitionFit": "Botswana is a southern African country with a largely hot, dry climate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 18,
@@ -346,7 +1281,67 @@
      }
     ]
    },
-   "solution": "SHOPPINGMALL"
+   "solution": "SHOPPINGMALL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SHOPPING MALL",
+    "definitions": [
+     {
+      "text": "retail precinct",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "something placed about another wraps around it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the combined piece is put inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remaining optimistic",
+      "gives": "HOPING",
+      "note": "to be hoping is to stay optimistic"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "SMALL",
+      "note": "synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HOP",
+      "P",
+      "ING",
+      "MALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Shopkeepers stay upbeat about the parking in a small shopping area.",
+     "definitionFit": "A shopping mall is a large enclosed area of shops, and precinct is the British name for such a zone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remaining"
+    }
+   }
   },
   {
    "number": 19,
@@ -360,7 +1355,44 @@
     "text": "Possibly leaves space vehicle",
     "enumeration": "6"
    },
-   "solution": "ROCKET"
+   "solution": "ROCKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROCKET",
+    "definitions": [
+     {
+      "text": "Possibly leaves",
+      "at": 0
+     },
+     {
+      "text": "space vehicle",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possibly leaves",
+      "note": "first meaning: a salad plant with peppery leaves, also called arugula"
+     },
+     {
+      "clueFragment": "space vehicle",
+      "note": "second meaning: a craft propelled into space"
+     }
+    ],
+    "explanation": {
+     "surface": "Perhaps a spacecraft is departing.",
+     "walkthrough": "'Leaves' looks like a verb, as in departs; it is a noun for salad greens.",
+     "definitionFit": "Rocket is both a peppery salad leaf and a self-propelled craft for spaceflight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 20,
@@ -374,7 +1406,67 @@
     "text": "It's like something from mediaeval times expected to turn up in a Cornish river",
     "enumeration": "6"
    },
-   "solution": "FEUDAL"
+   "solution": "FEUDAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "FEUDAL",
+    "definitions": [
+     {
+      "text": "It's like something from mediaeval times",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to turn up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means reading the word from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the turned word goes inside the river's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Cornish river",
+      "gives": "FAL",
+      "note": "the Fal is a river in Cornwall"
+     },
+     {
+      "clueFragment": "expected",
+      "gives": "DUE",
+      "note": "synonym: something expected is due"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EUD",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "DUE",
+       "to": "EUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old relic is expected to be found in a Cornish river.",
+     "walkthrough": "Cornwall is the county at the far south-west tip of England.",
+     "definitionFit": "Feudal describes the medieval system of lords and vassals, so it characterises that period."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 21,
@@ -388,7 +1480,55 @@
     "text": "Put out some books describing America",
     "enumeration": "4"
    },
-   "solution": "OUST"
+   "solution": "OUST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OUST",
+    "definitions": [
+     {
+      "text": "Put out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a circle is to draw around, so the first piece goes around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, a set of books"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "abbreviation for the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "US",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A publisher releases a few books about the USA.",
+     "walkthrough": "'Put out' looks like publish, which fits books; it means expel.",
+     "definitionFit": "To oust someone is to drive them out of a position, so it means to put out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 22,
@@ -408,7 +1548,77 @@
      }
     ]
    },
-   "solution": "FINALSCORE"
+   "solution": "FINALSCORE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FINAL SCORE",
+    "definitions": [
+     {
+      "text": "End result",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "drinking takes something in, so the footballers' body holds the next word"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "a host entertaining a guest has them inside, so the college goes around the exclamation"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group of footballers",
+      "gives": "FA",
+      "note": "the Football Association, the body running English football"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "university's",
+      "gives": "LSE",
+      "note": "the London School of Economics"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "COR",
+      "note": "both are British exclamations of surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IN",
+      "A",
+      "LS",
+      "COR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Some footballers are on a drinking session at the speaker's university.",
+     "walkthrough": "FA takes in IN, then LSE (a London university) holds COR, a British cry of surprise like 'my!'.",
+     "definitionFit": "The final score is the result at the end of a match, so it is literally the end result."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 23,
@@ -435,7 +1645,51 @@
     "text": "Present not finished for party?",
     "enumeration": "4"
    },
-   "solution": "STAG"
+   "solution": "STAG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STAG",
+    "definitions": [
+     {
+      "text": "party?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not finished",
+      "for": "deletion",
+      "note": "an unfinished word stops short, so its last letter is cut"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Present",
+      "gives": "STAGE",
+      "note": "to stage a play is to present it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A gift that isn't ready in time for a celebration.",
+     "walkthrough": "'Present' looks like a gift but is the verb to put on a show. A stag do is the British bachelor party; the question mark marks the definition by example.",
+     "definitionFit": "A stag is a party held for a man about to marry, so it is one kind of party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Present"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1703,60 @@
     "text": "Pamphlet with chart requiring timeshare arrangement to be easily managed",
     "enumeration": "9"
    },
-   "solution": "TRACTABLE"
+   "solution": "TRACTABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TRACTABLE",
+    "definitions": [
+     {
+      "text": "easily managed",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "requiring timeshare arrangement",
+      "for": "deletion",
+      "note": "the two words must share a T, so one of the doubled letters drops out where they meet"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pamphlet",
+      "gives": "TRACT",
+      "note": "a tract is a short religious or political pamphlet"
+     },
+     {
+      "clueFragment": "chart",
+      "gives": "TABLE",
+      "note": "a table sets data out in rows and columns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRACT",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday timeshare brochure comes with a chart showing how simple it all is.",
+     "walkthrough": "'Timeshare' is read as T-share: the two words overlap on their shared T.",
+     "definitionFit": "Tractable describes something or someone docile and simple to control or handle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "timeshare"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1770,64 @@
     "text": "Distressed by home-made bomb around edges of roadblock",
     "enumeration": "5"
    },
-   "solution": "IRKED"
+   "solution": "IRKED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IRKED",
+    "definitions": [
+     {
+      "text": "Distressed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its first and last letters"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the bomb surrounds the selected letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home-made bomb",
+      "gives": "IED",
+      "note": "an improvised explosive device"
+     },
+     {
+      "clueFragment": "roadblock",
+      "gives": "RK",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RK",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "People upset by a homemade explosive found at a checkpoint.",
+     "definitionFit": "Irked means annoyed or vexed, which is a mild form of distress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home-made"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +1841,54 @@
     "text": "Swallow anything doctor opens",
     "enumeration": "7"
    },
-   "solution": "DRAUGHT"
+   "solution": "DRAUGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAUGHT",
+    "definitions": [
+     {
+      "text": "Swallow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opens",
+      "for": "charade",
+      "note": "what opens comes first, so the medical man stands at the front of the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "anything",
+      "gives": "AUGHT",
+      "note": "an old word meaning anything at all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "AUGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient is told to swallow whatever the doctor opens for them.",
+     "walkthrough": "'Swallow' tempts as the bird, but it is a noun meaning a gulp.",
+     "definitionFit": "A draught is a single gulp of drink, the amount taken in one swallow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Swallow"
+    }
+   }
   },
   {
    "number": 28,
@@ -491,7 +1902,60 @@
     "text": "Police officer and soldier discuss amputating last of fingers",
     "enumeration": "7"
    },
-   "solution": "DIGITAL"
+   "solution": "DIGITAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DIGITAL",
+    "definitions": [
+     {
+      "text": "of fingers",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amputating last",
+      "for": "deletion",
+      "note": "amputating cuts off a limb, and here the final letter is severed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Police officer",
+      "gives": "DI",
+      "note": "Detective Inspector"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "an American soldier"
+     },
+     {
+      "clueFragment": "discuss",
+      "gives": "TALK",
+      "note": "synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "GI",
+      "TAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective and a soldier talk about cutting off fingertips.",
+     "definitionFit": "Digital in its original sense means relating to the fingers, from Latin digitus, finger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "amputating"
+    }
+   }
   }
  ]
 }
