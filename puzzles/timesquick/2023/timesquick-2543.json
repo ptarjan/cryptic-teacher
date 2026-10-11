@@ -24,6 +24,9 @@
   "date": "2023-12-07",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,53 @@
     "text": "Give up, utterly without energy",
     "enumeration": "4"
    },
-   "solution": "QUIT"
+   "solution": "QUIT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "QUIT",
+    "definitions": [
+     {
+      "text": "Give up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "'without' tells you to drop the letter for energy from the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "utterly",
+      "gives": "QUITE",
+      "note": "quite can mean utterly, as in 'quite impossible'"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone so utterly exhausted that they throw in the towel.",
+     "walkthrough": "Take QUITE and remove its E to leave QUIT.",
+     "definitionFit": "To quit is to abandon or stop trying, a plain synonym of give up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "utterly"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +100,68 @@
     "text": "Prior to unit getting broken on line",
     "enumeration": "5"
    },
-   "solution": "UNTIL"
+   "solution": "UNTIL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNTIL",
+    "definitions": [
+     {
+      "text": "Prior to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken has had its parts knocked out of order, so the word unit is rearranged"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one piece placed on another sits above it in the column"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unit",
+      "gives": "UNIT",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the standard abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNTI",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNIT",
+       "gives": "UNTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army unit falling apart before it reaches the front line.",
+     "definitionFit": "Until means up to the time of, so it serves as a preposition equivalent to before or prior to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +175,58 @@
     "text": "Mint upset with this metalworker",
     "enumeration": "8"
    },
-   "solution": "TINSMITH"
+   "solution": "TINSMITH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TINSMITH",
+    "definitions": [
+     {
+      "text": "metalworker",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "to upset something is to knock it over, so the letters land in a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mint",
+      "gives": "MINT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "THIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MINTTHIS",
+       "gives": "TINSMITH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Royal Mint is annoyed with some craftsman.",
+     "definitionFit": "A tinsmith is a craftsman who makes and repairs articles of tin or tinplate, one kind of metalworker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mint"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +240,60 @@
     "text": "Topless omnibus, dreadful in rain cloud",
     "enumeration": "6"
    },
-   "solution": "NIMBUS"
+   "solution": "NIMBUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NIMBUS",
+    "definitions": [
+     {
+      "text": "rain cloud",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Topless",
+      "for": "deletion",
+      "note": "in a down entry the top is the first letter, so topless means lose the opening letter"
+     },
+     {
+      "text": "dreadful",
+      "for": "anagram",
+      "note": "something dreadful is in a terrible state, so the remaining letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "omnibus",
+      "gives": "MNIBUS",
+      "note": "omnibus with its first letter removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MNIBUS",
+       "gives": "NIMBUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An open-top bus is miserable to ride in the rain.",
+     "walkthrough": "'Topless omnibus' paints an open-top tour bus, but topless strips the O, and dreadful shuffles what is left.",
+     "definitionFit": "Nimbus is the meteorological term for a dark grey cloud bringing rain or snow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Topless"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +307,48 @@
     "text": "Shocked initially and greatly horrified at such treatment",
     "enumeration": "6"
    },
-   "solution": "AGHAST"
+   "solution": "AGHAST",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AGHAST",
+    "definitions": [
+     {
+      "text": "Shocked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and greatly horrified at such treatment",
+      "gives": "AGHAST",
+      "select": "first",
+      "note": "the first letter of each of the six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGHAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone appalled by how they have been treated.",
+     "definitionFit": "Aghast means filled with horror or amazement, a close synonym of shocked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +362,53 @@
     "text": "Mum's abandoned biggest dress",
     "enumeration": "4"
    },
-   "solution": "MAXI"
+   "solution": "MAXI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MAXI",
+    "definitions": [
+     {
+      "text": "dress",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "deletion",
+      "note": "to have abandoned something is to have left it behind, so one word walks out of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "biggest",
+      "gives": "MAXIMUM",
+      "note": "maximum means the largest or biggest"
+     },
+     {
+      "clueFragment": "Mum's",
+      "gives": "MUM",
+      "note": "the word mum itself, the 's standing for 'has'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAXI"
+     ]
+    },
+    "explanation": {
+     "surface": "Mother has given up on the largest frock.",
+     "walkthrough": "Read 'Mum's abandoned' as 'MUM has left': take MUM off the end of MAXIMUM.",
+     "definitionFit": "A maxi is a long dress or skirt reaching the ankles, so it names a garment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mum's"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +422,53 @@
     "text": "Gelatin is in vitreous vessel",
     "enumeration": "9"
    },
-   "solution": "ISINGLASS"
+   "solution": "ISINGLASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISINGLASS",
+    "definitions": [
+     {
+      "text": "Gelatin",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vitreous vessel",
+      "gives": "GLASS",
+      "note": "a glass is a drinking vessel made of vitreous material"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "IN",
+      "GLASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Some jelly sitting in a glass container.",
+     "walkthrough": "'In' looks like it puts one piece inside another, but here it is simply two letters in the chain.",
+     "definitionFit": "Isinglass is a pure form of gelatin obtained from fish bladders, used to clarify beer and wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +482,61 @@
     "text": "Remain holding British pounds securely",
     "enumeration": "6"
    },
-   "solution": "STABLY"
+   "solution": "STABLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STABLY",
+    "definitions": [
+     {
+      "text": "securely",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "a word holding others has them inside it, wrapping around them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remain",
+      "gives": "STAY",
+      "note": "to stay is to remain"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "pounds",
+      "gives": "L",
+      "note": "L, from Latin libra, is the symbol for pounds sterling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "B",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Keep your sterling safely stashed away.",
+     "walkthrough": "'pounds' suggests hitting or money in general, but it is just the sterling symbol L.",
+     "definitionFit": "Stably means in a firm, steady way that will not shift, much like securely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pounds"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +550,48 @@
     "text": "Stagger, nearly attacked by a wasp",
     "enumeration": "4"
    },
-   "solution": "STUN"
+   "solution": "STUN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STUN",
+    "definitions": [
+     {
+      "text": "Stagger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite all, so the last letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attacked by a wasp",
+      "gives": "STUNG",
+      "note": "a wasp attack leaves you stung"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reeling after almost being stung by a wasp.",
+     "walkthrough": "'Stagger' reads as reeling about, but it means astonish.",
+     "definitionFit": "To stagger someone is to astonish them deeply, which is what stun means figuratively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stagger"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +605,53 @@
     "text": "Working at basic lab, getting paid leave",
     "enumeration": "10"
    },
-   "solution": "SABBATICAL"
+   "solution": "SABBATICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SABBATICAL",
+    "definitions": [
+     {
+      "text": "paid leave",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Working",
+      "for": "anagram",
+      "note": "working letters are being moved about and put to use in a new order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at basic lab",
+      "gives": "ATBASICLAB",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATBASICLAB",
+       "gives": "SABBATICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist toiling in an elementary laboratory and still earning holiday.",
+     "definitionFit": "A sabbatical is a period of paid time away from duties, granted especially to academics for study or travel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Working"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +665,54 @@
     "text": "Problem about large area of poor housing",
     "enumeration": "4"
    },
-   "solution": "SLUM"
+   "solution": "SLUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLUM",
+    "definitions": [
+     {
+      "text": "area of poor housing",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Problem",
+      "gives": "SUM",
+      "note": "a sum is an arithmetic problem"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "L",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A big problem concerning a run-down housing district.",
+     "definitionFit": "A slum is an overcrowded, squalid urban district where the poorest people live."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Problem"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +726,65 @@
     "text": "Greedily wanting one new standard assessment task, one in competent style",
     "enumeration": "10"
    },
-   "solution": "INSATIABLY"
+   "solution": "INSATIABLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSATIABLY",
+    "definitions": [
+     {
+      "text": "Greedily wanting",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "standard assessment task",
+      "gives": "SAT",
+      "note": "SAT stands for standard assessment task, a UK school test"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one again"
+     },
+     {
+      "clueFragment": "in competent style",
+      "gives": "ABLY",
+      "note": "to do something ably is to do it competently"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "SAT",
+      "I",
+      "ABLY"
+     ]
+    },
+    "explanation": {
+     "surface": "An exam candidate hungry for results who sits a school test with flair.",
+     "walkthrough": "'one in' looks like a container instruction, but the 'in' belongs to the last phrase: in competent style is ABLY. SATs are national tests taken in English primary schools.",
+     "definitionFit": "Insatiably describes wanting more without ever being satisfied, which is how greed behaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +798,45 @@
     "text": "A US city — whichever one",
     "enumeration": "3"
    },
-   "solution": "ANY"
+   "solution": "ANY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANY",
+    "definitions": [
+     {
+      "text": "whichever one",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "US city",
+      "gives": "NY",
+      "note": "NY is New York"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NY"
+     ]
+    },
+    "explanation": {
+     "surface": "Picking an American city at random.",
+     "definitionFit": "Any, as in 'take any card', means one chosen without restriction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -219,7 +850,62 @@
     "text": "Historian girl is entertained by lieutenant",
     "enumeration": "8"
    },
-   "solution": "ANNALIST"
+   "solution": "ANNALIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANNALIST",
+    "definitions": [
+     {
+      "text": "Historian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertained by",
+      "for": "container",
+      "note": "a guest entertained by a host is taken inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "ANNA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lieutenant",
+      "gives": "LT",
+      "note": "Lt is the abbreviation for lieutenant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNA",
+      "L",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman being wined and dined by an army officer.",
+     "walkthrough": "'entertained by' sounds social, but it means held inside the abbreviation for lieutenant.",
+     "definitionFit": "An annalist writes annals, year-by-year records of events, so is a kind of historian or chronicler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertained"
+    }
+   }
   },
   {
    "number": 15,
@@ -233,7 +919,59 @@
     "text": "Plant unknown in Northern Ireland area",
     "enumeration": "6"
    },
-   "solution": "ZINNIA"
+   "solution": "ZINNIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ZINNIA",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unknown",
+      "gives": "Z",
+      "note": "algebra uses x, y and z for unknowns"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Northern Ireland",
+      "gives": "NI",
+      "note": "NI is the abbreviation for Northern Ireland"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Z",
+      "IN",
+      "NI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A mystery plant growing somewhere in Ulster.",
+     "walkthrough": "'in' invites putting the unknown inside NI, but it is just its own two letters.",
+     "definitionFit": "Zinnia is a garden flower of the daisy family with bright, many-petalled blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 16,
@@ -247,7 +985,56 @@
     "text": "Robber's drunken manner with crew",
     "enumeration": "10"
    },
-   "solution": "HIGHWAYMAN"
+   "solution": "HIGHWAYMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HIGHWAYMAN",
+    "definitions": [
+     {
+      "text": "Robber",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunken",
+      "gives": "HIGH",
+      "note": "high can mean intoxicated"
+     },
+     {
+      "clueFragment": "manner",
+      "gives": "WAY",
+      "note": "a way of doing things is a manner"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "MAN",
+      "note": "to man a ship is to crew it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIGH",
+      "WAY",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A thief behaving like a drunk among his gang.",
+     "definitionFit": "A highwayman was a mounted robber who held up travellers on the roads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crew"
+    }
+   }
   },
   {
    "number": 17,
@@ -261,7 +1048,51 @@
     "text": "What's regularly encountered in adults is some tendency to detachment",
     "enumeration": "6"
    },
-   "solution": "AUTISM"
+   "solution": "AUTISM",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AUTISM",
+    "definitions": [
+     {
+      "text": "tendency to detachment",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly encountered in",
+      "for": "letter_selection",
+      "note": "regularly met means picked up at even intervals, every other letter of the words that follow"
+     }
+    ],
+    "linkWords": [
+     "What's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adults is some",
+      "gives": "AUTISM",
+      "select": "alternate",
+      "note": "the first, third, fifth and so on letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUTISM"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark about how often grown-ups show a withdrawn streak.",
+     "definitionFit": "Autism is a developmental condition often marked by difficulty with social interaction, which the setter loosely calls detachment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 18,
@@ -275,7 +1106,50 @@
     "text": "Cake is warmer at home",
     "enumeration": "6"
    },
-   "solution": "MUFFIN"
+   "solution": "MUFFIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MUFFIN",
+    "definitions": [
+     {
+      "text": "Cake",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warmer",
+      "gives": "MUFF",
+      "note": "a muff is a fur tube that keeps the hands warm"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUFF",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "The cake is hotter when eaten in the house.",
+     "walkthrough": "'warmer' looks like an adjective about the cake, but it is a noun: a thing that warms you.",
+     "definitionFit": "A muffin is a small baked cake, either the sweet cupcake kind or the flat yeast bun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "warmer"
+    }
+   }
   },
   {
    "number": 19,
@@ -289,7 +1163,59 @@
     "text": "Sadly a girl is taken short",
     "enumeration": "4"
    },
-   "solution": "ALAS"
+   "solution": "ALAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ALAS",
+    "definitions": [
+     {
+      "text": "Sadly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken short",
+      "for": "deletion",
+      "note": "something taken short is cut off before its end, so its last letter goes"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman unfortunately caught needing the toilet.",
+     "walkthrough": "'Taken short' is a British idiom for suddenly needing the lavatory; here it just trims the final S.",
+     "definitionFit": "Alas is an interjection of grief, standing for 'sadly' or 'unfortunately' at the head of a sentence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 20,
@@ -303,7 +1229,46 @@
     "text": "Expect a delay",
     "enumeration": "5"
    },
-   "solution": "AWAIT"
+   "solution": "AWAIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWAIT",
+    "definitions": [
+     {
+      "text": "Expect",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "delay",
+      "gives": "WAIT",
+      "note": "a wait is a delay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A weary traveller resigned to hold-ups.",
+     "definitionFit": "To await something is to look out for or anticipate it, so it means expect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Expect"
+    }
+   }
   },
   {
    "number": 21,
@@ -317,7 +1282,53 @@
     "text": "Cheating with a huff until put right",
     "enumeration": "10"
    },
-   "solution": "UNFAITHFUL"
+   "solution": "UNFAITHFUL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNFAITHFUL",
+    "definitions": [
+     {
+      "text": "Cheating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put right",
+      "for": "anagram",
+      "note": "putting something right means sorting and rearranging it into proper order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a huff until",
+      "gives": "AHUFFUNTIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHUFFUNTIL",
+       "gives": "UNFAITHFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A partner sulking over an affair until things are patched up.",
+     "definitionFit": "A cheating partner is unfaithful, breaking a promise of fidelity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "huff"
+    }
+   }
   },
   {
    "number": 22,
@@ -331,7 +1342,69 @@
     "text": "Keen to get a six on top of die",
     "enumeration": "4"
    },
-   "solution": "AVID"
+   "solution": "AVID",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AVID",
+    "definitions": [
+     {
+      "text": "Keen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry one part placed on another sits above it"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a column is its first letter"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "the Roman numeral for six"
+     },
+     {
+      "clueFragment": "die",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VI",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler eager to roll a six.",
+     "definitionFit": "Avid means eager or enthusiastic, a direct synonym of keen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "die"
+    }
+   }
   },
   {
    "number": 23,
@@ -345,7 +1418,63 @@
     "text": "One is a leader of Muslims",
     "enumeration": "4"
    },
-   "solution": "IMAM"
+   "solution": "IMAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "IMAM",
+    "definitions": [
+     {
+      "text": "One is a leader of Muslims",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter, the one at the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One is",
+      "gives": "IM",
+      "note": "'one is' said by the speaker becomes 'I am', contracted to I'm"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Muslims",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "A",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A simple statement that a figure exists who guides the faithful of Islam.",
+     "walkthrough": "The whole clue is both the wordplay and a description of the answer.",
+     "definitionFit": "An imam leads prayers in a mosque and can be a Muslim community or religious leader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 24,
@@ -359,7 +1488,52 @@
     "text": "His maps I'd put in a mess somewhere on board",
     "enumeration": "9"
    },
-   "solution": "AMIDSHIPS"
+   "solution": "AMIDSHIPS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMIDSHIPS",
+    "definitions": [
+     {
+      "text": "somewhere on board",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in a mess",
+      "for": "anagram",
+      "note": "things put in a mess are scattered out of order and must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "His maps I'd",
+      "gives": "HISMAPSID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HISMAPSID",
+       "gives": "AMIDSHIPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor's charts lie scattered somewhere aboard ship.",
+     "walkthrough": "'mess' fits the naval surface, a ship's mess being where crew eat, but here it means disorder.",
+     "definitionFit": "Amidships means in the middle part of a ship, so it is a location on board."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mess"
+    }
+   }
   },
   {
    "number": 25,
@@ -373,7 +1547,40 @@
     "text": "Dress used by ballerina twice the same day",
     "enumeration": "4"
    },
-   "solution": "TUTU"
+   "solution": "TUTU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUTU",
+    "definitions": [
+     {
+      "text": "Dress used by ballerina",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "twice the same day",
+      "gives": "TUTU",
+      "note": "Tu is the abbreviation for Tuesday, taken two times"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUTU"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer wearing the same costume on two occasions in one day.",
+     "definitionFit": "A tutu is the short stiff skirt of layered net worn by ballet dancers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "day"
+    }
+   }
   }
  ]
 }
