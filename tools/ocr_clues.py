@@ -986,9 +986,14 @@ def parted(clue, others):
             sizes = near[0] if len(near) == 1 else None
         if not sizes:
             return w
-        if known(w.lower()) and sum(w.lower() in whole for whole in printed) * 2 > len(others):
+        low_w = w.lower()
+        def misread(x):
+            return len(x) == len(low_w) > 4 and is_word(x) and sum(a != b for a, b in zip(x, low_w)) == 1
+        near = [any(x == low_w or misread(x) for x in whole) for whole in printed]
+        if (known(low_w) or any(misread(x) for whole in printed for x in whole)) and sum(near) * 2 > len(others):
             # A known word most readings print whole ("Edwardian") stays
-            # whole, though one reading split it.
+            # whole, though one reading split it; so does a misread of one
+            # ("reorgauized", "serice") most print whole or a letter off.
             return w
         if is_word(w.lower()):
             # A dictionary word stays whole ("hairstyle", which a reading
@@ -1333,7 +1338,9 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
         others = [others]
     if not tokens(clue):
         return clue, "no words"
-    clue = parted(clue, others)
+    # A word parted from the next ("orig inallyby") may join its other
+    # half once parted ("orig inally"): join_split again.
+    clue = join_split(parted(clue, others), others)
     mine, spans = [], []  # spans: each token's (start, text) in the clue
     k = 0
     for t in marked(clue, breaks=True):

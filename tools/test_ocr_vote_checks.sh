@@ -429,6 +429,18 @@ check("three words run together with a letter misread part as another reading pr
       oc.parted("irritating featureofEngland'snationai game", [mark("21 irritating feature of England's national game 26 A")]))
 check("two words run together with a letter misread stay (mirror)", "an irritating featureofEngland",
       oc.parted("an irritating featureofEngland", [mark("21 an irritating featurc ofEngland 26 A")]))
+# times-1978-10-02, times-1992-08-06: a word the readings print whole, filed in pieces.
+check("a misread most readings print whole as a known word a letter off stays whole",
+      "if reorgauized", oc.parted("if reorgauized", [mark("7 if reorganized 8 A"), mark("7 if reorganized 8 A"),
+                                                     mark("9 Go re organ ized 10")]))
+check("a run-together no word a letter off vouches is still parted (mirror)", "if the plant",
+      oc.parted("if theplant", [mark("7 if theplant 8 A"), mark("7 if theplant 8 A"), mark("9 Go the plant 10")]))
+check("a word's halves, once the next word is parted off, join as most readings print it",
+      "imported originally by old",
+      oc.agree("imported orig inallyby old", [mark("5 imported originally by old 6")] * 3)[0])
+check("halves most readings print apart stay apart (mirror)", "imported orig inally by old",
+      oc.agree("imported orig inallyby old", [mark("5 imported orig inally by old 6")] * 2
+               + [mark("5 imported originally by old 6")])[0])
 glued = ["some", "consider", "this", "an", "irritating", "featureofengland'snationai", "game"]
 at = [(i, i) for i in range(6)] + [(6, None)]
 check("a reading prints a clue whose run-together word holds its word (No 4 21D)", True,
