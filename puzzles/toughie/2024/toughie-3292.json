@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Arm slips eating sandwich on counter",
     "enumeration": "11"
    },
-   "solution": "BLUNDERBUSS"
+   "solution": "BLUNDERBUSS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BLUNDERBUSS",
+    "definitions": [
+     {
+      "text": "Arm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on counter",
+      "for": "reversal",
+      "note": "running counter to the usual direction means reading the word from right to left"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating another thing takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slips",
+      "gives": "BLUNDERS",
+      "note": "slips are mistakes or blunders"
+     },
+     {
+      "clueFragment": "sandwich",
+      "gives": "SUB",
+      "note": "a sub is a long filled roll, a submarine sandwich"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUNDER",
+      "BUS",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SUB",
+       "to": "BUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An arm slips while someone is snacking at a shop counter.",
+     "walkthrough": "The reversed sandwich goes inside the slips, between the R and the final S.",
+     "definitionFit": "A blunderbuss is an old short-barrelled firearm, and arm is the singular of arms meaning weapons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Arm"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +110,61 @@
     "text": "Stern of cook to probe previous pancake",
     "enumeration": "5"
    },
-   "solution": "LATKE"
+   "solution": "LATKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LATKE",
+    "definitions": [
+     {
+      "text": "pancake",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stern of",
+      "for": "letter_selection",
+      "note": "the stern is the back of a ship, so only the last letter of the next word is used"
+     },
+     {
+      "text": "to probe",
+      "for": "container",
+      "note": "a probe pokes inside something, so this letter goes into the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cook",
+      "gives": "K",
+      "select": "last",
+      "note": "the final letter of cook"
+     },
+     {
+      "clueFragment": "previous",
+      "gives": "LATE",
+      "note": "late as in former, the late chairman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAT",
+      "K",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Kitchen instructions telling a cook to inspect an earlier pancake.",
+     "definitionFit": "A latke is a Jewish fried potato pancake, so pancake names the general category it belongs to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stern"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +184,62 @@
      }
     ]
    },
-   "solution": "NORWEST"
+   "solution": "NORWEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NOR-WEST",
+    "definitions": [
+     {
+      "text": "Current",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topping",
+      "for": "letter_selection",
+      "note": "a topping sits on top, so only the first letter of the possessive word is kept"
+     },
+     {
+      "text": "thieves",
+      "for": "container",
+      "note": "a thief takes things and holds them, so the phrase before it swallows a letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "punishment for the wicked",
+      "gives": "NOREST",
+      "note": "from the saying 'no rest for the wicked'"
+     },
+     {
+      "clueFragment": "warder's",
+      "gives": "W",
+      "select": "first",
+      "note": "the top letter of warder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOR",
+      "W",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "A prison story: the warder's head is stolen by villains whose sentence is never to rest.",
+     "walkthrough": "The W goes after NOR inside NO REST. A nor'west is a wind from the north-west, and wind is a current of air.",
+     "definitionFit": "A current of air from the north-west is a nor'west wind, so current names it as a moving stream of air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "thieves"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +253,69 @@
     "text": "Final trio of climbers attending Franz's Base Camp for coffee?",
     "enumeration": "6"
    },
-   "solution": "ERSATZ"
+   "solution": "ERSATZ",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ERSATZ",
+    "definitions": [
+     {
+      "text": "Camp for coffee?",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Final trio of",
+      "for": "letter_selection",
+      "note": "the last three letters are kept from the word that follows"
+     },
+     {
+      "text": "Base",
+      "for": "letter_selection",
+      "note": "the base of a word written downwards is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "climbers",
+      "gives": "ERS",
+      "select": "last",
+      "note": "the last three letters of climbers"
+     },
+     {
+      "clueFragment": "attending",
+      "gives": "AT",
+      "note": "attending a party is being at it"
+     },
+     {
+      "clueFragment": "Franz's",
+      "gives": "Z",
+      "select": "last",
+      "note": "the final letter of Franz"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERS",
+      "AT",
+      "Z"
+     ]
+    },
+    "explanation": {
+     "surface": "Mountaineers arrive at a base camp run by somebody called Franz and want coffee.",
+     "walkthrough": "Camp Coffee is a long-standing British bottled syrup of chicory and coffee, a substitute for the real thing; the question mark flags the pun on a base camp.",
+     "definitionFit": "Ersatz means an inferior substitute, which is just what Camp chicory essence is as a replacement for genuine coffee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Camp"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +335,65 @@
      }
     ]
    },
-   "solution": "BATTLEAX"
+   "solution": "BATTLEAX",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BATTLE-AX",
+    "definitions": [
+     {
+      "text": "She dominates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the field is placed inside the state abbreviation that follows"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "baseball club",
+      "gives": "BAT",
+      "note": "a baseball bat is a club"
+     },
+     {
+      "clueFragment": "Texas",
+      "gives": "TX",
+      "note": "TX is the US postal abbreviation for Texas"
+     },
+     {
+      "clueFragment": "field",
+      "gives": "LEA",
+      "note": "a lea is a meadow, a poetic word for a field"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "T",
+      "LEA",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports story: a baseball team playing on a ground in Texas.",
+     "walkthrough": "BATTLE-AX is the American spelling of battleaxe, fitting the Texas setting.",
+     "definitionFit": "A battleaxe is a domineering, aggressive older woman, so the clue describes her by what she does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +407,47 @@
     "text": "Abridged aquatic sport's lower tier discussed",
     "enumeration": "7"
    },
-   "solution": "SYNCHRO"
+   "solution": "SYNCHRO",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SYNCHRO",
+    "definitions": [
+     {
+      "text": "Abridged aquatic sport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "something discussed is spoken, so the answer matches the sound of the phrase"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lower tier",
+      "gives": "SYNCHRO",
+      "soundsLike": "SINK ROW",
+      "note": "to sink is to lower, and a row is a tier of seats"
+     }
+    ],
+    "explanation": {
+     "surface": "Commentary on the bottom division of synchronised swimming.",
+     "definitionFit": "Synchro is the shortened name for synchronised swimming, a water sport performed to music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tier"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +467,53 @@
      }
     ]
    },
-   "solution": "WATERSHIPDOWN"
+   "solution": "WATERSHIPDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WATERSHIP DOWN",
+    "definitions": [
+     {
+      "text": "book",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tears perhaps",
+      "gives": "WATERS",
+      "note": "tears are an example of watery fluids, hence perhaps"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "HIP",
+      "note": "in and hip both mean fashionable"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "DOWN",
+      "note": "feeling blue is feeling down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WATERS",
+      "HIP",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is in tears, sad about something.",
+     "walkthrough": "'in' looks like a container signal but is a word for trendy.",
+     "definitionFit": "Watership Down is Richard Adams's 1972 novel about rabbits, so it is an example of a book."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +533,69 @@
      }
     ]
    },
-   "solution": "VICEDEAN"
+   "solution": "VICEDEAN",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "VICE-DEAN",
+    "definitions": [
+     {
+      "text": "Reserve divine, on vacancy, occupying lead",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacancy",
+      "for": "letter_selection",
+      "note": "a vacancy leaves a word emptied, so only its outside letters remain"
+     },
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "to occupy a place is to sit inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reserve",
+      "gives": "ICE",
+      "note": "reserve as coolness of manner, iciness"
+     },
+     {
+      "clueFragment": "divine",
+      "gives": "DE",
+      "select": "outer",
+      "note": "the first and last letters of divine"
+     },
+     {
+      "clueFragment": "lead",
+      "gives": "VAN",
+      "note": "the van is the front, as in vanguard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ICEDE",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A deputy clergyman takes over when the top post is empty.",
+     "walkthrough": "The whole clue also describes the answer: a reserve divine who steps in to lead when the post falls vacant.",
+     "definitionFit": "A vice-dean is the deputy to a cathedral or college dean, a stand-in clergyman who leads in the dean's absence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Reserve"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +615,68 @@
      }
     ]
    },
-   "solution": "GERMANMEASLES"
+   "solution": "GERMANMEASLES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GERMAN MEASLES",
+    "definitions": [
+     {
+      "text": "Rash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one word wraps around the next item, holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "language",
+      "gives": "GERMAN",
+      "note": "a European language"
+     },
+     {
+      "clueFragment": "Miles",
+      "gives": "M",
+      "note": "M is the standard abbreviation for miles"
+     },
+     {
+      "clueFragment": "moderates",
+      "gives": "EASES",
+      "note": "to moderate is to ease off"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, as on a learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GERMAN",
+      "M",
+      "EAS",
+      "L",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Miles tones down some reckless language near a student.",
+     "walkthrough": "'Rash' looks like an adjective for the language but is the noun naming the illness.",
+     "definitionFit": "German measles, or rubella, is a viral illness whose main symptom is a red skin eruption, so the clue names it by that sign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rash"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +690,61 @@
     "text": "Career occasionally spent filing daily post",
     "enumeration": "5"
    },
-   "solution": "AFTER"
+   "solution": "AFTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AFTER",
+    "definitions": [
+     {
+      "text": "post",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally spent",
+      "for": "letter_selection",
+      "note": "losing letters now and then leaves only every other one"
+     },
+     {
+      "text": "filing",
+      "for": "container",
+      "note": "filing into a room means going inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Career",
+      "gives": "AER",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "daily",
+      "gives": "FT",
+      "note": "the Financial Times, a daily newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist's career is spent filing copy for a newspaper.",
+     "definitionFit": "Post as a Latin prefix means later, as in post-war, which is the same as the preposition after."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +768,61 @@
      }
     ]
    },
-   "solution": "SETONFIRE"
+   "solution": "SETONFIRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SET ON FIRE",
+    "definitions": [
+     {
+      "text": "light",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tours",
+      "for": "container",
+      "note": "touring a place means going all around it, so this word surrounds what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "SIRE",
+      "note": "a sire is a father, especially of an animal"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "ETON",
+      "note": "Eton College, the English public school"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f. is the abbreviation for following, as in page references"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ETON",
+      "F",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A father shows his child round a college after getting the light on.",
+     "definitionFit": "To light something, like a bonfire, is to make it burn, which is to set it on fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +836,70 @@
     "text": "Basic deli's content with cheese Mike dismissed",
     "enumeration": "9"
    },
-   "solution": "ELEMENTAL"
+   "solution": "ELEMENTAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "deletion"
+    ],
+    "answer": "ELEMENTAL",
+    "definitions": [
+     {
+      "text": "Basic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "content",
+      "for": "letter_selection",
+      "note": "the content of something is what is inside it, so the inner letters"
+     },
+     {
+      "text": "dismissed",
+      "for": "deletion",
+      "note": "someone dismissed is sent away, so a letter is removed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deli's",
+      "gives": "EL",
+      "select": "middle",
+      "note": "the inner letters of deli"
+     },
+     {
+      "clueFragment": "cheese",
+      "gives": "EMMENTAL",
+      "note": "a Swiss cheese with holes"
+     },
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is M in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "EMENTAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A simple deli order: a basic sandwich with cheese, with Mike dismissed.",
+     "walkthrough": "Only one of the two Ms in Emmental goes.",
+     "definitionFit": "Elemental means fundamental or rudimentary, relating to the essential elements of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +919,58 @@
      }
     ]
    },
-   "solution": "HBEAM"
+   "solution": "HBEAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "H-BEAM",
+    "definitions": [
+     {
+      "text": "Stay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the verb is placed inside the place name"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to be is to exist or live"
+     },
+     {
+      "clueFragment": "London district",
+      "gives": "HAM",
+      "note": "Ham is a district by the Thames in Richmond, south-west London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "BE",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to remain and make a home in a part of London.",
+     "walkthrough": "'Stay' reads as a verb but is the noun meaning a support.",
+     "definitionFit": "An H-beam is a steel girder with an H-shaped cross-section, and a stay is a structural support or brace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stay"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +984,61 @@
     "text": "Second hotel fitted with power shower",
     "enumeration": "6"
    },
-   "solution": "SPRITZ"
+   "solution": "SPRITZ",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SPRITZ",
+    "definitions": [
+     {
+      "text": "shower",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fitted with",
+      "for": "container",
+      "note": "something fitted with a part has it installed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power in physics"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "RITZ",
+      "note": "the Ritz, a famous luxury hotel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "RITZ"
+     ]
+    },
+    "explanation": {
+     "surface": "A second luxury hotel has a power shower installed.",
+     "walkthrough": "The P goes inside S plus RITZ, between them.",
+     "definitionFit": "A spritz is a light spray or squirt of liquid, a small shower of droplets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1052,72 @@
     "text": "Trump up again with Republican harangue, ultimately hot air",
     "enumeration": "8"
    },
-   "solution": "REINVENT"
+   "solution": "REINVENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REINVENT",
+    "definitions": [
+     {
+      "text": "Trump up again",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the last letter is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R for Republican"
+     },
+     {
+      "clueFragment": "harangue",
+      "gives": "E",
+      "select": "last",
+      "note": "the end letter of harangue"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "IN",
+      "note": "hot and in both mean fashionable"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "VENT",
+      "note": "to air a grievance is to vent it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "IN",
+      "VENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe at a Republican president's ranting speeches being so much hot air.",
+     "walkthrough": "'Trump' is not the president but the verb in trump up, meaning fabricate.",
+     "definitionFit": "To trump up is to invent, so trumping up again is creating something anew, reinventing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trump"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1131,64 @@
     "text": "Rees-Mogg and nob sharing British archaic clothing style?",
     "enumeration": "8"
    },
-   "solution": "JACOBEAN"
+   "solution": "JACOBEAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "JACOBEAN",
+    "definitions": [
+     {
+      "text": "archaic clothing style?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sharing",
+      "for": "deletion",
+      "note": "two words sharing a letter overlap, so one copy of it is lost"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rees-Mogg",
+      "gives": "JACOB",
+      "note": "Jacob Rees-Mogg, the old-fashioned Conservative politician"
+     },
+     {
+      "clueFragment": "nob",
+      "gives": "BEAN",
+      "note": "nob and bean are both slang for the head"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B for British, the letter both words share"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACOB",
+      "EAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A dig at Rees-Mogg and a posh friend dressing in fusty British fashion.",
+     "walkthrough": "Rees-Mogg's first name, JACOB, ends with the B that starts BEAN, so it is written once. Nob is slang for head, and also for a toff.",
+     "definitionFit": "Jacobean describes the era of James I; the question mark admits the pun on Jacob, whose Edwardian-style double-breasted suits look of an earlier age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nob"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1208,62 @@
      }
     ]
    },
-   "solution": "JOHNDORY"
+   "solution": "JOHNDORY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "JOHN DORY",
+    "definitions": [
+     {
+      "text": "Marine resident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "take",
+      "for": "container",
+      "note": "one word takes in, or holds, the letter given by the next phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can",
+      "gives": "JOHN",
+      "note": "can and john are both US slang for a lavatory"
+     },
+     {
+      "clueFragment": "TT",
+      "gives": "DRY",
+      "note": "TT is teetotal, and someone teetotal is dry"
+     },
+     {
+      "clueFragment": "the wheel",
+      "gives": "O",
+      "note": "O is round like a wheel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JOHN",
+      "D",
+      "O",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "At the TT, the Isle of Man motorbike races, a local can drive.",
+     "walkthrough": "The TT is a famous motorbike race on the Isle of Man, which lures the reader into 'take the wheel'.",
+     "definitionFit": "The John Dory is a flat sea fish, so it lives in the sea as a marine resident."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "TT"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1283,50 @@
      }
     ]
    },
-   "solution": "IDIOTBOX"
+   "solution": "IDIOTBOX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDIOT BOX",
+    "definitions": [
+     {
+      "text": "Set",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "led by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nana",
+      "gives": "IDIOT",
+      "note": "a nana is British slang for a fool"
+     },
+     {
+      "clueFragment": "buffet",
+      "gives": "BOX",
+      "note": "to buffet is to strike, to box someone's ears"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDIOT",
+      "BOX"
+     ]
+    },
+    "explanation": {
+     "surface": "A buffet table laid out and headed by a grandmother.",
+     "walkthrough": "'nana' reads as granny but is slang for a silly person, and 'Set' means a TV set.",
+     "definitionFit": "Idiot box is slang for a television, and a television is called a set."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nana"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1340,62 @@
     "text": "Before trains, previously you shouldn't have collected boring thing",
     "enumeration": "7"
    },
-   "solution": "TEREBRA"
+   "solution": "TEREBRA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TEREBRA",
+    "definitions": [
+     {
+      "text": "boring thing",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collected",
+      "for": "container",
+      "note": "something that collects things gathers them inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you shouldn't have",
+      "gives": "TA",
+      "note": "ta is a British informal thank you, the reply to a gift"
+     },
+     {
+      "clueFragment": "Before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     },
+     {
+      "clueFragment": "trains, previously",
+      "gives": "BR",
+      "note": "British Rail, the former national railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ERE",
+      "BR",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A grateful passenger thanks someone for picking them up from the station.",
+     "definitionFit": "A terebra is the boring ovipositor of certain insects, used to drill into wood, so it is a thing that bores holes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1409,60 @@
     "text": "Fruit Charlie fed to horse that's a non-starter",
     "enumeration": "6"
    },
-   "solution": "QUINCE"
+   "solution": "QUINCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "QUINCE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's a non-starter",
+      "for": "deletion",
+      "note": "a non-starter has no start, so the first letter goes"
+     },
+     {
+      "text": "fed to",
+      "for": "container",
+      "note": "food fed to an animal goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "EQUINE",
+      "note": "equine means a horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUIN",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Charlie feeds a piece of fruit to a horse that never leaves the starting gate.",
+     "definitionFit": "A quince is a hard, sharp-tasting fruit related to the apple, used for jelly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "non-starter"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1482,57 @@
      }
     ]
    },
-   "solution": "USHERIN"
+   "solution": "USHERIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "USHER IN",
+    "definitions": [
+     {
+      "text": "Introduce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "commonly",
+      "for": "deletion",
+      "note": "in common speech the initial H is often dropped"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peace",
+      "gives": "HUSH",
+      "note": "hush is peace and quiet"
+     },
+     {
+      "clueFragment": "Ireland once",
+      "gives": "ERIN",
+      "note": "Erin is an old poetic name for Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USH",
+      "ERIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Bringing in a common peace across Ireland, once upon a time.",
+     "definitionFit": "To usher in is to introduce or herald something new, like an usher leading someone in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commonly"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1546,58 @@
     "text": "Mini designer briefly on energy committee",
     "enumeration": "6"
    },
-   "solution": "QUANGO"
+   "solution": "QUANGO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "QUANGO",
+    "definitions": [
+     {
+      "text": "committee",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter is lost"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mini designer",
+      "gives": "QUANT",
+      "note": "Mary Quant, the designer credited with the miniskirt"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "GO",
+      "note": "go means energy or vigour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUAN",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A car designer briefly serving on an energy committee.",
+     "walkthrough": "'Mini' suggests the car, but it is the miniskirt, made famous by Mary Quant.",
+     "definitionFit": "A quango is a semi-public body, a non-departmental committee or agency set up by government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mini"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1611,56 @@
     "text": "Maybe loon who's behind wheel disregarding second",
     "enumeration": "5"
    },
-   "solution": "DIVER"
+   "solution": "DIVER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "DIVER",
+    "definitions": [
+     {
+      "text": "Maybe loon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disregarding",
+      "for": "deletion",
+      "note": "disregarding a letter means leaving it out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "who's behind wheel",
+      "gives": "DRIVER",
+      "note": "the person at the steering wheel"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "R",
+      "select": 2,
+      "note": "the second letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A crazy driver who ignores the second gear.",
+     "walkthrough": "'loon' looks like a madman but is the bird; 'second' is the second letter of the driver word.",
+     "definitionFit": "The loon is the North American name for the bird called a diver in Britain, so it is an example of a diver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "loon"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1674,52 @@
     "text": "I don't agree — that's dreadful clothing, period!",
     "enumeration": "9"
    },
-   "solution": "NOUGHTIES"
+   "solution": "NOUGHTIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOUGHTIES",
+    "definitions": [
+     {
+      "text": "period",
+      "at": 42
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I don't agree",
+      "gives": "NO",
+      "note": "a word of disagreement"
+     },
+     {
+      "clueFragment": "that's dreadful",
+      "gives": "UGH",
+      "note": "an exclamation of disgust"
+     },
+     {
+      "clueFragment": "clothing",
+      "gives": "TIES",
+      "note": "ties are items of clothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "UGH",
+      "TIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recoiling at the terrible fashions of a past era.",
+     "definitionFit": "The noughties is the decade 2000 to 2009, a period of time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "period"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1733,42 @@
     "text": "Nothing left, having limited fire",
     "enumeration": "5"
    },
-   "solution": "INGLE"
+   "solution": "INGLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INGLE",
+    "definitions": [
+     {
+      "text": "fire",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having limited",
+      "for": "hidden_word",
+      "note": "the words hold something within their limits, inside their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing left",
+      "gives": "INGLE",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "With no fuel left, there is only a small blaze.",
+     "definitionFit": "An ingle is a fire on a domestic hearth, the word found in inglenook."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limited"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1782,57 @@
     "text": "Slalom calamity, touching pole, broadcast?",
     "enumeration": "9"
    },
-   "solution": "WINDBLOWN"
+   "solution": "WINDBLOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WINDBLOWN",
+    "definitions": [
+     {
+      "text": "broadcast?",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "touching"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slalom",
+      "gives": "WIND",
+      "note": "to slalom is to wind between the gates"
+     },
+     {
+      "clueFragment": "calamity",
+      "gives": "BLOW",
+      "note": "a blow is a calamity or setback"
+     },
+     {
+      "clueFragment": "pole",
+      "gives": "N",
+      "note": "N for the north pole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIND",
+      "BLOW",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A skier's disaster as they clip a gate pole, shown on television.",
+     "walkthrough": "Broadcast's older sense is scattering seed widely by hand; the question mark marks the stretch from that to things scattered by wind.",
+     "definitionFit": "Something windblown has been carried and scattered by the wind, the way a sower spreads seed broadcast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1846,51 @@
     "text": "Head of government shifting leftward in Red Terror",
     "enumeration": "5"
    },
-   "solution": "ROGUE"
+   "solution": "ROGUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROGUE",
+    "definitions": [
+     {
+      "text": "Terror",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of government shifting leftward in",
+      "for": "anagram",
+      "note": "the front letter of government moves one place to the left within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Red",
+      "gives": "ROUGE",
+      "note": "rouge is French for red, and red make-up"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROUGE",
+       "gives": "ROGUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political leader moving left during the Red Terror of revolutionary Russia.",
+     "walkthrough": "The Red Terror was the Bolsheviks' campaign of repression; here Red is a colour word and Terror the definition.",
+     "definitionFit": "A little terror is a mischievous rascal, and a rogue is a lovable scamp of the same kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Terror"
+    }
+   }
   },
   {
    "number": 28,
@@ -481,7 +1910,53 @@
      }
     ]
    },
-   "solution": "BABYBOUNCER"
+   "solution": "BABYBOUNCER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BABY-BOUNCER",
+    "definitions": [
+     {
+      "text": "One diverts fledgling",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aerial carrier",
+      "gives": "BA",
+      "note": "British Airways, an airline"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "BY",
+      "note": "by means close to"
+     },
+     {
+      "clueFragment": "delivery",
+      "gives": "BOUNCER",
+      "note": "in cricket a bouncer is a short ball that rears up at the batter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "BY",
+      "BOUNCER"
+     ]
+    },
+    "explanation": {
+     "surface": "A young bird is steered away from an aircraft about to land.",
+     "walkthrough": "'fledgling aerial carrier' reads as a young bird, but fledgling belongs to the definition as a baby; a bouncer is a cricket delivery.",
+     "definitionFit": "A baby bouncer is a sprung seat that keeps an infant amused, so it diverts a young child."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fledgling"
+    }
+   }
   }
  ]
 }
