@@ -22,7 +22,11 @@
 # another pusher wins in. A conflict exits CONFLICT (3), read off merge-tree's
 # own status (1: conflicts), so a caller can set the commit aside and go on to
 # the next (tools/durable.sh); anything else exits non-zero (1, 2) with git's
-# own words on stderr.
+# own words on stderr. The one conflict settled instead of refused is a
+# promotion racing a re-read of its clues-only file (modify/delete on
+# clues_only/X.json): tools/resolve_promotion_conflict.py keeps the promoted
+# puzzle, drops the clues-only copy, and carries the re-read's clue text in
+# where the filed clue was never corrected.
 set -uo pipefail
 CONFLICT=3
 
@@ -42,9 +46,18 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
   tree=$(git merge-tree --write-tree --merge-base "$parent" "$base" "$commit")
   case $? in
     0) ;;
-    1) echo "push_puzzle_commit: $(git log -1 --format=%s "$commit") conflicts with origin/master:" >&2
-       printf '%s\n' "$tree" | tail -n +2 >&2
-       exit "$CONFLICT" ;;
+    1) # A promotion racing a re-read of the same clues-only file (one side
+       # deletes clues_only/X.json, the other re-writes it) is settled by
+       # keeping the promoted puzzle; anything else is refused as before.
+       mapfile -t paths < <(printf '%s\n' "$tree" | sed -n '2,/^$/p' | grep $'\t' | cut -f2 | sort -u)
+       if settled=$(python3 "$(dirname "$0")/resolve_promotion_conflict.py" \
+            "$parent" "$base" "$commit" "$(printf '%s\n' "$tree" | head -1)" "${paths[@]}"); then
+         tree=$settled
+       else
+         echo "push_puzzle_commit: $(git log -1 --format=%s "$commit") conflicts with origin/master:" >&2
+         printf '%s\n' "$tree" | tail -n +2 >&2
+         exit "$CONFLICT"
+       fi ;;
     *) exit 1 ;;
   esac
   if [ "$tree" = "$(git rev-parse "$base^{tree}")" ]; then

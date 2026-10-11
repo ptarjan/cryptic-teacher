@@ -121,5 +121,94 @@ git fetch -q origin master
 [ "$(git cat-file -p origin/master:puzzles/s/2026/clash.json)" = '{"a":1}' ] ||
   { echo "FAIL: origin's clash.json changed"; rc=1; }
 
+# A promotion racing a re-read of its clues-only file (the book reader re-writes
+# clues_only/X.json while the burn deletes it and files puzzles/.../X.json) is a
+# modify/delete conflict: the promotion must still land, the clues-only copy
+# must stay gone, and the re-read's text must reach the puzzle only where the
+# filed clue is still the old reading.
+# $1 file, $2..: across clue texts then "|" then down clue texts.
+clues_only() {
+  python3 - "$@" <<'EOF'
+import json, sys
+path, rest = sys.argv[1], sys.argv[2:]
+cut = rest.index("|")
+clue = lambda t: {"clue": {"text": t, "enumeration": "4"}, "length": 4}
+rec = {"id": "bk-1", "clues": {"across": [clue(t) for t in rest[:cut]],
+                              "down": [clue(t) for t in rest[cut + 1:]]}}
+open(path, "w", encoding="utf-8").write(json.dumps(rec, indent=1, ensure_ascii=False) + "\n")
+EOF
+}
+# $1 file, $2..: "<number><a|d>=<text>[=<definition>]".
+promoted() {
+  python3 - "$@" <<'EOF'
+import json, sys
+entries = []
+for spec in sys.argv[2:]:
+    key, text, *defn = spec.split("=")
+    e = {"number": int(key[:-1]), "direction": {"a": "across", "d": "down"}[key[-1]],
+         "clue": {"text": text, "enumeration": "4"}}
+    if defn:
+        e["annotation"] = {"definitions": [{"text": defn[0], "at": text.index(defn[0])}]}
+    entries.append(e)
+open(sys.argv[1], "w", encoding="utf-8").write(
+    json.dumps({"id": "bk-1", "entries": entries}, indent=1, ensure_ascii=False) + "\n")
+EOF
+}
+clue_of() {  # $1 rev, $2 number+direction letter
+  git cat-file -p "$1:puzzles/bk/2009/bk-1.json" | python3 -c "
+import json,sys; k=sys.argv[1]
+print([e['clue']['text'] for e in json.load(sys.stdin)['entries']
+       if f\"{e['number']}{e['direction'][0]}\" == k][0])" "$2"
+}
+race_setup() {  # a fresh clues-only bk-1 on origin, both clones on it
+  cd "$tmp/burn" || exit 1
+  git fetch -q origin master && g reset -q --hard origin/master
+  git rm -rq --ignore-unmatch puzzles/bk clues_only >/dev/null
+  mkdir -p clues_only/bk
+  clues_only clues_only/bk/bk-1.json "Fish’s tale" "Odd shrib" "Bird’s nest" "|" "Crow’s feet"
+  g add -A -- clues_only puzzles && g commit -qm "hold bk-1" -- clues_only puzzles
+  git push -q origin HEAD:master
+  g -C "$tmp/other" fetch -q origin master && g -C "$tmp/other" reset -q --hard origin/master
+}
+# The re-read straightens quotes in 1a, 7a (where the filed clue still has the
+# old text) and 2d (filed with a fix), and leaves 4a's OCR slip alone.
+reread() { clues_only "$1" "Fish's tale" "Odd shrib" "Bird's nest" "|" "Crow's feet"; }
+promote() {  # in $1's tree
+  mkdir -p "$1/puzzles/bk/2009" && git -C "$1" rm -q clues_only/bk/bk-1.json
+  # 7a's annotation names "Bird’s" as its definition, which the re-read loses.
+  promoted "$1/puzzles/bk/2009/bk-1.json" "1a=Fish’s tale" "4a=Odd shrub" \
+    "7a=Bird’s nest=Bird’s" "2d=Crow's feet!"
+  g -C "$1" add puzzles/bk/2009/bk-1.json
+}
+
+race_setup
+reread "$tmp/other/clues_only/bk/bk-1.json"
+g -C "$tmp/other" commit -qam "Read bk (so far)" && g -C "$tmp/other" push -q origin HEAD:master
+promote "$tmp/burn"
+g commit -qm "Annotate bk-1" -- puzzles/bk clues_only/bk
+"$push" 2>"$tmp/race.err" || { echo "FAIL: a promotion racing a re-read was not pushed:"; cat "$tmp/race.err"; rc=1; }
+git fetch -q origin master
+git cat-file -e origin/master:clues_only/bk/bk-1.json 2>/dev/null &&
+  { echo "FAIL: the re-read resurrected clues_only/bk/bk-1.json"; rc=1; }
+[ "$(clue_of origin/master 1a)" = "Fish's tale" ] || { echo "FAIL: 1a did not take the re-read: $(clue_of origin/master 1a)"; rc=1; }
+[ "$(clue_of origin/master 4a)" = "Odd shrub" ] || { echo "FAIL: 4a lost the annotator's fix"; rc=1; }
+[ "$(clue_of origin/master 7a)" = "Bird’s nest" ] || { echo "FAIL: 7a took a re-read its annotation does not fit"; rc=1; }
+[ "$(clue_of origin/master 2d)" = "Crow's feet!" ] || { echo "FAIL: 2d lost the annotator's fix"; rc=1; }
+grep -q "7a: kept" "$tmp/race.err" || { echo "FAIL: the dropped 7a re-read was not reported"; rc=1; }
+
+# The reverse: the reader's commit re-writes a clues-only file origin has
+# promoted. The promotion stands; the re-read must not bring the file back.
+race_setup
+promote "$tmp/other"
+g -C "$tmp/other" commit -qm "Annotate bk-1" && g -C "$tmp/other" push -q origin HEAD:master
+reread clues_only/bk/bk-1.json
+g commit -qm "Read bk (so far)" -- clues_only/bk/bk-1.json
+"$push" 2>"$tmp/race.err" || { echo "FAIL: a re-read racing a promotion was refused:"; cat "$tmp/race.err"; rc=1; }
+git fetch -q origin master
+git cat-file -e origin/master:clues_only/bk/bk-1.json 2>/dev/null &&
+  { echo "FAIL: a re-read resurrected a promoted puzzle's clues_only file"; rc=1; }
+[ "$(clue_of origin/master 1a)" = "Fish's tale" ] || { echo "FAIL: reverse: 1a did not take the re-read"; rc=1; }
+[ "$(clue_of origin/master 4a)" = "Odd shrub" ] || { echo "FAIL: reverse: 4a lost the annotator's fix"; rc=1; }
+
 [ "$rc" = 0 ] && echo "PASS"
 exit "$rc"

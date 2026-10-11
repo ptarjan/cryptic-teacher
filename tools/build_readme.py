@@ -606,6 +606,7 @@ LAYOUT = [
     ("fetching", "tools/collapse_clue_spaces.py", "one-shot migration (2026-10-11): cut each run of spaces in held clue text"),
     ("fetching", "tools/test_block_confirm.js", "a building block that would cost a hint takes two taps; a free one takes one"),
     ("fetching", "tools/mend_clue_punctuation.py", "one-shot migration (2026-10-11): punctuation's certain mends in held book clue text, the faults left listed"),
+    ("fetching", "tools/resolve_promotion_conflict.py", "settle the one conflict a promotion races into, for tools/push_puzzle_commit.sh"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

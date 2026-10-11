@@ -2106,5 +2106,7 @@ tools/test_block_confirm.js                   a building block that would cost a
 tools/mend_clue_punctuation.py                one-shot migration (2026-10-11): punctuation's
                                               certain mends in held book clue text, the faults
                                               left listed
+tools/resolve_promotion_conflict.py           settle the one conflict a promotion races into,
+                                              for tools/push_puzzle_commit.sh
 ```
 <!-- LAYOUT-END -->
