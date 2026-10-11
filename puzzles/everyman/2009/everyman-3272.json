@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Insect found in place close to coast",
     "enumeration": "6"
    },
-   "solution": "LOCUST"
+   "solution": "LOCUST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LOCUST",
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "LOCUS",
+      "note": "a locus is a place or position"
+     },
+     {
+      "clueFragment": "coast",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of coast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOCUS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A bug turns up somewhere near the seaside.",
+     "definitionFit": "A locust is a large grasshopper that swarms and strips crops, so it is an example of an insect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,53 @@
     "text": "Ball game in LA, trial reportedly",
     "enumeration": "8"
    },
-   "solution": "LACROSSE"
+   "solution": "LACROSSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "LACROSSE",
+    "definitions": [
+     {
+      "text": "Ball game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so go by how the word is spoken"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "LA",
+      "gives": "LA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "CROSSE",
+      "soundsLike": "CROSS",
+      "note": "a cross to bear is a trial or burden"
+     }
+    ],
+    "explanation": {
+     "surface": "A sports match is staged in Los Angeles, as a test run, so they say.",
+     "walkthrough": "LA looks like the city, but it is just two letters taken as they stand.",
+     "definitionFit": "Lacrosse is a team sport played with a small rubber ball carried in netted sticks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trial"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +161,52 @@
     "text": "Once a flying boat",
     "enumeration": "5"
    },
-   "solution": "CANOE"
+   "solution": "CANOE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CANOE",
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flying",
+      "for": "anagram",
+      "note": "letters sent flying are scattered and land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Once a",
+      "gives": "ONCEA",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCEA",
+       "gives": "CANOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something that used to be a seaplane.",
+     "walkthrough": "'Flying boat' reads as one aircraft term, but 'flying' is the signal and 'boat' alone defines.",
+     "definitionFit": "A canoe is a light narrow vessel paddled through water, a type of small craft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flying"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +226,49 @@
      }
     ]
    },
-   "solution": "SHORTLIST"
+   "solution": "SHORTLIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHORT LIST",
+    "definitions": [
+     {
+      "text": "the suitable candidates",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brief",
+      "gives": "SHORT",
+      "note": "brief means short"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LIST",
+      "note": "a list is a written record of items"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHORT",
+      "LIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A concise note of which applicants are worth considering.",
+     "walkthrough": "The whole clue reads as a description, but the first two words build the answer and the rest defines it.",
+     "definitionFit": "A shortlist is the final selection of applicants judged good enough to be considered for a post."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +282,41 @@
     "text": "Lump getting bigger",
     "enumeration": "8"
    },
-   "solution": "SWELLING"
+   "solution": "SWELLING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWELLING",
+    "definitions": [
+     {
+      "text": "Lump",
+      "at": 0
+     },
+     {
+      "text": "getting bigger",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lump",
+      "note": "first meaning: a bump or raised area on the body"
+     },
+     {
+      "clueFragment": "getting bigger",
+      "note": "second meaning: increasing in size, as a verb form"
+     }
+    ],
+    "explanation": {
+     "surface": "A worrying growth on the body that keeps enlarging.",
+     "definitionFit": "The word is both a noun for a puffed-up bump and the present participle of a verb meaning to expand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +336,55 @@
      }
     ]
    },
-   "solution": "WATERSHIPDOWN"
+   "solution": "WATERSHIPDOWN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WATERSHIP DOWN",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one phrase sits on the outside of the other, wrapping round it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moderates",
+      "gives": "WATERSDOWN",
+      "note": "to water down something is to moderate or dilute it"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "HIP",
+      "note": "the hip is a joint of the body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WATERS",
+      "HIP",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cinema review tempers its view of a dodgy smoke.",
+     "walkthrough": "The phrasal verb splits in two, with the joint sitting between its words.",
+     "definitionFit": "Watership Down is the 1978 animated feature about rabbits, adapted from Richard Adams's novel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +398,56 @@
     "text": "American after fortune for car",
     "enumeration": "5"
    },
-   "solution": "LOTUS"
+   "solution": "LOTUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOTUS",
+    "definitions": [
+     {
+      "text": "car",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece comes after the other, so it is placed second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fortune",
+      "gives": "LOT",
+      "note": "your lot is your fortune or fate"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US stands for the United States, hence American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOT",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A Yank chasing riches in exchange for a vehicle.",
+     "definitionFit": "Lotus is a British sports car manufacturer, so a Lotus is a make of car."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fortune"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +461,70 @@
     "text": "Run out in awfully big limo causes a jam",
     "enumeration": "9"
    },
-   "solution": "IMBROGLIO"
+   "solution": "IMBROGLIO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IMBROGLIO",
+    "definitions": [
+     {
+      "text": "a jam",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "done awfully means done badly, so the letters come out jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes in, inside the other"
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "big limo",
+      "gives": "BIGLIMO",
+      "note": "the letters of these two words"
+     },
+     {
+      "clueFragment": "Run out",
+      "gives": "RO",
+      "note": "ro is the cricket scorecard abbreviation for run out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMB",
+      "RO",
+      "GLIO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BIGLIMO",
+       "gives": "IMBGLIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stretch limousine running out of control gridlocks the traffic.",
+     "walkthrough": "In cricket a batter dismissed run out is recorded as 'ro'.",
+     "definitionFit": "An imbroglio is a confused, complicated situation, and a jam in the sense of a tight spot or mess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jam"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +538,74 @@
     "text": "Voracious animal up in heart of Argyll",
     "enumeration": "6"
    },
-   "solution": "GREEDY"
+   "solution": "GREEDY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GREEDY",
+    "definitions": [
+     {
+      "text": "Voracious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from the bottom, so the word runs backwards"
+     },
+     {
+      "text": "heart of",
+      "for": "letter_selection",
+      "note": "the heart of a word is its middle, so only its central letters are wanted"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes in, placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argyll",
+      "gives": "GY",
+      "select": "middle",
+      "note": "the two central letters of Argyll"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "DEER",
+      "note": "a deer is an animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "REED",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "DEER",
+       "to": "REED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hungry beast heading north into the Scottish highlands.",
+     "walkthrough": "Argyll is a region of western Scotland.",
+     "definitionFit": "Greedy means having an excessive appetite, which is what voracious describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +619,62 @@
     "text": "A short time after state capital makes pact",
     "enumeration": "9"
    },
-   "solution": "CONCORDAT"
+   "solution": "CONCORDAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONCORDAT",
+    "definitions": [
+     {
+      "text": "pact",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece follows the other, so it is placed second"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state capital",
+      "gives": "CONCORD",
+      "note": "Concord is the capital of New Hampshire"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "short time",
+      "gives": "T",
+      "note": "t is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONCORD",
+      "A",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Not long after reaching the capital, a treaty is signed.",
+     "definitionFit": "A concordat is a formal agreement, especially between the Vatican and a state, so a pact."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +694,54 @@
      }
     ]
    },
-   "solution": "DOTHEBOYSHALL"
+   "solution": "DOTHEBOYSHALL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOTHEBOYS HALL",
+    "definitions": [
+     {
+      "text": "school",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lunatic",
+      "for": "anagram",
+      "note": "something lunatic is crazy and disordered, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loathed bolshy",
+      "gives": "LOATHEDBOLSHY",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOATHEDBOLSHY",
+       "gives": "DOTHEBOYSHALL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detested, rebellious madman at school.",
+     "walkthrough": "Bolshy is British slang for uncooperative or bolshevik-minded.",
+     "definitionFit": "Dotheboys Hall is the brutal Yorkshire boarding school run by Wackford Squeers in Dickens's Nicholas Nickleby."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lunatic"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +755,54 @@
     "text": "Lie about British chart",
     "enumeration": "5"
    },
-   "solution": "TABLE"
+   "solution": "TABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TABLE",
+    "definitions": [
+     {
+      "text": "chart",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word goes round about the other, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lie",
+      "gives": "TALE",
+      "note": "a tale is a lie, as in telling tales"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "B",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fibbing about a UK graph.",
+     "definitionFit": "A table is an arrangement of data in rows and columns, a kind of chart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lie"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +816,57 @@
     "text": "Finished first in Turnberry open",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "open",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "the first in a word is its opening letter, which is the one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finished",
+      "gives": "OVER",
+      "note": "over means finished, at an end"
+     },
+     {
+      "clueFragment": "Turnberry",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of Turnberry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer's tournament ended, with someone coming top at the Turnberry Open.",
+     "walkthrough": "Turnberry is a Scottish links course that has hosted golf's Open Championship, so 'open' looks like the tournament.",
+     "definitionFit": "Overt means done openly and not concealed, so it is a synonym of the adjective open."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "open"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +880,53 @@
     "text": "Held short bust in doorway",
     "enumeration": "9"
    },
-   "solution": "THRESHOLD"
+   "solution": "THRESHOLD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THRESHOLD",
+    "definitions": [
+     {
+      "text": "doorway",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bust",
+      "for": "anagram",
+      "note": "something bust is broken, so the letters are broken up and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Held short",
+      "gives": "HELDSHORT",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HELDSHORT",
+       "gives": "THRESHOLD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar was briefly detained, busted at the entrance.",
+     "definitionFit": "A threshold is the strip of floor at the bottom of a door, so it stands for the entrance or doorway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bust"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +946,51 @@
      }
     ]
    },
-   "solution": "SISTINECHAPEL"
+   "solution": "SISTINECHAPEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SISTINE CHAPEL",
+    "definitions": [
+     {
+      "text": "part of the Vatican",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "letters strewn around are scattered and land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lies in patches",
+      "gives": "LIESINPATCHES",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIESINPATCHES",
+       "gives": "SISTINECHAPEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Untruths scattered here and there throughout the papal city.",
+     "walkthrough": "'In patches' sounds like the scattering signal, but those words are letters to be rearranged; 'around' is the signal.",
+     "definitionFit": "The Sistine Chapel, with Michelangelo's ceiling, is a chapel within the Vatican's Apostolic Palace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "patches"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1010,50 @@
      }
     ]
    },
-   "solution": "SAFETYNET"
+   "solution": "SAFETYNET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAFETY NET",
+    "definitions": [
+     {
+      "text": "a protective device",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rash",
+      "for": "anagram",
+      "note": "acting rashly means acting wildly, so the letters are put into a reckless new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yet fasten",
+      "gives": "YETFASTEN",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YETFASTEN",
+       "gives": "SAFETYNET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reckless, yet secure a guard against falling.",
+     "definitionFit": "A safety net is a mesh hung below acrobats to catch a fall, so it is a device for protection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rash"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1073,76 @@
      }
     ]
    },
-   "solution": "PARIPASSU"
+   "solution": "PARIPASSU",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "PARI PASSU",
+    "definitions": [
+     {
+      "text": "together",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word goes in, inside the other"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising a word means reading it from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "capital",
+      "gives": "PARIS",
+      "note": "Paris is the capital of France"
+     },
+     {
+      "clueFragment": "Father",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARI",
+      "PA",
+      "S",
+      "SU"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dad, living in the city, would like the family brought up there too.",
+     "definitionFit": "Pari passu is Latin for 'with equal step', meaning side by side or simultaneously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1162,63 @@
      }
     ]
    },
-   "solution": "PEERGYNT"
+   "solution": "PEERGYNT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PEER GYNT",
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "something involved is tangled up, so the letters come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gym",
+      "gives": "PE",
+      "note": "PE, physical education, is school gym lessons"
+     },
+     {
+      "clueFragment": "gentry",
+      "gives": "GENTRY",
+      "note": "the letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "ERGYNT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GENTRY",
+       "gives": "ERGYNT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drama staged in a sports hall featuring the upper classes.",
+     "definitionFit": "Peer Gynt is Ibsen's verse drama, so it is the name of a stage play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gym"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1242,50 @@
      }
     ]
    },
-   "solution": "FITFORPURPOSE"
+   "solution": "FITFORPURPOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FIT FOR PURPOSE",
+    "definitions": [
+     {
+      "text": "Suitable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "letters sent abroad wander widely and return in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "offer I support",
+      "gives": "OFFERISUPPORT",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OFFERISUPPORT",
+       "gives": "FITFORPURPOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An apt proposal that I back overseas.",
+     "definitionFit": "Fit for purpose describes something good enough to do the job intended, which is what suitable means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1299,60 @@
     "text": "Criticise American standing on a hat",
     "enumeration": "6"
    },
-   "solution": "PANAMA"
+   "solution": "PANAMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PANAMA",
+    "definitions": [
+     {
+      "text": "hat",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "standing on",
+      "for": "charade",
+      "note": "in a down clue, one piece standing on another sits above it, so comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criticise",
+      "gives": "PAN",
+      "note": "to pan is to criticise harshly"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "AM",
+      "note": "Am is the abbreviation for American"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "AM",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Knocking a US citizen who is standing on a hat.",
+     "definitionFit": "A panama is a lightweight straw hat with a brim, originally woven in Ecuador."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "standing"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1366,59 @@
     "text": "A new piece of advice about hors d'oeuvre",
     "enumeration": "9"
    },
-   "solution": "ANTIPASTO"
+   "solution": "ANTIPASTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANTIPASTO",
+    "definitions": [
+     {
+      "text": "hors d'oeuvre",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "piece of advice",
+      "gives": "TIP",
+      "note": "a tip is a helpful hint"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ASTO",
+      "note": "as to means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "TIP",
+      "ASTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh hint on what to serve before the main course.",
+     "walkthrough": "'About' looks like it signals letters going round something, but it simply gives the two-word phrase as to.",
+     "definitionFit": "Antipasto is the Italian starter of cold meats and vegetables, an appetiser served before the meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1432,46 @@
     "text": "Difficult question for model",
     "enumeration": "5"
    },
-   "solution": "POSER"
+   "solution": "POSER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POSER",
+    "definitions": [
+     {
+      "text": "Difficult question",
+      "at": 0
+     },
+     {
+      "text": "model",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Difficult question",
+      "note": "first meaning: a puzzling problem"
+     },
+     {
+      "clueFragment": "model",
+      "note": "second meaning: someone who strikes poses for a photographer"
+     }
+    ],
+    "explanation": {
+     "surface": "A tricky interview question put to a fashion model.",
+     "definitionFit": "The word means both a tough puzzle and a person who poses, such as an artist's sitter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1485,61 @@
     "text": "Musician played initially in support",
     "enumeration": "5"
    },
-   "solution": "PIPER"
+   "solution": "PIPER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PIPER",
+    "definitions": [
+     {
+      "text": "Musician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes in, placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "PIER",
+      "note": "a pier is a supporting pillar"
+     },
+     {
+      "clueFragment": "played",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of played"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "P",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer who played first as backing.",
+     "definitionFit": "A piper plays the bagpipes or pipe, which makes him or her a musician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1553,60 @@
     "text": "Vitality plus extraordinary energy",
     "enumeration": "5"
    },
-   "solution": "PULSE"
+   "solution": "PULSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PULSE",
+    "definitions": [
+     {
+      "text": "Vitality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extraordinary",
+      "for": "anagram",
+      "note": "something extraordinary is out of the ordinary, so the letters leave their usual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plus",
+      "gives": "PLUS",
+      "note": "the letters of this word"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PULS",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PLUS",
+       "gives": "PULS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Liveliness combined with remarkable drive.",
+     "definitionFit": "A pulse is a throb of life or a vital rhythm, so it stands for liveliness and energy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plus"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1620,58 @@
     "text": "Miss Grey, from the north, kept in a long time",
     "enumeration": "5"
    },
-   "solution": "AGNES"
+   "solution": "AGNES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AGNES",
+    "definitions": [
+     {
+      "text": "Miss Grey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "something kept in is held inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a long time",
+      "gives": "AGES",
+      "note": "ages means a long time"
+     },
+     {
+      "clueFragment": "the north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "N",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A grey-haired spinster from up north, detained for ages.",
+     "walkthrough": "Agnes Grey is the title heroine of Anne Brontë's first novel.",
+     "definitionFit": "The heroine of Anne Brontë's novel is the unmarried governess Agnes Grey, so she is that Miss Grey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Grey"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1691,49 @@
      }
     ]
    },
-   "solution": "AUNTSALLY"
+   "solution": "AUNTSALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUNT SALLY",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relative's",
+      "gives": "AUNTS",
+      "note": "an aunt is a relative, plus the possessive s"
+     },
+     {
+      "clueFragment": "partner",
+      "gives": "ALLY",
+      "note": "an ally is a partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUNTS",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member's teammate in a match.",
+     "walkthrough": "Aunt Sally is a traditional English pub and fairground game of throwing sticks at a dummy's head.",
+     "definitionFit": "Aunt Sally names the British throwing pastime and also a target of easy criticism; here it is the pastime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +1753,44 @@
      }
     ]
    },
-   "solution": "AFTERALL"
+   "solution": "AFTERALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AFTER ALL",
+    "definitions": [
+     {
+      "text": "Last",
+      "at": 0
+     },
+     {
+      "text": "in spite of everything",
+      "at": 6
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last",
+      "note": "first meaning: coming behind every other one"
+     },
+     {
+      "clueFragment": "in spite of everything",
+      "note": "second meaning: nevertheless, despite what has happened"
+     }
+    ],
+    "explanation": {
+     "surface": "Finishing bottom, despite all efforts.",
+     "definitionFit": "Read literally the phrase means following every other, i.e. final; as an idiom it means nevertheless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -475,7 +1804,47 @@
     "text": "Game, jaunty chap",
     "enumeration": "6"
    },
-   "solution": "RUPERT"
+   "solution": "RUPERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUPERT",
+    "definitions": [
+     {
+      "text": "chap",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "gives": "RU",
+      "note": "RU is rugby union"
+     },
+     {
+      "clueFragment": "jaunty",
+      "gives": "PERT",
+      "note": "pert means lively and jaunty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "PERT"
+     ]
+    },
+    "explanation": {
+     "surface": "A plucky, cheerful fellow.",
+     "walkthrough": "'Game' looks like an adjective for brave, matching the surface, but it is the sport.",
+     "definitionFit": "Rupert is a man's first name, and in crosswords any male name can be clued as a chap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Game"
+    }
+   }
   }
  ]
 }
