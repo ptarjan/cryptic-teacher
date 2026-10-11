@@ -33,6 +33,7 @@ corpus job.
 import argparse
 import collections
 import datetime
+import functools
 import json
 import os
 import subprocess
@@ -230,10 +231,9 @@ def jsonl(path):
 
 def held_numbers(series):
     """The numbers of `series` filed in puzzles/ or held clues-only, read off
-    the file names, and those of a book's puzzles renamed to the newspaper
-    puzzle the book reprints (renamed_ids.reprinted_in_books): one puzzle,
-    filed in both, so a rename out of the book is no loss."""
-    import renamed_ids
+    the file names, and, for a series that carries reprints, those filed as
+    the original they reprint (reprinted_ids): one puzzle, filed in both, so a
+    rename out of the series is no loss."""
     out = set()
     for p in [*(ROOT / "puzzles" / series).glob(f"*/{series}-*.json"),
               *(ROOT / "clues_only" / series).glob(f"{series}-*.json")]:
@@ -241,14 +241,32 @@ def held_numbers(series):
             out.add(int(p.stem.rsplit("-", 1)[1]))
         except ValueError:
             pass
-    if series_meta.is_book(series):
-        live = {p.stem for p in [*(ROOT / "puzzles").glob("*/*/*.json"),
-                                 *(ROOT / "clues_only").glob("*/*.json")]}
-        renamed = renamed_ids.read(ROOT / "tools" / "data" / "renamed_ids.json")
-        out |= {series_meta.parse_id(old)[1]
-                for old in renamed_ids.reprinted_in_books(renamed, live)
-                if series_meta.parse_id(old)[0] == series}
+    if series_meta.carries_reprints(series):
+        out |= {series_meta.parse_id(i)[1] for i in reprinted_ids(series)}
     return out
+
+
+def reprinted_ids(series):
+    """The ids of `series` (one that carries reprints) filed as the puzzle of
+    another series they reprint: renamed to it (renamed_ids.reprinted_in) or
+    recorded on it as source.reprintedIn (tools/reprints.py), the reprint rows
+    fetch_puzzle.reprint_rows lists under the series."""
+    return {i for i in _reprinted_ids(ROOT) if series_meta.parse_id(i)[0] == series}
+
+
+@functools.cache
+def _reprinted_ids(root):
+    import renamed_ids
+    files = [*(root / "puzzles").glob("*/*/*.json"), *(root / "clues_only").glob("*/*.json")]
+    path = root / "tools" / "data" / "renamed_ids.json"
+    renamed = renamed_ids.read(path) if path.exists() else {}
+    out = set(renamed_ids.reprinted_in(renamed, {p.stem for p in files}))
+    for p in files:
+        text = p.read_text(encoding="utf-8")
+        if '"reprintedIn"' in text:
+            out |= {series_meta.puzzle_id(r["series"], r["number"])
+                    for r in (json.loads(text).get("source") or {}).get("reprintedIn") or ()}
+    return frozenset(out)
 
 
 def day_after(date):
@@ -419,7 +437,9 @@ def build(today=None):
 
 def trove():
     led = Ledger("canberra", "Trove articles read as a cryptic")
-    led.filed = {p.stem for p in (ROOT / "puzzles" / "canberra").glob("*/canberra-*.json")}
+    # A reprint filed as the London Times or Guardian puzzle it is counts too.
+    led.filed = ({p.stem for p in (ROOT / "puzzles" / "canberra").glob("*/canberra-*.json")}
+                 | reprinted_ids("canberra"))
     read = set()
     zones = file_trove_puzzles.zones_of(TROVE)
     for r in scan_queue.ledger_rows(TROVE / "filed.jsonl", "article").values():

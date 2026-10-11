@@ -2802,10 +2802,10 @@ def reprint_rows(puzzles, renamed=None):
     paper's own number and date and points at the original by id, so the paper
     stays listed while every link to it opens the one copy.
 
-    A book puzzle renamed to the newspaper puzzle it reprints (renamed, the
+    A puzzle of a series that carries reprints (a book, the Globe and Mail,
+    the Canberra Times) renamed to the puzzle it reprints (renamed, the
     {old id: new id} of tools/data/renamed_ids.json) is such a row too, at its
-    old book id with the book's year, so the book still lists it at its own
-    number."""
+    old id, so its series still lists it at its own number."""
     rows = []
     for p in puzzles:
         for r in p.pop("reprintedIn"):
@@ -2814,25 +2814,34 @@ def reprint_rows(puzzles, renamed=None):
                          "date": r["date"],
                          "name": reprint_name(r["series"], r["number"]),
                          "reprintOf": p["id"], "originalDate": p.get("date")})
-    rows += renamed_book_rows(puzzles, renamed or {}, {r["id"] for r in rows})
+    rows += renamed_reprint_rows(puzzles, renamed or {}, {r["id"] for r in rows})
     rows.sort(key=lambda r: (series_meta.puzzle_day(r) or date.min, r["number"]), reverse=True)
     return rows
 
 
-def renamed_book_rows(puzzles, renamed, taken):
-    """A reprint row at each book id renamed to a puzzle of another series
-    (renamed_ids.reprinted_in_books), named and dated (its `year`) as the book
-    prints it. An old id in `taken` gets none."""
+def renamed_reprint_rows(puzzles, renamed, taken):
+    """A reprint row at each old id renamed to the puzzle of another series it
+    reprints (renamed_ids.reprinted_in), shaped as its series' other reprint
+    rows: a book's with the book's `year` and its name for the puzzle, a
+    paper's with reprint_name and the print date its number names (Canberra);
+    a paper whose number names no date (the Globe and Mail, whose date only
+    its source.reprintedIn holds) gets the row undated. An old id in `taken`,
+    already a row off a reprintedIn, gets none."""
     import renamed_ids
     by_id = {p["id"]: p for p in puzzles}
     rows = []
-    for old, now in sorted(renamed_ids.reprinted_in_books(renamed, by_id.keys()).items()):
+    for old, now in sorted(renamed_ids.reprinted_in(renamed, by_id.keys()).items()):
         if old in taken:
             continue
-        book, number = series_meta.parse_id(old)
-        rows.append({"id": old, "series": book, "number": number,
-                     "year": series_meta.published(book, number),
-                     "name": series_meta.puzzle_name(book, number),
+        series, number = series_meta.parse_id(old)
+        if series_meta.is_book(series):
+            when = {"year": series_meta.published(series, number)}
+            name = series_meta.puzzle_name(series, number)
+        else:
+            day = series_meta.number_date(series, number)
+            when = {"date": day.isoformat()} if day else {}
+            name = reprint_name(series, number)
+        rows.append({"id": old, "series": series, "number": number, **when, "name": name,
                      "reprintOf": now, "originalDate": by_id[now].get("date")})
     return rows
 
