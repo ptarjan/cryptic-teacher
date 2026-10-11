@@ -71,7 +71,7 @@ import urllib.request
 from pathlib import Path
 
 import gale_docs
-from gale_http import CHROME_HEADERS, Chrome, click_headers, fetch_site, unzip, verifies  # noqa: F401 (re-exported)
+from gale_http import Chrome, click_headers, verifies
 
 #: Seconds between one download's end and the next request, drawn uniformly.
 GAP = (8.0, 22.0)

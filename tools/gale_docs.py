@@ -30,7 +30,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-from gale_http import UA, Chrome, click_headers, verifies  # noqa: F401 (UA: re-exported)
+from gale_http import Chrome, click_headers, verifies
 
 CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PER_TICK = 15
