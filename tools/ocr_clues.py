@@ -854,6 +854,24 @@ def consensus(read, before=None, after=None):
 DIGIT_LETTERS = {"0": "o", "1": "ilt", "3": "a", "5": "s"}
 
 
+#: A capital S a reader ran onto a word, a speck or a misread mark after
+#: it ("driveS" for "drive ?") or before it ("STakes").
+GLUED_S = re.compile(r"(?<=^[a-z]{3})[a-z]*S$|^S(?=[A-Z][a-z]{2,}$)")
+
+
+def speck_free(tied, forms):
+    """Of the spellings `tied` (lower case), the one most of the readings'
+    words `forms` (as read) spell once each capital S glued onto a word
+    (GLUED_S) is dropped, when one wins; else None."""
+    votes = dict.fromkeys(tied, 0)
+    for f in forms:
+        bare = (f[:-1] if f.endswith("S") else f[1:]) if GLUED_S.search(f) else f
+        if bare.lower() in votes:
+            votes[bare.lower()] += 1
+    top = sorted(votes.values(), reverse=True)
+    return max(votes, key=votes.get) if top[0] > top[1] else None
+
+
 def digit_word(number, read):
     """Whether the number `number` is the word `read` misread, letter by
     letter ("10" for "to", "3" for "a")."""
@@ -1778,8 +1796,11 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
                     # "eh", which worn type prints as "ch".
                     words_ = printed + [c for c in fits if c != printed[0]]
                 elif fit(fits[0], before, after) - fit(fits[1], before, after) < FIT_MARGIN:
-                    # Else the known word every reading's slips point to.
-                    settled = consensus(read, before, after)
+                    # Else the spelling most readings vote for once a capital
+                    # S run onto a word ("driveS" for "drive ?", "STakes")
+                    # votes for the word; else the known word every
+                    # reading's slips point to.
+                    settled = speck_free(fits, [w] + list(got.values())) or consensus(read, before, after)
                     if not settled and families and rates:
                         # Else the spelling of the engine that misreads far
                         # less on this page, when the engines split the tie.
