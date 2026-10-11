@@ -24,6 +24,9 @@
   "date": "2024-02-28",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,50 @@
     "text": "Refusal to accept as true bids I feel flawed",
     "enumeration": "9"
    },
-   "solution": "DISBELIEF"
+   "solution": "DISBELIEF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISBELIEF",
+    "definitions": [
+     {
+      "text": "Refusal to accept as true",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flawed",
+      "for": "anagram",
+      "note": "something flawed is faulty or broken, so the letters before it are to be rebuilt in a sound order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bids I feel",
+      "gives": "BIDSIFEEL",
+      "note": "nine letters taken as written to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BIDSIFEEL",
+       "gives": "DISBELIEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sceptic doubts the truth of offers made at an auction because the bidder feels they are faulty.",
+     "definitionFit": "Disbelief is the state of rejecting a claim, an unwillingness to credit it as fact."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bids"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +97,40 @@
     "text": "Abandon unproductive area",
     "enumeration": "6"
    },
-   "solution": "DESERT"
+   "solution": "DESERT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DESERT",
+    "definitions": [
+     {
+      "text": "Abandon",
+      "at": 0
+     },
+     {
+      "text": "unproductive area",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abandon",
+      "note": "first meaning: to leave someone in the lurch"
+     },
+     {
+      "clueFragment": "unproductive area",
+      "note": "second meaning: barren land where little grows"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To desert is to leave behind, and a desert is a dry wasteland that yields almost nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +144,58 @@
     "text": "Pack member's place to live in Home Counties",
     "enumeration": "5"
    },
-   "solution": "SPADE"
+   "solution": "SPADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPADE",
+    "definitions": [
+     {
+      "text": "Pack member",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the abbreviation that follows it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home Counties",
+      "gives": "SE",
+      "note": "the Home Counties surround London in the South East of England, abbreviated SE"
+     },
+     {
+      "clueFragment": "place to live",
+      "gives": "PAD",
+      "note": "a pad is slang for a flat or home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A wolf of the pack has its den in the counties near London.",
+     "walkthrough": "The Home Counties are the counties surrounding London; 'Pack' suggests wolves, but it is a pack of cards.",
+     "definitionFit": "A spade is any card of one of the four suits, so it is a member of a pack of playing cards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pack"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +209,65 @@
     "text": "High spirits in Brussels over four we hear – no case for bias",
     "enumeration": "8"
    },
-   "solution": "EUPHORIA"
+   "solution": "EUPHORIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone",
+     "letter_selection"
+    ],
+    "answer": "EUPHORIA",
+    "definitions": [
+     {
+      "text": "High spirits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear says that the previous word is to be taken by its sound, not its spelling"
+     },
+     {
+      "text": "no case for",
+      "for": "letter_selection",
+      "note": "without its case, a word loses its outer letters and only the inside is kept"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brussels",
+      "gives": "EU",
+      "note": "Brussels is home to the institutions of the European Union, EU"
+     },
+     {
+      "clueFragment": "four",
+      "gives": "PHOR",
+      "soundsLike": "FOUR",
+      "note": "a spelling that sounds like the number"
+     },
+     {
+      "clueFragment": "bias",
+      "gives": "IA",
+      "select": "middle",
+      "note": "the word with its first and last letters dropped"
+     }
+    ],
+    "explanation": {
+     "surface": "Elation in the European capital over four, though the reporter shows no partiality.",
+     "walkthrough": "In a down clue 'over' means the first piece sits above the next; Brussels standing for the EU is a common convention.",
+     "definitionFit": "Euphoria is an intense feeling of happiness and excitement, so it is a state of high spirits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brussels"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +281,63 @@
     "text": "Very encouraging to see home piano trials arranged",
     "enumeration": "13"
    },
-   "solution": "INSPIRATIONAL"
+   "solution": "INSPIRATIONAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "INSPIRATIONAL",
+    "definitions": [
+     {
+      "text": "Very encouraging",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "things arranged are set out in a new order, so these letters are reshuffled"
+     }
+    ],
+    "linkWords": [
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "piano trials",
+      "gives": "PIANOTRIALS",
+      "note": "eleven letters taken as written to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SPIRATIONAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PIANOTRIALS",
+       "gives": "SPIRATIONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is uplifting to watch auditions for pianists organised at home.",
+     "definitionFit": "Something inspirational fills people with the urge or confidence to act, so it is highly motivating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trials"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +351,49 @@
     "text": "Female prisoner to tire",
     "enumeration": "4"
    },
-   "solution": "FLAG"
+   "solution": "FLAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAG",
+    "definitions": [
+     {
+      "text": "tire",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "prisoner",
+      "gives": "LAG",
+      "note": "an old lag is British slang for a convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman inmate grows weary.",
+     "walkthrough": "LAG, usually 'old lag', is British slang for a habitual prisoner.",
+     "definitionFit": "To flag is to lose energy or weaken, a synonym of the verb tire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +407,51 @@
     "text": "Upkeep oddly absent – energy found",
     "enumeration": "3"
    },
-   "solution": "PEP"
+   "solution": "PEP",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "PEP",
+    "definitions": [
+     {
+      "text": "energy",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly absent",
+      "for": "letter_selection",
+      "note": "the letters in odd positions go missing, so only the even-numbered ones remain"
+     }
+    ],
+    "linkWords": [
+     "found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Upkeep",
+      "gives": "PEP",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEP"
+     ]
+    },
+    "explanation": {
+     "surface": "When maintenance costs vanish, a business finds fresh vigour.",
+     "definitionFit": "Pep is informal for liveliness or vigour, a synonym of energy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Upkeep"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +465,62 @@
     "text": "Most important to be proper, cautious, when wife away?",
     "enumeration": "7"
    },
-   "solution": "PRIMARY"
+   "solution": "PRIMARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PRIMARY",
+    "definitions": [
+     {
+      "text": "Most important",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when wife away",
+      "for": "deletion",
+      "note": "with the wife away, her abbreviation drops out of the word before it"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "proper",
+      "gives": "PRIM",
+      "note": "prim means stiffly proper"
+     },
+     {
+      "clueFragment": "cautious",
+      "gives": "WARY",
+      "note": "wary means cautious"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIM",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether staying correct and careful matters most when a spouse is absent.",
+     "definitionFit": "Primary means chief or of first importance, as in a primary concern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wife"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +534,61 @@
     "text": "Taste dish including hint of avocado",
     "enumeration": "6"
    },
-   "solution": "PALATE"
+   "solution": "PALATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PALATE",
+    "definitions": [
+     {
+      "text": "Taste",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means one piece holds another inside it"
+     },
+     {
+      "text": "hint of",
+      "for": "letter_selection",
+      "note": "a hint is a small trace, so only the first letter of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dish",
+      "gives": "PLATE",
+      "note": "a plate is a dish"
+     },
+     {
+      "clueFragment": "avocado",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Sample a dish that has a trace of avocado in it.",
+     "definitionFit": "Palate is a person's sense of taste or appreciation of flavour, as in a refined palate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Taste"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +602,43 @@
     "text": "Frank character",
     "enumeration": "5"
    },
-   "solution": "STAMP"
+   "solution": "STAMP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAMP",
+    "definitions": [
+     {
+      "text": "Frank",
+      "at": 0
+     },
+     {
+      "text": "character",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frank",
+      "note": "first meaning: to mark a letter as paid for postage"
+     },
+     {
+      "clueFragment": "character",
+      "note": "second meaning: kind or nature, as in 'a man of that sort'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Frank reads as a man's name or as 'honest', but here it is the postal verb.",
+     "definitionFit": "To frank mail is to put a postage mark on it, and 'of a different stamp' means of a different kind or nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +652,55 @@
     "text": "Dog's range that is large",
     "enumeration": "7"
    },
-   "solution": "SPANIEL"
+   "solution": "SPANIEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPANIEL",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "range",
+      "gives": "SPAN",
+      "note": "a span is an extent or range"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, 'that is'"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAN",
+      "IE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog roams over a big territory.",
+     "definitionFit": "A spaniel is a breed of gundog with long drooping ears, an example of a dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +714,79 @@
     "text": "Bombastic speech, extremely rich, recalled rote initially is cringeworthy",
     "enumeration": "8"
    },
-   "solution": "RHETORIC"
+   "solution": "RHETORIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "RHETORIC",
+    "definitions": [
+     {
+      "text": "Bombastic speech",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of the following word, its first and last letters"
+     },
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the next word is read in the other direction"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letters of the words that follow it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rich",
+      "gives": "RH",
+      "select": "outer",
+      "note": "the outside letters of the word"
+     },
+     {
+      "clueFragment": "rote",
+      "gives": "ETOR",
+      "note": "the word read backwards"
+     },
+     {
+      "clueFragment": "is cringeworthy",
+      "gives": "IC",
+      "select": "first",
+      "note": "the first letter of each of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RH",
+      "ETOR",
+      "IC"
+     ],
+     "reversals": [
+      {
+       "from": "ROTE",
+       "to": "ETOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy speaker's pompous oration, repeated by rote, makes the audience cringe.",
+     "definitionFit": "Rhetoric, in its disparaging sense, is language designed to impress but lacking sincerity: grandiloquent oratory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rich"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +800,62 @@
     "text": "50 percent with time for female in end",
     "enumeration": "4"
    },
-   "solution": "HALT"
+   "solution": "HALT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "HALT",
+    "definitions": [
+     {
+      "text": "end",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing given for another means it replaces it, so one letter is swapped out"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "50 percent",
+      "gives": "HALF",
+      "note": "fifty per cent is a half"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAL",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Half the time a woman is in at the finish.",
+     "walkthrough": "Take HALF, then put T where its F was.",
+     "definitionFit": "To halt something is to bring it to a stop, a synonym of the verb end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +869,48 @@
     "text": "Food that epicure recommends if you are kept indoors at first",
     "enumeration": "8"
    },
-   "solution": "TERIYAKI"
+   "solution": "TERIYAKI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TERIYAKI",
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of each of the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that epicure recommends if you are kept indoors",
+      "gives": "TERIYAKI",
+      "select": "first",
+      "note": "the first letter of each of the eight words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERIYAKI"
+     ]
+    },
+    "explanation": {
+     "surface": "A gourmet suggests a dish for anyone stuck at home.",
+     "definitionFit": "Teriyaki is a Japanese dish of meat or fish grilled in a sweet soy glaze, an example of food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "epicure"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +924,63 @@
     "text": "Trickery is fashionable – yearn for reform",
     "enumeration": "9"
    },
-   "solution": "CHICANERY"
+   "solution": "CHICANERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHICANERY",
+    "definitions": [
+     {
+      "text": "Trickery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for reform",
+      "for": "anagram",
+      "note": "a word put up for reform is to be reshaped, so its letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "CHIC",
+      "note": "chic means stylish or fashionable"
+     },
+     {
+      "clueFragment": "yearn",
+      "gives": "YEARN",
+      "note": "five letters taken as written to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIC",
+      "ANERY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "YEARN",
+       "gives": "ANERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Deceit is in vogue, and people long for change.",
+     "definitionFit": "Chicanery is the use of deception or sharp practice to gain an advantage, a synonym of trickery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reform"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +994,50 @@
     "text": "Drink leading to disturbance in vehicle",
     "enumeration": "7"
    },
-   "solution": "CHARIOT"
+   "solution": "CHARIOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARIOT",
+    "definitions": [
+     {
+      "text": "vehicle",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "leading to",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "CHA",
+      "note": "cha (or char) is British slang for tea"
+     },
+     {
+      "clueFragment": "disturbance",
+      "gives": "RIOT",
+      "note": "a riot is a violent public disturbance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "RIOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Drinking leads to a commotion inside a car.",
+     "walkthrough": "CHA is slang for tea, from the Chinese word.",
+     "definitionFit": "A chariot is a two-wheeled horse-drawn carriage used in ancient warfare and racing, a type of vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1051,56 @@
     "text": "Hard-working, but missing us in workplace",
     "enumeration": "6"
    },
-   "solution": "STUDIO"
+   "solution": "STUDIO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STUDIO",
+    "definitions": [
+     {
+      "text": "workplace",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing says some letters are absent from the word before them"
+     }
+    ],
+    "linkWords": [
+     "but",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard-working",
+      "gives": "STUDIOUS",
+      "note": "studious means diligent in study"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written, the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUDIO"
+     ]
+    },
+    "explanation": {
+     "surface": "Diligent staff, but we are absent from the office.",
+     "definitionFit": "A studio is the room where an artist, photographer or broadcaster works, a kind of workplace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "us"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1114,55 @@
     "text": "Cross, stopping by, introspective",
     "enumeration": "6"
    },
-   "solution": "BROODY"
+   "solution": "BROODY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROODY",
+    "definitions": [
+     {
+      "text": "introspective",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "something stopping a gap plugs it, so one piece fills the inside of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Cross",
+      "gives": "ROOD",
+      "note": "a rood is a crucifix or cross"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ROOD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry, inward-looking person drops in.",
+     "walkthrough": "'Cross' reads as angry, but it is the noun: a rood, as in rood screen in a church.",
+     "definitionFit": "Broody means moody and thoughtful, given to dwelling on one's own thoughts, so inward-looking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1176,51 @@
     "text": "What about showing more friendliness?",
     "enumeration": "4"
    },
-   "solution": "THAW"
+   "solution": "THAW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THAW",
+    "definitions": [
+     {
+      "text": "showing more friendliness",
+      "at": 11,
+      "note": "the noun is a warming of relations"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean around or in a different arrangement, so the letters are turned round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "WHAT",
+      "note": "four letters taken as written to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHAT",
+       "gives": "THAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether it might be time to be a bit warmer towards others.",
+     "definitionFit": "A thaw is an easing of hostility between people or nations, when relations become warmer and more cordial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1234,58 @@
     "text": "Member of clergy one's seen in church",
     "enumeration": "8"
    },
-   "solution": "MINISTER"
+   "solution": "MINISTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MINISTER",
+    "definitions": [
+     {
+      "text": "Member of clergy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "container",
+      "note": "something seen in a place sits inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "MINSTER",
+      "note": "a minster is a large or important church"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIN",
+      "I",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric is spotted inside a church.",
+     "walkthrough": "Read one's as 'one is': the 's is a link, and I sits inside the church.",
+     "definitionFit": "A minister is a pastor who conducts worship, especially in Protestant churches: a member of the clergy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seen"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1299,46 @@
     "text": "Difficult being merry",
     "enumeration": "5"
    },
-   "solution": "TIGHT"
+   "solution": "TIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TIGHT",
+    "definitions": [
+     {
+      "text": "Difficult",
+      "at": 0
+     },
+     {
+      "text": "merry",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Difficult",
+      "note": "first meaning: hard to deal with"
+     },
+     {
+      "clueFragment": "merry",
+      "note": "second meaning: slightly drunk"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is awkward when tipsy.",
+     "definitionFit": "A tight situation is a hard one, and both tight and merry are informal for mildly drunk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "merry"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1352,46 @@
     "text": "Bound to be referring to year of particular type",
     "enumeration": "4"
    },
-   "solution": "LEAP"
+   "solution": "LEAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAP",
+    "definitions": [
+     {
+      "text": "Bound",
+      "at": 0
+     },
+     {
+      "text": "referring to year of particular type",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bound",
+      "note": "first meaning: a jump"
+     },
+     {
+      "clueFragment": "referring to year of particular type",
+      "note": "second meaning: the year with 29 February added"
+     }
+    ],
+    "explanation": {
+     "surface": "Something is certain to concern a special sort of year.",
+     "definitionFit": "A bound is a jump, and a leap year has 366 days, every fourth year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bound"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1411,52 @@
      }
     ]
    },
-   "solution": "DRIVEIN"
+   "solution": "DRIVEIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRIVE-IN",
+    "definitions": [
+     {
+      "text": "describing some cinemas",
+      "at": 37
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medic",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "distinctive quality",
+      "gives": "VEIN",
+      "note": "a vein is a streak or distinctive strand, as in a vein of humour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "I",
+      "VEIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor with a particular flair talks about the cinema.",
+     "definitionFit": "A drive-in cinema is an open-air one where people watch the film from their parked cars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1470,43 @@
     "text": "Trouble in Wag group",
     "enumeration": "5"
    },
-   "solution": "AGGRO"
+   "solution": "AGGRO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AGGRO",
+    "definitions": [
+     {
+      "text": "Trouble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow, running across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wag group",
+      "gives": "AGGRO",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "There is disruption in a gathering of jokers.",
+     "walkthrough": "AGGRO is British slang, short for aggravation: hostile or violent behaviour.",
+     "definitionFit": "Aggro is informal British for aggressive trouble-making or hassle, a synonym of trouble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wag"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1520,44 @@
     "text": "Revealed to be inaccurate",
     "enumeration": "3"
    },
-   "solution": "OUT"
+   "solution": "OUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUT",
+    "definitions": [
+     {
+      "text": "Revealed",
+      "at": 0
+     },
+     {
+      "text": "inaccurate",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revealed",
+      "note": "first meaning: made public or exposed, as a secret is"
+     },
+     {
+      "clueFragment": "inaccurate",
+      "note": "second meaning: wrong, as an estimate may be"
+     }
+    ],
+    "explanation": {
+     "surface": "Something was shown to be wrong.",
+     "definitionFit": "A secret that is out is now known, and a calculation that is out by a few pounds is in error."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1571,70 @@
     "text": "Friend initially mocking one's attempt to supply fortune telling",
     "enumeration": "9"
    },
-   "solution": "PALMISTRY"
+   "solution": "PALMISTRY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PALMISTRY",
+    "definitions": [
+     {
+      "text": "fortune telling",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word next to it"
+     }
+    ],
+    "linkWords": [
+     "to supply"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "mocking",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, plus the S of the contraction"
+     },
+     {
+      "clueFragment": "attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "M",
+      "IS",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend laughs at someone's effort to predict the future.",
+     "definitionFit": "Palmistry claims to read a person's future from the lines of the hand, a form of fortune telling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mocking"
+    }
+   }
   }
  ]
 }
