@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "Pity certain characters being treated, getting fever-reducing drug",
     "enumeration": "11"
    },
-   "solution": "ANTIPYRETIC"
+   "solution": "ANTIPYRETIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTIPYRETIC",
+    "definitions": [
+     {
+      "text": "fever-reducing drug",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "characters being treated",
+      "for": "anagram",
+      "note": "the letters are being worked on like a patient under treatment, so they come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pity certain",
+      "gives": "PITYCERTAIN",
+      "note": "the two words taken letter for letter as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PITYCERTAIN",
+       "gives": "ANTIPYRETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sympathetic note about patients being dosed with something to bring down a temperature.",
+     "definitionFit": "An antipyretic is the medical term for a drug, such as aspirin or paracetamol, that lowers a high temperature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +96,64 @@
     "text": "Chemist delaying medicine ultimately for peer",
     "enumeration": "5"
    },
-   "solution": "NOBLE"
+   "solution": "NOBLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "NOBLE",
+    "definitions": [
+     {
+      "text": "peer",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the word it follows"
+     },
+     {
+      "text": "delaying",
+      "for": "substitution",
+      "note": "delaying a letter means holding it back so it turns up later in the word than before"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chemist",
+      "gives": "NOBEL",
+      "note": "Alfred Nobel, the Swedish chemist who founded the Nobel prizes"
+     },
+     {
+      "clueFragment": "medicine",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of medicine, which is already the fourth letter of the chemist's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOBL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A pharmacist holding back a prescription for a member of the aristocracy.",
+     "walkthrough": "The E of the chemist's name is moved from fourth place to the end: NOBEL becomes NOBLE.",
+     "definitionFit": "A peer of the realm is a noble, a member of the titled aristocracy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chemist"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +167,76 @@
     "text": "Sloth, one found in tricky terrain overlooking river",
     "enumeration": "7"
    },
-   "solution": "INERTIA"
+   "solution": "INERTIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "anagram"
+    ],
+    "answer": "INERTIA",
+    "definitions": [
+     {
+      "text": "Sloth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking",
+      "for": "deletion",
+      "note": "overlooking something means missing it out, so one letter is left behind"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place sits inside it, so one piece goes among the others"
+     },
+     {
+      "text": "tricky",
+      "for": "anagram",
+      "note": "tricky ground is awkward and uneven, suggesting the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "terrain",
+      "gives": "TERRAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INERTIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITERAIN",
+       "gives": "INERTIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow-moving animal spotted crossing rough ground above a river.",
+     "walkthrough": "One R is dropped from TERRAIN, the I goes in, and the seven letters are rearranged. 'Sloth' looks like the animal but is the vice of laziness.",
+     "definitionFit": "Sloth as a vice is idleness or sluggishness, and inertia is that same reluctance to move or act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sloth"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +250,70 @@
     "text": "Raised concern about area to display plant",
     "enumeration": "6"
    },
-   "solution": "YARROW"
+   "solution": "YARROW",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "YARROW",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the worry wraps around another piece"
+     },
+     {
+      "text": "Raised",
+      "for": "reversal",
+      "note": "in a down clue raising a word lifts it so it reads from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "to display"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concern",
+      "gives": "WORRY",
+      "note": "a concern is a worry"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "A",
+      "RROW"
+     ],
+     "reversals": [
+      {
+       "from": "WORRY",
+       "to": "YRROW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone voices worry about a patch of ground where a plant is to be shown.",
+     "walkthrough": "WORRY reversed is YRROW, and the A sits after its first letter.",
+     "definitionFit": "Yarrow is a common flowering herb of the daisy family, so it is an example of a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Raised"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +327,57 @@
     "text": "TV show of mine bosses will support",
     "enumeration": "8"
    },
-   "solution": "EGGHEADS"
+   "solution": "EGGHEADS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EGGHEADS",
+    "definitions": [
+     {
+      "text": "TV show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will support",
+      "for": "charade",
+      "note": "in a down clue the thing that supports sits underneath, so the bosses go below"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mine",
+      "gives": "EGG",
+      "note": "egg is old service slang for a mine or bomb"
+     },
+     {
+      "clueFragment": "bosses",
+      "gives": "HEADS",
+      "note": "heads of departments are bosses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGG",
+      "HEADS"
+     ]
+    },
+    "explanation": {
+     "surface": "A television programme about a coal mine whose bosses will back it.",
+     "walkthrough": "'will support' places the bosses below the mine in this down clue. 'Mine' looks like a pit or the possessive; it is the explosive device.",
+     "definitionFit": "Eggheads is a BBC teatime quiz show in which challengers take on a team of quiz champions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +391,61 @@
     "text": "Suppose this writer's popular amongst generation",
     "enumeration": "7"
    },
-   "solution": "IMAGINE"
+   "solution": "IMAGINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IMAGINE",
+    "definitions": [
+     {
+      "text": "Suppose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amongst",
+      "for": "container",
+      "note": "amongst places one thing in the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this writer's",
+      "gives": "IM",
+      "note": "this writer is the setter, I, and the 's makes it I am"
+     },
+     {
+      "clueFragment": "generation",
+      "gives": "AGE",
+      "note": "a generation is an age or era"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "something popular is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "AG",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer wonders whether they are well liked by their own generation.",
+     "definitionFit": "To suppose and to imagine both mean to assume or think something likely without proof."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +465,63 @@
      }
     ]
    },
-   "solution": "VICTORIAPLUMS"
+   "solution": "VICTORIAPLUMS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "VICTORIA PLUMS",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving prize for",
+      "for": "substitution",
+      "note": "getting one thing in exchange for another means a word is swapped out and a new one put in its place"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Posh singer formerly",
+      "gives": "VICTORIAADAMS",
+      "note": "Posh Spice of the Spice Girls was Victoria Adams before she married David Beckham"
+     },
+     {
+      "clueFragment": "prize",
+      "gives": "PLUM",
+      "note": "a plum is a prize, as in a plum job"
+     },
+     {
+      "clueFragment": "gardener",
+      "gives": "ADAM",
+      "note": "Adam was the first gardener, in Eden"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VICTORIA",
+      "PLUM",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A former pop star wins an award for the fruit she grew in her garden.",
+     "walkthrough": "PLUM replaces ADAM in VICTORIA ADAMS. Posh Spice was Victoria Beckham's name in the Spice Girls.",
+     "definitionFit": "Victoria plums are a popular English variety of plum, a fruit grown in many back gardens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gardener"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +535,67 @@
     "text": "Army officer welcomes something clarified involving women's gear",
     "enumeration": "8"
    },
-   "solution": "COGWHEEL"
+   "solution": "COGWHEEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COGWHEEL",
+    "definitions": [
+     {
+      "text": "gear",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomes",
+      "for": "container",
+      "note": "welcoming someone takes them in, so the officer holds the next piece"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means including within, so one piece is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Army officer",
+      "gives": "COL",
+      "note": "Col is the abbreviation for colonel"
+     },
+     {
+      "clueFragment": "something clarified",
+      "gives": "GHEE",
+      "note": "ghee is clarified butter used in Indian cooking"
+     },
+     {
+      "clueFragment": "women's",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "G",
+      "W",
+      "HEE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An army officer explains something, mentioning kit for women soldiers.",
+     "walkthrough": "Ghee is the clarified butter of Indian cooking, so 'clarified' looks like 'explained' but describes the butter.",
+     "definitionFit": "A cogwheel is a toothed wheel in machinery, which is what a gear is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clarified"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +609,51 @@
     "text": "Restoration of control over account",
     "enumeration": "13"
    },
-   "solution": "REINSTATEMENT"
+   "solution": "REINSTATEMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REINSTATEMENT",
+    "definitions": [
+     {
+      "text": "Restoration",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "control",
+      "gives": "REIN",
+      "note": "to rein in is to control"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "STATEMENT",
+      "note": "a statement is an account, of events or of money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REIN",
+      "STATEMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Talk of getting back authority over a bank account.",
+     "walkthrough": "In a down clue 'over' puts the first piece above the second.",
+     "definitionFit": "Reinstatement is the act of putting someone or something back in a former position, which is a restoration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Restoration"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +667,72 @@
     "text": "Steep climb ignoring cold left uncle exhausted",
     "enumeration": "5"
    },
-   "solution": "IMBUE"
+   "solution": "IMBUE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IMBUE",
+    "definitions": [
+     {
+      "text": "Steep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring something leaves it out, so two letters are dropped"
+     },
+     {
+      "text": "exhausted",
+      "for": "letter_selection",
+      "note": "an exhausted thing is emptied out, so only its outside letters remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "climb",
+      "gives": "CLIMB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold on taps"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "uncle",
+      "gives": "UE",
+      "select": "outer",
+      "note": "the first and last letters of uncle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMB",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "An uncle, worn out by a steep climb in the cold, gives up.",
+     "walkthrough": "'Steep' looks like an adjective for the climb, but it is the verb meaning to soak.",
+     "definitionFit": "To steep something is to soak or saturate it, and to imbue is to permeate or fill it thoroughly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Steep"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +746,72 @@
     "text": "Spy's tracking equipment inspiring a right palaver",
     "enumeration": "9"
    },
-   "solution": "RIGMAROLE"
+   "solution": "RIGMAROLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RIGMAROLE",
+    "definitions": [
+     {
+      "text": "palaver",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tracking",
+      "for": "charade",
+      "note": "tracking means following behind, so the spy comes after the equipment"
+     },
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "inspiring literally means breathing in, so the spy takes other letters inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "equipment",
+      "gives": "RIG",
+      "note": "a rig is a set of equipment"
+     },
+     {
+      "clueFragment": "Spy's",
+      "gives": "MOLE",
+      "note": "a mole is a spy planted inside an organisation; the 's is 'is'"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIG",
+      "M",
+      "AR",
+      "OLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy fussing over surveillance kit makes for a right performance.",
+     "walkthrough": "'Right' looks like an intensifier for 'palaver', but it supplies a letter of its own.",
+     "definitionFit": "A palaver is a tedious fuss or long-winded procedure, which is what a rigmarole is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +831,72 @@
      }
     ]
    },
-   "solution": "TWENTYONE"
+   "solution": "TWENTYONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TWENTY-ONE",
+    "definitions": [
+     {
+      "text": "pontoon",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes, the first and last letters of the word"
+     },
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "a stopper is put inside an opening, so the verb goes inside the other letters"
+     }
+    ],
+    "linkWords": [
+     "reaching"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tipsy",
+      "gives": "TY",
+      "select": "outer",
+      "note": "the first and last letters of tipsy"
+     },
+     {
+      "clueFragment": "Proceeded",
+      "gives": "WENT",
+      "note": "proceeded means went"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "one individual"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WENT",
+      "Y",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk is stopped on his way down to the floating landing stage.",
+     "walkthrough": "'Pontoon' looks like a floating jetty; it is the card game, also called vingt-et-un.",
+     "definitionFit": "Pontoon is the British name for the card game twenty-one, where players try to score twenty-one points."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pontoon"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +910,50 @@
     "text": "Bill Bryson perhaps providing article on English county shortly",
     "enumeration": "5"
    },
-   "solution": "IOWAN"
+   "solution": "IOWAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IOWAN",
+    "definitions": [
+     {
+      "text": "Bill Bryson perhaps",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English county shortly",
+      "gives": "IOW",
+      "note": "IOW is the short form of the Isle of Wight, an island county off southern England"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IOW",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "The travel writer Bill Bryson supplying a piece of writing about an English county.",
+     "walkthrough": "'on' places the article after the county in an across answer.",
+     "definitionFit": "Bill Bryson was born in Des Moines, Iowa, so he is an example of someone from that US state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +967,58 @@
     "text": "Song expressing small religious tradition",
     "enumeration": "6"
    },
-   "solution": "RITUAL"
+   "solution": "RITUAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RITUAL",
+    "definitions": [
+     {
+      "text": "tradition",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "expressing",
+      "for": "deletion",
+      "note": "expressing literally means pressing out, so letters are squeezed out of the song"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Song",
+      "gives": "SPIRITUAL",
+      "note": "a spiritual is a religious folk song from the American South"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "religious",
+      "gives": "PI",
+      "note": "pi is a crossword abbreviation for pious, so religious"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RITUAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A hymn that gives voice to a modest religious custom.",
+     "walkthrough": "S and PI are taken from the front of SPIRITUAL. 'Expressing' looks like 'voicing'; read it as 'pressing out'.",
+     "definitionFit": "A ritual is a set procedure repeated by custom, which is a tradition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "expressing"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +1032,43 @@
     "text": "View result of monarch's diet?",
     "enumeration": "8"
    },
-   "solution": "THINKING"
+   "solution": "THINKING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THINKING",
+    "definitions": [
+     {
+      "text": "View",
+      "at": 0
+     },
+     {
+      "text": "result of monarch's diet?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "View",
+      "note": "first meaning: an opinion"
+     },
+     {
+      "clueFragment": "result of monarch's diet?",
+      "note": "second meaning, read cryptically as two words: a slimmed-down ruler"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer 4,4: a king who has dieted is a THIN KING. The question mark flags the playful second reading.",
+     "definitionFit": "Someone's thinking on a subject is their view or opinion of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "diet"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1082,63 @@
     "text": "Fan of commercial books around at this time",
     "enumeration": "8"
    },
-   "solution": "ADHERENT"
+   "solution": "ADHERENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ADHERENT",
+    "definitions": [
+     {
+      "text": "Fan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around puts two pieces on either side of a third, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a collection of books"
+     },
+     {
+      "clueFragment": "at this time",
+      "gives": "HERE",
+      "note": "here can mean at this point or time, as in here we go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "HERE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A devotee of the current advertising campaign for books.",
+     "definitionFit": "An adherent is a supporter or follower of a cause or person, much as a fan is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1152,68 @@
     "text": "Comparatively heavy weapon held up, I fear, at intervals",
     "enumeration": "8"
    },
-   "solution": "DROWSIER"
+   "solution": "DROWSIER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DROWSIER",
+    "definitions": [
+     {
+      "text": "Comparatively heavy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held up",
+      "for": "reversal",
+      "note": "in a down clue holding something up lifts it so it reads from bottom to top"
+     },
+     {
+      "text": "at intervals",
+      "for": "letter_selection",
+      "note": "at intervals means taking every other letter and skipping the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weapon",
+      "gives": "SWORD",
+      "note": "a sword is a weapon"
+     },
+     {
+      "clueFragment": "I fear",
+      "gives": "IER",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of I fear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROWS",
+      "IER"
+     ],
+     "reversals": [
+      {
+       "from": "SWORD",
+       "to": "DROWS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is afraid of a heavy weapon being raised now and then.",
+     "walkthrough": "'Heavy' here means heavy-eyed, not weighty.",
+     "definitionFit": "Heavy can describe eyelids or a person dulled by sleep, so more heavy in that sense is sleepier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "heavy"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1237,63 @@
      }
     ]
    },
-   "solution": "ASITWERE"
+   "solution": "ASITWERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "AS IT WERE",
+    "definitions": [
+     {
+      "text": "in a way",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foreign",
+      "for": "anagram",
+      "note": "foreign suggests something made strange and unfamiliar, so the letters are rearranged"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "close to means the closing letter, the last one of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waiters",
+      "gives": "WAITERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clientele",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of clientele"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WAITERSE",
+       "gives": "ASITWERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Waiters from abroad stand close to the restaurant's customers.",
+     "walkthrough": "'close to' looks like 'near'; it means the last letter.",
+     "definitionFit": "As it were is a phrase used to soften an expression, meaning so to speak or in a way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1307,59 @@
     "text": "Pervert Kathy discovered making military expedition",
     "enumeration": "7"
    },
-   "solution": "WARPATH"
+   "solution": "WARPATH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WARPATH",
+    "definitions": [
+     {
+      "text": "military expedition",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "letter_selection",
+      "note": "dis-covered means with its cover taken off, so the outer letters go"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pervert",
+      "gives": "WARP",
+      "note": "to warp is to distort or pervert"
+     },
+     {
+      "clueFragment": "Kathy",
+      "gives": "ATH",
+      "select": "middle",
+      "note": "Kathy with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WARP",
+      "ATH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone corrupt finds out about Kathy and sets off in fury.",
+     "walkthrough": "'discovered' looks like 'found out'; read it as 'uncovered'. 'Pervert' is a verb here, not a person.",
+     "definitionFit": "On the warpath originally described a war party setting out to fight, so it fits a military expedition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1373,50 @@
     "text": "Put forward time to see Benny, say",
     "enumeration": "6"
    },
-   "solution": "TABLET"
+   "solution": "TABLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TABLET",
+    "definitions": [
+     {
+      "text": "Benny, say",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put forward",
+      "gives": "TABLE",
+      "note": "to table a motion is to put it forward for discussion in British usage"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABLE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone proposes a time to meet a man called Benny.",
+     "walkthrough": "In Britain tabling a proposal means putting it forward, the opposite of US usage. Benny is slang for a Benzedrine pill.",
+     "definitionFit": "A benny is old slang for a Benzedrine pill, so it is an example of a tablet, hence 'say'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Benny"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1430,63 @@
     "text": "Opponent needs month to go round island",
     "enumeration": "7"
    },
-   "solution": "ANTIGUA"
+   "solution": "ANTIGUA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ANTIGUA",
+    "definitions": [
+     {
+      "text": "island",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go round",
+      "for": "reversal",
+      "note": "going round means turning about, so the month is read backwards"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opponent",
+      "gives": "ANTI",
+      "note": "an anti is someone opposed to something"
+     },
+     {
+      "clueFragment": "month",
+      "gives": "AUG",
+      "note": "Aug is the abbreviation for August"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTI",
+      "GUA"
+     ],
+     "reversals": [
+      {
+       "from": "AUG",
+       "to": "GUA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rival needs a month to sail round an island.",
+     "definitionFit": "Antigua is a Caribbean island, part of the nation of Antigua and Barbuda."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Opponent"
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1500,43 @@
     "text": "Period piece",
     "enumeration": "6"
    },
-   "solution": "LENGTH"
+   "solution": "LENGTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LENGTH",
+    "definitions": [
+     {
+      "text": "Period",
+      "at": 0
+     },
+     {
+      "text": "piece",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Period",
+      "note": "first meaning: a stretch of time"
+     },
+     {
+      "clueFragment": "piece",
+      "note": "second meaning: a cut portion"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Period piece' reads as a costume drama or antique; split it into two separate meanings.",
+     "definitionFit": "Length can be a duration of time or a measured piece of material such as cloth or pipe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Period"
+    }
+   }
   },
   {
    "number": 23,
@@ -363,7 +1550,62 @@
     "text": "Airline entrepreneur hands over aeroplane keys enthusiastically to begin with",
     "enumeration": "5"
    },
-   "solution": "LAKER"
+   "solution": "LAKER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LAKER",
+    "definitions": [
+     {
+      "text": "Airline entrepreneur",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "to begin with points to the opening letter of each of the words before it"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "the hands are held over the letters, covering them on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hands",
+      "gives": "LR",
+      "note": "L and R, left and right, the two hands"
+     },
+     {
+      "clueFragment": "aeroplane keys enthusiastically",
+      "gives": "AKE",
+      "select": "first",
+      "note": "the first letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AKE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A pilot eagerly passes over the aircraft keys before departure.",
+     "walkthrough": "Sir Freddie Laker founded Laker Airways and the cut-price Skytrain service.",
+     "definitionFit": "Freddie Laker was a British entrepreneur who pioneered budget transatlantic air travel in the 1970s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1625,55 @@
      }
     ]
    },
-   "solution": "WHEATGERM"
+   "solution": "WHEATGERM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHEAT GERM",
+    "definitions": [
+     {
+      "text": "Common antioxidant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transformed",
+      "for": "anagram",
+      "note": "something transformed has changed shape, so its letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "we gather",
+      "gives": "WEGATHER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is M in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WEGATHERM",
+       "gives": "WHEATGERM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "We hear that a man named Mike was changed by a common antioxidant.",
+     "definitionFit": "Wheat germ, the embryo of the wheat grain, is rich in vitamin E, a widely used antioxidant supplement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mike"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1687,58 @@
     "text": "Conclude tackling disease is correct",
     "enumeration": "5"
    },
-   "solution": "EMEND"
+   "solution": "EMEND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMEND",
+    "definitions": [
+     {
+      "text": "correct",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tackling",
+      "for": "container",
+      "note": "tackling something means getting to grips with it, so one piece grips the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conclude",
+      "gives": "END",
+      "note": "to conclude is to end"
+     },
+     {
+      "clueFragment": "disease",
+      "gives": "ME",
+      "note": "ME is myalgic encephalomyelitis, chronic fatigue syndrome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ME",
+      "ND"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's verdict that finishing treatment of an illness is the right call.",
+     "walkthrough": "'correct' looks like an adjective; it is the verb.",
+     "definitionFit": "To emend a text is to correct its errors, a verb used mainly of editing writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "correct"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1752,48 @@
     "text": "Delegating authority to chap seeking a partner?",
     "enumeration": "9"
    },
-   "solution": "MANDATING"
+   "solution": "MANDATING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANDATING",
+    "definitions": [
+     {
+      "text": "Delegating authority to",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "seeking a partner?",
+      "gives": "DATING",
+      "note": "someone dating is out looking for a partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "DATING"
+     ]
+    },
+    "explanation": {
+     "surface": "A single man looking for romance is told to hand over responsibility.",
+     "walkthrough": "The question mark flags the playful split of the answer into a man going on dates.",
+     "definitionFit": "Mandating means giving someone an official instruction or authority to act on one's behalf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "partner"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1807,43 @@
     "text": "Pick up bangle another is purchasing",
     "enumeration": "5"
    },
-   "solution": "GLEAN"
+   "solution": "GLEAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GLEAN",
+    "definitions": [
+     {
+      "text": "Pick up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is purchasing",
+      "for": "hidden_word",
+      "note": "purchasing here means taking hold of, so the phrase holds the letters inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bangle another",
+      "gives": "GLEAN",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone collects a bracelet that another person is buying.",
+     "walkthrough": "'Purchasing' has its old sense of getting a grip on something.",
+     "definitionFit": "To glean is to gather or pick up information or leftovers bit by bit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "purchasing"
+    }
+   }
   },
   {
    "number": 28,
@@ -439,7 +1857,40 @@
     "text": "Use reportedly traditional features of these places?",
     "enumeration": "11"
    },
-   "solution": "CHURCHYARDS"
+   "solution": "CHURCHYARDS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHURCHYARDS",
+    "definitions": [
+     {
+      "text": "Use reportedly traditional features of these places?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Use reportedly traditional features",
+      "note": "surface reading: a remark about what customary features are used for"
+     },
+     {
+      "clueFragment": "Use reportedly",
+      "note": "setter's reading: said aloud the word is the evergreen trees often planted around parish churches"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzled note about how old features of certain places get used.",
+     "walkthrough": "'Use' sounds like 'yews', the trees planted beside English parish churches, as in Gray's Elegy.",
+     "definitionFit": "Yew trees have long been planted in English burial grounds beside churches, so they are typical features of such places."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Use"
+    }
+   }
   }
  ]
 }
