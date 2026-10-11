@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,49 @@
     "text": "Put on men-only party with news chief",
     "enumeration": "6"
    },
-   "solution": "STAGED"
+   "solution": "STAGED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAGED",
+    "definitions": [
+     {
+      "text": "Put on",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men-only party",
+      "gives": "STAG",
+      "note": "a stag party is a celebration for men only, held before a wedding"
+     },
+     {
+      "clueFragment": "news chief",
+      "gives": "ED",
+      "note": "ED is short for editor, the head of a newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAG",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone throws an all-male party and invites the newspaper's editor along.",
+     "definitionFit": "To stage a play or event is to put it on, mount it before an audience; past tense matches past tense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Put"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +91,39 @@
     "text": "Stunning item of police kit?",
     "enumeration": "5"
    },
-   "solution": "TASER"
+   "solution": "TASER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TASER",
+    "definitions": [
+     {
+      "text": "Stunning item of police kit?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stunning",
+      "note": "surface reading: a gorgeous, eye-catching piece of uniform"
+     },
+     {
+      "clueFragment": "Stunning item of police kit?",
+      "note": "setter's reading: a device that literally stuns people with an electric shock"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Stunning' reads as praise for how the kit looks; the question mark flags that it means knocking someone out.",
+     "definitionFit": "This electroshock weapon, carried by officers, temporarily incapacitates a suspect, so it is literally a stunning device."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stunning"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +137,77 @@
     "text": "Me eating wildly, consuming last of butter, to start to grow",
     "enumeration": "9"
    },
-   "solution": "GERMINATE"
+   "solution": "GERMINATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "GERMINATE",
+    "definitions": [
+     {
+      "text": "start to grow",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wildly",
+      "for": "anagram",
+      "note": "doing something wildly means doing it in a disordered way, so the letters are scrambled"
+     },
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "to consume is to take something inside, so one piece goes within the other"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "only the final letter of the following word is wanted"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Me eating",
+      "gives": "MEEATING",
+      "note": "the anagram fodder, taken letter for letter"
+     },
+     {
+      "clueFragment": "butter",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of butter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "R",
+      "MINATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEEATING",
+       "gives": "GEMINATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eats greedily and gets through the butter while doing so.",
+     "walkthrough": "Scramble ME EATING into GEMINATE, then slip R inside after GE.",
+     "definitionFit": "A seed germinates when it sprouts, which is exactly beginning its growth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +221,60 @@
     "text": "Big river taxi almost carrying desperate fellow?",
     "enumeration": "6"
    },
-   "solution": "DANUBE"
+   "solution": "DANUBE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DANUBE",
+    "definitions": [
+     {
+      "text": "Big river",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its final letter"
+     },
+     {
+      "text": "carrying",
+      "for": "charade",
+      "note": "in a down clue, one thing carrying another holds it up, so the carried piece sits on top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desperate fellow",
+      "gives": "DAN",
+      "note": "Desperate Dan is the strongman cowboy of the British children's comic The Dandy"
+     },
+     {
+      "clueFragment": "taxi",
+      "gives": "UBER",
+      "note": "Uber is the ride-hailing taxi service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAN",
+      "UBE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cab drives off with a man in a frantic state as its passenger.",
+     "walkthrough": "UBER almost is UBE, and it carries DAN above it in the column. Desperate Dan is a well-known British comic-strip character.",
+     "definitionFit": "The Danube is one of Europe's longest rivers, flowing from Germany to the Black Sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "desperate"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +288,60 @@
     "text": "Middle-Easterner's been swimming with seal",
     "enumeration": "8"
    },
-   "solution": "LEBANESE"
+   "solution": "LEBANESE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEBANESE",
+    "definitions": [
+     {
+      "text": "Middle-Easterner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "things swimming move about freely, so the letters float into a new order"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "been",
+      "gives": "BEEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seal",
+      "gives": "SEAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEENSEAL",
+       "gives": "LEBANESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man from the Middle East has been in the sea alongside a seal.",
+     "definitionFit": "A native of Lebanon, on the eastern Mediterranean coast, is a person from the Middle East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "seal"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +361,46 @@
      }
     ]
    },
-   "solution": "LIMITEDEDITIONS"
+   "solution": "LIMITEDEDITIONS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIMITED EDITIONS",
+    "definitions": [
+     {
+      "text": "Restricted numbers of books",
+      "at": 0
+     },
+     {
+      "text": "published by plcs?",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Restricted numbers of books",
+      "note": "first meaning: print runs kept deliberately small"
+     },
+     {
+      "clueFragment": "published by plcs?",
+      "note": "second, playful meaning: PLC stands for public limited company, so its publications would be the issues of a limited firm"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A plc is a British public limited company; the question mark marks the whimsical second reading.",
+     "definitionFit": "Collectors' printings are produced in a fixed, small quantity, and a limited company's output is jokingly its own issues."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plcs"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +414,49 @@
     "text": "Rear group of wolves, getting outdoor equipment",
     "enumeration": "8"
    },
-   "solution": "BACKPACK"
+   "solution": "BACKPACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKPACK",
+    "definitions": [
+     {
+      "text": "outdoor equipment",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rear",
+      "gives": "BACK",
+      "note": "the rear of something is its back"
+     },
+     {
+      "clueFragment": "group of wolves",
+      "gives": "PACK",
+      "note": "wolves hunt in a pack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "PACK"
+     ]
+    },
+    "explanation": {
+     "surface": "The wolves at the back of the group are getting hold of a camper's gear.",
+     "definitionFit": "A rucksack carried by hikers and campers is a standard piece of kit for outdoor trips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rear"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +470,45 @@
     "text": "Prize: not a ringing endorsement, one might say",
     "enumeration": "5"
    },
-   "solution": "NOBEL"
+   "solution": "NOBEL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NOBEL",
+    "definitions": [
+     {
+      "text": "Prize",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one might say",
+      "for": "homophone",
+      "note": "what one might say is heard rather than read, so the sound is what counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not a ringing endorsement",
+      "gives": "NOBEL",
+      "soundsLike": "NO BELL",
+      "note": "having nothing that rings means having no bell"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone gives faint praise about an award, hardly a ringing endorsement.",
+     "walkthrough": "'Ringing endorsement' is an idiom for enthusiastic support; here it is taken literally as a bell ringing.",
+     "definitionFit": "The Nobel awards, founded by Alfred Nobel, are the world's most famous prizes for science, literature and peace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ringing"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +522,58 @@
     "text": "One during prison term showing awareness",
     "enumeration": "9"
    },
-   "solution": "SENTIENCE"
+   "solution": "SENTIENCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SENTIENCE",
+    "definitions": [
+     {
+      "text": "awareness",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during a period falls within it, so one piece sits inside another"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "prison term",
+      "gives": "SENTENCE",
+      "note": "a prison term is the sentence a court hands down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SENT",
+      "I",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A convict serving time shows signs of having woken up to his situation.",
+     "walkthrough": "'Showing' is only a link here; the noun answer means awareness itself.",
+     "definitionFit": "The capacity to feel and perceive is consciousness, an awareness of oneself and the world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +587,52 @@
     "text": "Like delicious food? With no starter, the price could be this high!",
     "enumeration": "10"
    },
-   "solution": "ASTRONOMIC"
+   "solution": "ASTRONOMIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASTRONOMIC",
+    "definitions": [
+     {
+      "text": "high",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "With no starter",
+      "for": "deletion",
+      "note": "without a starter means the opening letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "the price could be this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like delicious food?",
+      "gives": "GASTRONOMIC",
+      "note": "relating to fine food and eating well"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTRONOMIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner admires a gourmet menu, then gasps at how expensive the bill could be.",
+     "walkthrough": "'Starter' looks like the first course of the meal, fitting the food surface, but it means the first letter.",
+     "definitionFit": "An astronomic price is enormously high, as large as the distances between the stars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +646,45 @@
     "text": "James maybe making an attachment",
     "enumeration": "4"
    },
-   "solution": "BOND"
+   "solution": "BOND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOND",
+    "definitions": [
+     {
+      "text": "James maybe",
+      "at": 0
+     },
+     {
+      "text": "attachment",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "making an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "James maybe",
+      "note": "first meaning: James ..., the fictional spy, is one example of someone with this surname"
+     },
+     {
+      "clueFragment": "attachment",
+      "note": "second meaning: a link or tie that joins two things"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Maybe' signals that James is just an example of a bearer of the name.",
+     "definitionFit": "Ian Fleming's agent 007 bears this surname, and the same word means a tie or adhesive connection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "James"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +704,51 @@
      }
     ]
    },
-   "solution": "FRUITBAT"
+   "solution": "FRUITBAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRUIT BAT",
+    "definitions": [
+     {
+      "text": "an animal",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps Kiwi",
+      "gives": "FRUIT",
+      "note": "a kiwi is one example of a fruit"
+     },
+     {
+      "clueFragment": "cricketer",
+      "gives": "BAT",
+      "note": "a batsman in cricket is often called a bat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRUIT",
+      "BAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A New Zealand cricketer is called a beast of a player.",
+     "walkthrough": "Kiwi suggests a New Zealander, matching the cricket picture, but it is the fruit.",
+     "definitionFit": "Flying foxes are large fruit-eating bats, a kind of mammal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Kiwi"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +762,49 @@
     "text": "Very pale friend with hat",
     "enumeration": "6"
    },
-   "solution": "PALLID"
+   "solution": "PALLID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALLID",
+    "definitions": [
+     {
+      "text": "Very pale",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "LID",
+      "note": "lid is slang for a hat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "LID"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend in a hat looks washed out.",
+     "definitionFit": "Pallid describes a sickly, colourless complexion, lacking any healthy glow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hat"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +818,48 @@
     "text": "Large bird's backside would you say?",
     "enumeration": "4"
    },
-   "solution": "RHEA"
+   "solution": "RHEA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RHEA",
+    "definitions": [
+     {
+      "text": "Large bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "would you say",
+      "for": "homophone",
+      "note": "asking what you would say points to the spoken sound of a word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "backside",
+      "gives": "RHEA",
+      "soundsLike": "REAR",
+      "note": "the rear is the backside; in a British accent with no final r it is pronounced like the bird's name"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether a big bird has a large bottom.",
+     "walkthrough": "The sound match relies on a non-rhotic British accent, where the final r is silent.",
+     "definitionFit": "The rhea is a big flightless South American bird, related to the ostrich and emu."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "backside"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +873,50 @@
     "text": "Low sound, an alarm perhaps? It's something quite remarkable",
     "enumeration": "9"
    },
-   "solution": "HUMDINGER"
+   "solution": "HUMDINGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HUMDINGER",
+    "definitions": [
+     {
+      "text": "something quite remarkable",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Low sound",
+      "gives": "HUM",
+      "note": "a hum is a low continuous sound"
+     },
+     {
+      "clueFragment": "an alarm perhaps?",
+      "gives": "DINGER",
+      "note": "an alarm bell is something that dings, playfully a dinger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUM",
+      "DINGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A low noise turns out to be an alarm, and that is quite something.",
+     "definitionFit": "Humdinger is informal slang for an outstanding example of something, a real corker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "alarm"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +930,49 @@
     "text": "Mariner's pack of cards? Just a few",
     "enumeration": "8"
    },
-   "solution": "DECKHAND"
+   "solution": "DECKHAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DECKHAND",
+    "definitions": [
+     {
+      "text": "Mariner",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pack of cards?",
+      "gives": "DECK",
+      "note": "a deck is a full pack of playing cards"
+     },
+     {
+      "clueFragment": "Just a few",
+      "gives": "HAND",
+      "note": "a hand is the few cards each player is dealt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECK",
+      "HAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor carries a pack of playing cards, though only a few are left.",
+     "definitionFit": "A deckhand is a sailor who works on the deck of a ship, a seaman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "few"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +986,51 @@
     "text": "Smelly breath? Ah, it's soil being turned over",
     "enumeration": "9"
    },
-   "solution": "HALITOSIS"
+   "solution": "HALITOSIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HALITOSIS",
+    "definitions": [
+     {
+      "text": "Smelly breath?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being turned over",
+      "for": "anagram",
+      "note": "soil turned over is dug up and churned, so these letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ah, it's soil",
+      "gives": "AHITSSOIL",
+      "note": "the anagram fodder, every letter used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHITSSOIL",
+       "gives": "HALITOSIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices a foul smell and blames freshly dug earth.",
+     "walkthrough": "'Turned over' suggests reading backwards, but the letters do not reverse into the answer; it is a mix-up.",
+     "definitionFit": "Halitosis is the medical term for persistently bad breath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1044,65 @@
     "text": "Commanding Officer with flares, dancing in the open air!",
     "enumeration": "8"
    },
-   "solution": "ALFRESCO"
+   "solution": "ALFRESCO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ALFRESCO",
+    "definitions": [
+     {
+      "text": "in the open air",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancers move about and change places, so the letters rearrange"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flares",
+      "gives": "FLARES",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "Commanding Officer",
+      "gives": "CO",
+      "note": "CO is the standard abbreviation for Commanding Officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALFRES",
+      "CO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FLARES",
+       "gives": "ALFRES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer in flared trousers dances outside under the sky.",
+     "walkthrough": "Flares are wide-bottomed trousers, fitting the dancing picture.",
+     "definitionFit": "Al fresco, from Italian, means outdoors, as in dining outside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "flares"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +1116,59 @@
     "text": "Naughty child cried head oﬀ, being pushed forward",
     "enumeration": "8"
    },
-   "solution": "IMPELLED"
+   "solution": "IMPELLED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "IMPELLED",
+    "definitions": [
+     {
+      "text": "being pushed forward",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head oﬀ",
+      "for": "deletion",
+      "note": "with its head off, the word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Naughty child",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child"
+     },
+     {
+      "clueFragment": "cried",
+      "gives": "YELLED",
+      "note": "to cry out loudly is to yell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "ELLED"
+     ]
+    },
+    "explanation": {
+     "surface": "A misbehaving child screamed their head off as they were shoved along.",
+     "walkthrough": "'Cried head off' plays on the idiom for crying hard; it is YELLED without its Y.",
+     "definitionFit": "To be impelled is to be driven or propelled onward, urged ahead by some force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1182,45 @@
     "text": "Vegetable from Staﬀordshire town",
     "enumeration": "4"
    },
-   "solution": "LEEK"
+   "solution": "LEEK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEEK",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     },
+     {
+      "text": "Staﬀordshire town",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vegetable",
+      "note": "first meaning: an onion-family vegetable, the national emblem of Wales"
+     },
+     {
+      "clueFragment": "Staﬀordshire town",
+      "note": "second meaning: a market town in Staffordshire, an English county in the Midlands"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests produce grown in a particular town; the town and the vegetable share one name.",
+     "definitionFit": "This long green allium shares its name with a market town in the Staffordshire Moorlands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1234,50 @@
     "text": "Coin of the realm: not entirely a distinct type",
     "enumeration": "6"
    },
-   "solution": "SPECIE"
+   "solution": "SPECIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SPECIE",
+    "definitions": [
+     {
+      "text": "Coin of the realm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "not entirely means the whole word minus a part, here its final letter"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a distinct type",
+      "gives": "SPECIES",
+      "note": "a species is a distinct kind or type, especially in biology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPECIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A collector notes that a national coin is not quite its own separate kind.",
+     "definitionFit": "Specie means money in coin form rather than paper, so it is the coinage of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +1291,58 @@
     "text": "Vocalist to burn first of recordings",
     "enumeration": "6"
    },
-   "solution": "SINGER"
+   "solution": "SINGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SINGER",
+    "definitions": [
+     {
+      "text": "Vocalist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word means its opening letter only"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "burn",
+      "gives": "SINGE",
+      "note": "to singe is to burn lightly"
+     },
+     {
+      "clueFragment": "recordings",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of recordings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINGE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer sets out to destroy their early recordings by fire.",
+     "definitionFit": "A vocalist is a performer who uses the voice, someone who sings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "burn"
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1356,45 @@
     "text": "Leaving to see condition of racecourse",
     "enumeration": "5"
    },
-   "solution": "GOING"
+   "solution": "GOING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOING",
+    "definitions": [
+     {
+      "text": "Leaving",
+      "at": 0
+     },
+     {
+      "text": "condition of racecourse",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leaving",
+      "note": "first meaning: departing"
+     },
+     {
+      "clueFragment": "condition of racecourse",
+      "note": "second meaning: in horse racing, the state of the ground, such as firm or soft"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In horse racing the state of the turf is officially reported with this word, e.g. 'the going is good'.",
+     "definitionFit": "The present participle of 'go' means departing, and racing uses it as a noun for ground conditions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaving"
+    }
+   }
   },
   {
    "number": 23,
@@ -366,7 +1408,49 @@
     "text": "Officer to reward waiters, perhaps",
     "enumeration": "8"
    },
-   "solution": "TIPSTAFF"
+   "solution": "TIPSTAFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIPSTAFF",
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reward",
+      "gives": "TIP",
+      "note": "a tip is a small reward for service"
+     },
+     {
+      "clueFragment": "waiters, perhaps",
+      "gives": "STAFF",
+      "note": "waiters are an example of a restaurant's staff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIP",
+      "STAFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer goes to give the waiters a tip.",
+     "definitionFit": "A tipstaff is a court official, a sheriff's officer who carries a metal-tipped staff of office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Officer"
+    }
+   }
   },
   {
    "number": 24,
@@ -380,7 +1464,49 @@
     "text": "Odd entertainment at the Big Apple",
     "enumeration": "5"
    },
-   "solution": "FUNNY"
+   "solution": "FUNNY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FUNNY",
+    "definitions": [
+     {
+      "text": "Odd",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entertainment",
+      "gives": "FUN",
+      "note": "fun is amusement or entertainment"
+     },
+     {
+      "clueFragment": "the Big Apple",
+      "gives": "NY",
+      "note": "the Big Apple is the nickname of New York, abbreviated NY"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FUN",
+      "NY"
+     ]
+    },
+    "explanation": {
+     "surface": "A strange show is on in New York City.",
+     "definitionFit": "Funny can mean peculiar or strange as well as comic, as in 'a funny feeling'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 25,
@@ -394,7 +1520,43 @@
     "text": "Fruit carried in trug: limes?",
     "enumeration": "4"
    },
-   "solution": "UGLI"
+   "solution": "UGLI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UGLI",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carried in",
+      "for": "hidden_word",
+      "note": "what is carried in something lies inside it, so the letters sit within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trug: limes",
+      "gives": "UGLI",
+      "note": "spans the end of trug and the start of limes"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether the limes are being carried in the garden basket.",
+     "walkthrough": "A trug is a shallow British gardener's basket.",
+     "definitionFit": "The ugli is a Jamaican citrus fruit, a cross between a grapefruit and a tangerine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limes"
+    }
+   }
   },
   {
    "number": 26,
@@ -408,7 +1570,63 @@
     "text": "Prominently exhibiting female animal without hard shell",
     "enumeration": "10"
    },
-   "solution": "SHOWCASING"
+   "solution": "SHOWCASING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SHOWCASING",
+    "definitions": [
+     {
+      "text": "Prominently exhibiting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "in the old sense, without means outside, so one piece wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female animal",
+      "gives": "SOW",
+      "note": "a sow is a female pig"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grading abbreviation for hard"
+     },
+     {
+      "clueFragment": "shell",
+      "gives": "CASING",
+      "note": "a casing is an outer shell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "OW",
+      "CASING"
+     ]
+    },
+    "explanation": {
+     "surface": "A female animal is shown off at a fair because it lacks a tough shell.",
+     "walkthrough": "'Without' reads as lacking, but here it means outside: SOW goes around H.",
+     "definitionFit": "Showcasing something is displaying it to its best advantage, putting it on show for all to see."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 27,
@@ -422,7 +1640,56 @@
     "text": "Compels fierce beasts to eat nothing",
     "enumeration": "8"
    },
-   "solution": "DRAGOONS"
+   "solution": "DRAGOONS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRAGOONS",
+    "definitions": [
+     {
+      "text": "Compels",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to eat",
+      "for": "container",
+      "note": "something eaten ends up inside the eater, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fierce beasts",
+      "gives": "DRAGONS",
+      "note": "dragons are fearsome mythical beasts"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O is the shape of zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAG",
+      "O",
+      "ONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forces savage creatures to go without food.",
+     "walkthrough": "'Eat nothing' suggests starving; it means O goes inside DRAGONS.",
+     "definitionFit": "To dragoon someone is to coerce or force them into doing something, a verb from the mounted soldiers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 28,
@@ -436,7 +1703,49 @@
     "text": "Tries ecstasy tablets then speaks",
     "enumeration": "6"
    },
-   "solution": "ESSAYS"
+   "solution": "ESSAYS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESSAYS",
+    "definitions": [
+     {
+      "text": "Tries",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ecstasy tablets",
+      "gives": "ES",
+      "note": "E is slang for an ecstasy tablet, so more than one is ES"
+     },
+     {
+      "clueFragment": "speaks",
+      "gives": "SAYS",
+      "note": "to speak is to say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "SAYS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone experiments with ecstasy pills and then starts talking.",
+     "definitionFit": "To essay something is to attempt it, so essays means attempts, as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tries"
+    }
+   }
   }
  ]
 }
