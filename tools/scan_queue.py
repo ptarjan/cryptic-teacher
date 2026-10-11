@@ -436,6 +436,7 @@ VOTE_MENDED = (
     ("2026-10-11T07:55:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
     ("2026-10-11T08:10:00+00:00", ("readings differ",)),
     ("2026-10-11T08:23:00+00:00", ("readings differ",)),
+    ("2026-10-11T08:42:00+00:00", ("no other reading has",)),
 )
 
 
