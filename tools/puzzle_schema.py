@@ -357,8 +357,11 @@ def _check_file(path):
 
 def main(argv):
     import fetch_puzzle
+    # A clues_only/ path is checked against its own shape; anything else names a puzzle.
+    clue_paths = [Path(a) for a in argv if Path(a).parts[:1] == ("clues_only",)]
+    argv = [a for a in argv if Path(a).parts[:1] != ("clues_only",)]
     paths = ([fetch_puzzle.resolve_puzzle(a) for a in argv] if argv
-             else list(fetch_puzzle.puzzle_files()))
+             else [] if clue_paths else list(fetch_puzzle.puzzle_files()))
     failed = 0
     for problem in check_enums():
         print(f"ENUM {problem}")
@@ -370,14 +373,15 @@ def main(argv):
                 shown = problems[:5] + ([f"... {len(problems) - 5} more"]
                                         if len(problems) > 5 else [])
                 print(f"{pid}: " + "; ".join(shown))
-        if not argv:
+        if not argv and not clue_paths:
             import clues_only
-            for path in clues_only.files():
-                problems = validate_clues_only(json.loads(path.read_text(encoding="utf-8")))
-                if problems:
-                    failed += 1
-                    print(f"clues-only {path.stem}: " + "; ".join(problems[:5]))
-        blog_files = [] if argv else sorted(map(str, BLOG_FACTS.glob("*.json")))
+            clue_paths = clues_only.files()
+        for path in clue_paths:
+            problems = validate_clues_only(json.loads(path.read_text(encoding="utf-8")))
+            if problems:
+                failed += 1
+                print(f"clues-only {path.stem}: " + "; ".join(problems[:5]))
+        blog_files = [] if argv or clue_paths else sorted(map(str, BLOG_FACTS.glob("*.json")))
         for name, bad in pool.map(_check_blog_file, blog_files):
             for pid, problems in bad.items():
                 failed += 1

@@ -232,7 +232,7 @@ def main(argv):
 
     puzzles = [p for p in changed if PUZZLE_FILE.match(p) and (ROOT / p).is_file()]
     if puzzles:
-        ids = [PUZZLE_FILE.match(p).group(1) for p in puzzles]
+        ids = [p if p.startswith("clues_only/") else PUZZLE_FILE.match(p).group(1) for p in puzzles]
         r = subprocess.run([sys.executable, "tools/puzzle_schema.py", *ids], cwd=ROOT, capture_output=True, text=True, check=False)
         if r.returncode:
             fails.append(("tools/puzzle_schema.py on the pushed puzzles", (r.stdout + r.stderr).splitlines()[-25:]))
