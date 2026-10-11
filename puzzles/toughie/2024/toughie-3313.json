@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Bad-tempered driver clipping rear of another",
     "enumeration": "6"
    },
-   "solution": "CRABBY"
+   "solution": "CRABBY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CRABBY",
+    "definitions": [
+     {
+      "text": "Bad-tempered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clipping",
+      "for": "container",
+      "note": "to clip something is to fasten round it, so the driver holds the next letter inside"
+     },
+     {
+      "text": "rear of",
+      "for": "letter_selection",
+      "note": "the rear of a word is its final letter, so only the end of another is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "driver",
+      "gives": "CABBY",
+      "note": "a cabby is a taxi driver"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of another"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "ABBY"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy motorist cuts in and clips the back of somebody else's car.",
+     "definitionFit": "Crabby is an informal synonym for irritable, like a crab snapping its claws."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clipping"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,63 @@
     "text": "Maybe saw scanner checking ambassador's head",
     "enumeration": "8"
    },
-   "solution": "CHESTNUT"
+   "solution": "CHESTNUT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CHESTNUT",
+    "definitions": [
+     {
+      "text": "Maybe saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "checking",
+      "for": "container",
+      "note": "to check something is to hold it back, so the scanner restrains what follows within itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scanner",
+      "gives": "CT",
+      "note": "a CT scanner takes computed tomography images"
+     },
+     {
+      "clueFragment": "ambassador's",
+      "gives": "HES",
+      "note": "HE, His Excellency, is an ambassador's title; with the 's"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NUT",
+      "note": "nut is slang for the head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HES",
+      "T",
+      "NUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A security scanner checks an ambassador's head at the airport.",
+     "walkthrough": "HE, His Excellency, is the title of an ambassador. A saw is an old saying, and a stale, overused saying is one kind of the answer, hence 'Maybe'.",
+     "definitionFit": "A chestnut is a stale story or proverb repeated too often, and an old saw is one example of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +174,73 @@
     "text": "Draws return game 50-50, inspired by host",
     "enumeration": "7"
    },
-   "solution": "ALLURES"
+   "solution": "ALLURES",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ALLURES",
+    "definitions": [
+     {
+      "text": "Draws",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "to return is to go back the way you came, so everything after it is read from the end"
+     },
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "something inspired is breathed in, so these letters go inside the host word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "host",
+      "gives": "SEA",
+      "note": "a sea of people is a host, a great multitude"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is Rugby Union"
+     },
+     {
+      "clueFragment": "50-50",
+      "gives": "LL",
+      "note": "L is the Roman numeral for fifty, twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LL",
+      "UR",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SERULLA",
+       "to": "ALLURES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports report: a drawn return match, the points split evenly, with the home side as inspiration.",
+     "walkthrough": "'Draws' looks like the result of the return game, but it is a verb meaning attracts. 'Return' applies to everything after it, so the whole assembly is read backwards.",
+     "definitionFit": "To allure is to tempt or entice, so allures and draws both mean attracts in the third person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Draws"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +254,78 @@
     "text": "Trains essentially went all over the place under British Rail",
     "enumeration": "9"
    },
-   "solution": "BANNISTER"
+   "solution": "BANNISTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "BANNISTER",
+    "definitions": [
+     {
+      "text": "Rail",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its central part, so only the middle of went is kept"
+     },
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "scattered all over the place means in disorder, so the letters are jumbled"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, being under something means following it on the way down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "Trains",
+      "gives": "TRAINS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "went",
+      "gives": "EN",
+      "select": "middle",
+      "note": "the two middle letters of went"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ANNISTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRAINSEN",
+       "gives": "ANNISTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trains ran haywire under the old nationalised British Rail network.",
+     "walkthrough": "'British Rail' reads as the old train operator, but it splits: British gives B and Rail is the definition.",
+     "definitionFit": "A bannister is the handrail running up the side of a staircase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rail"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +339,55 @@
     "text": "Knocking back the booze? Order Carol's round",
     "enumeration": "8"
    },
-   "solution": "SWILLING"
+   "solution": "SWILLING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWILLING",
+    "definitions": [
+     {
+      "text": "Knocking back the booze?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "to go round something is to surround it, so the song word encloses the command word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carol's",
+      "gives": "SING",
+      "note": "to carol is to sing; the 's is 'is'"
+     },
+     {
+      "clueFragment": "Order",
+      "gives": "WILL",
+      "note": "a will is a command or decree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WILL",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker ordering: it is Carol's turn to buy the round.",
+     "walkthrough": "'Order' and 'round' look like a trip to the bar, but round is the enclosing signal and Carol is a verb.",
+     "definitionFit": "Swilling means gulping drink greedily, which is knocking back alcohol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Carol's"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +407,64 @@
      }
     ]
    },
-   "solution": "WINTERSOLSTICE"
+   "solution": "WINTERSOLSTICE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "WINTER SOLSTICE",
+    "definitions": [
+     {
+      "text": "period of low light?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engineered",
+      "for": "anagram",
+      "note": "something engineered has been rebuilt to a new design, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secure",
+      "gives": "WIN",
+      "note": "to win something is to secure it"
+     },
+     {
+      "clueFragment": "title with scores",
+      "gives": "TERSOLSTICE",
+      "note": "the letters of title and scores, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIN",
+      "TERSOLSTICE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TITLESCORES",
+       "gives": "TERSOLSTICE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sportsperson secures a title and runs up big scores during a bad patch of form.",
+     "walkthrough": "The question mark flags that 'low light' is a fanciful description: the shortest day has the least daylight.",
+     "definitionFit": "The winter solstice in December is the day with the fewest hours of daylight in the year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "scores"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +478,59 @@
     "text": "Insect repellent's core requirement on river",
     "enumeration": "5"
    },
-   "solution": "LOUSE"
+   "solution": "LOUSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LOUSE",
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "core requirement",
+      "for": "letter_selection",
+      "note": "what is required is the core, the very centre letter of the word before"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "repellent's",
+      "gives": "L",
+      "select": "middle",
+      "note": "the central letter of the nine-letter word repellent"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "OUSE",
+      "note": "the Ouse is a river in Yorkshire, a crossword favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Insect repellent is just what you need by the river.",
+     "walkthrough": "'Insect repellent' reads as one phrase, but it splits: Insect is the definition and repellent supplies its central letter, which sits on top of the river in this down clue.",
+     "definitionFit": "A louse is a small wingless parasitic insect living on mammals and birds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repellent's"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +544,65 @@
     "text": "Number one governor from the south promoting north",
     "enumeration": "7"
    },
-   "solution": "INTEGER"
+   "solution": "INTEGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "INTEGER",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the south",
+      "for": "reversal",
+      "note": "in a down clue, reading from the south means going upwards, from the bottom"
+     }
+    ],
+    "linkWords": [
+     "promoting north"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "governor",
+      "gives": "REGENT",
+      "note": "a regent governs on behalf of a monarch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "TEGER"
+     ],
+     "reversals": [
+      {
+       "from": "REGENT",
+       "to": "TNEGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political report: the number one governor comes from the south and promotes a northerner.",
+     "walkthrough": "After the word for governor is read upwards, 'promoting north' moves its N (north) up one place, to the front.",
+     "definitionFit": "An integer is a whole number, with no fractional part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "promoting"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +616,63 @@
     "text": "Organs of state entering case for governments",
     "enumeration": "6"
    },
-   "solution": "GLANDS"
+   "solution": "GLANDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GLANDS",
+    "definitions": [
+     {
+      "text": "Organs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "to enter something is to go inside it, so the first word sits within the second"
+     },
+     {
+      "text": "case for",
+      "for": "letter_selection",
+      "note": "a case is the outside covering, so only the outer letters of the word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "LAND",
+      "note": "a land is a country or state"
+     },
+     {
+      "clueFragment": "governments",
+      "gives": "GS",
+      "select": "outer",
+      "note": "first and last letters of governments"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LAND",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Organs of the state making a case to governments sounds like civil-service lobbying.",
+     "walkthrough": "'Organs of state' reads as government bodies; here Organs alone is the definition, in its anatomical sense.",
+     "definitionFit": "Glands are bodily organs that secrete hormones or other substances."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Organs"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +692,55 @@
      }
     ]
    },
-   "solution": "STAINLESSSTEEL"
+   "solution": "STAINLESSSTEEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "STAINLESS STEEL",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the audience",
+      "for": "homophone",
+      "note": "what is meant for an audience is heard rather than read, so the second word goes by its sound"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clean",
+      "gives": "STAINLESS",
+      "note": "something clean is free of marks"
+     },
+     {
+      "clueFragment": "appropriate",
+      "gives": "STEEL",
+      "soundsLike": "STEAL",
+      "note": "to appropriate is to take without permission"
+     }
+    ],
+    "explanation": {
+     "surface": "A costume designer insists the fabric be clean and suitable for the people watching.",
+     "walkthrough": "'Appropriate' looks like an adjective (suitable) but works as a verb meaning to take.",
+     "definitionFit": "Stainless steel is a rust-resistant alloy, a material used for cutlery and sinks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "appropriate"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +754,61 @@
     "text": "Bandleader John possibly admitting uninitiated affair",
     "enumeration": "9"
    },
-   "solution": "ELLINGTON"
+   "solution": "ELLINGTON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ELLINGTON",
+    "definitions": [
+     {
+      "text": "Bandleader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting someone lets them in, so the singer's name surrounds what follows"
+     },
+     {
+      "text": "uninitiated",
+      "for": "deletion",
+      "note": "without its initial, so the word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "John possibly",
+      "gives": "ELTON",
+      "note": "Elton John, the singer; 'possibly' says John is one example"
+     },
+     {
+      "clueFragment": "affair",
+      "gives": "LING",
+      "note": "a fling is a brief affair; it loses its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "LING",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "A gossip item: a famous bandleader called John admits to an affair with an inexperienced partner.",
+     "walkthrough": "'John possibly' points to a surname, not a first name: Elton is one John.",
+     "definitionFit": "Duke Ellington was a celebrated American jazz bandleader and composer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +822,80 @@
     "text": "Uber taxi's beginning to cut university student price (50 per cent off)",
     "enumeration": "5"
    },
-   "solution": "ULTRA"
+   "solution": "ULTRA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "ULTRA",
+    "definitions": [
+     {
+      "text": "Uber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so just that is kept"
+     },
+     {
+      "text": "to cut",
+      "for": "container",
+      "note": "to cut into something is to break into it, so the single letter goes inside"
+     },
+     {
+      "text": "50 per cent off",
+      "for": "deletion",
+      "note": "removing half means dropping the second half of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is a learner, as on L-plates"
+     },
+     {
+      "clueFragment": "taxi's",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of taxi"
+     },
+     {
+      "clueFragment": "price",
+      "gives": "RA",
+      "note": "rate is a price; half of it stays"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "L",
+      "T",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "Uber cuts student taxi fares in half for the university crowd.",
+     "walkthrough": "'Uber' reads as the ride-hailing firm, but it is the definition: German über, meaning super or extreme.",
+     "definitionFit": "Uber as a prefix means super or extreme, just as ultra does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Uber"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +909,60 @@
     "text": "Stops car after stint sharing miles",
     "enumeration": "7"
    },
-   "solution": "TERMINI"
+   "solution": "TERMINI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TERMINI",
+    "definitions": [
+     {
+      "text": "Stops",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sharing miles",
+      "for": "deletion",
+      "note": "if two words share a letter it appears only once where they meet, so one copy goes"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one thing coming after another puts the vehicle second, behind the period of work"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stint",
+      "gives": "TERM",
+      "note": "a term is a fixed period, a stint"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "MINI",
+      "note": "the Mini is a small British car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERM",
+      "INI"
+     ]
+    },
+    "explanation": {
+     "surface": "A car journey after a long stint behind the wheel, sharing the mileage.",
+     "walkthrough": "The words end and start with M (miles), and that M is shared, so it appears once.",
+     "definitionFit": "Termini are the end stations of lines, plural of terminus, so stops at the end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sharing"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +976,59 @@
     "text": "Turned up hem in the middle and knitted",
     "enumeration": "7"
    },
-   "solution": "EMERGED"
+   "solution": "EMERGED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EMERGED",
+    "definitions": [
+     {
+      "text": "Turned up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the middle",
+      "for": "letter_selection",
+      "note": "only the central letter of the short word is wanted"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hem",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of hem"
+     },
+     {
+      "clueFragment": "knitted",
+      "gives": "MERGED",
+      "note": "things knitted together are joined, merged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MERGED"
+     ]
+    },
+    "explanation": {
+     "surface": "A sewing scene: a hem was turned up in the middle and knitted.",
+     "walkthrough": "'Turned up hem' reads as a sewing job, but Turned up is the definition, meaning appeared.",
+     "definitionFit": "To turn up is to appear or arrive, and to emerge is to come into view."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turned"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +1042,66 @@
     "text": "Trouble from appendix during puberty occasionally",
     "enumeration": "5"
    },
-   "solution": "UPSET"
+   "solution": "UPSET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UPSET",
+    "definitions": [
+     {
+      "text": "Trouble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "something done occasionally happens every so often, so only alternate letters are kept"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the span of, so the first item goes inside the second"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puberty",
+      "gives": "UET",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters of puberty"
+     },
+     {
+      "clueFragment": "appendix",
+      "gives": "PS",
+      "note": "a PS, postscript, is an appendix to a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "PS",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's note: appendix trouble that flares up now and then during adolescence.",
+     "walkthrough": "'Appendix' suggests the organ; here it is the postscript at the foot of a letter.",
+     "definitionFit": "Upset as a noun means a disturbance or trouble, as in a stomach upset."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "appendix"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1121,76 @@
      }
     ]
    },
-   "solution": "LASTWORD"
+   "solution": "LASTWORD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LAST WORD",
+    "definitions": [
+     {
+      "text": "Culmination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "a thing turned over is upside down, so the quarrel word is read backwards"
+     },
+     {
+      "text": "started by",
+      "for": "charade",
+      "note": "something started by another has that other placed at its front"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oxford model",
+      "gives": "LAST",
+      "note": "an Oxford is a shoe, and a last is the foot-shaped model a shoe is made on"
+     },
+     {
+      "clueFragment": "quarrel",
+      "gives": "ROW",
+      "note": "a row is a quarrel"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAST",
+      "WOR",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "ROW",
+       "to": "WOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family row about a daughter, sparked by an Oxford-educated model.",
+     "walkthrough": "'Culmination of quarrel' looks like a description of having the final say, but only Culmination is the definition; 'Oxford model' is a shoe last, not a fashion model.",
+     "definitionFit": "The last word in something is its most advanced or ultimate form, its peak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Oxford"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1204,54 @@
     "text": "Total of all he owes written off",
     "enumeration": "9"
    },
-   "solution": "WHOLESALE"
+   "solution": "WHOLESALE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHOLESALE",
+    "definitions": [
+     {
+      "text": "Total",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written off",
+      "for": "anagram",
+      "note": "a written-off car is wrecked, so these letters are smashed up and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all he owes",
+      "gives": "ALLHEOWES",
+      "note": "taken as written, ready to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALLHEOWES",
+       "gives": "WHOLESALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A debtor has every penny of his debt written off.",
+     "walkthrough": "'Total' looks like the sum owed, but it is an adjective meaning complete.",
+     "definitionFit": "Wholesale used as an adjective means extensive and indiscriminate, as in wholesale slaughter, so complete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Total"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1265,85 @@
     "text": "Perhaps Cuban heels finally breaking near Lidl, virtually ruined",
     "enumeration": "8"
    },
-   "solution": "ISLANDER"
+   "solution": "ISLANDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "ISLANDER",
+    "definitions": [
+     {
+      "text": "Perhaps Cuban",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before"
+     },
+     {
+      "text": "virtually",
+      "for": "deletion",
+      "note": "virtually means almost, so the store name is not quite complete"
+     },
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked, so the letters are thrown into disorder"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "to break into something is to get inside it, so the single letter goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "near",
+      "gives": "NEAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Lidl",
+      "gives": "LID",
+      "note": "the supermarket name minus its last letter"
+     },
+     {
+      "clueFragment": "heels",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of heels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "S",
+      "LANDER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEARLID",
+       "gives": "ILANDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Cuban breaks a heel near a Lidl store and is nearly ruined.",
+     "walkthrough": "Lidl is a discount supermarket chain. 'Perhaps' says Cuban is one example of the definition.",
+     "definitionFit": "Cuba is an island nation, so a Cuban is an example of someone who lives on an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heels"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1357,64 @@
     "text": "Legitimate to claim jail not working as act of retribution",
     "enumeration": "8"
    },
-   "solution": "REPRISAL"
+   "solution": "REPRISAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "REPRISAL",
+    "definitions": [
+     {
+      "text": "act of retribution",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to claim",
+      "for": "container",
+      "note": "to claim something is to take hold of it, so the first word holds the second"
+     },
+     {
+      "text": "not working",
+      "for": "deletion",
+      "note": "working can be expressed as on, and 'not' that means those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Legitimate",
+      "gives": "REAL",
+      "note": "something legitimate is genuine, real"
+     },
+     {
+      "clueFragment": "jail",
+      "gives": "PRIS",
+      "note": "prison, with ON (working) dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PRIS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lawfully claims a jail is failing, as an act of revenge.",
+     "walkthrough": "On means working, as a machine that is on; taking it from the jail word leaves PRIS.",
+     "definitionFit": "A reprisal is retaliation, an act of revenge in return for an injury."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1428,63 @@
     "text": "Cheer enthralling start to Manchester United match",
     "enumeration": "7"
    },
-   "solution": "EMULATE"
+   "solution": "EMULATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EMULATE",
+    "definitions": [
+     {
+      "text": "match",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralling",
+      "for": "container",
+      "note": "something enthralling holds you captive, so the cheer word holds the initials inside"
+     },
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of each word is its first letter, so only the initials of the club name are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheer",
+      "gives": "ELATE",
+      "note": "to elate is to cheer, make happy"
+     },
+     {
+      "clueFragment": "Manchester United",
+      "gives": "MU",
+      "select": "first",
+      "note": "the initials of the football club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MU",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Supporters cheer an exciting opening to a Manchester United match.",
+     "walkthrough": "'Match' looks like the football game, but it is a verb meaning to equal.",
+     "definitionFit": "To emulate someone is to try to equal or rival them, which is matching them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1498,48 @@
     "text": "Unseats first character from contests with aim to unseat the other?",
     "enumeration": "5"
    },
-   "solution": "OUSTS"
+   "solution": "OUSTS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OUSTS",
+    "definitions": [
+     {
+      "text": "Unseats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first character from",
+      "for": "deletion",
+      "note": "taking the first character from a word means dropping its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contests with aim to unseat the other",
+      "gives": "OUSTS",
+      "note": "jousts, mounted contests aiming to knock the rival off his horse, without the J"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUSTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Riders in a tournament each try to knock the other off his horse.",
+     "walkthrough": "The long cryptic description is of jousts; drop its first letter.",
+     "definitionFit": "To oust is to remove someone from a position, which is to unseat them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contests"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1553,62 @@
     "text": "Spirited horse pounding 1,000 metres should be checked",
     "enumeration": "7"
    },
-   "solution": "STEMMED"
+   "solution": "STEMMED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STEMMED",
+    "definitions": [
+     {
+      "text": "checked",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pounding",
+      "for": "container",
+      "note": "a horse pounding a stretch of track covers it entirely, so it goes round the units"
+     }
+    ],
+    "linkWords": [
+     "should be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spirited horse",
+      "gives": "STEED",
+      "note": "Chambers defines a steed as a spirited horse"
+     },
+     {
+      "clueFragment": "1,000",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand"
+     },
+     {
+      "clueFragment": "metres",
+      "gives": "M",
+      "note": "m is the abbreviation for metres"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STE",
+      "MM",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A lively racehorse galloping a kilometre ought to be reined in.",
+     "definitionFit": "To stem a flow is to check or stop it, so stemmed means checked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pounding"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1622,68 @@
     "text": "Facing workers' organisation, company boss ultimately superior",
     "enumeration": "6"
    },
-   "solution": "STUCCO"
+   "solution": "STUCCO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STUCCO",
+    "definitions": [
+     {
+      "text": "Facing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the last letter of boss is kept"
+     },
+     {
+      "text": "superior",
+      "for": "charade",
+      "note": "in a down clue, superior means higher, so this letter is placed on top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boss",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of boss"
+     },
+     {
+      "clueFragment": "workers' organisation",
+      "gives": "TUC",
+      "note": "the TUC is the Trades Union Congress, Britain's federation of trade unions"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TUC",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "A union faces off with the company, whose boss believes they are superior.",
+     "walkthrough": "'Facing' sounds like confronting; it is the definition, a noun for a wall covering.",
+     "definitionFit": "Stucco is a plaster coating applied to the outside walls of a building as a facing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Facing"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1697,43 @@
     "text": "Disturbs pets",
     "enumeration": "7"
    },
-   "solution": "TOUCHES"
+   "solution": "TOUCHES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOUCHES",
+    "definitions": [
+     {
+      "text": "Disturbs",
+      "at": 0
+     },
+     {
+      "text": "pets",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disturbs",
+      "note": "first meaning: moves emotionally, affects"
+     },
+     {
+      "clueFragment": "pets",
+      "note": "second meaning: strokes or handles gently"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pets' looks like a noun for animals, but it is a verb, to stroke.",
+     "definitionFit": "The verb can mean affects someone emotionally and also lays a hand on, as with stroking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pets"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1747,58 @@
     "text": "One putting up prices steeply in March meeting resistance",
     "enumeration": "5"
    },
-   "solution": "HIKER"
+   "solution": "HIKER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HIKER",
+    "definitions": [
+     {
+      "text": "One putting up prices steeply",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "meeting",
+      "for": "charade",
+      "note": "two things meeting come together side by side, so one piece joins the end of the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "March",
+      "gives": "HIKE",
+      "note": "to hike is to march a long way"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIKE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Steep price rises in March meet resistance from consumers.",
+     "walkthrough": "'March' with its capital looks like the month; it is the verb. The definition is a fanciful one, someone who hikes prices; the walker climbing hills lurks behind it.",
+     "definitionFit": "To hike prices is to raise them sharply, so a hiker would be one who does that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "March"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1812,65 @@
     "text": "Attracted to that place, like to go back in May?",
     "enumeration": "7"
    },
-   "solution": "THERESA"
+   "solution": "THERESA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "THERESA",
+    "definitions": [
+     {
+      "text": "in May?",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go back",
+      "for": "reversal",
+      "note": "going back means travelling in the opposite direction, so the short word is read from its end"
+     }
+    ],
+    "linkWords": [
+     "Attracted to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that place",
+      "gives": "THERE",
+      "note": "there means in that place"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as means like"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THERE",
+      "SA"
+     ],
+     "reversals": [
+      {
+       "from": "AS",
+       "to": "SA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drawn to a place wants to return there in the spring month of May.",
+     "walkthrough": "May is not the month but the surname of Theresa May, the former UK Prime Minister; her first name is what you find in May's full name.",
+     "definitionFit": "Theresa is the first name of the politician May, so it is part of her name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "May"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1884,54 @@
     "text": "Create division with skilful or witty remark",
     "enumeration": "5"
    },
-   "solution": "CRACK"
+   "solution": "CRACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRACK",
+    "definitions": [
+     {
+      "text": "Create division",
+      "at": 0
+     },
+     {
+      "text": "skilful",
+      "at": 21
+     },
+     {
+      "text": "witty remark",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "with",
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Create division",
+      "note": "first meaning: split, open a fissure"
+     },
+     {
+      "clueFragment": "skilful",
+      "note": "second meaning: expert, first-rate, as of a marksman"
+     },
+     {
+      "clueFragment": "witty remark",
+      "note": "third meaning: a wisecrack or quip"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "This has three separate meanings, joined by with and or.",
+     "definitionFit": "The word is a verb for splitting, an adjective for expert, and a noun for a joke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "division"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1945,65 @@
     "text": "Came out with or without medical supply?",
     "enumeration": "9"
    },
-   "solution": "EXCLAIMED"
+   "solution": "EXCLAIMED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EXCLAIMED",
+    "definitions": [
+     {
+      "text": "Came out with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "supply here is the adverb of supple, so the word bends flexibly into a new form"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without",
+      "gives": "EX",
+      "note": "ex means without, as in ex dividend"
+     },
+     {
+      "clueFragment": "medical",
+      "gives": "CLAIMED",
+      "note": "its letters, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "CLAIMED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEDICAL",
+       "gives": "CLAIMED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient asks whether to leave with or without their medical supplies.",
+     "walkthrough": "'Supply' looks like a noun for stock, but it is an adverb, in a supple way.",
+     "definitionFit": "To exclaim is to cry out suddenly, so came out with in speech means said aloud forcefully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 28,
@@ -443,7 +2017,58 @@
     "text": "What VAR could do with public order, taking time out",
     "enumeration": "8"
    },
-   "solution": "OVERRULE"
+   "solution": "OVERRULE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OVERRULE",
+    "definitions": [
+     {
+      "text": "What VAR could do",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking time out",
+      "for": "deletion",
+      "note": "taking something out removes it, and time is the letter T"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public",
+      "gives": "OVER",
+      "note": "overt means public; T, time, is removed"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "RULE",
+      "note": "a rule is an order or regulation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "RULE"
+     ]
+    },
+    "explanation": {
+     "surface": "Football's video referee could impose public order by stopping the clock.",
+     "walkthrough": "VAR is the Video Assistant Referee in football, who reviews and can reverse on-field decisions.",
+     "definitionFit": "To overrule is to reverse a decision by superior authority, which the video referee may cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 29,
@@ -457,7 +2082,52 @@
     "text": "One holding Kindle say, changing hands to find article",
     "enumeration": "6"
    },
-   "solution": "LEADER"
+   "solution": "LEADER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "LEADER",
+    "definitions": [
+     {
+      "text": "article",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing hands",
+      "for": "substitution",
+      "note": "hands are right and left, so the right is swapped for the left"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One holding Kindle say",
+      "gives": "READER",
+      "note": "a Kindle is an e-reader, and its user is a reader; R becomes L"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EADER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Kindle owner switches it between hands to locate an article.",
+     "walkthrough": "Kindle is Amazon's e-book device. The R (right) of the word is replaced with L (left).",
+     "definitionFit": "A leader is a newspaper's main editorial article."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hands"
+    }
+   }
   }
  ]
 }
