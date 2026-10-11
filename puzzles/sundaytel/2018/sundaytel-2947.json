@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +41,55 @@
      }
     ]
    },
-   "solution": "ALCAPONE"
+   "solution": "ALCAPONE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AL CAPONE",
+    "definitions": [
+     {
+      "text": "Master criminal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "something kept in another thing sits inside it, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "solitary",
+      "gives": "ALONE",
+      "note": "solitary means on one's own"
+     },
+     {
+      "clueFragment": "better",
+      "gives": "CAP",
+      "note": "to cap a story is to better it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "CAP",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gangster boss ends up in solitary confinement, where he is better off.",
+     "walkthrough": "'Better' looks like an adjective but is the verb: to cap something is to outdo it. It sits inside ALONE.",
+     "definitionFit": "Al Capone was the notorious Chicago gangster of the Prohibition era, a byword for criminal mastermind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +109,70 @@
      }
     ]
    },
-   "solution": "LEAPYEAR"
+   "solution": "LEAPYEAR",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "LEAP YEAR",
+    "definitions": [
+     {
+      "text": "such as 1812",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused means muddled, so the letters lose their order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the extra letter is taken in"
+     },
+     {
+      "text": "end of",
+      "for": "container",
+      "note": "the end of a word is its last letter, the one added here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A player",
+      "gives": "APLAYER",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "overture",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APLAYERE",
+       "gives": "LEAPYEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician gets muddled near the end of Tchaikovsky's 1812 Overture.",
+     "walkthrough": "1812 suggests the overture, but it is just a year; 1812 divides by four.",
+     "definitionFit": "A leap year has 366 days and falls every fourth year; 1812 is divisible by four, so it was one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "1812"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +186,66 @@
     "text": "Spoke disparagingly — steered clear of including corrupt admin",
     "enumeration": "12"
    },
-   "solution": "ANIMADVERTED"
+   "solution": "ANIMADVERTED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ANIMADVERTED",
+    "definitions": [
+     {
+      "text": "Spoke disparagingly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "corrupt means altered from its proper form, so these letters are reworked"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steered clear of",
+      "gives": "AVERTED",
+      "note": "to avert is to turn aside or avoid"
+     },
+     {
+      "clueFragment": "admin",
+      "gives": "ADMIN",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NIMAD",
+      "VERTED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ADMIN",
+       "gives": "NIMAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains bitterly about a crooked administration they have kept away from.",
+     "definitionFit": "To animadvert is to pass critical comment, so animadverted means made censorious remarks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "corrupt"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +259,49 @@
     "text": "Not in clique, for start",
     "enumeration": "6"
    },
-   "solution": "OUTSET"
+   "solution": "OUTSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTSET",
+    "definitions": [
+     {
+      "text": "start",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not in",
+      "gives": "OUT",
+      "note": "not in means out"
+     },
+     {
+      "clueFragment": "clique",
+      "gives": "SET",
+      "note": "a set is a social group or clique"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "Being outside the in-crowd is the starting point.",
+     "definitionFit": "The outset is the beginning of an undertaking, as in 'from the outset'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clique"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +315,43 @@
     "text": "What one faces, coming from West Indians' part of world",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EAST",
+    "definitions": [
+     {
+      "text": "What one faces, coming from West",
+      "at": 0
+     },
+     {
+      "text": "Indians' part of world",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What one faces, coming from West",
+      "note": "first meaning: travelling from the west, you look towards the opposite direction"
+     },
+     {
+      "clueFragment": "Indians' part of world",
+      "note": "second meaning: the region of ... Indians, the Orient"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'West Indians' reads as one phrase, but the clue splits after West; the Indians are East Indians.",
+     "definitionFit": "The compass point opposite west is what a traveller from the west faces, and it names the Orient, home of the East Indies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "West"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +365,52 @@
     "text": "Page or display of data easily moved",
     "enumeration": "8"
    },
-   "solution": "PORTABLE"
+   "solution": "PORTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PORTABLE",
+    "definitions": [
+     {
+      "text": "easily moved",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "display of data",
+      "gives": "TABLE",
+      "note": "a table sets data out in rows and columns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OR",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A page or a chart of figures can be shifted without trouble.",
+     "definitionFit": "Portable means light or compact enough to be carried about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Page"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +424,55 @@
     "text": "Missing target I had in partnership",
     "enumeration": "4"
    },
-   "solution": "WIDE"
+   "solution": "WIDE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WIDE",
+    "definitions": [
+     {
+      "text": "Missing target",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partnership",
+      "gives": "WE",
+      "note": "a partnership speaks of itself as we"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd is the contraction of I had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ID",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "I missed the mark while batting in a partnership.",
+     "walkthrough": "In cricket, a wide is a ball bowled out of the batsman's reach.",
+     "definitionFit": "Wide means off target, as a shot or ball that passes to one side of what was aimed at."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partnership"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +486,66 @@
     "text": "Doctor stayed with multinational organization, initially, not firm",
     "enumeration": "8"
    },
-   "solution": "UNSTEADY"
+   "solution": "UNSTEADY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNSTEADY",
+    "definitions": [
+     {
+      "text": "not firm",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor is to tamper with, so the letters are altered in order"
+     },
+     {
+      "text": "initially",
+      "for": "charade",
+      "note": "initially means at the start, so this abbreviation goes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "multinational organization",
+      "gives": "UN",
+      "note": "the UN, the United Nations"
+     },
+     {
+      "clueFragment": "stayed",
+      "gives": "STAYED",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "STEADY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STAYED",
+       "gives": "STEADY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medic remained with an international body at first, though wavering.",
+     "walkthrough": "'Doctor' looks like a person but is the verb meaning tamper with.",
+     "definitionFit": "Unsteady means shaky or liable to wobble, the opposite of firm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +559,70 @@
     "text": "A peculiar point about party raising issue for others",
     "enumeration": "8"
    },
-   "solution": "ADOPTION"
+   "solution": "ADOPTION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ADOPTION",
+    "definitions": [
+     {
+      "text": "raising issue for others",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "peculiar",
+      "for": "anagram",
+      "note": "something peculiar is odd and out of the normal order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "POINT",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DOPTION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POINTDO",
+       "gives": "DOPTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd point is raised concerning a political party.",
+     "walkthrough": "The jumble takes in the party as well as the point; 'issue' means offspring, not a topic for debate.",
+     "definitionFit": "Adoption is bringing up a child born to other parents, a cryptic sense of raising someone else's issue, issue meaning offspring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +636,52 @@
     "text": "Somalian's heart is elsewhere in Africa",
     "enumeration": "4"
    },
-   "solution": "MALI"
+   "solution": "MALI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "MALI",
+    "definitions": [
+     {
+      "text": "elsewhere in Africa",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "a heart is the centre of something, so only the central letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somalian's",
+      "gives": "MALI",
+      "select": "middle",
+      "note": "the four letters at the centre of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALI"
+     ]
+    },
+    "explanation": {
+     "surface": "A Somali is homesick, his heart in some other part of Africa.",
+     "walkthrough": "Somalia is in Africa, so 'elsewhere in Africa' points to another African country.",
+     "definitionFit": "Mali is a West African country, far from Somalia in the east, so it is somewhere else on the continent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +695,69 @@
     "text": "Art patron's daughter joining chaps ahead of time? It's not true",
     "enumeration": "12"
    },
-   "solution": "MISSTATEMENT"
+   "solution": "MISSTATEMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MISSTATEMENT",
+    "definitions": [
+     {
+      "text": "It's not true",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ahead of",
+      "for": "charade",
+      "note": "ahead of means placed in front, fixing the order of the final two parts"
+     }
+    ],
+    "linkWords": [
+     "joining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "MISS",
+      "note": "a daughter is a miss, a young unmarried woman"
+     },
+     {
+      "clueFragment": "Art patron's",
+      "gives": "TATE",
+      "note": "Henry Tate, the sugar magnate who founded London's Tate gallery"
+     },
+     {
+      "clueFragment": "chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISS",
+      "TATE",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy art collector's daughter arrives with some men too early, or so the story goes.",
+     "walkthrough": "Read 'Art patron's daughter' as Miss Tate; Henry Tate founded the Tate gallery in London.",
+     "definitionFit": "A misstatement is a false or inaccurate assertion, something said that is not true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "patron's"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +771,56 @@
     "text": "How attraction may happen in delightful way, securing catch",
     "enumeration": "12"
    },
-   "solution": "MAGNETICALLY"
+   "solution": "MAGNETICALLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAGNETICALLY",
+    "definitions": [
+     {
+      "text": "How attraction may happen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing means holding something fast, so one word grips the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in delightful way",
+      "gives": "MAGICALLY",
+      "note": "delightfully, as if by magic"
+     },
+     {
+      "clueFragment": "catch",
+      "gives": "NET",
+      "note": "to net is to catch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAG",
+      "NET",
+      "ICALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Romance blossoms wonderfully when someone makes a good catch.",
+     "walkthrough": "'Attraction' suggests romance, but it is the physical pull of a magnet.",
+     "definitionFit": "Magnets attract iron, so attraction may happen by magnetic force, an adverb matching 'how'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "attraction"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +834,61 @@
     "text": "Disorder at event including Democrat prolonged dispute",
     "enumeration": "8"
    },
-   "solution": "VENDETTA"
+   "solution": "VENDETTA",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "VENDETTA",
+    "definitions": [
+     {
+      "text": "prolonged dispute",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Disorder",
+      "for": "anagram",
+      "note": "disorder means a lack of proper arrangement, so the letters are jumbled"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking something in, so the abbreviation joins the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at event",
+      "gives": "ATEVENT",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATEVENTD",
+       "gives": "VENDETTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trouble at a political event involving a Democrat turns into a long-running feud.",
+     "definitionFit": "A vendetta is a long feud, originally a blood feud between families, so a dispute that goes on and on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Disorder"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +902,47 @@
     "text": "One person directing what students will learn in the future",
     "enumeration": "5"
    },
-   "solution": "AHEAD"
+   "solution": "AHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AHEAD",
+    "definitions": [
+     {
+      "text": "in the future",
+      "at": 46
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "person directing what students will learn",
+      "gives": "HEAD",
+      "note": "a head teacher runs the school and its curriculum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A single teacher decides what pupils will study in time to come.",
+     "walkthrough": "In Britain, the head is the head teacher, the principal of a school.",
+     "definitionFit": "Ahead means forthcoming, still to come, as in 'the years ahead'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "students"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +956,56 @@
     "text": "Capital got constricted in South America?",
     "enumeration": "6"
    },
-   "solution": "BOGOTA"
+   "solution": "BOGOTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BOGOTA",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "constricted",
+      "for": "container",
+      "note": "something constricted is squeezed by what wraps round it, so one word is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in South America?",
+      "gives": "BOA",
+      "note": "the boa, a snake that squeezes its prey, lives in South America"
+     },
+     {
+      "clueFragment": "got",
+      "gives": "GOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "GOT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a capital city that got hemmed in somewhere in South America.",
+     "walkthrough": "'Constricted' does double duty: it puts GOT inside and, with the South American hint, conjures the boa constrictor doing the squeezing.",
+     "definitionFit": "Bogota is the capital city of Colombia, which is itself in South America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "constricted"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +1019,48 @@
     "text": "Cheese ready for case? Not quite",
     "enumeration": "4"
    },
-   "solution": "BRIE"
+   "solution": "BRIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BRIE",
+    "definitions": [
+     {
+      "text": "Cheese",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite means falling a little short, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ready for case",
+      "gives": "BRIEF",
+      "note": "a barrister's brief is what makes them ready for a court case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is a cheese ripe enough to go in a display case? Almost.",
+     "walkthrough": "'Case' suggests a cheese box, but it is a legal case, and a brief is a lawyer's instructions for it.",
+     "definitionFit": "Brie is a soft French cow's-milk cheese with a white rind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1074,51 @@
     "text": "Part of defence worker used for action in court",
     "enumeration": "8"
    },
-   "solution": "BACKHAND"
+   "solution": "BACKHAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKHAND",
+    "definitions": [
+     {
+      "text": "action in court",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "used for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of defence",
+      "gives": "BACK",
+      "note": "a back is a defensive player in football or hockey"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "HAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A defence lawyer's assistant is put to work on a lawsuit.",
+     "walkthrough": "'Defence' and 'court' suggest the law, but they are sport: a back defends, and the court is a tennis court.",
+     "definitionFit": "A backhand is a tennis stroke played with the back of the hand facing the ball, a move on the court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1132,48 @@
     "text": "Bishop, perhaps, making calm pronouncement",
     "enumeration": "5"
    },
-   "solution": "PIECE"
+   "solution": "PIECE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PIECE",
+    "definitions": [
+     {
+      "text": "Bishop, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pronouncement",
+      "for": "homophone",
+      "note": "a pronouncement is something spoken, so we go by the sound of the word, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "calm",
+      "gives": "PIECE",
+      "soundsLike": "PEACE",
+      "note": "calm is peace, which is said the same way as the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A bishop delivers a soothing statement from the pulpit.",
+     "walkthrough": "The bishop is not a cleric but a chessman; 'perhaps' warns that it is just one example.",
+     "definitionFit": "In chess a bishop is one of the pieces, so it is an example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bishop"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1187,65 @@
     "text": "Heap of burning stuff spotted after turning over range",
     "enumeration": "8"
    },
-   "solution": "PYRENEES"
+   "solution": "PYRENEES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PYRENEES",
+    "definitions": [
+     {
+      "text": "range",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning over",
+      "for": "reversal",
+      "note": "turning over flips the word end to end, so it is read backwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means following, setting which piece comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heap of burning stuff",
+      "gives": "PYRE",
+      "note": "a pyre is a pile of material for burning, as for a funeral"
+     },
+     {
+      "clueFragment": "spotted",
+      "gives": "SEEN",
+      "note": "spotted means seen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PYRE",
+      "NEES"
+     ],
+     "reversals": [
+      {
+       "from": "SEEN",
+       "to": "NEES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bonfire is spotted after a vehicle turns over on the cooking range.",
+     "definitionFit": "The Pyrenees are the mountain range dividing France from Spain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1259,39 @@
     "text": "Crime people want to commit",
     "enumeration": "4"
    },
-   "solution": "ENVY"
+   "solution": "ENVY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ENVY",
+    "definitions": [
+     {
+      "text": "Crime people want to commit",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crime people want to commit",
+      "note": "surface reading: an offence people are keen to carry out"
+     },
+     {
+      "clueFragment": "Crime people want to commit",
+      "note": "setter's reading: a sin committed by wanting what other people have"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Crime' stretches to sin, and 'want' is not desire to commit it but the wanting itself, coveting another's goods, that is the offence.",
+     "definitionFit": "Envy, one of the seven deadly sins, is resentful longing for what someone else possesses, so wanting is how it is committed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "want"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1305,58 @@
     "text": "Local in country pub has unfinished nasty drink",
     "enumeration": "8"
    },
-   "solution": "VILLAGER"
+   "solution": "VILLAGER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VILLAGER",
+    "definitions": [
+     {
+      "text": "Local in country pub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "unfinished means lacking its ending, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nasty",
+      "gives": "VILE",
+      "note": "nasty means vile"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "LAGER",
+      "note": "lager is a drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIL",
+      "LAGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A regular at a rural inn has half finished a horrible drink.",
+     "walkthrough": "In Britain 'the local' is one's nearby pub; here local is a person.",
+     "definitionFit": "A villager is a resident, a local, of a village, the sort found drinking in a country pub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Local"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1370,54 @@
     "text": "Small sailing ship, say, east of Cape",
     "enumeration": "6"
    },
-   "solution": "CUTTER"
+   "solution": "CUTTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUTTER",
+    "definitions": [
+     {
+      "text": "Small sailing ship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "east of",
+      "for": "charade",
+      "note": "in an across answer, east of means to the right of, so this part follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cape",
+      "gives": "C",
+      "note": "C is the map abbreviation for cape"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to say is to utter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A little sailing vessel is spotted, let's say, east of a headland.",
+     "walkthrough": "'Say' looks like 'for example' but is the verb utter.",
+     "definitionFit": "A cutter is a small single-masted sailing boat, often used by coastguards or for carrying messages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1431,76 @@
     "text": "Follower's record that is holding another back",
     "enumeration": "8"
    },
-   "solution": "DISCIPLE"
+   "solution": "DISCIPLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "DISCIPLE",
+    "definitions": [
+     {
+      "text": "Follower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going the other way, so the second record is read from right to left"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means gripping something inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "DISC",
+      "note": "a disc is a gramophone record"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "LP",
+      "note": "another record, an LP or long-player"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISC",
+      "I",
+      "PL",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "LP",
+       "to": "PL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan's record, it seems, is holding up another one.",
+     "definitionFit": "A disciple is a follower of a teacher or leader, as the apostles followed Jesus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1514,63 @@
     "text": "Foreign woman's negative response second time around",
     "enumeration": "6"
    },
-   "solution": "SENORA"
+   "solution": "SENORA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SENORA",
+    "definitions": [
+     {
+      "text": "Foreign woman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the response sits inside"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     },
+     {
+      "clueFragment": "negative response",
+      "gives": "NO",
+      "note": "the word for refusal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "NO",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman abroad says no for the second time.",
+     "definitionFit": "Señora is the Spanish title for a married woman, so a woman from abroad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1590,48 @@
      }
     ]
    },
-   "solution": "HIDDENAGENDA"
+   "solution": "HIDDENAGENDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HIDDEN AGENDA",
+    "definitions": [
+     {
+      "text": "ulterior motive",
+      "at": 38
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something seen in",
+      "gives": "HIDDEN",
+      "note": "something visible only inside other words is concealed there"
+     },
+     {
+      "clueFragment": "Copenhagen – Danes'",
+      "gives": "AGENDA",
+      "note": "the letters run across the end of the city and the start of its people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIDDEN",
+      "AGENDA"
+     ]
+    },
+    "explanation": {
+     "surface": "Something spotted in Copenhagen reveals what the Danes are secretly up to.",
+     "walkthrough": "The clue describes itself: the second word is concealed in 'Copenhagen Danes', so it is a hidden one.",
+     "definitionFit": "A hidden agenda is a secret plan or purpose concealed behind an apparent one, the same as an ulterior motive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Something"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1645,53 @@
     "text": "Tie up and cut off weed",
     "enumeration": "4"
    },
-   "solution": "DOCK"
+   "solution": "DOCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOCK",
+    "definitions": [
+     {
+      "text": "Tie up",
+      "at": 0
+     },
+     {
+      "text": "cut off",
+      "at": 11
+     },
+     {
+      "text": "weed",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tie up",
+      "note": "first meaning: moor a ship at a quay"
+     },
+     {
+      "clueFragment": "cut off",
+      "note": "second meaning: shorten, as a tail or wages"
+     },
+     {
+      "clueFragment": "weed",
+      "note": "third meaning: a broad-leaved plant of the sorrel family"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three meanings, not two: the gardening surface hides a nautical sense.",
+     "definitionFit": "The word covers mooring a vessel, docking a tail or pay, and the coarse weed whose leaves soothe nettle stings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tie"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1705,58 @@
     "text": "Suit, for example, in card game, turned over",
     "enumeration": "4"
    },
-   "solution": "GARB"
+   "solution": "GARB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "GARB",
+    "definitions": [
+     {
+      "text": "Suit, for example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned over",
+      "for": "reversal",
+      "note": "turned over means flipped end to end, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "card game",
+      "gives": "BRAG",
+      "note": "brag is an old British card game, a forerunner of poker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARB"
+     ],
+     "reversals": [
+      {
+       "from": "BRAG",
+       "to": "GARB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suit of cards is flipped face up during a game.",
+     "walkthrough": "'Suit' and 'card game' point to cards, but the suit is clothing.",
+     "definitionFit": "Garb is clothing or dress, and a suit is one example of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Suit"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1770,57 @@
     "text": "Circle added to section of plane, for instance, as emblem",
     "enumeration": "4"
    },
-   "solution": "LOGO"
+   "solution": "LOGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOGO",
+    "definitions": [
+     {
+      "text": "emblem",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "added to",
+      "for": "charade",
+      "note": "added to means attached after something, setting the order of the two parts"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "section of plane, for instance",
+      "gives": "LOG",
+      "note": "a plane is a tree, and a cut section of its trunk is a log"
+     },
+     {
+      "clueFragment": "Circle",
+      "gives": "O",
+      "note": "O is circle-shaped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A ring is painted on part of an aircraft as an insignia.",
+     "walkthrough": "The plane is not an aircraft but the plane tree, common in London streets.",
+     "definitionFit": "A logo is a company's or group's identifying symbol, so an emblem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1834,52 @@
     "text": "Knew race must be rearranged? Ascot, it could be",
     "enumeration": "8"
    },
-   "solution": "NECKWEAR"
+   "solution": "NECKWEAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NECKWEAR",
+    "definitions": [
+     {
+      "text": "Ascot, it could be",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must be rearranged",
+      "for": "anagram",
+      "note": "rearranged plainly says the letters are put in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knew race",
+      "gives": "KNEWRACE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KNEWRACE",
+       "gives": "NECKWEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who knew the race result wants it rerun — at Ascot, perhaps.",
+     "walkthrough": "Ascot is the famous Royal Ascot racecourse, which the race suggests, but an ascot is also a broad cravat.",
+     "definitionFit": "An ascot is a wide formal tie or cravat worn round the throat, an example of neckwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ascot"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1893,68 @@
     "text": "Seaside facility at end of quay embraced by business leaders",
     "enumeration": "8"
    },
-   "solution": "BOATYARD"
+   "solution": "BOATYARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "BOATYARD",
+    "definitions": [
+     {
+      "text": "Seaside facility",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "charade",
+      "note": "the end of a word is its final letter, which is all that is taken here"
+     },
+     {
+      "text": "embraced by",
+      "for": "container",
+      "note": "something embraced is held inside another's arms, so these letters go within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "business leaders",
+      "gives": "BOARD",
+      "note": "a company's board of directors"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quay",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "AT",
+      "Y",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Company directors take over a seaside amenity at the end of the quay.",
+     "definitionFit": "A boatyard is a place by the water where boats are built, repaired or stored."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   }
  ]
 }
