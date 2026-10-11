@@ -24,6 +24,9 @@
   "date": "2024-12-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,60 @@
     "text": "Woman twirling favourite slip",
     "enumeration": "7"
    },
-   "solution": "MISSTEP"
+   "solution": "MISSTEP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MISSTEP",
+    "definitions": [
+     {
+      "text": "slip",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twirling",
+      "for": "reversal",
+      "note": "something twirling is turned round, so the word for favourite is read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "MISS",
+      "note": "a miss is a young woman"
+     },
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a teacher's pet is a favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISS",
+      "TEP"
+     ],
+     "reversals": [
+      {
+       "from": "PET",
+       "to": "TEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman spinning round in her favourite slip, the undergarment.",
+     "definitionFit": "A misstep is a stumble or error, just as a slip is a small mistake or loss of footing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slip"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +113,60 @@
      }
     ]
    },
-   "solution": "MIXEDBLESSING"
+   "solution": "MIXEDBLESSING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MIXED BLESSING",
+    "definitions": [
+     {
+      "text": "combination of positive and negative qualities",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "might result from this",
+      "for": "anagram",
+      "note": "the clue word is what might come out of the answer read as an instruction, so the instruction is worked backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this",
+      "gives": "MIXED",
+      "note": "'this' points to the answer itself, whose first word is the mixing instruction"
+     },
+     {
+      "clueFragment": "Glibness",
+      "gives": "GLIBNESS",
+      "note": "the letters a mixed version of the answer's second word would produce"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIXED",
+      "BLESSING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GLIBNESS",
+       "gives": "BLESSING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Smooth talk might come from having both good and bad qualities.",
+     "walkthrough": "This is a reverse anagram: read the answer as an instruction, 'BLESSING, mixed', and its letters can give GLIBNESS. The word MIXED is the instruction itself, so no clue word supplies it.",
+     "definitionFit": "A mixed blessing is something with both advantages and drawbacks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Glibness"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +180,42 @@
     "text": "Important military incursion",
     "enumeration": "7"
    },
-   "solution": "SALIENT"
+   "solution": "SALIENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SALIENT",
+    "definitions": [
+     {
+      "text": "Important",
+      "at": 0
+     },
+     {
+      "text": "military incursion",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Important",
+      "note": "first meaning: most noticeable or significant"
+     },
+     {
+      "clueFragment": "military incursion",
+      "note": "second meaning: a bulge of a battle line pushing into enemy territory"
+     }
+    ],
+    "explanation": {
+     "surface": "A significant military raid.",
+     "definitionFit": "Salient points are the prominent ones, and in warfare a salient is a forward bulge of the front into enemy ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "incursion"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +229,56 @@
     "text": "Use fast filling snacks",
     "enumeration": "5"
    },
-   "solution": "TAPAS"
+   "solution": "TAPAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TAPAS",
+    "definitions": [
+     {
+      "text": "snacks",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "letter_selection",
+      "note": "the filling of a word is its inside, so only the central letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Use",
+      "gives": "TAP",
+      "note": "to tap a resource is to use it"
+     },
+     {
+      "clueFragment": "fast",
+      "gives": "AS",
+      "select": "middle",
+      "note": "the two middle letters of fast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAP",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "Eat a quick bite of filling snacks.",
+     "walkthrough": "'Filling' looks like an adjective for satisfying food; it is the instruction to take the inside of 'fast'.",
+     "definitionFit": "Tapas are small Spanish dishes served as snacks with drinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +292,55 @@
     "text": "Charges after deleting former lover's letters",
     "enumeration": "8"
    },
-   "solution": "PLOSIVES"
+   "solution": "PLOSIVES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PLOSIVES",
+    "definitions": [
+     {
+      "text": "letters",
+      "at": 38,
+      "note": "plosives are consonant sounds, here taken as the letters representing them"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after deleting",
+      "for": "deletion",
+      "note": "deleting removes letters, here the word for a former partner"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charges",
+      "gives": "EXPLOSIVES",
+      "note": "explosive charges, as in demolition"
+     },
+     {
+      "clueFragment": "former lover's",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLOSIVES"
+     ]
+    },
+    "explanation": {
+     "surface": "Charges brought after someone deleted their ex's letters, a messy break-up.",
+     "walkthrough": "'Letters' looks like correspondence; it means letters of the alphabet such as P, B, T, D.",
+     "definitionFit": "Plosives are consonants like P and B made by stopping and then releasing the breath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +354,55 @@
     "text": "Reason 2 down's entered",
     "enumeration": "6"
    },
-   "solution": "DEDUCE"
+   "solution": "DEDUCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEDUCE",
+    "definitions": [
+     {
+      "text": "Reason",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entered",
+      "for": "container",
+      "note": "something entered goes inside, so the down abbreviation sits within the word for two"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "2",
+      "gives": "DEUCE",
+      "note": "a deuce is a two in cards or dice"
+     },
+     {
+      "clueFragment": "down's",
+      "gives": "D",
+      "note": "D is the standard abbreviation for down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "D",
+      "UCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cross-reference asking the solver to work out why 2 Down has been entered in the grid.",
+     "walkthrough": "The '2 down' looks like a pointer to another clue, but the 2 is read as a number and 'down' as an abbreviation: D goes into DEUCE.",
+     "definitionFit": "To deduce is to reach a conclusion by logical thought, which is what the verb reason means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "2"
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +422,52 @@
      }
     ]
    },
-   "solution": "DREWIN"
+   "solution": "DREWIN",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "DREW IN",
+    "definitions": [
+     {
+      "text": "Tempted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with advancing death",
+      "for": "cycling",
+      "note": "advancing means moving forward, so the death letter at the back goes to the front"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "backtrack",
+      "gives": "REWIND",
+      "note": "to rewind a tape is to go back over it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "REWIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tempted to turn back as death approaches.",
+     "walkthrough": "D, short for dead or died, here stands for death; it is already the last letter of REWIND and moves to the front.",
+     "definitionFit": "To draw someone in is to lure or entice them, so drew in means tempted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "death"
+    }
+   }
   },
   {
    "number": 6,
@@ -153,7 +487,61 @@
      }
     ]
    },
-   "solution": "DERIGUEUR"
+   "solution": "DERIGUEUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DE RIGUEUR",
+    "definitions": [
+     {
+      "text": "Compulsory",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revised",
+      "for": "anagram",
+      "note": "a revised text has been reworked, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "EU",
+      "gives": "EU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rights",
+      "gives": "RR",
+      "note": "R is the abbreviation for right, here plural so two of them"
+     },
+     {
+      "clueFragment": "guide",
+      "gives": "GUIDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EURRGUIDE",
+       "gives": "DERIGUEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revised guide to EU rights is now mandatory reading.",
+     "definitionFit": "De rigueur, borrowed from French, means required by etiquette or fashion, so obligatory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rights"
+    }
+   }
   },
   {
    "number": 7,
@@ -167,7 +555,61 @@
     "text": "Toast a half-dead farce",
     "enumeration": "7"
    },
-   "solution": "CHARADE"
+   "solution": "CHARADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CHARADE",
+    "definitions": [
+     {
+      "text": "farce",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-",
+      "for": "deletion",
+      "note": "only half of the word is kept, the rest dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toast",
+      "gives": "CHAR",
+      "note": "to char is to scorch, as when toasting"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "DEAD",
+      "note": "taken as written, then halved"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "A",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "Raising a glass to a half-dead comedy, a theatrical flop.",
+     "walkthrough": "'Toast' reads as a drink's salute; it is the verb, to scorch.",
+     "definitionFit": "A charade is an absurd pretence, the sense of farce as an empty sham."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Toast"
+    }
+   }
   },
   {
    "number": 8,
@@ -181,7 +623,61 @@
     "text": "Axes chop end off precious musical instrument",
     "enumeration": "9"
    },
-   "solution": "XYLOPHONE"
+   "solution": "XYLOPHONE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "XYLOPHONE",
+    "definitions": [
+     {
+      "text": "musical instrument",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end off",
+      "for": "deletion",
+      "note": "with its end off, a word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Axes",
+      "gives": "XY",
+      "note": "x and y are the two axes of a graph"
+     },
+     {
+      "clueFragment": "chop",
+      "gives": "LOP",
+      "note": "to lop is to chop off"
+     },
+     {
+      "clueFragment": "precious",
+      "gives": "HONEY",
+      "note": "precious and honey are both terms of endearment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "XY",
+      "LOP",
+      "HONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Axes hacking the end off something valuable, a scene of destruction.",
+     "walkthrough": "'Precious' reads as an adjective for something valuable, but it is the endearment, like darling or honey, which loses its last letter.",
+     "definitionFit": "A xylophone is a percussion instrument of tuned wooden bars struck with mallets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "precious"
+    }
+   }
   },
   {
    "number": 9,
@@ -195,7 +691,55 @@
     "text": "Authentic capital of magic kingdom",
     "enumeration": "5"
    },
-   "solution": "REALM"
+   "solution": "REALM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "REALM",
+    "definitions": [
+     {
+      "text": "kingdom",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital of",
+      "for": "letter_selection",
+      "note": "the capital of a word is its initial, upper-case letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Authentic",
+      "gives": "REAL",
+      "note": "real means genuine or authentic"
+     },
+     {
+      "clueFragment": "magic",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of magic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "The genuine capital city of some magic kingdom, as in a fairy tale.",
+     "definitionFit": "A realm is a kingdom, the territory a monarch rules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 10,
@@ -209,7 +753,66 @@
     "text": "Mass spectrometer's introduction succeeds as much as test configuration",
     "enumeration": "13"
    },
-   "solution": "MASSACHUSETTS"
+   "solution": "MASSACHUSETTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MASSACHUSETTS",
+    "definitions": [
+     {
+      "text": "Mass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction",
+      "for": "letter_selection",
+      "note": "the introduction of a word is its first letter"
+     },
+     {
+      "text": "configuration",
+      "for": "anagram",
+      "note": "a configuration is an arrangement, so the letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "succeeds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spectrometer's",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of spectrometer"
+     },
+     {
+      "clueFragment": "as much as test",
+      "gives": "ASMUCHASTEST",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SASMUCHASTEST",
+       "gives": "MASSACHUSETTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mass spectrometer's debut proves as good as the test setup, a lab report.",
+     "walkthrough": "'Mass' looks part of 'mass spectrometer'; it is Mass., the standard US abbreviation for the state, and 'succeeds' just places S before the rest.",
+     "definitionFit": "Mass. is the postal-style abbreviation of Massachusetts, the New England state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mass"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +826,59 @@
     "text": "Grounds for registration being taken by police officer",
     "enumeration": "5"
    },
-   "solution": "DREGS"
+   "solution": "DREGS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREGS",
+    "definitions": [
+     {
+      "text": "Grounds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being taken by",
+      "for": "container",
+      "note": "what is taken by someone is held, so one piece is enclosed by the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police officer",
+      "gives": "DS",
+      "note": "DS is a detective sergeant"
+     },
+     {
+      "clueFragment": "registration",
+      "gives": "REG",
+      "note": "reg is the usual short form of registration, as on a car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "REG",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A justification for a vehicle registration being confiscated by a policeman.",
+     "walkthrough": "'Grounds' looks like reasons, matching the legal surface, but it means coffee grounds, the sediment.",
+     "definitionFit": "Dregs are the sediment left at the bottom of a drink, like coffee grounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Grounds"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +892,55 @@
     "text": "Revolution beheaded female agent for making things clear",
     "enumeration": "9"
    },
-   "solution": "ISINGLASS"
+   "solution": "ISINGLASS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ISINGLASS",
+    "definitions": [
+     {
+      "text": "agent for making things clear",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beheaded",
+      "for": "deletion",
+      "note": "beheading removes the head, the first letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revolution",
+      "gives": "RISING",
+      "note": "a rising is a revolt or revolution"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ISING",
+      "LASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A revolution that executed a female spy, for reasons left unclear.",
+     "walkthrough": "'Female agent' reads as a spy, but the definition is the whole tail, 'agent for making things clear'.",
+     "definitionFit": "Isinglass is a fish gelatine used as a fining substance to clarify beer and wine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "agent"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +954,42 @@
     "text": "Had babies strewn about",
     "enumeration": "8"
    },
-   "solution": "LITTERED"
+   "solution": "LITTERED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LITTERED",
+    "definitions": [
+     {
+      "text": "Had babies",
+      "at": 0
+     },
+     {
+      "text": "strewn about",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Had babies",
+      "note": "first meaning: gave birth to a brood of young animals"
+     },
+     {
+      "clueFragment": "strewn about",
+      "note": "second meaning: scattered untidily with rubbish"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone had babies and things are scattered everywhere, a picture of chaotic family life.",
+     "definitionFit": "An animal that has a litter of young has littered, and a floor covered in scattered mess is littered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "babies"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +1003,61 @@
     "text": "Girl supports end of cake decoration",
     "enumeration": "9"
    },
-   "solution": "EPAULETTE"
+   "solution": "EPAULETTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EPAULETTE",
+    "definitions": [
+     {
+      "text": "decoration",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     },
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down entry, what supports something sits below it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cake",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of cake"
+     },
+     {
+      "clueFragment": "Girl",
+      "gives": "PAULETTE",
+      "note": "Paulette is a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PAULETTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl holds up the last of the cake decoration.",
+     "walkthrough": "'Cake decoration' looks like one phrase; the definition is 'decoration' alone.",
+     "definitionFit": "An epaulette is an ornamental shoulder piece on a uniform, a decoration worn on the shoulder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cake"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1071,49 @@
     "text": "What is inherited by Virginia's lakeside city",
     "enumeration": "6"
    },
-   "solution": "GENEVA"
+   "solution": "GENEVA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENEVA",
+    "definitions": [
+     {
+      "text": "lakeside city",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What is inherited",
+      "gives": "GENE",
+      "note": "genes are the units of heredity"
+     },
+     {
+      "clueFragment": "Virginia",
+      "gives": "VA",
+      "note": "VA is the US abbreviation for Virginia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENE",
+      "VA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone inheriting property in Virginia, with a city on a lake.",
+     "definitionFit": "Geneva is the Swiss city on the shore of Lake Geneva."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inherited"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1127,67 @@
     "text": "Manifesto format manipulated by political extremes",
     "enumeration": "8"
    },
-   "solution": "PLATFORM"
+   "solution": "PLATFORM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PLATFORM",
+    "definitions": [
+     {
+      "text": "Manifesto",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manipulated",
+      "for": "anagram",
+      "note": "manipulated material is handled and reshaped, so the letters are rearranged"
+     },
+     {
+      "text": "extremes",
+      "for": "charade",
+      "note": "the extremes of a word are its first and last letters, placed alongside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "political",
+      "gives": "PL",
+      "select": "outer",
+      "note": "first and last letters of political"
+     },
+     {
+      "clueFragment": "format",
+      "gives": "FORMAT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "ATFORM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FORMAT",
+       "gives": "ATFORM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party manifesto whose format has been spun by political extremists.",
+     "definitionFit": "A party's platform is its declared set of policies, which is what a manifesto sets out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremes"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1201,51 @@
     "text": "Sorcerer's not genuine article",
     "enumeration": "6"
    },
-   "solution": "SHAMAN"
+   "solution": "SHAMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHAMAN",
+    "definitions": [
+     {
+      "text": "Sorcerer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not genuine",
+      "gives": "SHAM",
+      "note": "a sham is a fake"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHAM",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sorcerer is not the genuine article, a fraud exposed.",
+     "walkthrough": "'Not genuine article' reads as one phrase meaning a fake; it splits into the fake and the grammatical article.",
+     "definitionFit": "A shaman is a healer or priest believed to wield magic, in effect a sorcerer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1259,61 @@
     "text": "Bleak House's climax adopted by American writer",
     "enumeration": "7"
    },
-   "solution": "AUSTERE"
+   "solution": "AUSTERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AUSTERE",
+    "definitions": [
+     {
+      "text": "Bleak",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climax",
+      "for": "letter_selection",
+      "note": "the climax comes at the end, so take the last letter"
+     },
+     {
+      "text": "adopted by",
+      "for": "charade",
+      "note": "adopted by means taken on by the writer, attached at his end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American writer",
+      "gives": "AUSTER",
+      "note": "Paul Auster was an American novelist"
+     },
+     {
+      "clueFragment": "House's",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSTER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The ending of Dickens's Bleak House taken over by an American novelist.",
+     "walkthrough": "'Bleak House' looks like the Dickens title, but 'Bleak' is the definition and 'House' just supplies its final letter.",
+     "definitionFit": "Austere means stark and plain, without comfort, which is a sense of bleak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bleak"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1327,77 @@
     "text": "Spooky tale's opening welcomed by unruly children — but not ending",
     "enumeration": "8"
    },
-   "solution": "ELDRITCH"
+   "solution": "ELDRITCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container",
+     "anagram"
+    ],
+    "answer": "ELDRITCH",
+    "definitions": [
+     {
+      "text": "Spooky",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     },
+     {
+      "text": "but not ending",
+      "for": "deletion",
+      "note": "not ending means the word loses its final letter"
+     },
+     {
+      "text": "welcomed by",
+      "for": "container",
+      "note": "one welcomed by others is taken in among them, so a letter goes inside"
+     },
+     {
+      "text": "unruly",
+      "for": "anagram",
+      "note": "unruly children are disorderly, so the letters are put in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "children",
+      "gives": "CHILDREN",
+      "note": "taken as written, then cut short"
+     },
+     {
+      "clueFragment": "tale's",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of tale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELDRITCH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHILDRET",
+       "gives": "ELDRITCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unruly children welcoming a ghost story's start, but the story never finishes.",
+     "definitionFit": "Eldritch is a Scots-origin word for weird, unearthly and eerie, a synonym of spooky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ending"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1411,62 @@
     "text": "Hybrid take over's leading characters include investor",
     "enumeration": "7"
    },
-   "solution": "TANGELO"
+   "solution": "TANGELO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TANGELO",
+    "definitions": [
+     {
+      "text": "Hybrid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading characters",
+      "for": "letter_selection",
+      "note": "the leading characters of words are their first letters"
+     },
+     {
+      "text": "include",
+      "for": "container",
+      "note": "to include is to hold inside, so the investor goes between the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "take over's",
+      "gives": "TO",
+      "select": "first",
+      "note": "first letters of take and over"
+     },
+     {
+      "clueFragment": "investor",
+      "gives": "ANGEL",
+      "note": "an angel is a backer who invests in a show or start-up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ANGEL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A takeover bid by an investor, in the jargon of corporate finance.",
+     "walkthrough": "'Hybrid' sounds like a business structure; it is a fruit cross.",
+     "definitionFit": "A tangelo is a citrus fruit bred by crossing a tangerine with a pomelo or grapefruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hybrid"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1480,48 @@
     "text": "Drill more off?",
     "enumeration": "6"
    },
-   "solution": "LESSON"
+   "solution": "LESSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LESSON",
+    "definitions": [
+     {
+      "text": "Drill",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more",
+      "gives": "LESS",
+      "note": "less is the opposite of more"
+     },
+     {
+      "clueFragment": "off?",
+      "gives": "ON",
+      "note": "on is the opposite of off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LESS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether more drilling should be switched off.",
+     "walkthrough": "Each word gives its opposite rather than a synonym, and the question mark flags that unusual step.",
+     "definitionFit": "A drill is a repeated exercise for teaching, and a lesson is a period of instruction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Drill"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1535,62 @@
     "text": "Bust make up is worn by half of you",
     "enumeration": "9"
    },
-   "solution": "INSOLVENT"
+   "solution": "INSOLVENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "INSOLVENT",
+    "definitions": [
+     {
+      "text": "Bust",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "deletion",
+      "note": "half of a word keeps only three of its six letters"
+     },
+     {
+      "text": "is worn by",
+      "for": "container",
+      "note": "something worn is wrapped around the wearer, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make up",
+      "gives": "INVENT",
+      "note": "to make up a story is to invent it"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "SOLVER",
+      "note": "in a crossword, you the reader are the solver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SOL",
+      "VENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Bust make-up worn by half of you, a cosmetics tip.",
+     "walkthrough": "'Bust make up' looks like cosmetics for the chest; bust means broke, and 'you' is the crossword solver.",
+     "definitionFit": "Someone bust has gone bankrupt, unable to pay debts, which is insolvent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bust"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1604,59 @@
     "text": "Fetishes are known to start with tattoos",
     "enumeration": "5"
    },
-   "solution": "KINKS"
+   "solution": "KINKS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KINKS",
+    "definitions": [
+     {
+      "text": "Fetishes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to start",
+      "for": "letter_selection",
+      "note": "to start means use only the opening letter of the word"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "known",
+      "gives": "K",
+      "select": "first",
+      "note": "first letter of known"
+     },
+     {
+      "clueFragment": "tattoos",
+      "gives": "INKS",
+      "note": "to ink someone is to tattoo them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "INKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Kinks are famously begun with tattoos, a remark about body art.",
+     "walkthrough": "'with' simply places the tattoo word after the opening letter.",
+     "definitionFit": "A kink is an unusual sexual preference, much the same as a fetish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tattoos"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1670,62 @@
     "text": "Glory for solving unfinished su doku",
     "enumeration": "5"
    },
-   "solution": "KUDOS"
+   "solution": "KUDOS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "KUDOS",
+    "definitions": [
+     {
+      "text": "Glory",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "unfinished means the last letter is cut off"
+     },
+     {
+      "text": "solving",
+      "for": "anagram",
+      "note": "solving a puzzle means working its pieces into order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "su doku",
+      "gives": "SUDOKU",
+      "note": "taken as written, then cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KUDOS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUDOK",
+       "gives": "KUDOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for finishing a sudoku, even one left incomplete.",
+     "definitionFit": "Kudos is praise and honour earned by an achievement, a near synonym of glory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "solving"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1739,45 @@
     "text": "Caught suspected intruder — not at all!",
     "enumeration": "5"
    },
-   "solution": "GUEST"
+   "solution": "GUEST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GUEST",
+    "definitions": [
+     {
+      "text": "intruder — not at all!",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Caught",
+      "for": "homophone",
+      "note": "to catch a remark is to hear it, so the word is taken by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suspected",
+      "gives": "GUEST",
+      "soundsLike": "GUESSED",
+      "note": "suspected means guessed, which sounds the same as the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone caught a suspected intruder, only to be told it was nothing of the kind.",
+     "walkthrough": "The definition is a cryptic twist: someone in the house who is the opposite of an intruder, because they were invited.",
+     "definitionFit": "A guest is a visitor who has been invited, so is precisely not an intruder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Caught"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1791,66 @@
     "text": "Most grotty dishes do get smashed ahead of time",
     "enumeration": "9"
    },
-   "solution": "SHODDIEST"
+   "solution": "SHODDIEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SHODDIEST",
+    "definitions": [
+     {
+      "text": "Most grotty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "get smashed",
+      "for": "anagram",
+      "note": "smashed crockery is broken into pieces, so these letters are rearranged"
+     },
+     {
+      "text": "ahead of",
+      "for": "charade",
+      "note": "ahead of places the jumbled letters before the time abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dishes do",
+      "gives": "DISHESDO",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHODDIES",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DISHESDO",
+       "gives": "SHODDIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The scruffiest crockery gets broken before its time.",
+     "walkthrough": "Grotty is British slang for unpleasant or of poor quality.",
+     "definitionFit": "Shoddy means badly made or poor quality, so the shoddiest thing is the most grotty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smashed"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1864,78 @@
     "text": "Humiliate compiler in article following editor's rejection",
     "enumeration": "6"
    },
-   "solution": "DEMEAN"
+   "solution": "DEMEAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "DEMEAN",
+    "definitions": [
+     {
+      "text": "Humiliate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejection",
+      "for": "reversal",
+      "note": "a rejected thing is sent back, so the editor's abbreviation is read backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the compiler alongside the article, the two forming one unit"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following puts the compiler-and-article unit after the rejected editor"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "editor's",
+      "gives": "ED",
+      "note": "ED is the abbreviation for editor"
+     },
+     {
+      "clueFragment": "compiler",
+      "gives": "ME",
+      "note": "the compiler is the setter, who refers to themselves as me"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "ME",
+      "AN"
+     ],
+     "reversals": [
+      {
+       "from": "ED",
+       "to": "DE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setter humiliated by having their article rejected by the editor.",
+     "walkthrough": "Setters often call themselves 'me'; 'in' is loose here, since the compiler simply stands before the article rather than inside it.",
+     "definitionFit": "To demean someone is to lower their dignity, which is to humiliate them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "compiler"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1949,54 @@
     "text": "Talismans include manger in a Christian service",
     "enumeration": "7"
    },
-   "solution": "MASCOTS"
+   "solution": "MASCOTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MASCOTS",
+    "definitions": [
+     {
+      "text": "Talismans",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "include",
+      "for": "container",
+      "note": "to include something is to take it inside, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Christian service",
+      "gives": "MASS",
+      "note": "Mass is the Catholic eucharistic service"
+     },
+     {
+      "clueFragment": "manger",
+      "gives": "COT",
+      "note": "a manger served as the baby Jesus's cot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAS",
+      "COT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Lucky charms featuring a manger in a Christmas church service.",
+     "definitionFit": "Mascots are objects or creatures kept to bring good luck, as talismans are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "manger"
+    }
+   }
   }
  ]
 }
