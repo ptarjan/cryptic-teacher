@@ -23,6 +23,9 @@
   "date": "2023-04-19",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,66 @@
     "text": "Discharge flipping drunk bishop going AWOL",
     "enumeration": "5"
    },
-   "solution": "DEMOB"
+   "solution": "DEMOB",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "DEMOB",
+    "definitions": [
+     {
+      "text": "Discharge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "to flip something is to turn it over, so the word is read backwards"
+     },
+     {
+      "text": "going AWOL",
+      "for": "deletion",
+      "note": "a soldier going AWOL is absent without leave, so that letter goes missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "BOMBED",
+      "note": "bombed is slang for very drunk"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "MOB"
+     ],
+     "reversals": [
+      {
+       "from": "BOMBED",
+       "to": "DEBMOB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric who has gone absent while drunk is being thrown out of the church.",
+     "walkthrough": "Reversing BOMBED gives DEBMOB; take out the first B (the bishop) to leave DEMOB.",
+     "definitionFit": "To demob is to release someone from military service, a shortening of demobilise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Discharge"
+    }
+   }
   },
   {
    "number": 1,
@@ -60,7 +122,39 @@
      }
     ]
    },
-   "solution": "DROPONESAITCHES"
+   "solution": "DROPONESAITCHES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DROP ONES AITCHES",
+    "definitions": [
+     {
+      "text": "Ignore a character as seen in EastEnders?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ignore a character",
+      "note": "surface reading: overlook a person in a TV drama"
+     },
+     {
+      "clueFragment": "as seen in EastEnders?",
+      "note": "setter's reading: the character ignored is a letter, the one Cockney speakers famously leave unsounded at the start of words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "EastEnders is a long-running BBC soap set in Cockney east London, where speakers say 'ouse' for house; 'character' means a letter of the alphabet, not a role.",
+     "definitionFit": "Dropping one's aitches means not pronouncing the H sound, a hallmark of Cockney and other working-class accents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 2,
@@ -74,7 +168,61 @@
     "text": "Design outfit periodically welcomed by both genders",
     "enumeration": "5"
    },
-   "solution": "MOTIF"
+   "solution": "MOTIF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MOTIF",
+    "definitions": [
+     {
+      "text": "Design",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so every other letter is kept"
+     },
+     {
+      "text": "welcomed by",
+      "for": "container",
+      "note": "being welcomed means being let in, so these letters go inside the genders"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "both genders",
+      "gives": "MF",
+      "note": "M and F are the abbreviations for male and female"
+     },
+     {
+      "clueFragment": "outfit",
+      "gives": "OTI",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of outfit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OTI",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "A clothing design is occasionally adopted by both men and women alike.",
+     "definitionFit": "A motif is a recurring decorative design or pattern."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outfit"
+    }
+   }
   },
   {
    "number": 3,
@@ -88,7 +236,76 @@
     "text": "Wife leaving Norwich, travelling with British Airways",
     "enumeration": "7"
    },
-   "solution": "BRONCHI"
+   "solution": "BRONCHI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "BRONCHI",
+    "definitions": [
+     {
+      "text": "Airways",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when something leaves it is no longer there, so that letter is taken out of the city"
+     },
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "letters that are travelling move about, so the rest of the city name is rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "w is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "Norwich",
+      "gives": "NORWICH",
+      "note": "the city name taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RONCHI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NORICH",
+       "gives": "RONCHI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife flies out of Norwich, a city in eastern England, on a British Airways flight.",
+     "walkthrough": "'British Airways' looks like the airline, but it splits: British is B and Airways is the definition.",
+     "definitionFit": "The bronchi are the two main air passages branching from the windpipe into the lungs, so they are airways."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Airways"
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +319,71 @@
     "text": "Rogue has loot, including ring, back from burglary",
     "enumeration": "9"
    },
-   "solution": "SCALLYWAG"
+   "solution": "SCALLYWAG",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCALLYWAG",
+    "definitions": [
+     {
+      "text": "Rogue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking something into the middle of the loot word"
+     },
+     {
+      "text": "back from",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loot",
+      "gives": "SWAG",
+      "note": "swag is a thief's plunder"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "CALL",
+      "note": "to ring someone is to call them"
+     },
+     {
+      "clueFragment": "burglary",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of burglary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CALLY",
+      "WAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A crook is carrying stolen goods, among them a piece of jewellery, home from a break-in.",
+     "walkthrough": "Swag is a burglar's haul in old slang. 'Ring' looks like jewellery in the burglar's haul but is a phone call.",
+     "definitionFit": "A scallywag is a mischievous rascal, a milder word for a rogue or scamp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 4,
@@ -116,7 +397,46 @@
     "text": "One maybe seen on the box for a cake",
     "enumeration": "4"
    },
-   "solution": "SOAP"
+   "solution": "SOAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SOAP",
+    "definitions": [
+     {
+      "text": "One maybe seen on the box",
+      "at": 0
+     },
+     {
+      "text": "a cake",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One maybe seen on the box",
+      "note": "first meaning: a TV serial drama, the box being television"
+     },
+     {
+      "clueFragment": "a cake",
+      "note": "second meaning: what a bar of washing product comes as"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Cake' tempts you towards baking; it is the solid block of a washing product. 'The box' is British slang for television.",
+     "definitionFit": "A soap is a soap opera, a long-running TV drama, and a cake is a solid bar of soap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cake"
+    }
+   }
   },
   {
    "number": 5,
@@ -130,7 +450,58 @@
     "text": "Receiving honour, having a bouquet devoid of colour",
     "enumeration": "10"
    },
-   "solution": "ACHROMATIC"
+   "solution": "ACHROMATIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACHROMATIC",
+    "definitions": [
+     {
+      "text": "devoid of colour",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Receiving",
+      "for": "container",
+      "note": "receiving means taking in, so the second phrase holds the honour inside"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bouquet",
+      "gives": "AROMATIC",
+      "note": "a bouquet is a scent, so having one makes a thing aromatic"
+     },
+     {
+      "clueFragment": "honour",
+      "gives": "CH",
+      "note": "CH is Companion of Honour, a British award"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CH",
+      "ROMATIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone receiving an award is handed flowers that have no colour.",
+     "walkthrough": "'Bouquet' suggests flowers, but here it is the scent of a wine.",
+     "definitionFit": "Achromatic means without colour, from Greek a- 'without' and chroma 'colour'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bouquet"
+    }
+   }
   },
   {
    "number": 6,
@@ -144,7 +515,69 @@
     "text": "Error made by learners about current time period",
     "enumeration": "7"
    },
-   "solution": "LITERAL"
+   "solution": "LITERAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LITERAL",
+    "definitions": [
+     {
+      "text": "Error",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the learners surround the rest"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learners",
+      "gives": "LL",
+      "note": "L is the learner driver's plate, doubled for plural"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t is the abbreviation for time"
+     },
+     {
+      "clueFragment": "period",
+      "gives": "ERA",
+      "note": "an era is a period of history"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ITERA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Students have made a mistake about the present period in history.",
+     "walkthrough": "I, T and ERA sit between the two L's.",
+     "definitionFit": "A literal is a printer's term for a typographical error, such as a wrong or missing letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 7,
@@ -158,7 +591,61 @@
     "text": "Amerindian's north-eastern land, lush all around",
     "enumeration": "9"
    },
-   "solution": "WINNEBAGO"
+   "solution": "WINNEBAGO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WINNEBAGO",
+    "definitions": [
+     {
+      "text": "Amerindian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all around",
+      "for": "container",
+      "note": "all around means encircling, so the drinker word surrounds the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "north-eastern",
+      "gives": "NE",
+      "note": "NE is the abbreviation for north-east"
+     },
+     {
+      "clueFragment": "land",
+      "gives": "BAG",
+      "note": "to land a prize is to bag it"
+     },
+     {
+      "clueFragment": "lush",
+      "gives": "WINO",
+      "note": "a lush is a heavy drinker, as is a wino"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIN",
+      "NEBAG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A Native American's territory in the north-east is green and fertile everywhere.",
+     "walkthrough": "'Land' and 'lush' read as fertile country; land is a verb and lush is a drunkard. The 's means is.",
+     "definitionFit": "The Winnebago, also called Ho-Chunk, are a Native American people of Wisconsin and Nebraska."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lush"
+    }
+   }
   },
   {
    "number": 8,
@@ -186,7 +673,62 @@
      }
     ]
    },
-   "solution": "GETONESSKATESON"
+   "solution": "GETONESSKATESON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GET ONES SKATES ON",
+    "definitions": [
+     {
+      "text": "Hurry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shepherding",
+      "for": "container",
+      "note": "a shepherd keeps the flock inside a pen, so the shopping phrase encloses the small letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to do a small amount of fish shopping, say",
+      "gives": "GETONESKATE",
+      "note": "buying a single fish of one kind is to get one skate"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "s is the abbreviation for small"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GETONE",
+      "S",
+      "SKATE",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has to rush to buy a little fish while looking after a young lad.",
+     "walkthrough": "Skate is a flat fish; 'say' signals the shopping phrase is one example. The small S slips in after GET ONE.",
+     "definitionFit": "To get one's skates on is a British idiom meaning to hurry up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shepherding"
+    }
+   }
   },
   {
    "number": 9,
@@ -200,7 +742,80 @@
     "text": "A writer's giving a twirl in hot pants? He eases your discomfort",
     "enumeration": "9"
    },
-   "solution": "OSTEOPATH"
+   "solution": "OSTEOPATH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "OSTEOPATH",
+    "definitions": [
+     {
+      "text": "He eases your discomfort",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving a twirl",
+      "for": "reversal",
+      "note": "a twirl spins something round, so the writer phrase is turned to face the other way"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the twirled phrase inside the letters of the other word"
+     },
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish, so the word before it is a mess to be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "OTH",
+      "note": "the three letters of hot rearranged"
+     },
+     {
+      "clueFragment": "A writer's",
+      "gives": "APOETS",
+      "note": "a writer here is a poet, with the possessive s kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "STEOPA",
+      "TH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOT",
+       "gives": "OTH"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "APOETS",
+       "to": "STEOPA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet twirling about in hot pants is pictured, and then the clue switches to someone who soothes your aches.",
+     "walkthrough": "'Hot pants' reads as one item of clothing; split it, and pants is the signal to rearrange hot, with the reversed A POET'S going inside.",
+     "definitionFit": "An osteopath treats aches and pains by manipulating bones and muscles, relieving a patient's discomfort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 10,
@@ -214,7 +829,62 @@
     "text": "Belief leader of expedition is perhaps camping?",
     "enumeration": "5"
    },
-   "solution": "TENET"
+   "solution": "TENET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TENET",
+    "definitions": [
+     {
+      "text": "Belief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter, so only that one is kept"
+     },
+     {
+      "text": "camping",
+      "for": "container",
+      "note": "someone camping is inside a shelter, so the letter is placed within the camping word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expedition",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of expedition"
+     },
+     {
+      "clueFragment": "is perhaps",
+      "gives": "TENT",
+      "note": "the clue reads E is perhaps camping, meaning E is in a tent; a tent is where one camps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "E",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether the head of an expedition believes in sleeping under canvas.",
+     "walkthrough": "The E sits in the middle of TENT, as a camper sits in a tent.",
+     "definitionFit": "A tenet is a principle or doctrine held to be true, so it is a belief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "camping"
+    }
+   }
   },
   {
    "number": 11,
@@ -228,7 +898,55 @@
     "text": "Place selling booze maintains constant service",
     "enumeration": "6"
    },
-   "solution": "OFFICE"
+   "solution": "OFFICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OFFICE",
+    "definitions": [
+     {
+      "text": "service",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maintains",
+      "for": "container",
+      "note": "to maintain is to hold, so the first word keeps the next one inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place selling booze",
+      "gives": "OFFIE",
+      "note": "an offie is British slang for an off-licence, a shop selling alcohol to take away"
+     },
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "c is the symbol for a constant in maths and physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFFI",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinks shop keeps up a steady service to its customers.",
+     "walkthrough": "An offie (off-licence) is the British name for a liquor store.",
+     "definitionFit": "An office is a religious service, as in the daily office of prayers said in church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 12,
@@ -242,7 +960,68 @@
     "text": "Ill fortune besetting European? This comes next",
     "enumeration": "8"
    },
-   "solution": "FOURTEEN"
+   "solution": "FOURTEEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FOURTEEN",
+    "definitions": [
+     {
+      "text": "This comes next",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ill",
+      "for": "anagram",
+      "note": "something ill is out of sorts, so the letters of the next word are disordered"
+     },
+     {
+      "text": "besetting",
+      "for": "container",
+      "note": "to beset is to surround, so the jumbled word goes around the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fortune",
+      "gives": "FOURTEN",
+      "note": "the letters of fortune rearranged"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOURTE",
+      "E",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FORTUNE",
+       "gives": "FOURTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bad luck surrounds a European, and the clue asks what will happen next.",
+     "walkthrough": "The definition refers to the grid itself: this clue is 12 across and the next across clue is 14, the number it defines.",
+     "definitionFit": "The following across clue in this puzzle is numbered 14, so that number is what comes next."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "next"
+    }
+   }
   },
   {
    "number": 13,
@@ -256,7 +1035,61 @@
     "text": "Top gangster seizing most of composer's drink",
     "enumeration": "10"
    },
-   "solution": "CAPPUCCINO"
+   "solution": "CAPPUCCINO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CAPPUCCINO",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seizing",
+      "for": "container",
+      "note": "seizing means grabbing hold of, so the gangster wraps around the composer"
+     },
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of means not quite all, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top gangster",
+      "gives": "CAPO",
+      "note": "a capo is the head of a Mafia family"
+     },
+     {
+      "clueFragment": "composer's",
+      "gives": "PUCCINI",
+      "note": "Puccini was the Italian opera composer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAP",
+      "PUCCIN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A Mafia boss grabs most of a composer's drink.",
+     "walkthrough": "The 's is a possessive in the surface but merely joins wordplay to definition.",
+     "definitionFit": "A cappuccino is an Italian coffee topped with frothed milk, a familiar drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +1103,76 @@
     "text": "Catching cold almost, a northerner's back in hot wrap",
     "enumeration": "9"
    },
-   "solution": "ENCHILADA"
+   "solution": "ENCHILADA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "ENCHILADA",
+    "definitions": [
+     {
+      "text": "hot wrap",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Catching",
+      "for": "container",
+      "note": "catching means taking hold of, so the second phrase wraps around the first"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling in the opposite direction, so the phrase is read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "CHILL",
+      "note": "a chill is a cold"
+     },
+     {
+      "clueFragment": "a northerner's",
+      "gives": "ADANE",
+      "note": "a Dane is someone from Denmark in northern Europe; the 's means is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "CHIL",
+      "ADA"
+     ],
+     "reversals": [
+      {
+       "from": "ADANE",
+       "to": "ENADA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nearly catching a cold is back home from the north, wrapped up warm.",
+     "walkthrough": "'Northerner' suggests the English North, but here it is a Scandinavian: a Dane. CHIL, short of its final L, goes inside the reversed A DANE.",
+     "definitionFit": "An enchilada is a tortilla rolled around a filling and baked, often spicy, so it is a hot wrap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "northerner"
+    }
+   }
   },
   {
    "number": 15,
@@ -294,7 +1196,63 @@
      }
     ]
    },
-   "solution": "CESTLAVIE"
+   "solution": "CESTLAVIE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CEST LA VIE",
+    "definitions": [
+     {
+      "text": "We must accept it",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jazzed up",
+      "for": "anagram",
+      "note": "something jazzed up is livened and remixed, so these letters are rearranged"
+     },
+     {
+      "text": "no. 1",
+      "for": "letter_selection",
+      "note": "number one is the first, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elvis act",
+      "gives": "ELVISACT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Elvis's",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of Elvis"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELVISACTE",
+       "gives": "CESTLAVIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Elvis tribute act jazzes up one of the King's number one hits.",
+     "walkthrough": "'Elvis's no. 1' reads as a chart-topping record; it is just the letter E.",
+     "definitionFit": "C'est la vie is French for 'that's life', said in resignation when something must be accepted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "no."
+    }
+   }
   },
   {
    "number": 16,
@@ -308,7 +1266,47 @@
     "text": "Tips in French for the answer",
     "enumeration": "5"
    },
-   "solution": "LEANS"
+   "solution": "LEANS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEANS",
+    "definitions": [
+     {
+      "text": "Tips",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in French for the",
+      "gives": "LE",
+      "note": "le is the French word for the"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "ANS",
+      "note": "ans is a standard abbreviation of answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "ANS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is handing out hints in French for the solution.",
+     "walkthrough": "'Tips' reads as a noun, advice, but it is a verb: tilts.",
+     "definitionFit": "To tip is to tilt or lean to one side, so tips and leans are synonymous verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tips"
+    }
+   }
   },
   {
    "number": 17,
@@ -322,7 +1320,52 @@
     "text": "Clergyman loses face giving offence",
     "enumeration": "5"
    },
-   "solution": "ARSON"
+   "solution": "ARSON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARSON",
+    "definitions": [
+     {
+      "text": "offence",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses face",
+      "for": "deletion",
+      "note": "a word's face is its front, so losing it means the first letter goes"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clergyman",
+      "gives": "PARSON",
+      "note": "a parson is a parish priest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARSON"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar suffers humiliation by causing offence to his congregation.",
+     "walkthrough": "'Loses face' is the idiom for humiliation; read literally, the parson loses his first letter, P.",
+     "definitionFit": "Arson, deliberately setting fire to property, is a criminal offence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 18,
@@ -336,7 +1379,70 @@
     "text": "Long-distance runner receiving bravos on run is a dainty eater",
     "enumeration": "7"
    },
-   "solution": "NIBBLER"
+   "solution": "NIBBLER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NIBBLER",
+    "definitions": [
+     {
+      "text": "a dainty eater",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking in, so the runner holds the bravos inside"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on means placed after, so the run letter is added at the end"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Long-distance runner",
+      "gives": "NILE",
+      "note": "the Nile is the world's longest river, and a river runs"
+     },
+     {
+      "clueFragment": "bravos",
+      "gives": "BB",
+      "note": "bravo is B in the NATO phonetic alphabet, so two of them"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "r is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "BB",
+      "LE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A marathon runner cheered on during a run turns out to eat very little.",
+     "walkthrough": "'Long-distance runner' is an athlete in the surface but a very long river in the wordplay.",
+     "definitionFit": "A nibbler takes small bites, which is how a dainty, fussy eater consumes food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1456,64 @@
     "text": "Trendy couple entering outside area in coat",
     "enumeration": "9"
    },
-   "solution": "PAINTWORK"
+   "solution": "PAINTWORK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PAINTWORK",
+    "definitions": [
+     {
+      "text": "coat",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so the first two pieces go within the area word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trendy",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "TWO",
+      "note": "a couple is two"
+     },
+     {
+      "clueFragment": "outside area",
+      "gives": "PARK",
+      "note": "a park is an open area outdoors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "INTWO",
+      "RK"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable pair walk into an open space wearing coats.",
+     "walkthrough": "'In coat' suggests clothing, but coat is the definition: a layer of paint.",
+     "definitionFit": "Paintwork is the painted surface of something, such as a car, which is a coat of paint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1527,47 @@
     "text": "Continue to ridicule English county town",
     "enumeration": "7"
    },
-   "solution": "TAUNTON"
+   "solution": "TAUNTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAUNTON",
+    "definitions": [
+     {
+      "text": "English county town",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to ridicule",
+      "gives": "TAUNT",
+      "note": "to taunt is to mock"
+     },
+     {
+      "clueFragment": "Continue",
+      "gives": "ON",
+      "note": "to go on is to continue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAUNT",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps on mocking a provincial English town.",
+     "walkthrough": "The pieces are read in reverse clue order: TAUNT, then ON.",
+     "definitionFit": "Taunton is the county town, the administrative centre, of Somerset in south-west England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Continue"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1587,46 @@
      }
     ]
    },
-   "solution": "TALKBACK"
+   "solution": "TALKBACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TALK BACK",
+    "definitions": [
+     {
+      "text": "Show nerve",
+      "at": 0
+     },
+     {
+      "text": "cryptic clue for \"bag\" or \"sag\"",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show nerve",
+      "note": "first meaning: to answer back cheekily to someone in authority"
+     },
+     {
+      "clueFragment": "cryptic clue for \"bag\" or \"sag\"",
+      "note": "second meaning: gab and gas both mean chatter, and bag and sag are those words written backwards"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is a clue in miniature: bag and sag are gab and gas, both meaning chatter, turned round, so they are 'talk, back'.",
+     "definitionFit": "To talk back is to reply impudently, which shows nerve or cheek towards whoever is speaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Show"
+    }
+   }
   },
   {
    "number": 22,
@@ -398,7 +1640,71 @@
     "text": "Egyptian king admits slip, going around in tank top",
     "enumeration": "6"
    },
-   "solution": "TURRET"
+   "solution": "TURRET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TURRET",
+    "definitions": [
+     {
+      "text": "tank top",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "to admit is to let in, so the king takes the slip inside"
+     },
+     {
+      "text": "going around",
+      "for": "reversal",
+      "note": "going around means turning to face the other way, so the slip is read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Egyptian king",
+      "gives": "TUT",
+      "note": "Tut is the short name of the pharaoh Tutankhamun"
+     },
+     {
+      "clueFragment": "slip",
+      "gives": "ERR",
+      "note": "to slip up is to err"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "RRE",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "ERR",
+       "to": "RRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pharaoh lets in a garment, wandering about in a sleeveless knitted top.",
+     "walkthrough": "'Tank top' suggests a sleeveless jumper; here it is the top of a military tank.",
+     "definitionFit": "A turret is the revolving armoured structure on top of a tank that carries its gun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tank"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1718,47 @@
     "text": "We're told chamber, say, is for discharge?",
     "enumeration": "5"
    },
-   "solution": "RHEUM"
+   "solution": "RHEUM",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RHEUM",
+    "definitions": [
+     {
+      "text": "discharge",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "We're told",
+      "for": "homophone",
+      "note": "being told something means hearing it, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "is for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chamber, say",
+      "gives": "RHEUM",
+      "soundsLike": "ROOM",
+      "note": "a chamber is a room"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether a chamber, perhaps a chamber pot, is meant for discharge.",
+     "walkthrough": "'Chamber' and 'discharge' suggest a firearm, but chamber is simply a room.",
+     "definitionFit": "Rheum is a watery fluid running from the eyes or nose, a bodily discharge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chamber"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1772,54 @@
     "text": "Boss showing diligence discharging debts",
     "enumeration": "4"
    },
-   "solution": "STUD"
+   "solution": "STUD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STUD",
+    "definitions": [
+     {
+      "text": "Boss",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discharging",
+      "for": "deletion",
+      "note": "discharging means sending out, so those letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "showing diligence",
+      "gives": "STUDIOUS",
+      "note": "studious means hard-working and diligent"
+     },
+     {
+      "clueFragment": "debts",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to repay debts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUD"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss proves diligent by paying off what he owes.",
+     "walkthrough": "'Boss' reads as an employer; it is a raised ornament.",
+     "definitionFit": "A boss is a raised knob or stud on a surface, such as the centre of a shield."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boss"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1833,52 @@
     "text": "Spades taken out of the case for undesirable digs",
     "enumeration": "5"
    },
-   "solution": "HOVEL"
+   "solution": "HOVEL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HOVEL",
+    "definitions": [
+     {
+      "text": "undesirable digs",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken out of the case",
+      "for": "deletion",
+      "note": "the case of a word is its outer shell, so its first and last letters are removed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spades",
+      "gives": "SHOVELS",
+      "note": "spades are digging tools, also called shovels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOVEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Garden tools are taken out of their box ready for some unwelcome digging.",
+     "walkthrough": "'Digs' looks like more work for the spades, but it is British slang for lodgings.",
+     "definitionFit": "A hovel is a squalid, miserable dwelling, so it is lodging nobody would want."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "digs"
+    }
+   }
   },
   {
    "number": 26,
@@ -460,7 +1898,72 @@
      }
     ]
    },
-   "solution": "INTATTERS"
+   "solution": "INTATTERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "IN TATTERS",
+    "definitions": [
+     {
+      "text": "Shredded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "packaging of",
+      "for": "letter_selection",
+      "note": "the packaging of a word is its outside, so only the first and last letters are kept"
+     },
+     {
+      "text": "getting eaten",
+      "for": "container",
+      "note": "something eaten goes inside, so that letter is placed within the vegetables"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indian",
+      "gives": "IN",
+      "select": "outer",
+      "note": "the first and last letters of Indian"
+     },
+     {
+      "clueFragment": "vegetables",
+      "gives": "TATERS",
+      "note": "taters is informal for potatoes"
+     },
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "t is the abbreviation for tons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TAT",
+      "T",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "The wrapping on some Indian vegetables is torn, and a great many of them have been eaten.",
+     "walkthrough": "Taters, a colloquial word for potatoes, takes in T.",
+     "definitionFit": "Something in tatters is torn into ragged strips, which is what shredded means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "packaging"
+    }
+   }
   },
   {
    "number": 27,
@@ -480,7 +1983,55 @@
      }
     ]
    },
-   "solution": "SWEARWORD"
+   "solution": "SWEARWORD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWEAR WORD",
+    "definitions": [
+     {
+      "text": "This may be considered rude",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "clothing someone means wrapping them, so the brand word goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brand's",
+      "gives": "SWORD",
+      "note": "a brand is a poetic word for a sword; the 's means is"
+     },
+     {
+      "clueFragment": "Don",
+      "gives": "WEAR",
+      "note": "to don a garment is to put it on and wear it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEAR",
+      "WORD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wearing a brand's clothing worries that it may look vulgar.",
+     "walkthrough": "'Brand' suggests a fashion label, but in older poetry a brand is a sword.",
+     "definitionFit": "A swear word is an obscenity, an expression most people regard as rude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brand's"
+    }
+   }
   },
   {
    "number": 28,
@@ -494,7 +2045,45 @@
     "text": "Only females getting this classical appellation",
     "enumeration": "5"
    },
-   "solution": "NOMEN"
+   "solution": "NOMEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOMEN",
+    "definitions": [
+     {
+      "text": "classical appellation",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "getting this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Only females",
+      "gives": "NOMEN",
+      "note": "if there are only females"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOMEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A women-only group gets a name from ancient times.",
+     "walkthrough": "Read the answer as two words, NO MEN, and only females remain.",
+     "definitionFit": "The nomen was the clan or family name of a Roman citizen, as in Gaius Julius Caesar, so a classical name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Only"
+    }
+   }
   }
  ]
 }
