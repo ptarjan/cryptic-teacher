@@ -69,6 +69,7 @@ import gale_arrived
 import gale_docs
 import gale_fetch
 import pypdf
+import trove_grid
 
 TOOLS = Path(__file__).resolve().parent
 
@@ -316,17 +317,43 @@ def square(box):
 MARGIN = 120
 
 
+def page_grids(img):
+    """[box] of the grids scaled() sizes a page by: the grid-shaped ink at
+    an archive.org page's width, else every square patch of ink. When the
+    widest is no lattice of white cells (trove_grid.lattice) and another
+    candidate is, the widest that is: a compact-era (2004-) Times page
+    prints its grid ~37% of the page wide, too wide for grid_shaped() at
+    SCAN_WIDTH, so the square patches were all there was, and a photo
+    beside the grid is wider (Times 24,662, 24,743, 24,744)."""
+    at = fa.SCAN_WIDTH / img.width
+    shaped = [[v / at for v in b] for b in fa.grids_on(img.resize((fa.SCAN_WIDTH, round(img.height * at))))]
+    squares = fa.grids_on(img, shaped=square)
+    grids = shaped or squares
+    if not grids:
+        return grids
+
+    def width(b):
+        return b[2] - b[0]
+
+    def is_lattice(b):
+        return trove_grid.lattice(img.crop((max(0, b[0] - 6), max(0, b[1] - 6), b[2] + 6, b[3] + 6)))
+    widest = max(grids, key=width)
+    if is_lattice(widest):
+        return grids
+    rest = sorted((b for b in shaped + [list(b) for b in squares] if list(b) != list(widest)), key=width, reverse=True)
+    return next(([b] for b in rest if is_lattice(b)), grids)
+
+
 def scaled(img):
     """(`img` as an archive.org page holds a puzzle, whether a grid was found
     on it): scaled so its widest grid is GRID_WIDTH wide (unscaled when none
     is found) and set on a white page SCAN_WIDTH wide, the size the filer's
     pixel spans are set at. A whole page (Gale's page download) is read at
     an archive.org page's width first, where a photo or a table is too big
-    to pass for its grid; a clipping, its widest square patch of ink."""
+    to pass for its grid; a clipping, its widest square patch of ink; a
+    widest box that is no lattice gives way to one that is (page_grids)."""
     from PIL import Image
-    at = fa.SCAN_WIDTH / img.width
-    grids = [[v / at for v in b] for b in fa.grids_on(img.resize((fa.SCAN_WIDTH, round(img.height * at))))] \
-        or fa.grids_on(img, shaped=square)
+    grids = page_grids(img)
     if grids:
         k = GRID_WIDTH / max(b[2] - b[0] for b in grids)
         if abs(k - 1) >= 0.05:

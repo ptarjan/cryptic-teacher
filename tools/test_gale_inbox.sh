@@ -387,6 +387,26 @@ whole = whole.convert("1")
 page, found = g.scaled(whole.convert("RGB"))
 check("a whole page is scaled by its grid, not its photo", (True, True),
       (found, any(abs(b[2] - b[0] - g.GRID_WIDTH) < 20 for b in fa.grids_on(page))))
+# A compact-era (2004-) page: its grid ~37% of the page wide, too wide to
+# be grid-shaped at an archive.org page's width, beside a wider square photo
+# (Times 24,662): scaled by the lattice, not the widest square of ink.
+compact = Image.new("L", (4600, 6000), 255)
+draw = ImageDraw.Draw(compact)
+draw.rectangle((100, 600, 2700, 3200), fill=0)  # the photo
+draw.ellipse((900, 1200, 1900, 2200), fill=255)  # a face in it
+pitch = 113
+for i in range(16):  # a 15x15 grid, 1695px wide
+    draw.rectangle((2800 + i * pitch, 600, 2808 + i * pitch, 600 + 15 * pitch + 8), fill=0)
+    draw.rectangle((2800, 600 + i * pitch, 2800 + 15 * pitch + 8, 608 + i * pitch), fill=0)
+for r, c in [(1, 1), (1, 3), (3, 5), (5, 1), (7, 7), (9, 9), (11, 3), (13, 13), (13, 11), (9, 13), (1, 13)]:
+    draw.rectangle((2800 + c * pitch, 600 + r * pitch, 2800 + (c + 1) * pitch, 600 + (r + 1) * pitch), fill=0)
+grid_box = (2800, 600, 2809 + 15 * pitch, 609 + 15 * pitch)
+check("a lattice of white cells is a grid; a photo, however square, is not", (True, False),
+      (trove_grid.lattice(compact.crop((2794, 594, grid_box[2] + 6, grid_box[3] + 6))),
+       trove_grid.lattice(compact.crop((94, 594, 2706, 3206)))))
+page, found = g.scaled(compact.convert("1").convert("RGB"))
+check("a compact page is scaled by its grid, not the wider photo beside it", (True, True),
+      (found, any(abs(b[2] - b[0] - g.GRID_WIDTH) < 20 for b in fa.grids_on(page))))
 gale = Path(sys.argv[1]) / "IF0500004465.pdf"
 buf = io.BytesIO()
 whole.save(buf, "PDF")
