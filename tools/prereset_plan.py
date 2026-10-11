@@ -880,10 +880,11 @@ _SCAN = [_row("times-21042", "1999-03-01", solved=False),       # an OCR scan, n
               clues={"present": 27, "total": 28})]
 # (rows, annotate ledger, solve ledger, series) -> queue ids
 BACKLOG_CASES = [
-    # answerless puzzles a model can read are queued, round-robin, newest first
-    (_SCAN, (), (), (), ["canberra-500", "times-29600", "times-21042", "times-20994"]),
+    # answerless puzzles a model can read are queued, round-robin, newest first,
+    # a LAST lane (canberra) behind every other
+    (_SCAN, (), (), (), ["times-29600", "times-21042", "times-20994", "canberra-500"]),
     # a solve that failed on these inputs stays out; an annotate failure keeps one out too
-    (_SCAN, ("times-29600",), ("times-21042",), (), ["canberra-500", "times-20994"]),
+    (_SCAN, ("times-29600",), ("times-21042",), (), ["times-20994", "canberra-500"]),
     # $CT_SERIES narrows it
     (_SCAN, (), (), ("canberra",), ["canberra-500"]),
     (_SCAN[2:4], (), (), (), ["times-29600"]),
@@ -1121,6 +1122,11 @@ def oldest_per_series(queue, pinned, rows, n=OLDEST_PER_SERIES):
 # puzzles: every entry in a round is already its own lane's newest gap. A series
 # missing from this list still runs; it just goes at the back of each cycle.
 BY_DEMAND = ["everyman", "indysunday", "quiptic", "cryptic", "independent"]
+# Lanes run after every other lane is empty, not in the round-robin. Canberra's
+# 1967-85 puzzles are London Times reprints whose originals Gale is filing (a
+# match renames the reprint to times-N), so solving the reprint first buys the
+# puzzle twice. Its 1986-95 Guardian reprints go last with it (Paul 10-11).
+LAST = ["canberra"]
 
 
 def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
@@ -1164,18 +1170,18 @@ def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
 
 def round_robin(rows):
     """rows round-robin across their series, BY_DEMAND's first, newest first
-    inside each series; undated last in its lane."""
+    inside each series; undated last in its lane; LAST's lanes after all of it."""
     from datetime import date
     lanes = {}
     for p in rows:
         lanes.setdefault(p["series"], []).append(p)
     for lane in lanes.values():
         lane.sort(key=lambda p: series.puzzle_day(p) or date.min, reverse=True)
-    cycle = sorted(lanes, key=lambda s: (BY_DEMAND.index(s) if s in BY_DEMAND
-                                         else len(BY_DEMAND), s))
+    cycle = sorted((s for s in lanes if s not in LAST),
+                   key=lambda s: (BY_DEMAND.index(s) if s in BY_DEMAND else len(BY_DEMAND), s))
     return [lanes[s][i]
-            for i in range(max((len(lane) for lane in lanes.values()), default=0))
-            for s in cycle if i < len(lanes[s])]
+            for i in range(max((len(lanes[s]) for s in cycle), default=0))
+            for s in cycle if i < len(lanes[s])] + [p for s in LAST for p in lanes.get(s, [])]
 
 
 def held_dir():
