@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,55 @@
     "text": "Framed by narrow window, behold gallant knight",
     "enumeration": "8"
    },
-   "solution": "LANCELOT"
+   "solution": "LANCELOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LANCELOT",
+    "definitions": [
+     {
+      "text": "gallant knight",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Framed by",
+      "for": "container",
+      "note": "a picture framed by something sits inside it, so the short word goes within the window word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "narrow window",
+      "gives": "LANCET",
+      "note": "a lancet is a tall narrow pointed window"
+     },
+     {
+      "clueFragment": "behold",
+      "gives": "LO",
+      "note": "lo is an old word meaning look or behold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANCE",
+      "LO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A chivalrous knight is glimpsed through a slit of a castle window.",
+     "walkthrough": "The clue order misleads: it is the word for behold that is framed, sitting inside the window word.",
+     "definitionFit": "Sir Lancelot is the most famous of King Arthur's Round Table knights, renowned for gallantry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Framed"
+    }
+   }
   },
   {
    "number": 2,
@@ -52,7 +103,53 @@
      }
     ]
    },
-   "solution": "ANTIHERO"
+   "solution": "ANTIHERO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTI-HERO",
+    "definitions": [
+     {
+      "text": "One far from admirable character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and jumbled, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another I",
+      "gives": "ANOTHERI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANOTHERI",
+       "gives": "ANTIHERO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is weighing up whether one unpleasant person or another has upset the speaker.",
+     "definitionFit": "An antihero is a central character who lacks conventional heroic virtues, so is far from admirable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 3,
@@ -66,7 +163,64 @@
     "text": "A great deal of Tory party followed by half-hearted mob",
     "enumeration": "12"
    },
-   "solution": "CONSIDERABLE"
+   "solution": "CONSIDERABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CONSIDERABLE",
+    "definitions": [
+     {
+      "text": "A great deal of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-hearted",
+      "for": "deletion",
+      "note": "a word with half its heart gone loses one of the two identical letters at its centre"
+     }
+    ],
+    "linkWords": [
+     "followed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory",
+      "gives": "CON",
+      "note": "Con is short for Conservative, the Tory party"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "SIDE",
+      "note": "a side is a party in a dispute or contest"
+     },
+     {
+      "clueFragment": "mob",
+      "gives": "RABBLE",
+      "note": "a rabble is a disorderly crowd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "SIDE",
+      "RABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A political party's supporters are trailed by a lukewarm crowd.",
+     "walkthrough": "Removing one of the middle pair of Bs from the mob word leaves RABLE.",
+     "definitionFit": "'Considerable' sums mean large ones, so the adjective substitutes for 'a great deal of'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +234,43 @@
     "text": "Problem with hose that firemen often raise",
     "enumeration": "6"
    },
-   "solution": "LADDER"
+   "solution": "LADDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LADDER",
+    "definitions": [
+     {
+      "text": "Problem with hose",
+      "at": 0
+     },
+     {
+      "text": "that firemen often raise",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Problem with hose",
+      "note": "first meaning: a run in stockings or tights"
+     },
+     {
+      "clueFragment": "that firemen often raise",
+      "note": "second meaning: the climbing frame fire crews put up against buildings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Hose' and 'firemen' together suggest a fire hose, but the hose here is hosiery.",
+     "definitionFit": "A run in tights is called a ladder in Britain, and firefighters raise extending ladders to reach upper floors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hose"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +284,58 @@
     "text": "Add colour with explosive stuff about one of the Romans",
     "enumeration": "4"
    },
-   "solution": "TINT"
+   "solution": "TINT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TINT",
+    "definitions": [
+     {
+      "text": "Add colour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding here, so the explosive goes around the Roman"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "explosive stuff",
+      "gives": "TNT",
+      "note": "TNT is trinitrotoluene, a high explosive"
+     },
+     {
+      "clueFragment": "one of the Romans",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone livens up a picture of Rome with fireworks.",
+     "walkthrough": "'One of the Romans' is not a person but the Roman numeral for one.",
+     "definitionFit": "To tint something is to give it a shade or hue, i.e. add colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Romans"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +349,66 @@
     "text": "Frank view about paintings put up",
     "enumeration": "8"
    },
-   "solution": "STRAIGHT"
+   "solution": "STRAIGHT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "STRAIGHT",
+    "definitions": [
+     {
+      "text": "Frank",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down clue, put up means written upwards, so the word runs backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding here, so the view word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "view",
+      "gives": "SIGHT",
+      "note": "a sight is a view"
+     },
+     {
+      "clueFragment": "paintings",
+      "gives": "ART",
+      "note": "paintings collectively are art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRA",
+      "IGHT"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An honest opinion about pictures being hung on the wall.",
+     "definitionFit": "Being straight with someone means being honest and direct, a synonym of frank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +422,46 @@
     "text": "Fruit that bird can't get in tree",
     "enumeration": "4"
    },
-   "solution": "KIWI"
+   "solution": "KIWI",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KIWI",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     },
+     {
+      "text": "bird can't get in tree",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fruit",
+      "note": "first meaning: a green fuzzy-skinned fruit"
+     },
+     {
+      "clueFragment": "bird can't get in tree",
+      "note": "second meaning: a flightless New Zealand bird, which cannot fly up into branches"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as a fruit out of reach; the second half describes the flightless bird.",
+     "definitionFit": "The kiwi fruit and the flightless kiwi bird share a name; the bird cannot fly, so it cannot get up a tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tree"
+    }
+   }
   },
   {
    "number": 8,
@@ -136,7 +475,65 @@
     "text": "Small piece or scrap of cloth people wrapped in paper, initially",
     "enumeration": "8"
    },
-   "solution": "FRAGMENT"
+   "solution": "FRAGMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FRAGMENT",
+    "definitions": [
+     {
+      "text": "Small piece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapped in",
+      "for": "container",
+      "note": "something wrapped in a covering sits inside it, so the cloth and people go inside the paper"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scrap of cloth",
+      "gives": "RAG",
+      "note": "a rag is a scrap of cloth"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men are people"
+     },
+     {
+      "clueFragment": "paper, initially",
+      "gives": "FT",
+      "note": "the Financial Times, known by its initials"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RAG",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a bit of fabric or bundled people in newspaper.",
+     "walkthrough": "'Initially' does not take first letters; it means the paper is named by its initials, FT for the Financial Times.",
+     "definitionFit": "A fragment is a small broken-off part of something, a small piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 9,
@@ -150,7 +547,60 @@
     "text": "Bury gold around island — not the coastal part",
     "enumeration": "8"
    },
-   "solution": "INTERIOR"
+   "solution": "INTERIOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INTERIOR",
+    "definitions": [
+     {
+      "text": "not the coastal part",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the burial and gold words close about the island"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bury",
+      "gives": "INTER",
+      "note": "to inter is to bury"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "I",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for hiding treasure on an island, but away from the shore.",
+     "definitionFit": "The interior of a country is its inland region, the part away from the coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +614,56 @@
     "text": "Crazy characters turned round in shock",
     "enumeration": "4"
    },
-   "solution": "STUN"
+   "solution": "STUN",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STUN",
+    "definitions": [
+     {
+      "text": "shock",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned round",
+      "for": "reversal",
+      "note": "something turned round faces the other way, so the word is read from the end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crazy characters",
+      "gives": "NUTS",
+      "note": "nuts are crazy people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUN"
+     ],
+     "reversals": [
+      {
+       "from": "NUTS",
+       "to": "STUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lunatics wheel about in alarm.",
+     "definitionFit": "To stun someone is to daze or astonish them, a verb sense of shock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +677,63 @@
     "text": "Creating distraction, wrongly directs a monarch",
     "enumeration": "12"
    },
-   "solution": "SIDETRACKING"
+   "solution": "SIDETRACKING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SIDETRACKING",
+    "definitions": [
+     {
+      "text": "Creating distraction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrongly",
+      "for": "anagram",
+      "note": "doing something wrongly means out of proper order, so these letters are muddled"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "directs a",
+      "gives": "DIRECTSA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "KING",
+      "note": "a king is a monarch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDETRAC",
+      "KING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIRECTSA",
+       "gives": "SIDETRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A courtier causes a diversion by misleading the king.",
+     "definitionFit": "Sidetracking means diverting someone from the main issue, i.e. creating a distraction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "directs"
+    }
+   }
   },
   {
    "number": 12,
@@ -192,7 +747,68 @@
     "text": "Habitual thief and policeman endlessly take off together",
     "enumeration": "12"
    },
-   "solution": "KLEPTOMANIAC"
+   "solution": "KLEPTOMANIAC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "KLEPTOMANIAC",
+    "definitions": [
+     {
+      "text": "Habitual thief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without an end, so the last letter of take is dropped"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong or awry, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "together"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "policeman",
+      "gives": "POLICEMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "take",
+      "gives": "TAKE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KLEPTOMANIAC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POLICEMANTAK",
+       "gives": "KLEPTOMANIAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A compulsive thief and a constable escape together.",
+     "definitionFit": "A kleptomaniac has a compulsive urge to steal, making them a habitual thief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 13,
@@ -206,7 +822,61 @@
     "text": "Nurse visibly embarrassed about drug offered",
     "enumeration": "8"
    },
-   "solution": "TENDERED"
+   "solution": "TENDERED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TENDERED",
+    "definitions": [
+     {
+      "text": "offered",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding here, so the joined words close around the drug"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "TEND",
+      "note": "to tend is to nurse"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is ecstasy"
+     },
+     {
+      "clueFragment": "visibly embarrassed",
+      "gives": "RED",
+      "note": "embarrassment shows as a red face"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEND",
+      "E",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse blushes over some medication.",
+     "walkthrough": "The drug goes between the two words rather than inside a single one: nurse and embarrassed together form the outer shell.",
+     "definitionFit": "To tender something is to formally offer it, as with a resignation or payment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drug"
+    }
+   }
   },
   {
    "number": 14,
@@ -220,7 +890,57 @@
     "text": "Drunkard finally finished port",
     "enumeration": "5"
    },
-   "solution": "DOVER"
+   "solution": "DOVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DOVER",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very last letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drunkard",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter of drunkard"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "OVER",
+      "note": "over means finished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker has polished off the last of the port.",
+     "walkthrough": "'Port' looks like the drink to go with drunkard, but it is a harbour town. Dover is a Channel port in Kent.",
+     "definitionFit": "Dover is England's main ferry port facing France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +954,46 @@
     "text": "Place for putting European or English novelist",
     "enumeration": "6"
    },
-   "solution": "GREENE"
+   "solution": "GREENE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREENE",
+    "definitions": [
+     {
+      "text": "novelist",
+      "at": 38
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place for putting",
+      "gives": "GREEN",
+      "note": "on a golf course you putt on the green"
+     },
+     {
+      "clueFragment": "European or English",
+      "gives": "E",
+      "note": "E abbreviates either European or English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREEN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders about the nationality of a writer who putts.",
+     "definitionFit": "Graham Greene was an English novelist, author of Brighton Rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "putting"
+    }
+   }
   },
   {
    "number": 16,
@@ -248,7 +1007,57 @@
     "text": "Wild animal finding nothing in watering hole",
     "enumeration": "4"
    },
-   "solution": "BOAR"
+   "solution": "BOAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BOAR",
+    "definitions": [
+     {
+      "text": "Wild animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the zero sits within the drinking place"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "watering hole",
+      "gives": "BAR",
+      "note": "a bar is a pub, a watering hole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "O",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A beast arrives at a waterhole and finds it dry.",
+     "definitionFit": "A boar is a wild pig, the classic wild animal of the forest hunt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "watering"
+    }
+   }
   },
   {
    "number": 16,
@@ -262,7 +1071,65 @@
     "text": "Support getting over each awfully painful experience that's behind one",
     "enumeration": "8"
    },
-   "solution": "BACKACHE"
+   "solution": "BACKACHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BACKACHE",
+    "definitions": [
+     {
+      "text": "painful experience that's behind one",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "awfully means badly, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "getting over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "BACK",
+      "note": "to back is to support"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EACH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "ACHE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EACH",
+       "gives": "ACHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting past a painful ordeal with help, so it's in the past.",
+     "walkthrough": "'Behind one' reads like 'in the past', but the pain is literally in your back. In a down clue, 'getting over' puts the support word on top.",
+     "definitionFit": "Backache is pain in the back, which is literally behind you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 17,
@@ -276,7 +1143,62 @@
     "text": "Turned to leading man or lady, one playing central role",
     "enumeration": "5"
    },
-   "solution": "PIVOT"
+   "solution": "PIVOT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "PIVOT",
+    "definitions": [
+     {
+      "text": "one playing central role",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turned",
+      "for": "reversal",
+      "note": "turned means facing the other way, so the words are read backwards"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "leading man or lady",
+      "gives": "VIP",
+      "note": "a VIP is a very important person, man or woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIV",
+      "OT"
+     ],
+     "reversals": [
+      {
+       "from": "TOVIP",
+       "to": "PIVOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looks to the star of a show, the one at its centre.",
+     "definitionFit": "A pivot is the central point on which things turn, so figuratively someone with a central role."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1212,54 @@
     "text": "Salesman's pitches about new models",
     "enumeration": "8"
    },
-   "solution": "PATTERNS"
+   "solution": "PATTERNS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PATTERNS",
+    "definitions": [
+     {
+      "text": "models",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding here, so the pitches word wraps around the letter for new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Salesman's pitches",
+      "gives": "PATTERS",
+      "note": "patter is a salesman's glib talk"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N abbreviates new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PATTER",
+      "N",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A salesman spins his lines about the latest models.",
+     "definitionFit": "Patterns are models or templates to be copied."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "models"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1273,47 @@
     "text": "Big game repeatedly spotted in vast estates there",
     "enumeration": "4"
    },
-   "solution": "TEST"
+   "solution": "TEST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TEST",
+    "definitions": [
+     {
+      "text": "Big game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repeatedly spotted in",
+      "for": "hidden_word",
+      "note": "spotted in means seen inside, so the letters sit within the following words; repeatedly is surface colour for wildlife sightings"
+     }
+    ],
+    "linkWords": [
+     "there"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vast estates",
+      "gives": "TEST",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A safari: large wild animals are often seen roaming huge estates.",
+     "walkthrough": "'Big game' suggests safari animals, but it is a Test match, a five-day international cricket fixture; 'repeatedly' nods to how often Tests are played.",
+     "definitionFit": "A Test is a major international cricket match, the biggest game in the sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1327,40 @@
     "text": "Play in attempt to win a hand?",
     "enumeration": "8"
    },
-   "solution": "SERENADE"
+   "solution": "SERENADE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SERENADE",
+    "definitions": [
+     {
+      "text": "Play in attempt to win a hand?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Play in attempt to win a hand?",
+      "note": "surface reading: a move in a card game aimed at taking a trick"
+     },
+     {
+      "clueFragment": "Play in attempt to win a hand?",
+      "note": "setter's reading: music performed to win a lover's hand in marriage"
+     }
+    ],
+    "explanation": {
+     "surface": "A card player makes a bid to take the trick.",
+     "walkthrough": "'Hand' suggests cards; here it is a hand in marriage, and 'play' is music.",
+     "definitionFit": "A serenade is a song played or sung beneath a beloved's window to woo them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1374,57 @@
     "text": "Doctor wearing protective gear for fighting",
     "enumeration": "6"
    },
-   "solution": "COMBAT"
+   "solution": "COMBAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMBAT",
+    "definitions": [
+     {
+      "text": "fighting",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "someone wearing clothes is inside them, so the doctor goes within the garment"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protective gear",
+      "gives": "COAT",
+      "note": "a coat protects against weather"
+     },
+     {
+      "clueFragment": "Doctor",
+      "gives": "MB",
+      "note": "MB is Bachelor of Medicine, a doctor's degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MB",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A medic dons armour to go into battle.",
+     "definitionFit": "Combat is fighting, especially between armed forces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1438,51 @@
     "text": "One or two girls providing shrub",
     "enumeration": "8"
    },
-   "solution": "ROSEMARY"
+   "solution": "ROSEMARY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROSEMARY",
+    "definitions": [
+     {
+      "text": "shrub",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One or two girls",
+      "gives": "ROSE",
+      "note": "Rose is a girl's name"
+     },
+     {
+      "clueFragment": "One or two girls",
+      "gives": "MARY",
+      "note": "Mary is a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSE",
+      "MARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl or two have brought along a plant.",
+     "walkthrough": "'One or two girls' works both ways: Rosemary is one girl's name, or Rose and Mary are two.",
+     "definitionFit": "Rosemary is an aromatic evergreen shrub used as a herb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "girls"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1496,45 @@
     "text": "Insult that's small, easy to bear",
     "enumeration": "6"
    },
-   "solution": "SLIGHT"
+   "solution": "SLIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLIGHT",
+    "definitions": [
+     {
+      "text": "Insult",
+      "at": 0
+     },
+     {
+      "text": "small, easy to bear",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insult",
+      "note": "first meaning: a snub or affront"
+     },
+     {
+      "clueFragment": "small, easy to bear",
+      "note": "second meaning: minor, not serious"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one small insult that is easy to shrug off; the word works as a noun and an adjective.",
+     "definitionFit": "A slight is a snub; slight as an adjective means minor, trivial and so easy to put up with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 23,
@@ -374,7 +1548,56 @@
     "text": "Stupid person the day before helping to produce solemn statement",
     "enumeration": "12"
    },
-   "solution": "ASSEVERATION"
+   "solution": "ASSEVERATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSEVERATION",
+    "definitions": [
+     {
+      "text": "solemn statement",
+      "at": 48
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stupid person",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     },
+     {
+      "clueFragment": "the day before",
+      "gives": "EVE",
+      "note": "an eve is the day before an event"
+     },
+     {
+      "clueFragment": "helping",
+      "gives": "RATION",
+      "note": "a ration is a portion, a helping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "EVE",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool, on the eve of something, helps draft a grave declaration.",
+     "walkthrough": "'Helping' looks like a verb, but it is a noun: a portion of food.",
+     "definitionFit": "An asseveration is an earnest, solemn declaration or assertion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "helping"
+    }
+   }
   },
   {
    "number": 24,
@@ -388,7 +1611,43 @@
     "text": "Going either way in metropolis, I located food store",
     "enumeration": "4"
    },
-   "solution": "SILO"
+   "solution": "SILO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SILO",
+    "definitions": [
+     {
+      "text": "food store",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Going either way in",
+      "for": "hidden_word",
+      "note": "in means contained within, and going either way says the letters read correctly forwards or backwards inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "metropolis, I located",
+      "gives": "SILO",
+      "note": "letters spanning the end of the city word, the I and the start of located"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tracking down a grocery store in the big city, from either direction.",
+     "walkthrough": "'Going either way' tells you it works both forwards and backwards: it also sits reversed inside metropOLIS.",
+     "definitionFit": "A silo is a tower or pit for storing grain or fodder, a food store."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "metropolis"
+    }
+   }
   },
   {
    "number": 25,
@@ -402,7 +1661,63 @@
     "text": "Enthusiastic support, having very briefly contributed",
     "enumeration": "4"
    },
-   "solution": "AVID"
+   "solution": "AVID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "AVID",
+    "definitions": [
+     {
+      "text": "Enthusiastic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so only an abbreviation of the word is kept"
+     },
+     {
+      "text": "having",
+      "for": "container",
+      "note": "having something contributed means taking it inside, so the short form goes into the support word"
+     }
+    ],
+    "linkWords": [
+     "contributed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "AID",
+      "note": "aid is support"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "Keen backing, since someone chipped in for a while.",
+     "definitionFit": "An avid fan is eager and enthusiastic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 26,
@@ -416,7 +1731,54 @@
     "text": "Autocrat, identified as terrible, reformed in vain",
     "enumeration": "4"
    },
-   "solution": "IVAN"
+   "solution": "IVAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IVAN",
+    "definitions": [
+     {
+      "text": "Autocrat, identified as terrible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reformed",
+      "for": "anagram",
+      "note": "reformed means made over in a new shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vain",
+      "gives": "VAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VAIN",
+       "gives": "IVAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful tyrant tried to reform himself, but to no avail.",
+     "walkthrough": "'Terrible' looks like criticism, but it is part of the ruler's title: Ivan the Terrible.",
+     "definitionFit": "Ivan IV of Russia, the first tsar, is known to history as Ivan the Terrible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "terrible"
+    }
+   }
   },
   {
    "number": 27,
@@ -430,7 +1792,67 @@
     "text": "That chap and I, holding pound, invest capital in Europe",
     "enumeration": "8"
    },
-   "solution": "HELSINKI"
+   "solution": "HELSINKI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HELSINKI",
+    "definitions": [
+     {
+      "text": "capital in Europe",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means gripping inside, so the outer words close round what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That chap",
+      "gives": "HE",
+      "note": "he is that chap"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L for libra, the pound"
+     },
+     {
+      "clueFragment": "invest",
+      "gives": "SINK",
+      "note": "to sink money into something is to invest it"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "L",
+      "SINK",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Two people pool their money to put capital into Europe.",
+     "walkthrough": "'Capital' and 'invest' suggest finance, but the capital is a city.",
+     "definitionFit": "Helsinki is the capital city of Finland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 28,
@@ -444,7 +1866,70 @@
     "text": "Apart from revolutionary in old hat, turned back",
     "enumeration": "8"
    },
-   "solution": "DETACHED"
+   "solution": "DETACHED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DETACHED",
+    "definitions": [
+     {
+      "text": "Apart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned back",
+      "for": "reversal",
+      "note": "turned back means facing the other way, so the word is read backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the revolutionary goes within the other word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old hat",
+      "gives": "DATED",
+      "note": "old hat means out of date"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETA",
+      "CHE",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "DATED",
+       "to": "DETAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Apart from a rebel in an old hat who turned round.",
+     "walkthrough": "'Old hat' looks like headgear for the revolutionary but means outdated.",
+     "definitionFit": "Detached means separated or standing apart from others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hat"
+    }
+   }
   }
  ]
 }
