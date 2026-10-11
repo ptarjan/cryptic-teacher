@@ -1159,6 +1159,23 @@ check("a two-number count torn open at the end goes with its comma ('ship (6; 81
       "Fugitive from Hook perhaps — in a phantom ship",
       oc.agree("Fugitive from Hook perhaps — in a phantom ship (6; 81", [ship, ship, ship])[0])
 
+# The clue's own edge word split or run apart in other readings is no
+# word lost at that end; words they print past a whole edge word are.
+split = ["#", "This", "stake", "is", "not", "a", "broom", "slick", "#"]
+whole = ["#", "This", "stake", "is", "not", "a", "broomstick", "#"]
+check("an edge word split by readings is no lost end ('broom slick' for broomstick, NewsUK 1977)",
+      "This stake is not a broomstick", oc.agree("This stakc is not a broomsuick", [split, split, whole])[0])
+pre = ["#", "Dr", "Grace's", "excessive", "prer", "criptious", "?", "#"]
+check("and the clue's '?' past the split word stays its own ('prer criptious ?', NewsUK 1978)",
+      "Dr Grace's excessive prescriptions?",
+      oc.agree("Dr Gracc's excessive prescriptions?", [pre, pre, ["#", "Dr", "Grace's", "excessive", "prescriptions", "?", "#"]])[0])
+nb = ["#", "Not", "by", "Bacchus", "and", "his", "pards", "#"]
+check("mirror: words before a whole first word are lost ('Not by Bacchus')",
+      "Not by Bacchus and his pards", oc.agree("Bacchus and his pards", [nb, nb])[0])
+no = ["#", "No", "uniform", "for", "this", "law", "man", "#"]
+check("mirror: two words the clue ran together stay apart ('Nouniform' for 'No uniform')",
+      "No uniform for this law man", oc.agree("Nouniform for this law man", [no, no])[0])
+
 print(f"FAILS {fails}")
 EOF
 )
