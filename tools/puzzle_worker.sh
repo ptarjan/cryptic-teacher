@@ -33,16 +33,21 @@ worker_kind() { local _ kind=""; [ -s "$1" ] && read -r _ kind _ <"$1"; printf '
 # --- interrupted runs ----------------------------------------------------------
 # A run can be stopped from outside (a restart, its unit's time limit) with its
 # conversation on disk and its edits in a tree the next start resets. So every
-# conversation's sid file lives in the git dir all trees share,
-# ct-runs/<job>/<id>.sid, beside <id>.tree (the tree it runs in) and <id>.fill
-# (a cold solve's fill). It is forgotten when the puzzle's fate is settled
+# conversation's sid file lives beside the checkout all trees share,
+# .ct-runs/<job>/<id>.sid, with <id>.tree (the tree it runs in) and <id>.fill
+# (a cold solve's fill). Not in the git dir: the run writes its fill there
+# itself, and Claude Code refuses any write under .git as a sensitive file. It is forgotten when the puzzle's fate is settled
 # (worker_finish, a rejected solve, a dropped run); one still there when its id
 # is next launched is an interrupted run, and that launch resumes it
 # (worker_put_back). A record a day old is dropped instead: its tree has moved on.
+worker_runs_root() {   # [tree] -> where every job's records live
+  local g
+  g="$(git ${1:+-C "$1"} rev-parse --path-format=absolute --git-common-dir)" &&
+    printf '%s\n' "$(dirname "$g")/.ct-runs"
+}
 worker_runs() {   # job -> its record directory, made if missing
   local d
-  d="$(git rev-parse --path-format=absolute --git-common-dir)/ct-runs/$1" &&
-    mkdir -p "$d" && printf '%s\n' "$d"
+  d="$(worker_runs_root)/$1" && mkdir -p "$d" && printf '%s\n' "$d"
 }
 worker_forget() {   # sidfile
   local rec="${1%.sid}"
@@ -80,7 +85,7 @@ worker_set_aside() {   # tree sidfile
 # tree is reset (tools/nightly_worktree.sh). Stale records are dropped here.
 worker_set_aside_tree() {   # tree
   local runs sid
-  runs="$(git -C "$1" rev-parse --path-format=absolute --git-common-dir)/ct-runs"
+  runs="$(worker_runs_root "$1")"
   [ -d "$runs" ] || return 0
   for sid in "$runs"/*/*.sid; do
     [ -f "$sid" ] || continue
