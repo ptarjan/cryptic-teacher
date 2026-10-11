@@ -1890,6 +1890,13 @@ class Index:
         self.db = sqlite3.connect(path)
         self.db.execute("CREATE TABLE IF NOT EXISTS post (path TEXT PRIMARY KEY, size INT, mtime INT, sha TEXT, title TEXT)")
         self.db.execute("CREATE TABLE IF NOT EXISTS join_ (key TEXT PRIMARY KEY, json TEXT)")
+        self.writes = 0
+
+    def _wrote(self):
+        """Commit every 1000 writes, so a run killed while seeding keeps what it read."""
+        self.writes += 1
+        if self.writes % 1000 == 0:
+            self.db.commit()
 
     def post(self, path):
         """(sha256 of the post's bytes, its rendered title), or None for a post that is not JSON."""
@@ -1904,6 +1911,7 @@ class Index:
             got = None
         self.db.execute("INSERT OR REPLACE INTO post VALUES (?,?,?,?,?)",
                         (str(path), st.st_size, st.st_mtime_ns, *(got or (None, None))))
+        self._wrote()
         return got
 
     def join(self, key):
@@ -1912,6 +1920,7 @@ class Index:
 
     def put_join(self, key, text):
         self.db.execute("INSERT OR REPLACE INTO join_ VALUES (?,?)", (key, text))
+        self._wrote()
 
     def prune(self, keys):
         """Drop every join not under `keys`."""
