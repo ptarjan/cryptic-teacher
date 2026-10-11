@@ -23,6 +23,9 @@
   "date": "2023-02-27",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,57 @@
     "text": "Badge from Britain GI sniper brought back",
     "enumeration": "8"
    },
-   "solution": "INSIGNIA"
+   "solution": "INSIGNIA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "INSIGNIA",
+    "definitions": [
+     {
+      "text": "Badge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "'from' says the letters are taken out of the run of words that follows"
+     },
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "something brought back returns the way it came, so the run is read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Britain GI sniper",
+      "gives": "AINGISNI",
+      "note": "the letters sit across these three words, ready to be read backwards"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "AINGISNI",
+       "to": "INSIGNIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier's badge taken from a British-based American sniper.",
+     "walkthrough": "Read 'BritAIN GI SNIper' backwards to find INSIGNIA; GI is an American soldier, which suits the badge picture.",
+     "definitionFit": "Insignia are the emblems or badges of rank or membership, so the plural noun serves for a badge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +103,39 @@
     "text": "What does foot have three times as many of as hand?",
     "enumeration": "6"
    },
-   "solution": "INCHES"
+   "solution": "INCHES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INCHES",
+    "definitions": [
+     {
+      "text": "What does foot have three times as many of as hand?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foot",
+      "note": "surface reading: a body part at the end of the leg; setter's reading: a unit of length, twelve of a smaller unit"
+     },
+     {
+      "clueFragment": "hand",
+      "note": "surface reading: the body part; setter's reading: the unit used to measure horses, a third of a foot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question sounds like anatomy, toes against fingers, but foot and hand are both units of length: a foot is twelve of the answer and a hand four.",
+     "definitionFit": "The answer is the small imperial unit of length, twelve to a foot and four to a hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +149,58 @@
     "text": "Stamina required to cross river or brook",
     "enumeration": "6"
    },
-   "solution": "STREAM"
+   "solution": "STREAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STREAM",
+    "definitions": [
+     {
+      "text": "brook",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "required to cross",
+      "for": "container",
+      "note": "to cross something here is to straddle it, so one word spans the other and holds it inside"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stamina",
+      "gives": "STEAM",
+      "note": "steam is energy or stamina, as in running out of steam"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "R",
+      "EAM"
+     ]
+    },
+    "explanation": {
+     "surface": "It takes stamina to get across a river or a brook.",
+     "walkthrough": "'or' is just a link here; the river R sits inside STEAM.",
+     "definitionFit": "A stream is a small natural watercourse, the same thing as a brook."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +220,38 @@
      }
     ]
    },
-   "solution": "GUINEAPIG"
+   "solution": "GUINEAPIG",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GUINEA PIG",
+    "definitions": [
+     {
+      "text": "Where this isn't from and the kind of animal it isn't",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where this isn't from",
+      "note": "the first word of the answer is a West African country, yet the animal comes from South America"
+     },
+     {
+      "clueFragment": "the kind of animal it isn't",
+      "note": "the second word names a farm animal, yet the creature is a rodent"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The riddle describes a pet named after a place it does not come from and an animal it is not.",
+     "definitionFit": "The guinea pig is a South American rodent, the cavy, neither from Guinea nor a pig."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +265,74 @@
     "text": "Popular work in art gallery in recycled clay? Not exactly",
     "enumeration": "12"
    },
-   "solution": "INACCURATELY"
+   "solution": "INACCURATELY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "INACCURATELY",
+    "definitions": [
+     {
+      "text": "Not exactly",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recycled",
+      "for": "anagram",
+      "note": "something recycled is broken down and reused in a new form, so these letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the gallery work inside the reworked letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "clay",
+      "gives": "CLAY",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "work in art gallery",
+      "gives": "CURATE",
+      "note": "to curate is to organise an exhibition, the work done in a gallery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "AC",
+      "CURATE",
+      "LY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLAY",
+       "gives": "ACLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A popular gallery installation made from recycled clay, described only roughly.",
+     "walkthrough": "'in' appears twice with two jobs: first it is a word meaning popular, then it is the signal for putting one piece inside another.",
+     "definitionFit": "Inaccurately means not precisely or not correctly, so it matches the adverb phrase not exactly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +346,48 @@
     "text": "Argument as result of being oddly selective in formal clause",
     "enumeration": "6"
    },
-   "solution": "FRACAS"
+   "solution": "FRACAS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "FRACAS",
+    "definitions": [
+     {
+      "text": "Argument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as result of being oddly selective in",
+      "for": "letter_selection",
+      "note": "being oddly selective means keeping only the first, third, fifth and further odd-placed letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "formal clause",
+      "gives": "FRACAS",
+      "select": "alternate",
+      "note": "the odd-placed letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRACAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute arising because someone picked and chose oddly in the wording of a formal clause.",
+     "definitionFit": "A fracas is a noisy quarrel or brawl, so it is a heated argument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +401,39 @@
     "text": "November is equally far away for him and his beloved",
     "enumeration": "5"
    },
-   "solution": "ROMEO"
+   "solution": "ROMEO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROMEO",
+    "definitions": [
+     {
+      "text": "him",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "November is equally far away",
+      "note": "in the NATO phonetic alphabet November stands for N, four letters from R and four from J"
+     },
+     {
+      "clueFragment": "for him and his beloved",
+      "note": "the lover and his beloved are the code words for R and J, the Shakespearean pair"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "November sounds like a month, but it is a word in the radio alphabet; the code words for J and R are the names of Shakespeare's star-crossed lovers.",
+     "definitionFit": "Shakespeare's young lover, whose beloved is Juliet, shares his name with the NATO code word for R."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "November"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +447,39 @@
     "text": "Service provider for other service providers?",
     "enumeration": "8"
    },
-   "solution": "CHAPLAIN"
+   "solution": "CHAPLAIN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHAPLAIN",
+    "definitions": [
+     {
+      "text": "Service provider for other service providers?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Service provider",
+      "note": "surface reading: a business that supplies a service; setter's reading: a cleric who leads religious services"
+     },
+     {
+      "clueFragment": "other service providers",
+      "note": "surface reading: rival companies; setter's reading: members of the armed services"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase sounds like business jargon, but a religious service is meant, held for people serving in the forces.",
+     "definitionFit": "A chaplain is a clergyman attached to an institution such as a regiment or ship, holding services for military personnel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "provider"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +493,47 @@
     "text": "Piercing, small missile",
     "enumeration": "8"
    },
-   "solution": "STRIDENT"
+   "solution": "STRIDENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRIDENT",
+    "definitions": [
+     {
+      "text": "Piercing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "missile",
+      "gives": "TRIDENT",
+      "note": "Trident is a submarine-launched nuclear missile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRIDENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A small missile that pierces its target.",
+     "walkthrough": "Piercing looks like a description of what a missile does, but it is the definition, meaning shrill.",
+     "definitionFit": "A strident sound is loud and harsh, so piercing in the sense of an ear-splitting noise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Piercing"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +547,68 @@
     "text": "Sex returns in erotic festival",
     "enumeration": "8"
    },
-   "solution": "CARNIVAL"
+   "solution": "CARNIVAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CARNIVAL",
+    "definitions": [
+     {
+      "text": "festival",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "something that returns goes back the way it came, so the letters are read in the opposite order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' puts the reversed piece inside the word for erotic"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "erotic",
+      "gives": "CARNAL",
+      "note": "carnal means sexual, fleshly"
+     },
+     {
+      "clueFragment": "Sex",
+      "gives": "VI",
+      "note": "sex is Latin for six, the Roman numeral VI"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARN",
+      "IV",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "VI",
+       "to": "IV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sex makes a comeback at a racy festival.",
+     "walkthrough": "'Sex' is not about passion at all: it is the Latin word for six, so a Roman numeral is wanted.",
+     "definitionFit": "A carnival is a public festival with processions and merrymaking, often before Lent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sex"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +622,53 @@
     "text": "One's piano tune better? Just the opposite",
     "enumeration": "6"
    },
-   "solution": "IMPAIR"
+   "solution": "IMPAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPAIR",
+    "definitions": [
+     {
+      "text": "better? Just the opposite",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One's",
+      "gives": "IM",
+      "note": "one is I, and I's means I am, giving I'M"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "P is the musical abbreviation for piano, softly"
+     },
+     {
+      "clueFragment": "tune",
+      "gives": "AIR",
+      "note": "an air is a tune or melody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "P",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether retuning their piano improves it, and is told it makes it worse.",
+     "walkthrough": "The definition is the whole phrase 'better? Just the opposite': the opposite of to better is to make worse.",
+     "definitionFit": "To impair is to weaken or damage, the reverse of improving something, so it is the antonym of the verb better."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tune"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +682,64 @@
     "text": "Right work among collected writings for man's study?",
     "enumeration": "12"
    },
-   "solution": "ANTHROPOLOGY"
+   "solution": "ANTHROPOLOGY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANTHROPOLOGY",
+    "definitions": [
+     {
+      "text": "man's study",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "something among a collection sits inside it, so these letters go within the word for collected writings"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "collected writings",
+      "gives": "ANTHOLOGY",
+      "note": "an anthology is a collection of writings"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTH",
+      "ROP",
+      "OLOGY"
+     ]
+    },
+    "explanation": {
+     "surface": "The proper work to include in an anthology about humankind.",
+     "walkthrough": "OP, short for opus, is the standard crossword stand-in for a work; 'man' here means humankind in general.",
+     "definitionFit": "Anthropology is the scientific study of humankind, man in the old general sense, its societies and cultures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Right"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +753,62 @@
     "text": "Times editor's leader subject to deletion",
     "enumeration": "5"
    },
-   "solution": "ERASE"
+   "solution": "ERASE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ERASE",
+    "definitions": [
+     {
+      "text": "subject to deletion",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes at the front, so only the first letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "ERA",
+      "note": "an era is a period of time, times"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the apostrophe-s taken as written"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERA",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The newspaper's chief editor faces having their work cut.",
+     "walkthrough": "'Times' looks like the newspaper but just means eras, and 'editor's' is split so the S joins ERA before the E.",
+     "definitionFit": "To erase is to subject something to deletion, rubbing or wiping it out; the phrase works as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +822,60 @@
     "text": "Silly person in rogue's embrace carried on amorously",
     "enumeration": "9"
    },
-   "solution": "CANOODLED"
+   "solution": "CANOODLED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANOODLED",
+    "definitions": [
+     {
+      "text": "carried on amorously",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' says the silly person goes inside the other word"
+     },
+     {
+      "text": "embrace",
+      "for": "container",
+      "note": "an embrace wraps arms around someone, so the rogue's word surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rogue's",
+      "gives": "CAD",
+      "note": "a cad is a rogue or bounder"
+     },
+     {
+      "clueFragment": "Silly person",
+      "gives": "NOODLE",
+      "note": "a noodle is a fool, a silly person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "NOODLE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool in a scoundrel's arms behaved amorously.",
+     "walkthrough": "The embrace suits the amorous surface, but here it only means one word wraps round the other; noodle is informal for a fool.",
+     "definitionFit": "To canoodle is to kiss and cuddle, so canoodled means behaved amorously, a past tense matching carried on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "embrace"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +889,43 @@
     "text": "Running in fear",
     "enumeration": "12"
    },
-   "solution": "APPREHENSION"
+   "solution": "APPREHENSION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "APPREHENSION",
+    "definitions": [
+     {
+      "text": "Running in",
+      "at": 0
+     },
+     {
+      "text": "fear",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Running in",
+      "note": "first meaning: arrest, as when police run a suspect in"
+     },
+     {
+      "clueFragment": "fear",
+      "note": "second meaning: anxiety or dread about what may happen"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The three words read as someone fleeing in terror, but split after 'in': running someone in is slang for arresting them.",
+     "definitionFit": "Apprehension means both the arrest of a suspect and uneasy anxiety about the future."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Running"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +945,75 @@
      }
     ]
    },
-   "solution": "NORTHSTAR"
+   "solution": "NORTHSTAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "NORTH STAR",
+    "definitions": [
+     {
+      "text": "navigational aid",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disoriented",
+      "for": "anagram",
+      "note": "something disoriented has lost its bearings, so the letters end up out of order"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "'following' puts the sailor and the jumbled letters after the letter for new"
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "short",
+      "gives": "SHORT",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "a tar is a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ORTHS",
+      "TAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHORT",
+       "gives": "ORTHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lost sailor, put briefly, relies on a fresh way of finding direction.",
+     "walkthrough": "'In short' reads as 'briefly', but 'short' is the fodder; a disoriented sailor would indeed want this star.",
+     "definitionFit": "The North Star, Polaris, stays almost fixed over the North Pole, so sailors have long steered by it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1027,68 @@
     "text": "Oddly cued a Conservative cut, as one not liking to see class struggle?",
     "enumeration": "8"
    },
-   "solution": "EDUCATOR"
+   "solution": "EDUCATOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "EDUCATOR",
+    "definitions": [
+     {
+      "text": "one not liking to see class struggle?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "anagram",
+      "note": "done oddly means done in a strange way, so these letters are rearranged"
+     },
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut is shortened, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cued a",
+      "gives": "CUEDA",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "TORY",
+      "note": "a Tory is a member of the UK Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDUCA",
+      "TOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CUEDA",
+       "gives": "EDUCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory who wants to stop class struggle, the opposite of a Marxist.",
+     "walkthrough": "'class struggle' looks political, but it means pupils struggling in a classroom, which a teacher hates to see.",
+     "definitionFit": "An educator is a teacher, someone who wants pupils in a class to do well rather than struggle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1102,62 @@
     "text": "Minimal idea following article in examination",
     "enumeration": "8"
    },
-   "solution": "FAINTEST"
+   "solution": "FAINTEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAINTEST",
+    "definitions": [
+     {
+      "text": "Minimal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "idea"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "F is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "examination",
+      "gives": "TEST",
+      "note": "a test is an examination"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "A",
+      "IN",
+      "TEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Having the faintest idea after reading an article in an exam.",
+     "walkthrough": "'Minimal idea' suggests the definition is the phrase 'faintest idea'; the definition is just 'Minimal', with 'idea' completing the familiar phrase.",
+     "definitionFit": "Faintest means slightest or least, the smallest possible amount, as in not the faintest notion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1171,39 @@
     "text": "Level playing area for would-be kingmakers",
     "enumeration": "12"
    },
-   "solution": "DRAUGHTBOARD"
+   "solution": "DRAUGHTBOARD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DRAUGHTBOARD",
+    "definitions": [
+     {
+      "text": "Level playing area for would-be kingmakers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Level playing area",
+      "note": "surface reading: a flat sports pitch, with a nod to a level playing field"
+     },
+     {
+      "clueFragment": "would-be kingmakers",
+      "note": "setter's reading: pieces in a board game that hope to reach the far side and be crowned kings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Kingmakers suggests political power-brokers, but in draughts (checkers) a piece reaching the back row is crowned a king, and the game is played on a flat board.",
+     "definitionFit": "The board for draughts, the British name for checkers, is flat and is where players try to promote pieces to kings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kingmakers"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1217,47 @@
     "text": "Lose track of mass whisky producer",
     "enumeration": "6"
    },
-   "solution": "MISLAY"
+   "solution": "MISLAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MISLAY",
+    "definitions": [
+     {
+      "text": "Lose track of",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "M is the abbreviation for mass"
+     },
+     {
+      "clueFragment": "whisky producer",
+      "gives": "ISLAY",
+      "note": "Islay is a Scottish island famous for its malt whiskies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ISLAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A distillery loses track of a large quantity of its whisky.",
+     "walkthrough": "Islay is an island of the Inner Hebrides off Scotland's west coast, home to many distilleries.",
+     "definitionFit": "To mislay something is to put it down and forget where, so to lose track of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mass"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1271,68 @@
     "text": "Ending article uploaded into document",
     "enumeration": "6"
    },
-   "solution": "FINALE"
+   "solution": "FINALE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "FINALE",
+    "definitions": [
+     {
+      "text": "Ending",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uploaded",
+      "for": "reversal",
+      "note": "in a down clue, loaded upwards means the letters are read from the bottom up"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "'into' places the turned word inside the word for document"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "document",
+      "gives": "FILE",
+      "note": "a file is a document"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "NA",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "AN",
+       "to": "NA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The final article is uploaded to a document.",
+     "walkthrough": "'uploaded' sounds like computing, but in a down light it means the word is written upwards.",
+     "definitionFit": "A finale is the closing part of a show or piece of music, its ending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "uploaded"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1346,67 @@
     "text": "Singer making mess of carol, not keeping time",
     "enumeration": "9"
    },
-   "solution": "CONTRALTO"
+   "solution": "CONTRALTO",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "CONTRALTO",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding it inside, so the time letter goes within the other letters"
+     },
+     {
+      "text": "making mess of",
+      "for": "anagram",
+      "note": "making a mess of something jumbles it up, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carol",
+      "gives": "CAROL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAROLNOTT",
+       "gives": "CONTRALTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer botches a carol by failing to stay in time.",
+     "walkthrough": "'not keeping time' reads as bad rhythm, but NOT is fodder and 'keeping time' adds a T.",
+     "definitionFit": "A contralto is a female singer with the lowest female voice range."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "keeping"
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1420,43 @@
     "text": "You need to be careful when one charges you money",
     "enumeration": "5"
    },
-   "solution": "RHINO"
+   "solution": "RHINO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RHINO",
+    "definitions": [
+     {
+      "text": "You need to be careful when one charges you",
+      "at": 0
+     },
+     {
+      "text": "money",
+      "at": 44
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You need to be careful when one charges you",
+      "note": "first meaning: a large horned animal known for charging"
+     },
+     {
+      "clueFragment": "money",
+      "note": "second meaning: an old British slang word for cash"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'charges you money' reads as a bill, but split before 'money': the charging is a stampeding beast.",
+     "definitionFit": "The rhinoceros is notorious for charging, and rhino is dated British slang for cash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "charges"
+    }
+   }
   },
   {
    "number": 23,
@@ -370,7 +1470,65 @@
     "text": "Panama, perhaps, annexing island with one Caribbean state",
     "enumeration": "5"
    },
-   "solution": "HAITI"
+   "solution": "HAITI",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HAITI",
+    "definitions": [
+     {
+      "text": "Caribbean state",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "annexing",
+      "for": "container",
+      "note": "a territory that annexes another takes it within its borders, so one letter goes inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Panama, perhaps",
+      "gives": "HAT",
+      "note": "a Panama is a kind of straw hat"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one is the Roman numeral I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "I",
+      "T",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Panama the country seizing an island to form a Caribbean state.",
+     "walkthrough": "Panama looks like the nation next door, but a Panama is a straw hat.",
+     "definitionFit": "Haiti is an independent country occupying the western part of the Caribbean island of Hispaniola."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Panama"
+    }
+   }
   },
   {
    "number": 24,
@@ -384,7 +1542,61 @@
     "text": "Article is about singular line of argument",
     "enumeration": "6"
    },
-   "solution": "THESIS"
+   "solution": "THESIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THESIS",
+    "definitions": [
+     {
+      "text": "line of argument",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means around, so the preceding words wrap around the letter for singular"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "singular",
+      "gives": "S",
+      "note": "S is the grammatical abbreviation for singular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "S",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article concerns a single argument.",
+     "walkthrough": "THE and IS together surround S: THE(S)IS.",
+     "definitionFit": "A thesis is a proposition advanced and argued for, the central line of argument in a piece of writing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 25,
@@ -398,7 +1610,63 @@
     "text": "Cultivate area on right side of hill to provide food in Mexico",
     "enumeration": "8"
    },
-   "solution": "TORTILLA"
+   "solution": "TORTILLA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORTILLA",
+    "definitions": [
+     {
+      "text": "food in Mexico",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on right side of",
+      "for": "charade",
+      "note": "being on the right side of something means coming after it when read left to right"
+     }
+    ],
+    "linkWords": [
+     "to provide"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hill",
+      "gives": "TOR",
+      "note": "a tor is a rocky hill, as on Dartmoor"
+     },
+     {
+      "clueFragment": "Cultivate",
+      "gives": "TILL",
+      "note": "to till is to cultivate the soil"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOR",
+      "TILL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer plants the sunny side of a hill to grow food in Mexico.",
+     "walkthrough": "A tor is a rocky outcrop on a hill, a common word in the English West Country; the tilled area goes to its right.",
+     "definitionFit": "A tortilla is a thin flatbread of maize or wheat, a staple Mexican food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1680,60 @@
     "text": "Restrict food from ten to nine, say, finishing at noon",
     "enumeration": "6"
    },
-   "solution": "RATION"
+   "solution": "RATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RATION",
+    "definitions": [
+     {
+      "text": "Restrict food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finishing",
+      "for": "letter_selection",
+      "note": "a word's finish is its last letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ten to nine, say",
+      "gives": "RATIO",
+      "note": "ten to nine, 10:9, is an example of a ratio"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATIO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Meals are restricted to a window from about ten to nine until midday.",
+     "walkthrough": "'ten to nine' looks like a time of day, 8:50, but is a proportion, 10 to 9.",
+     "definitionFit": "To ration is to limit the amount of food or supplies each person may have."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ten"
+    }
+   }
   },
   {
    "number": 27,
@@ -432,7 +1753,39 @@
      }
     ]
    },
-   "solution": "EYERHYME"
+   "solution": "EYERHYME",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EYE RHYME",
+    "definitions": [
+     {
+      "text": "For example, that's what's seen in some poetry",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For example, that's",
+      "note": "setter's reading: 'that' and 'what' look as if they should rhyme on the page but are not pronounced alike"
+     },
+     {
+      "clueFragment": "what's seen in some poetry",
+      "note": "surface reading: a vague description of something found in verse, with 'seen' hinting the rhyme exists only for the eye"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue's own words 'that' and 'what' are the example: they look alike in spelling but sound different, a pairing that works only on sight.",
+     "definitionFit": "An eye rhyme is a pair of words spelled as if they rhyme but pronounced differently, like love and move."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "that's"
+    }
+   }
   }
  ]
 }
