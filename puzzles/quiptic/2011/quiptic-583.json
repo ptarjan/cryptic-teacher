@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,72 @@
     "text": "In the '20s first silents have English director",
     "enumeration": "8"
    },
-   "solution": "SCORSESE"
+   "solution": "SCORSESE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SCORSESE",
+    "definitions": [
+     {
+      "text": "director",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word that follows it"
+     },
+     {
+      "text": "In",
+      "for": "container",
+      "note": "In places the next letter inside the surrounding word"
+     }
+    ],
+    "linkWords": [
+     "have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In the '20s",
+      "gives": "SCORES",
+      "note": "a score is twenty, so the twenties are scores"
+     },
+     {
+      "clueFragment": "silents",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter of silents"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOR",
+      "S",
+      "ES",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A film buff notes that cinema of the 1920s was dominated by silent pictures with English directors.",
+     "walkthrough": "The surface sends you to the silent-film era; Martin Scorsese is a modern American director, reached by putting S inside scores, the twenties.",
+     "definitionFit": "Martin Scorsese is a famous American film-maker, so he is an example of a director."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "'20s"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +115,58 @@
     "text": "Knock back lager and lose one's balance",
     "enumeration": "4"
    },
-   "solution": "SLIP"
+   "solution": "SLIP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SLIP",
+    "definitions": [
+     {
+      "text": "lose one's balance",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Knock back",
+      "for": "reversal",
+      "note": "knocking something back drives it backwards, so the word is read from end to start"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lager",
+      "gives": "PILS",
+      "note": "Pils is a type of pale lager"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLIP"
+     ],
+     "reversals": [
+      {
+       "from": "PILS",
+       "to": "SLIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Down a lager too fast and you end up falling over.",
+     "walkthrough": "'Knock back' reads naturally as drinking quickly, which fits the lager; here it signals reading the beer backwards.",
+     "definitionFit": "To slip is to lose your footing, a plain synonym for losing one's balance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Knock"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +180,77 @@
     "text": "Limp extremely painfully following odd fall at work",
     "enumeration": "6"
    },
-   "solution": "FLOPPY"
+   "solution": "FLOPPY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FLOPPY",
+    "definitions": [
+     {
+      "text": "Limp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes, the outermost letters at each end of the word"
+     },
+     {
+      "text": "odd",
+      "for": "letter_selection",
+      "note": "odd asks for the letters in odd-numbered positions: first, third and so on"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places the earlier-mentioned piece after the pieces that come later in the clue"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fall",
+      "gives": "FL",
+      "select": "alternate",
+      "note": "the first and third letters of fall"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op. is short for opus, a musical work"
+     },
+     {
+      "clueFragment": "painfully",
+      "gives": "PY",
+      "select": "outer",
+      "note": "first and last letters of painfully"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "OP",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a strange fall on the job and now limps badly.",
+     "walkthrough": "'Limp' looks like a verb about walking with an injury, but the definition is the adjective meaning slack.",
+     "definitionFit": "Limp as an adjective means lacking stiffness, which is exactly what floppy describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Limp"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +264,82 @@
     "text": "Disillusioned by New York City setback I left to travel round California",
     "enumeration": "7"
    },
-   "solution": "CYNICAL"
+   "solution": "CYNICAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "CYNICAL",
+    "definitions": [
+     {
+      "text": "Disillusioned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "setback",
+      "for": "reversal",
+      "note": "something set back is turned round, so the letters run the other way"
+     },
+     {
+      "text": "to travel round",
+      "for": "container",
+      "note": "travelling round something encircles it, so these letters go around the next piece"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York City",
+      "gives": "NYC",
+      "note": "common abbreviation"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "California",
+      "gives": "CA",
+      "note": "US state abbreviation"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CYN",
+      "I",
+      "CA",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "NYC",
+       "to": "CYN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a setback in New York, someone disenchanted leaves to tour California.",
+     "walkthrough": "Set back New York City, then put I and left around California.",
+     "definitionFit": "Someone cynical has lost faith in people's motives, which is what being disillusioned means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "setback"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +359,51 @@
      }
     ]
    },
-   "solution": "BOOKCLUB"
+   "solution": "BOOKCLUB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOOK CLUB",
+    "definitions": [
+     {
+      "text": "reading group",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrange",
+      "gives": "BOOK",
+      "note": "to book is to arrange or reserve"
+     },
+     {
+      "clueFragment": "driver",
+      "gives": "CLUB",
+      "note": "a driver is a golf club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOK",
+      "CLUB"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone organises a chauffeur to take members to their reading group.",
+     "walkthrough": "'Driver' suggests a chauffeur; it is the golf club used for long tee shots.",
+     "definitionFit": "A book club is a group of people who meet to discuss books they have read."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "driver"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +417,67 @@
     "text": "Wicked holiday home acquires debts without number",
     "enumeration": "10"
    },
-   "solution": "VILLAINOUS"
+   "solution": "VILLAINOUS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "VILLAINOUS",
+    "definitions": [
+     {
+      "text": "Wicked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without is used in its old sense of outside, so these letters sit around the next piece"
+     },
+     {
+      "text": "acquires",
+      "for": "charade",
+      "note": "acquiring something adds it on, so the following piece is attached after the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holiday home",
+      "gives": "VILLA",
+      "note": "a villa is a rented holiday house"
+     },
+     {
+      "clueFragment": "debts",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to repay debts"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "standard abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VILLA",
+      "I",
+      "N",
+      "OUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A wicked holiday villa somehow piles up unnumbered debts.",
+     "walkthrough": "'Without' looks like 'lacking', but here it means outside: IOUS goes round N.",
+     "definitionFit": "Villainous behaviour is that of a villain, so it is a synonym for wicked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +497,57 @@
      }
     ]
    },
-   "solution": "HITECH"
+   "solution": "HITECH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HI-TECH",
+    "definitions": [
+     {
+      "text": "electronically complex",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "something involving another thing wraps around it, so one piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Problem",
+      "gives": "HITCH",
+      "note": "a hitch is a snag or problem"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIT",
+      "E",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A power problem turns out to be a complicated electronics issue.",
+     "definitionFit": "Hi-tech describes advanced technology, typically sophisticated electronic equipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +567,63 @@
      }
     ]
    },
-   "solution": "ICELOLLY"
+   "solution": "ICELOLLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICE LOLLY",
+    "definitions": [
+     {
+      "text": "cool treat for kids",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collects",
+      "for": "charade",
+      "note": "collecting something gathers it on, so another piece is added to the end"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE stands for Church of England"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "LOLLY",
+      "note": "lolly is British slang for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CE",
+      "LOLLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A church takes a collection to buy the children something nice.",
+     "walkthrough": "Lolly is informal British for cash; an ice lolly is what Americans call a popsicle.",
+     "definitionFit": "An ice lolly is frozen flavoured water on a stick, a cold sweet children love."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "collects"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +637,62 @@
     "text": "God's love is supporting knight",
     "enumeration": "6"
    },
-   "solution": "OSIRIS"
+   "solution": "OSIRIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSIRIS",
+    "definitions": [
+     {
+      "text": "God",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "a supporting piece holds up another from below or behind, so it comes after it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "SIR",
+      "note": "a knight's title is Sir"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "SIR",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A statement about divine love backing a chivalrous knight.",
+     "definitionFit": "Osiris was the Egyptian deity of the dead and the afterlife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +706,71 @@
     "text": "Catch last post and raising of standard",
     "enumeration": "4"
    },
-   "solution": "TRAP"
+   "solution": "TRAP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRAP",
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "last asks for only the final letter of the word after it"
+     },
+     {
+      "text": "raising",
+      "for": "reversal",
+      "note": "raising lifts the word up, turning it round so it reads in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "post",
+      "gives": "T",
+      "select": "last",
+      "note": "final letter of post"
+     },
+     {
+      "clueFragment": "standard",
+      "gives": "PAR",
+      "note": "par is the standard or norm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAP"
+     ],
+     "reversals": [
+      {
+       "from": "PAR",
+       "to": "RAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At a military ceremony, the Last Post sounds and the standard is raised.",
+     "walkthrough": "The Last Post is a bugle call at funerals and sunset; raising the standard suggests a flag, but standard is par.",
+     "definitionFit": "A trap is a device or trick to catch someone, and to trap is to catch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "standard"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +784,75 @@
     "text": "Dad's poorlier after doctor drops off drink with analgesic",
     "enumeration": "10"
    },
-   "solution": "PAINKILLER"
+   "solution": "PAINKILLER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PAINKILLER",
+    "definitions": [
+     {
+      "text": "analgesic",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops off",
+      "for": "deletion",
+      "note": "dropping something off removes it, so those letters leave the word"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the earlier piece behind the following one in the answer"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "DRINK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "standard abbreviation for doctor"
+     },
+     {
+      "clueFragment": "poorlier",
+      "gives": "ILLER",
+      "note": "poorly means ill, so poorlier is iller"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "INK",
+      "ILLER"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad is feeling worse after the doctor leaves him a drink with a painkiller.",
+     "walkthrough": "Remove DR from DRINK to leave INK; 'poorlier' is British for more unwell.",
+     "definitionFit": "An analgesic is a medicine that relieves pain, which is exactly a painkiller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +866,50 @@
     "text": "Two leaders abandon rigour for truthfulness",
     "enumeration": "6"
    },
-   "solution": "VERITY"
+   "solution": "VERITY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VERITY",
+    "definitions": [
+     {
+      "text": "truthfulness",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Two leaders abandon",
+      "for": "deletion",
+      "note": "the first two letters, the leaders, are abandoned and dropped from the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rigour",
+      "gives": "SEVERITY",
+      "note": "severity is strictness or rigour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERITY"
+     ]
+    },
+    "explanation": {
+     "surface": "Two leaders give up strict discipline in favour of honesty.",
+     "definitionFit": "Verity is a formal word for truth, the quality of being truthful or real."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +929,64 @@
      }
     ]
    },
-   "solution": "IVORYTOWER"
+   "solution": "IVORYTOWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IVORY TOWER",
+    "definitions": [
+     {
+      "text": "place for scholarly retreat",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welshman",
+      "gives": "IVOR",
+      "note": "Ivor is a typically Welsh name"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is an algebraic unknown"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "WE",
+      "note": "we is the subject form of us"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IVOR",
+      "Y",
+      "TO",
+      "WE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A Welshman, a stranger to the speakers, runs a retreat for academics.",
+     "definitionFit": "An ivory tower is a state of privileged seclusion from practical life, often said of academics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +1006,52 @@
      }
     ]
    },
-   "solution": "ALLRIGHT"
+   "solution": "ALLRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALL RIGHT",
+    "definitions": [
+     {
+      "text": "OK",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "RIGHT",
+      "note": "Tories belong to the political right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry question: is it acceptable for everybody to vote Conservative?",
+     "walkthrough": "Tory is the everyday name for Britain's Conservative Party, on the political right.",
+     "definitionFit": "All right is a common phrase meaning acceptable or satisfactory, just like OK."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "OK"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +1065,61 @@
     "text": "Queen coming over to meet Irish writer's reported with delight",
     "enumeration": "7"
    },
-   "solution": "REJOICE"
+   "solution": "REJOICE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "homophone",
+     "charade"
+    ],
+    "answer": "REJOICE",
+    "definitions": [
+     {
+      "text": "delight",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming over",
+      "for": "reversal",
+      "note": "coming over suggests turning over, so the word is flipped end to end"
+     },
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so we want how the name sounds"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to meet",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina"
+     },
+     {
+      "clueFragment": "Irish writer",
+      "gives": "JOICE",
+      "soundsLike": "JOYCE",
+      "note": "James Joyce, author of Ulysses"
+     }
+    ],
+    "explanation": {
+     "surface": "A queen travels to meet an Irish author and is said to be delighted.",
+     "walkthrough": "The definition sits at the end with 'with' as a loose link: to rejoice is to delight.",
+     "definitionFit": "To rejoice is to feel or show great joy, which is to delight in something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1133,61 @@
     "text": "Prize-winning French mushroom's getting good number exported",
     "enumeration": "8"
    },
-   "solution": "CHAMPION"
+   "solution": "CHAMPION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHAMPION",
+    "definitions": [
+     {
+      "text": "Prize-winning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exported",
+      "for": "deletion",
+      "note": "exported goods are sent out, so these letters are taken out of the word"
+     }
+    ],
+    "linkWords": [
+     "'s getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French mushroom",
+      "gives": "CHAMPIGNON",
+      "note": "champignon is French for mushroom"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "standard abbreviation for good"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "standard abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAMPI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A prize-winning French mushroom is being shipped abroad in quantity.",
+     "definitionFit": "Champion used as an adjective describes a winner, such as a champion racehorse, so it means prize-winning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exported"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1201,80 @@
     "text": "Wife's taking leave of girls after bad upset stomach",
     "enumeration": "7"
    },
-   "solution": "ABDOMEN"
+   "solution": "ABDOMEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ABDOMEN",
+    "definitions": [
+     {
+      "text": "stomach",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked into disorder, so these letters are jumbled"
+     },
+     {
+      "text": "taking leave of",
+      "for": "deletion",
+      "note": "taking leave of something means departing from it, so one letter goes"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the earlier piece behind the following one in the answer"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad",
+      "gives": "BAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "standard abbreviation for wife"
+     },
+     {
+      "clueFragment": "girls",
+      "gives": "WOMEN",
+      "note": "girls taken as women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABD",
+      "OMEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BAD",
+       "gives": "ABD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife departs a girls' outing with a bad upset stomach.",
+     "walkthrough": "'Upset stomach' reads as one phrase, but upset belongs to bad and stomach stands alone.",
+     "definitionFit": "The stomach is loosely the belly, and the abdomen is the belly region of the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1288,73 @@
     "text": "Give opinion of cooked veal you noisily devoured",
     "enumeration": "8"
    },
-   "solution": "EVALUATE"
+   "solution": "EVALUATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "homophone",
+     "charade"
+    ],
+    "answer": "EVALUATE",
+    "definitions": [
+     {
+      "text": "Give opinion of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked ingredients are transformed, so these letters are rearranged"
+     },
+     {
+      "text": "noisily",
+      "for": "homophone",
+      "note": "noisily means said out loud, so the word is taken for its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "veal",
+      "gives": "VEAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the letter U sounds like the word"
+     },
+     {
+      "clueFragment": "devoured",
+      "gives": "ATE",
+      "note": "devoured means ate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVAL",
+      "U",
+      "ATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VEAL",
+       "gives": "EVAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner is asked for a verdict on the veal they wolfed down loudly.",
+     "definitionFit": "To evaluate is to assess or judge something, forming an opinion of its worth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "noisily"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1368,58 @@
     "text": "Beat scoundrel by heading off guard",
     "enumeration": "7"
    },
-   "solution": "CADENCE"
+   "solution": "CADENCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CADENCE",
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its heading taken off, the word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scoundrel",
+      "gives": "CAD",
+      "note": "a cad is a dishonourable man"
+     },
+     {
+      "clueFragment": "guard",
+      "gives": "FENCE",
+      "note": "a fence guards a property"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAD",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue gets past a sentry by sending him away.",
+     "walkthrough": "'Beat' looks like a verb to overpower, but it is the noun for a rhythm.",
+     "definitionFit": "A cadence is a rhythmic pattern or beat, as in the rise and fall of speech or music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beat"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1439,57 @@
      }
     ]
    },
-   "solution": "LADYGAGA"
+   "solution": "LADYGAGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LADY GAGA",
+    "definitions": [
+     {
+      "text": "Pop star",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "young",
+      "gives": "Y",
+      "note": "standard abbreviation for young"
+     },
+     {
+      "clueFragment": "foolish",
+      "gives": "GAGA",
+      "note": "gaga means silly or infatuated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAD",
+      "Y",
+      "GAGA"
+     ]
+    },
+    "explanation": {
+     "surface": "A pop idol is described as a young, silly boy.",
+     "definitionFit": "Lady Gaga is an American singer famous for chart hits, so she is an example of a pop star."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boy"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1503,75 @@
     "text": "Once a year a nun breaks for Los Angeles retreat",
     "enumeration": "6"
    },
-   "solution": "ANNUAL"
+   "solution": "ANNUAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ANNUAL",
+    "definitions": [
+     {
+      "text": "Once a year",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks",
+      "for": "anagram",
+      "note": "something that breaks falls apart, so these letters are reassembled differently"
+     },
+     {
+      "text": "retreat",
+      "for": "reversal",
+      "note": "retreating goes backwards, so the letters are read in reverse"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a nun",
+      "gives": "ANUN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Los Angeles",
+      "gives": "LA",
+      "note": "common abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNU",
+      "AL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANUN",
+       "gives": "ANNU"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "LA",
+       "to": "AL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once a year a nun takes a break for a retreat in Los Angeles.",
+     "definitionFit": "Annual describes something that happens yearly, every twelve months."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1585,66 @@
     "text": "bad luck his getting entangled in plot",
     "enumeration": "6"
    },
-   "solution": "MISHAP"
+   "solution": "MISHAP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MISHAP",
+    "definitions": [
+     {
+      "text": "bad luck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting entangled",
+      "for": "anagram",
+      "note": "entangled things get twisted into a muddle, so these letters are jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his",
+      "gives": "HIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "plot",
+      "gives": "MAP",
+      "note": "to plot is to map out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ISH",
+      "AP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HIS",
+       "gives": "ISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Misfortune strikes as he gets caught up in a scheme.",
+     "definitionFit": "A mishap is an unlucky accident, a small piece of bad luck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1658,67 @@
     "text": "Smile about eating posh breakfast cereal",
     "enumeration": "6"
    },
-   "solution": "MUESLI"
+   "solution": "MUESLI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MUESLI",
+    "definitions": [
+     {
+      "text": "breakfast cereal",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests moving around, so these letters are scattered into a new order"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes something inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smile",
+      "gives": "SMILE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "U",
+      "ESLI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SMILE",
+       "gives": "MESLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smiles as they tuck into an upmarket breakfast cereal.",
+     "walkthrough": "U for upper-class comes from Nancy Mitford's U and non-U usage.",
+     "definitionFit": "Muesli is a cereal of oats, nuts and fruit, eaten at breakfast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "posh"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1732,71 @@
     "text": "Short following wage cut, boy's keeping hold of money",
     "enumeration": "10"
    },
-   "solution": "INCOMPLETE"
+   "solution": "INCOMPLETE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "INCOMPLETE",
+    "definitions": [
+     {
+      "text": "Short",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means trimmed, so the word loses its final letter"
+     },
+     {
+      "text": "keeping hold of",
+      "for": "container",
+      "note": "keeping hold of something holds it inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "following",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wage",
+      "gives": "INCOME",
+      "note": "a wage is income"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "PETE",
+      "note": "Pete is a boy's name"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "L",
+      "note": "L is the pound sign, from Latin libra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCOM",
+      "P",
+      "L",
+      "ETE"
+     ]
+    },
+    "explanation": {
+     "surface": "After a pay cut, a lad holding on to his cash finds himself short.",
+     "definitionFit": "Short in the sense of lacking something means incomplete, not having all its parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Short"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1810,46 @@
     "text": "Squander money when depressed",
     "enumeration": "4"
    },
-   "solution": "BLUE"
+   "solution": "BLUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLUE",
+    "definitions": [
+     {
+      "text": "Squander money",
+      "at": 0
+     },
+     {
+      "text": "depressed",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Squander money",
+      "note": "first meaning: to ... money is British slang for spending it recklessly"
+     },
+     {
+      "clueFragment": "depressed",
+      "note": "second meaning: feeling down or sad"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone goes on a spending spree whenever they feel low.",
+     "walkthrough": "To blue cash is an old British variant of blow it, to waste it.",
+     "definitionFit": "Blue is both a slang verb for wasting money and an everyday adjective for feeling sad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "when"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1863,46 @@
     "text": "Lay to rest in northern town",
     "enumeration": "4"
    },
-   "solution": "BURY"
+   "solution": "BURY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BURY",
+    "definitions": [
+     {
+      "text": "Lay to rest",
+      "at": 0
+     },
+     {
+      "text": "northern town",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lay to rest",
+      "note": "first meaning: to inter a body"
+     },
+     {
+      "clueFragment": "northern town",
+      "note": "second meaning: a town in Greater Manchester, England"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is buried in a town in the north.",
+     "walkthrough": "Bury is a town in Greater Manchester, in north-west England.",
+     "definitionFit": "The verb means to place a dead body in a grave, and the proper noun is an English town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "northern"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1922,49 @@
      }
     ]
    },
-   "solution": "MAKEDO"
+   "solution": "MAKEDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAKE DO",
+    "definitions": [
+     {
+      "text": "Stretch resources",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prepare",
+      "gives": "MAKE",
+      "note": "to make a meal is to prepare it"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAKE",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "Hosting a party on a tight budget means making the money go far.",
+     "definitionFit": "To make do is to manage with limited means, getting the most out of what you have."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1978,70 @@
     "text": "Those responsible for spending reductions include large public relations unit",
     "enumeration": "8"
    },
-   "solution": "CULPRITS"
+   "solution": "CULPRITS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CULPRITS",
+    "definitions": [
+     {
+      "text": "Those responsible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "include",
+      "for": "container",
+      "note": "to include is to take in, so the other pieces go inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spending reductions",
+      "gives": "CUTS",
+      "note": "cuts are reductions in spending"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "standard abbreviation for large"
+     },
+     {
+      "clueFragment": "public relations",
+      "gives": "PR",
+      "note": "common abbreviation"
+     },
+     {
+      "clueFragment": "unit",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "L",
+      "PR",
+      "I",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Those to blame for austerity cuts include a large PR department.",
+     "definitionFit": "Culprits are the people guilty of a wrongdoing, the ones to blame."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unit"
+    }
+   }
   }
  ]
 }
