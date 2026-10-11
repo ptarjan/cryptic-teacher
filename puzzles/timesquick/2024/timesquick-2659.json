@@ -24,6 +24,9 @@
   "date": "2024-04-25",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,66 @@
     "text": "Who might ridicule heartless Costa Rica sightseer losing ring",
     "enumeration": "12"
    },
-   "solution": "CARICATURIST"
+   "solution": "CARICATURIST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CARICATURIST",
+    "definitions": [
+     {
+      "text": "Who might ridicule",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "a thing without its heart has lost its middle portion, so the central letters go"
+     },
+     {
+      "text": "losing ring",
+      "for": "deletion",
+      "note": "a ring is round, the shape of the letter that looks like zero, and losing it means dropping that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Costa",
+      "gives": "COSTA",
+      "note": "taken as written; its middle three letters will be removed"
+     },
+     {
+      "clueFragment": "Rica",
+      "gives": "RICA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sightseer",
+      "gives": "TOURIST",
+      "note": "a sightseer is a tourist; it will lose its O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "RICA",
+      "TURIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A sightseer in Costa Rica loses a ring, and someone mocks them heartlessly.",
+     "walkthrough": "The country's name is split in two: only its first word is cut, and a ring stands for the letter O because of its shape.",
+     "definitionFit": "A caricaturist draws exaggerated portraits, a form of mockery, so this is a person who might ridicule others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +113,50 @@
     "text": "Pet alone upset graceful creature",
     "enumeration": "8"
    },
-   "solution": "ANTELOPE"
+   "solution": "ANTELOPE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTELOPE",
+    "definitions": [
+     {
+      "text": "graceful creature",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pet alone",
+      "gives": "PETALONE",
+      "note": "the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PETALONE",
+       "gives": "ANTELOPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pet left on its own gets distressed.",
+     "definitionFit": "Antelopes such as gazelles are known for light, elegant movement, so a graceful animal is a fair description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +170,42 @@
     "text": "Growth of some juicy strawberries",
     "enumeration": "4"
    },
-   "solution": "CYST"
+   "solution": "CYST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CYST",
+    "definitions": [
+     {
+      "text": "Growth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of some",
+      "for": "hidden_word",
+      "note": "'some' of the following words means only part of their run of letters is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "juicy strawberries",
+      "gives": "CYST",
+      "note": "found across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener notes how some juicy strawberries are growing.",
+     "definitionFit": "A cyst is an abnormal sac that forms in the body, a kind of medical growth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Growth"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +219,57 @@
     "text": "Muscle injury from run in country round Madrid",
     "enumeration": "6"
    },
-   "solution": "SPRAIN"
+   "solution": "SPRAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPRAIN",
+    "definitions": [
+     {
+      "text": "Muscle injury",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it, so the first letter goes within the country"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country round Madrid",
+      "gives": "SPAIN",
+      "note": "Madrid is the capital of Spain, so this is the country around it"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for a run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "R",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A jogger hurts a muscle on a run in Spain.",
+     "definitionFit": "A sprain is a wrenching injury to a joint's ligaments, the everyday sense of a pulled muscle or twisted joint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +283,52 @@
     "text": "What's used to build clubs on Mediterranean island",
     "enumeration": "8"
    },
-   "solution": "CONCRETE"
+   "solution": "CONCRETE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONCRETE",
+    "definitions": [
+     {
+      "text": "What's used to build",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the abbreviation for clubs in card games"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mediterranean island",
+      "gives": "CRETE",
+      "note": "Crete is the large Greek island in the Mediterranean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "CRETE"
+     ]
+    },
+    "explanation": {
+     "surface": "Builders setting up golf or nightclubs on a Greek island.",
+     "definitionFit": "Concrete is the standard building material of cement, sand and gravel, so it is what's used for construction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +342,46 @@
     "text": "Appear to notice Mike",
     "enumeration": "4"
    },
-   "solution": "SEEM"
+   "solution": "SEEM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEEM",
+    "definitions": [
+     {
+      "text": "Appear",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to notice",
+      "gives": "SEE",
+      "note": "to see something is to notice it"
+     },
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is the radio alphabet word for M"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows up for Mike to spot them.",
+     "definitionFit": "To seem is to give an impression, the sense of appear in 'he appears tired'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mike"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +395,54 @@
     "text": "Irritate girl and boy, losing head",
     "enumeration": "5"
    },
-   "solution": "ANNOY"
+   "solution": "ANNOY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ANNOY",
+    "definitions": [
+     {
+      "text": "Irritate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing head",
+      "for": "deletion",
+      "note": "a word that loses its head drops its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "ANN",
+      "note": "a common girl's name"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "BOY",
+      "note": "taken as written, then beheaded"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANN",
+      "OY"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy and girl squabble and annoy everyone, until one loses their head.",
+     "definitionFit": "To annoy someone is to irk or bother them, a straightforward synonym for irritate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +456,71 @@
     "text": "Bravery of print media about Oscar Wilde at the beginning",
     "enumeration": "7"
    },
-   "solution": "PROWESS"
+   "solution": "PROWESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PROWESS",
+    "definitions": [
+     {
+      "text": "Bravery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another goes round it, so the press surrounds the inner letters"
+     },
+     {
+      "text": "at the beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a name is its opening letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "print media",
+      "gives": "PRESS",
+      "note": "the press is the newspaper industry"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is the radio alphabet word for O"
+     },
+     {
+      "clueFragment": "Wilde",
+      "gives": "W",
+      "select": "first",
+      "note": "first letter of the writer's surname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "O",
+      "W",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "The newspapers praise the courage of Oscar Wilde early in his career.",
+     "walkthrough": "Oscar Wilde reads as one writer, but the setter splits him: Oscar is a code word and Wilde supplies just its first letter.",
+     "definitionFit": "Prowess means skill or valour, and its older sense is courage in battle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +544,56 @@
      }
     ]
    },
-   "solution": "SECONDTONONE"
+   "solution": "SECONDTONONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SECOND TO NONE",
+    "definitions": [
+     {
+      "text": "Unsurpassed",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "borne by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moment",
+      "gives": "SECOND",
+      "note": "a second is a moment, as in 'wait a second'"
+     },
+     {
+      "clueFragment": "much weight",
+      "gives": "TON",
+      "note": "a ton is a large unit of weight"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SECOND",
+      "TON",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A moment when one person bears a huge load.",
+     "walkthrough": "In a down entry the weight sits on top of ONE, so 'borne by one' just places it before ONE.",
+     "definitionFit": "Second to none is an idiom for being the best, which is what unsurpassed means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "borne"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +607,60 @@
     "text": "Inactivity at home I rate terrible",
     "enumeration": "7"
    },
-   "solution": "INERTIA"
+   "solution": "INERTIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INERTIA",
+    "definitions": [
+     {
+      "text": "Inactivity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "something terrible is in a bad state, so the letters are messed up into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "I rate",
+      "gives": "IRATE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "ERTIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IRATE",
+       "gives": "ERTIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at home judging their own idleness harshly.",
+     "definitionFit": "Inertia is a tendency to stay still and do nothing, a near synonym for sluggish inactivity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rate"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +674,55 @@
     "text": "Magazine company must introduce colour at the outset",
     "enumeration": "5"
    },
-   "solution": "COMIC"
+   "solution": "COMIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COMIC",
+    "definitions": [
+     {
+      "text": "Magazine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "the outset of each word is its first letter, so only the openings are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the standard abbreviation for company"
+     },
+     {
+      "clueFragment": "must introduce colour",
+      "gives": "MIC",
+      "select": "first",
+      "note": "the first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A publishing firm is told it must bring in colour printing from the start.",
+     "definitionFit": "A comic is a periodical of illustrated stories, a kind of magazine, especially for children."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "introduce"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +736,62 @@
     "text": "An opinion about Daniel's evasion",
     "enumeration": "9"
    },
-   "solution": "AVOIDANCE"
+   "solution": "AVOIDANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AVOIDANCE",
+    "definitions": [
+     {
+      "text": "evasion",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another wraps round it, so the opinion surrounds the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "opinion",
+      "gives": "VOICE",
+      "note": "a voice is a say or opinion, as in 'have a voice'"
+     },
+     {
+      "clueFragment": "Daniel's",
+      "gives": "DAN",
+      "note": "Dan is the short form of Daniel; the 's means 'Daniel is' and links to the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VOI",
+      "DAN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's view about how Daniel keeps dodging things.",
+     "walkthrough": "The 's is not possessive in the cryptic reading: it is 'is', joining wordplay to definition.",
+     "definitionFit": "Avoidance is the act of keeping away from something, the same idea as evading it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Daniel's"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +805,55 @@
     "text": "Trim redcoat going around with energy",
     "enumeration": "8"
    },
-   "solution": "DECORATE"
+   "solution": "DECORATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECORATE",
+    "definitions": [
+     {
+      "text": "Trim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going around",
+      "for": "anagram",
+      "note": "going around suggests spinning about and changing position, so the letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "redcoat",
+      "gives": "REDCOAT",
+      "note": "letters to be rearranged; a redcoat was a British soldier"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDCOATE",
+       "gives": "DECORATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tidy soldier in a red coat walks around with vigour.",
+     "definitionFit": "To trim something can mean to adorn it with edging or ornament, which is to decorate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trim"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +867,46 @@
     "text": "Number, note, new",
     "enumeration": "3"
    },
-   "solution": "TEN"
+   "solution": "TEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEN",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is the seventh note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new; that the letters also run across these two words is a coincidence of the charade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of words like a memo jotted down: number, note, new.",
+     "definitionFit": "Ten is a numeral, so it is an example of a number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +920,61 @@
     "text": "Article with favourable presentation about a player",
     "enumeration": "8"
    },
-   "solution": "THESPIAN"
+   "solution": "THESPIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THESPIAN",
+    "definitions": [
+     {
+      "text": "player",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another goes round it, so the presentation surrounds the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "favourable presentation",
+      "gives": "SPIN",
+      "note": "spin is a slanted account that shows something in a good light"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "SPI",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article flatters an actor with positive coverage.",
+     "definitionFit": "A thespian is an actor, and a player is an old word for an actor on stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +988,48 @@
     "text": "Regularly pursue advantage",
     "enumeration": "3"
    },
-   "solution": "USE"
+   "solution": "USE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "USE",
+    "definitions": [
+     {
+      "text": "advantage",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pursue",
+      "gives": "USE",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to keep chasing an edge over rivals.",
+     "definitionFit": "Use means benefit or profit, as in 'what's the use?', which is the sense of advantage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pursue"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1043,61 @@
     "text": "Legally qualified European held in contempt unfortunately",
     "enumeration": "9"
    },
-   "solution": "COMPETENT"
+   "solution": "COMPETENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "COMPETENT",
+    "definitions": [
+     {
+      "text": "Legally qualified",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things going wrong, so the letters end up out of order"
+     },
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "something held in another is enclosed by it, so the letter sits within the rearranged word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "contempt",
+      "gives": "CONTEMPT",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CONTEMPTE",
+       "gives": "COMPETENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European lawyer sadly finds themselves held in contempt of court.",
+     "definitionFit": "In law a competent witness or court is one legally fit or authorised to act."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1111,58 @@
     "text": "Like Scrooge giving away pounds and suffering",
     "enumeration": "6"
    },
-   "solution": "MISERY"
+   "solution": "MISERY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MISERY",
+    "definitions": [
+     {
+      "text": "suffering",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving away",
+      "for": "deletion",
+      "note": "giving something away means you no longer have it, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like Scrooge",
+      "gives": "MISERLY",
+      "note": "Scrooge, from Dickens, is the archetypal miser"
+     },
+     {
+      "clueFragment": "pounds",
+      "gives": "L",
+      "note": "L is the abbreviation for pounds sterling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISE",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A tight-fisted man forced to part with his money is in pain.",
+     "walkthrough": "The irony is that Scrooge would never give pounds away; here just the letter L leaves MISERLY.",
+     "definitionFit": "Misery is great distress or unhappiness, the noun sense of suffering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pounds"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1176,63 @@
     "text": "Deduce subordinate has abandoned one old Romeo",
     "enumeration": "5"
    },
-   "solution": "INFER"
+   "solution": "INFER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INFER",
+    "definitions": [
+     {
+      "text": "Deduce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has abandoned",
+      "for": "deletion",
+      "note": "what has been abandoned is left behind, so these letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "subordinate",
+      "gives": "INFERIOR",
+      "note": "an inferior is a person of lower rank"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is the radio alphabet word for R"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFER"
+     ]
+    },
+    "explanation": {
+     "surface": "An underling has walked out on an elderly lover.",
+     "walkthrough": "'Old Romeo' reads as an ageing lover, but old and Romeo each give a single letter to be removed.",
+     "definitionFit": "To infer is to reach a conclusion by reasoning, a direct synonym for deduce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1246,58 @@
     "text": "Plant yielding fibre that's primarily fine and soft",
     "enumeration": "4"
    },
-   "solution": "FLAX"
+   "solution": "FLAX",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FLAX",
+    "definitions": [
+     {
+      "text": "Plant yielding fibre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so just the opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "LAX",
+      "note": "lax means lenient, as in being soft on someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAX"
+     ]
+    },
+    "explanation": {
+     "surface": "Describes a crop whose fibre is mainly fine and soft.",
+     "definitionFit": "Flax is the plant whose stem fibres are spun into linen thread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1311,47 @@
     "text": "Strop made by part of fractious harp ensemble",
     "enumeration": "7"
    },
-   "solution": "SHARPEN"
+   "solution": "SHARPEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SHARPEN",
+    "definitions": [
+     {
+      "text": "Strop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by part of",
+      "for": "hidden_word",
+      "note": "only a part of the following words is wanted, a run of letters within them"
+     }
+    ],
+    "linkWords": [
+     "made"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fractious harp ensemble",
+      "gives": "SHARPEN",
+      "note": "runs from the end of the first word into the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A tantrum thrown by a member of a quarrelsome harp group.",
+     "walkthrough": "Strop looks like the British noun for a sulk, but it is the verb: to strop a razor is to hone it on a leather strap.",
+     "definitionFit": "To strop is to hone a blade on a leather strap, which is a way to give it an edge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Strop"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1365,42 @@
     "text": "Cunning structure of wedge-shaped stones",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARCH",
+    "definitions": [
+     {
+      "text": "Cunning",
+      "at": 0
+     },
+     {
+      "text": "structure of wedge-shaped stones",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cunning",
+      "note": "first meaning: sly and knowing"
+     },
+     {
+      "clueFragment": "structure of wedge-shaped stones",
+      "note": "second meaning: a curved span built from tapering blocks"
+     }
+    ],
+    "explanation": {
+     "surface": "Admiring a clever building made of tapered stones.",
+     "definitionFit": "Arch as an adjective means slyly playful, and as a noun it is a curved span built from wedge-shaped voussoirs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cunning"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1414,53 @@
     "text": "Kitchen device rotates for cooking",
     "enumeration": "7"
    },
-   "solution": "TOASTER"
+   "solution": "TOASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOASTER",
+    "definitions": [
+     {
+      "text": "Kitchen device",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking suggests ingredients mixed and transformed, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rotates",
+      "gives": "ROTATES",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROTATES",
+       "gives": "TOASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen appliance turns round while food is being prepared.",
+     "definitionFit": "A toaster is an electrical appliance found in kitchens for browning bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rotates"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1474,50 @@
     "text": "Tea with fashionable set",
     "enumeration": "5"
    },
-   "solution": "CHAIN"
+   "solution": "CHAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAIN",
+    "definitions": [
+     {
+      "text": "set",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tea",
+      "gives": "CHA",
+      "note": "cha (or char) is British slang for tea"
+     },
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "something in is in fashion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking tea with the trendy crowd.",
+     "walkthrough": "'Fashionable set' looks like one phrase meaning the in-crowd, but set alone is the definition.",
+     "definitionFit": "A chain is a connected series, so a set of linked shops or events can be called one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   }
  ]
 }
