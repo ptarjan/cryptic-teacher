@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Empty container found outside prison",
     "enumeration": "6"
    },
-   "solution": "VACANT"
+   "solution": "VACANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VACANT",
+    "definitions": [
+     {
+      "text": "Empty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found outside",
+      "for": "container",
+      "note": "one thing found outside another wraps around it, so the vessel encloses the jail word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "VAT",
+      "note": "a vat is a large tank or tub"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "CAN",
+      "note": "the can is slang for jail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VA",
+      "CAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An abandoned bin is discovered just beyond the walls of a jail.",
+     "walkthrough": "The can is American slang for prison, familiar from films.",
+     "definitionFit": "A vacant room or seat is unoccupied, which is a straightforward synonym of empty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,63 @@
     "text": "Incomplete picture put up in plant",
     "enumeration": "4"
    },
-   "solution": "ARUM"
+   "solution": "ARUM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "ARUM",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Incomplete",
+      "for": "deletion",
+      "note": "something incomplete is missing its end, so the last letter is dropped"
+     },
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down clue, putting something up means writing it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "picture",
+      "gives": "MURAL",
+      "note": "a mural is a picture painted on a wall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARUM"
+     ],
+     "reversals": [
+      {
+       "from": "MURA",
+       "to": "ARUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hangs an unfinished painting in a pot plant, which makes little sense as a scene.",
+     "walkthrough": "MURAL loses its last letter to give MURA, which is then read upwards as ARUM.",
+     "definitionFit": "The arum is a lily-like flowering plant with a hooded spathe, such as cuckoo-pint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "picture"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +168,40 @@
     "text": "No two Z's mixed shortly in this part of the world",
     "enumeration": "9"
    },
-   "solution": "ANTIPODES"
+   "solution": "ANTIPODES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANTIPODES",
+    "definitions": [
+     {
+      "text": "No two Z's mixed shortly in this part of the world",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No two Z's mixed shortly",
+      "note": "surface reading: an instruction about scrambling letters, with no Z appearing twice"
+     },
+     {
+      "clueFragment": "in this part of the world",
+      "note": "setter's reading: the letters N, O, Z and Z mixed spell the short names of New Zealand and Australia"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzle about a region of the globe where you never see a pair of Z's.",
+     "walkthrough": "Mix N, O and two Z's and you get NZ and OZ, the abbreviations ('shortly') for New Zealand and Australia, which together are what Britons call the Antipodes.",
+     "definitionFit": "Britons call Australia and New Zealand the Antipodes because they lie on the opposite side of the globe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mixed"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +215,49 @@
     "text": "Agreement as a result of pleasant surprise unknown",
     "enumeration": "6"
    },
-   "solution": "TREATY"
+   "solution": "TREATY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TREATY",
+    "definitions": [
+     {
+      "text": "Agreement",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "as a result of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pleasant surprise",
+      "gives": "TREAT",
+      "note": "a treat is an unexpected pleasure"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "in algebra x, y and z stand for unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREAT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A deal is reached thanks to a nice surprise from a mysterious source.",
+     "definitionFit": "A treaty is a formal pact between nations, so it is a kind of agreement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +271,67 @@
     "text": "Rather hairy question asked about skier in difficulties",
     "enumeration": "8"
    },
-   "solution": "WHISKERY"
+   "solution": "WHISKERY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WHISKERY",
+    "definitions": [
+     {
+      "text": "Rather hairy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in difficulties",
+      "for": "anagram",
+      "note": "something in difficulties is in disarray, so these letters are thrown out of order"
+     },
+     {
+      "text": "asked about",
+      "for": "container",
+      "note": "the question word is placed about, that is around, the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "question",
+      "gives": "WHY",
+      "note": "why is a question word"
+     },
+     {
+      "clueFragment": "skier",
+      "gives": "SKIER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WH",
+      "ISKER",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SKIER",
+       "gives": "ISKER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks a bearded skier who has got into trouble on the slopes how he is getting on.",
+     "walkthrough": "'Asked' is part of the container signal, not a link: the question word wraps around the scrambled skier.",
+     "definitionFit": "Whiskery means having many whiskers, hence somewhat bristly or hairy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "question"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +359,40 @@
      }
     ]
    },
-   "solution": "WISHYOUWEREHERE"
+   "solution": "WISHYOUWEREHERE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WISH YOU WERE HERE",
+    "definitions": [
+     {
+      "text": "Words on holiday? It's on the cards",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Words on holiday?",
+      "note": "surface reading: speech made while away on a break"
+     },
+     {
+      "clueFragment": "It's on the cards",
+      "note": "setter's reading: on the cards is an idiom for likely, but here it means the phrase literally written on postcards"
+     }
+    ],
+    "explanation": {
+     "surface": "Something said while away that is quite likely to happen.",
+     "walkthrough": "'On the cards' usually means probable; here it means printed on picture postcards sent home from a holiday.",
+     "definitionFit": "The phrase is the cliché scrawled on holiday postcards to friends and family back home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cards"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +412,50 @@
      }
     ]
    },
-   "solution": "INEFFECT"
+   "solution": "INEFFECT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN EFFECT",
+    "definitions": [
+     {
+      "text": "Practically speaking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poorly",
+      "for": "anagram",
+      "note": "a thing done poorly is done badly, so these letters are put together wrongly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fence fit",
+      "gives": "FENCEFIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FENCEFIT",
+       "gives": "INEFFECT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garden fence that has been badly installed, described in a matter-of-fact tone.",
+     "definitionFit": "In effect means in practice or virtually, which matches practically speaking as an idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fence"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +469,40 @@
     "text": "A serviceable colour?",
     "enumeration": "5"
    },
-   "solution": "KHAKI"
+   "solution": "KHAKI",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "KHAKI",
+    "definitions": [
+     {
+      "text": "A serviceable colour?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A serviceable colour?",
+      "note": "surface reading: a practical, hard-wearing shade"
+     },
+     {
+      "clueFragment": "serviceable",
+      "note": "setter's reading: the colour of the armed services, worn in army uniform"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about which shade is practical and hard-wearing.",
+     "walkthrough": "'Serviceable' usually means usable, but here it means fit for military service.",
+     "definitionFit": "This dull brownish-green is the traditional colour of army uniforms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "serviceable"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +516,62 @@
     "text": "Cluer's pet bit of fun exceptionally showing deference",
     "enumeration": "10"
    },
-   "solution": "RESPECTFUL"
+   "solution": "RESPECTFUL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RESPECTFUL",
+    "definitions": [
+     {
+      "text": "showing deference",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is a small part of it, here just its opening letter"
+     },
+     {
+      "text": "exceptionally",
+      "for": "anagram",
+      "note": "exceptionally suggests something out of the ordinary, so these letters leave their usual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cluer's pet",
+      "gives": "CLUERSPET",
+      "note": "taken as written, ignoring the apostrophe"
+     },
+     {
+      "clueFragment": "fun",
+      "gives": "F",
+      "select": "first",
+      "note": "the opening letter of fun"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLUERSPETF",
+       "gives": "RESPECTFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter's favourite bit of fun is showing respect, a self-referential joke about crossword setting.",
+     "definitionFit": "Being respectful means showing regard and deference to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cluer's"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +585,57 @@
     "text": "Target on ship to shore",
     "enumeration": "8"
    },
-   "solution": "BUTTRESS"
+   "solution": "BUTTRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUTTRESS",
+    "definitions": [
+     {
+      "text": "shore",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Target",
+      "gives": "BUTT",
+      "note": "a butt is a target, as in the butt of a joke"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS stands for steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUTT",
+      "RE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone aims at a ship from the coast.",
+     "walkthrough": "'Shore' looks like the coast, but it is the verb meaning to prop up.",
+     "definitionFit": "To buttress is to prop up or support, which is the verb sense of shore, as in shoring up a wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shore"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +649,49 @@
     "text": "Pass part of the spa (Leamington?) on return",
     "enumeration": "6"
    },
-   "solution": "ELAPSE"
+   "solution": "ELAPSE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ELAPSE",
+    "definitions": [
+     {
+      "text": "Pass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "the answer is just a part of the run of words that follows"
+     },
+     {
+      "text": "on return",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the spa (Leamington",
+      "gives": "ESPALE",
+      "note": "the last letter of the, all of spa, and the first two letters of Leamington"
+     }
+    ],
+    "explanation": {
+     "surface": "A visitor passes through Leamington Spa and comes back again.",
+     "walkthrough": "Leamington Spa is a spa town in Warwickshire, England; the parenthesis is decoration to make the surface read naturally.",
+     "definitionFit": "Time is said to pass or elapse, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +711,49 @@
      }
     ]
    },
-   "solution": "PETTYOFFICER"
+   "solution": "PETTYOFFICER",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "PETTY OFFICER",
+    "definitions": [
+     {
+      "text": "Small-minded person in authority at sea",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small-minded",
+      "gives": "PETTY",
+      "note": "petty means narrow and small-minded"
+     },
+     {
+      "clueFragment": "person in authority",
+      "gives": "OFFICER",
+      "note": "an officer holds a post of authority"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PETTY",
+      "OFFICER"
+     ]
+    },
+    "explanation": {
+     "surface": "A narrow-minded jobsworth who is out of their depth.",
+     "walkthrough": "The two pieces build the rank, and the whole clue then defines it; 'at sea' suggests confusion but places the officer on a ship.",
+     "definitionFit": "A petty officer is a non-commissioned naval rank, roughly equivalent to an army sergeant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +767,48 @@
     "text": "Removed from office because of a fling that went too far?",
     "enumeration": "10"
    },
-   "solution": "OVERTHROWN"
+   "solution": "OVERTHROWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OVERTHROWN",
+    "definitions": [
+     {
+      "text": "Removed from office",
+      "at": 0
+     },
+     {
+      "text": "a fling that went too far",
+      "at": 31,
+      "note": "describes the throw itself; the answer is the adjective for a ball so thrown"
+     }
+    ],
+    "linkWords": [
+     "because of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Removed from office",
+      "note": "first meaning: ousted, as a government or ruler"
+     },
+     {
+      "clueFragment": "a fling that went too far",
+      "note": "second meaning: a ball thrown beyond its target, as in cricket"
+     }
+    ],
+    "explanation": {
+     "surface": "A politician ousted after a love affair got out of hand.",
+     "walkthrough": "'Fling' suggests an affair, but it is a throw; in cricket an overthrow is a throw that misses and runs on past the fielder.",
+     "definitionFit": "A deposed ruler has been toppled, and a ball hurled past its target has been thrown too far."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fling"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +822,48 @@
     "text": "Very keen king — not the first",
     "enumeration": "4"
    },
-   "solution": "AVID"
+   "solution": "AVID",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AVID",
+    "definitions": [
+     {
+      "text": "Very keen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the first",
+      "for": "deletion",
+      "note": "not the first means the opening letter is left off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "DAVID",
+      "note": "David was king of Israel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVID"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch who is very enthusiastic, though he is not the first of his name.",
+     "walkthrough": "'Not the first' looks like a regnal number, but it removes the opening letter of DAVID.",
+     "definitionFit": "An avid fan is eager and enthusiastic, so the word is a synonym of very keen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +877,53 @@
     "text": "A lecture about how to make sore",
     "enumeration": "8"
    },
-   "solution": "ULCERATE"
+   "solution": "ULCERATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ULCERATE",
+    "definitions": [
+     {
+      "text": "make sore",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests being turned around, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "how to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A lecture",
+      "gives": "ALECTURE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALECTURE",
+       "gives": "ULCERATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A talk on how to inflict pain, or a lecture so dull it leaves you aching.",
+     "definitionFit": "To ulcerate is to develop or cause open sores, so it means to make sore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lecture"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +937,58 @@
     "text": "Bad guy's row over drink not starting",
     "enumeration": "9"
    },
-   "solution": "RACKETEER"
+   "solution": "RACKETEER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RACKETEER",
+    "definitions": [
+     {
+      "text": "Bad guy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not starting",
+      "for": "deletion",
+      "note": "not starting means the opening letter is missing"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "RACKET",
+      "note": "a racket is a noisy din or row"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "BEER",
+      "note": "a common drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RACKET",
+      "EER"
+     ]
+    },
+    "explanation": {
+     "surface": "A villain's argument over drinks that never gets going.",
+     "walkthrough": "'Row' here is a din, not a line; in a down clue 'over' puts RACKET above the beer, which loses its first letter.",
+     "definitionFit": "A racketeer runs a criminal racket such as extortion, so he is a crook or bad guy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1002,47 @@
     "text": "Eccentric split over cup",
     "enumeration": "8"
    },
-   "solution": "CRACKPOT"
+   "solution": "CRACKPOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRACKPOT",
+    "definitions": [
+     {
+      "text": "Eccentric",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split",
+      "gives": "CRACK",
+      "note": "a crack is a split"
+     },
+     {
+      "clueFragment": "cup",
+      "gives": "POT",
+      "note": "a pot is a cup, especially a trophy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRACK",
+      "POT"
+     ]
+    },
+    "explanation": {
+     "surface": "An oddball person who has fallen out over a trophy.",
+     "walkthrough": "In a down clue 'over' means the first piece sits above the second.",
+     "definitionFit": "A crackpot is a crank or eccentric person with wild ideas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1056,43 @@
     "text": "Save jam",
     "enumeration": "8"
    },
-   "solution": "PRESERVE"
+   "solution": "PRESERVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRESERVE",
+    "definitions": [
+     {
+      "text": "Save",
+      "at": 0
+     },
+     {
+      "text": "jam",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Save",
+      "note": "first meaning: to keep safe"
+     },
+     {
+      "clueFragment": "jam",
+      "note": "second meaning: fruit cooked with sugar"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to keep the jam back for later.",
+     "walkthrough": "'Jam' reads as an object of save, but it is a second definition.",
+     "definitionFit": "To preserve is to save or protect, and a preserve is a fruit conserve or jam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jam"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1106,50 @@
     "text": "Fool almost, but a friend",
     "enumeration": "4"
    },
-   "solution": "CHUM"
+   "solution": "CHUM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHUM",
+    "definitions": [
+     {
+      "text": "a friend",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite complete, so the last letter is cut"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "CHUMP",
+      "note": "a chump is a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is nearly an idiot but still a mate.",
+     "definitionFit": "A chum is an informal word for a close pal or companion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "almost"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1163,58 @@
     "text": "It's limited but fair to take it in",
     "enumeration": "6"
    },
-   "solution": "FINITE"
+   "solution": "FINITE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FINITE",
+    "definitions": [
+     {
+      "text": "limited",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take",
+      "for": "container",
+      "note": "to take something in is to hold it inside, so one word surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fair",
+      "gives": "FINE",
+      "note": "fine weather is fair weather"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIN",
+      "IT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Something is restricted, yet it is reasonable to accept that.",
+     "definitionFit": "Finite means having bounds or an end, so it is limited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1228,42 @@
     "text": "Represent brand",
     "enumeration": "12"
    },
-   "solution": "CHARACTERISE"
+   "solution": "CHARACTERISE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHARACTERISE",
+    "definitions": [
+     {
+      "text": "Represent",
+      "at": 0
+     },
+     {
+      "text": "brand",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Represent",
+      "note": "first meaning: to portray or depict"
+     },
+     {
+      "clueFragment": "brand",
+      "note": "second meaning: to label or mark out as having a quality"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Brand' looks like a noun for a product name, but here it is the verb meaning to label someone.",
+     "definitionFit": "To characterise is both to portray something and to mark it with a distinctive label, as branding does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brand"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1277,60 @@
     "text": "Scout around about — about — about — Spain",
     "enumeration": "5"
    },
-   "solution": "RECCE"
+   "solution": "RECCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RECCE",
+    "definitions": [
+     {
+      "text": "Scout around",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c is short for circa, Latin for about"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "circa again, abbreviated to c"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "C",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A stuttering description of someone scouting around Spain.",
+     "walkthrough": "The three abouts give three short pieces in turn: one from the word re and two from circa.",
+     "definitionFit": "A recce, short for reconnaissance, is a scouting expedition, so to recce is to scout around."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1344,46 @@
     "text": "Extent of audible moans",
     "enumeration": "4"
    },
-   "solution": "SIZE"
+   "solution": "SIZE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SIZE",
+    "definitions": [
+     {
+      "text": "Extent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "audible",
+      "for": "homophone",
+      "note": "audible means able to be heard, so the answer is what the word sounds like"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moans",
+      "gives": "SIZE",
+      "soundsLike": "SIGHS",
+      "note": "sighs are weary moans"
+     }
+    ],
+    "explanation": {
+     "surface": "A question of how loud the groaning is.",
+     "definitionFit": "Size and extent both mean the dimensions or magnitude of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moans"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1397,65 @@
     "text": "Remove left lace top somehow (a footwear tip)",
     "enumeration": "6"
    },
-   "solution": "TOECAP"
+   "solution": "TOECAP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TOECAP",
+    "definitions": [
+     {
+      "text": "a footwear tip",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Remove left",
+      "for": "deletion",
+      "note": "remove tells us to take out the letter for left"
+     },
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow says the order is to be worked out in some way, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lace top",
+      "gives": "LACETOP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOECAP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACETOP",
+       "gives": "TOECAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for undoing a shoelace, with a bracketed hint about shoes.",
+     "walkthrough": "Take the L out of LACE TOP and rearrange the six letters left.",
+     "definitionFit": "A toecap is the reinforced covering at the front end of a shoe or boot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lace"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1469,74 @@
     "text": "One sea ebbing in very large outbreak",
     "enumeration": "8"
    },
-   "solution": "EPIDEMIC"
+   "solution": "EPIDEMIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "EPIDEMIC",
+    "definitions": [
+     {
+      "text": "outbreak",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ebbing",
+      "for": "reversal",
+      "note": "a tide that is ebbing flows back out, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first pieces inside the word for very large"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "MED",
+      "note": "the Med is the Mediterranean Sea"
+     },
+     {
+      "clueFragment": "very large",
+      "gives": "EPIC",
+      "note": "epic means huge in scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "I",
+      "DEM",
+      "IC"
+     ],
+     "reversals": [
+      {
+       "from": "MED",
+       "to": "DEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single sea retreating during a huge outbreak of disease.",
+     "walkthrough": "The Med is the usual crossword shorthand for the Mediterranean; the reversed sea follows the one, and both go inside the very large word.",
+     "definitionFit": "An epidemic is a widespread outbreak of disease in a community."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1550,47 @@
     "text": "Upset a French seat",
     "enumeration": "8"
    },
-   "solution": "UNSETTLE"
+   "solution": "UNSETTLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNSETTLE",
+    "definitions": [
+     {
+      "text": "Upset",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "seat",
+      "gives": "SETTLE",
+      "note": "a settle is a wooden bench with a high back"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "SETTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A French chair is knocked over.",
+     "walkthrough": "A settle is an old-fashioned high-backed wooden bench.",
+     "definitionFit": "To unsettle is to disturb or upset someone's composure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seat"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1604,51 @@
     "text": "Pupil doesn't start as one who brings home the bacon",
     "enumeration": "6"
    },
-   "solution": "EARNER"
+   "solution": "EARNER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EARNER",
+    "definitions": [
+     {
+      "text": "one who brings home the bacon",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doesn't start",
+      "for": "deletion",
+      "note": "doesn't start means the word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pupil",
+      "gives": "LEARNER",
+      "note": "a learner is a pupil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A student who fails to begin a job yet ends up supporting the household.",
+     "walkthrough": "'Pupil' could be part of the eye, but here it is a student. To bring home the bacon is to earn the family's living.",
+     "definitionFit": "Bringing home the bacon is an idiom for making money, so the person doing it is an earner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pupil"
+    }
+   }
   }
  ]
 }
