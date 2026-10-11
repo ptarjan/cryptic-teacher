@@ -37,6 +37,9 @@
   "date": "2017-06-04",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,67 @@
     "text": "Fish caught are storm tossed – here's a bony old one",
     "enumeration": "11"
    },
-   "solution": "OSTRACODERM"
+   "solution": "OSTRACODERM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OSTRACODERM",
+    "definitions": [
+     {
+      "text": "here's a bony old one",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tossed",
+      "for": "anagram",
+      "note": "something tossed about is thrown into disorder, so the preceding words are rearranged"
+     },
+     {
+      "text": "caught",
+      "for": "container",
+      "note": "a thing caught is held inside something else, here inside the rearranged letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "COD",
+      "note": "a common food fish"
+     },
+     {
+      "clueFragment": "are storm",
+      "gives": "ARESTORM",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OSTRA",
+      "COD",
+      "ERM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARESTORM",
+       "gives": "OSTRAERM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old fish turns up after a storm-tossed catch.",
+     "walkthrough": "'Caught' looks like the fisherman's verb, but it is the signal for putting one piece inside another. 'One' points back to 'Fish', so the definition is an old bony fish.",
+     "definitionFit": "Ostracoderms are extinct jawless fishes of the Palaeozoic era, armoured with bony plates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "storm"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +127,73 @@
     "text": "Spar, tip fixed with one pa cleared",
     "enumeration": "5"
    },
-   "solution": "SPRIT"
+   "solution": "SPRIT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SPRIT",
+    "definitions": [
+     {
+      "text": "Spar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fixed",
+      "for": "anagram",
+      "note": "something fixed has been repaired or rigged, so the letters are put into a new order"
+     },
+     {
+      "text": "cleared",
+      "for": "deletion",
+      "note": "when something is cleared it is taken away, so those letters go"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tip",
+      "gives": "TIP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "SPAR",
+      "note": "'one' points back to the spar just named, so the word spar itself is used"
+     },
+     {
+      "clueFragment": "pa",
+      "gives": "PA",
+      "note": "taken as written; these letters are removed from the spar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPRIT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIPSR",
+       "gives": "SPRIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for rigging a spar: fix its tip and clear away some part.",
+     "walkthrough": "'One' refers back to 'Spar': SPAR loses PA to leave SR, and TIP plus SR is rearranged.",
+     "definitionFit": "A sprit is a small spar running diagonally across a fore-and-aft sail to extend its peak."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +207,75 @@
     "text": "To wit, a foul suffering stopped by touch of ruler?",
     "enumeration": "8"
    },
-   "solution": "SCROFULA"
+   "solution": "SCROFULA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container",
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "SCROFULA",
+    "definitions": [
+     {
+      "text": "To wit, a foul suffering stopped by touch of ruler?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "something suffering is in a bad way, damaged, so the letters before it are disordered"
+     },
+     {
+      "text": "stopped by",
+      "for": "container",
+      "note": "a gap stopped by something has that thing plugged into it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To wit",
+      "gives": "SC",
+      "note": "SC is short for scilicet, Latin for 'namely' or 'to wit'"
+     },
+     {
+      "clueFragment": "a foul",
+      "gives": "AFOUL",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "ruler",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter, the 'touch', of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "ROFULA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AFOUL",
+       "gives": "OFULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty disease cured by a monarch laying on hands.",
+     "walkthrough": "The whole clue is both wordplay and definition: scrofula was the King's Evil, believed cured by the royal touch. R goes in front of the rearranged A FOUL.",
+     "definitionFit": "Scrofula, tuberculosis of the neck glands, was historically called the King's Evil because the monarch's touch supposedly healed it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "touch"
+    }
+   }
   },
   {
    "number": 3,
@@ -92,7 +289,66 @@
     "text": "Chief place occupied by prince from the south",
     "enumeration": "6"
    },
-   "solution": "PRIMAL"
+   "solution": "PRIMAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PRIMAL",
+    "definitions": [
+     {
+      "text": "Chief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the south",
+      "for": "reversal",
+      "note": "in a down entry, reading from the south means reading upward, so the word runs backwards"
+     },
+     {
+      "text": "occupied by",
+      "for": "container",
+      "note": "a place occupied by someone has that person inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "PL",
+      "note": "PL is the standard abbreviation for place"
+     },
+     {
+      "clueFragment": "prince",
+      "gives": "AMIR",
+      "note": "an amir or emir is a Muslim prince or ruler"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RIMA",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "AMIR",
+       "to": "RIMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The main residence is home to a royal visitor from the south.",
+     "definitionFit": "Primal can mean first in importance, principal, a fair synonym for chief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "south"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +362,56 @@
     "text": "One walking slowly up to give a summary",
     "enumeration": "5"
    },
-   "solution": "RECAP"
+   "solution": "RECAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "RECAP",
+    "definitions": [
+     {
+      "text": "give a summary",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the word is written bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One walking slowly",
+      "gives": "PACER",
+      "note": "a pacer is a person or horse that walks at a steady pace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECAP"
+     ],
+     "reversals": [
+      {
+       "from": "PACER",
+       "to": "RECAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow walker summarises the route.",
+     "definitionFit": "To recap, short for recapitulate, is to restate the main points briefly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +424,57 @@
    "clue": {
     "text": "Lecture, mostly bombastic, on stimulant leaves (6, two words)"
    },
-   "solution": "TALKAT"
+   "solution": "TALKAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TALK AT",
+    "definitions": [
+     {
+      "text": "Lecture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the word's final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bombastic",
+      "gives": "TAL",
+      "note": "tall, as in tall talk, means exaggerated or bombastic; shortened"
+     },
+     {
+      "clueFragment": "stimulant leaves",
+      "gives": "KAT",
+      "note": "kat or khat is a shrub whose leaves are chewed as a stimulant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAL",
+      "KAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A pompous talk delivered by someone high on chewed leaves.",
+     "definitionFit": "To talk at someone is to harangue them without listening, which is to lecture them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +488,70 @@
     "text": "I provide the wherewithal and pass round wad I cobbled together",
     "enumeration": "11"
    },
-   "solution": "BREADWINNER"
+   "solution": "BREADWINNER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BREADWINNER",
+    "definitions": [
+     {
+      "text": "I provide the wherewithal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cobbled together",
+      "for": "anagram",
+      "note": "something cobbled together is assembled roughly, so the letters are rearranged"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "one thing going round another encloses it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pass",
+      "gives": "BRENNER",
+      "note": "the Brenner Pass is the Alpine crossing between Austria and Italy"
+     },
+     {
+      "clueFragment": "wad I",
+      "gives": "WADI",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRE",
+      "ADWI",
+      "NNER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WADI",
+       "gives": "ADWI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who earns the money brings a wad of cash home after crossing a pass.",
+     "walkthrough": "The specific pass needed is the Brenner, which opens to take the rearranged WAD I after BRE.",
+     "definitionFit": "A breadwinner earns the household income, so providing the means of living."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +565,60 @@
     "text": "One at special ball is briefly entertained by old poet",
     "enumeration": "6"
    },
-   "solution": "MASKER"
+   "solution": "MASKER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MASKER",
+    "definitions": [
+     {
+      "text": "One at special ball",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means in shortened form, so the word is cut down"
+     },
+     {
+      "text": "entertained by",
+      "for": "container",
+      "note": "a guest entertained by a host is taken in, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old poet",
+      "gives": "MAKER",
+      "note": "maker (makar) is an old, chiefly Scots, word for a poet"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "S",
+      "note": "is shortened to 's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "S",
+      "KER"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer at a ball is hosted by an elderly poet.",
+     "definitionFit": "A masker wears a mask, as everyone does at a masquerade, a ball of a special kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertained"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +632,43 @@
     "text": "Small Canadian bottle from among ceramic kinds",
     "enumeration": "4"
    },
-   "solution": "MICK"
+   "solution": "MICK",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MICK",
+    "definitions": [
+     {
+      "text": "Small Canadian bottle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from among",
+      "for": "hidden_word",
+      "note": "taking letters from among some words means they lie inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ceramic kinds",
+      "gives": "MICK",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A little bottle sits among assorted pottery.",
+     "walkthrough": "A mickey or mick is Canadian slang for a small bottle of spirits, about 375 ml.",
+     "definitionFit": "In Canada a mick, short for mickey, is a pocket-sized flask-shaped bottle of liquor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ceramic"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +682,50 @@
     "text": "Old spear, certainly not for some Ghanaians",
     "enumeration": "7"
    },
-   "solution": "ASHANTI"
+   "solution": "ASHANTI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHANTI",
+    "definitions": [
+     {
+      "text": "some Ghanaians",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old spear",
+      "gives": "ASH",
+      "note": "spears were made from ash wood, so ash was an old word for a spear"
+     },
+     {
+      "clueFragment": "certainly not",
+      "gives": "ANTI",
+      "note": "being anti something is certainly not being for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASH",
+      "ANTI"
+     ]
+    },
+    "explanation": {
+     "surface": "Some Ghanaians reject the old spear outright.",
+     "walkthrough": "'Certainly not for' reads as one phrase, but 'for' attaches to the definition; 'certainly not' gives the word meaning against.",
+     "definitionFit": "The Ashanti are a people of central Ghana, so they are some of the country's inhabitants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "certainly"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +739,41 @@
     "text": "Delay visit",
     "enumeration": "4"
    },
-   "solution": "STAY"
+   "solution": "STAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAY",
+    "definitions": [
+     {
+      "text": "Delay",
+      "at": 0
+     },
+     {
+      "text": "visit",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delay",
+      "note": "first meaning: postpone"
+     },
+     {
+      "clueFragment": "visit",
+      "note": "second meaning: remain somewhere as a guest for a while"
+     }
+    ],
+    "explanation": {
+     "surface": "Put off a trip to someone's house.",
+     "definitionFit": "The verb means both to hold back or suspend and to remain as a guest somewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +787,49 @@
     "text": "Limestone country, well drained, ruggedly stark",
     "enumeration": "5"
    },
-   "solution": "KARST"
+   "solution": "KARST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KARST",
+    "definitions": [
+     {
+      "text": "Limestone country, well drained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruggedly",
+      "for": "anagram",
+      "note": "ruggedly suggests something rough and broken up, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stark",
+      "gives": "STARK",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STARK",
+       "gives": "KARST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stark, rugged limestone landscape where water drains away.",
+     "definitionFit": "Karst is limestone terrain riddled with sinkholes and caves, through which water drains underground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +843,50 @@
     "text": "Centre NE had redeveloped, given fresh allure",
     "enumeration": "11"
    },
-   "solution": "REENCHANTED"
+   "solution": "REENCHANTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REENCHANTED",
+    "definitions": [
+     {
+      "text": "given fresh allure",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "redeveloped",
+      "for": "anagram",
+      "note": "something redeveloped is rebuilt in a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Centre NE had",
+      "gives": "CENTRENEHAD",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CENTRENEHAD",
+       "gives": "REENCHANTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city centre in the North East was redeveloped to make it attractive again.",
+     "walkthrough": "NE is the North East of England.",
+     "definitionFit": "To reenchant is to charm again, so something reenchanted has been given renewed appeal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +900,55 @@
     "text": "It's gathered at base of mountain to shelter, setting off north",
     "enumeration": "5"
    },
-   "solution": "SCREE"
+   "solution": "SCREE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SCREE",
+    "definitions": [
+     {
+      "text": "It's gathered at base of mountain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "setting off",
+      "for": "deletion",
+      "note": "setting something off means putting it aside, so that letter leaves"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shelter",
+      "gives": "SCREEN",
+      "note": "a screen gives shelter or cover"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the compass abbreviation for north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCREE"
+     ]
+    },
+    "explanation": {
+     "surface": "Climbers gather at the foot of a mountain to take cover before heading north.",
+     "definitionFit": "Scree is the loose broken rock that accumulates on slopes below a cliff or peak."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gathered"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +962,67 @@
     "text": "Bearded condition after 'air grows wild",
     "enumeration": "8"
    },
-   "solution": "ARISTATE"
+   "solution": "ARISTATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ARISTATE",
+    "definitions": [
+     {
+      "text": "Bearded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grows wild",
+      "for": "anagram",
+      "note": "something growing wild is unruly and disordered, so its letters scramble"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the piece named first goes behind the one named next, fixing their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'air",
+      "gives": "ARI",
+      "note": "the word as written, dropped h and all, rearranged"
+     },
+     {
+      "clueFragment": "condition",
+      "gives": "STATE",
+      "note": "a state is a condition someone is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARI",
+      "STATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIR",
+       "gives": "ARI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cockney says a beard is what you get when your hair grows wild.",
+     "walkthrough": "'After' puts the condition after the rearranged letters. The apostrophe of 'air turns hair into a cockney pronunciation, adding to the beard picture.",
+     "definitionFit": "Aristate, a botanical term, means having awns or bristles, so bearded in the plant sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "'air"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +1036,47 @@
     "text": "Renew power in alternative to stealth tax?",
     "enumeration": "13"
    },
-   "solution": "TRICKLECHARGE"
+   "solution": "TRICKLECHARGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRICKLE-CHARGE",
+    "definitions": [
+     {
+      "text": "Renew power",
+      "at": 0
+     },
+     {
+      "text": "alternative to stealth tax?",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Renew power",
+      "note": "first meaning: top up a battery slowly and continuously"
+     },
+     {
+      "clueFragment": "alternative to stealth tax?",
+      "note": "second meaning, whimsical: a levy that seeps out of you a little at a time"
+     }
+    ],
+    "explanation": {
+     "surface": "A government proposes a new way to raise money instead of a hidden tax.",
+     "walkthrough": "A stealth tax is one levied without being noticed; the question mark flags the fanciful reading of a charge that dribbles out gradually.",
+     "definitionFit": "To trickle-charge a battery is to recharge it at a low steady rate; read literally, it is a fee taken in trickles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1090,70 @@
     "text": "Mum's among threesome (not first time) in Greek dance",
     "enumeration": "7"
    },
-   "solution": "ROMAIKA"
+   "solution": "ROMAIKA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ROMAIKA",
+    "definitions": [
+     {
+      "text": "Greek dance",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not first",
+      "for": "deletion",
+      "note": "not first means the opening letter is removed"
+     },
+     {
+      "text": "among",
+      "for": "container",
+      "note": "something among others is placed in their midst"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "threesome",
+      "gives": "TROIKA",
+      "note": "a troika is a group of three"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time; this is the first letter dropped"
+     },
+     {
+      "clueFragment": "Mum",
+      "gives": "MA",
+      "note": "a familiar word for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "MA",
+      "IKA"
+     ]
+    },
+    "explanation": {
+     "surface": "Mother joins a trio for a Greek dance, though not for the first time.",
+     "walkthrough": "'Not first time' means the T at the front is the letter dropped.",
+     "definitionFit": "The romaika is a Greek folk dance, named from the Romaic (modern Greek) people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1167,48 @@
     "text": "Photo royalty? They're often slim",
     "enumeration": "8"
    },
-   "solution": "PICKINGS"
+   "solution": "PICKINGS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PICKINGS",
+    "definitions": [
+     {
+      "text": "They're often slim",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Photo",
+      "gives": "PIC",
+      "note": "pic is informal for a picture or photo"
+     },
+     {
+      "clueFragment": "royalty",
+      "gives": "KINGS",
+      "note": "kings are royalty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIC",
+      "KINGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A shot of the royals, followed by a remark that they're often thin.",
+     "walkthrough": "'Slim pickings' is the idiom: scant gains or rewards.",
+     "definitionFit": "Pickings are the profits or spoils to be had, and in the stock phrase they are usually slim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slim"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1222,72 @@
     "text": "Sweetly coated queen thoroughly enveloped in mixture of dyes",
     "enumeration": "7"
    },
-   "solution": "SYRUPED"
+   "solution": "SYRUPED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SYRUPED",
+    "definitions": [
+     {
+      "text": "Sweetly coated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixture of",
+      "for": "anagram",
+      "note": "a mixture of letters has them blended into a new order"
+     },
+     {
+      "text": "enveloped in",
+      "for": "container",
+      "note": "something enveloped in another is wrapped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dyes",
+      "gives": "SYED",
+      "note": "these letters rearranged, to be split around the inserted part"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "R",
+      "note": "R for regina, Latin for queen"
+     },
+     {
+      "clueFragment": "thoroughly",
+      "gives": "UP",
+      "note": "up means completely, as in eat up or use up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SY",
+      "R",
+      "UP",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DYES",
+       "gives": "SYED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A queen's portrait smothered in a blend of colours, sweetly.",
+     "definitionFit": "Something syruped has been covered in syrup, a sweet sticky liquid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "queen"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1301,50 @@
     "text": "I can't die after treatment of glandular inflammation",
     "enumeration": "8"
    },
-   "solution": "ADENITIC"
+   "solution": "ADENITIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADENITIC",
+    "definitions": [
+     {
+      "text": "of glandular inflammation",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after treatment",
+      "for": "anagram",
+      "note": "after treatment something is altered, so the letters come out changed in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I can't die",
+      "gives": "ICANTDIE",
+      "note": "taken as written, apostrophe dropped, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICANTDIE",
+       "gives": "ADENITIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient relieved after treatment declares they won't die of their swollen glands.",
+     "definitionFit": "Adenitis is inflammation of a gland, and adenitic is its adjective, describing that condition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1358,49 @@
     "text": "Chum in select year",
     "enumeration": "5"
    },
-   "solution": "CULLY"
+   "solution": "CULLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CULLY",
+    "definitions": [
+     {
+      "text": "Chum",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "select",
+      "gives": "CULL",
+      "note": "to cull is to pick out or select"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the standard abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CULL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend in a chosen year group at school.",
+     "definitionFit": "Cully is an old slang word for a mate or companion, as well as a dupe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "select"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1414,56 @@
     "text": "Saw tot with adult at bottom of street",
     "enumeration": "6"
    },
-   "solution": "STADDA"
+   "solution": "STADDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STADDA",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at bottom of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the usual abbreviation for street"
+     },
+     {
+      "clueFragment": "tot",
+      "gives": "ADD",
+      "note": "to tot up is to add"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film-rating abbreviation for adult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ADD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A toddler and a grown-up spotted at the end of the road.",
+     "walkthrough": "'Saw' looks like a verb but is the noun. In a down entry, the two pieces go at the bottom of the street abbreviation.",
+     "definitionFit": "A stadda is a double-bladed saw used by comb-makers, so a type of saw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1477,50 @@
     "text": "Small child attached to nipple, a tiddler",
     "enumeration": "5"
    },
-   "solution": "TITCH"
+   "solution": "TITCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TITCH",
+    "definitions": [
+     {
+      "text": "a tiddler",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nipple",
+      "gives": "TIT",
+      "note": "tit is a word for a nipple or teat"
+     },
+     {
+      "clueFragment": "Small child",
+      "gives": "CH",
+      "note": "CH is the abbreviation for child, 'small' signalling the short form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A baby feeding at the breast is a little one.",
+     "walkthrough": "'Small child' looks like the definition but supplies the abbreviation; the definition is at the other end.",
+     "definitionFit": "Titch is British slang for a very small person, much as tiddler means a small child."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nipple"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1534,45 @@
     "text": "Looped garland in honour of Indian prince",
     "enumeration": "6"
    },
-   "solution": "TORANA"
+   "solution": "TORANA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORANA",
+    "definitions": [
+     {
+      "text": "Looped garland",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in honour of",
+      "gives": "TO",
+      "note": "a dedication is to someone, in their honour"
+     },
+     {
+      "clueFragment": "Indian prince",
+      "gives": "RANA",
+      "note": "a rana is a Rajput prince in India"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "RANA"
+     ]
+    },
+    "explanation": {
+     "surface": "A garland draped in tribute to a maharajah.",
+     "definitionFit": "A torana is a festoon or looped garland hung over Indian doorways, and also a carved arched gateway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1585,55 @@
    "clue": {
     "text": "Mucker messed about in foul dirt (8, two words)"
    },
-   "solution": "OLDFRUIT"
+   "solution": "OLDFRUIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OLD FRUIT",
+    "definitions": [
+     {
+      "text": "Mucker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "messed about",
+      "for": "anagram",
+      "note": "messed about means jumbled and disordered, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foul dirt",
+      "gives": "FOULDIRT",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FOULDIRT",
+       "gives": "OLDFRUIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pal larks around in filthy muck.",
+     "walkthrough": "Mucker is British slang for a close friend, not someone who mucks about.",
+     "definitionFit": "Old fruit is dated British slang for a chum, used affectionately like old chap or mucker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mucker"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1647,54 @@
     "text": "Dip, when entering river, well oiled",
     "enumeration": "5"
    },
-   "solution": "DRUNK"
+   "solution": "DRUNK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRUNK",
+    "definitions": [
+     {
+      "text": "well oiled",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when entering",
+      "for": "container",
+      "note": "something entering another goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dip",
+      "gives": "DUNK",
+      "note": "to dunk is to dip, as a biscuit in tea"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "UNK"
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy swimmer takes a plunge into the river.",
+     "definitionFit": "Well oiled is an idiom for intoxicated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "oiled"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1708,51 @@
     "text": "Deck where you may see sailor all right",
     "enumeration": "5"
    },
-   "solution": "TAROK"
+   "solution": "TAROK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAROK",
+    "definitions": [
+     {
+      "text": "Deck",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "where you may see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "tar, short for tarpaulin, is a sailor"
+     },
+     {
+      "clueFragment": "all right",
+      "gives": "OK",
+      "note": "OK means all right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "OK"
+     ]
+    },
+    "explanation": {
+     "surface": "On a ship's deck there is a sailor, and he is fine.",
+     "walkthrough": "'Deck' suggests a ship, fitting the sailor, but it is a deck of cards.",
+     "definitionFit": "Tarok is a variant of tarot, the pack of tarot cards and the game played with them, so a card deck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Deck"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1766,42 @@
     "text": "Obscure area of land in old England",
     "enumeration": "4"
    },
-   "solution": "HIDE"
+   "solution": "HIDE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HIDE",
+    "definitions": [
+     {
+      "text": "Obscure",
+      "at": 0
+     },
+     {
+      "text": "area of land in old England",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obscure",
+      "note": "first meaning: conceal from view"
+     },
+     {
+      "clueFragment": "area of land in old England",
+      "note": "second meaning: an Anglo-Saxon land measure, enough to support a family"
+     }
+    ],
+    "explanation": {
+     "surface": "An obscure patch of ground in ancient England.",
+     "definitionFit": "The verb means to conceal, and the noun was an old English unit of land of about 120 acres."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Obscure"
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1815,71 @@
     "text": "They're first of Malaysian origin, resident overseas",
     "enumeration": "4"
    },
-   "solution": "MORO"
+   "solution": "MORO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "MORO",
+    "definitions": [
+     {
+      "text": "They're first of Malaysian origin, resident overseas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of tells us to take only the opening letter of each of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Malaysian",
+      "gives": "M",
+      "select": "first",
+      "note": "the initial letter"
+     },
+     {
+      "clueFragment": "origin",
+      "gives": "O",
+      "select": "first",
+      "note": "the initial letter"
+     },
+     {
+      "clueFragment": "resident",
+      "gives": "R",
+      "select": "first",
+      "note": "the initial letter"
+     },
+     {
+      "clueFragment": "overseas",
+      "gives": "O",
+      "select": "first",
+      "note": "the initial letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "O",
+      "R",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "These people are of Malay descent but live abroad.",
+     "walkthrough": "The whole clue doubles as the definition: the Moros are Muslim peoples of Malay stock living in the southern Philippines.",
+     "definitionFit": "Moros are Muslim Malay peoples of Mindanao and the Sulu islands, outside Malaysia itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1893,73 @@
     "text": "Stew inn cooked limits more than half greed",
     "enumeration": "7"
    },
-   "solution": "NAVARIN"
+   "solution": "NAVARIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "NAVARIN",
+    "definitions": [
+     {
+      "text": "Stew",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "more than half",
+      "for": "deletion",
+      "note": "more than half means most of the word is kept and the rest dropped"
+     },
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked letters have been worked over, so they are rearranged"
+     },
+     {
+      "text": "limits",
+      "for": "container",
+      "note": "letters that limit something form its boundaries, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inn",
+      "gives": "NIN",
+      "note": "the word rearranged, then split around the inserted part"
+     },
+     {
+      "clueFragment": "greed",
+      "gives": "AVARICE",
+      "note": "avarice is greed; only its first four letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AVAR",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INN",
+       "gives": "NIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An innkeeper cooks a stew but is limited by more than half a portion of greed.",
+     "walkthrough": "Four of the seven letters of AVARICE is more than half.",
+     "definitionFit": "A navarin is a French ragout of mutton or lamb with vegetables, a kind of stew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limits"
+    }
+   }
   },
   {
    "number": 29,
@@ -468,7 +1973,66 @@
     "text": "Fit, Ron and Ted mostly wrestled at the same weight",
     "enumeration": "13"
    },
-   "solution": "EQUIPONDERANT"
+   "solution": "EQUIPONDERANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EQUIPONDERANT",
+    "definitions": [
+     {
+      "text": "at the same weight",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means nearly all, so the last letter is cut"
+     },
+     {
+      "text": "wrestled",
+      "for": "anagram",
+      "note": "wrestled things are twisted and grappled, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fit",
+      "gives": "EQUIP",
+      "note": "to fit out is to equip"
+     },
+     {
+      "clueFragment": "Ron and Ted",
+      "gives": "RONANDTE",
+      "note": "taken as written with the final letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EQUIP",
+      "ONDERANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RONANDTE",
+       "gives": "ONDERANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two fit wrestlers, Ron and Ted, grapple in the same weight class.",
+     "definitionFit": "Equiponderant means of equal weight, from Latin aequi- equal and ponderare to weigh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Fit"
+    }
+   }
   },
   {
    "number": 30,
@@ -482,7 +2046,65 @@
     "text": "Get rupture, return of old injury, being plastered",
     "enumeration": "8"
    },
-   "solution": "RENDERED"
+   "solution": "RENDERED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RENDERED",
+    "definitions": [
+     {
+      "text": "being plastered",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return of",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get rupture",
+      "gives": "REND",
+      "note": "to rend is to tear apart, to cause a rupture"
+     },
+     {
+      "clueFragment": "old injury",
+      "gives": "DERE",
+      "note": "dere is an obsolete word for harm or injury"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REND",
+      "ERED"
+     ],
+     "reversals": [
+      {
+       "from": "DERE",
+       "to": "ERED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rupture recurs from an old injury and the limb ends up in plaster.",
+     "walkthrough": "'Plastered' suggests a cast or drunkenness; here it is plaster on a wall.",
+     "definitionFit": "To render a wall is to coat it with plaster, so a wall being rendered is being plastered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plastered"
+    }
+   }
   },
   {
    "number": 31,
@@ -496,7 +2118,58 @@
     "text": "Take leave to scan old holiday house once it's vacated",
     "enumeration": "5"
    },
-   "solution": "CONGE"
+   "solution": "CONGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CONGÉ",
+    "definitions": [
+     {
+      "text": "Take leave",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "once it's vacated",
+      "for": "deletion",
+      "note": "once a place is vacated what was in it has gone, so those letters leave"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scan old",
+      "gives": "CON",
+      "note": "con is an old word for studying or scanning closely"
+     },
+     {
+      "clueFragment": "holiday house",
+      "gives": "GITE",
+      "note": "a gîte is a French holiday cottage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "Visitors take a break to look over an old holiday home once the guests have left.",
+     "walkthrough": "'Old' belongs with 'scan', not with the house; the gîte loses its IT.",
+     "definitionFit": "Congé is a formal leave-taking or dismissal; Chambers also gives it as a verb meaning to bow out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 32,
@@ -510,7 +2183,54 @@
     "text": "Had old pain strapped by doctor as a temporary measure",
     "enumeration": "6"
    },
-   "solution": "MAKEDO"
+   "solution": "MAKEDO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAKE-DO",
+    "definitions": [
+     {
+      "text": "as a temporary measure",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strapped by",
+      "for": "container",
+      "note": "something strapped by another is bound within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "MO",
+      "note": "MO, medical officer, is a doctor"
+     },
+     {
+      "clueFragment": "Had old pain",
+      "gives": "AKED",
+      "note": "aked is an old spelling of ached, meaning had pain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AKED",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with an old ache gets strapped up by a doctor for now.",
+     "definitionFit": "A make-do thing is a stopgap, something used for want of anything better until a proper solution is found."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strapped"
+    }
+   }
   },
   {
    "number": 33,
@@ -524,7 +2244,63 @@
     "text": "Redealt two pairs of top cards, spades, making dough",
     "enumeration": "5"
    },
-   "solution": "AKKAS"
+   "solution": "AKKAS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AKKAS",
+    "definitions": [
+     {
+      "text": "dough",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Redealt",
+      "for": "anagram",
+      "note": "cards that are redealt come out in a different order"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two pairs of top cards",
+      "gives": "AKAK",
+      "note": "the top cards are the ace and king, A and K, taken twice"
+     },
+     {
+      "clueFragment": "spades",
+      "gives": "S",
+      "note": "S is the bridge abbreviation for spades"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AKKA",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AKAK",
+       "gives": "AKKA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A card player shuffles aces and kings and spades to win some cash.",
+     "definitionFit": "Akkas is a variant of ackers, British slang for money, as dough is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dough"
+    }
+   }
   }
  ]
 }
