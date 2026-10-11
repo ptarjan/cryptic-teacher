@@ -24,6 +24,9 @@
   "date": "2024-10-19",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,61 @@
     "text": "Flock of black sheep, small for area",
     "enumeration": "6"
    },
-   "solution": "PARISH"
+   "solution": "PARISH",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "PARISH",
+    "definitions": [
+     {
+      "text": "Flock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "'small for area' means the abbreviation for small takes the place of the abbreviation for area"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black sheep",
+      "gives": "PARIAH",
+      "note": "a black sheep is an outcast, a pariah"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the standard abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARI",
+      "S",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A shepherd notices one disreputable sheep in the flock and swaps it for a smaller animal.",
+     "walkthrough": "The A in PARIAH (the second one) becomes S, giving PARISH.",
+     "definitionFit": "A parish is the congregation in a priest's care, which church language calls his flock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flock"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +108,50 @@
     "text": "Lions intruded, escaping from trap",
     "enumeration": "5"
    },
-   "solution": "PRIDE"
+   "solution": "PRIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRIDE",
+    "definitions": [
+     {
+      "text": "Lions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "escaping from trap",
+      "for": "anagram",
+      "note": "breaking out of a trap means the letters scramble free into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intruded",
+      "gives": "PRIED",
+      "note": "to pry into something is to intrude, so intruded is pried"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRIED",
+       "gives": "PRIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lions forced their way in, then escaped from a trap.",
+     "definitionFit": "A pride is the collective noun for a group of lions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lions"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +165,49 @@
     "text": "Venomous type of gossip blowing top",
     "enumeration": "7"
    },
-   "solution": "RATTLER"
+   "solution": "RATTLER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RATTLER",
+    "definitions": [
+     {
+      "text": "Venomous type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blowing top",
+      "for": "deletion",
+      "note": "to blow one's top is to lose the head, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gossip",
+      "gives": "PRATTLER",
+      "note": "a prattler chatters idly, a gossip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATTLER"
+     ]
+    },
+    "explanation": {
+     "surface": "A spiteful gossip loses her temper.",
+     "walkthrough": "'Venomous type' reads as a nasty person; it is a snake.",
+     "definitionFit": "Rattler is short for rattlesnake, a poisonous snake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Venomous"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +221,67 @@
     "text": "Liberal refused to throttle vacuous lefty, surprisingly",
     "enumeration": "9"
    },
-   "solution": "STRANGELY"
+   "solution": "STRANGELY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STRANGELY",
+    "definitions": [
+     {
+      "text": "surprisingly",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "refused to",
+      "for": "deletion",
+      "note": "something refused is turned away, so that letter is left out of the next word"
+     },
+     {
+      "text": "vacuous",
+      "for": "letter_selection",
+      "note": "vacuous means empty, so the word's insides are dropped and only its outside kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "throttle",
+      "gives": "STRANGLE",
+      "note": "to throttle is to strangle"
+     },
+     {
+      "clueFragment": "lefty",
+      "gives": "LY",
+      "select": "outer",
+      "note": "the outer letters of lefty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRANGE",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal oddly declined to silence an empty-headed left-winger.",
+     "walkthrough": "One L is dropped from STRANGLE, leaving STRANGE.",
+     "definitionFit": "Strangely and surprisingly are both adverbs meaning in an unexpected way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Liberal"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +295,43 @@
     "text": "Have enough to buy part of Staffordshire",
     "enumeration": "6"
    },
-   "solution": "AFFORD"
+   "solution": "AFFORD",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AFFORD",
+    "definitions": [
+     {
+      "text": "Have enough to buy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "only a part of the next word is wanted, a run of letters lying inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staffordshire",
+      "gives": "AFFORD",
+      "note": "the letters sit in the middle of the county name"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone can only afford a modest piece of land in an English county.",
+     "walkthrough": "Staffordshire is a county in the English Midlands.",
+     "definitionFit": "To afford something is to have the money needed for its purchase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +345,46 @@
     "text": "In favour of former currency market",
     "enumeration": "5"
    },
-   "solution": "FOREX"
+   "solution": "FOREX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOREX",
+    "definitions": [
+     {
+      "text": "currency market",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In favour of",
+      "gives": "FOR",
+      "note": "if you are for something you are in favour of it"
+     },
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex means former"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "EX"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone backs the currency that used to be in use.",
+     "definitionFit": "Forex, short for foreign exchange, is the global market where currencies are traded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "former"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +398,78 @@
     "text": "University dons stole rubbish and left best in shop",
     "enumeration": "7"
    },
-   "solution": "OUTSELL"
+   "solution": "OUTSELL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "OUTSELL",
+    "definitions": [
+     {
+      "text": "best in shop",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rubbish",
+      "for": "anagram",
+      "note": "rubbish means poor, worthless, so the preceding word is broken up and reformed"
+     },
+     {
+      "text": "dons",
+      "for": "container",
+      "note": "to don is to put on, so one piece is wrapped by another like a garment"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stole",
+      "gives": "STOLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "U",
+      "TSEL",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STOLE",
+       "gives": "OTSEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "College tutors pinch some junk and walk off.",
+     "walkthrough": "University dons are tutors in the surface, but here dons is a verb.",
+     "definitionFit": "To outsell a rival is to beat them in sales, to be best in the shop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dons"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +483,65 @@
     "text": "Payment is absurdly curtailed abroad",
     "enumeration": "9"
    },
-   "solution": "DISBURSAL"
+   "solution": "DISBURSAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DISBURSAL",
+    "definitions": [
+     {
+      "text": "Payment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "curtailed means cut short, so the last letter is lopped off"
+     },
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad here means widely scattered, so the letters spread into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "absurdly",
+      "gives": "ABSURDLY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISBURSAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISABSURDL",
+       "gives": "DISBURSAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A payment is cut back ridiculously when made overseas.",
+     "walkthrough": "ABSURDLY loses its final Y before the shuffle.",
+     "definitionFit": "A disbursal is a paying out of money, a payment from a fund."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +555,60 @@
     "text": "Flighty boomer is resentful and close to meltdown",
     "enumeration": "7"
    },
-   "solution": "BITTERN"
+   "solution": "BITTERN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BITTERN",
+    "definitions": [
+     {
+      "text": "Flighty boomer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is taken"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resentful",
+      "gives": "BITTER",
+      "note": "a synonym: someone resentful is bitter"
+     },
+     {
+      "clueFragment": "meltdown",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of meltdown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BITTER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry baby boomer sulks as an economic meltdown approaches.",
+     "walkthrough": "'Boomer' suggests a baby boomer, but it is a bird known for its booming call; 'flighty' just says it flies.",
+     "definitionFit": "The bittern is a marsh heron whose deep booming call is its best-known feature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boomer"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +622,52 @@
     "text": "Harry Potter's complaint",
     "enumeration": "7"
    },
-   "solution": "PROTEST"
+   "solution": "PROTEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PROTEST",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Harry",
+      "for": "anagram",
+      "note": "to harry is to harass or pester, so these letters are knocked about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Potter's",
+      "gives": "POTTERS",
+      "note": "the name with its possessive S"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POTTERS",
+       "gives": "PROTEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The boy wizard Harry Potter lodges a grievance.",
+     "walkthrough": "The famous name hides the anagram signal: 'Harry' is a verb here, not the wizard.",
+     "definitionFit": "A protest is a formal objection, a statement of grievance or complaint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Harry"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +681,55 @@
     "text": "Severe European taking part in group sex",
     "enumeration": "9"
    },
-   "solution": "SWINGEING"
+   "solution": "SWINGEING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWINGEING",
+    "definitions": [
+     {
+      "text": "Severe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking part in",
+      "for": "container",
+      "note": "to take part in something is to be inside it, so one letter goes within the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group sex",
+      "gives": "SWINGING",
+      "note": "swinging is partner-swapping or group sex"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWING",
+      "E",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A stern European joins in an orgy.",
+     "definitionFit": "Swingeing means severe, especially of cuts or penalties; it is a mainly British word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Severe"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +749,57 @@
      }
     ]
    },
-   "solution": "SEALINGWAX"
+   "solution": "SEALINGWAX",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "SEALING WAX",
+    "definitions": [
+     {
+      "text": "closer",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "the Reverend Spooner swapped the opening sounds of words, so the two words wanted trade their first sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trundling",
+      "gives": "SEALING",
+      "soundsLike": "WHEELING",
+      "note": "trundling something along is wheeling it; it gives its W sound to the second word"
+     },
+     {
+      "clueFragment": "bags",
+      "gives": "WAX",
+      "soundsLike": "SACKS",
+      "note": "bags are sacks; the S sound moves to the first word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEALING",
+      "WAX"
+     ]
+    },
+    "explanation": {
+     "surface": "Spooner pushes his luggage along on a trolley.",
+     "walkthrough": "Wheeling sacks, with first sounds swapped, comes out as sealing wax.",
+     "definitionFit": "Sealing wax was used to fasten letters shut, so it is something that closes them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "closer"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +813,48 @@
     "text": "Bamboozle wingless, flightless birds",
     "enumeration": "4"
    },
-   "solution": "EMUS"
+   "solution": "EMUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EMUS",
+    "definitions": [
+     {
+      "text": "flightless birds",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wingless",
+      "for": "deletion",
+      "note": "a word's wings are its two sides, so without them its outer letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bamboozle",
+      "gives": "BEMUSE",
+      "note": "to bamboozle is to confuse or bemuse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled observer is baffled by birds that cannot fly.",
+     "walkthrough": "BEMUSE loses its first and last letters.",
+     "definitionFit": "The emu is a large Australian bird that cannot fly, so emus are an example of flightless birds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wingless"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +868,44 @@
     "text": "Bottle opener, veneered in part",
     "enumeration": "5"
    },
-   "solution": "NERVE"
+   "solution": "NERVE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NERVE",
+    "definitions": [
+     {
+      "text": "Bottle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in part",
+      "for": "hidden_word",
+      "note": "only part of the words is taken, so the letters lie within the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opener, veneered",
+      "gives": "NERVE",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A wine-bottle opener with a decorative wooden veneer.",
+     "walkthrough": "In British slang 'bottle' means courage.",
+     "definitionFit": "Bottle is British slang for courage, and nerve is a synonym for the same quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bottle"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +925,61 @@
      }
     ]
    },
-   "solution": "NEARTHING"
+   "solution": "NEARTHING",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NEAR THING",
+    "definitions": [
+     {
+      "text": "close shave",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spending",
+      "for": "deletion",
+      "note": "spending means paying out, so that item is given up from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "EARTHLING",
+      "note": "a human being, an earthling"
+     },
+     {
+      "clueFragment": "pounds",
+      "gives": "L",
+      "note": "L is the abbreviation for pound sterling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EARTHING"
+     ]
+    },
+    "explanation": {
+     "surface": "A northerner pays a barber to give him a close shave.",
+     "walkthrough": "The L in EARTHLING goes, leaving EARTHING.",
+     "definitionFit": "A near thing is a narrow escape, as is a close shave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shave"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +993,52 @@
     "text": "Disorder unloosed, with knobs on",
     "enumeration": "8"
    },
-   "solution": "NODULOSE"
+   "solution": "NODULOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NODULOSE",
+    "definitions": [
+     {
+      "text": "with knobs on",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Disorder",
+      "for": "anagram",
+      "note": "disorder puts the following letters out of their proper sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unloosed",
+      "gives": "UNLOOSED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNLOOSED",
+       "gives": "NODULOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chaos breaks loose, and in an especially intense form.",
+     "walkthrough": "'With knobs on' is a British idiom for 'and even more so', which hides its literal sense here.",
+     "definitionFit": "Nodulose is a botanical term for bearing small knobby lumps, or nodules."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "knobs"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1058,74 @@
      }
     ]
    },
-   "solution": "DRAGQUEEN"
+   "solution": "DRAGQUEEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "DRAG QUEEN",
+    "definitions": [
+     {
+      "text": "transvestite",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only its middle letters are taken"
+     },
+     {
+      "text": "embraced by",
+      "for": "container",
+      "note": "something embraced is held inside, so it goes within the other piece"
+     },
+     {
+      "text": "bending",
+      "for": "anagram",
+      "note": "bending twists something out of shape, so the letters before it are reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a gender",
+      "gives": "AGENDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Piqued",
+      "gives": "QU",
+      "select": "middle",
+      "note": "the middle two letters of piqued"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAG",
+      "QU",
+      "EEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGENDER",
+       "gives": "DRAGEEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flouting gender norms is privately irritated.",
+     "walkthrough": "'Gender-bending' reads as one adjective, but it splits into the letters to shuffle and the shuffle signal.",
+     "definitionFit": "A drag queen is a man performing in exaggerated female dress, broadly a cross-dresser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bending"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1139,67 @@
     "text": "Grotesque outburst over drunken orgy",
     "enumeration": "8"
    },
-   "solution": "GARGOYLE"
+   "solution": "GARGOYLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GARGOYLE",
+    "definitions": [
+     {
+      "text": "Grotesque",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunken",
+      "for": "anagram",
+      "note": "something drunken staggers about, so these letters lurch into a new order"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "one word lying over another covers it, so the outer piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outburst",
+      "gives": "GALE",
+      "note": "a gale of laughter is an outburst"
+     },
+     {
+      "clueFragment": "orgy",
+      "gives": "ORGY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "RGOY",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ORGY",
+       "gives": "RGOY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone erupts in anger over a debauched drunken party.",
+     "walkthrough": "'Grotesque' looks like an adjective, but it is a noun for a carved figure.",
+     "definitionFit": "A gargoyle is a carved grotesque, a monstrous stone figure on a building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grotesque"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1213,64 @@
     "text": "Think hosts extremely trivial and weak",
     "enumeration": "7"
    },
-   "solution": "GUTLESS"
+   "solution": "GUTLESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GUTLESS",
+    "definitions": [
+     {
+      "text": "weak",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "at the extremes means at each end, so only the first and last letters are taken"
+     },
+     {
+      "text": "hosts",
+      "for": "container",
+      "note": "a host holds guests inside, so the first word wraps the second"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Think",
+      "gives": "GUESS",
+      "note": "to guess is to think, as in 'I guess so'"
+     },
+     {
+      "clueFragment": "trivial",
+      "gives": "TL",
+      "select": "outer",
+      "note": "the first and last letters of trivial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "TL",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A dinner host is thought shallow and spineless.",
+     "definitionFit": "Gutless means lacking courage, cowardly and weak-willed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hosts"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1284,54 @@
     "text": "Obsessive about new yearly record",
     "enumeration": "5"
    },
-   "solution": "ANNAL"
+   "solution": "ANNAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANNAL",
+    "definitions": [
+     {
+      "text": "yearly record",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first word goes around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obsessive",
+      "gives": "ANAL",
+      "note": "informally, an obsessively fussy person is anal"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "NAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is fixated on a fresh annual record.",
+     "definitionFit": "An annal is a chronicle of one year's events, a record kept year by year."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1345,71 @@
     "text": "Falls over backwards and starts to resent ageing",
     "enumeration": "7"
    },
-   "solution": "NIAGARA"
+   "solution": "NIAGARA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NIAGARA",
+    "definitions": [
+     {
+      "text": "Falls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backwards",
+      "for": "reversal",
+      "note": "backwards tells you to read the preceding word from end to start"
+     },
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the words that follow are their first letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "AGAIN",
+      "note": "to do something over is to do it again"
+     },
+     {
+      "clueFragment": "resent ageing",
+      "gives": "RA",
+      "select": "first",
+      "note": "the first letters of resent and ageing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIAGA",
+      "RA"
+     ],
+     "reversals": [
+      {
+       "from": "AGAIN",
+       "to": "NIAGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tumbles over backwards and begins to resent growing old.",
+     "walkthrough": "'Falls' looks like a verb, but it means waterfalls.",
+     "definitionFit": "Niagara is the famous waterfall on the US-Canada border, often called Niagara Falls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Falls"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1429,49 @@
      }
     ]
    },
-   "solution": "ATIT"
+   "solution": "ATIT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AT IT",
+    "definitions": [
+     {
+      "text": "having sex",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tantrists",
+      "gives": "ATIT",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Followers of Tantra make love on a frequent schedule.",
+     "walkthrough": "Tantrists practise Tantra, popularly linked with sex.",
+     "definitionFit": "'At it' is a British euphemism for engaged in intercourse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1495,68 @@
      }
     ]
    },
-   "solution": "SINEQUANON"
+   "solution": "SINEQUANON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SINE QUA NON",
+    "definitions": [
+     {
+      "text": "Must",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "only the first letter of the preceding word is taken"
+     },
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "to stop a gap is to plug it, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "function",
+      "gives": "SINE",
+      "note": "sine is a trigonometric function"
+     },
+     {
+      "clueFragment": "conspiracy theory",
+      "gives": "QANON",
+      "note": "QAnon is a far-right American conspiracy theory"
+     },
+     {
+      "clueFragment": "untiringly",
+      "gives": "U",
+      "select": "first",
+      "note": "the first letter of untiringly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINE",
+      "Q",
+      "U",
+      "ANON"
+     ]
+    },
+    "explanation": {
+     "surface": "Tireless effort is needed to halt the spread of a conspiracy theory.",
+     "definitionFit": "Latin for 'without which not', the phrase names an essential condition, a must."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1570,67 @@
     "text": "Scoundrel wins cycling race at last",
     "enumeration": "5"
    },
-   "solution": "SWINE"
+   "solution": "SWINE",
+   "annotation": {
+    "type": [
+     "cycling",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWINE",
+    "definitions": [
+     {
+      "text": "Scoundrel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling means going round, so the last letter moves round to the front"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last means at the end, so only the final letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wins",
+      "gives": "WINS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of race"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWIN",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WINS",
+       "gives": "SWIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain triumphs in a bicycle race in the end.",
+     "definitionFit": "A swine is a contemptible person, a scoundrel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1644,48 @@
     "text": "Over-long remark",
     "enumeration": "5"
    },
-   "solution": "OPINE"
+   "solution": "OPINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPINE",
+    "definitions": [
+     {
+      "text": "remark",
+      "at": 10,
+      "note": "a verb here: to state as an opinion"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Over",
+      "gives": "O",
+      "note": "O is the cricket scoring abbreviation for over"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "PINE",
+      "note": "to long for something is to pine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A comment goes on far too long.",
+     "walkthrough": "'Over-long' reads as one adjective; split it into two parts.",
+     "definitionFit": "To opine is to state an opinion, to remark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1699,67 @@
     "text": "Family relative behind leader of environmental movement",
     "enumeration": "7"
    },
-   "solution": "KINESIS"
+   "solution": "KINESIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KINESIS",
+    "definitions": [
+     {
+      "text": "movement",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places the relative after the piece that follows it in the clue, fixing the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family",
+      "gives": "KIN",
+      "note": "kin are one's family"
+     },
+     {
+      "clueFragment": "environmental",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of environmental"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "SIS",
+      "note": "sis is short for sister, a relative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIN",
+      "E",
+      "SIS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's relation is behind a green campaign group.",
+     "walkthrough": "'Behind' places the relative after the leader letter. 'Environmental movement' looks like one phrase; only 'movement' is the definition.",
+     "definitionFit": "Kinesis is the scientific term for motion, especially an organism's undirected movement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1773,65 @@
     "text": "Top beer brought back for Top Gear",
     "enumeration": "7"
    },
-   "solution": "REGALIA"
+   "solution": "REGALIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "REGALIA",
+    "definitions": [
+     {
+      "text": "Top Gear",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "brought back means returned, so the letters are read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top",
+      "gives": "AI",
+      "note": "A1 means first-rate, written AI in crosswords"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "LAGER",
+      "note": "lager is a type of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGAL",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AILAGER",
+       "to": "REGALIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first-class beer is brought back for the TV car show Top Gear.",
+     "walkthrough": "Top Gear is a British TV motoring show; here it means finery worn on top, such as a crown.",
+     "definitionFit": "Regalia are royal emblems such as crowns, so ceremonial gear including headgear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gear"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1845,49 @@
     "text": "Good escort is exceptionally effusive person",
     "enumeration": "6"
    },
-   "solution": "GUSHER"
+   "solution": "GUSHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GUSHER",
+    "definitions": [
+     {
+      "text": "exceptionally effusive person",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "escort",
+      "gives": "USHER",
+      "note": "an usher escorts people to their seats"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "USHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A capable escort turns out to be a wonderfully warm companion.",
+     "definitionFit": "A gusher is someone who praises in an overflowing, over-enthusiastic way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "escort"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1901,61 @@
     "text": "Clueless Keynesian acting crazy",
     "enumeration": "6"
    },
-   "solution": "INSANE"
+   "solution": "INSANE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INSANE",
+    "definitions": [
+     {
+      "text": "crazy",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Clueless",
+      "for": "deletion",
+      "note": "without a clue, read as without a word meaning clue, which is taken away"
+     },
+     {
+      "text": "acting",
+      "for": "anagram",
+      "note": "acting means playing a part, so the remaining letters perform in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keynesian",
+      "gives": "KEYNESIAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSANE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NESIAN",
+       "gives": "INSANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An economist of the Keynes school behaves foolishly, without any idea what he is doing.",
+     "walkthrough": "A key is a clue to a puzzle, so KEY is removed from KEYNESIAN.",
+     "definitionFit": "Insane and crazy are synonyms for mad or wildly unreasonable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Clueless"
+    }
+   }
   }
  ]
 }
