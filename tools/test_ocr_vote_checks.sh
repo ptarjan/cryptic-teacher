@@ -1204,6 +1204,25 @@ cw = ["#", "Bring", "about", "special", "celebrations", "#"]
 check("mirror: a plural read with its small s stays a tie with the singular",
       None, oc.agree("Bring about special celebration", [cw, cw, cp])[0])
 
+# Three letters run together ("toa") part where most readings print the
+# two words side by side; a real word ("ago") does not.
+ta = ["#", "Examination", "given", "by", "soldiers", "to", "a", "pupil", "#", "Bent"]
+check("a three-letter run most readings print as two words parts ('toa pupil', NewsUK)",
+      "Examination given by soldiers to a pupil", oc.agree("Examination given by soldiers toa pupil", [ta, ta, ta])[0])
+ag = ["#", "Long", "a", "go", "in", "Egypt", "#"]
+check("mirror: a three-letter word stays whole though readings split it ('ago')",
+      "Long ago in Egypt", oc.parted("Long ago in Egypt", [ag, ag]))
+
+# A count printed in the clue, past which no reading has a word, ends it.
+fl = ["#", "A", "requisite", "one's", "incorporated", "in", "cake", "flavouring", "#", "#", "Completely"]
+check("the clue ends at a count it prints when no reading has the words after ('(7). doefla')",
+      "A requisite one's incorporated in cake flavouring",
+      oc.agree("A requisite one's incorporated in cake flavouring (7). doefla", [fl, fl, fl])[0])
+fd = ["#", "A", "requisite", "one's", "incorporated", "in", "cake", "flavouring", "doefla", "#", "Completely"]
+check("mirror: a word after the count that a reading has is no cut",
+      "A requisite one's incorporated in cake flavouring (7). doefla",
+      oc.agree("A requisite one's incorporated in cake flavouring (7). doefla", [fl, fl, fd])[0])
+
 print(f"FAILS {fails}")
 EOF
 )
