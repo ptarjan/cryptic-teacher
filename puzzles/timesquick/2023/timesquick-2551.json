@@ -24,6 +24,9 @@
   "date": "2023-12-19",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,46 @@
     "text": "Agent — with assistance — settled debts",
     "enumeration": "6"
    },
-   "solution": "REPAID"
+   "solution": "REPAID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPAID",
+    "definitions": [
+     {
+      "text": "settled debts",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agent",
+      "gives": "REP",
+      "note": "a rep is a sales representative, an agent for a firm"
+     },
+     {
+      "clueFragment": "with assistance",
+      "gives": "AID",
+      "note": "aid is assistance; 'with' adds it on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "AID"
+     ]
+    },
+    "explanation": {
+     "surface": "A go-between, helped by someone, finally cleared what was owed.",
+     "definitionFit": "To have repaid is to have given back borrowed money, which is exactly what settling debts involves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Agent"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +93,46 @@
     "text": "Hand in your notice, or agree to an updated contract?",
     "enumeration": "6"
    },
-   "solution": "RESIGN"
+   "solution": "RESIGN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESIGN",
+    "definitions": [
+     {
+      "text": "Hand in your notice",
+      "at": 0
+     },
+     {
+      "text": "agree to an updated contract",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hand in your notice",
+      "note": "first meaning: quit your job"
+     },
+     {
+      "clueFragment": "agree to an updated contract",
+      "note": "second meaning: sign again"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The same letters read as one word mean quit, and read with a hyphen mean sign a fresh contract; the question mark flags the split.",
+     "definitionFit": "Resigning means formally leaving a post, while re-signing means putting your name to a renewed deal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "updated"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +146,62 @@
     "text": "Saw traveller entering pubs regularly",
     "enumeration": "7"
    },
-   "solution": "PROVERB"
+   "solution": "PROVERB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PROVERB",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering something means going inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pubs",
+      "gives": "PB",
+      "select": "alternate",
+      "note": "first and third letters"
+     },
+     {
+      "clueFragment": "traveller",
+      "gives": "ROVER",
+      "note": "a rover is a wanderer or traveller"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROVER",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spotted a wanderer frequently going into bars.",
+     "walkthrough": "'Saw' looks like a past-tense verb; it is the noun meaning a saying.",
+     "definitionFit": "A saw is an old saying or maxim, the same as a proverb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +221,55 @@
      }
     ]
    },
-   "solution": "ISPY"
+   "solution": "ISPY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "I-SPY",
+    "definitions": [
+     {
+      "text": "Children's game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devoid of content",
+      "for": "letter_selection",
+      "note": "with its contents removed only the shell of the word remains, its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pretty",
+      "gives": "PY",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "A dismissive remark that a kids' pastime is attractive but empty.",
+     "definitionFit": "I-spy is a guessing game in which children name things they can see by their first letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pretty"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +283,60 @@
     "text": "It's a nasty, concerning, scornful piece of work",
     "enumeration": "6"
    },
-   "solution": "SATIRE"
+   "solution": "SATIRE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SATIRE",
+    "definitions": [
+     {
+      "text": "scornful piece of work",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nasty",
+      "for": "anagram",
+      "note": "something nasty is in a bad, messed-up state, so the preceding letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's a",
+      "gives": "ITSA",
+      "note": "the letters taken as written, ignoring the apostrophe"
+     },
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means 'about' or 'concerning', as in letter headings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SATI",
+      "RE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITSA",
+       "gives": "SATI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneers at a mean-spirited, mocking piece of writing.",
+     "definitionFit": "Satire is a literary or dramatic work that ridicules its targets, hence a scornful composition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nasty"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +350,59 @@
     "text": "Cunning adversary removing header from public record",
     "enumeration": "8"
    },
-   "solution": "ARCHIVAL"
+   "solution": "ARCHIVAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ARCHIVAL",
+    "definitions": [
+     {
+      "text": "public record",
+      "at": 39,
+      "note": "a noun phrase used attributively, standing for the adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing header",
+      "for": "deletion",
+      "note": "a header is the top item, which for a down entry is the first letter, and it is taken off"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cunning",
+      "gives": "ARCH",
+      "note": "arch means knowingly sly or cunning"
+     },
+     {
+      "clueFragment": "adversary",
+      "gives": "RIVAL",
+      "note": "a rival is an opponent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCH",
+      "IVAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A devious enemy is deleting a heading from an official document.",
+     "walkthrough": "'Cunning adversary' reads as one villain, but cunning gives ARCH and the adversary loses its first letter. ARCHIVAL is an adjective, so 'public record' is read as in a phrase like 'public record material'.",
+     "definitionFit": "Archives hold historical public records, so archival material belongs to such records."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "header"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +416,62 @@
     "text": "Midwesterner one performing around Washington",
     "enumeration": "5"
    },
-   "solution": "IOWAN"
+   "solution": "IOWAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IOWAN",
+    "definitions": [
+     {
+      "text": "Midwesterner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "a performer is on stage"
+     },
+     {
+      "clueFragment": "Washington",
+      "gives": "WA",
+      "note": "WA is the postal abbreviation for Washington state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "O",
+      "WA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A person from the Midwest is playing a gig near the US capital.",
+     "walkthrough": "Washington here is the state, not the city.",
+     "definitionFit": "An Iowan comes from Iowa, a state in the American Midwest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Washington"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +485,47 @@
     "text": "Trainee dismissing the first profitable venture",
     "enumeration": "6"
    },
-   "solution": "EARNER"
+   "solution": "EARNER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EARNER",
+    "definitions": [
+     {
+      "text": "profitable venture",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismissing the first",
+      "for": "deletion",
+      "note": "dismissing the first means sending away the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trainee",
+      "gives": "LEARNER",
+      "note": "a learner is someone in training"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARNER"
+     ]
+    },
+    "explanation": {
+     "surface": "An apprentice sacks the top person and starts a lucrative business.",
+     "definitionFit": "An earner, as in 'a nice little earner', is something that brings in money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dismissing"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +545,61 @@
      }
     ]
    },
-   "solution": "SHOTPUT"
+   "solution": "SHOTPUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SHOT PUT",
+    "definitions": [
+     {
+      "text": "field event",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "to take something in is to hold it within, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "SHOT",
+      "note": "to have a shot is to have a try"
+     },
+     {
+      "clueFragment": "physical training",
+      "gives": "PT",
+      "note": "PT is the standard abbreviation for physical training"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the usual abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOT",
+      "P",
+      "U",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An encouragement to attempt gym exercises at a university sports ground.",
+     "definitionFit": "The shot put is an athletics throwing contest held in the field rather than on the track."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Try"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +613,53 @@
     "text": "Type of communication requiring great help, possibly",
     "enumeration": "9"
    },
-   "solution": "TELEGRAPH"
+   "solution": "TELEGRAPH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TELEGRAPH",
+    "definitions": [
+     {
+      "text": "Type of communication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals the letters could be arranged another way"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "great help",
+      "gives": "GREATHELP",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREATHELP",
+       "gives": "TELEGRAPH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some form of messaging that apparently needs plenty of assistance.",
+     "definitionFit": "The telegraph sent messages by electrical signal over wires, an early system of long-distance contact."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "great"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +673,73 @@
     "text": "After courageously observing at first, we run and cringe in fear",
     "enumeration": "5"
    },
-   "solution": "COWER"
+   "solution": "COWER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COWER",
+    "definitions": [
+     {
+      "text": "cringe in fear",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "'at first' points to the opening letter of each of the two words before it"
+     }
+    ],
+    "linkWords": [
+     "After",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "courageously",
+      "gives": "C",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "observing",
+      "gives": "O",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for a run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "WE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Having bravely watched something, we flee and shrink back in terror.",
+     "walkthrough": "'After' just tells you the first-letter pair comes before WE.",
+     "definitionFit": "To cower is to crouch or shrink back out of fright, a near synonym of cringing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "courageously"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +753,43 @@
     "text": "In cooking, he employed clarified butter",
     "enumeration": "4"
    },
-   "solution": "GHEE"
+   "solution": "GHEE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GHEE",
+    "definitions": [
+     {
+      "text": "clarified butter",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "'In' says the answer is found inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cooking, he employed",
+      "gives": "GHEE",
+      "note": "the letters straddle the end of cooking, all of he and the start of employed"
+     }
+    ],
+    "explanation": {
+     "surface": "A cook reports using clarified butter in his recipe.",
+     "walkthrough": "The hidden run uses the first letter of employed, so the definition sits at the end with no link word.",
+     "definitionFit": "Ghee is the clarified butter used widely in South Asian cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooking"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +803,55 @@
     "text": "Every husband-to-be initially ignored marriage?",
     "enumeration": "8"
    },
-   "solution": "ALLIANCE"
+   "solution": "ALLIANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ALLIANCE",
+    "definitions": [
+     {
+      "text": "marriage",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially ignored",
+      "for": "deletion",
+      "note": "ignoring something initially means dropping its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Every",
+      "gives": "ALL",
+      "note": "every one means all"
+     },
+     {
+      "clueFragment": "husband-to-be",
+      "gives": "FIANCE",
+      "note": "a fiancé is a man engaged to be married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "IANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether every engaged man was overlooked at a wedding.",
+     "walkthrough": "The question mark flags marriage in its looser sense of a union between parties rather than a wedding.",
+     "definitionFit": "A marriage is a union or alliance, and dynastic marriages were literally alliances between families."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "husband-to-be"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +865,66 @@
     "text": "Argue violently about evil fighter",
     "enumeration": "8"
    },
-   "solution": "GUERILLA"
+   "solution": "GUERILLA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GUERILLA",
+    "definitions": [
+     {
+      "text": "fighter",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "violently",
+      "for": "anagram",
+      "note": "violently suggests a wild disturbance, so the letters are thrown about"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the jumbled letters go round the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argue",
+      "gives": "ARGUE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "evil",
+      "gives": "ILL",
+      "note": "ill can mean evil, as in ill deeds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUER",
+      "ILL",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARGUE",
+       "gives": "GUERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two people furiously dispute the wickedness of a combatant.",
+     "definitionFit": "A guerilla is an irregular fighter in a small independent band."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Argue"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +938,71 @@
     "text": "Buglers struggling to grasp a singular style of country music",
     "enumeration": "9"
    },
-   "solution": "BLUEGRASS"
+   "solution": "BLUEGRASS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BLUEGRASS",
+    "definitions": [
+     {
+      "text": "style of country music",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "struggling suggests something thrashing about, so these letters are thrown into a new order"
+     },
+     {
+      "text": "to grasp",
+      "for": "container",
+      "note": "to grasp is to hold tightly, so the jumbled letters wrap round what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Buglers",
+      "gives": "BUGLERS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "singular",
+      "gives": "S",
+      "note": "S is the grammar abbreviation for singular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUEGR",
+      "AS",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUGLERS",
+       "gives": "BLUEGRS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Brass players labouring to master a single kind of rural American music.",
+     "definitionFit": "Bluegrass is a form of American country music from Appalachia, played on banjo, fiddle and mandolin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "singular"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +1016,47 @@
     "text": "Small dining stools, for example",
     "enumeration": "7"
    },
-   "solution": "SEATING"
+   "solution": "SEATING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEATING",
+    "definitions": [
+     {
+      "text": "stools, for example",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     },
+     {
+      "clueFragment": "dining",
+      "gives": "EATING",
+      "note": "dining is eating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EATING"
+     ]
+    },
+    "explanation": {
+     "surface": "Little stools for a dining area.",
+     "walkthrough": "'Small dining stools' reads as one description of furniture; split it after 'dining'.",
+     "definitionFit": "Seating means places to sit collectively, and stools are one kind of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dining"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1070,76 @@
     "text": "Animal in a large herd, mostly close to sea",
     "enumeration": "6"
    },
-   "solution": "ALPACA"
+   "solution": "ALPACA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "ALPACA",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is cut"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the final letter is taken"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "herd",
+      "gives": "PACK",
+      "note": "a pack is a herd or group of animals"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "A",
+      "select": "last",
+      "note": "last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "PAC",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A creature among a big herd, near the coast.",
+     "definitionFit": "The alpaca is a South American animal related to the llama, kept for its wool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1153,50 @@
     "text": "Stick publicity notice on this spot",
     "enumeration": "6"
    },
-   "solution": "ADHERE"
+   "solution": "ADHERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADHERE",
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicity notice",
+      "gives": "AD",
+      "note": "an ad is an advertisement"
+     },
+     {
+      "clueFragment": "this spot",
+      "gives": "HERE",
+      "note": "here means at this place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "HERE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to fix an advertisement poster at this location.",
+     "walkthrough": "In a down entry, 'on' places the first piece above the second.",
+     "definitionFit": "To adhere is to stick fast to a surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1210,47 @@
     "text": "West African left from Portugal, perhaps",
     "enumeration": "8"
    },
-   "solution": "LIBERIAN"
+   "solution": "LIBERIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIBERIAN",
+    "definitions": [
+     {
+      "text": "West African",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the usual abbreviation for left"
+     },
+     {
+      "clueFragment": "from Portugal, perhaps",
+      "gives": "IBERIAN",
+      "note": "Portugal is on the Iberian peninsula; 'perhaps' flags it as one example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IBERIAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from West Africa departed Portugal, maybe.",
+     "walkthrough": "'left' looks like a verb about departing; it is only the letter L.",
+     "definitionFit": "A Liberian is a native of Liberia, a country on Africa's west coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1264,49 @@
     "text": "Bachelor, far from prudent and impetuous",
     "enumeration": "5"
    },
-   "solution": "BRASH"
+   "solution": "BRASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRASH",
+    "definitions": [
+     {
+      "text": "impetuous",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bachelor",
+      "gives": "B",
+      "note": "B is the abbreviation for bachelor, as in degrees like BA"
+     },
+     {
+      "clueFragment": "far from prudent",
+      "gives": "RASH",
+      "note": "rash means reckless, the opposite of prudent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A single man who is reckless and hot-headed.",
+     "definitionFit": "Brash means bold and hasty, acting without due thought, which is what impetuous means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bachelor"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1320,61 @@
     "text": "Introduction to rondeau penned by terrible poet",
     "enumeration": "4"
    },
-   "solution": "BARD"
+   "solution": "BARD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BARD",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Introduction to",
+      "for": "letter_selection",
+      "note": "an introduction is the opening, so only the first letter is used"
+     },
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "something penned by another is enclosed, as if in a pen, by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrible",
+      "gives": "BAD",
+      "note": "terrible means very bad"
+     },
+     {
+      "clueFragment": "rondeau",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "R",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "The opening of a rondeau, a short French verse form, was written by a dreadful versifier.",
+     "definitionFit": "A bard is a poet, the word used especially for Shakespeare, the Bard of Avon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "penned"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1388,70 @@
     "text": "Inflammation ends in callous: almost unbearably sore",
     "enumeration": "4"
    },
-   "solution": "STYE"
+   "solution": "STYE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "STYE",
+    "definitions": [
+     {
+      "text": "Inflammation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends in",
+      "for": "letter_selection",
+      "note": "ends in points to the final letter of each of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "callous",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter"
+     },
+     {
+      "clueFragment": "almost",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter"
+     },
+     {
+      "clueFragment": "unbearably",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter"
+     },
+     {
+      "clueFragment": "sore",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "Y",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical note: swelling in hardened skin, very nearly unbearably painful.",
+     "walkthrough": "'almost' looks like a deletion signal but is just one of the four words supplying an end letter.",
+     "definitionFit": "A stye is an inflamed swelling on the edge of the eyelid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "almost"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1465,46 @@
     "text": "A face covering said to be of use",
     "enumeration": "5"
    },
-   "solution": "AVAIL"
+   "solution": "AVAIL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AVAIL",
+    "definitions": [
+     {
+      "text": "be of use",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken, so the answer is how the earlier words are pronounced"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A face covering",
+      "gives": "AVAIL",
+      "soundsLike": "A VEIL",
+      "note": "a veil is a covering for the face"
+     }
+    ],
+    "explanation": {
+     "surface": "A mask or veil is claimed to have some practical purpose.",
+     "definitionFit": "To avail is to help or be of benefit, as in 'it will avail you nothing'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1518,63 @@
     "text": "Refurbished hotel featuring one new means of direct access",
     "enumeration": "7"
    },
-   "solution": "HOTLINE"
+   "solution": "HOTLINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOTLINE",
+    "definitions": [
+     {
+      "text": "means of direct access",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Refurbished",
+      "for": "anagram",
+      "note": "a refurbished building has been done over and rearranged, so the letters are reorganised"
+     }
+    ],
+    "linkWords": [
+     "featuring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel",
+      "gives": "HOTEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the usual abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOTELIN",
+       "gives": "HOTLINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A renovated hotel now has a fresh, direct entrance.",
+     "definitionFit": "A hotline is a dedicated phone line giving immediate contact, as between heads of state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Refurbished"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1588,61 @@
     "text": "Rupees invested in a fake religious retreat",
     "enumeration": "6"
    },
-   "solution": "ASHRAM"
+   "solution": "ASHRAM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ASHRAM",
+    "definitions": [
+     {
+      "text": "religious retreat",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in something is put inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fake",
+      "gives": "SHAM",
+      "note": "a sham is a fake"
+     },
+     {
+      "clueFragment": "Rupees",
+      "gives": "R",
+      "note": "R is the abbreviation for rupees, the currency of India"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SH",
+      "R",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Indian money was poured into a bogus spiritual refuge.",
+     "definitionFit": "An ashram is a Hindu hermitage or community where people retreat for religious instruction and meditation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1656,50 @@
     "text": "Bird sitting next to black dog",
     "enumeration": "6"
    },
-   "solution": "BEAGLE"
+   "solution": "BEAGLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEAGLE",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "sitting next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the pencil-grade abbreviation for black"
+     },
+     {
+      "clueFragment": "Bird",
+      "gives": "EAGLE",
+      "note": "an eagle is a bird of prey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EAGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird perches beside a dark-coated hound.",
+     "walkthrough": "'sitting next to' places the two pieces side by side; the bird comes second.",
+     "definitionFit": "The beagle is a small hound breed used for hunting hares."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bird"
+    }
+   }
   }
  ]
 }
