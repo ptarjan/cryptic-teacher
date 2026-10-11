@@ -23,6 +23,9 @@
   "date": "2023-03-14",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,54 @@
     "text": "Warning to dispose of uranium particle that's charged",
     "enumeration": "6"
    },
-   "solution": "CATION"
+   "solution": "CATION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CATION",
+    "definitions": [
+     {
+      "text": "particle that's charged",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to dispose of",
+      "for": "deletion",
+      "note": "to dispose of something is to get rid of it, so the named element is thrown out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warning",
+      "gives": "CAUTION",
+      "note": "a warning is a caution"
+     },
+     {
+      "clueFragment": "uranium",
+      "gives": "U",
+      "note": "U is the chemical symbol for uranium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "TION"
+     ]
+    },
+    "explanation": {
+     "surface": "A hazard notice telling workers how to get rid of radioactive uranium safely.",
+     "walkthrough": "Take the U out of CAUTION to leave CATION.",
+     "definitionFit": "A cation is an ion carrying a positive electrical charge, so it is a charged particle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uranium"
+    }
+   }
   },
   {
    "number": 1,
@@ -60,7 +110,43 @@
      }
     ]
    },
-   "solution": "COMEOFFIT"
+   "solution": "COMEOFFIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COME OFF IT",
+    "definitions": [
+     {
+      "text": "Stop using computers?",
+      "at": 0
+     },
+     {
+      "text": "Don't be ridiculous!",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop using computers?",
+      "note": "first meaning, read cryptically: give up IT, information technology"
+     },
+     {
+      "clueFragment": "Don't be ridiculous!",
+      "note": "second meaning: an exclamation of disbelief"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "IT stands for information technology, so quitting computers is coming off IT; the question mark flags the playful reading.",
+     "definitionFit": "Come off it is an idiom used to tell someone they are talking nonsense, which matches the exclamation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "computers"
+    }
+   }
   },
   {
    "number": 2,
@@ -74,7 +160,59 @@
     "text": "Still ignoring limits of French and Spanish accent",
     "enumeration": "5"
    },
-   "solution": "TILDE"
+   "solution": "TILDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TILDE",
+    "definitions": [
+     {
+      "text": "Spanish accent",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring limits",
+      "for": "letter_selection",
+      "note": "ignoring the limits means skipping the end letters, so only the inner part of that word survives"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Still",
+      "gives": "TIL",
+      "select": "middle",
+      "note": "the inside of still, without its first and last letters"
+     },
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIL",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "Something about French and Spanish speech, as if comparing their regional pronunciations.",
+     "walkthrough": "'Spanish accent' looks like a way of speaking, but it is a written mark.",
+     "definitionFit": "The tilde is the wavy mark over the n in Spanish words such as señor, a diacritic or accent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "accent"
+    }
+   }
   },
   {
    "number": 3,
@@ -94,7 +232,68 @@
      }
     ]
    },
-   "solution": "OLDDELHI"
+   "solution": "OLDDELHI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "OLD DELHI",
+    "definitions": [
+     {
+      "text": "part of city",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to not open",
+      "for": "deletion",
+      "note": "a word that does not open has lost its opening, so its first letter goes"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the shop being outside something means it wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brave",
+      "gives": "OLD",
+      "note": "bold, meaning brave, without its first letter"
+     },
+     {
+      "clueFragment": "shop",
+      "gives": "DELI",
+      "note": "a deli is a delicatessen shop"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLD",
+      "DEL",
+      "H",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A bold decision not to open a shop beside a hotel in some urban district.",
+     "walkthrough": "'Brave' is first turned into a synonym, and it is that synonym which loses its opening letter.",
+     "definitionFit": "Old Delhi is the historic walled district of the Indian capital, so it is part of a city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brave"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +307,44 @@
     "text": "Not mandatory to answer, OK?",
     "enumeration": "8"
    },
-   "solution": "PASSABLE"
+   "solution": "PASSABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PASSABLE",
+    "definitions": [
+     {
+      "text": "Not mandatory to answer",
+      "at": 0
+     },
+     {
+      "text": "OK",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not mandatory to answer",
+      "note": "first meaning, read cryptically: a question you may pass on rather than answer"
+     },
+     {
+      "clueFragment": "OK",
+      "note": "second meaning: adequate, acceptable, good enough"
+     }
+    ],
+    "explanation": {
+     "surface": "An exam paper note saying a question is optional, followed by a query asking if that is all right.",
+     "walkthrough": "The first meaning is whimsical: a question you are allowed to pass is literally pass-able.",
+     "definitionFit": "Passable means satisfactory but not outstanding, which matches the casual sense of OK."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "answer"
+    }
+   }
   },
   {
    "number": 5,
@@ -128,7 +364,65 @@
      }
     ]
    },
-   "solution": "ASSAULTCOURSE"
+   "solution": "ASSAULTCOURSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASSAULT COURSE",
+    "definitions": [
+     {
+      "text": "part of basic training",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "messed up",
+      "for": "anagram",
+      "note": "something messed up is in disarray, so these letters are jumbled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scouts",
+      "gives": "SCOUTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rule",
+      "gives": "RULE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SCOUTSASARULE",
+       "gives": "ASSAULTCOURSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scouts usually making a mess of their early drills.",
+     "definitionFit": "An assault course is an obstacle circuit that army recruits run as part of their initial training."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rule"
+    }
+   }
   },
   {
    "number": 6,
@@ -142,7 +436,49 @@
     "text": "Search with detective, Norwegian, say",
     "enumeration": "6"
    },
-   "solution": "SCANDI"
+   "solution": "SCANDI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCANDI",
+    "definitions": [
+     {
+      "text": "Norwegian, say",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Search",
+      "gives": "SCAN",
+      "note": "to scan is to search"
+     },
+     {
+      "clueFragment": "detective",
+      "gives": "DI",
+      "note": "DI is Detective Inspector"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAN",
+      "DI"
+     ]
+    },
+    "explanation": {
+     "surface": "A police hunt involving a detective and a Norwegian suspect.",
+     "definitionFit": "Scandi is informal for Scandinavian, and a Norwegian is one example of a Scandinavian person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Search"
+    }
+   }
   },
   {
    "number": 7,
@@ -156,7 +492,51 @@
     "text": "Strip vehicle of sports equipment and phone",
     "enumeration": "9"
    },
-   "solution": "BATMOBILE"
+   "solution": "BATMOBILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BATMOBILE",
+    "definitions": [
+     {
+      "text": "Strip vehicle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sports equipment",
+      "gives": "BAT",
+      "note": "a bat is used in cricket or baseball"
+     },
+     {
+      "clueFragment": "phone",
+      "gives": "MOBILE",
+      "note": "a mobile is a mobile phone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "MOBILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Stripping a vehicle of its sporting gear and phone, as a thief might.",
+     "walkthrough": "'Strip' looks like a verb meaning remove, but it is a comic strip.",
+     "definitionFit": "The Batmobile is Batman's car in the comic strips, so it is a vehicle from a strip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Strip"
+    }
+   }
   },
   {
    "number": 8,
@@ -170,7 +550,46 @@
     "text": "Spooky European lake",
     "enumeration": "5"
    },
-   "solution": "EERIE"
+   "solution": "EERIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EERIE",
+    "definitions": [
+     {
+      "text": "Spooky",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "ERIE",
+      "note": "Lake Erie is one of the North American Great Lakes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ERIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A haunted-looking lake somewhere in Europe.",
+     "definitionFit": "Eerie means strange and frightening in an uncanny way, which is what spooky means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lake"
+    }
+   }
   },
   {
    "number": 9,
@@ -184,7 +603,55 @@
     "text": "Look into doctor, say — that's nice to hear",
     "enumeration": "7"
    },
-   "solution": "MELODIC"
+   "solution": "MELODIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MELODIC",
+    "definitions": [
+     {
+      "text": "that's nice to hear",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one thing going into another puts it inside, so the first word sits within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor, say",
+      "gives": "MEDIC",
+      "note": "a doctor is an example of a medic"
+     },
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo is an old word meaning look or behold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "LO",
+      "DIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient asked to examine a doctor and finding the experience pleasant.",
+     "walkthrough": "'Look into' reads as investigate, but it is the word look going into the doctor.",
+     "definitionFit": "Melodic music has a pleasing tune, something agreeable to listen to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Look"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +671,57 @@
      }
     ]
    },
-   "solution": "CHAMPSELYSEES"
+   "solution": "CHAMPSELYSEES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHAMPS-ELYSEES",
+    "definitions": [
+     {
+      "text": "Rue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so these letters are mixed into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheesy",
+      "gives": "CHEESY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "samples",
+      "gives": "SAMPLES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHEESYSAMPLES",
+       "gives": "CHAMPSELYSEES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Regretting the cheese tasters you prepared.",
+     "walkthrough": "'Rue' looks like the verb regret, but it is French for street.",
+     "definitionFit": "The Champs-Élysées is the famous avenue in Paris, and rue is the French word for street."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rue"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +735,77 @@
     "text": "Appetiser and dessert — rest is sent back outside unfinished",
     "enumeration": "7"
    },
-   "solution": "STARTER"
+   "solution": "STARTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "STARTER",
+    "definitions": [
+     {
+      "text": "Appetiser",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "something left unfinished lacks its ending, so the last letter of that word is dropped"
+     },
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "sending something back returns it the way it came, so the letters run from right to left"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside something means surrounding it, so these letters wrap around the dessert"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rest",
+      "gives": "RES",
+      "note": "the word rest with its final letter cut off"
+     },
+     {
+      "clueFragment": "dessert",
+      "gives": "TART",
+      "note": "a tart is a sweet pastry served as dessert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TART",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RES",
+       "to": "SER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner ordering the first and last courses and sending the remainder back to the kitchen.",
+     "walkthrough": "The shortened, reversed word is split in two so that it wraps around the dessert on both sides.",
+     "definitionFit": "A starter is the first course of a meal, which is another name for an appetiser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +819,55 @@
     "text": "Very large award set to be reduced",
     "enumeration": "5"
    },
-   "solution": "OBESE"
+   "solution": "OBESE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OBESE",
+    "definitions": [
+     {
+      "text": "Very large",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be reduced",
+      "for": "deletion",
+      "note": "reducing something makes it shorter, so the last letter of that word is trimmed away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "award",
+      "gives": "OBE",
+      "note": "the OBE is a British honour, the Order of the British Empire"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SE",
+      "note": "the word set missing its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBE",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "An honour whose value or presentation is about to be scaled down.",
+     "walkthrough": "The OBE (Officer of the Order of the British Empire) is an honour awarded by the British monarch.",
+     "definitionFit": "Obese describes someone extremely overweight, so very large in body size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +881,60 @@
     "text": "Muscle into a capital place for water sports",
     "enumeration": "9"
    },
-   "solution": "AQUADROME"
+   "solution": "AQUADROME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AQUADROME",
+    "definitions": [
+     {
+      "text": "place for water sports",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "putting one thing into another places it inside, so the muscle sits within the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Muscle",
+      "gives": "QUAD",
+      "note": "quad is short for quadriceps, the thigh muscle"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "ROME",
+      "note": "Rome is the capital of Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "QUAD",
+      "ROME"
+     ]
+    },
+    "explanation": {
+     "surface": "Muscling your way into a capital city to find a venue for swimming and boating.",
+     "walkthrough": "'Muscle into' reads as a verb phrase meaning force your way in, but the muscle is a noun naming the thigh.",
+     "definitionFit": "An aquadrome is a lake or complex built for boating, swimming and other water-based activities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +954,78 @@
      }
     ]
    },
-   "solution": "FLIGHTPATH"
+   "solution": "FLIGHTPATH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "FLIGHT PATH",
+    "definitions": [
+     {
+      "text": "Route",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letters of the two words just before it"
+     },
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "entering means going inside, so the soft touch is placed within the other letters"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ferry",
+      "gives": "F",
+      "select": "first",
+      "note": "first letter of ferry"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "LIGHT",
+      "note": "a light touch is a soft one"
+     },
+     {
+      "clueFragment": "touch",
+      "gives": "PAT",
+      "note": "a pat is a gentle touch"
+     },
+     {
+      "clueFragment": "harbour",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of harbour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LIGHT",
+      "PAT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Docking a ferry calls for a gentle hand at the start of its journey into port.",
+     "walkthrough": "'Soft touch' looks like one phrase meaning a pushover, but it splits into two separate pieces.",
+     "definitionFit": "A flight path is the course an aircraft follows, so it is a route through the air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touch"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +1039,64 @@
     "text": "Ancient creature's fertilizer held by one academic",
     "enumeration": "9"
    },
-   "solution": "IGUANODON"
+   "solution": "IGUANODON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IGUANODON",
+    "definitions": [
+     {
+      "text": "Ancient creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another is gripped inside it, so the fertilizer sits within the academic letters"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "fertilizer",
+      "gives": "GUANO",
+      "note": "guano is seabird or bat droppings used as manure"
+     },
+     {
+      "clueFragment": "academic",
+      "gives": "DON",
+      "note": "a don is a university teacher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "GUANO",
+      "DON"
+     ]
+    },
+    "explanation": {
+     "surface": "A professor keeping a dinosaur's droppings for study.",
+     "walkthrough": "A don is a lecturer, especially at Oxford or Cambridge.",
+     "definitionFit": "The iguanodon was a large plant-eating dinosaur, an ancient creature of the Cretaceous period."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fertilizer"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1110,48 @@
     "text": "Member steps under the bar briefly?",
     "enumeration": "4"
    },
-   "solution": "LIMB"
+   "solution": "LIMB",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LIMB",
+    "definitions": [
+     {
+      "text": "Member",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "saying something briefly cuts it short, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steps under the bar",
+      "gives": "LIMBO",
+      "note": "the limbo is a dance where you lean back and shuffle beneath a low bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIMB"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stepping beneath a bar, as if a club member ducking under it.",
+     "walkthrough": "LIMBO loses its final O.",
+     "definitionFit": "A limb, an arm or a leg, is a member of the body in the older anatomical sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Member"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1165,71 @@
     "text": "Two bachelors embracing the short lady — that's David's wife!",
     "enumeration": "9"
    },
-   "solution": "BATHSHEBA"
+   "solution": "BATHSHEBA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "BATHSHEBA",
+    "definitions": [
+     {
+      "text": "David's wife",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to wrap your arms around, so the bachelors surround the middle letters"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut down, so the last letter of the preceding word is lost"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two bachelors",
+      "gives": "BABA",
+      "note": "BA, Bachelor of Arts, twice"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "TH",
+      "note": "the without its last letter"
+     },
+     {
+      "clueFragment": "lady",
+      "gives": "SHE",
+      "note": "she refers to a woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "TH",
+      "SHE",
+      "BA"
+     ]
+    },
+    "explanation": {
+     "surface": "Two single men hugging a petite woman who turns out to be married to David.",
+     "walkthrough": "'Short' applies only to 'the'; 'lady' stays whole. BA is a Bachelor of Arts degree.",
+     "definitionFit": "In the Bible, Bathsheba married King David after he had her husband Uriah killed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1243,61 @@
     "text": "US college groups picked up kind of marine creature",
     "enumeration": "8"
    },
-   "solution": "STARFISH"
+   "solution": "STARFISH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "STARFISH",
+    "definitions": [
+     {
+      "text": "marine creature",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down clue, picking something up lifts it upwards, so the letters read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US college groups",
+      "gives": "FRATS",
+      "note": "frats are American fraternities"
+     },
+     {
+      "clueFragment": "kind of",
+      "gives": "ISH",
+      "note": "-ish means somewhat or kind of"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STARF",
+      "ISH"
+     ],
+     "reversals": [
+      {
+       "from": "FRATS",
+       "to": "STARF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "American student societies collecting some sort of sea animal.",
+     "walkthrough": "FRATS reversed gives STARF, then ISH is added.",
+     "definitionFit": "A starfish is a star-shaped echinoderm living on the sea bed, a marine creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 19,
@@ -336,7 +1311,45 @@
     "text": "Excursion in direction of ancient city",
     "enumeration": "4"
    },
-   "solution": "TOUR"
+   "solution": "TOUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOUR",
+    "definitions": [
+     {
+      "text": "Excursion",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in direction of",
+      "gives": "TO",
+      "note": "to means heading towards"
+     },
+     {
+      "clueFragment": "ancient city",
+      "gives": "UR",
+      "note": "Ur is the ancient Sumerian city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "UR"
+     ]
+    },
+    "explanation": {
+     "surface": "A trip heading off to some ruined city of antiquity.",
+     "definitionFit": "A tour is a trip or outing taken for pleasure, like an excursion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1363,75 @@
     "text": "Carriage left chaps in debt, with billions lost",
     "enumeration": "10"
    },
-   "solution": "DEPORTMENT"
+   "solution": "DEPORTMENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "DEPORTMENT",
+    "definitions": [
+     {
+      "text": "Carriage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "something lost has gone missing, so the billions are taken away from that word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so the left chaps are put within the debt"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debt",
+      "gives": "DET",
+      "note": "debt without its B"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     },
+     {
+      "clueFragment": "chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     },
+     {
+      "clueFragment": "billions",
+      "note": "B is the abbreviation for billions, the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "PORT",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Men abandoned in debt after a fortune has disappeared.",
+     "walkthrough": "'Carriage' suggests a vehicle but means bearing. PORTMEN goes inside DEBT once its B (billions) is gone.",
+     "definitionFit": "Carriage can mean the way a person holds their body, which is their deportment or posture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Carriage"
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1445,51 @@
     "text": "A large tree from the mountains",
     "enumeration": "6"
    },
-   "solution": "ALPINE"
+   "solution": "ALPINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALPINE",
+    "definitions": [
+     {
+      "text": "from the mountains",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large, as in clothing sizes"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "PINE",
+      "note": "a pine is a coniferous tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "PINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A big conifer growing up in the high country.",
+     "definitionFit": "Alpine describes things belonging to high mountains, originally the Alps, so of mountain origin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1503,49 @@
     "text": "Maybe try to get gold coat for ship?",
     "enumeration": "9"
    },
-   "solution": "MINELAYER"
+   "solution": "MINELAYER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINELAYER",
+    "definitions": [
+     {
+      "text": "ship",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe try to get gold",
+      "gives": "MINE",
+      "note": "to mine is to dig in an attempt to extract gold or other ore"
+     },
+     {
+      "clueFragment": "coat",
+      "gives": "LAYER",
+      "note": "a coat of paint is a layer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINE",
+      "LAYER"
+     ]
+    },
+    "explanation": {
+     "surface": "A prospector hoping to strike gold and buy a fancy coat with the proceeds.",
+     "definitionFit": "A minelayer is a naval vessel designed to lay explosive mines at sea, so it is a kind of ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1559,64 @@
     "text": "Tricks graduate with dodgy CGI",
     "enumeration": "5"
    },
-   "solution": "MAGIC"
+   "solution": "MAGIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MAGIC",
+    "definitions": [
+     {
+      "text": "Tricks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "dodgy means unreliable or crooked, so these letters are not in their proper order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "graduate",
+      "gives": "MA",
+      "note": "MA, Master of Arts, is a graduate degree"
+     },
+     {
+      "clueFragment": "CGI",
+      "gives": "CGI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "GIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CGI",
+       "gives": "GIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film graduate passing off shoddy computer effects as illusions.",
+     "walkthrough": "CGI is computer-generated imagery, the special effects in films.",
+     "definitionFit": "Magic is the art of conjuring, made up of tricks and illusions performed for an audience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "graduate"
+    }
+   }
   },
   {
    "number": 23,
@@ -406,7 +1630,61 @@
     "text": "Inspector concerned with craft heading the wrong way",
     "enumeration": "5"
    },
-   "solution": "REBUS"
+   "solution": "REBUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "REBUS",
+    "definitions": [
+     {
+      "text": "Inspector",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading the wrong way",
+      "for": "reversal",
+      "note": "travelling the wrong way means going backwards, so this word is read from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerned with",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "craft",
+      "gives": "SUB",
+      "note": "a sub, a submarine, is a craft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "BUS"
+     ],
+     "reversals": [
+      {
+       "from": "SUB",
+       "to": "BUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective investigating a vessel that was sailing in the wrong direction.",
+     "walkthrough": "Inspector John Rebus is the Edinburgh detective in Ian Rankin's crime novels.",
+     "definitionFit": "Rebus is the surname of a famous fictional police inspector, so the name stands for that inspector."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1698,55 @@
     "text": "Shows a yellow card to rugby players hiding ball",
     "enumeration": "5"
    },
-   "solution": "BOOKS"
+   "solution": "BOOKS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BOOKS",
+    "definitions": [
+     {
+      "text": "Shows a yellow card to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "hiding something keeps it inside out of sight, so the ball goes within the players"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rugby players",
+      "gives": "BOKS",
+      "note": "the Boks, or Springboks, are South Africa's national rugby team"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "O",
+      "note": "a ball is round, like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "O",
+      "KS"
+     ]
+    },
+    "explanation": {
+     "surface": "A referee cautioning rugby players who are concealing the ball.",
+     "walkthrough": "O goes inside BOKS.",
+     "definitionFit": "A referee who books a player records an offence, usually by showing a yellow card."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ball"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1760,55 @@
     "text": "Superhuman kid playing with Lego",
     "enumeration": "7"
    },
-   "solution": "GODLIKE"
+   "solution": "GODLIKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GODLIKE",
+    "definitions": [
+     {
+      "text": "Superhuman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing with",
+      "for": "anagram",
+      "note": "a child playing with bricks rearranges them, so these letters are rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kid",
+      "gives": "KID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Lego",
+      "gives": "LEGO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KIDLEGO",
+       "gives": "GODLIKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child absorbed in building toys, imagining being a superhero.",
+     "definitionFit": "Godlike means having the qualities of a god, which is beyond human, so superhuman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1822,59 @@
     "text": "Essence of chapter missing from long book",
     "enumeration": "7"
    },
-   "solution": "EPITOME"
+   "solution": "EPITOME",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EPITOME",
+    "definitions": [
+     {
+      "text": "Essence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing from",
+      "for": "deletion",
+      "note": "something missing from a whole has been taken out of it, so the chapter's letter is absent"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chapter",
+      "note": "C is the abbreviation for chapter, the letter taken out"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "EPIC",
+      "note": "an epic is a work of great length"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "TOME",
+      "note": "a tome is a large book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPI",
+      "TOME"
+     ]
+    },
+    "explanation": {
+     "surface": "The core of a lengthy volume minus one chapter that has gone astray.",
+     "walkthrough": "EPIC TOME loses its C, giving EPITOME.",
+     "definitionFit": "The epitome of something is its perfect embodiment, the quintessence or essence of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 27,
@@ -462,7 +1888,55 @@
     "text": "Notices a flailing paddler",
     "enumeration": "8"
    },
-   "solution": "CANOEIST"
+   "solution": "CANOEIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CANOEIST",
+    "definitions": [
+     {
+      "text": "paddler",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flailing",
+      "for": "anagram",
+      "note": "flailing means thrashing about wildly, so these letters are tossed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notices",
+      "gives": "NOTICES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTICESA",
+       "gives": "CANOEIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots a swimmer or wader thrashing around in the water.",
+     "definitionFit": "A canoeist propels a canoe with a paddle, so is literally a paddler."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Notices"
+    }
+   }
   },
   {
    "number": 28,
@@ -476,7 +1950,44 @@
     "text": "Smokes his hash partially with this?",
     "enumeration": "6"
    },
-   "solution": "SHISHA"
+   "solution": "SHISHA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "SHISHA",
+    "definitions": [
+     {
+      "text": "Smokes his hash partially with this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partially",
+      "for": "hidden_word",
+      "note": "partially means only part of the words is used, so the target sits inside a run of the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smokes his hash",
+      "gives": "SHISHA",
+      "note": "found spanning the end of smokes, all of his and the start of hash"
+     }
+    ],
+    "explanation": {
+     "surface": "A man partly smoking his cannabis through some device.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: a shisha is what he could be smoking it with.",
+     "definitionFit": "A shisha is a water pipe used for smoking flavoured tobacco, and sometimes hash, so it fits as the device."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "partially"
+    }
+   }
   }
  ]
 }
