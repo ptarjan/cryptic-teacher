@@ -196,6 +196,11 @@ print("LEDGER", ledger["cryptic-500 answer 1-across"]["rule"],
       ledger["timesquick-700 answer 18-across"]["rule"],
       ledger["cryptic-501 setter"]["rule"])
 
+# The 500/502 neighbours above were the sequence test's; a real 2007 puzzle
+# filed between them is out of order, which the write now refuses.
+for n in (500, 502):
+    puzzle_paths.file_for({"id": f"cryptic-{n}", "date": "2020-01-01"}).unlink()
+
 # and every write goes through it. The write refuses what the corpus sweep
 # would report, so this one is a real puzzle with its setter left empty.
 real = fetch_puzzle.read_puzzle_file(

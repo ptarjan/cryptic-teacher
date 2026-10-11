@@ -240,8 +240,15 @@ for n in range(200, 207):
     when = base + (n - 200) * 7 * DAY
     if n == 203:
         when = date(1934, 1, 18)
+    # The fetcher now refuses this very write (refuse_misdated_write); the
+    # fixture is the damage already on disk, so the guard is stood aside.
+    import puzzle_integrity
+    real = puzzle_integrity.refuse_misdated_write
+    if n == 203:
+        puzzle_integrity.refuse_misdated_write = lambda *a, **k: None
     write("quiptic", n, when, [
         entry("1-across", 1, "across", 0, 0, 4, "Plain (4)", "EASY")])
+    puzzle_integrity.refuse_misdated_write = real
 PY
 
 echo "a clean file is not touched, and the run says so"
