@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "Nice fat person looking to buy a small jumper",
     "enumeration": "11"
    },
-   "solution": "GRASSHOPPER"
+   "solution": "GRASSHOPPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRASSHOPPER",
+    "definitions": [
+     {
+      "text": "a small jumper",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nice fat",
+      "gives": "GRAS",
+      "note": "gras is French for fat, as they would say in Nice"
+     },
+     {
+      "clueFragment": "person looking to buy",
+      "gives": "SHOPPER",
+      "note": "someone looking to buy is out shopping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAS",
+      "SHOPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A rather unkind portrait of a portly person browsing for a jumper in a small size.",
+     "walkthrough": "Nice is the French city, not the adjective, so its 'fat' is French. 'Jumper' looks like knitwear but is a leaping insect.",
+     "definitionFit": "A grasshopper is a small insect famous for its leaping, so it is literally a little jumper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jumper"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +91,71 @@
     "text": "Try job that involves most of all woodwork",
     "enumeration": "8"
    },
-   "solution": "GOALPOST"
+   "solution": "GOALPOST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "GOALPOST",
+    "definitions": [
+     {
+      "text": "woodwork",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word means it loses its final letter"
+     },
+     {
+      "text": "involves",
+      "for": "container",
+      "note": "something that involves another takes it inside itself"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "GO",
+      "note": "to have a go is to try"
+     },
+     {
+      "clueFragment": "all",
+      "gives": "AL",
+      "note": "the word all without its last letter"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "POST",
+      "note": "a post is a job or position"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "AL",
+      "POST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone attempting a task that needs nearly everything from the carpentry trade.",
+     "walkthrough": "GO and POST surround AL. In football commentary 'the woodwork' means the posts and crossbar of the goal.",
+     "definitionFit": "Hitting the woodwork is football slang for striking the frame of the goal, of which an upright is part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "woodwork"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +169,54 @@
     "text": "Nana married to leave service",
     "enumeration": "3"
    },
-   "solution": "ASS"
+   "solution": "ASS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASS",
+    "definitions": [
+     {
+      "text": "Nana",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "the letter for married is told to go away, so it is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the standard abbreviation for married"
+     },
+     {
+      "clueFragment": "service",
+      "gives": "MASS",
+      "note": "Mass is a church service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A grandmother, newly wed, decides to stop going to church.",
+     "walkthrough": "'Nana' looks like a granny, but in British slang a nana (or nanna) is a silly person.",
+     "definitionFit": "Both words are informal British terms for a fool or idiot, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nana"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +230,43 @@
     "text": "Do laborious Hindi grammatical cases",
     "enumeration": "7"
    },
-   "solution": "SHINDIG"
+   "solution": "SHINDIG",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SHINDIG",
+    "definitions": [
+     {
+      "text": "Do",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cases",
+      "for": "hidden_word",
+      "note": "these words act as a case holding the solution within their run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "laborious Hindi grammatical",
+      "gives": "SHINDIG",
+      "note": "found across the ending of laborious, the whole of Hindi and the start of grammatical"
+     }
+    ],
+    "explanation": {
+     "surface": "A student's complaint that the case system of Hindi grammar is hard work.",
+     "walkthrough": "'Do' reads like an instruction but is the noun meaning a party; 'cases' looks grammatical but is the container signal.",
+     "definitionFit": "A do is a party or social gathering, and a shindig is a lively party, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Do"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +280,48 @@
     "text": "First column of figures higher than second",
     "enumeration": "5"
    },
-   "solution": "OVERS"
+   "solution": "OVERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERS",
+    "definitions": [
+     {
+      "text": "First column of figures",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "higher than",
+      "gives": "OVER",
+      "note": "over means above or higher than"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a spreadsheet comparison where the first column outranks the second.",
+     "walkthrough": "A cricket bowler's figures are printed in columns: overs, maidens, runs, wickets, and the overs come first.",
+     "definitionFit": "In a cricket scorecard a bowler's analysis begins with the number of overs bowled, the leftmost column."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "figures"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +335,54 @@
     "text": "Match official in trouble before leaving the ground",
     "enumeration": "9"
    },
-   "solution": "PREFLIGHT"
+   "solution": "PREFLIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PREFLIGHT",
+    "definitions": [
+     {
+      "text": "before leaving the ground",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside that word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trouble",
+      "gives": "PLIGHT",
+      "note": "a plight is a difficult situation, trouble"
+     },
+     {
+      "clueFragment": "Match official",
+      "gives": "REF",
+      "note": "a ref is a referee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REF",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A referee gets into hot water just before a game, perhaps before the team's flight leaves.",
+     "definitionFit": "Preflight describes what happens prior to an aircraft's takeoff, i.e. before it leaves the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +402,48 @@
      }
     ]
    },
-   "solution": "RIOTACT"
+   "solution": "RIOTACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIOT ACT",
+    "definitions": [
+     {
+      "text": "which prevents violence",
+      "at": 20,
+      "note": "a descriptive phrase rather than a noun: the thing which prevents violence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brazilian",
+      "gives": "RIO",
+      "note": "Rio de Janeiro is a Brazilian city"
+     },
+     {
+      "clueFragment": "diplomacy",
+      "gives": "TACT",
+      "note": "tact is diplomacy in dealing with people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIO",
+      "TACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for Brazil's style of diplomacy as a peacekeeping force.",
+     "walkthrough": "The Riot Act, a 1714 British law, was read aloud to order unruly crowds to disperse.",
+     "definitionFit": "The Riot Act was legislation designed to disperse mobs and so head off public disorder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brazilian"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +457,69 @@
     "text": "Man beginning to retail sandwiches without bread, shopkeeper not giving full value?",
     "enumeration": "10"
    },
-   "solution": "PAWNBROKER"
+   "solution": "PAWNBROKER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "PAWNBROKER",
+    "definitions": [
+     {
+      "text": "shopkeeper not giving full value?",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter only"
+     },
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "a sandwich holds its filling between outer slices"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "PAWN",
+      "note": "a chess piece is called a man, and the pawn is the humblest"
+     },
+     {
+      "clueFragment": "without bread",
+      "gives": "BROKE",
+      "note": "bread is slang for money, so having none is being broke"
+     },
+     {
+      "clueFragment": "retail",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of retail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAWN",
+      "BROKE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trying to sell sandwiches made with no bread, which shortchanges the customer.",
+     "walkthrough": "'Bread' looks like loaves but is slang for cash; the man and the retail letter form the two slices around the filling.",
+     "definitionFit": "A pawnbroker lends money against goods, typically far less than they are worth, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +533,47 @@
     "text": "Eight bits are gripping to listen to",
     "enumeration": "4"
    },
-   "solution": "BYTE"
+   "solution": "BYTE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BYTE",
+    "definitions": [
+     {
+      "text": "Eight bits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to listen to",
+      "for": "homophone",
+      "note": "something taken in through the ears is judged by sound rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gripping",
+      "gives": "BYTE",
+      "soundsLike": "BITE",
+      "note": "to bite is to grip with the teeth"
+     }
+    ],
+    "explanation": {
+     "surface": "A claim that eight pieces of something are thrilling to hear.",
+     "walkthrough": "'Gripping to listen to' poses as a review of a gripping audio story.",
+     "definitionFit": "In computing a byte is a unit of data made up of eight binary digits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gripping"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +587,70 @@
     "text": "Gold and diamonds outside empty shop a promising sign",
     "enumeration": "7"
    },
-   "solution": "AUSPICE"
+   "solution": "AUSPICE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AUSPICE",
+    "definitions": [
+     {
+      "text": "a promising sign",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has its insides removed, leaving only its first and last letters"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the first pair of words sits around the other piece, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "shop",
+      "gives": "SP",
+      "select": "outer",
+      "note": "the outer letters of shop"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "ICE",
+      "note": "ice is slang for diamonds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "SP",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A jeweller's shop lies bare, surrounded by gold and diamonds, which looks like a good omen.",
+     "walkthrough": "'Gold and diamonds' work together as one pair of outer pieces, split around the emptied shop.",
+     "definitionFit": "An auspice is an omen, originally from the Roman reading of birds, and a favourable sign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +664,61 @@
     "text": "Divorcee may go elsewhere, marrying a foreigner",
     "enumeration": "7"
    },
-   "solution": "EXOGAMY"
+   "solution": "EXOGAMY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EXOGAMY",
+    "definitions": [
+     {
+      "text": "marrying a foreigner",
+      "at": 27,
+      "note": "a gerund phrase standing for the noun: the practice of marrying outside one's group"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "elsewhere",
+      "for": "anagram",
+      "note": "letters sent elsewhere are moved out of their places and set down in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Divorcee",
+      "gives": "EX",
+      "note": "an ex is a former spouse"
+     },
+     {
+      "clueFragment": "may go",
+      "gives": "MAYGO",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "OGAMY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAYGO",
+       "gives": "OGAMY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A divorced person might look abroad for a new partner.",
+     "definitionFit": "Exogamy is the anthropologist's term for marriage outside one's own tribe or social group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "elsewhere"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +732,69 @@
     "text": "Heavenly secretary spoke about the end of faxes",
     "enumeration": "9"
    },
-   "solution": "PARADISAL"
+   "solution": "PARADISAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "PARADISAL",
+    "definitions": [
+     {
+      "text": "Heavenly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secretary",
+      "gives": "PA",
+      "note": "a PA is a personal assistant, a secretary"
+     },
+     {
+      "clueFragment": "spoke",
+      "gives": "RADIAL",
+      "note": "a spoke is a radial, a line running out from a centre"
+     },
+     {
+      "clueFragment": "faxes",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of faxes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "RADI",
+      "S",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "An office assistant raves about the joys of a fax machine.",
+     "walkthrough": "'Spoke' looks like the past tense of speak, but it is the noun from a wheel.",
+     "definitionFit": "Paradisal means like paradise, so it is a synonym of heavenly or blissful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spoke"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +814,66 @@
      }
     ]
    },
-   "solution": "REALTENNIS"
+   "solution": "REALTENNIS",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "REAL TENNIS",
+    "definitions": [
+     {
+      "text": "unusual use of court",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something during another happens within it, so it goes inside"
+     },
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests something crooked, so these letters are bent into a new order"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "gives": "N",
+      "note": "N is the abbreviation for number"
+     },
+     {
+      "clueFragment": "trial seen",
+      "gives": "TRIALSEEN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIALSEENN",
+       "gives": "REALTENNIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legal correspondent notes a number in a criminal case being handled oddly in court.",
+     "walkthrough": "'Court' points at a law court, but here it is a tennis court. Real tennis is the ancient indoor game, played in a walled court quite unlike a modern lawn tennis court.",
+     "definitionFit": "Real tennis uses an enclosed, oddly shaped court with walls and galleries in play, a rare and unusual way of using one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +887,53 @@
     "text": "Tomorrow's show kept rewound by drive-in, naturally",
     "enumeration": "5"
    },
-   "solution": "ANNIE"
+   "solution": "ANNIE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ANNIE",
+    "definitions": [
+     {
+      "text": "Tomorrow's show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept",
+      "for": "hidden_word",
+      "note": "the solution is kept inside the run of letters of the following words"
+     },
+     {
+      "text": "rewound",
+      "for": "reversal",
+      "note": "rewinding a tape plays it in the opposite direction, so read backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drive-in, naturally",
+      "gives": "EINNA",
+      "note": "found across the end of drive-in and the start of naturally"
+     }
+    ],
+    "explanation": {
+     "surface": "A film shown at a drive-in cinema tomorrow is played again from the start.",
+     "walkthrough": "'Tomorrow' is the hit song from the stage musical about the orphan girl.",
+     "definitionFit": "The musical Annie is famous for its song 'Tomorrow', so the show is the one that song belongs to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tomorrow's"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +957,56 @@
      }
     ]
    },
-   "solution": "SHAGGYDOGSTORY"
+   "solution": "SHAGGYDOGSTORY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHAGGY DOG STORY",
+    "definitions": [
+     {
+      "text": "a joke",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pesky kid",
+      "gives": "SHAGGY",
+      "note": "Shaggy is one of the meddling kids of Scooby-Doo, whom the villains always curse"
+     },
+     {
+      "clueFragment": "torments",
+      "gives": "DOGS",
+      "note": "to dog someone is to pester or torment them"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "TORY",
+      "note": "a Tory is a British Conservative politician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHAGGY",
+      "DOGS",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "An annoying child picks on a politician just for fun.",
+     "walkthrough": "Scooby-Doo villains always grumble they'd have got away with it but for those 'meddling kids', among them Shaggy.",
+     "definitionFit": "A shaggy dog story is a long, rambling anecdote whose punchline deliberately falls flat: a type of joke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pesky"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1020,66 @@
     "text": "Good egg chops log for VIP",
     "enumeration": "9"
    },
-   "solution": "DIGNITARY"
+   "solution": "DIGNITARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DIGNITARY",
+    "definitions": [
+     {
+      "text": "VIP",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chops",
+      "for": "container",
+      "note": "chopping into something splits it open, so one piece is set inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "log",
+      "gives": "DIARY",
+      "note": "a log is a daily record, a diary"
+     },
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "egg",
+      "gives": "NIT",
+      "note": "a nit is the egg of a louse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "G",
+      "NIT",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A decent sort splits firewood for an important guest.",
+     "walkthrough": "'Good egg' pretends to be a phrase for a nice person, but splits into the abbreviation for good and a louse's egg.",
+     "definitionFit": "A dignitary is a person of high rank or office, which is what a VIP (very important person) is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "egg"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1093,57 @@
     "text": "Officially approved scheme ultimately run by mob",
     "enumeration": "8"
    },
-   "solution": "STAMPEDE"
+   "solution": "STAMPEDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STAMPEDE",
+    "definitions": [
+     {
+      "text": "run by mob",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the last letter of the preceding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Officially approved",
+      "gives": "STAMPED",
+      "note": "a document is stamped when officially approved"
+     },
+     {
+      "clueFragment": "scheme",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of scheme"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAMPED",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A scheme given official approval but in the end controlled by gangsters.",
+     "walkthrough": "'Run by mob' reads as organised crime, but it is a crowd running together.",
+     "definitionFit": "A stampede is a sudden rush of a frightened herd or crowd, which is a mass charge by a mob."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mob"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1157,58 @@
     "text": "Part of Houdini's act involved hat trick with gas jet",
     "enumeration": "14"
    },
-   "solution": "STRAIGHTJACKET"
+   "solution": "STRAIGHTJACKET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRAIGHTJACKET",
+    "definitions": [
+     {
+      "text": "Part of Houdini's act",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "something involved is tangled and intricate, so the letters are knotted into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hat trick",
+      "gives": "HATTRICK",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "gas jet",
+      "gives": "GASJET",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HATTRICKGASJET",
+       "gives": "STRAIGHTJACKET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magician's stage routine combines a hat trick and a gas flame.",
+     "definitionFit": "Houdini famously escaped from a straitjacket, a restraining garment, as a centrepiece of his escapology act."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1222,58 @@
     "text": "Communist machinery applying short shock to traitor",
     "enumeration": "7"
    },
-   "solution": "APPARAT"
+   "solution": "APPARAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "APPARAT",
+    "definitions": [
+     {
+      "text": "Communist machinery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "a short word is cut off before its final letter"
+     }
+    ],
+    "linkWords": [
+     "applying",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shock",
+      "gives": "APPAL",
+      "note": "to appal is to shock"
+     },
+     {
+      "clueFragment": "traitor",
+      "gives": "RAT",
+      "note": "a rat is a betrayer or informer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APPA",
+      "RAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A secret police apparatus delivers a brief electric shock to a defector.",
+     "definitionFit": "Apparat is the Russian-derived word for the administrative system of a Communist party or state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "applying"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1287,51 @@
     "text": "Cool app tailored product to young person's taste?",
     "enumeration": "7"
    },
-   "solution": "ALCOPOP"
+   "solution": "ALCOPOP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALCOPOP",
+    "definitions": [
+     {
+      "text": "product to young person's taste?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailored",
+      "for": "anagram",
+      "note": "something tailored is cut and refashioned, so the letters are remade into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cool app",
+      "gives": "COOLAPP",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COOLAPP",
+       "gives": "ALCOPOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy phone app designed to appeal to teenagers.",
+     "walkthrough": "An alcopop is a sweet, fizzy, pre-mixed alcoholic drink, criticised for appealing to under-age drinkers.",
+     "definitionFit": "Alcopops are sugary alcoholic drinks marketed with flavours suited to youthful palates, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "app"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1351,61 @@
      }
     ]
    },
-   "solution": "TONUP"
+   "solution": "TONUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TON-UP",
+    "definitions": [
+     {
+      "text": "getting to 100",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joke",
+      "gives": "PUN",
+      "note": "a pun is a joke on words"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, a set of books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "NUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUNOT",
+       "to": "TONUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book of jokes about reaching a hundred, perhaps a birthday gift.",
+     "walkthrough": "A ton-up is British slang for reaching 100 miles per hour on a motorbike; a 'ton' is a hundred.",
+     "definitionFit": "Doing a ton-up means hitting a hundred, originally a speed of 100 mph by a motorcyclist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1419,58 @@
     "text": "Depth falling in say, flood level",
     "enumeration": "4"
    },
-   "solution": "TIED"
+   "solution": "TIED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TIED",
+    "definitions": [
+     {
+      "text": "level",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "falling",
+      "for": "deletion",
+      "note": "falling in a down entry means dropping lower, so that letter leaves its place and settles at the bottom"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say, flood",
+      "gives": "TIDE",
+      "note": "a flood tide is one kind of tide, hence 'say'"
+     },
+     {
+      "clueFragment": "Depth",
+      "gives": "D",
+      "note": "D is the abbreviation for depth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A hydrology note: as depth falls, the flood level is reached.",
+     "walkthrough": "In this down clue the D in TIDE drops to the bottom of the word.",
+     "definitionFit": "Tied means level in a contest, with scores equal, as in a game tied at two-all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "level"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1484,55 @@
     "text": "Bad behaviour once I'd mixed spirits",
     "enumeration": "9"
    },
-   "solution": "INDECORUM"
+   "solution": "INDECORUM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDECORUM",
+    "definitions": [
+     {
+      "text": "Bad behaviour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "mixed means stirred together, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once I'd",
+      "gives": "ONCEID",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "spirits",
+      "gives": "RUM",
+      "note": "rum is a spirit"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCEIDRUM",
+       "gives": "INDECORUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confession of misconduct after drinking a cocktail of spirits.",
+     "definitionFit": "Indecorum is a lack of propriety, improper conduct, so it equals poor behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spirits"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1546,48 @@
     "text": "Drop off new deliveries of 2x4?",
     "enumeration": "5"
    },
-   "solution": "DOZEN"
+   "solution": "DOZEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOZEN",
+    "definitions": [
+     {
+      "text": "deliveries of 2x4?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drop off",
+      "gives": "DOZE",
+      "note": "to drop off is to fall asleep, to doze"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOZE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a builder's order of 2x4 timber being dropped off.",
+     "walkthrough": "'2x4' is not timber: it means two of 4-down, OVERS, and a cricket over is six balls.",
+     "definitionFit": "Two cricket overs of six balls each make twelve deliveries, which is a dozen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deliveries"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1601,77 @@
     "text": "Country's flag reflected on side of arena",
     "enumeration": "7"
    },
-   "solution": "ERITREA"
+   "solution": "ERITREA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ERITREA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a reflection shows things mirrored, so the word runs backwards"
+     },
+     {
+      "text": "side of",
+      "for": "letter_selection",
+      "note": "the side of a word is one end of it, here its first letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flag",
+      "gives": "TIRE",
+      "note": "to flag is to grow tired, to tire"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on, concerning"
+     },
+     {
+      "clueFragment": "arena",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of arena"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERIT",
+      "RE",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "TIRE",
+       "to": "ERIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A national flag is mirrored at the edge of a sports stadium.",
+     "walkthrough": "'Flag' looks like a national banner, but it is the verb meaning to weaken.",
+     "definitionFit": "Eritrea is a nation in the Horn of Africa, on the Red Sea coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flag"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1685,69 @@
     "text": "Fly with Irish airline, finally one offering exciting descent",
     "enumeration": "7"
    },
-   "solution": "ZIPWIRE"
+   "solution": "ZIPWIRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ZIPWIRE",
+    "definitions": [
+     {
+      "text": "one offering exciting descent",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the preceding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fly",
+      "gives": "ZIP",
+      "note": "the fly of trousers is a zip"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "Ir is the abbreviation for Irish"
+     },
+     {
+      "clueFragment": "airline",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of airline"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZIP",
+      "W",
+      "IR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Travel with an Irish carrier, and in the end someone gives you a thrilling landing.",
+     "walkthrough": "'Fly' looks like air travel, fitting the airline, but it is the fastening on trousers.",
+     "definitionFit": "A zip wire is a cable down which a rider slides on a pulley, an exhilarating ride downhill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fly"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1761,48 @@
     "text": "Credit card company that hasn't opened bank account",
     "enumeration": "3"
    },
-   "solution": "ISA"
+   "solution": "ISA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ISA",
+    "definitions": [
+     {
+      "text": "bank account",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that hasn't opened",
+      "for": "deletion",
+      "note": "a word that hasn't opened is missing its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Credit card company",
+      "gives": "VISA",
+      "note": "Visa is a credit card company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ISA"
+     ]
+    },
+    "explanation": {
+     "surface": "A credit card firm with no branches yet tries to offer a bank account.",
+     "walkthrough": "An ISA is a UK Individual Savings Account, a tax-free savings account.",
+     "definitionFit": "An ISA is a British tax-sheltered savings account held with a bank or building society."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opened"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1822,43 @@
      }
     ]
    },
-   "solution": "TRYINGPLANE"
+   "solution": "TRYINGPLANE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRYING PLANE",
+    "definitions": [
+     {
+      "text": "Working as a test pilot's",
+      "at": 0
+     },
+     {
+      "text": "a big leveller",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Working as a test pilot's",
+      "note": "first meaning, whimsically: a test pilot's job is trying out an aircraft"
+     },
+     {
+      "clueFragment": "a big leveller",
+      "note": "second meaning: a long carpenter's tool for flattening wood"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is playful: a test pilot's work is trying a plane. The second is a woodworking tool, the long bench plane used to true up edges.",
+     "definitionFit": "A trying plane is a long woodworking plane for levelling surfaces, and test-flying is literally trying an aircraft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leveller"
+    }
+   }
   }
  ]
 }
