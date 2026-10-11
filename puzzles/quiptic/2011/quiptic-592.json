@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Footwear for each fielder takes precedence",
     "enumeration": "7"
    },
-   "solution": "SLIPPER"
+   "solution": "SLIPPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLIPPER",
+    "definitions": [
+     {
+      "text": "Footwear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes precedence",
+      "for": "charade",
+      "note": "the fielder's term goes in front, so the piece for each comes after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fielder",
+      "gives": "SLIP",
+      "note": "slip is a close catching position in cricket, and the fielder there"
+     },
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in miles per hour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLIP",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket report on whose boots get priority in the dressing room.",
+     "walkthrough": "In cricket the slips stand beside the wicketkeeper to catch edges; a player there is a slip.",
+     "definitionFit": "A slipper is a soft indoor shoe, so it is one kind of footwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "precedence"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +97,42 @@
     "text": "Contribute gracefully",
     "enumeration": "6"
    },
-   "solution": "SUPPLY"
+   "solution": "SUPPLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUPPLY",
+    "definitions": [
+     {
+      "text": "Contribute",
+      "at": 0
+     },
+     {
+      "text": "gracefully",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Contribute",
+      "note": "first meaning: to provide or furnish"
+     },
+     {
+      "clueFragment": "gracefully",
+      "note": "second meaning: in a lithe, flexible way, an adverb from supple"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is pronounced SUP-lee, an adverb of supple, unlike the verb.",
+     "definitionFit": "To supply is to provide, and supply as an adverb means supplely, moving with lithe grace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gracefully"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +146,69 @@
     "text": "One man chucking article for dog to have a go at",
     "enumeration": "6"
    },
-   "solution": "IMPUGN"
+   "solution": "IMPUGN",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "IMPUGN",
+    "definitions": [
+     {
+      "text": "have a go at",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chucking",
+      "for": "substitution",
+      "note": "chucking one thing for another means throwing it out and swapping in a replacement"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "MAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "PUG",
+      "note": "a pug is a small breed of dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "PUG",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A man throwing a stick for his dog to chase.",
+     "walkthrough": "'Chucking' looks like throwing a ball for the dog, but it means swapping out the article for the breed.",
+     "definitionFit": "To impugn someone is to challenge or attack their honesty, an informal have a go at."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chucking"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +222,60 @@
     "text": "Cromwell's doctrine destroyed human spirit after beheading",
     "enumeration": "10"
    },
-   "solution": "PURITANISM"
+   "solution": "PURITANISM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PURITANISM",
+    "definitions": [
+     {
+      "text": "Cromwell's doctrine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after beheading",
+      "for": "deletion",
+      "note": "beheading cuts off the head, so the first letter goes"
+     },
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken up, and its letters are rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "human spirit",
+      "gives": "HUMANSPIRIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PURITANISM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UMANSPIRIT",
+       "gives": "PURITANISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cromwell's creed crushed the spirit, and the King lost his head.",
+     "walkthrough": "Fitting surface: Cromwell's side beheaded Charles I.",
+     "definitionFit": "Oliver Cromwell was a Puritan, and Puritanism was the strict Protestant creed of his regime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "beheading"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +289,45 @@
     "text": "Archbishop's tree",
     "enumeration": "5"
    },
-   "solution": "ROWAN"
+   "solution": "ROWAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROWAN",
+    "definitions": [
+     {
+      "text": "Archbishop",
+      "at": 0
+     },
+     {
+      "text": "tree",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Archbishop",
+      "note": "first meaning: ... Williams, Archbishop of Canterbury 2002-2012"
+     },
+     {
+      "clueFragment": "tree",
+      "note": "second meaning: the mountain ash"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Rowan Williams led the Church of England as Archbishop of Canterbury.",
+     "definitionFit": "The rowan, or mountain ash, is a small tree with red berries; it is also the first name of a former Archbishop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +347,46 @@
      }
     ]
    },
-   "solution": "POINTUP"
+   "solution": "POINTUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POINT UP",
+    "definitions": [
+     {
+      "text": "Highlight",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dot",
+      "gives": "POINT",
+      "note": "a point is a dot, as in a decimal point"
+     },
+     {
+      "clueFragment": "above the horizon",
+      "gives": "UP",
+      "note": "a sun or star above the horizon is up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POINT",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "An astronomer noting a speck of light that has just risen in the sky.",
+     "definitionFit": "To point up something is to emphasise it or draw attention to it, a verb synonym of highlight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Highlight"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +400,54 @@
     "text": "Part of continent where Alpine sun's unusual",
     "enumeration": "9"
    },
-   "solution": "PENINSULA"
+   "solution": "PENINSULA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PENINSULA",
+    "definitions": [
+     {
+      "text": "Part of continent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "unusual means out of the normal order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "where",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alpine sun",
+      "gives": "ALPINESUN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALPINESUN",
+       "gives": "PENINSULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A corner of Europe where the mountain sunshine is out of the ordinary.",
+     "definitionFit": "A peninsula is land jutting into the sea, often a large section of a continent such as Iberia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Alpine"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +461,61 @@
     "text": "Independent police force raised issue",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ITEM",
+    "definitions": [
+     {
+      "text": "issue",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue raised means lifted upwards, so the word reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Independent",
+      "gives": "I",
+      "note": "I is the abbreviation for Independent"
+     },
+     {
+      "clueFragment": "police force",
+      "gives": "MET",
+      "note": "the Met is London's Metropolitan Police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "TEM"
+     ],
+     "reversals": [
+      {
+       "from": "MET",
+       "to": "TEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An independent police body raises a concern.",
+     "walkthrough": "The Met is the everyday name for London's Metropolitan Police.",
+     "definitionFit": "An item is a topic or matter on an agenda, much like an issue to discuss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Independent"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +529,39 @@
     "text": "Warning sign in kitchen?",
     "enumeration": "8"
    },
-   "solution": "TRIANGLE"
+   "solution": "TRIANGLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TRIANGLE",
+    "definitions": [
+     {
+      "text": "Warning sign in kitchen?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warning sign",
+      "note": "surface reading: a notice cautioning of danger, like one about a hot hob"
+     },
+     {
+      "clueFragment": "in kitchen",
+      "note": "setter's reading: the warning road sign shape, and the metal percussion piece rung in a kitchen to call people to dinner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Road warning signs in Britain are this shape, and a cook might strike the metal instrument to announce a meal.",
+     "definitionFit": "This shape is used for warning road signs, and a metal one is struck at mealtimes as a dinner gong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kitchen"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +575,49 @@
     "text": "Summon lads to get haircuts",
     "enumeration": "8"
    },
-   "solution": "PAGEBOYS"
+   "solution": "PAGEBOYS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAGEBOYS",
+    "definitions": [
+     {
+      "text": "haircuts",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Summon",
+      "gives": "PAGE",
+      "note": "to page someone is to summon them"
+     },
+     {
+      "clueFragment": "lads",
+      "gives": "BOYS",
+      "note": "lads are boys"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAGE",
+      "BOYS"
+     ]
+    },
+    "explanation": {
+     "surface": "Calling the boys in to the barber for a trim.",
+     "definitionFit": "A pageboy is a bob hairstyle with the ends turned under, so pageboys are haircuts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Summon"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +631,59 @@
     "text": "Primate interrupts priest's scholarly discourse",
     "enumeration": "5"
    },
-   "solution": "PAPER"
+   "solution": "PAPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PAPER",
+    "definitions": [
+     {
+      "text": "scholarly discourse",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "to interrupt is to break into the middle of something, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest",
+      "gives": "PR",
+      "note": "PR is an abbreviation for priest"
+     },
+     {
+      "clueFragment": "Primate",
+      "gives": "APE",
+      "note": "an ape is a primate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "APE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A monkey disrupts a cleric giving a learned lecture.",
+     "walkthrough": "'Primate' suggests an archbishop next to 'priest', but here it is the animal.",
+     "definitionFit": "An academic paper is a written essay or study presented to scholars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Primate"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +697,71 @@
     "text": "Vagrant's on the way out when Commie comes back in",
     "enumeration": "9"
    },
-   "solution": "WANDERING"
+   "solution": "WANDERING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "WANDERING",
+    "definitions": [
+     {
+      "text": "Vagrant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes back",
+      "for": "reversal",
+      "note": "coming back means travelling the opposite way, so the word for Commie is read right to left"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says the Commie's word is placed inside the phrase for on the way out"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on the way out",
+      "gives": "WANING",
+      "note": "something waning is declining, on its way out"
+     },
+     {
+      "clueFragment": "Commie",
+      "gives": "RED",
+      "note": "Red is slang for a communist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAN",
+      "DER",
+      "ING"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tramp is fading away as a communist returns to power.",
+     "walkthrough": "'On the way out' looks like the tramp leaving, but it is the wordplay for declining, split to take the reversed Commie.",
+     "definitionFit": "Vagrant as an adjective means roaming with no settled home, the same as wandering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vagrant's"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +775,63 @@
     "text": "Celebrity at home in England shedding pounds",
     "enumeration": "10"
    },
-   "solution": "LIGHTENING"
+   "solution": "LIGHTENING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LIGHTENING",
+    "definitions": [
+     {
+      "text": "shedding pounds",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the phrase for at home inside the abbreviation for the country"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celebrity",
+      "gives": "LIGHT",
+      "note": "a celebrity is a leading light"
+     },
+     {
+      "clueFragment": "England",
+      "gives": "ENG",
+      "note": "ENG is the abbreviation for England"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGHT",
+      "EN",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous person back home in England is losing weight.",
+     "walkthrough": "'Shedding pounds' tempts a money reading, but it is about weight; a leading light is a prominent person.",
+     "definitionFit": "Losing weight makes you lighter, so shedding pounds is literally lightening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pounds"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +845,53 @@
     "text": "Cut Rolls in recession",
     "enumeration": "4"
    },
-   "solution": "SNUB"
+   "solution": "SNUB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SNUB",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in recession",
+      "for": "reversal",
+      "note": "receding means moving backwards, so the word is read in the reverse direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rolls",
+      "gives": "BUNS",
+      "note": "buns are bread rolls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNUB"
+     ],
+     "reversals": [
+      {
+       "from": "BUNS",
+       "to": "SNUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news item about Rolls-Royce cutting jobs during an economic slump.",
+     "definitionFit": "To cut someone socially is to snub them, ignoring them deliberately."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rolls"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +905,72 @@
     "text": "Unlimited buns and puddings served up without hassle",
     "enumeration": "10"
    },
-   "solution": "UNSTRESSED"
+   "solution": "UNSTRESSED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "UNSTRESSED",
+    "definitions": [
+     {
+      "text": "without hassle",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unlimited",
+      "for": "deletion",
+      "note": "with no limits means the outer letters at both ends are cut away"
+     },
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue served up means brought upwards, so the word reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buns",
+      "gives": "UN",
+      "select": "middle",
+      "note": "the inner letters of the word"
+     },
+     {
+      "clueFragment": "puddings",
+      "gives": "DESSERTS",
+      "note": "puddings are desserts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "STRESSED"
+     ],
+     "reversals": [
+      {
+       "from": "DESSERTS",
+       "to": "STRESSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An all-you-can-eat café serving buns and puddings with no fuss.",
+     "walkthrough": "Spelt backwards, desserts famously gives stressed.",
+     "definitionFit": "Being unstressed means free from strain or worry, so a thing done without hassle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unlimited"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +984,54 @@
     "text": "What cabaret critic may do, they say, with friend after dark",
     "enumeration": "11"
    },
-   "solution": "NOCTURNALLY"
+   "solution": "NOCTURNALLY",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "NOCTURNALLY",
+    "definitions": [
+     {
+      "text": "after dark",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "they say",
+      "for": "homophone",
+      "note": "they say points to how the words are heard spoken, not how they are written"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What cabaret critic may do",
+      "gives": "NOCTURN",
+      "soundsLike": "KNOCK TURN",
+      "note": "a critic may knock, or pan, a turn, a single act in a cabaret"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend"
+     }
+    ],
+    "explanation": {
+     "surface": "A reviewer slating a nightclub act after it ends late.",
+     "walkthrough": "A turn is one performer's act in a variety show; to knock it is to criticise it.",
+     "definitionFit": "Something done nocturnally happens at night, that is, after dark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "critic"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1045,79 @@
     "text": "Mister Uppity feeds comic cartoon bird",
     "enumeration": "9"
    },
-   "solution": "CORMORANT"
+   "solution": "CORMORANT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "CORMORANT",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Uppity",
+      "for": "reversal",
+      "note": "uppity in a down clue suggests going up, so the abbreviation reads bottom to top"
+     },
+     {
+      "text": "comic",
+      "for": "anagram",
+      "note": "comic means funny or absurd, so the letters are jumbled"
+     },
+     {
+      "text": "feeds",
+      "for": "container",
+      "note": "feeding puts something inside, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mister",
+      "gives": "MR",
+      "note": "MR is the abbreviation for Mister"
+     },
+     {
+      "clueFragment": "cartoon",
+      "gives": "CARTOON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "RM",
+      "ORANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARTOON",
+       "gives": "COORANT"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "MR",
+       "to": "RM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cartoon character called Mister Uppity in a funny strip about a bird.",
+     "walkthrough": "Mr Uppity is one of the Mr Men cartoon characters, a neat surface touch.",
+     "definitionFit": "The cormorant is a large black diving seabird, so it is a kind of bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Uppity"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1131,66 @@
     "text": "Narrow-minded sports coach backs prohibition",
     "enumeration": "8"
    },
-   "solution": "SUBURBAN"
+   "solution": "SUBURBAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SUBURBAN",
+    "definitions": [
+     {
+      "text": "Narrow-minded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backs",
+      "for": "reversal",
+      "note": "backing a vehicle means moving it in reverse, so the letters before it are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sports",
+      "gives": "RU",
+      "note": "RU is Rugby Union, a sport"
+     },
+     {
+      "clueFragment": "coach",
+      "gives": "BUS",
+      "note": "a coach is a bus"
+     },
+     {
+      "clueFragment": "prohibition",
+      "gives": "BAN",
+      "note": "a ban is a prohibition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUBUR",
+      "BAN"
+     ],
+     "reversals": [
+      {
+       "from": "RUBUS",
+       "to": "SUBUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blinkered team coach supports a ban.",
+     "walkthrough": "'Sports coach' reads as one job; here it splits into the rugby abbreviation and a bus.",
+     "definitionFit": "Suburban is used to mean dull, conventional and narrow in outlook, like the stereotype of suburbia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coach"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1204,46 @@
     "text": "Paragon directed cast",
     "enumeration": "8"
    },
-   "solution": "MODELLED"
+   "solution": "MODELLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MODELLED",
+    "definitions": [
+     {
+      "text": "cast",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paragon",
+      "gives": "MODEL",
+      "note": "a model is a paragon, a perfect example"
+     },
+     {
+      "clueFragment": "directed",
+      "gives": "LED",
+      "note": "led means directed or guided"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MODEL",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "A film director picking a perfect performer for the cast.",
+     "definitionFit": "Cast as a verb means shaped in a mould, just as modelled can mean formed or sculpted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1257,69 @@
     "text": "Extra payment almost rejected by attendant not paying attention",
     "enumeration": "11"
    },
-   "solution": "UNOBSERVANT"
+   "solution": "UNOBSERVANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "UNOBSERVANT",
+    "definitions": [
+     {
+      "text": "not paying attention",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the extra payment word is dropped"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is thrown back, so those letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extra payment",
+      "gives": "BONUS",
+      "note": "a bonus is an extra payment"
+     },
+     {
+      "clueFragment": "attendant",
+      "gives": "SERVANT",
+      "note": "a servant attends on someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNOB",
+      "SERVANT"
+     ],
+     "reversals": [
+      {
+       "from": "BONU",
+       "to": "UNOB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distracted attendant turns down a bonus that is nearly there.",
+     "definitionFit": "Someone unobservant fails to notice things, so is not paying attention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1333,52 @@
     "text": "Argue about a child",
     "enumeration": "6"
    },
-   "solution": "REASON"
+   "solution": "REASON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REASON",
+    "definitions": [
+     {
+      "text": "Argue",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "SON",
+      "note": "a son is a child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "A",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "Parents quarrelling over a youngster.",
+     "definitionFit": "To reason is to argue logically, making a case to persuade someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Argue"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1392,54 @@
     "text": "Surreptitiously takes round small religious book",
     "enumeration": "6"
    },
-   "solution": "PSALMS"
+   "solution": "PSALMS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PSALMS",
+    "definitions": [
+     {
+      "text": "religious book",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Surreptitiously takes",
+      "gives": "PALMS",
+      "note": "to palm something is to hide it in the hand and take it secretly"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "S",
+      "ALMS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneakily pocketing a little prayer book.",
+     "definitionFit": "Psalms is a book of the Old Testament, the collection of sacred songs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1453,48 @@
     "text": "Vehicles to carry instruments failing to start",
     "enumeration": "4"
    },
-   "solution": "UTES"
+   "solution": "UTES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UTES",
+    "definitions": [
+     {
+      "text": "Vehicles to carry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing to start",
+      "for": "deletion",
+      "note": "failing to start means the first letter does not appear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "instruments",
+      "gives": "LUTES",
+      "note": "lutes are stringed instruments"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTES"
+     ]
+    },
+    "explanation": {
+     "surface": "Trucks that won't start when needed to haul a band's gear.",
+     "walkthrough": "Ute is short for utility vehicle, a pick-up truck, especially in Australia.",
+     "definitionFit": "Utes are open-backed utility vehicles built for carrying goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "instruments"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1514,56 @@
      }
     ]
    },
-   "solution": "DOUBLEBEDS"
+   "solution": "DOUBLEBEDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOUBLE BEDS",
+    "definitions": [
+     {
+      "text": "Where you might lie",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the word for bottom inside the name of the pairs' event"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pairs' event",
+      "gives": "DOUBLES",
+      "note": "doubles is the tennis event for pairs"
+     },
+     {
+      "clueFragment": "bottom",
+      "gives": "BED",
+      "note": "a bed is the bottom of a sea or river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOUBLE",
+      "BED",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A doubles player finishing last, perhaps fibbing about it.",
+     "walkthrough": "'Lie' and 'bottom' look like a ranking story; 'lie' means rest in bed.",
+     "definitionFit": "A double bed is a place for two people to lie down and sleep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lie"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1577,46 @@
     "text": "Animals' stomachs",
     "enumeration": "5"
    },
-   "solution": "BEARS"
+   "solution": "BEARS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEARS",
+    "definitions": [
+     {
+      "text": "Animals",
+      "at": 0
+     },
+     {
+      "text": "stomachs",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "'"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animals",
+      "note": "first meaning: large furry mammals"
+     },
+     {
+      "clueFragment": "stomachs",
+      "note": "second meaning: puts up with, tolerates"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Stomachs' reads as the animals' bellies, but it is a verb meaning tolerates.",
+     "definitionFit": "Bears are big mammals, and one who bears or stomachs something endures it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stomachs"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1630,42 @@
     "text": "The crudest clothes colour",
     "enumeration": "4"
    },
-   "solution": "ECRU"
+   "solution": "ECRU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ECRU",
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothes",
+      "for": "hidden_word",
+      "note": "to clothe is to cover, so the outer words dress the letters sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The crudest",
+      "gives": "ECRU",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A comment that the most vulgar outfits come in a certain shade.",
+     "definitionFit": "Ecru is a pale greyish-yellow, the colour of unbleached linen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1679,48 @@
     "text": "Apt headgear for Victorian engagement?",
     "enumeration": "9"
    },
-   "solution": "BALACLAVA"
+   "solution": "BALACLAVA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BALACLAVA",
+    "definitions": [
+     {
+      "text": "headgear",
+      "at": 4
+     },
+     {
+      "text": "Victorian engagement",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "Apt",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "headgear",
+      "note": "first meaning: a woollen hood covering the head and neck"
+     },
+     {
+      "clueFragment": "Victorian engagement",
+      "note": "second meaning: the 1854 Crimean War battle"
+     }
+    ],
+    "explanation": {
+     "surface": "Suggesting a hat for a Victorian betrothal.",
+     "walkthrough": "Engagement suggests a betrothal, but here it is a battle; the hood was named after the battle, hence 'Apt'.",
+     "definitionFit": "The knitted hood takes its name from the Battle of Balaclava, fought during Queen Victoria's reign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "engagement"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1734,66 @@
     "text": "Girl steps back over single plant",
     "enumeration": "5"
    },
-   "solution": "SISAL"
+   "solution": "SISAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SISAL",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "steps back",
+      "for": "reversal",
+      "note": "stepping back means going in the opposite direction, so the girl's word is read right to left"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over here means going over and around, so the word encloses the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "I",
+      "SAL"
+     ],
+     "reversals": [
+      {
+       "from": "LASS",
+       "to": "SSAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl backs away from a lone plant.",
+     "definitionFit": "Sisal is an agave plant grown for its tough fibre used in rope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "steps"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1813,46 @@
      }
     ]
    },
-   "solution": "NODOUBT"
+   "solution": "NODOUBT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NO DOUBT",
+    "definitions": [
+     {
+      "text": "What Thomas wanted",
+      "at": 0
+     },
+     {
+      "text": "I assume",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What Thomas wanted",
+      "note": "first meaning: doubting Thomas, the apostle, wanted proof that would remove his uncertainty"
+     },
+     {
+      "clueFragment": "I assume",
+      "note": "second meaning: a phrase meaning presumably"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Doubting Thomas refused to believe in the Resurrection until he saw Christ's wounds.",
+     "definitionFit": "No doubt is a sentence adverb meaning probably or presumably, the same as I assume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Thomas"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1866,56 @@
     "text": "Spurs supporter often does this, masking identification",
     "enumeration": "7"
    },
-   "solution": "SIDINGS"
+   "solution": "SIDINGS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SIDINGS",
+    "definitions": [
+     {
+      "text": "Spurs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "masking",
+      "for": "container",
+      "note": "masking means covering up, so one piece is hidden inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supporter often does this",
+      "gives": "SINGS",
+      "note": "football fans chant and sing"
+     },
+     {
+      "clueFragment": "identification",
+      "gives": "ID",
+      "note": "ID is short for identification"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ID",
+      "INGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tottenham fan chanting with a face mask hiding who they are.",
+     "walkthrough": "Spurs is the nickname of Tottenham Hotspur football club, but here it means railway branch lines.",
+     "definitionFit": "A railway spur is a short branch track, much like a siding off the main line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spurs"
+    }
+   }
   }
  ]
 }
