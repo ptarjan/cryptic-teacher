@@ -45,11 +45,14 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
     echo "push_puzzle_commit: origin/master already has $(git log -1 --format=%s "$commit")" >&2
     exit 0
   fi
+  # commit-tree ignores commit.gpgsign, so a republished commit signs only when asked.
+  sign=()
+  [ "$(git config --bool commit.gpgsign)" = true ] && sign=(-S)
   sha=$(git log -1 --format=%B "$commit" |
     GIT_AUTHOR_NAME=$(git log -1 --format=%an "$commit") \
     GIT_AUTHOR_EMAIL=$(git log -1 --format=%ae "$commit") \
     GIT_AUTHOR_DATE=$(git log -1 --format=%aD "$commit") \
-    git commit-tree "$tree" -p "$base") || exit 1
+    git commit-tree "${sign[@]}" "$tree" -p "$base") || exit 1
   out=$(git push -q "${verify[@]}" origin "$sha:refs/heads/master" 2>&1) && exit 0
   printf '%s\n' "$out" >&2
   printf '%s' "$out" | grep -E "rejected|fetch first|non-fast-forward|cannot lock ref" >/dev/null || exit 1
