@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Discover doctor breaching guideline",
     "enumeration": "6"
    },
-   "solution": "RUMBLE"
+   "solution": "RUMBLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RUMBLE",
+    "definitions": [
+     {
+      "text": "Discover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaching",
+      "for": "container",
+      "note": "to breach something is to break into it, so one piece pushes its way inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guideline",
+      "gives": "RULE",
+      "note": "a rule is a guideline to follow"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "MB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds out that a doctor has broken a medical guideline.",
+     "walkthrough": "'Discover' looks like finding something new, but here it is the slang sense of seeing through someone.",
+     "definitionFit": "To rumble someone is informal British slang for finding them out or seeing through their scheme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaching"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,53 @@
     "text": "Rubber, ruler, neither right",
     "enumeration": "3"
    },
-   "solution": "ULE"
+   "solution": "ULE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ULE",
+    "definitions": [
+     {
+      "text": "Rubber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "neither",
+      "for": "deletion",
+      "note": "neither means not one and not the other, so both occurrences of the letter are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruler",
+      "gives": "RULER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ULE"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of stationery items: an eraser and a ruler, with nothing on the right.",
+     "walkthrough": "RULER has two Rs, one at each end; dropping both leaves ULE. An ule is a Central American tree, and the word also names its rubber.",
+     "definitionFit": "Ule is the name of a tropical American rubber tree and of the crude latex it yields, so it is a kind of rubber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rubber"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +158,44 @@
     "text": "Fail to declare what runner gives you to carry",
     "enumeration": "5"
    },
-   "solution": "BATON"
+   "solution": "BATON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BATON",
+    "definitions": [
+     {
+      "text": "Fail to declare",
+      "at": 0
+     },
+     {
+      "text": "what runner gives you to carry",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fail to declare",
+      "note": "first meaning: in cricket, a side that does not declare its innings closed goes on batting"
+     },
+     {
+      "clueFragment": "what runner gives you to carry",
+      "note": "second meaning: the stick a relay runner hands over to the next leg"
+     }
+    ],
+    "explanation": {
+     "surface": "It sounds like a customs officer's warning about a smuggler slipping you something to carry through.",
+     "walkthrough": "In cricket a captain may declare, ending the innings early; failing to do so means the batsmen bat on. Split as BAT ON, that is the answer.",
+     "definitionFit": "A baton is the short rod relay runners pass from hand to hand, so it is exactly what the previous runner gives you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "declare"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +209,52 @@
     "text": "Picking up part for Chevrolet an American's issue",
     "enumeration": "7"
    },
-   "solution": "EMANATE"
+   "solution": "EMANATE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "EMANATE",
+    "definitions": [
+     {
+      "text": "issue",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part for",
+      "for": "hidden_word",
+      "note": "only a part of the following words is used, a run of letters straddling them"
+     },
+     {
+      "text": "Picking up",
+      "for": "reversal",
+      "note": "in a down clue picking something up lifts it, so the letters read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chevrolet an American",
+      "gives": "ETANAME",
+      "note": "a run of letters across the end of the car name, the little word and the start of the last word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone collecting a spare part for a Chevrolet runs into an American's problem.",
+     "walkthrough": "The hidden letters ETANAME, read upwards, give EMANATE.",
+     "definitionFit": "To emanate is to issue or flow out from a source, as light or a smell does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +274,58 @@
      }
     ]
    },
-   "solution": "DUCKSOUP"
+   "solution": "DUCKSOUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUCK SOUP",
+    "definitions": [
+     {
+      "text": "Yank's picnic",
+      "at": 27,
+      "note": "picnic here is the idiomatic noun for an easy task"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "DUCK",
+      "note": "in cricket a duck is a score of nothing"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "SO",
+      "note": "so means very, as in so good"
+     },
+     {
+      "clueFragment": "revolting",
+      "gives": "UP",
+      "note": "people revolting are up in arms, risen up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUCK",
+      "SO",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "An American is offered nothing but something very disgusting for a picnic lunch.",
+     "walkthrough": "'Revolting' looks like disgust but means risen up, UP. Picnic is not a meal here but 'no picnic' sense: an easy job.",
+     "definitionFit": "Duck soup is American slang for something very easy to do, the same idiom as calling a task a picnic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "picnic"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +339,55 @@
     "text": "Old man hides concerning phobia",
     "enumeration": "5"
    },
-   "solution": "DREAD"
+   "solution": "DREAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREAD",
+    "definitions": [
+     {
+      "text": "phobia",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hides",
+      "for": "container",
+      "note": "whatever hides something holds it out of sight inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "DAD",
+      "note": "one's old man is one's father, dad"
+     },
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RE",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly man conceals something about his irrational fear.",
+     "walkthrough": "'Old man' is the familiar British term for one's father.",
+     "definitionFit": "A phobia is an intense, irrational fear, and dread is a deep fear of something to come."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +401,62 @@
     "text": "German cuts shaved area beside knot of hair",
     "enumeration": "7"
    },
-   "solution": "CHIGNON"
+   "solution": "CHIGNON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CHIGNON",
+    "definitions": [
+     {
+      "text": "knot of hair",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "something that cuts into another thing ends up sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shaved area",
+      "gives": "CHIN",
+      "note": "the chin is a part of the face that men shave"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "beside",
+      "gives": "ON",
+      "note": "on can mean beside, as a town on a river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHI",
+      "G",
+      "N",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A German barber trims a shaved patch next to a tangle of hair.",
+     "walkthrough": "'Shaved area' is a part of the face rather than a patch of scalp; the hair only enters in the definition.",
+     "definitionFit": "A chignon is a coil or knot of hair worn at the nape of the neck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +470,80 @@
     "text": "Grave case of unusual herpes spread around college",
     "enumeration": "9"
    },
-   "solution": "SEPULCHRE"
+   "solution": "SEPULCHRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "SEPULCHRE",
+    "definitions": [
+     {
+      "text": "Grave",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is the outside shell, so only the first and last letters of the next word are used"
+     },
+     {
+      "text": "spread",
+      "for": "anagram",
+      "note": "something spread about is scattered, so the letters are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the rearranged letters enclose the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unusual",
+      "gives": "UL",
+      "select": "outer",
+      "note": "the outside letters of the word"
+     },
+     {
+      "clueFragment": "herpes",
+      "gives": "HERPES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "C is the abbreviation for college"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEPUL",
+      "C",
+      "HRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ULHERPES",
+       "gives": "SEPULHRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's grim report of an unusual herpes outbreak spreading around a college campus.",
+     "walkthrough": "The rearranged letters are split so the college abbreviation sits in the middle; 'Grave' looks like an adjective for the medical news but is the noun.",
+     "definitionFit": "A sepulchre is a tomb cut in rock or built of stone, a grave in the broad sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Grave"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +557,73 @@
     "text": "No saint dies out, under a French rule",
     "enumeration": "11"
    },
-   "solution": "UNCANONISED"
+   "solution": "UNCANONISED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "UNCANONISED",
+    "definitions": [
+     {
+      "text": "No saint",
+      "at": 0,
+      "note": "noun phrase for an adjective: describes someone who is no saint"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or inaccurate, so the letters are put out of order"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue under places the preceding piece below the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "rule",
+      "gives": "CANON",
+      "note": "a canon is a rule or principle, especially of the Church"
+     },
+     {
+      "clueFragment": "dies",
+      "gives": "ISED",
+      "note": "the four letters of the word rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "CANON",
+      "ISED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIES",
+       "gives": "ISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man dies without being declared a saint, under a rule laid down in French.",
+     "walkthrough": "Canonisation is the Church's process of declaring someone a saint, so one who is uncanonised is formally no saint.",
+     "definitionFit": "Someone uncanonised has not been officially enrolled among the saints by the Church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "dies"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +643,51 @@
      }
     ]
    },
-   "solution": "TESTCASE"
+   "solution": "TESTCASE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEST CASE",
+    "definitions": [
+     {
+      "text": "Claim there's no rule for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rogue",
+      "for": "anagram",
+      "note": "a rogue thing behaves wildly and out of line, so the letters go astray"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "EC states",
+      "gives": "ECSTATES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ECSTATES",
+       "gives": "TESTCASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political complaint that EU law has nothing to say about a member state going rogue.",
+     "walkthrough": "EC is the European Community. The definition describes a lawsuit on a question that no ruling yet covers.",
+     "definitionFit": "A test case is a legal action brought to settle a point on which there is no precedent, establishing a rule for later cases."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rogue"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +701,63 @@
     "text": "Effect of current law on politician",
     "enumeration": "6"
    },
-   "solution": "IMPACT"
+   "solution": "IMPACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPACT",
+    "definitions": [
+     {
+      "text": "Effect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one thing on another is placed after it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "law",
+      "gives": "ACT",
+      "note": "an act of Parliament is a law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MP",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what difference current legislation makes to a politician.",
+     "walkthrough": "'Current' looks like an adjective meaning present-day; it is the electrical current, symbol I.",
+     "definitionFit": "Impact is the effect or influence one thing has on another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +777,56 @@
      }
     ]
    },
-   "solution": "IRONMAIDEN"
+   "solution": "IRONMAIDEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IRON MAIDEN",
+    "definitions": [
+     {
+      "text": "Band",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing around with things moves them about, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on I admire",
+      "gives": "ONIADMIRE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONIADMIREN",
+       "gives": "IRONMAIDEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan says they admire a band on stage as it plays one of its numbers.",
+     "walkthrough": "'Band' and 'playing number' make it look like music, which it is, but 'playing' is also the signal to rearrange.",
+     "definitionFit": "Iron Maiden is a British heavy metal group, a rock band."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +840,71 @@
     "text": "Copy AI bot that's misspelled name, getting severe censure",
     "enumeration": "11"
    },
-   "solution": "REPROBATION"
+   "solution": "REPROBATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "REPROBATION",
+    "definitions": [
+     {
+      "text": "severe censure",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misspelled",
+      "for": "anagram",
+      "note": "a misspelled word has its letters wrongly arranged"
+     }
+    ],
+    "linkWords": [
+     "that's",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copy",
+      "gives": "REPRO",
+      "note": "a repro is a reproduction, a copy"
+     },
+     {
+      "clueFragment": "AI bot",
+      "gives": "BATIO",
+      "note": "the five letters rearranged"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REPRO",
+      "BATIO",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIBOT",
+       "gives": "BATIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An AI chatbot copies text and gets a name wrong, drawing harsh criticism.",
+     "walkthrough": "A topical surface: AI bots are notorious for errors, and this one earns a scolding.",
+     "definitionFit": "Reprobation is strong disapproval or condemnation, a severe rebuke."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Copy"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +918,44 @@
     "text": "Love of Kent, way out of town",
     "enumeration": "4"
    },
-   "solution": "LANE"
+   "solution": "LANE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LANE",
+    "definitions": [
+     {
+      "text": "Love of Kent",
+      "at": 0
+     },
+     {
+      "text": "way out of town",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love of Kent",
+      "note": "first meaning: Lois, the girlfriend of Clark Kent, Superman's alter ego, has this surname"
+     },
+     {
+      "clueFragment": "way out of town",
+      "note": "second meaning: a narrow country road"
+     }
+    ],
+    "explanation": {
+     "surface": "It reads like a fond view of the English county of Kent, its country roads leading out of town.",
+     "walkthrough": "Kent looks like the county in south-east England; it is Clark Kent, whose love is Lois Lane.",
+     "definitionFit": "Lois Lane is the reporter Superman loves, and a lane is a narrow road in the countryside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Kent"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +975,50 @@
      }
     ]
    },
-   "solution": "PACKEDLUNCH"
+   "solution": "PACKEDLUNCH",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "PACKED LUNCH",
+    "definitions": [
+     {
+      "text": "Sandwiches etc",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for Spooner",
+      "for": "spoonerism",
+      "note": "William Spooner was famous for swapping the opening sounds of words, so the starts of the two words trade places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weren't beefy enough",
+      "gives": "PACKEDLUNCH",
+      "soundsLike": "LACKED PUNCH",
+      "note": "lacking punch means lacking strength or force; swap the initial sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PACKEDLUNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Sandwiches that were not filled with enough beef.",
+     "walkthrough": "'Beefy' points to sandwich fillings but means strong; swapping the L and P sounds of the phrase gives the answer.",
+     "definitionFit": "A packed lunch is a meal of sandwiches and snacks prepared at home and carried to work or school."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "beefy"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1032,69 @@
     "text": "Father that forgives criminal for pinching contents of TESSA",
     "enumeration": "9"
    },
-   "solution": "CONFESSOR"
+   "solution": "CONFESSOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CONFESSOR",
+    "definitions": [
+     {
+      "text": "Father that forgives",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contents of",
+      "for": "letter_selection",
+      "note": "the contents are what lies inside, so the outer letters are dropped and the middle kept"
+     },
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "to pinch is to grip something tight, holding it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminal",
+      "gives": "CON",
+      "note": "a con is a convict, a criminal"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "TESSA",
+      "gives": "ESS",
+      "select": "middle",
+      "note": "TESSA was a UK tax-exempt savings account; its inside letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "F",
+      "ESS",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest who forgives a criminal for stealing from someone's savings.",
+     "walkthrough": "A TESSA was a tax-exempt special savings account in Britain in the 1990s; only its inside letters are used.",
+     "definitionFit": "A confessor is the priest who hears confession and grants absolution, a father who forgives sins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pinching"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1108,40 @@
     "text": "Note reciprocal of three eighths?",
     "enumeration": "3"
    },
-   "solution": "LAH"
+   "solution": "LAH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LAH",
+    "definitions": [
+     {
+      "text": "Note reciprocal of three eighths?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reciprocal of three eighths?",
+      "note": "surface reading: a sum, turning the fraction 3/8 upside down"
+     },
+     {
+      "clueFragment": "Note",
+      "note": "setter's reading: in the eight-note sol-fa octave the third note up is me, so the reciprocal, counting third from the top down, is the sixth note"
+     }
+    ],
+    "explanation": {
+     "surface": "An arithmetic reminder about flipping the fraction three eighths.",
+     "walkthrough": "The octave doh, ray, me, fah, soh, lah, te, doh has eight notes. Third from the bottom is me; counted the other way, third from the top is lah.",
+     "definitionFit": "Lah is the sixth note of the tonic sol-fa scale, sitting third down from the upper doh of the octave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reciprocal"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1165,41 @@
    "group": [
     "17-across",
     "18-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NO-NO",
+    "definitions": [
+     {
+      "text": "a breach of the rules",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small numbers",
+      "gives": "NONO",
+      "note": "NO is the short form of number, so two of them written small give the pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NONO"
+     ]
+    },
+    "explanation": {
+     "surface": "A hint that even small figures can mean a rule has been broken.",
+     "walkthrough": "'Small' asks for the abbreviation; 'numbers' plural gives it twice.",
+     "definitionFit": "A no-no is something that is forbidden or not done, an act against the rules."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1226,57 @@
     "text": "Breaking rules, given one point by FA",
     "enumeration": "11"
    },
-   "solution": "NAUGHTINESS"
+   "solution": "NAUGHTINESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAUGHTINESS",
+    "definitions": [
+     {
+      "text": "Breaking rules",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "FA",
+      "gives": "NAUGHT",
+      "note": "FA is short for Fanny Adams, as in sweet FA, meaning nothing at all"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "NESS",
+      "note": "a ness is a headland, a point of land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAUGHT",
+      "I",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer breaking the rules is given a point by the Football Association.",
+     "walkthrough": "FA looks like the Football Association, English football's governing body; here it is sweet FA, British slang for nothing at all.",
+     "definitionFit": "Naughtiness is bad behaviour, the act of breaking rules or being disobedient."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "FA"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1290,61 @@
     "text": "Twit bungled pub heist",
     "enumeration": "7"
    },
-   "solution": "UPBRAID"
+   "solution": "UPBRAID",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UPBRAID",
+    "definitions": [
+     {
+      "text": "Twit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bungled",
+      "for": "anagram",
+      "note": "something bungled is botched and messed up, so its letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "UPB",
+      "note": "the three letters rearranged"
+     },
+     {
+      "clueFragment": "heist",
+      "gives": "RAID",
+      "note": "a raid is a robbery or heist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPB",
+      "RAID"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PUB",
+       "gives": "UPB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Calling someone an idiot for botching a pub robbery.",
+     "walkthrough": "'Twit' looks like a noun for a fool, but here it is the verb meaning to taunt or reproach.",
+     "definitionFit": "To twit someone is to tease or reproach them, which is close to upbraid, to scold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Twit"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1358,65 @@
     "text": "Covered vine uncovered and certainly dead",
     "enumeration": "7"
    },
-   "solution": "INSURED"
+   "solution": "INSURED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INSURED",
+    "definitions": [
+     {
+      "text": "Covered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "letter_selection",
+      "note": "uncovering a word strips off its cover, its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vine",
+      "gives": "IN",
+      "select": "middle",
+      "note": "the inner letters of the word"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "SURE",
+      "note": "sure means certainly"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "D is the abbreviation for dead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SURE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A grapevine left exposed has surely died.",
+     "walkthrough": "The play of 'Covered' against 'uncovered' hides the fact that one is the definition and the other an instruction.",
+     "definitionFit": "To be insured is to be covered by an insurance policy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1430,48 @@
     "text": "Rule out Ecstasy as cause of death",
     "enumeration": "4"
    },
-   "solution": "BANE"
+   "solution": "BANE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANE",
+    "definitions": [
+     {
+      "text": "cause of death",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rule out",
+      "gives": "BAN",
+      "note": "to ban something is to rule it out"
+     },
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to outlaw ecstasy because it kills people.",
+     "definitionFit": "Bane originally meant something causing death, such as poison, and now means a cause of ruin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1485,55 @@
     "text": "Railing if cooking bad at Rules",
     "enumeration": "10"
    },
-   "solution": "BALUSTRADE"
+   "solution": "BALUSTRADE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BALUSTRADE",
+    "definitions": [
+     {
+      "text": "Railing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking mixes ingredients up, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "if"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad at Rules",
+      "gives": "BADATRULES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BADATRULES",
+       "gives": "BALUSTRADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Complaining about bad cooking at Rules, the old London restaurant.",
+     "walkthrough": "'Railing' looks like a verb, complaining; it is the noun. Rules is London's oldest restaurant, in Covent Garden.",
+     "definitionFit": "A balustrade is a railing supported by a row of small posts, as along a staircase or balcony."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Railing"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1547,46 @@
     "text": "Rules and punishment at school",
     "enumeration": "5"
    },
-   "solution": "LINES"
+   "solution": "LINES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LINES",
+    "definitions": [
+     {
+      "text": "Rules",
+      "at": 0
+     },
+     {
+      "text": "punishment at school",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rules",
+      "note": "first meaning: ruled marks, as on writing paper"
+     },
+     {
+      "clueFragment": "punishment at school",
+      "note": "second meaning: a sentence a pupil must copy out many times as a penalty"
+     }
+    ],
+    "explanation": {
+     "surface": "A list of what a strict school runs on: regulations and penalties.",
+     "walkthrough": "Being given lines, writing out a sentence a hundred times, is a traditional British school punishment.",
+     "definitionFit": "Ruled paper carries printed lines, and lines are also the classic copying punishment set in school."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rules"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1600,63 @@
     "text": "Queen and footling male ruled land",
     "enumeration": "5"
    },
-   "solution": "REALM"
+   "solution": "REALM",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "REALM",
+    "definitions": [
+     {
+      "text": "ruled land",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "footling",
+      "for": "anagram",
+      "note": "footling means fiddling about in a silly way, so the letters are messed about"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R, for Regina, is the Latin abbreviation for queen"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "EALM",
+      "note": "the four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EALM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MALE",
+       "gives": "EALM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A queen and a trivial man governed a country.",
+     "definitionFit": "A realm is a kingdom, the land over which a monarch rules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "footling"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1670,51 @@
     "text": "Carnival with boos and cheers",
     "enumeration": "6"
    },
-   "solution": "FIESTA"
+   "solution": "FIESTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIESTA",
+    "definitions": [
+     {
+      "text": "Carnival",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boos",
+      "gives": "FIES",
+      "note": "fie is an old cry of disapproval, so boos are fies"
+     },
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British slang for thanks, as is cheers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIES",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "A street carnival with a crowd both jeering and cheering.",
+     "walkthrough": "'Cheers' looks like applause; in Britain it also means thanks, which is TA.",
+     "definitionFit": "A fiesta is a festival or carnival, originally a religious holiday in Spanish-speaking countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1728,50 @@
     "text": "Cliff's drinking partner and friend, as a rule",
     "enumeration": "8"
    },
-   "solution": "NORMALLY"
+   "solution": "NORMALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NORMALLY",
+    "definitions": [
+     {
+      "text": "as a rule",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cliff's drinking partner",
+      "gives": "NORM",
+      "note": "in the sitcom Cheers, postman Cliff drinks at the bar beside Norm"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NORM",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing someone's usual pub companion and pal.",
+     "walkthrough": "Cliff Clavin and Norm Peterson are the barflies of the American sitcom Cheers, set in a Boston bar; it follows 26-across's 'cheers'.",
+     "definitionFit": "Normally and as a rule both mean usually, in the ordinary run of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cliff's"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1785,45 @@
     "text": "Goodness coming from dictator's rule",
     "enumeration": "3"
    },
-   "solution": "LOR"
+   "solution": "LOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LOR",
+    "definitions": [
+     {
+      "text": "Goodness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming from dictator's",
+      "for": "homophone",
+      "note": "a dictator in the office sense speaks words for someone to write down, so what comes from one is spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rule",
+      "gives": "LOR",
+      "soundsLike": "LAW",
+      "note": "a law is a rule; in a non-rhotic British accent the two words are said alike"
+     }
+    ],
+    "explanation": {
+     "surface": "Something good emerging from a tyrant's regime.",
+     "walkthrough": "'Dictator' looks like a tyrant but is someone dictating aloud. Lor is a dated British exclamation, a clipped form of Lord.",
+     "definitionFit": "Lor and goodness are both mild exclamations of surprise, like 'Lord!' or 'goodness me!'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dictator's"
+    }
+   }
   },
   {
    "number": 29,
@@ -472,7 +1837,72 @@
     "text": "Is a trespasser cheeky, entering home with tenants on vacation?",
     "enumeration": "8"
    },
-   "solution": "INTRUDES"
+   "solution": "INTRUDES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INTRUDES",
+    "definitions": [
+     {
+      "text": "Is a trespasser",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "vacated means emptied, so the word loses its inside and keeps only its ends"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "tenants",
+      "gives": "TS",
+      "select": "outer",
+      "note": "the end letters of the word, its middle emptied"
+     },
+     {
+      "clueFragment": "cheeky",
+      "gives": "RUDE",
+      "note": "cheeky means rude or impudent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "T",
+      "RUDE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether someone is trespassing by cheekily moving in while the tenants are on holiday.",
+     "walkthrough": "'On vacation' looks like a holiday but means emptied out, leaving just the first and last letters.",
+     "definitionFit": "Someone who intrudes goes where they are not wanted, which is what a trespasser does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 30,
@@ -486,7 +1916,73 @@
     "text": "Shy doctor resumed scratching Charles's back",
     "enumeration": "6"
    },
-   "solution": "DEMURE"
+   "solution": "DEMURE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DEMURE",
+    "definitions": [
+     {
+      "text": "Shy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only its final letter is used"
+     },
+     {
+      "text": "scratching",
+      "for": "deletion",
+      "note": "to scratch something is to strike it out, removing it"
+     },
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, altering the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resumed",
+      "gives": "RESUMED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Charles's",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMURE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REUMED",
+       "gives": "DEMURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bashful doctor goes back to scratching Charles's back for him.",
+     "walkthrough": "'Doctor' looks like a person, the shy one, but is the instruction to rearrange what is left once S is taken out.",
+     "definitionFit": "Demure describes someone reserved, modest and quiet, which is close to shy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "doctor"
+    }
+   }
   }
  ]
 }
