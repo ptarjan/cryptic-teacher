@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,50 @@
      }
     ]
    },
-   "solution": "MARIACHI"
+   "solution": "MARIACHI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARIACHI",
+    "definitions": [
+     {
+      "text": "Street musician",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song from West Side Story",
+      "gives": "MARIA",
+      "note": "Maria is a famous song from the musical"
+     },
+     {
+      "clueFragment": "character",
+      "gives": "CHI",
+      "note": "chi is a Greek letter, and a letter is a character"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARIA",
+      "CHI"
+     ]
+    },
+    "explanation": {
+     "surface": "A busker singing a number from West Side Story.",
+     "walkthrough": "'character' looks like someone in the musical, but it is a letter of the alphabet, here Greek.",
+     "definitionFit": "Mariachi bands are Mexican groups of musicians who traditionally play in streets and plazas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 2,
@@ -66,7 +112,59 @@
     "text": "Don't pass on coat of lace fabric that's ribbed",
     "enumeration": "6"
    },
-   "solution": "FAILLE"
+   "solution": "FAILLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FAILLE",
+    "definitions": [
+     {
+      "text": "fabric that's ribbed",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coat of",
+      "for": "letter_selection",
+      "note": "a coat is the outer layer, so only the outside letters of the following word are kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don't pass",
+      "gives": "FAIL",
+      "note": "failing an exam is not passing it"
+     },
+     {
+      "clueFragment": "lace",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the first and last letters of lace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAIL",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice not to turn down a coat made of ribbed lace.",
+     "walkthrough": "'Don't pass on' reads as 'don't decline', but the phrase splits: fail, then on as a joiner.",
+     "definitionFit": "Faille is a soft, slightly ribbed woven fabric of silk or rayon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +178,73 @@
     "text": "Spy that thing in rotten tree? You might spy this thing in rotten tree",
     "enumeration": "7"
    },
-   "solution": "TERMITE"
+   "solution": "TERMITE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TERMITE",
+    "definitions": [
+     {
+      "text": "You might spy this thing in rotten tree",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rotten",
+      "for": "anagram",
+      "note": "something rotten is decayed and broken up, so the word for the plant falls into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in means put inside, so the spy and the thing sit within the shuffled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "TREE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Spy",
+      "gives": "M",
+      "note": "M is the head of the secret service in the James Bond stories"
+     },
+     {
+      "clueFragment": "that thing",
+      "gives": "IT",
+      "note": "it means that thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TER",
+      "MIT",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TREE",
+       "gives": "TERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle about what might be glimpsed inside a decaying tree trunk.",
+     "walkthrough": "The first sentence is the wordplay; the second repeats its words as a cryptic definition, since this insect lives in decaying wood.",
+     "definitionFit": "Termites are wood-eating insects that infest dead and decaying trees."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spy"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +258,65 @@
     "text": "Supplier of beef and chips popular around America",
     "enumeration": "8"
    },
-   "solution": "FRIESIAN"
+   "solution": "FRIESIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FRIESIAN",
+    "definitions": [
+     {
+      "text": "Supplier of beef",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the word for popular wraps the letter for America"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chips",
+      "gives": "FRIES",
+      "note": "fries are chips"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable, popular"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A is the abbreviation for America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRIES",
+      "I",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant offers beef and chips, a favourite across America.",
+     "walkthrough": "'Supplier of beef and chips' reads as a burger bar, but the definition stops at beef.",
+     "definitionFit": "A Friesian is a breed of black-and-white cattle, so a source of beef as well as milk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Supplier"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +336,51 @@
      }
     ]
    },
-   "solution": "JOBSHARING"
+   "solution": "JOBSHARING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JOB-SHARING",
+    "definitions": [
+     {
+      "text": "work practice",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Patient guy's",
+      "gives": "JOBS",
+      "note": "Job of the Bible is proverbial for patience, so Job's"
+     },
+     {
+      "clueFragment": "making a career",
+      "gives": "HARING",
+      "note": "to career is to rush along, as does haring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JOBS",
+      "HARING"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient man forging a career in a particular way of working.",
+     "walkthrough": "'career' is the verb, to rush headlong, not a profession. The parenthesis points to the theme: across neighbours share a hidden job, such as CARER spanning 8 and 9.",
+     "definitionFit": "Job sharing is an employment arrangement in which two people split one full-time post."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "career"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +394,53 @@
     "text": "Engineering manual for student once",
     "enumeration": "6"
    },
-   "solution": "ALUMNA"
+   "solution": "ALUMNA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALUMNA",
+    "definitions": [
+     {
+      "text": "student once",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Engineering",
+      "for": "anagram",
+      "note": "engineering means constructing, so the letters are built into something new"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manual",
+      "gives": "MANUAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANUAL",
+       "gives": "ALUMNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An engineering handbook intended for a student.",
+     "definitionFit": "An alumna is a female former pupil or graduate, someone who was a student at an institution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Engineering"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +454,53 @@
     "text": "Looking after Barnet Hospital, show anxiety",
     "enumeration": "8"
    },
-   "solution": "HAIRCARE"
+   "solution": "HAIRCARE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAIRCARE",
+    "definitions": [
+     {
+      "text": "Looking after Barnet",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hospital",
+      "gives": "H",
+      "note": "H is the standard abbreviation for hospital"
+     },
+     {
+      "clueFragment": "show",
+      "gives": "AIR",
+      "note": "to air something is to show it publicly"
+     },
+     {
+      "clueFragment": "anxiety",
+      "gives": "CARE",
+      "note": "care in the sense of worry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AIR",
+      "CARE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tending a patient at a hospital in the London suburb of Barnet starts to fret.",
+     "walkthrough": "Barnet is a London borough, but in rhyming slang (Barnet Fair) it means hair. The answer runs on into 9 across to hide CARER, one of the shared jobs of 6 down.",
+     "definitionFit": "Grooming and tending one's hair is exactly what the compound noun names, with Barnet the slang word for hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Barnet"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +514,64 @@
     "text": "Ferret and small marsupial let out to lunch",
     "enumeration": "6"
    },
-   "solution": "ROOTLE"
+   "solution": "ROOTLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ROOTLE",
+    "definitions": [
+     {
+      "text": "Ferret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out to lunch",
+      "for": "anagram",
+      "note": "someone out to lunch is crazy, so the letters beside these words go haywire"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small marsupial",
+      "gives": "ROO",
+      "note": "roo is the shortened form of kangaroo, hence small"
+     },
+     {
+      "clueFragment": "let",
+      "gives": "TLE",
+      "note": "the three letters of this word rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROO",
+      "TLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LET",
+       "gives": "TLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ferret and a little kangaroo are released to roam at lunchtime.",
+     "walkthrough": "'Ferret' looks like the animal, but it is the verb, to rummage about.",
+     "definitionFit": "To ferret and to rootle are both verbs for searching about by rummaging, like a pig with its snout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ferret"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +585,57 @@
     "text": "If so, loser becomes poser, in a manner of speaking",
     "enumeration": "4"
    },
-   "solution": "LISP"
+   "solution": "LISP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LISP",
+    "definitions": [
+     {
+      "text": "a manner of speaking",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loser",
+      "gives": "L",
+      "note": "the first letter of loser, the one that has to change"
+     },
+     {
+      "clueFragment": "becomes",
+      "gives": "IS",
+      "note": "the condition 'if so' asks for: this letter is that one"
+     },
+     {
+      "clueFragment": "poser",
+      "gives": "P",
+      "note": "the first letter of poser, which replaces the first letter of loser"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IS",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling remark about how one word turns into another when spoken a certain way.",
+     "walkthrough": "Loser becomes poser only on condition that L IS P; reading that condition as a word gives the answer. The surface suggests a speech defect turning one word into another, which is apt.",
+     "definitionFit": "A lisp is a particular way of pronouncing sibilants, so it is literally a manner of speaking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "If"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +649,61 @@
     "text": "Thus entering wood, Picaroon moving clumsily",
     "enumeration": "10"
    },
-   "solution": "LUMBERSOME"
+   "solution": "LUMBERSOME",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LUMBERSOME",
+    "definitions": [
+     {
+      "text": "moving clumsily",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes inside, so the word for thus is placed within the pair that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wood",
+      "gives": "LUMBER",
+      "note": "lumber is cut timber"
+     },
+     {
+      "clueFragment": "Thus",
+      "gives": "SO",
+      "note": "so means thus, in that way"
+     },
+     {
+      "clueFragment": "Picaroon",
+      "gives": "ME",
+      "note": "the setter refers to themself by pseudonym, so ME"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUMBER",
+      "SO",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter staggers awkwardly into a wood.",
+     "walkthrough": "'Thus' slips in between the wood and the setter's self-reference. Together with 10 across it hides PLUMBER, one of the shared jobs of 6 down.",
+     "definitionFit": "Lumbersome is an old word for cumbersome, heavy and awkward in motion, as one who lumbers along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wood"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +717,75 @@
     "text": "English firm receiving tax returns in standard interval",
     "enumeration": "6"
    },
-   "solution": "OCTAVE"
+   "solution": "OCTAVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OCTAVE",
+    "definitions": [
+     {
+      "text": "standard interval",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "charade",
+      "note": "the firm receives the tax at its front door, so the tax word comes immediately before it"
+     },
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the whole string is read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "VAT",
+      "note": "value added tax"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "CO is short for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OC",
+      "TAV",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EVATCO",
+       "to": "OCTAVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English company files its tax returns as normal.",
+     "walkthrough": "The firm receives the tax at its front, and the whole string after English is turned around. 'Tax returns' is the familiar phrase, but the second word works on its own.",
+     "definitionFit": "The octave, eight notes apart, is the basic interval in Western music on which scales are built."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +799,67 @@
     "text": "Laying off flipping idiot involved in non-23",
     "enumeration": "10"
    },
-   "solution": "ABSTINENCE"
+   "solution": "ABSTINENCE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ABSTINENCE",
+    "definitions": [
+     {
+      "text": "Laying off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the word for idiot is read backwards"
+     },
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "involved in means caught up inside, so the turned word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "non-23",
+      "gives": "ABSENCE",
+      "note": "the opposite of 23 across, being present, is being away"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "NIT",
+      "note": "nit is short for nitwit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABS",
+      "TIN",
+      "ENCE"
+     ],
+     "reversals": [
+      {
+       "from": "NIT",
+       "to": "TIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cursing an idiot who is staying away from something.",
+     "walkthrough": "'flipping' looks like a mild swear word, but it is the reversal signal. 'Non-23' means non-attendance.",
+     "definitionFit": "Laying off drink or another indulgence means refraining from it, which is abstinence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +873,69 @@
     "text": "Travelling Martian bearing right in vessel",
     "enumeration": "8"
    },
-   "solution": "TRIMARAN"
+   "solution": "TRIMARAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TRIMARAN",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Travelling",
+      "for": "anagram",
+      "note": "something travelling is on the move, so these letters move about"
+     },
+     {
+      "text": "bearing",
+      "for": "container",
+      "note": "to bear is to carry, so the shuffled letters carry the letter for right inside them"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Martian",
+      "gives": "MARTIAN",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "IMARAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MARTIAN",
+       "gives": "TRIMAAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Martian voyaging across space while heading to the right in a ship.",
+     "definitionFit": "A trimaran is a boat with three hulls, a kind of sailing craft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Martian"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +949,56 @@
     "text": "Pair of old ladies maintaining this compiler stinks!",
     "enumeration": "7"
    },
-   "solution": "MIASMAS"
+   "solution": "MIASMAS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MIASMAS",
+    "definitions": [
+     {
+      "text": "stinks",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maintaining",
+      "for": "container",
+      "note": "to maintain is to hold, so the first of the pair holds the setter's word inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pair of old ladies",
+      "gives": "MASMAS",
+      "note": "ma is an old lady (mother), so two lots of MAS"
+     },
+     {
+      "clueFragment": "this compiler",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIAS",
+      "MAS"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter cries out in mock offence at being kept by a pair of elderly women.",
+     "walkthrough": "'Old lady' is slang for mother, giving MA; the I goes inside the first MAS only.",
+     "definitionFit": "Miasmas are noxious smells or vapours, so they are stinks in the noun sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stinks"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +1012,69 @@
     "text": "A dieter regularly visiting capital city up north",
     "enumeration": "8"
    },
-   "solution": "ABERDEEN"
+   "solution": "ABERDEEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ABERDEEN",
+    "definitions": [
+     {
+      "text": "city up north",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means taking every other letter"
+     },
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "a visitor goes inside a place, so the kept letters go within the capital"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "BERN",
+      "note": "Bern is the capital of Switzerland"
+     },
+     {
+      "clueFragment": "dieter",
+      "gives": "DEE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of dieter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BER",
+      "DEE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A slimmer making regular trips to a capital in the north.",
+     "walkthrough": "'capital city' looks like one unit, but 'capital' alone is the wordplay and 'city up north' the definition.",
+     "definitionFit": "Aberdeen is a city in the north-east of Scotland, far up in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1094,57 @@
      }
     ]
    },
-   "solution": "ONSIGHT"
+   "solution": "ONSIGHT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON SIGHT",
+    "definitions": [
+     {
+      "text": "When spotted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tight",
+      "for": "anagram",
+      "note": "tight is slang for drunk, and drunk letters reel into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thong",
+      "gives": "THONG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THONGIS",
+       "gives": "ONSIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark on how snug a skimpy garment looks when someone catches sight of it.",
+     "walkthrough": "'tight' is British slang for drunk, which makes it the anagram signal rather than a description of the thong. With 15 across it hides MASON, one of the shared jobs.",
+     "definitionFit": "On sight means immediately upon being seen, which is the same as when spotted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1158,51 @@
     "text": "Possible reason for booking manual worker before party",
     "enumeration": "8"
    },
-   "solution": "HANDBALL"
+   "solution": "HANDBALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDBALL",
+    "definitions": [
+     {
+      "text": "Possible reason for booking",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manual worker",
+      "gives": "HAND",
+      "note": "a hand is a labourer"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "BALL",
+      "note": "a ball is a formal party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "BALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Why a labourer might reserve a place ahead of a party.",
+     "walkthrough": "'booking' suggests reserving, but in football a booking is a caution from the referee.",
+     "definitionFit": "Deliberately touching the ball with the hand is a football offence that can earn a yellow card, a booking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "booking"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1222,44 @@
      }
     ]
    },
-   "solution": "STONEME"
+   "solution": "STONEME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STONE ME",
+    "definitions": [
+     {
+      "text": "I never did",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rings",
+      "for": "hidden_word",
+      "note": "the surrounding words ring, or encircle, the answer inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insist on emerald",
+      "gives": "STONEME",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone denying ever demanding emerald jewellery.",
+     "walkthrough": "The definition is an exclamation: 'I never did!' in the sense of 'Well I never!'",
+     "definitionFit": "Stone me is a British exclamation of surprise, like 'well I never did'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1273,65 @@
     "text": "Roundabout in Rome's outskirts? Charge around it",
     "enumeration": "8"
    },
-   "solution": "INDIRECT"
+   "solution": "INDIRECT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INDIRECT",
+    "definitions": [
+     {
+      "text": "Roundabout",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts",
+      "for": "letter_selection",
+      "note": "the outskirts of a place are its edges, so only the outer letters of the city's name are kept"
+     },
+     {
+      "text": "around it",
+      "for": "container",
+      "note": "going around something encloses it, so the word for charge wraps the kept letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charge",
+      "gives": "INDICT",
+      "note": "to indict is to charge formally with a crime"
+     },
+     {
+      "clueFragment": "Rome's",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the first and last letters of Rome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDI",
+      "RE",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A traffic roundabout on the edge of Rome, and a question about whether to drive around it.",
+     "walkthrough": "'Roundabout' looks like a traffic junction, but it is the adjective meaning not straightforward. With 22 across it hides DIRECTOR.",
+     "definitionFit": "A roundabout route or remark is indirect, going the long way rather than straight to the point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Roundabout"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1345,55 @@
     "text": "Fancy a round, stopping out",
     "enumeration": "6"
    },
-   "solution": "NOTION"
+   "solution": "NOTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOTION",
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "something stopping a gap plugs it, sitting inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out",
+      "gives": "NOTIN",
+      "note": "out means not at home"
+     },
+     {
+      "clueFragment": "a round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "I",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fancies a round of drinks but the pub is shut.",
+     "definitionFit": "A fancy, as a noun, is a whim or idea, which is a notion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1407,67 @@
     "text": "Argos supply entertaining new donatable items",
     "enumeration": "6"
    },
-   "solution": "ORGANS"
+   "solution": "ORGANS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ORGANS",
+    "definitions": [
+     {
+      "text": "donatable items",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "read as supple-ly, in a pliant way, so the shop's name bends into a new order"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain a guest is to have them inside, so the rearranged letters hold the letter for new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argos",
+      "gives": "ARGOS",
+      "note": "taken as written; Argos is a British catalogue retailer"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORGA",
+      "N",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARGOS",
+       "gives": "ORGAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A high-street shop stocking goods for a new customer.",
+     "walkthrough": "'supply' is not the noun or verb here but the adverb from supple. Argos is a British high-street catalogue shop.",
+     "definitionFit": "Organs such as kidneys can be donated for transplant, making them items a donor can give."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1487,50 @@
      }
     ]
    },
-   "solution": "ORELSE"
+   "solution": "ORELSE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OR ELSE",
+    "definitions": [
+     {
+      "text": "Threatening words",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "There's nothing odd in that",
+      "for": "letter_selection",
+      "note": "removing every odd-numbered letter leaves only the even ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worried lessee",
+      "gives": "ORELSE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and so on letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORELSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant fretting over a warning from the landlord, which seems perfectly normal.",
+     "walkthrough": "The indicator reads as reassurance that nothing is strange, but it means the odd-placed letters are dropped.",
+     "definitionFit": "Or else is the menacing end to an ultimatum, warning of consequences."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1544,47 @@
     "text": "All those present when the news is broadcast party",
     "enumeration": "10"
    },
-   "solution": "ATTENDANCE"
+   "solution": "ATTENDANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTENDANCE",
+    "definitions": [
+     {
+      "text": "All those present",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when the news is broadcast",
+      "gives": "ATTEN",
+      "note": "the main BBC evening news is News at Ten, so at ten"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DANCE",
+      "note": "a dance is a kind of party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTEN",
+      "DANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone turns up to a party being shown on the news.",
+     "walkthrough": "News at Ten is a long-running British television news bulletin. With 24 across it hides DANCER.",
+     "definitionFit": "The attendance at an event is the number or body of people who turned up to it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1598,67 @@
     "text": "Daughter's scrubbed wild bird's cage?",
     "enumeration": "4"
    },
-   "solution": "RIBS"
+   "solution": "RIBS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RIBS",
+    "definitions": [
+     {
+      "text": "cage?",
+      "at": 32,
+      "note": "the answer is the plural noun completing 'rib cage'; the question mark flags the definition by example"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scrubbed",
+      "for": "deletion",
+      "note": "something scrubbed is cancelled, so the letter for daughter is struck out"
+     },
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild letters run free and land in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "bird's",
+      "gives": "BIRDS",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIBS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BIRS",
+       "gives": "RIBS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter cleans out the cage of a wild bird.",
+     "walkthrough": "'Daughter's' reads as possessive, but the 's is 'is': daughter is scrubbed. The question mark warns that the definition is cryptic.",
+     "definitionFit": "The rib cage is the framework of ribs protecting the chest, so the bones themselves make up a cage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cage"
+    }
+   }
   },
   {
    "number": 24,
@@ -416,7 +1676,74 @@
    "group": [
     "24-down",
     "2-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "RAINDROP",
+    "definitions": [
+     {
+      "text": "Bit of a shower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head in",
+      "for": "letter_selection",
+      "note": "the head is the top, so only the first letter of the container word is kept"
+     },
+     {
+      "text": "rubbish",
+      "for": "anagram",
+      "note": "rubbish means poor or useless, and the letters are reordered as junk"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "receptacle",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of receptacle"
+     },
+     {
+      "clueFragment": "in a",
+      "gives": "AIN",
+      "note": "these three letters reordered"
+     },
+     {
+      "clueFragment": "dump",
+      "gives": "DROP",
+      "note": "to dump something is to drop it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AIN",
+      "DROP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INA",
+       "gives": "AIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bit of a wash in a basin at a rubbish tip.",
+     "walkthrough": "'in a' looks like linking words, but they are the letters to shuffle.",
+     "definitionFit": "A shower of rain is made up of individual drops, so one drop is a bit of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shower"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1757,62 @@
     "text": "Disreputable, heartless lowlife admitting this is agony",
     "enumeration": "6"
    },
-   "solution": "LOUCHE"
+   "solution": "LOUCHE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LOUCHE",
+    "definitions": [
+     {
+      "text": "Disreputable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "letter_selection",
+      "note": "without a heart means the inner letters are removed, leaving only the ends"
+     },
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit is to let in, so the kept ends take something inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lowlife",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the first and last letters of lowlife"
+     },
+     {
+      "clueFragment": "this is agony",
+      "gives": "OUCH",
+      "note": "what you might cry out in pain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OUCH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel low-life lets in someone suffering great pain.",
+     "walkthrough": "The definition-by-exclamation 'this is agony' stands for the cry of pain itself. With 26 across it hides CHEMIST.",
+     "definitionFit": "Louche describes someone of dubious morals, seedy and not respectable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "agony"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1826,58 @@
     "text": "Wrongly label item, with list in shambles",
     "enumeration": "8"
    },
-   "solution": "MISTITLE"
+   "solution": "MISTITLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISTITLE",
+    "definitions": [
+     {
+      "text": "Wrongly label",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in shambles",
+      "for": "anagram",
+      "note": "a shambles is a total mess, so these letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "item",
+      "gives": "ITEM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "list",
+      "gives": "LIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITEMLIST",
+       "gives": "MISTITLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mislabels an item because their list is a mess.",
+     "definitionFit": "To mistitle is to give something the wrong name or heading, a wrong label."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shambles"
+    }
+   }
   }
  ]
 }
