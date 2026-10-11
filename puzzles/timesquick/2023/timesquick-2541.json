@@ -24,6 +24,9 @@
   "date": "2023-12-05",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,55 @@
     "text": "Dog daughter found in Dorset town",
     "enumeration": "6"
    },
-   "solution": "POODLE"
+   "solution": "POODLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POODLE",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dorset town",
+      "gives": "POOLE",
+      "note": "Poole is a coastal town in Dorset, a county in southern England"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POO",
+      "D",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog's daughter, or a girl's dog, turns up in a seaside town in Dorset.",
+     "walkthrough": "D goes inside POOLE to give POODLE.",
+     "definitionFit": "A poodle is a breed of dog with a curly coat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "daughter"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +102,68 @@
     "text": "One criminal originally arrested by European constabulary",
     "enumeration": "6"
    },
-   "solution": "POLICE"
+   "solution": "POLICE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "POLICE",
+    "definitions": [
+     {
+      "text": "constabulary",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the start of the word, so only its opening letter is used"
+     },
+     {
+      "text": "arrested by",
+      "for": "container",
+      "note": "someone arrested is held by another, so these pieces are held inside the outer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "POLE",
+      "note": "a Pole is a person from Poland"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral one"
+     },
+     {
+      "clueFragment": "criminal",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of criminal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POL",
+      "I",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone offender is caught by a European police force.",
+     "walkthrough": "I and C go inside POLE to give POLICE.",
+     "definitionFit": "A constabulary is a police force, so the two words name the same body of officers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +177,51 @@
     "text": "Living in car, go all over the place",
     "enumeration": "7"
    },
-   "solution": "ORGANIC"
+   "solution": "ORGANIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORGANIC",
+    "definitions": [
+     {
+      "text": "Living",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "things all over the place are scattered in disorder, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in car, go",
+      "gives": "INCARGO",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INCARGO",
+       "gives": "ORGANIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone living out of their car, driving aimlessly around.",
+     "walkthrough": "'in' looks like a link word but is part of the letters to rearrange.",
+     "definitionFit": "Organic describes matter that is or was alive, a sense synonymous with living."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +235,60 @@
     "text": "Many nicked, almost all turning up",
     "enumeration": "4"
    },
-   "solution": "LOTS"
+   "solution": "LOTS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "LOTS",
+    "definitions": [
+     {
+      "text": "Many",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost all",
+      "for": "deletion",
+      "note": "almost all of a word means it loses its final letter"
+     },
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nicked",
+      "gives": "STOLE",
+      "note": "nicked is British slang for stolen, so stole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOTS"
+     ],
+     "reversals": [
+      {
+       "from": "STOL",
+       "to": "LOTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of stolen goods, nearly all of it, reappear.",
+     "walkthrough": "STOLE drops its last letter to STOL, which then reads upwards. To nick is everyday British slang for to steal.",
+     "definitionFit": "Lots, as in 'lots of people', is a plural quantity word meaning a large number, like many."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +302,49 @@
     "text": "Wife has rings: that was careless!",
     "enumeration": "6"
    },
-   "solution": "WHOOPS"
+   "solution": "WHOOPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHOOPS",
+    "definitions": [
+     {
+      "text": "that was careless!",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     },
+     {
+      "clueFragment": "rings",
+      "gives": "HOOPS",
+      "note": "hoops are rings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HOOPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife drops her rings and admits her clumsiness.",
+     "definitionFit": "Whoops is the exclamation people make after a careless slip or small accident."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +358,51 @@
     "text": "Restrain worker on strike",
     "enumeration": "8"
    },
-   "solution": "HANDCUFF"
+   "solution": "HANDCUFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDCUFF",
+    "definitions": [
+     {
+      "text": "Restrain",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     },
+     {
+      "clueFragment": "on",
+      "note": "joins the two pieces, the second following the first"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "CUFF",
+      "note": "to cuff is to strike with the open hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "CUFF"
+     ]
+    },
+    "explanation": {
+     "surface": "Hold back an employee who is out on strike.",
+     "walkthrough": "'strike' suggests industrial action, but here it is a blow.",
+     "definitionFit": "To handcuff someone is to restrain them by locking their wrists together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +416,47 @@
     "text": "Old giant, Greek character",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "giant",
+      "gives": "MEGA",
+      "note": "mega means huge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MEGA"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient giant from Greek mythology.",
+     "walkthrough": "'Greek character' hints at a mythological figure; it is a letter of the alphabet.",
+     "definitionFit": "Omega is the last letter of the Greek alphabet, and letters are characters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +476,55 @@
      }
     ]
    },
-   "solution": "SEERED"
+   "solution": "SEERED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEE RED",
+    "definitions": [
+     {
+      "text": "get angry",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kidnapping",
+      "for": "container",
+      "note": "a kidnapper holds a captive, so one word is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pip",
+      "gives": "SEED",
+      "note": "a pip is a fruit seed"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the usual crossword queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "ER",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Pip, perhaps the Dickens hero, abducts the Queen and loses his temper.",
+     "walkthrough": "Pip suggests the boy hero of Dickens's Great Expectations, but here it is the seed of a fruit.",
+     "definitionFit": "To see red is an idiom for becoming suddenly furious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pip"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +538,43 @@
     "text": "Smoker's accessory easier to carry?",
     "enumeration": "7"
    },
-   "solution": "LIGHTER"
+   "solution": "LIGHTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIGHTER",
+    "definitions": [
+     {
+      "text": "Smoker's accessory",
+      "at": 0
+     },
+     {
+      "text": "easier to carry",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smoker's accessory",
+      "note": "first meaning: a device for igniting cigarettes"
+     },
+     {
+      "clueFragment": "easier to carry",
+      "note": "second meaning: weighing less"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark makes it look like one thought about a handy pocket gadget, but there are two separate meanings.",
+     "definitionFit": "The word is both the noun for a flame-making gadget and the comparative adjective of light, meaning less heavy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "easier"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +588,53 @@
     "text": "Fresh procedure for clone",
     "enumeration": "9"
    },
-   "solution": "REPRODUCE"
+   "solution": "REPRODUCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPRODUCE",
+    "definitions": [
+     {
+      "text": "clone",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fresh",
+      "for": "anagram",
+      "note": "fresh means new or remade, so the letters are formed into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "procedure",
+      "gives": "PROCEDURE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PROCEDURE",
+       "gives": "REPRODUCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new laboratory method for cloning an organism.",
+     "definitionFit": "To clone something is to make an exact copy of it, which is to reproduce it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fresh"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +648,56 @@
     "text": "Relative in Greece I need to return",
     "enumeration": "5"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NIECE",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the following words"
+     },
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning goes back the way it came, so the letters are read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greece I need",
+      "gives": "ECEIN",
+      "note": "letters spanning the end of Greece, the I and the start of need"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ECEIN",
+       "to": "NIECE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A relative living in Greece whom I need to bring home.",
+     "definitionFit": "A niece is a family member, the daughter of a sibling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +711,43 @@
     "text": "Bit of money delivered, by the sound of it?",
     "enumeration": "4"
    },
-   "solution": "CENT"
+   "solution": "CENT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CENT",
+    "definitions": [
+     {
+      "text": "Bit of money",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "this tells us the answer is what we hear when the clue word is spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delivered",
+      "gives": "CENT",
+      "soundsLike": "SENT",
+      "note": "delivered means sent"
+     }
+    ],
+    "explanation": {
+     "surface": "A coin has been delivered, or so it seems.",
+     "definitionFit": "A cent is a small coin, one hundredth of a dollar or euro."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +767,58 @@
      }
     ]
    },
-   "solution": "SPACEAGE"
+   "solution": "SPACEAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPACE AGE",
+    "definitions": [
+     {
+      "text": "modern times",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "to keep something is to hold onto it, so one word holds the other inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Herb",
+      "gives": "SAGE",
+      "note": "sage is a herb"
+     },
+     {
+      "clueFragment": "step",
+      "gives": "PACE",
+      "note": "a pace is a step"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PACE",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A herb that keeps pace with the times.",
+     "walkthrough": "The enumeration (5,3) splits the result into two words once the herb holds the step.",
+     "definitionFit": "The space age is the present era of spaceflight, a term for the modern period."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "step"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +832,53 @@
     "text": "Items are designed in Abu Dhabi etc",
     "enumeration": "8"
    },
-   "solution": "EMIRATES"
+   "solution": "EMIRATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMIRATES",
+    "definitions": [
+     {
+      "text": "Abu Dhabi etc",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "something designed is planned and constructed, so the letters are arranged afresh"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Items are",
+      "gives": "ITEMSARE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITEMSARE",
+       "gives": "EMIRATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Goods designed in the Gulf states.",
+     "definitionFit": "Abu Dhabi is one of the seven emirates of the UAE; 'etc' makes the definition plural, so it names those states."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "designed"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +902,43 @@
      }
     ]
    },
-   "solution": "COMEOFFIT"
+   "solution": "COMEOFFIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COME OFF IT",
+    "definitions": [
+     {
+      "text": "Oh please",
+      "at": 0
+     },
+     {
+      "text": "get down from there!",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oh please",
+      "note": "first meaning: an exclamation of disbelief"
+     },
+     {
+      "clueFragment": "get down from there!",
+      "note": "second meaning, taken literally: a command to climb off something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as a single exasperated order to a child climbing furniture; the phrase is both a scoff at nonsense and a literal instruction.",
+     "definitionFit": "The idiom is said to someone talking rubbish, much like 'oh please', and literally tells someone to descend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "please"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +952,55 @@
     "text": "Spear I'd thrown in river",
     "enumeration": "7"
    },
-   "solution": "TRIDENT"
+   "solution": "TRIDENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRIDENT",
+    "definitions": [
+     {
+      "text": "Spear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown in",
+      "for": "container",
+      "note": "something thrown in lands inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "TRENT",
+      "note": "the Trent is a major river in the English Midlands"
+     },
+     {
+      "clueFragment": "I'd",
+      "gives": "ID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "ID",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A man confesses to hurling a spear into a river.",
+     "walkthrough": "'thrown' looks like the spear's action, perhaps an anagram signal, but with 'in' it puts one piece inside the river.",
+     "definitionFit": "A trident is a three-pronged spear, like Neptune's."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1014,50 @@
     "text": "Set of thirteen cards passed around",
     "enumeration": "6"
    },
-   "solution": "SPADES"
+   "solution": "SPADES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPADES",
+    "definitions": [
+     {
+      "text": "Set of thirteen cards",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around suggests moving about and changing position, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passed",
+      "gives": "PASSED",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PASSED",
+       "gives": "SPADES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hand of cards is dealt round the table.",
+     "definitionFit": "Spades is one of the four suits in a standard pack, each suit having thirteen cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "passed"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1071,56 @@
     "text": "Accommodation found in chalet, so hard up",
     "enumeration": "6"
    },
-   "solution": "HOSTEL"
+   "solution": "HOSTEL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "HOSTEL",
+    "definitions": [
+     {
+      "text": "Accommodation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "found in says the letters are inside the following words"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chalet, so hard",
+      "gives": "LETSOH",
+      "note": "letters spanning the end of chalet, so, and the start of hard"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LETSOH",
+       "to": "HOSTEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ski chalet where the money is tight.",
+     "definitionFit": "A hostel is cheap lodging, a kind of accommodation for travellers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1140,67 @@
      }
     ]
    },
-   "solution": "POWERCUT"
+   "solution": "POWERCUT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "POWER CUT",
+    "definitions": [
+     {
+      "text": "blackout",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going backwards, so this word is read right to left"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sulk",
+      "gives": "POUT",
+      "note": "to pout is to sulk"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "CREW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "WERC",
+      "UT"
+     ],
+     "reversals": [
+      {
+       "from": "CREW",
+       "to": "WERC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sulking because the crew supports a news blackout.",
+     "walkthrough": "'blackout' suggests censorship but here means loss of electricity, and 'backing' means going backwards, not support.",
+     "definitionFit": "A blackout is a failure of the electricity supply, which is a power cut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1214,69 @@
     "text": "Bet it's time to wear coat for winter",
     "enumeration": "5"
    },
-   "solution": "WAGER"
+   "solution": "WAGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WAGER",
+    "definitions": [
+     {
+      "text": "Bet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coat",
+      "for": "letter_selection",
+      "note": "a coat is the outside layer, so only the outermost letters of the word are kept"
+     },
+     {
+      "text": "to",
+      "for": "container",
+      "note": "to here means going into, so one piece is put inside the other"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wear",
+      "gives": "WR",
+      "select": "outer",
+      "note": "the outside letters of wear"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     },
+     {
+      "clueFragment": "for winter",
+      "note": "surface padding that sets the wintry scene and adds no letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "AGE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Betting that cold weather means it is time to put a coat on.",
+     "walkthrough": "'coat' reads as clothing, but it asks for the outer layer of wear, which wraps around the time word.",
+     "definitionFit": "A wager is a bet, a stake placed on an outcome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1290,48 @@
     "text": "Initially coming in, also out — \"hi\" or 'bye\"!",
     "enumeration": "4"
    },
-   "solution": "CIAO"
+   "solution": "CIAO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CIAO",
+    "definitions": [
+     {
+      "text": "\"hi\" or 'bye\"!",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially points to the start of each following word, so only opening letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coming in, also out",
+      "gives": "CIAO",
+      "select": "first",
+      "note": "first letters of coming, in, also and out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CIAO"
+     ]
+    },
+    "explanation": {
+     "surface": "Greeting people as they come and go.",
+     "definitionFit": "Ciao is an informal Italian word used both as hello and as goodbye."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "coming"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1345,49 @@
     "text": "Cheese, if the worst, gorgonzola last of all",
     "enumeration": "4"
    },
-   "solution": "FETA"
+   "solution": "FETA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "FETA",
+    "definitions": [
+     {
+      "text": "Cheese",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of all",
+      "for": "letter_selection",
+      "note": "last of all asks for the final letter of every word in the run"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if the worst, gorgonzola",
+      "gives": "FETA",
+      "select": "last",
+      "note": "last letters of if, the, worst and gorgonzola"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FETA"
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing a cheese: if the worst comes to it, gorgonzola is the last resort.",
+     "walkthrough": "Gorgonzola invites the solver to think of the answer as that cheese, but it only supplies a letter.",
+     "definitionFit": "Feta is a white Greek cheese made from sheep's or goat's milk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gorgonzola"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1401,46 @@
     "text": "Finger, for example, like it",
     "enumeration": "5"
    },
-   "solution": "DIGIT"
+   "solution": "DIGIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIGIT",
+    "definitions": [
+     {
+      "text": "Finger, for example",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "DIG",
+      "note": "to dig something is slang for liking it"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIG",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Pointing a finger and approving: like it.",
+     "definitionFit": "A digit is a finger or toe; a finger is one example of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1454,48 @@
     "text": "Mountain most steep, though not the first",
     "enumeration": "7"
    },
-   "solution": "EVEREST"
+   "solution": "EVEREST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EVEREST",
+    "definitions": [
+     {
+      "text": "Mountain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "though not the first",
+      "for": "deletion",
+      "note": "not the first says the word loses its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most steep",
+      "gives": "SEVEREST",
+      "note": "severest means harshest, here steepest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEREST"
+     ]
+    },
+    "explanation": {
+     "surface": "A mountain that is the steepest climb, yet not the highest ranked.",
+     "walkthrough": "SEVEREST drops its first letter.",
+     "definitionFit": "Everest, in the Himalayas, is the world's highest mountain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1509,42 @@
     "text": "Place importance on anxiety",
     "enumeration": "6"
    },
-   "solution": "STRESS"
+   "solution": "STRESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRESS",
+    "definitions": [
+     {
+      "text": "Place importance on",
+      "at": 0
+     },
+     {
+      "text": "anxiety",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place importance on",
+      "note": "first meaning: to emphasise"
+     },
+     {
+      "clueFragment": "anxiety",
+      "note": "second meaning: mental strain"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who makes too much of their worries.",
+     "definitionFit": "The verb means to emphasise, and the noun means worry or tension."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1558,63 @@
     "text": "Alter reforms attached to Conservative business association",
     "enumeration": "6"
    },
-   "solution": "CARTEL"
+   "solution": "CARTEL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CARTEL",
+    "definitions": [
+     {
+      "text": "business association",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reforms",
+      "for": "anagram",
+      "note": "to reform something is to reshape it, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "Alter",
+      "gives": "ARTEL",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ARTEL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALTER",
+       "gives": "ARTEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative government changes the rules for a business group.",
+     "definitionFit": "A cartel is a group of firms that agree to fix prices or output, a kind of trade association."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Alter"
+    }
+   }
   }
  ]
 }
