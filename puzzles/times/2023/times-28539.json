@@ -23,6 +23,9 @@
   "date": "2023-03-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,62 @@
     "text": "African nation importing fifth of sugar beet",
     "enumeration": "5"
    },
-   "solution": "CHARD"
+   "solution": "CHARD",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "CHARD",
+    "definitions": [
+     {
+      "text": "beet",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "importing",
+      "for": "container",
+      "note": "a country importing goods brings them inside its borders, so one piece goes within the other"
+     },
+     {
+      "text": "fifth of",
+      "for": "letter_selection",
+      "note": "asks for only the letter in position five of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "African nation",
+      "gives": "CHAD",
+      "note": "Chad is a landlocked country in central Africa"
+     },
+     {
+      "clueFragment": "sugar",
+      "gives": "R",
+      "select": 5,
+      "note": "the fifth letter of sugar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "R",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A country in Africa brings in some of its sugar from beet crops.",
+     "walkthrough": "The R goes inside CHAD, after the H.",
+     "definitionFit": "Chard is a leafy variety of the beet plant, grown for its leaves and stalks rather than its root."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sugar"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +108,48 @@
     "text": "Spooner's contemptible chef collected records",
     "enumeration": "8"
    },
-   "solution": "CASEBOOK"
+   "solution": "CASEBOOK",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "CASEBOOK",
+    "definitions": [
+     {
+      "text": "collected records",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "the Reverend Spooner famously swapped the opening sounds of words, so the starts are exchanged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contemptible chef",
+      "gives": "CASEBOOK",
+      "soundsLike": "BASE COOK",
+      "note": "base means contemptible, a cook is a chef; swap the opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASEBOOK"
+     ]
+    },
+    "explanation": {
+     "surface": "A despised chef has had his records gathered together.",
+     "walkthrough": "Swapping the B and C sounds of the two words gives the answer.",
+     "definitionFit": "A casebook is a file where a doctor or detective keeps records of cases, collected in one volume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +163,52 @@
     "text": "Vibrant diamante pants",
     "enumeration": "8"
    },
-   "solution": "ANIMATED"
+   "solution": "ANIMATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANIMATED",
+    "definitions": [
+     {
+      "text": "Vibrant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "British slang pants means rubbish or badly done, so the letters are a mess to be reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diamante",
+      "gives": "DIAMANTE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIAMANTE",
+       "gives": "ANIMATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trousers covered in sparkly sequins are lively.",
+     "walkthrough": "'pants' is British slang for rubbish or badly done, so it signals a jumble; it looks like the trousers.",
+     "definitionFit": "Animated means full of life and energy, a synonym of vibrant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +228,43 @@
      }
     ]
    },
-   "solution": "DEFINITEARTICLE"
+   "solution": "DEFINITEARTICLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEFINITE ARTICLE",
+    "definitions": [
+     {
+      "text": "The",
+      "at": 0
+     },
+     {
+      "text": "exact thing",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "note": "first meaning: grammatical term for the word 'the'"
+     },
+     {
+      "clueFragment": "exact thing",
+      "note": "second meaning: read literally, a precise item"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as one phrase meaning the genuine article; split it, and the first word is defined by its own grammatical name.",
+     "definitionFit": "In grammar the word 'the' is called this; and 'definite' means exact while 'article' means thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "The"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +278,55 @@
     "text": "Rash little rascal with naughty books",
     "enumeration": "9"
    },
-   "solution": "IMPRUDENT"
+   "solution": "IMPRUDENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPRUDENT",
+    "definitions": [
+     {
+      "text": "Rash",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little rascal",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child"
+     },
+     {
+      "clueFragment": "naughty",
+      "gives": "RUDE",
+      "note": "rude in the sense of risqué"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT, the New Testament, is a set of books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "RUDE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky child is reckless enough to look at saucy books.",
+     "definitionFit": "Both words describe acting without proper thought for the consequences; they are adjective synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 4,
@@ -112,7 +340,60 @@
     "text": "The same doctor briefly turned up",
     "enumeration": "4"
    },
-   "solution": "IDEM"
+   "solution": "IDEM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "IDEM",
+    "definitions": [
+     {
+      "text": "The same",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "made brief, so the word is cut short by its final letter"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "MEDIC",
+      "note": "a medic is a doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDEM"
+     ],
+     "reversals": [
+      {
+       "from": "MEDI",
+       "to": "IDEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The same physician appeared again, only briefly.",
+     "walkthrough": "MEDIC loses its last letter, then reads upwards in this down clue.",
+     "definitionFit": "Idem is Latin for the same, used in citations to refer back to an author already mentioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 5,
@@ -132,7 +413,50 @@
      }
     ]
    },
-   "solution": "PISTOLWHIP"
+   "solution": "PISTOLWHIP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PISTOL-WHIP",
+    "definitions": [
+     {
+      "text": "Attack with gun",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out in the sense of out of place or disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whilst I pop",
+      "gives": "WHILSTIPOP",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHILSTIPOP",
+       "gives": "PISTOLWHIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is assaulted by a gunman while the speaker has nipped out.",
+     "definitionFit": "To pistol-whip is to beat someone using a handgun as a club, an attack made with a gun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 6,
@@ -146,7 +470,50 @@
     "text": "Dispassionate representation of Monteverdi's aunt",
     "enumeration": "15"
    },
-   "solution": "UNDEMONSTRATIVE"
+   "solution": "UNDEMONSTRATIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDEMONSTRATIVE",
+    "definitions": [
+     {
+      "text": "Dispassionate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "representation of",
+      "for": "anagram",
+      "note": "a representation renders something in a new form, so the letters are presented in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monteverdi's aunt",
+      "gives": "MONTEVERDISAUNT",
+      "note": "the letters to rearrange, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MONTEVERDISAUNT",
+       "gives": "UNDEMONSTRATIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cool, detached portrait of the composer Monteverdi's aunt.",
+     "definitionFit": "Someone undemonstrative does not show feelings openly, which matches being unemotional or dispassionate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "representation"
+    }
+   }
   },
   {
    "number": 7,
@@ -160,7 +527,63 @@
     "text": "Inventive American journalist beginning to interview boy",
     "enumeration": "6"
    },
-   "solution": "EDISON"
+   "solution": "EDISON",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EDISON",
+    "definitions": [
+     {
+      "text": "Inventive American",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of the following word, meaning just its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     },
+     {
+      "clueFragment": "interview",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of interview"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "I",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "A creative American reporter starts interviewing a lad.",
+     "walkthrough": "'Inventive' looks like a mere adjective but marks an inventor.",
+     "definitionFit": "Thomas Edison was the prolific American inventor of the phonograph and a practical light bulb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Inventive"
+    }
+   }
   },
   {
    "number": 8,
@@ -174,7 +597,55 @@
     "text": "Regularly treat one unspecified condition",
     "enumeration": "6"
    },
-   "solution": "TETANY"
+   "solution": "TETANY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TETANY",
+    "definitions": [
+     {
+      "text": "condition",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "treat",
+      "gives": "TET",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of treat"
+     },
+     {
+      "clueFragment": "one unspecified",
+      "gives": "ANY",
+      "note": "any means one, whichever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TET",
+      "ANY"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor routinely treats some unnamed ailment.",
+     "definitionFit": "Tetany is a medical condition of involuntary muscle spasms, often from low calcium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treat"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +659,60 @@
     "text": "Difficulty moving head after small contretemps",
     "enumeration": "9"
    },
-   "solution": "STIFFNESS"
+   "solution": "STIFFNESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STIFFNESS",
+    "definitions": [
+     {
+      "text": "Difficulty moving",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "says the word before it is placed later in the answer than the words that follow it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "contretemps",
+      "gives": "TIFF",
+      "note": "a tiff is a minor quarrel"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland, as in Loch Ness or Sheerness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TIFF",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suffers a stiff neck after a minor row.",
+     "walkthrough": "'head' sounds anatomical, matching 'difficulty moving', but it is a headland; it is placed after the other two pieces.",
+     "definitionFit": "Stiffness is the condition of joints or muscles that resist bending, a direct noun synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +726,47 @@
     "text": "Daughters break bank",
     "enumeration": "5"
    },
-   "solution": "DRIFT"
+   "solution": "DRIFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRIFT",
+    "definitions": [
+     {
+      "text": "bank",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughters",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter(s) in genealogies"
+     },
+     {
+      "clueFragment": "break",
+      "gives": "RIFT",
+      "note": "a rift is a break or split"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RIFT"
+     ]
+    },
+    "explanation": {
+     "surface": "Children smash open a savings bank, or break into one.",
+     "walkthrough": "'bank' suggests money, but here it is a bank of snow.",
+     "definitionFit": "A drift is a heap of snow or sand piled by the wind, which is a bank in the sense of a mound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +780,59 @@
     "text": "Boyfriend with case of non-vintage wine",
     "enumeration": "6"
    },
-   "solution": "BEAUNE"
+   "solution": "BEAUNE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BEAUNE",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is the outer shell, so only the outside letters of the next word are kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boyfriend",
+      "gives": "BEAU",
+      "note": "a beau is a boyfriend"
+     },
+     {
+      "clueFragment": "non-vintage",
+      "gives": "NE",
+      "select": "outer",
+      "note": "the outside letters of non-vintage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEAU",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A boyfriend turns up with a box of cheap, non-vintage wine.",
+     "walkthrough": "'case' looks like a box of bottles but asks for the outer letters.",
+     "definitionFit": "Beaune is a red Burgundy wine named after the town in the Côte d'Or where it is produced."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +852,65 @@
      }
     ]
    },
-   "solution": "BOOMTOWN"
+   "solution": "BOOMTOWN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BOOM TOWN",
+    "definitions": [
+     {
+      "text": "thriving area",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to preserve",
+      "for": "container",
+      "note": "preserving something means keeping it safely held, so one piece is held inside another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Help",
+      "gives": "BOON",
+      "note": "a boon is a help or blessing"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "M is the symbol for mass"
+     },
+     {
+      "clueFragment": "transport",
+      "gives": "TOW",
+      "note": "to tow is to transport by pulling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOO",
+      "M",
+      "TOW",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Funding to keep mass transit running in a growing district.",
+     "walkthrough": "'Help' is a noun, a blessing, which keeps the mass symbol and the transport verb safe inside it.",
+     "definitionFit": "A boomtown is a place experiencing rapid growth and prosperity, so it is a thriving area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "preserve"
+    }
+   }
   },
   {
    "number": 13,
@@ -256,7 +930,55 @@
      }
     ]
    },
-   "solution": "BRAKELIGHT"
+   "solution": "BRAKELIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRAKE LIGHT",
+    "definitions": [
+     {
+      "text": "sign of slowing down",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dons",
+      "for": "container",
+      "note": "dons as a verb means puts on clothing, so one word wears the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curse",
+      "gives": "BLIGHT",
+      "note": "a blight is a curse or plague"
+     },
+     {
+      "clueFragment": "Degenerate",
+      "gives": "RAKE",
+      "note": "a rake is a dissolute, degenerate man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAKE",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Decadent university lecturers swear, showing signs of age.",
+     "walkthrough": "'Degenerate' looks like an anagram signal but is a noun for a dissolute man, and 'dons' is not lecturers but a verb meaning puts on.",
+     "definitionFit": "A brake light comes on at the back of a vehicle to signal that the driver is slowing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dons"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +992,64 @@
     "text": "Public commotion behind hospital is upsetting",
     "enumeration": "12"
    },
-   "solution": "OVERTHROWING"
+   "solution": "OVERTHROWING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERTHROWING",
+    "definitions": [
+     {
+      "text": "upsetting",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "says the word before it comes after the word that follows it in the answer"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public",
+      "gives": "OVERT",
+      "note": "overt means open, done in public"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map and sign abbreviation for hospital"
+     },
+     {
+      "clueFragment": "commotion",
+      "gives": "ROWING",
+      "note": "rowing is noisy quarrelling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT",
+      "H",
+      "ROWING"
+     ]
+    },
+    "explanation": {
+     "surface": "A public scene staged behind a hospital is distressing.",
+     "walkthrough": "'upsetting' reads as distressing, but it is meant literally: knocking over.",
+     "definitionFit": "Overthrowing a ruler or an object means toppling it, which is upsetting in the sense of tipping over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "upsetting"
+    }
+   }
   },
   {
    "number": 15,
@@ -284,7 +1063,61 @@
     "text": "Legacy media at the start is not in retreat",
     "enumeration": "8"
    },
-   "solution": "HERITAGE"
+   "solution": "HERITAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "HERITAGE",
+    "definitions": [
+     {
+      "text": "Legacy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the start",
+      "for": "letter_selection",
+      "note": "only the starting letter of the word before it is wanted"
+     },
+     {
+      "text": "is not in",
+      "for": "deletion",
+      "note": "says that letter must be absent from the word that follows, so it is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "media",
+      "gives": "M",
+      "select": "first",
+      "note": "the start of media"
+     },
+     {
+      "clueFragment": "retreat",
+      "gives": "HERMITAGE",
+      "note": "a hermitage is a secluded retreat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "ITAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Legacy media firms at the outset are not backing down.",
+     "walkthrough": "'in retreat' suggests going backwards, but the retreat is a noun; 'at the start' selects the first letter of media.",
+     "definitionFit": "A heritage is what is handed down from earlier generations, so it is an inheritance or legacy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +1131,62 @@
     "text": "A distress call about most dangerous material",
     "enumeration": "8"
    },
-   "solution": "ASBESTOS"
+   "solution": "ASBESTOS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ASBESTOS",
+    "definitions": [
+     {
+      "text": "dangerous material",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about in the sense of around, so the call wraps round the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "distress call",
+      "gives": "SOS",
+      "note": "SOS is the Morse distress signal"
+     },
+     {
+      "clueFragment": "most",
+      "gives": "BEST",
+      "note": "best as in the most, the greatest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "BEST",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "An emergency call about a hazardous substance.",
+     "walkthrough": "'most' looks like a quantity but stands for the superlative best, which sits within the distress signal.",
+     "definitionFit": "Asbestos is a fibrous mineral once used for insulation, now known to cause lung disease when inhaled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "most"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1200,50 @@
     "text": "A stickler for hard work, Mrs Keats sits fulminating",
     "enumeration": "12"
    },
-   "solution": "TASKMISTRESS"
+   "solution": "TASKMISTRESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TASKMISTRESS",
+    "definitions": [
+     {
+      "text": "A stickler for hard work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fulminating",
+      "for": "anagram",
+      "note": "someone fulminating is raging wildly, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mrs Keats sits",
+      "gives": "MRSKEATSSITS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MRSKEATSSITS",
+       "gives": "TASKMISTRESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An imagined Mrs Keats sits fuming about slackers, a demanding boss.",
+     "definitionFit": "A taskmistress is a woman who imposes heavy workloads, a strict overseer insisting on hard labour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fulminating"
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +1257,57 @@
     "text": "Holiday on far side of Moon? It makes a change",
     "enumeration": "6"
    },
-   "solution": "LEAVEN"
+   "solution": "LEAVEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LEAVEN",
+    "definitions": [
+     {
+      "text": "It makes a change",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "far side of",
+      "for": "letter_selection",
+      "note": "the far side of a word is its end, so only its final letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holiday",
+      "gives": "LEAVE",
+      "note": "leave is time off work"
+     },
+     {
+      "clueFragment": "Moon",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of Moon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAVE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday on the far side of the moon would make a nice change.",
+     "walkthrough": "'far side' sounds astronomical but just takes the end letter.",
+     "definitionFit": "Leaven is yeast or a similar agent that transforms dough, and by extension any influence that alters something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1321,56 @@
     "text": "Teetotaller entering place for stiff drink",
     "enumeration": "6"
    },
-   "solution": "BITTER"
+   "solution": "BITTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BITTER",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering a place goes inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place for stiff",
+      "gives": "BIER",
+      "note": "a bier holds a corpse, slang a stiff"
+     },
+     {
+      "clueFragment": "Teetotaller",
+      "gives": "TT",
+      "note": "TT is the abbreviation for teetotal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "TT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A non-drinker walks into a bar wanting a stiff drink.",
+     "walkthrough": "'stiff' looks like part of 'stiff drink' but is slang for a dead body. Bitter is a British style of beer.",
+     "definitionFit": "Bitter is a hoppy British draught beer, so it is a kind of drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stiff"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1384,55 @@
     "text": "Missive about variable architectural feature",
     "enumeration": "8"
    },
-   "solution": "EPISTYLE"
+   "solution": "EPISTYLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EPISTYLE",
+    "definitions": [
+     {
+      "text": "architectural feature",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about in the sense of around: the first piece goes round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Missive",
+      "gives": "EPISTLE",
+      "note": "an epistle is a letter"
+     },
+     {
+      "clueFragment": "variable",
+      "gives": "Y",
+      "note": "Y is a standard algebraic variable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPIST",
+      "Y",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A letter written about some changeable feature of a building.",
+     "walkthrough": "Y is a standard algebra variable, the usual crossword way of clueing it; an epistyle is the beam over classical columns.",
+     "definitionFit": "An epistyle is the architrave, the main beam resting directly on the tops of classical columns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "variable"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1446,58 @@
     "text": "One who fought J. Frazier with extremely combative hostility",
     "enumeration": "6"
    },
-   "solution": "MALICE"
+   "solution": "MALICE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MALICE",
+    "definitions": [
+     {
+      "text": "hostility",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "read as at the extremes, so only the two end letters of the next word are used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who fought J. Frazier",
+      "gives": "MALI",
+      "note": "Muhammad Ali, written M. Ali in the same style as J. Frazier, his great boxing rival"
+     },
+     {
+      "clueFragment": "combative",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the extreme letters of combative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALI",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer who took on Joe Frazier showed fierce, combative hostility.",
+     "walkthrough": "The initial-plus-surname form of J. Frazier hints that the fighter is written the same way: M. Ali.",
+     "definitionFit": "Malice is the wish to do harm to others, a form of active ill will or hostility."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1511,42 @@
     "text": "Slight speech problem",
     "enumeration": "4"
    },
-   "solution": "SLUR"
+   "solution": "SLUR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLUR",
+    "definitions": [
+     {
+      "text": "Slight",
+      "at": 0
+     },
+     {
+      "text": "speech problem",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slight",
+      "note": "first meaning: an insult or smear"
+     },
+     {
+      "clueFragment": "speech problem",
+      "note": "second meaning: running words indistinctly together"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Slight' looks like an adjective qualifying the problem, but it is a noun meaning an insult.",
+     "definitionFit": "The word is both a disparaging remark against someone and indistinct, run-together pronunciation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slight"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1560,56 @@
     "text": "Forecasting tax increases, conservatively at first",
     "enumeration": "5"
    },
-   "solution": "VATIC"
+   "solution": "VATIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "VATIC",
+    "definitions": [
+     {
+      "text": "Forecasting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "takes only the opening letters of the words just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tax",
+      "gives": "VAT",
+      "note": "VAT is value added tax"
+     },
+     {
+      "clueFragment": "increases, conservatively",
+      "gives": "IC",
+      "select": "first",
+      "note": "the first letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VAT",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "An economist predicts tax rises, cautiously at first.",
+     "walkthrough": "Value added tax is the British sales tax.",
+     "definitionFit": "Vatic means prophetic, predicting the future, so it fits forecasting used as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conservatively"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1623,55 @@
     "text": "Four brave guards gad about",
     "enumeration": "9"
    },
-   "solution": "GALLIVANT"
+   "solution": "GALLIVANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GALLIVANT",
+    "definitions": [
+     {
+      "text": "gad about",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guards",
+      "for": "container",
+      "note": "guards stand around what they protect, so the first piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brave",
+      "gives": "GALLANT",
+      "note": "gallant means brave"
+     },
+     {
+      "clueFragment": "Four",
+      "gives": "IV",
+      "note": "IV is four in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GALL",
+      "IV",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Four courageous sentries wander about idly.",
+     "walkthrough": "'guards' looks like a noun for soldiers, but it is a verb: the brave word surrounds the number.",
+     "definitionFit": "To gallivant is to roam around in search of pleasure, which is the meaning of the phrasal verb gad about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guards"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1685,50 @@
     "text": "Wind battering ten rowers",
     "enumeration": "9"
    },
-   "solution": "NORWESTER"
+   "solution": "NORWESTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NORWESTER",
+    "definitions": [
+     {
+      "text": "Wind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "battering",
+      "for": "anagram",
+      "note": "battering knocks something out of shape, so the letters are pounded into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ten rowers",
+      "gives": "TENROWERS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TENROWERS",
+       "gives": "NORWESTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gale pounds a crew of ten oarsmen.",
+     "definitionFit": "A nor'wester is a strong wind blowing from the north-west, so a type of wind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "battering"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1742,56 @@
     "text": "Quits the day before exhausted nurses",
     "enumeration": "5"
    },
-   "solution": "EVENS"
+   "solution": "EVENS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EVENS",
+    "definitions": [
+     {
+      "text": "Quits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exhausted",
+      "for": "letter_selection",
+      "note": "exhausted as emptied out, so the inside is gone and only the outer letters remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the day before",
+      "gives": "EVE",
+      "note": "an eve is the day before a festival"
+     },
+     {
+      "clueFragment": "nurses",
+      "gives": "NS",
+      "select": "outer",
+      "note": "the outer letters of nurses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resigns the day before, worn-out nurses walking out.",
+     "walkthrough": "'exhausted' means emptied: only the outside letters of the word remain.",
+     "definitionFit": "Being quits means being even with someone, no debt owed on either side, so evens is equivalent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Quits"
+    }
+   }
   }
  ]
 }
