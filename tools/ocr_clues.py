@@ -1034,12 +1034,12 @@ def parted(clue, others):
         mark = sp[0] if sp[0] in ",;:!?" and len(sp) > 1 else ""
         if sp.strip(SPECKS) == "" or sp[0] in ",;!?":
             pass  # a speck no clue prints, or a mark and one
-        elif not b[0].islower() or len(b) < 2:
+        elif (not b[0].islower() or len(b) < 2) and not (
+                sp == "." and len(b) > 1 and joined in apart and a.lower() in NO_SENTENCE_END):
             # Before a capital a stop ends a sentence ("John Bull.The"),
             # unless no sentence ends on the word before it: parted where a
             # reading prints the two side by side ("by.Churchill").
-            if not (sp == "." and len(b) > 1 and joined in apart and a.lower() in NO_SENTENCE_END):
-                return m.group()
+            return m.group()
         if is_word(joined):
             return m.group()  # a word with a speck in it ("Snar.es")
         said = joined in apart or joined in marked_apart
@@ -1543,7 +1543,14 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
                                 [w for w in low if w not in MARKS and w != BREAK])):
             g = 0 if side == "start" else len(mine)
             adds[g] = adds.get(g, []) + [" ".join(lost)]
-        elif words_at or any(t not in MARKS for e in seen_ends for t in e):
+        elif (words_at or any(t not in MARKS for e in seen_ends for t in e)) and not (
+                # With no number or count to test them by, figure-shaped
+                # specks alone ("is", "si", "down i") at the clue's edge,
+                # which a reading printing it clean leaves out, are no word
+                # lost. Not in a clue with figures of its own, which may be
+                # two clues run together ("saint? (S) 27 Can a farm").
+                not (number if side == "start" else count) and not re.search(r"\d", clue)
+                and all(number_shaped(e, side) for e in seen_ends) and () in got_ends):
             return None, f"the clue's {side} is lost: other readings have {' / '.join(' '.join(e) for e in seen_ends)}"
     fixes, drop, how = {}, set(), "agree"
     count_cut = None  # where a misread count ends the clue (count_misread)
@@ -2010,6 +2017,22 @@ def number_read(end, digits, side):
         read = read[1:] if read[0] in COUNT_OPENS else read
         read = read[:-1] if len(read) > len(digits) and read[-1] in COUNT_CLOSES else read
     return len(read) == len(digits) and all(c in NUMBER_LETTERS[d] for d, c in zip(digits, read))
+
+
+#: Every letter a printed figure or a count's bracket is misread as.
+FIGURE_LETTERS = set("".join(NUMBER_LETTERS.values()) + COUNT_OPENS + COUNT_CLOSES)
+
+
+def number_shaped(end, side):
+    """Whether `end` could be some clue number or count misread as letters
+    when the call knows neither (number_read needs the digits): three
+    letters or fewer, each one FIGURE_LETTERS has ("is" for "(5)", "fS",
+    "i i" for 11), after a heading ("down i") before the clue."""
+    words = [t for t in end if t not in MARKS]
+    if side == "start" and words and words[0] in ("down", "across"):
+        words = words[1:]
+    read = "".join(words)
+    return len(read) <= 3 and set(read) <= FIGURE_LETTERS
 
 
 def is_word_only_capital(word, seen):
