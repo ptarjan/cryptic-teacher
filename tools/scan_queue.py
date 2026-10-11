@@ -409,7 +409,9 @@ def flagged_requests():
 #: words one reading of many sees there are no end lost (figure_specks).
 #: The 08:10 one is consensus() taking the word one reading prints when
 #: every other reading lies within PRINTED_SLIPS of it ("with" for "ujLh /
-#: ujth"), held as readings differ.
+#: ujth"), held as readings differ. The 08:23 one is agree() taking a
+#: capital S a reader ran onto a word ("driveS", "STakes") as a vote for
+#: the word in a tie with its plural (speck_free), held as readings differ.
 VOTE_MENDED = (
     ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
                                    "start is lost: other readings have")),
@@ -433,6 +435,7 @@ VOTE_MENDED = (
     ("2026-10-11T07:31:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
     ("2026-10-11T07:55:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
     ("2026-10-11T08:10:00+00:00", ("readings differ",)),
+    ("2026-10-11T08:23:00+00:00", ("readings differ",)),
 )
 
 
