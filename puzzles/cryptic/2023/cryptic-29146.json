@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,68 @@
     "text": "Leaning over, swerves when cornering intense — here?",
     "enumeration": "8"
    },
-   "solution": "SPEEDWAY"
+   "solution": "SPEEDWAY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "and_lit"
+    ],
+    "answer": "SPEEDWAY",
+    "definitions": [
+     {
+      "text": "Leaning over, swerves when cornering intense — here?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaning over",
+      "for": "reversal",
+      "note": "something leaning right over ends up turned the other way, so the word for intense is read backwards"
+     },
+     {
+      "text": "cornering",
+      "for": "container",
+      "note": "to corner something is to trap it, so the word for swerves closes around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swerves",
+      "gives": "SWAY",
+      "note": "to sway is to swerve from side to side"
+     },
+     {
+      "clueFragment": "intense",
+      "gives": "DEEP",
+      "note": "deep feelings are intense ones"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEED",
+      "WAY"
+     ],
+     "reversals": [
+      {
+       "from": "DEEP",
+       "to": "PEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A motorcycle racer tilts over and slides round a tight bend at full throttle.",
+     "walkthrough": "The whole clue doubles as a picture of the place: riders on this track lean over and slide through every bend at high speed.",
+     "definitionFit": "Speedway is motorcycle racing on an oval dirt track, where riders famously lean and skid through every corner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Leaning"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +111,42 @@
     "text": "Go, old man",
     "enumeration": "3"
    },
-   "solution": "POP"
+   "solution": "POP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POP",
+    "definitions": [
+     {
+      "text": "Go",
+      "at": 0
+     },
+     {
+      "text": "old man",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "note": "first meaning: to go briefly somewhere, as in nipping out to the shops"
+     },
+     {
+      "clueFragment": "old man",
+      "note": "second meaning: an informal word for father"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together the words sound like an instruction to an elderly man; they are two separate meanings of one short word.",
+     "definitionFit": "You can pop round to a friend's, and Pop is a familiar name for one's father, whom slang also calls the old man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +160,49 @@
     "text": "Lowest characters in the Bronx, public square, will stand out",
     "enumeration": "5"
    },
-   "solution": "EXCEL"
+   "solution": "EXCEL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EXCEL",
+    "definitions": [
+     {
+      "text": "stand out",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lowest characters in",
+      "for": "letter_selection",
+      "note": "in a down entry the lowest letters of each word are its final ones, so only the last letter of each is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Bronx, public square, will",
+      "gives": "EXCEL",
+      "select": "last",
+      "note": "the final letter of each of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXCEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A New York public square will be the place that makes an impression.",
+     "walkthrough": "'Lowest' fits a down clue, where the end of each word is its bottom.",
+     "definitionFit": "To excel is to be outstanding, doing better than everyone else around you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lowest"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +216,61 @@
     "text": "Puzzle had screw loose, or had cracked",
     "enumeration": "10"
    },
-   "solution": "WORDSEARCH"
+   "solution": "WORDSEARCH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WORDSEARCH",
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loose",
+      "for": "anagram",
+      "note": "a screw that has come loose rattles about out of place, so these letters get rearranged"
+     },
+     {
+      "text": "had cracked",
+      "for": "anagram",
+      "note": "something cracked is broken apart, so this short word joins the rearranged letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "had screw",
+      "gives": "HADSCREW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HADSCREWOR",
+       "gives": "WORDSEARCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone baffled by a puzzle had either a screw loose or had cracked up.",
+     "walkthrough": "Both 'loose' and 'cracked' signal rearrangement, one for each part of the fodder.",
+     "definitionFit": "A wordsearch is a puzzle in which listed words must be found hidden in a grid of letters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "screw"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +284,63 @@
     "text": "Every so often, noble lines wise to say?",
     "enumeration": "6"
    },
-   "solution": "YEARLY"
+   "solution": "YEARLY",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container"
+    ],
+    "answer": "YEARLY",
+    "definitions": [
+     {
+      "text": "Every so often",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to say",
+      "for": "homophone",
+      "note": "to say means as spoken, so the word wise is taken for how it sounds"
+     },
+     {
+      "text": "lines",
+      "for": "container",
+      "note": "lining something means sitting along both its sides, so one piece gets letters at either edge"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wise",
+      "gives": "YY",
+      "soundsLike": "WISE",
+      "note": "wise sounds like Ys, two of the letter Y"
+     },
+     {
+      "clueFragment": "noble",
+      "gives": "EARL",
+      "note": "an earl is a nobleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "EARL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A wise aristocrat's verses are recited every now and then.",
+     "walkthrough": "Wise said aloud is 'Y's', a pair of Ys, which sit on either side of EARL.",
+     "definitionFit": "Something that happens once a year recurs at intervals, so it occurs every so often, though the clue stretches the sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wise"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +373,45 @@
     "text": "Said captain associated with Scott's porridge",
     "enumeration": "4"
    },
-   "solution": "OATS"
+   "solution": "OATS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "OATS",
+    "definitions": [
+     {
+      "text": "porridge",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Said",
+      "for": "homophone",
+      "note": "said means spoken out, so the captain's name is taken only for its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "captain associated with Scott's",
+      "gives": "OATS",
+      "soundsLike": "OATES",
+      "note": "Captain Lawrence Oates died on Scott's 1912 Antarctic expedition"
+     }
+    ],
+    "explanation": {
+     "surface": "Scott's porridge, a brand name, linked to one of his officers.",
+     "walkthrough": "Captain Oates walked out into the blizzard on Robert Falcon Scott's doomed polar journey; Scott's Porage Oats is also a real breakfast brand.",
+     "definitionFit": "Porridge is made from rolled oats, so the grain stands in for the dish by close association."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Scott's"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +431,64 @@
      }
     ]
    },
-   "solution": "CARDINDEX"
+   "solution": "CARDINDEX",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CARD INDEX",
+    "definitions": [
+     {
+      "text": "referencing method",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressed by",
+      "for": "container",
+      "note": "someone dressed by others is clothed by them, so the other letters wrap around this one"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashion designer",
+      "gives": "CARDIN",
+      "note": "Pierre Cardin, the French couturier"
+     },
+     {
+      "clueFragment": "partner formerly",
+      "gives": "EX",
+      "note": "a former partner is an ex"
+     },
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARDIN",
+      "D",
+      "EX"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl is dressed by a couturier and a former lover.",
+     "walkthrough": "Pierre Cardin was a French fashion designer; both he and the ex 'dress' the daughter by sitting either side of her.",
+     "definitionFit": "A card index is a system of filing cards used to look up and cross-refer information."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +502,76 @@
     "text": "Dependent Arab, a thieving felon at heart — with this?",
     "enumeration": "11"
    },
-   "solution": "KLEPTOMANIA"
+   "solution": "KLEPTOMANIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container",
+     "and_lit"
+    ],
+    "answer": "KLEPTOMANIA",
+    "definitions": [
+     {
+      "text": "Dependent Arab, a thieving felon at heart — with this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only the middle letter of felon is kept"
+     },
+     {
+      "text": "thieving",
+      "for": "container",
+      "note": "something thieving takes things inside, so the other letters pocket the felon's centre"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dependent",
+      "gives": "KEPT",
+      "note": "a dependent person is kept by another"
+     },
+     {
+      "clueFragment": "Arab",
+      "gives": "OMANI",
+      "note": "an Omani is an Arab from Oman"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "felon",
+      "gives": "L",
+      "select": "middle",
+      "note": "the central letter of the five-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "L",
+      "EPT",
+      "OMANI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A felon who steals, though kept and Arab, is driven by some compulsion.",
+     "walkthrough": "The felon's heart is stolen into the string just after its first letter; the whole clue then asks what condition would make one thieve.",
+     "definitionFit": "Kleptomania is a compulsive urge to steal, the condition a thieving felon might have."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Dependent"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +585,61 @@
     "text": "Opener turning on lids",
     "enumeration": "6"
    },
-   "solution": "SPACER"
+   "solution": "SPACER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SPACER",
+    "definitions": [
+     {
+      "text": "Opener",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning something round makes it face the other way, so the combined letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about, as in a letter heading"
+     },
+     {
+      "clueFragment": "lids",
+      "gives": "CAPS",
+      "note": "caps are lids on bottles and jars"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAC",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RECAPS",
+       "to": "SPACER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unscrewing lids, perhaps a jar opener twisting them off.",
+     "walkthrough": "'Opener' looks like a jar opener; it is the definition, a thing that opens up space.",
+     "definitionFit": "A spacer is a piece inserted to keep two parts apart, so it opens a gap between them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Opener"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +666,61 @@
     "text": "Without cunning, cunningly alters as a fox?",
     "enumeration": "9"
    },
-   "solution": "ARTLESSLY"
+   "solution": "ARTLESSLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ARTLESSLY",
+    "definitions": [
+     {
+      "text": "Without cunning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cunningly",
+      "for": "anagram",
+      "note": "doing something cunningly means craftily rearranging it, so these letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alters",
+      "gives": "ALTERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "as a fox",
+      "gives": "SLY",
+      "note": "the fox is proverbially sly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTLES",
+      "SLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALTERS",
+       "gives": "ARTLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naive person versus a fox that changes things craftily.",
+     "walkthrough": "The repeated 'cunning' is a trap: the first is the definition's opposite, the second the anagram signal.",
+     "definitionFit": "Artlessly means in a guileless, innocent way, with no trickery at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cunningly"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +744,69 @@
      }
     ]
    },
-   "solution": "RANKANDFILE"
+   "solution": "RANKANDFILE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RANK AND FILE",
+    "definitions": [
+     {
+      "text": "the workers",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "untidy",
+      "for": "anagram",
+      "note": "an untidy thing is messed up and out of order, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place",
+      "gives": "RANK",
+      "note": "a rank is a place in a hierarchy"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "field",
+      "gives": "FIELD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANK",
+      "ANDFILE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANFIELD",
+       "gives": "ANDFILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A messy field is a place set aside for labourers.",
+     "walkthrough": "Anfield is also Liverpool's football ground, a tempting extra reading for a solver.",
+     "definitionFit": "The rank and file are ordinary members of a body, the workers as opposed to the leaders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Place"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +820,45 @@
     "text": "Number 3 together with 23 in conference?",
     "enumeration": "5"
    },
-   "solution": "SIXTY"
+   "solution": "SIXTY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SIXTY",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in conference",
+      "for": "homophone",
+      "note": "a conference is a meeting for talking, so the two answers are taken as they sound when spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "3 together with 23",
+      "gives": "SIXTY",
+      "soundsLike": "XL XX",
+      "note": "the answers at 3-down and 23-down, said aloud, sound like the Roman numerals for forty and twenty, which total this"
+     }
+    ],
+    "explanation": {
+     "surface": "Two delegates, numbers 3 and 23, join forces at a conference.",
+     "walkthrough": "3-down is EXCEL, said aloud 'XL' or 40; 23-down is EXECS, said 'X-X' or 20. Add them together.",
+     "definitionFit": "Sixty is simply a number, the sum of the two Roman numerals heard in the cross-referenced answers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "conference"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +882,55 @@
      }
     ]
    },
-   "solution": "BILLANDCOO"
+   "solution": "BILLANDCOO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BILL AND COO",
+    "definitions": [
+     {
+      "text": "Pet",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "needing a vet",
+      "gives": "ILL",
+      "note": "an animal needing a vet is ill"
+     },
+     {
+      "clueFragment": "ringed",
+      "gives": "BAND",
+      "note": "a ring is a band, and being ringed puts the sick piece inside it"
+     },
+     {
+      "clueFragment": "I say!",
+      "gives": "COO",
+      "note": "coo is an exclamation of surprise, like I say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ILL",
+      "AND",
+      "COO"
+     ]
+    },
+    "explanation": {
+     "surface": "A sick pet has to see a vet who rings it; what a fuss!",
+     "walkthrough": "'Pet' is a verb here, not an animal, and 'ringed' supplies the ring itself as well as placing the sick part inside it.",
+     "definitionFit": "To pet is to kiss and cuddle, and to bill and coo is to murmur and caress like courting doves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pet"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +954,43 @@
    "group": [
     "15-across",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NORMAN WISDOM",
+    "definitions": [
+     {
+      "text": "Funny old man",
+      "at": 0
+     },
+     {
+      "text": "thinking of the conquerors?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Funny old man",
+      "note": "first meaning: the late British slapstick comedian of film and stage"
+     },
+     {
+      "clueFragment": "thinking of the conquerors?",
+      "note": "second meaning: the knowledge held by the ... who conquered England in 1066"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Norman Wisdom was a much-loved British comic actor; read literally his name is the wisdom of Normans.",
+     "definitionFit": "The comedian was a funny man who lived to 95, and Norman wisdom would be the thinking of the 1066 conquerors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "thinking"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1004,62 @@
     "text": "Speculator who's done well to save European parliament building",
     "enumeration": "9"
    },
-   "solution": "REICHSTAG"
+   "solution": "REICHSTAG",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REICHSTAG",
+    "definitions": [
+     {
+      "text": "parliament building",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to save",
+      "for": "container",
+      "note": "saving something means keeping it safe inside, so the other words hold the abbreviation for European"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "who's done well",
+      "gives": "RICH",
+      "note": "someone who has done well has become rich"
+     },
+     {
+      "clueFragment": "Speculator",
+      "gives": "STAG",
+      "note": "a stag buys new share issues to sell quickly at a profit"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "ICH",
+      "STAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A successful investor rescues a European parliament building.",
+     "walkthrough": "In City jargon a stag is a speculator in new share issues; the European letter goes in just after the first letter.",
+     "definitionFit": "The Reichstag in Berlin is the building that houses Germany's parliament, the Bundestag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "save"
+    }
+   }
   },
   {
    "number": 17,
@@ -338,7 +1100,43 @@
    "group": [
     "18-across",
     "6-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "A PIECE OF CAKE",
+    "definitions": [
+     {
+      "text": "Money for jam",
+      "at": 0
+     },
+     {
+      "text": "something with it?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money for jam",
+      "note": "first meaning: a British idiom for an easy task or easily earned reward"
+     },
+     {
+      "clueFragment": "something with it?",
+      "note": "second meaning: a slice of sponge that might come with jam in it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'It' refers back to jam: a cake with jam in it, such as a Victoria sponge.",
+     "definitionFit": "Both money for jam and a piece of cake are idioms for something very easy, and a cake portion often contains jam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 19,
@@ -352,7 +1150,55 @@
     "text": "As locks may be loose, bog's secured",
     "enumeration": "6"
    },
-   "solution": "FLAXEN"
+   "solution": "FLAXEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLAXEN",
+    "definitions": [
+     {
+      "text": "As locks may be",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured",
+      "for": "container",
+      "note": "securing something means holding it fast inside, so the word for bog encloses the word for loose"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bog's",
+      "gives": "FEN",
+      "note": "a fen is marshy, boggy ground"
+     },
+     {
+      "clueFragment": "loose",
+      "gives": "LAX",
+      "note": "lax means slack or loose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAX",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Loose hair, as a door lock or a bog may be secured.",
+     "walkthrough": "'Locks' suggests door fastenings next to 'secured'; here they are locks of hair.",
+     "definitionFit": "Flaxen describes pale yellow hair, the colour of processed flax fibre, so locks may well be flaxen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "locks"
+    }
+   }
   },
   {
    "number": 20,
@@ -376,7 +1222,43 @@
    "group": [
     "20-down",
     "24-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOTTOM LINE",
+    "definitions": [
+     {
+      "text": "'I have had a most rare vision', for example",
+      "at": 0
+     },
+     {
+      "text": "that's what it's all about",
+      "at": 47
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'I have had a most rare vision', for example",
+      "note": "first meaning: a speech given to ... the weaver in A Midsummer Night's Dream"
+     },
+     {
+      "clueFragment": "that's what it's all about",
+      "note": "second meaning: the fundamental point of a matter"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bottom says the quoted words on waking after his transformation into an ass, so they are Bottom's line.",
+     "definitionFit": "The bottom line is the essential, decisive point, literally the final figure of an account."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vision"
+    }
+   }
   },
   {
    "number": 21,
@@ -390,7 +1272,57 @@
     "text": "State in Colorado had Iowa on the retreat",
     "enumeration": "5"
    },
-   "solution": "IDAHO"
+   "solution": "IDAHO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "IDAHO",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the next run of words, spanning their boundaries"
+     },
+     {
+      "text": "on the retreat",
+      "for": "reversal",
+      "note": "retreating means going back, so the concealed letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Colorado had Iowa",
+      "gives": "OHADI",
+      "note": "the last letter of the first word, all of the second, the first of the third"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "OHADI",
+       "to": "IDAHO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A battle report where Iowa's forces fall back from Colorado.",
+     "walkthrough": "With two states already named, a solver looks for a definition among them; the answer is a third state.",
+     "definitionFit": "Idaho is a US state in the north-west, famous for potatoes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Iowa"
+    }
+   }
   },
   {
    "number": 22,
@@ -410,7 +1342,68 @@
      }
     ]
    },
-   "solution": "LOUNGEBAR"
+   "solution": "LOUNGEBAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LOUNGE BAR",
+    "definitions": [
+     {
+      "text": "Local area",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all but finished",
+      "for": "deletion",
+      "note": "all but finished means nearly complete, so the final letter of orange is dropped"
+     },
+     {
+      "text": "after redevelopment",
+      "for": "anagram",
+      "note": "redevelopment rebuilds things in a new layout, so these letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blue",
+      "gives": "BLUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "orange",
+      "gives": "ORANGE",
+      "note": "taken as written, before trimming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOUNGEBAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BLUEORANG",
+       "gives": "LOUNGEBAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A district repainted blue and orange is nearly done after regeneration.",
+     "walkthrough": "'Local' is the British word for one's neighbourhood pub, not a neighbourhood.",
+     "definitionFit": "A lounge bar is the more comfortable room of a British pub, so it is an area of the local."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Local"
+    }
+   }
   },
   {
    "number": 23,
@@ -424,7 +1417,81 @@
     "text": "Suits: a hundred in the other wardrobe at the back, turned up",
     "enumeration": "5"
    },
-   "solution": "EXECS"
+   "solution": "EXECS",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "EXECS",
+    "definitions": [
+     {
+      "text": "Suits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed within, so the numeral goes inside the word for the other"
+     },
+     {
+      "text": "at the back",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only the last letter of wardrobe is used"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry turning something up makes it read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the other",
+      "gives": "SEX",
+      "note": "'the other' is a coy British euphemism for sex"
+     },
+     {
+      "clueFragment": "a hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "wardrobe",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "XE",
+      "C",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SCEXE",
+       "to": "EXECS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hundred garments hung up at the back of a wardrobe.",
+     "walkthrough": "'Suits' looks like clothes in the wardrobe; it means business people. C goes inside SEX after its S, E follows, and the lot reads upwards.",
+     "definitionFit": "Suits is slang for executives or managers, named after their business attire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Suits"
+    }
+   }
   },
   {
    "number": 24,
@@ -461,7 +1528,89 @@
    "group": [
     "25-across",
     "10-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "DISTRICT ATTORNEY",
+    "definitions": [
+     {
+      "text": "US lawman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "remarkable",
+      "for": "anagram",
+      "note": "remarkable here means notably altered, so the letters are rearranged into a new order"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means lacking, so the letter for the article is taken away"
+     },
+     {
+      "text": "stolen by",
+      "for": "container",
+      "note": "something stolen is carried off inside the thief, so the outer name surrounds the rest"
+     }
+    ],
+    "linkWords": [
+     "using",
+     "with",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mickey Mouse chap",
+      "gives": "DISNEY",
+      "note": "Walt Disney created Mickey Mouse"
+     },
+     {
+      "clueFragment": "tact",
+      "gives": "TACT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "traitor",
+      "gives": "TRAITOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "TRICTATTOR",
+      "NEY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TCTTRAITOR",
+       "gives": "TRICTATTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US prosecutor tactfully handles a traitor caught pilfering from a cartoon creator.",
+     "walkthrough": "Only one of the two As in the fodder goes, and the shuffled letters split the cartoon-maker's surname after its third letter.",
+     "definitionFit": "A district attorney is the public prosecutor for a county or district in the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "remarkable"
+    }
+   }
   },
   {
    "number": 26,
@@ -475,7 +1624,57 @@
     "text": "Shabby kidnapping of that man by Mafia boss",
     "enumeration": "6"
    },
-   "solution": "CHEAPO"
+   "solution": "CHEAPO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHEAPO",
+    "definitions": [
+     {
+      "text": "Shabby",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kidnapping of",
+      "for": "container",
+      "note": "a kidnapper holds the victim captive inside, so one word goes within the other"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mafia boss",
+      "gives": "CAPO",
+      "note": "a capo is a Mafia chief"
+     },
+     {
+      "clueFragment": "that man",
+      "gives": "HE",
+      "note": "he is the pronoun for that man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HE",
+      "APO"
+     ]
+    },
+    "explanation": {
+     "surface": "A shoddy abduction of a man carried out by a Mafia boss.",
+     "definitionFit": "Cheapo is informal for cheap and inferior, so shabby, low-quality goods are cheapo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shabby"
+    }
+   }
   },
   {
    "number": 27,
@@ -489,7 +1688,40 @@
     "text": "Weed with OOOOOOOO counted as vegetables?",
     "enumeration": "3"
    },
-   "solution": "POT"
+   "solution": "POT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "POT",
+    "definitions": [
+     {
+      "text": "Weed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weed with OOOOOOOO counted as vegetables?",
+      "note": "surface reading: a gardener weeding among a crop of vegetables"
+     },
+     {
+      "clueFragment": "with OOOOOOOO counted",
+      "note": "setter's reading: add a count of the letters, eight Os, and the spoken result names a root vegetable"
+     }
+    ],
+    "explanation": {
+     "surface": "Some weed, a string of Os, somehow counted as vegetables.",
+     "walkthrough": "POT is slang for cannabis; add 'eight Os' and you say 'pot-eight-Os', or potatoes.",
+     "definitionFit": "Pot is slang for cannabis, which is popularly known as weed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vegetables"
+    }
+   }
   },
   {
    "number": 28,
@@ -509,7 +1741,47 @@
      }
     ]
    },
-   "solution": "GEEGEE"
+   "solution": "GEEGEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "homophone"
+    ],
+    "answer": "GEE-GEE",
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the outside",
+      "for": "letter_selection",
+      "note": "the outside of a word is its two ends, so only the first and last letters of gelding are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gelding",
+      "gives": "GEEGEE",
+      "select": "outer",
+      "soundsLike": "GG",
+      "note": "the two end letters, each written out as the name of the letter"
+     }
+    ],
+    "explanation": {
+     "surface": "A horse, with a gelding standing outside.",
+     "walkthrough": "The outer letters of gelding are G and G; spelling each out gives the nursery word for a horse.",
+     "definitionFit": "Gee-gee is a childish or racing-slang word for a horse, from the command gee to urge it on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 29,
@@ -523,7 +1795,72 @@
     "text": "Heavenly phenomena, beam finally having disappeared in moments so extraordinary",
     "enumeration": "8"
    },
-   "solution": "MOONSETS"
+   "solution": "MOONSETS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MOONSETS",
+    "definitions": [
+     {
+      "text": "Heavenly phenomena",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word beam, so its last letter is the one meant"
+     },
+     {
+      "text": "having disappeared in",
+      "for": "deletion",
+      "note": "disappearing from something means being taken out of it, so that letter is removed"
+     },
+     {
+      "text": "extraordinary",
+      "for": "anagram",
+      "note": "extraordinary means out of the ordinary order, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beam",
+      "gives": "M",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "moments so",
+      "gives": "MOMENTSSO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOONSETS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOENTSSO",
+       "gives": "MOONSETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A light beam vanishing during extraordinary moments in the night sky.",
+     "walkthrough": "Strip one M from MOMENTS SO and rearrange the rest.",
+     "definitionFit": "A moonset is the moon sinking below the horizon, an astronomical event seen in the sky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beam"
+    }
+   }
   }
  ]
 }
