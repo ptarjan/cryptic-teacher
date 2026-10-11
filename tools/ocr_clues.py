@@ -2547,7 +2547,12 @@ def clean(text):
     """A reading without OCR's specks: a not-sign read for the hyphen that
     breaks a word over a line end is the join, an asterisk or bullet beside
     a word is no part of it, and a comma or exclamation mark misread as a
-    full stop or an I is put back."""
+    full stop or an I is put back. No clue prints a brace: one is a misread
+    mark, often the clue's number ("}) Very wealthy tributary"), and goes
+    with any mark it leaves at the front."""
+    if "{" in text or "}" in text:
+        text = re.sub(r"\s*[{}]+\s*", " ", text)
+        text = re.sub(r"^[^\w\"'‘“(.…]+", "", text.strip())
     text = re.sub(r"\s*[*•|]+(?=\s|$)", "", re.sub(r"(?<=[a-z])¬\s*(?=[a-z])", "", text))
     # An opening quote glued to the word before it opens the next word
     # ("this\u2018enamelled'"): kept as the straight quote below, it would close.
@@ -2584,8 +2589,10 @@ def clean(text):
     # The space after a question or exclamation mark lost ("Worried?Pulse").
     text = re.sub(r"(?<=[a-z])([?!])(?=[A-Z][a-z])", r"\1 ", text)
     # A dash between words is the corpus's spaced em dash, however the scan
-    # set it ("time—a", "play--change", "now -- then").
-    text = re.sub(r"(?<=[a-z])[ \t]*(?:—|--)[ \t]*(?=[A-Za-z])", " — ", text)
+    # set it ("time—a", "play--change", "now -- then"). A dash after a lone
+    # letter or before a lone "s" is the print's blank for a word ("b— hole",
+    # "no d— saint", "mine —s down") and stays as set.
+    text = re.sub(r"(?<=[a-z])(?<!\b[A-Za-z])[ \t]*(?:—|--)[ \t]*(?!s\b)(?=[A-Za-z])", " — ", text)
     # So is any dash after a colon ("Charade:—components", read ": -components").
     text = re.sub(r"(?<=[a-z]:)[ \t]*(?:—|--?|–)[ \t]*(?=[A-Za-z])", " — ", text)
     # The space after a comma, semicolon or colon between two words lost
@@ -3071,11 +3078,12 @@ def trimmed(text, lid, voted=True):
         after one ('"5 Covered'), as every OCR reader's (leading_quote.clean).
     The lone i goes only from a `voted` text: before the vote, the other
     readings may have the word it is a remnant of ("raised i sharp" for
-    "raised in sharp")."""
+    "raised in sharp"). `lid` is "<number>-<across|down>"; a clue whose
+    number OCR lost ("-across") has none to find run in."""
     if not text:
         return text
-    own = lid.split("-")[0]
-    runs = [m for m in re.finditer(rf"\s{own}\.?\s+(?=[A-Z\"'])", text)]
+    own = lid.split("-")[0].split(",")[0]
+    runs = [m for m in re.finditer(rf"\s{own}\.?\s+(?=[A-Z\"'])", text)] if own.isdigit() else []
     if runs and re.search(r"\d", text[:runs[-1].start()]):
         text = text[runs[-1].end():]
     if voted:
@@ -3271,10 +3279,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
             blank[lid] = "another clue's number inside it"
             out[lid] = ("", enum, group)
             continue
-        text = cut_at_count(text, enum)
-        if text:
-            # "1 hear" opens "I hear"; were the opening lost, the vote finds it.
-            text = re.sub(r"^1(?=\s+[a-z])", "I", text)
+        text = opening_one(cut_at_count(text, enum))
         # A clue may open on another light's number ("19, we hear, in the
         # crew", "25 in voice"): that is no lost opening.
         ref = re.match(r"(\d{1,2})(?:,| (?:across|down|ac|dn)\b)?\s+[a-z]", text or "")
@@ -3299,11 +3304,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
             blank[lid] = "no count read"
             out[lid] = ("", enum, group)
             continue
-        text = clean(text)
-        # The clue's own number read twice ("21 21 The woman", "1 11 Money").
-        lead = re.match(r"(\d{1,2})\.? (?=[A-Z\"'])", text)
-        if lead and lead.group(1) in lid.split("-")[0]:
-            text = text[lead.end():]
+        text = own_number_dropped(clean(text), lid)
         text = join_split(numbers_joined(text, streams), other)
         got, how = agree(text, other, keep_known, engines, rates, [w for k, w in words_of.items() if k != lid],
                          str(own), enum, counted=not uncounted)
@@ -3323,6 +3324,45 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
                 out[lid] = (text, enum, group)
                 blank.pop(lid)
     return out, blank
+
+
+def opening_one(text):
+    """`text` with a "1" opening it before a small word read as the "I" it
+    is ("1 hear"); were the opening lost, the vote finds it."""
+    return re.sub(r"^1(?=\s+[a-z])", "I", text) if text else text
+
+
+def own_number_dropped(text, lid):
+    """`text` without the clue's own number read twice at its start ("21 21
+    The woman", "1 11 Money")."""
+    lead = re.match(r"(\d{1,2})\.? (?=[A-Z\"'])", text or "")
+    return text[lead.end():] if lead and lead.group(1) in lid.split("-")[0] else text
+
+
+def alone(text, lid, enum):
+    """A clue's text that one reading alone prints (a book's text layer,
+    with no other reading to vote it against), finished as reconcile()
+    finishes a laid clue on either side of the vote: trimmed of the page's
+    text, cut at its own count `enum`, clean()ed, its own number read twice
+    dropped, then trimmed as a voted text. Its words stay as read: unfit()
+    says whether they may be filed."""
+    if not text or SEE_RE.match(text):
+        return text
+    text = opening_one(cut_at_count(trimmed(text, lid, voted=False), enum))
+    text = own_number_dropped(clean(text), lid)
+    return trimmed(cut_at_count(text, enum), lid)
+
+
+def unfit(text, enum, cells=None, printed=()):
+    """Why a clue's text may not be filed, or None: fault() refuses it, or
+    suspect() finds a word in it OCR made up. `printed` holds the tokens its
+    `asPrinted` keeps. Such a clue is filed blank, and no puzzle with a
+    blank clue reaches the corpus."""
+    why = fault(text, enum, cells, printed)
+    if why:
+        return why
+    odd = suspect(text, printed=printed)
+    return f"{odd[0][0]!r}: {odd[0][1]}" if odd else None
 
 
 #: How many other readings must print a clue for the light at least

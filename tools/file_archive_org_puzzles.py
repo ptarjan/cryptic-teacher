@@ -3421,15 +3421,10 @@ def unfit_blanked(laid, blank, lengths, printed=None):
             laid[lid] = laid.get(lid) or ("", None, None)
             blank.setdefault(lid, "no reading laid a clue on it")
     for lid, (text, enum, group) in list(laid.items()):
-        why = ocr_clues.fault(text, enum, sum(lengths.get(i, 0) for i in group or [lid]), printed.get(lid, ()))
+        why = ocr_clues.unfit(text, enum, sum(lengths.get(i, 0) for i in group or [lid]), printed.get(lid, ()))
         if why:
             laid[lid] = ("", None if why.startswith("its count") else enum, group)
             blank[lid] = why
-            continue
-        odd = suspect(text, printed=printed.get(lid, ()))
-        if odd:
-            laid[lid] = ("", enum, group)
-            blank[lid] = f"{odd[0][0]!r}: {odd[0][1]}"
     return laid, blank
 
 

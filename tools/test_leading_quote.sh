@@ -10,6 +10,7 @@ cd "$(dirname "$0")"
 python3 - <<'PY'
 import copy
 import leading_quote as lq
+import light_spec
 import ocr_clues
 import parse_penguin_book
 import provenance
@@ -62,9 +63,10 @@ for name, given, want in CASES:
 
 check("OCR_CHANNELS is provenance's", tuple(provenance.OCR_CHANNELS), lq.OCR_CHANNELS)
 
-# Both OCR readers finish a clue through it.
-check("book reader", "Covered with a coat (6)".rsplit(" (", 1)[0],
-      parse_penguin_book.parse_clue_chunk('"5 Covered with a coat (6)')["clue"])
+# Both OCR readers finish a clue through it: the book reader as its light
+# spec hands the clue on to be filed.
+book = {"across": [parse_penguin_book.parse_clue_chunk('"5 Covered with a coat (6)')], "down": []}
+check("book reader", "Covered with a coat", light_spec.build_spec(book)[0][0][3]["clue"])
 check("newspaper vote", "Covered with a coat", ocr_clues.trimmed('"5 Covered with a coat', "5-across"))
 check("before the vote, left for the vote", '"5 Covered with a coat',
       ocr_clues.trimmed('"5 Covered with a coat', "5-across", voted=False))
