@@ -18,8 +18,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-11",
+  "check": "32 entries, 56 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +38,8 @@
    "clue": {
     "text": "(see 21dn.)",
     "enumeration": "4"
-   }
+   },
+   "solution": "SOAP"
   },
   {
    "number": 2,
@@ -45,6 +52,55 @@
    "clue": {
     "text": "Private Eye gets stuck into hawk (plummy Brian)",
     "enumeration": "6"
+   },
+   "solution": "SEWELL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEWELL",
+    "definitions": [
+     {
+      "text": "plummy Brian",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets stuck into",
+      "for": "container",
+      "note": "stuck into means pushed inside, so one part ends up within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hawk",
+      "gives": "SELL",
+      "note": "to hawk goods is to sell them"
+     },
+     {
+      "clueFragment": "Private Eye",
+      "gives": "WE",
+      "note": "the magazine speaks of itself in the editorial first person plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "WE",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "The magazine wades into a quarrel with a bird of prey, in parentheses a posh-voiced Brian.",
+     "walkthrough": "The editorial voice goes in after the first two letters of the selling word. Brian Sewell was the London art critic famous for his very plummy accent.",
+     "definitionFit": "Brian Sewell, the Evening Standard art critic, was known above all for his ultra-posh drawl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hawk"
+    }
    }
   },
   {
@@ -68,6 +124,74 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "INBADTASTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "IN BAD TASTE",
+    "definitions": [
+     {
+      "text": "that's a bit off",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rashly",
+      "for": "anagram",
+      "note": "doing something rashly means doing it carelessly, so the letters are thrown about"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the jumbled letters go round the other part"
+     },
+     {
+      "text": "lead",
+      "for": "letter_selection",
+      "note": "a lead is the front position, so only the first letter of the name is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abstained",
+      "gives": "ABSTAINED",
+      "note": "taken as written before it is jumbled"
+     },
+     {
+      "clueFragment": "Tony's",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INBAD",
+      "T",
+      "ASTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABSTAINED",
+       "gives": "INBADASTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "MPs rashly abstain from a vote, defying Tony Blair, and are told that is a bit much.",
+     "walkthrough": "'Without' looks like 'minus'; it means outside, so the letter is kept and wrapped, not removed.",
+     "definitionFit": "Saying something is a bit off means it is improper or tasteless, offensive to good manners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
    }
   },
   {
@@ -81,6 +205,48 @@
    "clue": {
     "text": "Swearing caused by, it's said, an \"E\" for example",
     "enumeration": "6"
+   },
+   "solution": "AVOWAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AVOWAL",
+    "definitions": [
+     {
+      "text": "Swearing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "it's said means spoken out loud, so the sound counts rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an \"E\" for example",
+      "gives": "AVOWAL",
+      "soundsLike": "A VOWEL",
+      "note": "E is one of the five vowel letters"
+     }
+    ],
+    "explanation": {
+     "surface": "Bad language blamed on an E, ecstasy perhaps.",
+     "walkthrough": "The quoted E looks like the drug ecstasy; it is just the letter, an example of a vowel.",
+     "definitionFit": "An avowal is a solemn public declaration, so swearing in the sense of making an oath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Swearing"
+    }
    }
   },
   {
@@ -94,6 +260,43 @@
    "clue": {
     "text": "Some of us ignore the sticking up of two fingers?",
     "enumeration": "4"
+   },
+   "solution": "SIGN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SIGN",
+    "definitions": [
+     {
+      "text": "the sticking up of two fingers?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some of",
+      "for": "hidden_word",
+      "note": "some of means a portion, so the letters are a run taken from the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "us ignore",
+      "gives": "SIGN",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A complaint that people ignore a rude two-fingered gesture.",
+     "walkthrough": "Sticking up two fingers, palm inward, is the British V-sign insult, roughly the middle finger elsewhere.",
+     "definitionFit": "The rude V gesture is a hand signal, so the question mark marks one example of a gesture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ignore"
+    }
    }
   },
   {
@@ -113,6 +316,52 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "RAMSHORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAM'S HORN",
+    "definitions": [
+     {
+      "text": "blown at Yom Kippur?",
+      "at": 28,
+      "note": "describes the noun by what is done with it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drives home",
+      "gives": "RAMS",
+      "note": "to ram a point home is to drive it home"
+     },
+     {
+      "clueFragment": "erection",
+      "gives": "HORN",
+      "note": "the horn is slang for an erection"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAMS",
+      "HORN"
+     ]
+    },
+    "explanation": {
+     "surface": "A man drives home aroused, then the clue swerves to the Jewish Day of Atonement.",
+     "walkthrough": "'Blown' teases a sexual meaning; it is a trumpet being sounded.",
+     "definitionFit": "The shofar, made from the horn of a ram, is sounded in synagogue at the close of Yom Kippur."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blown"
+    }
    }
   },
   {
@@ -126,7 +375,8 @@
    "clue": {
     "text": "(see 24dn.)",
     "enumeration": "4"
-   }
+   },
+   "solution": "POOR"
   },
   {
    "number": 8,
@@ -139,6 +389,49 @@
    "clue": {
     "text": "The main leaders of our country engender another nightmare",
     "enumeration": "5"
+   },
+   "solution": "OCEAN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OCEAN",
+    "definitions": [
+     {
+      "text": "The main",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders of",
+      "for": "letter_selection",
+      "note": "leaders are the ones out in front, so only the opening letter of each following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our country engender another nightmare",
+      "gives": "OCEAN",
+      "select": "first",
+      "note": "the initial letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCEAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that the country's top politicians are about to bring on yet another nightmare.",
+     "walkthrough": "'The main leaders' reads as one phrase about chief politicians, but 'The main' is the definition and 'leaders' starts the wordplay.",
+     "definitionFit": "The main is an old poetic name for the open sea, as in the Spanish Main."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "main"
+    }
    }
   },
   {
@@ -166,6 +459,74 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "GIVEITAGO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GIVE IT A GO",
+    "definitions": [
+     {
+      "text": "taste",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front bit",
+      "for": "letter_selection",
+      "note": "the front bit of a word is its opening, here the first two letters only"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "with",
+     "that shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grant",
+      "gives": "GIVE",
+      "note": "to grant something is to give it"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "'it' is a coy word for sex"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "goat's",
+      "gives": "GO",
+      "select": "first",
+      "note": "the first two letters of goat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIVE",
+      "IT",
+      "A",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A smutty picture of Grant and a goat, with a mock-prim remark about his taste.",
+     "walkthrough": "The surface suggests Hugh Grant and bad taste; 'taste' is really the verb, to try a little of something.",
+     "definitionFit": "To taste something is to sample or try it, which is what the idiom for making an attempt means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "taste"
+    }
    }
   },
   {
@@ -179,6 +540,61 @@
    "clue": {
     "text": "Getting leg over once excited, some Scots were infamously knocked off here",
     "enumeration": "7"
+   },
+   "solution": "GLENCOE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GLENCOE",
+    "definitions": [
+     {
+      "text": "some Scots were infamously knocked off here",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited things are stirred up, so the letters before it are jumbled"
+     }
+    ],
+    "linkWords": [
+     "Getting",
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leg",
+      "gives": "LEG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "once",
+      "gives": "ONCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEGONCE",
+       "gives": "GLENCOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting your leg over is British slang for sex, so this reads as randy Scots killed in the act.",
+     "walkthrough": "'Knocked off' looks sexual too; it means killed.",
+     "definitionFit": "In the 1692 massacre of the MacDonalds in a Highland glen, government troops murdered dozens of their hosts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leg"
+    }
    }
   },
   {
@@ -192,6 +608,68 @@
    "clue": {
     "text": "Piss artist, for example, backing the hidden aim of a party loan?",
     "enumeration": "7"
+   },
+   "solution": "PEERAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PEERAGE",
+    "definitions": [
+     {
+      "text": "the hidden aim of a party loan?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving in reverse, so the words for example are written right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piss",
+      "gives": "PEE",
+      "note": "to piss is to pee"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician, is the usual crossword artist"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for 'for example'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEE",
+      "RA",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunkard is offered as an example in some murky business about a loan to a political party.",
+     "walkthrough": "'Piss artist' is British slang for a drunk and wants to be one unit; it splits into two words. The definition recalls the 2006 cash-for-honours row over secret loans to Labour.",
+     "definitionFit": "Lenders to a party were suspected of wanting a seat in the House of Lords, a title of nobility, in return."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "artist"
+    }
    }
   },
   {
@@ -205,6 +683,70 @@
    "clue": {
     "text": "Brenda's place as wife indoors? Slovenly and loveless",
     "enumeration": "7"
+   },
+   "solution": "WINDSOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "WINDSOR",
+    "definitions": [
+     {
+      "text": "Brenda's place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Slovenly",
+      "for": "anagram",
+      "note": "something slovenly is untidy and messed about, so the letters are jumbled"
+     },
+     {
+      "text": "loveless",
+      "for": "deletion",
+      "note": "love is zero, the letter shaped like a nought, and loveless means without it"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     },
+     {
+      "clueFragment": "indoors",
+      "gives": "INDOORS",
+      "note": "taken as written before it is altered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "INDSOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INDORS",
+       "gives": "INDSOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Queen pictured as a housewife kept at home, untidy and unloved.",
+     "walkthrough": "Brenda is Private Eye's long-running nickname for Queen Elizabeth II. Drop one O from the word indoors, rearrange what is left, and put the wife letter in front.",
+     "definitionFit": "Windsor Castle is one of the monarch's official residences, and Windsor is also the royal family's surname."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "indoors"
+    }
    }
   },
   {
@@ -225,10 +767,44 @@
      }
     ]
    },
+   "solution": "POLITICAL",
    "group": [
     "12-across",
     "21-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "POLITICAL SUICIDE",
+    "definitions": [
+     {
+      "text": "Auto-engineered end of member?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Auto-engineered end of member?",
+      "note": "surface reading: the tip of a limb, or something ruder, built by a car maker"
+     },
+     {
+      "clueFragment": "Auto-engineered end of member?",
+      "note": "setter's reading: auto means self, so a self-inflicted finish to the career of a Member of Parliament"
+     }
+    ],
+    "explanation": {
+     "surface": "A mechanical engineer's idea of the tip of a man's member.",
+     "walkthrough": "'Auto' points at cars, but it is the Greek prefix for self; 'member' points at anatomy, but it is an MP.",
+     "definitionFit": "The phrase describes a career-ending blunder that a politician brings about by their own act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Auto-engineered"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,6 +817,44 @@
    "clue": {
     "text": "Happy Londoner nursing an erection",
     "enumeration": "5"
+   },
+   "solution": "PYLON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PYLON",
+    "definitions": [
+     {
+      "text": "an erection",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nursing",
+      "for": "hidden_word",
+      "note": "nursing means holding close, so the words before it hold the letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Happy Londoner",
+      "gives": "PYLON",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheerful Londoner with an erection.",
+     "walkthrough": "'Erection' teases the obvious; it is anything erected, a built structure.",
+     "definitionFit": "A pylon is a tall steel tower put up to carry power lines, a structure that is erected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "erection"
+    }
    }
   },
   {
@@ -254,6 +868,57 @@
    "clue": {
     "text": "It's a piece of shit turning over rifles",
     "enumeration": "5"
+   },
+   "solution": "LOOTS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LOOTS",
+    "definitions": [
+     {
+      "text": "rifles",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning over",
+      "for": "reversal",
+      "note": "turning something over flips it end to end, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "It's a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece of shit",
+      "gives": "STOOL",
+      "note": "a stool is the medical word for a single faecal motion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOTS"
+     ],
+     "reversals": [
+      {
+       "from": "STOOL",
+       "to": "LOOTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneers that a thing is rubbish while flipping it over.",
+     "walkthrough": "'Rifles' looks like a noun for guns; here it is the verb, to search and steal.",
+     "definitionFit": "To rifle a place is to ransack it for valuables, which is to plunder or pillage it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rifles"
+    }
    }
   },
   {
@@ -273,6 +938,75 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "LEAKEDMEMO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LEAKED MEMO",
+    "definitions": [
+     {
+      "text": "Unauthorised release",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means put out of order, so the two words before it are scrambled together"
+     },
+     {
+      "text": "plays central role",
+      "for": "container",
+      "note": "playing the central role means standing right in the middle of the rest"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mole",
+      "gives": "MOLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "make",
+      "gives": "MAKE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED, editor, is the usual crossword journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAK",
+      "ED",
+      "MEMO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOLEMAKE",
+       "gives": "LEAKMEMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spy's disclosure, with a hack at the centre of the story and some necking on the side.",
+     "walkthrough": "'Make out' reads as snogging or as discerning; it is the word make plus an anagram signal. The journalist sits exactly at the halfway point of the ten letters.",
+     "definitionFit": "A confidential office document passed to the press without permission is an unauthorised release of information."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "make"
+    }
    }
   },
   {
@@ -286,6 +1020,63 @@
    "clue": {
     "text": "Understands when receiving head from Lewinsky (Monica)",
     "enumeration": "5"
+   },
+   "solution": "SELES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SELES",
+    "definitions": [
+     {
+      "text": "Monica",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head from",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, which is all that is taken"
+     },
+     {
+      "text": "when receiving",
+      "for": "container",
+      "note": "something receiving another thing takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Understands",
+      "gives": "SEES",
+      "note": "to see a point is to understand it"
+     },
+     {
+      "clueFragment": "Lewinsky",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of the surname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "L",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A nod to Monica Lewinsky and the act that made her notorious.",
+     "walkthrough": "The bracketed Monica seems to complete Lewinsky's name; it is the definition, pointing to a different Monica.",
+     "definitionFit": "Monica Seles is the tennis champion who won nine Grand Slam singles titles, so the clue names her by first name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Monica"
+    }
    }
   },
   {
@@ -305,6 +1096,62 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "LOOKSEE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LOOK-SEE",
+    "definitions": [
+     {
+      "text": "Butcher's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get screwed",
+      "for": "anagram",
+      "note": "something screwed is twisted out of shape, so the letters before it are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women possibly",
+      "gives": "LOO",
+      "note": "a toilet door marked Women is one example of a loo"
+     },
+     {
+      "clueFragment": "seek",
+      "gives": "SEEK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "KSEE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEK",
+       "gives": "KSEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A meat seller reports that women go looking to be bedded.",
+     "walkthrough": "'Butcher's' is Cockney rhyming slang: butcher's hook rhymes with look, so a butcher's is a glance. The possessive makes it look like a shop.",
+     "definitionFit": "Having a butcher's and having a quick inspection mean the same thing in British slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Butcher's"
+    }
    }
   },
   {
@@ -324,6 +1171,79 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "OLDTIMER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "OLD-TIMER",
+    "definitions": [
+     {
+      "text": "Wrinkly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong, so the word before it is jumbled"
+     },
+     {
+      "text": "in the",
+      "for": "container",
+      "note": "being in something puts a thing inside it, completed by the clutches that follow"
+     },
+     {
+      "text": "clutches",
+      "for": "container",
+      "note": "to be held in someone's clutches is to be gripped all round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "told",
+      "gives": "TOLD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "taxman's",
+      "gives": "IR",
+      "note": "IR is the Inland Revenue, the old UK tax authority"
+     },
+     {
+      "clueFragment": "Cyclops",
+      "gives": "ME",
+      "note": "the setter speaking of himself"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLDT",
+      "I",
+      "ME",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOLD",
+       "gives": "OLDT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly person scolds the setter, who is being squeezed by the tax collector.",
+     "walkthrough": "'Told off' wants to mean scolded; 'off' is the anagram signal on the word before it. Wrinkly is British slang for an old person.",
+     "definitionFit": "A wrinkly, informally, is an elderly person, the same thing as a veteran who has been around a long while."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "told"
+    }
    }
   },
   {
@@ -337,6 +1257,43 @@
    "clue": {
     "text": "Material balls",
     "enumeration": "7"
+   },
+   "solution": "FLANNEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLANNEL",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     },
+     {
+      "text": "balls",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Material",
+      "note": "first meaning: a soft woven woollen cloth"
+     },
+     {
+      "clueFragment": "balls",
+      "note": "second meaning: evasive, flattering nonsense"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Balls' is British slang for nonsense, not testicles here.",
+     "definitionFit": "The word is both a fabric and, in British usage, empty talk meant to evade or flatter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "balls"
+    }
    }
   },
   {
@@ -350,6 +1307,66 @@
    "clue": {
     "text": "Florida: caught getting gobbled by tart — erection gone!",
     "enumeration": "7"
+   },
+   "solution": "FLACCID",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FLACCID",
+    "definitions": [
+     {
+      "text": "erection gone!",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gobbled by",
+      "for": "container",
+      "note": "something gobbled is swallowed, so it ends up inside whatever does the eating"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Florida",
+      "gives": "FL",
+      "note": "FL is the postal abbreviation for Florida"
+     },
+     {
+      "clueFragment": "tart",
+      "gives": "ACID",
+      "note": "tart in the sense of sour"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "A",
+      "C",
+      "CID"
+     ]
+    },
+    "explanation": {
+     "surface": "A man in Florida, caught with a tart, loses his erection.",
+     "walkthrough": "'Tart' reads as a prostitute; it is the adjective meaning sour. The caught letter goes just inside the sour word, after its first letter.",
+     "definitionFit": "Flaccid means limp and soft, the state of a penis once it is no longer erect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tart"
+    }
    }
   },
   {
@@ -363,6 +1380,65 @@
    "clue": {
     "text": "Say Brown's comeback is the action of a pushy type?",
     "enumeration": "5"
+   },
+   "solution": "NUDGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NUDGE",
+    "definitions": [
+     {
+      "text": "the action of a pushy type?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comeback",
+      "for": "reversal",
+      "note": "a comeback is a return journey, so the words before it are read from the end"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Say",
+      "gives": "EG",
+      "note": "say means for example, abbreviated e.g."
+     },
+     {
+      "clueFragment": "Brown",
+      "gives": "DUN",
+      "note": "dun is a dull greyish-brown colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUD",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EGDUN",
+       "to": "NUDGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gordon Brown's return to power is mocked as the work of a pushy politician.",
+     "walkthrough": "Brown suggests Gordon Brown; it is only the colour. The question mark marks the definition as playful: a pushy person pushes, literally.",
+     "definitionFit": "A nudge is a small push with the elbow, so it is literally what someone pushy does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brown's"
+    }
    }
   },
   {
@@ -376,6 +1452,63 @@
    "clue": {
     "text": "Unremitting Conservative support on drugs to a point",
     "enumeration": "9"
+   },
+   "solution": "CEASELESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CEASELESS",
+    "definitions": [
+     {
+      "text": "Unremitting",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "EASEL",
+      "note": "an easel is a stand that supports a painting"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "ES",
+      "note": "E is ecstasy, so Es are ecstasy tablets"
+     },
+     {
+      "clueFragment": "a point",
+      "gives": "S",
+      "note": "S, south, is a point of the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "EASEL",
+      "ES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Tory backing for drug use, but only up to a point.",
+     "walkthrough": "'To a point' reads as 'somewhat'; it is a link word plus a compass point.",
+     "definitionFit": "Something unremitting never lets up, so it goes on without stopping or pause."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
    }
   },
   {
@@ -389,6 +1522,69 @@
    "clue": {
     "text": "Cameron's entrance sheer crap — laughed at on TV",
     "enumeration": "6"
+   },
+   "solution": "CHEERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CHEERS",
+    "definitions": [
+     {
+      "text": "laughed at on TV",
+      "at": 32,
+      "note": "a verb phrase standing for a noun: a show that is laughed at on TV"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entrance",
+      "for": "letter_selection",
+      "note": "an entrance is where you come in, so only the first letter is used"
+     },
+     {
+      "text": "crap",
+      "for": "anagram",
+      "note": "crap means badly made, so the word before it is put together wrongly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cameron's",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of the name"
+     },
+     {
+      "clueFragment": "sheer",
+      "gives": "SHEER",
+      "note": "taken as written before it is jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HEERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHEER",
+       "gives": "HEERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic says David Cameron's arrival was pure rubbish, a joke on television.",
+     "walkthrough": "'Sheer crap' looks like a single insult; 'sheer' is the fodder and 'crap' tells you to rearrange it.",
+     "definitionFit": "Cheers was the long-running American sitcom set in a Boston bar, a comedy watched for laughs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "crap"
+    }
    }
   },
   {
@@ -402,6 +1598,58 @@
    "clue": {
     "text": "Nothing omitted from Brenda's A to Z of Sham",
     "enumeration": "6"
+   },
+   "solution": "ERSATZ",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ERSATZ",
+    "definitions": [
+     {
+      "text": "Sham",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Nothing omitted from",
+      "for": "deletion",
+      "note": "nothing is zero, the letter shaped like a nought, and it is left out of the words that follow"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brenda's",
+      "gives": "ERS",
+      "note": "Brenda is Private Eye's name for the Queen, and ER is the Queen's royal cipher"
+     },
+     {
+      "clueFragment": "A to Z",
+      "gives": "ATOZ",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERS",
+      "ATZ"
+     ]
+    },
+    "explanation": {
+     "surface": "Something is missing from the Queen's street atlas of a place called Sham.",
+     "walkthrough": "An A to Z is a London street atlas, which makes Sham look like a place name; it is the definition.",
+     "definitionFit": "Ersatz means artificial or substitute, an imitation of the real thing, so it is fake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sham"
+    }
    }
   },
   {
@@ -415,7 +1663,8 @@
    "clue": {
     "text": "(see 12ac.)",
     "enumeration": "7"
-   }
+   },
+   "solution": "SUICIDE"
   },
   {
    "number": 21,
@@ -435,10 +1684,72 @@
      }
     ]
    },
+   "solution": "SOFT",
    "group": [
     "21-down",
     "1-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SOFT SOAP",
+    "definitions": [
+     {
+      "text": "butter up",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wobbling",
+      "for": "anagram",
+      "note": "a wobbling thing will not hold its shape, so its letters are shaken up"
+     },
+     {
+      "text": "in to",
+      "for": "container",
+      "note": "going in to something means entering it, so one part goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fatso",
+      "gives": "FATSO",
+      "note": "taken as written before it is jumbled"
+     },
+     {
+      "clueFragment": "soak",
+      "gives": "SOP",
+      "note": "to sop is to soak, as bread sops up gravy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "FTSOA",
+      "P"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FATSO",
+       "gives": "FTSOA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wobbly fat man mopping up butter.",
+     "walkthrough": "'Butter' seems to be the stuff being soaked up; 'butter up' is the definition, meaning to flatter.",
+     "definitionFit": "To soft-soap someone is to flatter them to get your way, the same as buttering them up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "butter"
+    }
+   }
   },
   {
    "number": 22,
@@ -451,6 +1762,42 @@
    "clue": {
     "text": "State involved in fellatio watch?",
     "enumeration": "4"
+   },
+   "solution": "IOWA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IOWA",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "hidden_word",
+      "note": "involved in means caught up inside, so the letters lie within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellatio watch",
+      "gives": "IOWA",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A smutty question about watching oral sex.",
+     "definitionFit": "Iowa is one of the fifty United States, in the Midwest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "watch"
+    }
    }
   },
   {
@@ -470,6 +1817,47 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "COMESUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMES UP",
+    "definitions": [
+     {
+      "text": "Approaches from beneath",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Has orgasm",
+      "gives": "COMES",
+      "note": "the slang verb for reaching orgasm"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "UP",
+      "note": "time's up means time is finished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMES",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone underneath asks whether their partner has climaxed yet.",
+     "definitionFit": "Something that rises towards you from below, like a diver surfacing, is approaching from beneath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "finished"
+    }
    }
   },
   {
@@ -484,10 +1872,59 @@
     "text": "(+ 7dn.) Bloody awful number one oppressing the underprivileged",
     "enumeration": "8"
    },
+   "solution": "PISS",
    "group": [
     "24-down",
     "7-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PISS POOR",
+    "definitions": [
+     {
+      "text": "Bloody awful",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oppressing",
+      "for": "charade",
+      "note": "in a down clue one part pressing down on another sits above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number one",
+      "gives": "PISS",
+      "note": "number one is the nursery euphemism for urinating"
+     },
+     {
+      "clueFragment": "the underprivileged",
+      "gives": "POOR",
+      "note": "the underprivileged are the poor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PISS",
+      "POOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about a leader who grinds down those with least.",
+     "walkthrough": "'Number one' looks like a prime minister or top dog; it is the childish word for a wee.",
+     "definitionFit": "Piss-poor is crude British slang for extremely bad, the same force as bloody awful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 25,
@@ -506,6 +1943,51 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "FREEWORLD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FREE WORLD",
+    "definitions": [
+     {
+      "text": "is supposedly led by Bush",
+      "at": 21,
+      "note": "a descriptive clause: what the answer is said to be, rather than a noun phrase"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For nothing",
+      "gives": "FREE",
+      "note": "something given for nothing is free"
+     },
+     {
+      "clueFragment": "earth",
+      "gives": "WORLD",
+      "note": "the earth is the world"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREE",
+      "WORLD"
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that George W Bush leads the planet to no purpose.",
+     "walkthrough": "The 'supposedly' is the joke: American presidents are called the leader of the democratic West.",
+     "definitionFit": "The US president is routinely styled leader of the democratic Western nations, so Bush nominally headed them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "nothing"
+    }
    }
   },
   {
@@ -519,6 +2001,51 @@
    "clue": {
     "text": "Condoms? China has seconds!",
     "enumeration": "5"
+   },
+   "solution": "MATES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MATES",
+    "definitions": [
+     {
+      "text": "Condoms?",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China",
+      "gives": "MATE",
+      "note": "rhyming slang: china plate means mate"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "s is the abbreviation for seconds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MATE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A joke that China is going back for a second helping of contraceptives.",
+     "walkthrough": "China looks like the country; it is Cockney rhyming slang. Mates was a British condom brand launched by Richard Branson.",
+     "definitionFit": "Mates condoms were a well-known UK brand, so the question mark flags a brand name rather than a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "China"
+    }
    }
   }
  ]
