@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "After losing lead, Man United thrashed Bury",
     "enumeration": "8"
    },
-   "solution": "INUNDATE"
+   "solution": "INUNDATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INUNDATE",
+    "definitions": [
+     {
+      "text": "Bury",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After losing lead",
+      "for": "deletion",
+      "note": "losing its lead means the opening letter of the phrase that follows is dropped"
+     },
+     {
+      "text": "thrashed",
+      "for": "anagram",
+      "note": "something thrashed is beaten about, so the remaining letters are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man United",
+      "gives": "MANUNITED",
+      "note": "the football club's name, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INUNDATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANUNITED",
+       "gives": "INUNDATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football result: Manchester United went a goal down and then hammered Bury.",
+     "walkthrough": "Bury looks like the beaten Lancashire football club, but it is the definition, a verb meaning to swamp.",
+     "definitionFit": "To inundate is to flood or overwhelm, and to bury something is likewise to cover it completely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +104,66 @@
     "text": "Beat up lads with three hollow bats",
     "enumeration": "8"
    },
-   "solution": "PULSATED"
+   "solution": "PULSATED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "PULSATED",
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hollow",
+      "for": "letter_selection",
+      "note": "a hollow word has had its inside scooped out, leaving only its first and last letters"
+     },
+     {
+      "text": "bats",
+      "for": "anagram",
+      "note": "bats is slang for crazy, so the letters are put into a mad new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up lads",
+      "gives": "UPLADS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "three",
+      "gives": "TE",
+      "select": "outer",
+      "note": "just the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPLADSTE",
+       "gives": "PULSATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some boys roughed up with three cricket bats with nothing inside them.",
+     "walkthrough": "'Beat up' reads as one phrasal verb, but the definition is only 'Beat'; 'up' joins the anagram material.",
+     "definitionFit": "A heart that pulsated throbbed rhythmically, which is what a heart that beat did."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +177,76 @@
     "text": "Seafood caught entirely in well? On the face of it, preposterous",
     "enumeration": "7"
    },
-   "solution": "SCALLOP"
+   "solution": "SCALLOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SCALLOP",
+    "definitions": [
+     {
+      "text": "Seafood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one pair of words goes inside the interjection that follows"
+     },
+     {
+      "text": "On the face of it",
+      "for": "letter_selection",
+      "note": "the face of a word is its front, so only its first letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "entirely",
+      "gives": "ALL",
+      "note": "all, as in 'all wrong' meaning entirely wrong"
+     },
+     {
+      "clueFragment": "well",
+      "gives": "SO",
+      "note": "an interjection: 'So? Well?'"
+     },
+     {
+      "clueFragment": "preposterous",
+      "gives": "P",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "ALL",
+      "O",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A preposterous idea: seafood caught whole down a well.",
+     "walkthrough": "'Well?' reads as a question, but it is an interjection used like 'So?'. C is the cricket abbreviation for caught.",
+     "definitionFit": "A scallop is an edible bivalve shellfish, a standard item of seafood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +266,56 @@
      }
     ]
    },
-   "solution": "BMOVIE"
+   "solution": "BMOVIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "B-MOVIE",
+    "definitions": [
+     {
+      "text": "inferior film",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "once more",
+      "gives": "MO",
+      "note": "mo is an archaic word for more, so 'once' marks the old usage"
+     },
+     {
+      "clueFragment": "struggle",
+      "gives": "VIE",
+      "note": "to vie is to contend or struggle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "MO",
+      "VIE"
+     ]
+    },
+    "explanation": {
+     "surface": "The British film industry struggles again and turns out a poor picture.",
+     "walkthrough": "'Once more' looks like 'again'; it is 'more' in its old form, MO, found in Shakespeare.",
+     "definitionFit": "A B-movie is a low-budget film originally shown as the lesser half of a double bill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +329,66 @@
     "text": "Unexpectedly, noes and ayes offering European Union",
     "enumeration": "6"
    },
-   "solution": "ENOSIS"
+   "solution": "ENOSIS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENOSIS",
+    "definitions": [
+     {
+      "text": "European Union",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unexpectedly",
+      "for": "anagram",
+      "note": "an unexpected result comes out differently from the order given, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noes",
+      "gives": "NOES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ayes",
+      "gives": "IS",
+      "note": "aye sounds like the letter I, so ayes are I's, the plural of that letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENOS",
+      "IS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOES",
+       "gives": "ENOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A surprise vote of noes and ayes on European Union membership.",
+     "walkthrough": "'European Union' looks like the EU; here it is a union within Europe, of Cyprus with Greece. Ayes stand for the letter I twice.",
+     "definitionFit": "Enosis is the Greek word for union, used for the campaign to unite Cyprus with Greece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +402,50 @@
     "text": "Condemnations needn't consume rogue",
     "enumeration": "13"
    },
-   "solution": "DENOUNCEMENTS"
+   "solution": "DENOUNCEMENTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DENOUNCEMENTS",
+    "definitions": [
+     {
+      "text": "Condemnations",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rogue",
+      "for": "anagram",
+      "note": "something gone rogue has strayed out of line, so the letters wander out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "needn't consume",
+      "gives": "NEEDNTCONSUME",
+      "note": "taken as written, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEEDNTCONSUME",
+       "gives": "DENOUNCEMENTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Criticisms of a wayward eater who needn't consume so much.",
+     "definitionFit": "Denouncements are public condemnations, statements declaring something wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rogue"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +459,77 @@
     "text": "Drying out hint of damp smell, one that's building up externally",
     "enumeration": "13"
    },
-   "solution": "DEHUMIDIFYING"
+   "solution": "DEHUMIDIFYING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "DEHUMIDIFYING",
+    "definitions": [
+     {
+      "text": "Drying out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hint of",
+      "for": "letter_selection",
+      "note": "a hint is just a trace, here the first letter of the word"
+     },
+     {
+      "text": "externally",
+      "for": "container",
+      "note": "the word for building up stays on the outside, wrapped around the other pieces"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damp",
+      "gives": "D",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "building up",
+      "gives": "EDIFYING",
+      "note": "edifying means building up morally or intellectually"
+     },
+     {
+      "clueFragment": "smell",
+      "gives": "HUM",
+      "note": "a hum is British slang for a bad smell"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "HUMI",
+      "DIFYING"
+     ]
+    },
+    "explanation": {
+     "surface": "A damp, smelly building drying out while something builds up on the outside.",
+     "walkthrough": "In Britain a hum is a stink. Edifying is usually moral improvement, so 'building up' is its literal root sense.",
+     "definitionFit": "Dehumidifying is removing moisture from the air, which is a way of drying a room out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +549,51 @@
      }
     ]
    },
-   "solution": "SECONDREADING"
+   "solution": "SECONDREADING",
+   "annotation": {
+    "type": [
+     "charade",
+     "cryptic_definition"
+    ],
+    "answer": "SECOND READING",
+    "definitions": [
+     {
+      "text": "that's not Bill's primary consideration",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tick",
+      "gives": "SECOND",
+      "note": "a tick is a moment, informally a second"
+     },
+     {
+      "clueFragment": "Berkshire town",
+      "gives": "READING",
+      "note": "Reading is the county town of Berkshire, west of London"
+     },
+     {
+      "clueFragment": "that's not Bill's primary consideration",
+      "note": "surface: something low on a man's list of priorities"
+     },
+     {
+      "clueFragment": "that's not Bill's primary consideration",
+      "note": "setter's reading: a later debate of a parliamentary bill, after the opening one"
+     }
+    ],
+    "explanation": {
+     "surface": "A town Bill doesn't care much about.",
+     "walkthrough": "Bill looks like a man's name; it is a parliamentary bill, which is read and debated several times on its way to becoming law.",
+     "definitionFit": "In Parliament, a bill's second reading is the main debate on its principles, coming after the formal first reading."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bill's"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +607,54 @@
     "text": "Cheers husband crushed by defeats",
     "enumeration": "6"
    },
-   "solution": "THANKS"
+   "solution": "THANKS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THANKS",
+    "definitions": [
+     {
+      "text": "Cheers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crushed by",
+      "for": "container",
+      "note": "something crushed by another is squeezed in between it, so one letter sits inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "standard abbreviation, as in family trees"
+     },
+     {
+      "clueFragment": "defeats",
+      "gives": "TANKS",
+      "note": "to tank is informal for to beat heavily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "ANKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband toasting while beaten down by losses.",
+     "definitionFit": "Cheers is informal British for thanks, used as a casual way to say thank you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cheers"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +668,62 @@
     "text": "Bit of hair hides half of blisters in need of TLC?",
     "enumeration": "8"
    },
-   "solution": "LOVESICK"
+   "solution": "LOVESICK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "LOVESICK",
+    "definitions": [
+     {
+      "text": "in need of TLC?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "deletion",
+      "note": "only half the word survives, the back half is cut away"
+     },
+     {
+      "text": "hides",
+      "for": "container",
+      "note": "a thing that hides another wraps round it, so these letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of hair",
+      "gives": "LOCK",
+      "note": "a lock is a tress of hair"
+     },
+     {
+      "clueFragment": "blisters",
+      "gives": "VESICLES",
+      "note": "vesicles are small blisters in medical terms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "VESI",
+      "CK"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient with blisters under a lock of hair needs some tender loving care.",
+     "walkthrough": "TLC looks like medical treatment for the blisters; it is tender loving care, which the lovelorn crave.",
+     "definitionFit": "Someone lovesick pines for love, so playfully they are in need of tender loving care."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "TLC"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +737,51 @@
     "text": "Every fool should be uncovered",
     "enumeration": "3"
    },
-   "solution": "ALL"
+   "solution": "ALL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALL",
+    "definitions": [
+     {
+      "text": "Every",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "deletion",
+      "note": "uncovering strips away the outer layer, so the first and last letters go"
+     }
+    ],
+    "linkWords": [
+     "should be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "WALLY",
+      "note": "wally is British slang for a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A demand that every idiot be exposed.",
+     "walkthrough": "Wally is everyday British slang for a silly person.",
+     "definitionFit": "All and every both mean the whole number of something, as in 'all men' or 'every man'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +795,52 @@
     "text": "Mutual converts Deutsche Mark?",
     "enumeration": "6"
    },
-   "solution": "UMLAUT"
+   "solution": "UMLAUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UMLAUT",
+    "definitions": [
+     {
+      "text": "Deutsche Mark?",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "converts",
+      "for": "anagram",
+      "note": "converting turns one thing into another form, so the letters are recast"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mutual",
+      "gives": "MUTUAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUTUAL",
+       "gives": "UMLAUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shared currency exchange from the old German money.",
+     "walkthrough": "The Deutsche Mark looks like the old German currency; read literally it is a German mark, the two dots over a vowel.",
+     "definitionFit": "An umlaut is the diacritic placed over vowels in German, so it is a mark in German writing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +854,64 @@
     "text": "Respectful honour given by George, say, with heart leading head",
     "enumeration": "8"
    },
-   "solution": "OBEISANT"
+   "solution": "OBEISANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OBEISANT",
+    "definitions": [
+     {
+      "text": "Respectful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with heart leading head",
+      "for": "anagram",
+      "note": "the middle letter moves in front of the first one, a small rearrangement of the word's letters"
+     }
+    ],
+    "linkWords": [
+     "given by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "honour",
+      "gives": "OBE",
+      "note": "the Order of the British Empire, a British honour"
+     },
+     {
+      "clueFragment": "George, say",
+      "gives": "SAINT",
+      "note": "St George, patron saint of England, is an example of a saint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBE",
+      "ISANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAINT",
+       "gives": "ISANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An award presented by King George to a respectful subject.",
+     "walkthrough": "The I at the heart of SAINT jumps ahead of its S. The OBE is a British order of chivalry given in the honours list.",
+     "definitionFit": "Obeisant means showing deference or homage, the attitude of someone being respectful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "George"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +925,50 @@
     "text": "Diamonds carried in briefcase every so often",
     "enumeration": "3"
    },
-   "solution": "ICE"
+   "solution": "ICE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ICE",
+    "definitions": [
+     {
+      "text": "Diamonds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "every so often",
+      "for": "letter_selection",
+      "note": "taking letters at regular intervals, here every third one"
+     }
+    ],
+    "linkWords": [
+     "carried in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "briefcase",
+      "gives": "ICE",
+      "select": "regular",
+      "note": "its third, sixth and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Diamonds smuggled in a briefcase from time to time.",
+     "definitionFit": "Ice is underworld slang for diamonds, from their glittering, frozen look."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +982,66 @@
     "text": "Back-to-back promotions about joint supplements",
     "enumeration": "7"
    },
-   "solution": "ADDENDA"
+   "solution": "ADDENDA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ADDENDA",
+    "definitions": [
+     {
+      "text": "supplements",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Back-to-back",
+      "for": "reversal",
+      "note": "two things back to back face opposite ways, so the second copy is turned round"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the pair goes round another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promotions",
+      "gives": "ADAD",
+      "note": "two ads, advertisements"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "DEN",
+      "note": "a den, like a joint, is a disreputable haunt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "DEN",
+      "DA"
+     ],
+     "reversals": [
+      {
+       "from": "AD",
+       "to": "DA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sequence of joint-supplement adverts aired one after another.",
+     "definitionFit": "Addenda are items added at the end of a book or document, plural of addendum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1055,56 @@
     "text": "Drama queen's latest expression of surprise",
     "enumeration": "3"
    },
-   "solution": "NOH"
+   "solution": "NOH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NOH",
+    "definitions": [
+     {
+      "text": "Drama",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "latest",
+      "for": "letter_selection",
+      "note": "the latest is the most recent, so the end letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "queen's",
+      "gives": "N",
+      "select": "last",
+      "note": "its last letter, ignoring the apostrophe"
+     },
+     {
+      "clueFragment": "expression of surprise",
+      "gives": "OH",
+      "note": "an exclamation of surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OH"
+     ]
+    },
+    "explanation": {
+     "surface": "A drama queen's newest gasp of astonishment.",
+     "walkthrough": "'Drama queen' reads as one phrase; the definition is only 'Drama'.",
+     "definitionFit": "Noh is classical Japanese masked theatre, a form of drama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "queen's"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1118,58 @@
     "text": "Action scene from 24 linked to unlimited enmity",
     "enumeration": "7"
    },
-   "solution": "THEATRE"
+   "solution": "THEATRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "THEATRE",
+    "definitions": [
+     {
+      "text": "Action scene",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unlimited",
+      "for": "deletion",
+      "note": "without limits the word loses its boundary letters at both ends"
+     }
+    ],
+    "linkWords": [
+     "linked to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "24",
+      "gives": "THE",
+      "note": "the answer to 24 across"
+     },
+     {
+      "clueFragment": "enmity",
+      "gives": "HATRED",
+      "note": "hatred is intense enmity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "ATRE"
+     ]
+    },
+    "explanation": {
+     "surface": "An action sequence from the TV thriller 24 laced with endless hostility.",
+     "walkthrough": "24 looks like the TV series; it is the cross-reference to 24 across.",
+     "definitionFit": "A theatre of war is the area where military action takes place, so a theatre is a scene of action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "24"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1189,69 @@
      }
     ]
    },
-   "solution": "HOMEHELP"
+   "solution": "HOMEHELP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "HOME HELP",
+    "definitions": [
+     {
+      "text": "assistant of old?",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthrals",
+      "for": "container",
+      "note": "to enthral is to hold captive, so the following pieces are held inside"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spring",
+      "gives": "HOP",
+      "note": "a hop is a little jump"
+     },
+     {
+      "clueFragment": "mediocre",
+      "gives": "MEH",
+      "note": "meh is a slang interjection for something uninspiring"
+     },
+     {
+      "clueFragment": "emotional",
+      "gives": "EL",
+      "select": "outer",
+      "note": "its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "MEH",
+      "EL",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A season charms a dull, emotional helper from earlier times.",
+     "walkthrough": "A home help is a British term for someone paid, often by a council, to help an elderly or ill person with housework.",
+     "definitionFit": "A home help assisted people in their homes; the question mark notes the term is old-fashioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spring"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1265,66 @@
     "text": "Marshal working around India in many Cabinets",
     "enumeration": "8"
    },
-   "solution": "ALMIRAHS"
+   "solution": "ALMIRAHS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ALMIRAHS",
+    "definitions": [
+     {
+      "text": "many Cabinets",
+      "at": 32,
+      "note": "an adjective plus plural noun; the answer is plural"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working means in operation or being reshaped, so the letters are worked into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the scrambled word goes round the single letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marshal",
+      "gives": "MARSHAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "I is India in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARSHALI",
+       "gives": "ALMIRAHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A field marshal serving in India across several governments.",
+     "walkthrough": "'Cabinets' looks like governments; it means pieces of furniture.",
+     "definitionFit": "An almirah is an Indian word for a wardrobe or cupboard, a kind of cabinet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cabinets"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1338,57 @@
     "text": "Junior diplomat regularly wants toothbrush, for one",
     "enumeration": "7"
    },
-   "solution": "ATTACHE"
+   "solution": "ATTACHE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ATTACHE",
+    "definitions": [
+     {
+      "text": "Junior diplomat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, here every second letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wants",
+      "gives": "AT",
+      "select": "alternate",
+      "note": "its second and fourth letters"
+     },
+     {
+      "clueFragment": "toothbrush, for one",
+      "gives": "TACHE",
+      "note": "a toothbrush is a short bristly moustache, and tache is short for moustache"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TACHE"
+     ]
+    },
+    "explanation": {
+     "surface": "A young diplomat always needs to pack a toothbrush.",
+     "walkthrough": "The toothbrush looks like a travel item; it is a style of clipped moustache.",
+     "definitionFit": "An attaché is a junior member of an embassy staff, often with a specialist role."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "toothbrush"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1402,65 @@
     "text": "Branch out from comic performance following vacuous farces",
     "enumeration": "8"
    },
-   "solution": "OFFSHOOT"
+   "solution": "OFFSHOOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OFFSHOOT",
+    "definitions": [
+     {
+      "text": "Branch out",
+      "at": 0,
+      "note": "read as a noun phrase, a branch growing out"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacuous",
+      "for": "letter_selection",
+      "note": "vacuous means empty, so only the shell of the word, its first and last letters, remains"
+     }
+    ],
+    "linkWords": [
+     "following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from",
+      "gives": "OF",
+      "note": "of can mean from, as in 'a man of Kent'"
+     },
+     {
+      "clueFragment": "farces",
+      "gives": "FS",
+      "select": "outer",
+      "note": "its first and last letters"
+     },
+     {
+      "clueFragment": "comic performance",
+      "gives": "HOOT",
+      "note": "a hoot is something very funny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OF",
+      "FS",
+      "HOOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre company diversifying from comedy after some empty farces.",
+     "definitionFit": "An offshoot is a side shoot growing from a main stem, a branch that grows outward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Branch"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1474,67 @@
     "text": "Offensive Liberal gets under skin of staunch Jewish community",
     "enumeration": "6"
    },
-   "solution": "SHTETL"
+   "solution": "SHTETL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHTETL",
+    "definitions": [
+     {
+      "text": "Jewish community",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skin of",
+      "for": "letter_selection",
+      "note": "the skin is the outer layer, so just the first and last letters"
+     },
+     {
+      "text": "gets under",
+      "for": "charade",
+      "note": "in a down clue, being under means coming later in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "staunch",
+      "gives": "SH",
+      "select": "outer",
+      "note": "its first and last letters"
+     },
+     {
+      "clueFragment": "Offensive",
+      "gives": "TET",
+      "note": "the Tet Offensive of 1968 in the Vietnam War"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "TET",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A rude Liberal gets under the skin of a loyal supporter.",
+     "walkthrough": "'Offensive' looks like an adjective for rude; it is the noun, a military attack.",
+     "definitionFit": "A shtetl was a small Jewish town or village in Eastern Europe before the Holocaust."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Offensive"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1548,51 @@
     "text": "Nothing perhaps written or spoken like Napoleon?",
     "enumeration": "6"
    },
-   "solution": "OINKED"
+   "solution": "OINKED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OINKED",
+    "definitions": [
+     {
+      "text": "spoken like Napoleon?",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "the letter O looks like zero"
+     },
+     {
+      "clueFragment": "perhaps written",
+      "gives": "INKED",
+      "note": "something written in pen is inked; 'perhaps' since writing could be in pencil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "INKED"
+     ]
+    },
+    "explanation": {
+     "surface": "Was it nothing written or said by the French emperor?",
+     "walkthrough": "Napoleon looks like the emperor; he is the pig who rules in Orwell's Animal Farm.",
+     "definitionFit": "Napoleon in Animal Farm is a pig, and a pig's way of speaking is to grunt or oink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Napoleon"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1606,73 @@
     "text": "For example, seal escape from US, covering a very short distance in retrospect",
     "enumeration": "6"
    },
-   "solution": "MAMMAL"
+   "solution": "MAMMAL",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "MAMMAL",
+    "definitions": [
+     {
+      "text": "For example, seal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping over, so one word goes round the others"
+     },
+     {
+      "text": "in retrospect",
+      "for": "reversal",
+      "note": "looking back in retrospect means the whole thing is read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "escape from US",
+      "gives": "LAM",
+      "note": "on the lam is American slang for on the run"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very short distance",
+      "gives": "MM",
+      "note": "millimetre, abbreviated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "M",
+      "MAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAMMAM",
+       "to": "MAMMAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seal escapes from America, moving just a short way.",
+     "walkthrough": "'On the lam' is American slang for fleeing, hence 'from US'. The insertion is not at the centre: it falls after the first letter.",
+     "definitionFit": "A seal is warm-blooded and suckles its young, making it an example of a mammal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seal"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1686,56 @@
     "text": "Setter leaves recurrent idea for article",
     "enumeration": "3"
    },
-   "solution": "THE"
+   "solution": "THE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THE",
+    "definitions": [
+     {
+      "text": "article",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "when the setter leaves, the word for the setter is taken out"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter",
+      "gives": "ME",
+      "note": "the setter refers to themselves as me"
+     },
+     {
+      "clueFragment": "recurrent idea",
+      "gives": "THEME",
+      "note": "a theme is an idea that recurs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE"
+     ]
+    },
+    "explanation": {
+     "surface": "The compiler abandons a recurring theme when writing a piece.",
+     "walkthrough": "'Article' looks like a written piece; it is the grammatical term, and 'the' is the definite article.",
+     "definitionFit": "The is the definite article in English grammar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1749,62 @@
     "text": "Poet gets back excellent orchid",
     "enumeration": "8"
    },
-   "solution": "MILTONIA"
+   "solution": "MILTONIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MILTONIA",
+    "definitions": [
+     {
+      "text": "orchid",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "getting something back here means it is read the other way round"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet",
+      "gives": "MILTON",
+      "note": "John Milton, author of Paradise Lost"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "AI",
+      "note": "A1, first class, written with I for 1"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MILTON",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AI",
+       "to": "IA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet gets a superb orchid in return.",
+     "definitionFit": "Miltonia is a genus of orchids, the pansy orchids, named after Viscount Milton."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1818,61 @@
     "text": "Solitary strike pins English soldiers",
     "enumeration": "6"
    },
-   "solution": "HERMIT"
+   "solution": "HERMIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HERMIT",
+    "definitions": [
+     {
+      "text": "Solitary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pins",
+      "for": "container",
+      "note": "pinning something holds it fast between, so the following letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strike",
+      "gives": "HIT",
+      "note": "to hit is to strike"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RM",
+      "note": "the Royal Marines, abbreviated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "E",
+      "RM",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone attack pins down English troops.",
+     "definitionFit": "A hermit lives alone apart from society, and a solitary as a noun is just such a recluse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Solitary"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1900,78 @@
      }
     ]
    },
-   "solution": "GOTHEWHOLEHOG"
+   "solution": "GOTHEWHOLEHOG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GO THE WHOLE HOG",
+    "definitions": [
+     {
+      "text": "do it thoroughly?",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd bits of",
+      "for": "letter_selection",
+      "note": "the odd-numbered letters, first and third, are kept"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "those letters are put into the word for a record"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work",
+      "gives": "GO",
+      "note": "to go is to work or function"
+     },
+     {
+      "clueFragment": "rock group",
+      "gives": "THEWHO",
+      "note": "The Who, the British rock band"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LOG",
+      "note": "a log is a written record"
+     },
+     {
+      "clueFragment": "echo",
+      "gives": "EH",
+      "select": "alternate",
+      "note": "its first and third letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "THEWHO",
+      "L",
+      "EH",
+      "OG"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for making a record with a rock band, adding echo effects throughout.",
+     "walkthrough": "The question mark flags that 'do it thoroughly' defines by sense rather than strict wording; the idiom is a whole phrase.",
+     "definitionFit": "To go the whole hog is an idiom meaning to do something completely, without holding back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   }
  ]
 }
