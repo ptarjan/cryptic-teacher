@@ -323,19 +323,20 @@ unit_xval_globe() {
 # OCR_REMOTE= keeps them here.
 FT_GRID_SECONDS="${FT_GRID_SECONDS:-1200}"
 unit_ft() {
-  local ft_out rc=0
+  local ft_out step_rc rc=0
   ft_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-ft.XXXXXX")"
-  if ! python3 tools/fetch_fifteensquared.py --category FT --posts-only >"$ft_out" 2>&1; then
-    cat "$ft_out"
-    alert "the fifteensquared FT fetch failed, so the FT puzzles are filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
-  fi
-  if OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}" \
-      python3 tools/ft_puzzles.py --budget-seconds "$FT_GRID_SECONDS" >"$ft_out" 2>&1; then
-    cat "$ft_out"
-  else
+  # Through tee and unbuffered, so each step's lines reach the log as they are
+  # printed, and a run killed at its limit still shows where it was.
+  PYTHONUNBUFFERED=1 python3 tools/fetch_fifteensquared.py --category FT --posts-only 2>&1 | tee "$ft_out"
+  step_rc=${PIPESTATUS[0]}
+  [ $step_rc -eq 0 ] ||
+    alert "the fifteensquared FT fetch failed (rc=$step_rc), so the FT puzzles are filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
+  OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}" PYTHONUNBUFFERED=1 \
+    python3 tools/ft_puzzles.py --budget-seconds "$FT_GRID_SECONDS" 2>&1 | tee "$ft_out"
+  step_rc=${PIPESTATUS[0]}
+  if [ $step_rc -ne 0 ]; then
     rc=1
-    cat "$ft_out"
-    alert "tools/ft_puzzles.py failed, so no new FT puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
+    alert "tools/ft_puzzles.py failed (rc=$step_rc), so no new FT puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
   fi
   rm -f "$ft_out"
   return $rc

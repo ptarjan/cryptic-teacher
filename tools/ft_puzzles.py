@@ -30,6 +30,7 @@ import html
 import json
 import re
 import sys
+import time
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
@@ -358,7 +359,7 @@ def parse(write=True):
     """Every cached FT post to parsed.jsonl. Returns (records, implausible)."""
     cat = fsq.cached_categories()[CATEGORY]
     recs, odd = [], []
-    for f in sorted(fsq.POSTS.glob("*.json")):
+    for f in fsq.category_post_files(cat):
         rec = parse_post(json.loads(f.read_text(encoding="utf-8")), cat)
         if rec is None:
             continue
@@ -535,9 +536,14 @@ def main(argv=None):
     ap.add_argument("--max-nodes", type=int, default=tg.DEFAULT_MAX_NODES)
     ap.add_argument("--budget-seconds", type=float, help="start no rebuild once this many seconds have passed")
     a = ap.parse_args(argv)
+    # The budget runs from here, so the parse is spent out of it too.
+    start = time.monotonic()
     recs, odd = parse()
-    print(f"parsed {len(recs)} FT post(s); {len(odd)} more with an implausible light count")
-    r = grids(a.limit, a.max_nodes, a.budget_seconds)
+    print(f"parsed {len(recs)} FT post(s); {len(odd)} more with an implausible light count "
+          f"in {time.monotonic() - start:.0f}s")
+    budget = (None if a.budget_seconds is None
+              else max(0.0, a.budget_seconds - (time.monotonic() - start)))
+    r = grids(a.limit, a.max_nodes, budget)
     if r:
         tg.report(r)
         if r["left"] and not a.dry_run:

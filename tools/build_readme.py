@@ -592,6 +592,7 @@ LAYOUT = [
     ("fetching", "tools/test_reconstruct_grid_cli.sh", "tools/reconstruct_grid.py's command line: several --lights run as separate searches (on the desktop under OCR_REMOTE; here, with it unset, in-process), and --words reaches the search"),
     ("fetching", "tools/track_prereset.sh", "register the pre-reset burn as a status lane for the cryptic room. The label names the job only: which meter it is pacing (weekly or five-hour) changes with `prereset_plan.py --five-hour`, so the lane's text is the last line of .prereset.log, which states the mode, never a label typed here"),
     ("fetching", "tools/test_writeup_keyed.sh", "a blank light on a puzzle whose answer key is a blog's write-up is never offered for a solve"),
+    ("fetching", "tools/test_fifteensquared_index.sh", "do the fifteensquared readers find a category's posts off the index, without opening every cached post, and does tools/ft_puzzles.py's budget count its parse?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

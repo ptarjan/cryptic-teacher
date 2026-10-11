@@ -2045,5 +2045,9 @@ tools/track_prereset.sh                       register the pre-reset burn as a s
                                               label typed here
 tools/test_writeup_keyed.sh                   a blank light on a puzzle whose answer key is a
                                               blog's write-up is never offered for a solve
+tools/test_fifteensquared_index.sh            do the fifteensquared readers find a category's
+                                              posts off the index, without opening every cached
+                                              post, and does tools/ft_puzzles.py's budget count
+                                              its parse?
 ```
 <!-- LAYOUT-END -->

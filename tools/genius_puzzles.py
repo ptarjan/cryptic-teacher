@@ -438,7 +438,7 @@ def blog_posts():
     """{number: post} of every cached Genius write-up a single post claims."""
     cat = fsq.cached_categories()[CATEGORY]
     by, claims = {}, collections.Counter()
-    for f in fsq.POSTS.glob("*.json"):
+    for f in fsq.category_post_files(cat):
         post = json.loads(f.read_text(encoding="utf-8"))
         if cat not in post.get("categories", []):
             continue

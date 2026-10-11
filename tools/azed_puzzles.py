@@ -125,7 +125,7 @@ def parse(write=True):
     """Every cached Azed post to parsed.jsonl. Returns (records, implausible)."""
     cat = fsq.cached_categories()[CATEGORY]
     recs, odd = [], []
-    for f in sorted(fsq.POSTS.glob("*.json")):
+    for f in fsq.category_post_files(cat):
         rec = parse_post(json.loads(f.read_text(encoding="utf-8")), cat)
         if rec is None:
             continue
