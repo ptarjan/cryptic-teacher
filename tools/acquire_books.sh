@@ -192,7 +192,7 @@ case "$key" in
     if [ "$rc" = 4 ]; then
       rm -f "$borrow_err"
       echo "$id: archive.org lends it to no one; out of the queue for good (tools/data/book_reads.json)"
-      publish "Drop $id from the book queue: archive.org lends it to no one" ||
+      publish "Drop $(python3 tools/book_queue.py --title "$id") from the book queue: archive.org lends it to no one" ||
         alert "dropped $id from the book queue (archive.org lends it to no one) but could not push the ledger — it is in $PWD. See .books.log."
       exit 0
     fi
@@ -228,7 +228,8 @@ case "$key" in
     # keeps what it derived; it is recorded as read all the same, or the same
     # book would come back every tick forever.
     echo "reading $book from its text on disk"
-    durable_run "Read $book (so far)" \
+    title="$(python3 tools/book_queue.py --title "$book")"
+    durable_run "Read $title (so far)" \
       timeout 5400 nice -n 19 python3 tools/acquire_book.py "$book" --file --puzzle-dir puzzles --jobs 2 --no-borrow
     read_rc=$?
     # 5 is EXIT_NO_PUZZLES: the text holds no puzzle region the reader finds;
@@ -243,7 +244,7 @@ case "$key" in
       python3 -c 'import sys; sys.path.insert(0, "tools"); import book_queue as q; q.record_read(sys.argv[1], None, None)' "$book"
       read_rc=0
     fi
-    publish "Read $book" ||
+    publish "Read $title" ||
       fail "read $book but could not commit or push its puzzles — the next unit to take this tree salvages them. See .books.log."
     exit "$read_rc" ;;
 esac

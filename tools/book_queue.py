@@ -155,7 +155,20 @@ def rereads():
             if due(b["identifier"]) and text_of(b["identifier"])]
 
 
+def book_title(identifier):
+    """The book's title from books.json, for commit subjects and logs; the
+    archive.org identifier ("secondpenguinboo0000unse_c2w6") is no name a
+    reader knows, so it is the fallback only for a book not registered."""
+    books = json.loads((ROOT / "tools" / "data" / "books.json")
+                       .read_text(encoding="utf-8"))["books"]
+    return next((b["title"] for b in books
+                 if b["identifier"] == identifier and b.get("title")), identifier)
+
+
 def main(argv):
+    if "--title" in argv:
+        print(book_title(argv[argv.index("--title") + 1]))
+        return 0
     if "--reread" in argv:
         for identifier in rereads():
             print(identifier)
