@@ -1609,7 +1609,9 @@ def lay_loose(parsed, grid, taken=None):
 
 # ------------------------------------------------------------ the puzzle
 
-def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None, url=None):
+def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None, url=None, printed=None):
+    """The puzzle filed from `laid`; `printed` ({light: tokens}) is each
+    clue's `asPrinted` (ocr_clues.printed_alike)."""
     lights = rg.light_cells(grid)
     by_id, entries = {}, []
     for (n, d), cells in lights.items():
@@ -1646,6 +1648,8 @@ def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None,
             text = ""
         line = f"{text} ({enum})" if enum else text
         e["clue"] = enumeration.clue(line, separators=seps.get(lid), missing=not text.strip())
+        if kept := [t for t in (printed or {}).get(lid, ()) if t in text.split()]:
+            e["clue"]["asPrinted"] = kept
         if lid in groups:
             e["group"] = groups[lid]
         e["solution"] = None
@@ -3053,7 +3057,14 @@ def read_puzzle(d, found, hit, solutions):
     # capital, hyphen and spelling.
     laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths)
     laid, blank = one_light_each(laid, blank, fits)
-    laid, blank = unfit_blanked(laid, blank, lengths)
+    # A word no lexicon knows, or a bracket never shut, that the readings
+    # print alike is the print's own ("ignis"): filed as its asPrinted.
+    alike = {lid: got for lid, (t, _, _) in laid.items() if t and lid not in blank and (
+        got := ocr_clues.printed_alike(t, [r for r, _ in ocr_clues.readings_for(read, lid, parse)]))}
+    laid, blank = unfit_blanked(laid, blank, lengths, alike)
+    alike = {lid: got for lid, got in alike.items() if lid not in blank}
+    if alike:
+        verdict["asPrinted"] = alike
     if paper.four:
         # The counts were the grid's, not the paper's: filed without.
         laid = {lid: (t, None, None) for lid, (t, _, _) in laid.items()}
@@ -3062,7 +3073,7 @@ def read_puzzle(d, found, hit, solutions):
     if blank:
         verdict["blank"] = blank
     puzzle = build(n, day, grid, how, laid, edition_of(d, found), leaf, series=paper.series,
-                   name=paper.name.format(n), url=page_url(d, found, leaf))
+                   name=paper.name.format(n), url=page_url(d, found, leaf), printed=alike)
     setter = byline(img, hit, paper.series)
     if setter:
         puzzle["setter"] = setter
@@ -3340,12 +3351,14 @@ def complete(puzzle, unclued=()):
         for e in puzzle["entries"]) and not faults(puzzle)
 
 
-def unfit_blanked(laid, blank, lengths):
+def unfit_blanked(laid, blank, lengths, printed=None):
     """(laid, blank) with each clue complete() would refuse filed blank and
     why in `blank`, so a puzzle with an empty `blank` is complete: a clue
     ocr_clues.fault refuses (its count kept when it fills the light), one
     with a word ocr_clues.suspect flags, and each light of `lengths` with
-    no text that is no linked clue's tail ("See 1")."""
+    no text that is no linked clue's tail ("See 1"). `printed` ({light:
+    tokens}) holds what each clue's `asPrinted` will keep."""
+    printed = printed or {}
     laid, blank = dict(laid), dict(blank)
     tails = {t for _, _, group in laid.values() for t in (group or [])[1:]}
     for lid in lengths:
@@ -3353,12 +3366,12 @@ def unfit_blanked(laid, blank, lengths):
             laid[lid] = laid.get(lid) or ("", None, None)
             blank.setdefault(lid, "no reading laid a clue on it")
     for lid, (text, enum, group) in list(laid.items()):
-        why = ocr_clues.fault(text, enum, sum(lengths.get(i, 0) for i in group or [lid]))
+        why = ocr_clues.fault(text, enum, sum(lengths.get(i, 0) for i in group or [lid]), printed.get(lid, ()))
         if why:
             laid[lid] = ("", None if why.startswith("its count") else enum, group)
             blank[lid] = why
             continue
-        odd = suspect(text)
+        odd = suspect(text, printed=printed.get(lid, ()))
         if odd:
             laid[lid] = ("", enum, group)
             blank[lid] = f"{odd[0][0]!r}: {odd[0][1]}"

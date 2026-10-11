@@ -445,6 +445,11 @@ laid, blank = f.unfit_blanked({"1-across": ("Stop to0 late", "6", None), "2-down
 check("a suspect word, or a light no reading laid, is filed blank, a linked tail is not",
       ({"1-across": ("", "6", None), "2-down": ("Long", "4,3", ["2-down", "3-down"]), "4-down": ("", None, None)},
        ["1-across", "4-down"]), (laid, sorted(blank)))
+laid, blank = f.unfit_blanked({"1-across": ("Like ignis fatuus", "6", None), "3-across": ("Like ignis", "6", None)},
+                               {}, {"1-across": 6, "3-across": 6}, {"1-across": ["ignis", "fatuus"]})
+check("a word the clue's asPrinted keeps is filed; the same word unvouched is not (mirror)",
+      ({"1-across": ("Like ignis fatuus", "6", None), "3-across": ("", "6", None)}, ["3-across"]),
+      (laid, sorted(blank)))
 check("a dash or comma run into the words either side is spaced",
       ["Hang play \u2014 change", "Two elements \u2014 somewhat", "now \u2014 then", "Good rum, as do, too",
        "usage: acceptable", "1,000 men", "self-made", "Why? Yes!"],
@@ -1339,6 +1344,13 @@ pz = f.build(20540, datetime.date(1996, 1, 4), g, "image",
 one = next(e["clue"] for e in pz["entries"] if (e["number"], e["direction"]) == (1, "across"))
 check("a reading that kept only a count (ftcryptic-9610 3-down) is filed missing, with no text",
       {"enumeration": "3", "missing": True}, one)
+pz = f.build(20540, datetime.date(1996, 1, 4), g, "image",
+             {"1-across": ("Like ignis", "3", None), "4-across": ("Ancient patriarch", "3", None)},
+             "TheGuardian1996UKEnglish", 15, series="cryptic", name="Cryptic crossword No 20,540",
+             printed={"1-across": ["ignis", "gone"], "4-across": ["patriarch"]})
+check("a built clue carries its asPrinted, only tokens of its text",
+      {1: ["ignis"], 4: ["patriarch"]},
+      {e["number"]: e["clue"]["asPrinted"] for e in pz["entries"] if e["clue"].get("asPrinted")})
 
 # match_canberra(): the reading sharing the clue list, printed first, same grid.
 def puzzle(pid, date, clues, cols=3):

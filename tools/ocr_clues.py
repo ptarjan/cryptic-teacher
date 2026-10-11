@@ -1722,7 +1722,20 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     if mine and mine[-1] == "?" and adds.get(len(mine), [""])[0].endswith("?"):
         # Words lost from the clue's end are put in with its "?" after them.
         drop.add(len(mine) - 1)
-    if not fixes and not drop and not adds and count_cut is None and lead_cut is None and not (
+    # A stop glued between two words becomes their space; beside one
+    # letter other than "a" or "I" it is inside a word ("Turkis.h"), closed
+    # up when that makes a known word, else left (an abbreviation's: "No.1").
+    stray_stops = {}
+    for i in range(1, len(mine) if others else 0):
+        m = STRAY_STOP.fullmatch(clue[spans[i - 1][0] + len(spans[i - 1][1]):spans[i][0]])
+        if not m or {mine[i - 1], mine[i]} & set(MARKS + BREAK) or not (
+                fixes.get(i, mine[i])[:1].islower() or "\u00b7" in m.group(1)):
+            continue
+        if "\u00b7" in m.group(1) or all(len(w) > 1 or w in "ai" for w in low[i - 1:i + 1]):
+            stray_stops[i] = " "
+        elif m.group() == "." and not {i - 1, i} & set(fixes) and known(low[i - 1] + low[i]):
+            stray_stops[i] = ""
+    if not fixes and not drop and not adds and not stray_stops and count_cut is None and lead_cut is None and not (
             others and JUNK_MARK.search(clue)):
         return clue, how
     # Specks between the words go: the other readings saw nothing there.
@@ -1744,6 +1757,8 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
         elif new and i == 0 and old[0].isupper():
             new = new[0].upper() + new[1:]
         gap = speckless(text[k:at])
+        if i in stray_stops and (m := STRAY_STOP.fullmatch(gap)):
+            gap = stray_stops[i] + m.group(2)
         if i == 1 and 0 in drop:
             # A misread clue number dropped takes its stop ("A. Frontier", No 3's 52D).
             gap = gap.lstrip(".,;: ")
@@ -1758,6 +1773,14 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     if (drop or count_cut is not None) and how == "agree":
         how = "settled by the readings"
     return re.sub(r"\s+([" + MARKS + "])", r"\1", re.sub(r"  +", " ", out)).strip(), how
+
+
+#: A speck read as a stop or two (or a middle dot) on a word's start, glued
+#: to it or to the word before ("visionary.lose", "for .concealed", "the.
+#: .record", "naval\u00b7base", "of.'the"). agree() makes it the words'
+#: space: no clue prints a stop before a small letter, nor a middle dot at
+#: all. An ellipsis ("been...") or a hyphen (".-") is not one.
+STRAY_STOP = re.compile(r"\s*([.\u00b7](?:\s*[.\u00b7])?)(['\u2018\"\u201c]?)")
 
 
 def glued_digits(i, low, seen, extra, fixes, before=False):
@@ -2864,7 +2887,7 @@ def suspect(text, vouched=(), printed=()):
             continue
         if INITIALS_OWN.fullmatch(s):
             continue
-        if MARK_IN_WORD.search(s) or JUNK.search(raw) or re.search(r"[a-z]{2}\.[a-z]{2}", s):
+        if MARK_IN_WORD.search(s) or JUNK.search(raw) or re.search(r"[a-z]{2}\.[A-Za-z][a-z]", s):
             out.append((raw, "a stray mark inside a word"))
             continue
         if any(re.search(r"[A-Za-z]", p) and re.search(r"\d", p) and not (
@@ -3043,7 +3066,20 @@ def holding(text, k):
         else text[k:].split(None, 1)[0]
 
 
-def printed_alike(text, readings):
+#: The fewest readings printed_alike(unanimous=True) takes as the print's
+#: word: two readers agreeing on a non-word ("considcraie") are a shared slip.
+UNANIMOUS_READINGS = 3
+
+
+def one_letter_off(word):
+    """Whether one letter of `word` changed makes a known word ("ples" for
+    "pies", "bediamite" for "bedlamite"): a misread, however many readers
+    share it."""
+    w = plain(word).lower()
+    return any(c != w[k] and known(w[:k] + c + w[k + 1:]) for k in range(len(w)) for c in "abcdefghijklmnopqrstuvwxyz")
+
+
+def printed_alike(text, readings, unanimous=False):
     """The tokens of a voted clue `text` that suspect() would refuse, which
     the print itself spells so: each word suspect() flags as no word that at
     least two of `readings` (each reading's own text for the light, None
@@ -3051,16 +3087,20 @@ def printed_alike(text, readings):
     pairs that at least two hold before the same word and none closes (No
     15's 22 down, "slang (from Hollywood meaning ...", its bracket never
     shut). The clue's `asPrinted`: what a misprint looks like to the vote.
-    A reading that lost the words votes neither way."""
+    A reading that lost the words votes neither way.
+    Readers that share a detector share its misreads, so with `unanimous`
+    a word stands only where every reading (UNANIMOUS_READINGS at least)
+    holds it and no one letter's change makes it a known word: "ignis",
+    "manouevre", not the shared "bediamite" or "ples" ("pies")."""
     own = [r for r in readings if r]
-    if len(own) < 2:
+    if len(own) < (UNANIMOUS_READINGS if unanimous else 2):
         return []
     low = [" ".join(r.lower().split()) for r in own]
     out = []
     for raw, why in suspect(text):
         word = raw.strip(EDGE).lower()
-        if why == "not a word" and sum(bool(re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", r))
-                                       for r in low) >= 2:
+        holds = sum(bool(re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", r)) for r in low)
+        if why == "not a word" and (holds == len(low) and not one_letter_off(word) if unanimous else holds >= 2):
             out.append(raw)
     k = unpaired(text)
     if k is not None and text[k] in "([":
