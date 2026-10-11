@@ -392,7 +392,8 @@ def flagged_requests():
 #: the last agree()'s count or next clue number run onto the clue's last
 #: word or its "?" ("for her7", "say?14") and letter read as its figure
 #: that the vote put back ("to0", "Result0f"), refused as a digit inside
-#: a word.
+#: a word, and its last letter read as a bracket the clue never opened
+#: ("vita)"), dropped once the vote puts the letter back.
 VOTE_MENDED = (
     ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
                                    "start is lost: other readings have")),
@@ -408,6 +409,7 @@ VOTE_MENDED = (
     ("2026-10-11T03:31:00+00:00", ("a bracket never closed or opened",)),
     ("2026-10-11T04:12:00+00:00", ("not a word",)),
     ("2026-10-11T04:40:00+00:00", ("a digit inside a word",)),
+    ("2026-10-11T05:00:00+00:00", ("a bracket never closed or opened",)),
 )
 
 

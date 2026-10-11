@@ -450,6 +450,16 @@ check("a bracket the clue closes stays though the vote fills its word (mirror)",
       oc.agree("and (his for protection)", [mark("5 and this for protection 6 A")] * 3)[0])
 check("a bracket before a word the vote leaves stays (mirror)", "Fairly (slow movement",
       oc.agree("Fairly (slow movement", [mark("5 Fairly slow movement 6 A")] * 3)[0])
+# news-1997-11-05, news-1977-12-24: a last letter read as a bracket the clue never opened.
+check("a bracket the vote fills with the word's lost last letter goes",
+      "Controller of vital beat who sets speed limits?",
+      oc.agree("Controller of vita) beat who sets speed limits?",
+               [mark("5 Controller of vital beat who sets speed limits ? 6 A")] * 3)[0])
+check("a bracket the clue opened stays though the vote fills its word (mirror)",
+      "Controller (of vital) beat",
+      oc.agree("Controller (of vita) beat", [mark("5 Controller of vital beat 6 A")] * 3)[0])
+check("a bracket after a word the vote leaves stays (mirror)", "olive grove) of",
+      oc.agree("olive grove) of", [mark("5 olive grove of 6 A")] * 3)[0])
 # news-1986-02-01, news-1981-02-05: a k's lost arm reads h; an h never reads k.
 check("a k read as h is a confused letter", True, "king" in oc.confused("hing"))
 check("an h is never a misread k (mirror)", False, "caneh" in oc.confused("canek"))

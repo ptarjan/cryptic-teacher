@@ -1814,6 +1814,12 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
             gap = " " if gap[-1:].isspace() else ""
         out += gap + (add[0] + " " if add else "") + new
         k = at + len(old)
+        if (new != old and text[k:k + 1] == ")" and "(" not in text[:at] and len(new) == len(old) + 1
+                and (new[:-1].lower() == old.lower() or within_one(new[:-1].lower(), old.lower()))):
+            # The word's last letter read as a bracket the clue never opened
+            # ("vita)" for "vital", "Vessc)" for "Vessel"): the vote put the
+            # letter back, so the bracket goes.
+            k += 1
     out += (" " + adds[len(mine)][0] if adds.get(len(mine)) else "") + speckless(text[k:count_cut])
     if adds and how == "agree":
         how = "settled by the readings"
