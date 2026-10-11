@@ -216,7 +216,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "QUOTE", "CURLY", "FILED", "NEARDUP", "REPRINT")
+FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "QUOTE", "CURLY", "FILED", "NEARDUP", "REPRINT", "COUNT")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -1191,6 +1191,7 @@ def check_puzzle(puzzle, today, flags):
     check_grid(puzzle, flags)
     check_numbering(puzzle, flags)
     check_length(puzzle, checkable, flags)
+    check_semicolon_counts(puzzle, flags)
     check_group_order(puzzle, flags)
     check_apostrophes(puzzle, flags)
     check_cross(puzzle, checkable, flags)
@@ -1244,6 +1245,62 @@ def check_curly_quotes(puzzle, flags):
     for e, key, text in quotes.curly(puzzle):
         flags.append(("CURLY", puzzle.get("id"), f"{entry_id(e)}: {key} {text!r} holds a curly "
                       "quote or backtick; clue text is stored straight (quotes.straight)"))
+
+
+def check_semicolon_counts(puzzle, flags):
+    """COUNT: an enumeration holding a ";" between counts that fill its light
+    or its linked group (enumeration.comma_misread): a scan's "," read with
+    a speck, which draws no word break. A ";" whose counts fill neither is
+    the paper's own (two answers' counts in one bracket) and stands. Only
+    an OCR channel's file: a publisher's feed prints the paper's own ";"
+    (the Guardian's two-answer clues over linked lights, cryptic-26974)."""
+    if (puzzle.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return
+    entries = puzzle.get("entries") or []
+    by_id = {entry_id(e): e for e in entries}
+    group_of = groups.group_of(entries)
+    for e in entries:
+        clue = e.get("clue") if isinstance(e.get("clue"), dict) else {}
+        eid = entry_id(e)
+        totals = {e.get("length"), sum((by_id.get(i) or {}).get("length") or 0 for i in group_of.get(eid) or [eid])}
+        if any(enumeration.semicolon_misread(clue, t) for t in totals if t):
+            flags.append(("COUNT", puzzle.get("id"), (f"{eid}: enumeration ({clue['enumeration']}) "
+                          f"fills the light with a \";\", a misread \",\": build it through "
+                          f"enumeration.comma_misread")))
+
+
+def check_new_bleed(old, new, flags):
+    """SHAPE: a clue an OCR channel's write brings that holds another clue's
+    or the page's text (ocr_clues.bled: the previous clue and its count run
+    in ahead, "Division (6;3). Covered inside"). A clue the held file
+    already had as it is stays for the re-read to mend."""
+    if (new.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return
+    was = {entry_id(e): (e.get("clue") or {}).get("text") for e in (old or {}).get("entries") or []
+           if isinstance(e.get("clue"), dict)}
+    for e in new.get("entries") or []:
+        clue = e.get("clue") if isinstance(e.get("clue"), dict) else {}
+        text = clue.get("text")
+        if text and was.get(entry_id(e)) != text and (why := ocr_clues.bled(text, clue.get("asPrinted") or ())):
+            flags.append(("SHAPE", new.get("id"), (f"{entry_id(e)}: {why}; cut it (ocr_clues.run_in) "
+                          f"or file the clue blank")))
+
+
+def check_new_spaces(old, new, flags):
+    """SHAPE: a clue an OCR channel's write brings that holds a run of
+    spaces ("Toe  so"), a reader's join the print never has; build the
+    clue through enumeration.clue, which cuts it to one. A clue the held
+    file already had as it is stays for the re-read (edition_commit.spaced
+    makes it due). Publisher feeds are collapsed by their filers instead."""
+    if (new.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return
+    was = {entry_id(e): (e.get("clue") or {}).get("text") for e in (old or {}).get("entries") or []
+           if isinstance(e.get("clue"), dict)}
+    for e in new.get("entries") or []:
+        text = (e.get("clue") if isinstance(e.get("clue"), dict) else {}).get("text")
+        if text and "  " in text and was.get(entry_id(e)) != text:
+            flags.append(("SHAPE", new.get("id"), (f"{entry_id(e)}: clue {text!r} holds a run of "
+                          f"spaces; cut it to one (enumeration.collapse_spaces)")))
 
 
 def check_duplicated_clues(puzzle, flags):
@@ -1312,6 +1369,8 @@ def refuse_bad_write(puzzle, old=None):
     flags += [("SCHEMA", puzzle.get("id"), p) for p in puzzle_schema.validate(puzzle)]
     if old is not None:
         check_rewrite(old, puzzle, flags)
+    check_new_bleed(old, puzzle, flags)
+    check_new_spaces(old, puzzle, flags)
     if flags:
         raise RefusedWrite(f"refusing to write {puzzle['id']}: "
                            + "; ".join(f"{flag} {what}" for flag, _, what in flags), flags)

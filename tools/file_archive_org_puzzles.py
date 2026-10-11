@@ -1621,6 +1621,9 @@ def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None,
         by_id[entry_id(e)] = e
     seps, groups = {}, {}
     for lid, (text, enum, group) in list(laid.items()):
+        # A ";" between counts that fill the light is a misread ",".
+        enum = enumeration.comma_misread(enum, sum(by_id[i]["length"] for i in group or [lid] if i in by_id))
+        laid[lid] = (text, enum, group)
         if enum:
             try:
                 seps.update(separators(group or [lid], by_id, enum))
@@ -2591,7 +2594,9 @@ def reprint_text(text):
     one clue a line as "<number> <text> (<count>)", each number as its list's
     order reads it ("I They're" is clue 1, no lost word "I") and a line-end
     hyphen kept at a line end. A list that does not parse is kept cut to
-    its lists; None when there are none."""
+    its lists; None when there are none. Runs of spaces read as one (a
+    book's justified line, "Author  of  'Crown  and  Roundhead'")."""
+    text = re.sub(r"[ \t]{2,}", " ", text)
     parsed, _ = parse(text)
     if parsed is None:
         secs = ftp.sections(tidy(text))
@@ -2627,10 +2632,49 @@ def reprint_readings(number, series=REPRINTED):
         text = reprint_text(p.read_text(encoding="utf-8", errors="replace"))
         if text:
             out[f"canberra:{p.parent.name}:{p.stem}"] = text
+    out.update(book_readings(number, series))
+    return out
+
+
+def book_readings(number, series):
+    """{"book:<leaf>": text} of each book's reprint of `series`-`number`
+    (reprint_text)."""
+    out = {}
     for p in book_reprint_files(number, series):
         text = reprint_text(p.read_text(encoding="utf-8", errors="replace"))
         if text:
             out[f"book:{p.stem}"] = text
+    return out
+
+
+def book_clues(readings):
+    """{light: (clue text, its count or None)} of the book readings among
+    `readings` ({name: text}, reprint_readings'), the first book's where
+    two print a light."""
+    out = {}
+    for k, text in readings.items():
+        if not k.startswith("book:"):
+            continue
+        parsed, _ = parse(text)
+        if parsed is None:
+            continue
+        for (n, d), (clue, enums) in numbered(ftp.renumber(parsed)[0]).items():
+            if clue and clue.strip():
+                out.setdefault(f"{n}-{d}", (clue.strip(), next(iter(enums)) if len(enums or ()) == 1 else None))
+    return out
+
+
+def book_marked(laid, books):
+    """`laid` ({light: (text, enum, group)}) with each clue's marks and
+    spaces between words as the book's reprint (`books`, book_clues) prints
+    them (ocr_clues.reprint_marked): the book's is a second, cleaner print
+    of the same clue, and the two vote on them (a book's lost-mark-free
+    count too, ocr_clues.reprint_count); the words stay the scan's, the
+    newspaper's own."""
+    out = {}
+    for lid, (t, e, g) in laid.items():
+        book, count = books.get(lid) or (None, None)
+        out[lid] = (ocr_clues.reprint_marked(t, book) if t and book else t, ocr_clues.reprint_count(e, count), g)
     return out
 
 
@@ -2646,7 +2690,15 @@ def reprint_key(numbers, series=REPRINTED):
     h = hashlib.sha256()
     for p in files:
         h.update(f"{p.parent.name}/{p.name}:{p.stat().st_size}".encode())
+    if any(p.parent.parent == Path(downloads.BOOK_REPRINTS) for p in files):
+        h.update(f"book vote {BOOK_VOTE}".encode())
     return h.hexdigest()[:16]
+
+
+#: The version of how a book's reprint votes on an edition's clues
+#: (book_marked, ocr_clues.run_in, reprint_text): part of reprint_key, so a
+#: change to it makes each edition a book reprints due again, and no other.
+BOOK_VOTE = 1
 
 
 def held_scans(series):
@@ -2942,7 +2994,8 @@ def read_puzzle(d, found, hit, solutions):
             pass  # gone mid-run: read as without it; run() files it to be read again
     # The Canberra Times reprint of the same puzzle is another copy of the
     # print, its readings voters like the scan's own.
-    texts.update(reprint_readings(n, paper.series))
+    reprints = reprint_readings(n, paper.series)
+    texts.update(reprints)
     texts, dropped = screened(texts, g)
     if dropped:
         verdict["dropped"] = dropped
@@ -3057,6 +3110,10 @@ def read_puzzle(d, found, hit, solutions):
     # capital, hyphen and spelling.
     laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths)
     laid, blank = one_light_each(laid, blank, fits)
+    # A clue read in ahead of another's, its count and all, is cut off it;
+    # one no laid clue prints is left for bled() to refuse.
+    laid = ocr_clues.runs_in_cut(laid)
+    laid = book_marked(laid, book_clues(reprints))
     # A word no lexicon knows, or a bracket never shut, that the readings
     # print alike is the print's own ("ignis"): filed as its asPrinted.
     alike = {lid: got for lid, (t, _, _) in laid.items() if t and lid not in blank and (
@@ -3532,7 +3589,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                     editions, scan_new, newer)
 
 
-def inputs_of(files_hash, found, series):
+def inputs_of(files_hash, found, series, reprints=None):
     """An edition's inputs: its files (input_hash), for a puzzle the
     Canberra Times reprinted the reprint's cached texts (reprint_key), and
     whether a puzzle of it filed by this tool holds a clue ocr_clues.stray
@@ -3541,7 +3598,9 @@ def inputs_of(files_hash, found, series):
     clue the read could not mend (a reading on another grid) stays as it
     is until the edition's other inputs move."""
     numbers = [p["number"] for p in found["puzzles"]]
-    return edition_commit.inputs(files_hash, reprint_key(numbers, series), series, numbers)
+    if reprints is None:
+        reprints = reprint_key(numbers, series)
+    return edition_commit.inputs(files_hash, reprints, series, numbers)
 
 
 def solution_source(sol):
@@ -4154,7 +4213,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
         why = due_reason(known[rel], h, sol_seen, seen_by, reread, sources)
         if why or editions and (unit is None or unit.get("force")):
-            due[d] = (h, sol_seen, fh)
+            due[d] = (h, sol_seen, fh, reprint_key([p["number"] for p in scans[rel]["puzzles"]], paper.series))
         elif unit is not None:
             progress(f"not due {rel}: its scan stands as read, or it was read since it was queued")
     # Read only when something is due: a unit that finds nothing due ends here.
@@ -4170,7 +4229,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             return None
         import ocr_remote
         d = queue[0]
-        h, sol_seen, fh = due[d]
+        h, sol_seen, fh, read_with = due[d]
         found = scans[rels[d]]
         set_solutions(solutions, puzzles)
         head, tar = ocr_remote.edition_request(d, found, solutions)
@@ -4179,13 +4238,13 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             "puzzles": puzzles and str(puzzles), "source": str(source), "crops": str(CROPS), "found": found,
             "filesHash": fh, "solutionsSeen": sol_seen, "scanKey": scan_key(), "solutionKey": solution_key(),
             "vlmVersion": vlm.version(),
-            "reprints": reprint_key([p["number"] for p in found["puzzles"]], paper.series)}
+            "reprints": read_with}
     fresh = 0
     for (d, found), (results, vlm_ok, *decided) in scan_queue.parallel(
             [(d, scans[rels[d]]) for d in queue], read_edition, workers, deadline,
             init=set_solutions, initargs=(solutions, puzzles), failed=edition_failed):
         rel = rels[d]
-        h, sol_seen, fh = due[d]
+        h, sol_seen, fh, read_with = due[d]
         fresh += 1
 
         commit = edition_commit.writer(source, paper.series, puzzles)
@@ -4198,8 +4257,10 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                 decide(verdict, puzzle, paper.series, puzzles, held, commit if write else None)
                 verdicts.append(verdict)
         # Keyed by the inputs after this read's writes: a stray clue it
-        # mended no longer makes the edition due.
-        h = inputs_of(fh, found, paper.series)
+        # mended no longer makes the edition due. Its reprints are those it
+        # read: a book its write superseded (fetch_puzzle.supersede_book)
+        # becomes a reading after it, and makes it due to vote.
+        h = inputs_of(fh, found, paper.series, read_with)
         known[rel] = edition_commit.row(rel, h, found, fh, scan_key(), sol_seen, verdicts, vlm_ok and seen_by,
                                         solution_key())
         changed.add(rel)
@@ -4359,10 +4420,14 @@ def mend_held(puzzle, path, tool=TOOL):
             or puzzle["entries"] and trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
         return None
     shared = {i for ids in duplicated_clues(old["entries"]) for i in ids}
-    stray = strayed(old)
+    # A held clue's run of spaces (edition_commit.spaced) is cut to one in
+    # place, annotation and all: the words stand.
+    collapsed = collapse_held_spaces(old)
+    stray = strayed(old, spaces=False)
     lost = shared | stray | set(faults(old))
     # A reading that improves() the file replaces it, its words and all.
     fixed = {} if not puzzle["entries"] or improves(puzzle, path, tool) else corrected_clues(puzzle, old, skip=lost)
+    fixed = {**collapsed, **fixed}
     if not lost:
         return (old, fixed) if fixed else None
     now = {entry_id(e): e["clue"] for e in puzzle["entries"] if (e["clue"] or {}).get("text")}
@@ -4389,6 +4454,19 @@ def mend_held(puzzle, path, tool=TOOL):
         if entry_id(e) in changed:
             e.pop("annotation", None)
     return old, {**fixed, **{entry_id(e): text(e["clue"]) for e in old["entries"] if entry_id(e) in lost}}
+
+
+def collapse_held_spaces(old):
+    """{light: its clue now} after cutting each run of spaces in `old`'s
+    clue texts to one (enumeration.collapse_entry_spaces), in place."""
+    return {entry_id(e): e["clue"]["text"] for e in old.get("entries") or ()
+            if enumeration.collapse_entry_spaces(e)}
+
+
+def spaces_collapsed(was, now):
+    """Whether `now` is the held `was` with its runs of spaces cut to one
+    and nothing else changed (enumeration.collapse_spaces)."""
+    return bool(was and now and now != was and enumeration.collapse_spaces(was)[0] == now)
 
 
 #: A clue's words for corrects(): letters of any script ("Schönberg's"),
@@ -4448,11 +4526,14 @@ def corrects(was, now, printed=()):
     article "A" goes before any word, so it needs no such pairing.
     "Frontier cantonment." to "A Frontier cantonment." does; so
     does a change that only drops a stop after a lone letter
-    (lone_stops_dropped). A reading that loses a real word, swaps one,
+    (lone_stops_dropped), or only cuts a run of spaces to one
+    (spaces_collapsed). A reading that loses a real word, swaps one,
     reorders them, or changes other marks only (a held file's quotes are
     straightened, its specks cleaned) does not."""
     if not (was or "").strip() or not ocr_clues.tokens(now or "") or now == was:
         return False
+    if spaces_collapsed(was, now):
+        return True
     if ocr_clues.suspect(now, printed=printed) or ocr_clues.bled(now, printed) or ocr_clues.stray(now):
         return False
     if set(now) & SPECK_SYMBOLS - set(was):
@@ -4545,15 +4626,22 @@ def corrected_clues(puzzle, old, skip=()):
     (the annotation was written against the held words), one a
     source_clue_wrong or setter_error row names (keyed to the held words),
     and one whose new words another light of its list holds are left as
-    they are. The caller has checked the two lie on one grid."""
+    they are. A clue whose marks alone change is taken when they are a
+    book reprint's (book_marked): the held file's words with the book's
+    marks. A held count is mended even where the words stand
+    (book_counted). The caller has checked the two lie on one grid."""
     from fetch_puzzle import SOURCE_CLUE_WRONG, duplicated_clues, load_source_table
     rows = set(SOURCE_CLUE_WRONG) | set(load_source_table("setter_error"))
+    # reprint_readings, not book_readings: a read on the desktop is handed
+    # the edition's reprints in its request (ocr_remote).
+    books = book_clues(reprint_readings(old["number"], old["series"])) if old.get("number") and old.get("series") else {}
     now = {entry_id(e): e["clue"] for e in puzzle["entries"] if (e.get("clue") or {}).get("text")}
     fixed, lights = {}, {e["number"] for e in old["entries"]}
     for e in old["entries"]:
         lid, was = entry_id(e), e.get("clue") or {}
         if lid in skip or lid not in now or e.get("annotation") or (old.get("id"), lid) in rows \
                 or not (corrects(was.get("text"), now[lid]["text"], now[lid].get("asPrinted") or ())
+                        or book_marks(was.get("text"), now[lid]["text"], (books.get(lid) or (None,))[0])
                         or count_dropped(was.get("text"), now[lid]["text"], e.get("length"),
                                          lights, now[lid].get("asPrinted") or ())):
             continue
@@ -4565,7 +4653,55 @@ def corrected_clues(puzzle, old, skip=()):
             e["clue"] = was
             continue
         fixed[lid] = clue["text"]
+    for lid in book_counted(old, books, skip=skip):
+        fixed.setdefault(lid, (by_light(old).get(lid, {}).get("clue") or {}).get("text") or "")
     return fixed
+
+
+def by_light(puzzle):
+    return {entry_id(e): e for e in puzzle.get("entries") or ()}
+
+
+def book_counted(old, books, skip=()):
+    """The lights of the held `old` whose enumeration this changes, in
+    place, with its separators: a ";" whose counts fill the light read as
+    the "," it is (enumeration.comma_misread, times-15602 7D's "6;3"), and
+    a bare count the book's reprint (`books`, book_clues) prints with its
+    marks at the same total (ocr_clues.reprint_count, "9" for "5,4"). The
+    clue's words need not change: a held file's count is mended alone.
+    A light in `skip`, or whose new count its lights cannot hold, stays."""
+    lights, out = by_light(old), []
+    for e in old.get("entries") or ():
+        lid, clue = entry_id(e), e.get("clue") if isinstance(e.get("clue"), dict) else None
+        if lid in skip or not clue or not clue.get("enumeration"):
+            continue
+        group = [g for g in e.get("group") or [lid] if g in lights]
+        was = clue["enumeration"]
+        now = enumeration.comma_misread(was, sum(lights[g]["length"] for g in group))
+        now = ocr_clues.reprint_count(now, (books.get(lid) or (None, None))[1])
+        if now == was:
+            continue
+        try:
+            seps = separators(group, lights, now)
+        except SystemExit:
+            continue
+        clue["enumeration"] = now
+        for g in group:
+            target = lights[g].get("clue") if isinstance(lights[g].get("clue"), dict) else None
+            if target is None:
+                continue
+            if seps.get(g):
+                target["separators"] = seps[g]
+            else:
+                target.pop("separators", None)
+        out.append(lid)
+    return out
+
+
+def book_marks(was, now, book):
+    """Whether `now` is the held clue `was` with the marks a book's reprint
+    of it prints (`book`; ocr_clues.reprint_marked) and nothing else."""
+    return bool(was and book and now != was and ocr_clues.reprint_marked(was, book) == now)
 
 
 def merge_answers(old, puzzle, tool=TOOL, reread=False):

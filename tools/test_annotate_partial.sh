@@ -138,15 +138,17 @@ try:
     # A write that changes an annotated clue's text (an OCR re-read, a
     # corroborated reading) keeps the annotation only on the same words, every
     # phrase it quotes still there. The case: ftcryptic-8476 7 down with page
-    # debris "Jotter Pad 7" in its clue and a block quoting it.
+    # debris "Jotter Pad" in its clue and a block quoting it. (Not the page's
+    # "Jotter Pad 7": a clue number and text run in is refused at the write,
+    # puzzle_integrity.check_new_bleed, and so is a run of spaces.)
     ft = tmp / "ftcryptic-8476.json"
     shutil.copy(F.puzzle_paths.find("ftcryptic-8476"), ft)
     def seven_down(p):
         return next(e for e in p["entries"] if groups.entry_id(e) == "7-down")
     held = F.read_puzzle_file(ft)
     debris = copy.deepcopy(seven_down(held))
-    debris["clue"]["text"] = "Jotter Pad 7 " + debris["clue"]["text"]
-    debris["annotation"]["blocks"].insert(0, {"clueFragment": "Jotter Pad 7", "note": "page debris"})
+    debris["clue"]["text"] = "Jotter Pad " + debris["clue"]["text"]
+    debris["annotation"]["blocks"].insert(0, {"clueFragment": "Jotter Pad", "note": "page debris"})
     held["entries"] = [debris if groups.entry_id(e) == "7-down" else e for e in held["entries"]]
     def rewrite(text, ann=None):
         ft.write_text(json.dumps(held, indent=1))
@@ -162,10 +164,10 @@ try:
           "annotation" not in seven_down(out))
     check("and only that entry's", sum("annotation" in e for e in out["entries"])
           == sum("annotation" in e for e in held["entries"]) - 1)
-    out = rewrite("Jotter Pad 7  Bring a well qualified person in, with all speed")
+    out = rewrite("Jotter Pad Bring a well qualified person in, with all speed")
     check("a typography-only change that keeps every quoted phrase keeps it",
           seven_down(out).get("annotation", {}).get("blocks") == debris["annotation"]["blocks"])
-    check("and its definition is placed again", seven_down(out)["annotation"]["definitions"][0]["at"] == 48)
+    check("and its definition is placed again", seven_down(out)["annotation"]["definitions"][0]["at"] == 45)
     fresh = copy.deepcopy(debris["annotation"]); fresh["blocks"] = fresh["blocks"][1:]
     out = rewrite(clean, fresh)
     check("an annotation written for the new clue is kept",

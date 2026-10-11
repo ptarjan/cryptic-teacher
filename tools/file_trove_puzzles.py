@@ -951,7 +951,10 @@ def build(aid, meta, ocr, grid, how, laid, day):
         entries.append(e)
         by_id[entry_id(e)] = e
     seps, groups = {}, {}
-    for lid, (text, enum, group) in laid.items():
+    for lid, (text, enum, group) in list(laid.items()):
+        # A ";" between counts that fill the light is a misread ",".
+        enum = enumeration.comma_misread(enum, sum(by_id[i]["length"] for i in group or [lid] if i in by_id))
+        laid[lid] = (text, enum, group)
         if enum:
             try:
                 seps.update(separators(group or [lid], by_id, enum))

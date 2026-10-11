@@ -2325,6 +2325,9 @@ def convert(data):
         text, enum = enumeration.split(line)
         if (printed := source_clue(pid, f"{e['number']}-{e['direction']}", text)) != text:
             text, italics = printed, []
+        # A run of spaces ("wrong Elvis?  Dead right!") is the feed's, not
+        # the paper's: one space, as every other filer has it.
+        text, italics = enumeration.collapse_spaces(text, italics)
         seps = separator_list(e.get("separatorLocations"))
         entries.append({
             "number": e["number"],

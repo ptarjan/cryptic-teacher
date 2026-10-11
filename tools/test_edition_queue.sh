@@ -82,7 +82,7 @@ t2 = edition("NewsUK1980UKEnglish", "1980-01-02_2", 10)
 t3 = edition("NewsUK1980UKEnglish", "1980-03-01_3", 10)
 f.edition_dirs = lambda cache=None, paper=None: {"gale": [g1, g2], "times": [t1, t2, t3]}.get((paper or f.TIMES).key, [])
 f.input_hash = lambda d: "h"
-f.inputs_of = lambda fh, found, series: fh
+f.inputs_of = lambda fh, found, series, reprints=None: fh
 scan = {"puzzles": [{"number": 1, "leaf": 1, "box": None}], "solutions": []}
 def row(d, read_at=None, **kw):
     r = {"edition": f"{d.parent.name}/{d.name}", "filesHash": "h", "scanKey": f.scan_key(), "scan": scan}
