@@ -43,6 +43,16 @@ Unlike straightening quotes, these change the clue's length, so every offset
 into it moves with the text (enumeration.rewrite_entry: italics, definition
 offsets, hiddenLetter, the annotation's quoted phrases).
 
+An annotation that quotes the clue (definitions, indicators, link words,
+block fragments, the misdirected word, an anagram's fodder:
+quotes._clue_strings) spells its dashes and ellipses as the clue does
+(quote()): a link word "-" or "--" for the clue's " — " is "—", "gin..." for
+"gin…" is "gin…". normalise() mends a quote left in the old spelling even when
+the clue is already stored right, write_puzzle_file puts every write through
+it, definitions.respell (apply_annotations, annotate_check) spells a new
+annotation's words the same way, and puzzle_integrity's DASH check refuses a
+quote that quote() would still change.
+
     python3 tools/dashes.py [--dry-run] [FILE...]   # every held puzzle and clues-only file, or just those
 """
 import copy
@@ -127,6 +137,50 @@ def normal(text):
     return mapped(text)[0]
 
 
+def quote(phrase, clue):
+    """`phrase`, which an annotation quotes from `clue`, with its dashes and
+    ellipses spelt as `clue` spells them: itself when it stands in `clue` as
+    whole words or marks (enumeration.find_words), else normal(phrase) or,
+    for a phrase that is only a dash ("-", "--", "–"), the house dash "—",
+    when that stands there, or is there at all and `phrase` is not."""
+    if not isinstance(phrase, str) or not phrase or not isinstance(clue, str):
+        return phrase
+    def bounded(p):
+        return enumeration.words_at(clue, p, enumeration.find_words(clue, p))
+    if bounded(phrase):
+        return phrase
+    core = phrase.strip(_SP)
+    cands = [normal(phrase)]
+    if core and set(core) <= set(_MARKS) and not (set(core) == {"-"} and len(core) > 3):
+        cands.append(HOUSE.strip())
+    cands = [c for c in dict.fromkeys(cands) if c != phrase]
+    for c in cands:
+        if bounded(c):
+            return c
+    if phrase not in clue:
+        for c in cands:
+            if c in clue:
+                return c
+    return phrase
+
+
+def stale(entry):
+    """[(holder, key)] of each annotation string in `entry` that quotes its
+    clue with a dash or ellipsis spelt other than the clue spells it."""
+    import quotes
+    clue = (entry.get("clue") if isinstance(entry.get("clue"), dict) else {}).get("text")
+    if not isinstance(clue, str) or not isinstance(entry.get("annotation"), dict):
+        return []
+    return [(h, k) for h, k in quotes._clue_strings(entry)[1:]
+            if isinstance(h[k], str) and quote(h[k], clue) != h[k]]
+
+
+def _requote(entry):
+    clue = entry["clue"]["text"] if isinstance(entry.get("clue"), dict) else None
+    for holder, key in stale(entry):
+        holder[key] = quote(holder[key], clue)
+
+
 def unnormal(puzzle):
     """[(entry, text)] of each clue whose text normal() would change."""
     return [(e, t) for e in puzzle.get("entries") or ()
@@ -137,11 +191,12 @@ def normalise(puzzle):
     """`puzzle` with its clue text's dashes and ellipses in the house spelling
     and every offset into it moved: itself when it already is, else a copy,
     so the caller's puzzle is left as it was."""
-    if not unnormal(puzzle):
+    if not unnormal(puzzle) and not any(stale(e) for e in puzzle.get("entries") or ()):
         return puzzle
     puzzle = copy.deepcopy(puzzle)
     for e in puzzle.get("entries") or ():
         enumeration.rewrite_entry(e, mapped)
+        _requote(e)
     return puzzle
 
 
@@ -150,13 +205,14 @@ def normalise_clues_only(record):
     house spelling: itself when it already is, else a copy."""
     lights = [l for d in ("across", "down") for l in (record.get("clues") or {}).get(d) or ()]
     if not any(isinstance(t := (l.get("clue") or {}).get("text"), str) and normal(t) != t
-               for l in lights if isinstance(l.get("clue"), dict)):
+               for l in lights if isinstance(l.get("clue"), dict)) and not any(stale(l) for l in lights):
         return record
     record = copy.deepcopy(record)
     for d in ("across", "down"):
         for light in record["clues"].get(d) or ():
             if isinstance(light.get("clue"), dict):
                 enumeration.rewrite_entry(light, mapped)
+                _requote(light)
     return record
 
 
@@ -171,7 +227,7 @@ def main(argv=None):
     paths = [Path(a) for a in args.files] or (
         sorted(puzzle_paths.PUZZLE_DIR.glob("*/*/*.json"))
         + sorted((puzzle_paths.PUZZLE_DIR.parent / "clues_only").glob("**/*.json")))
-    files = clues = 0
+    files = clues = quoted = 0
     for path in paths:
         raw = path.read_text(encoding="utf-8")
         if not any(c in raw for c in "-\u2013\u2014\u2015\u2212."):
@@ -181,6 +237,7 @@ def main(argv=None):
             continue
         if "entries" in record:
             n, out = len(unnormal(record)), normalise(record)
+            quoted += sum(len(stale(e)) for e in record.get("entries") or ())
         else:
             out = normalise_clues_only(record)
             n = sum(a["clue"]["text"] != b["clue"]["text"]
@@ -194,7 +251,8 @@ def main(argv=None):
             part = path.with_name(f".{path.name}.part")
             part.write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
             os.replace(part, path)
-    print(f"{'would normalise' if args.dry_run else 'normalised'} {clues} clues in {files} of {len(paths)} files")
+    print(f"{'would normalise' if args.dry_run else 'normalised'} {clues} clues and {quoted} stale "
+          f"annotation quotes in {files} of {len(paths)} files")
     return 0
 
 

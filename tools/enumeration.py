@@ -178,6 +178,30 @@ def _quoted_strings(entry):
     return quotes._clue_strings(entry)[1:]
 
 
+def find_words(text, phrase):
+    """Where `phrase` stands in `text` as whole words or marks (words_at),
+    else where it first appears at all, else -1. A link word "-" is the
+    spaced dash in "Non-U eats - they", not the hyphen inside "Non-U"."""
+    if not phrase:
+        return -1
+    i = text.find(phrase)
+    while i >= 0:
+        if words_at(text, phrase, i):
+            return i
+        i = text.find(phrase, i + 1)
+    return text.find(phrase)
+
+
+def words_at(text, phrase, i):
+    """Whether `phrase` is text[i:] as whole words or marks: no letter or
+    digit runs on to an end of it that is not a space."""
+    n = len(phrase)
+    if not phrase or text[i:i + n] != phrase:
+        return False
+    return not ((i and not phrase[0].isspace() and text[i - 1].isalnum())
+                or (i + n < len(text) and not phrase[-1].isspace() and text[i + n].isalnum()))
+
+
 def rewrite_entry(entry, mapper):
     """Rewrite `entry`'s clue text in place through `mapper` (text -> (new
     text, [new offset of each old offset 0..len(text)])) and move everything
@@ -216,7 +240,7 @@ def rewrite_entry(entry, mapper):
         phrase = holder[key]
         start = holder.get("at") if isinstance(holder, dict) and isinstance(holder.get("at"), int) else None
         if start is None or text[start:start + len(phrase)] != phrase:
-            start = text.find(phrase) if phrase else -1
+            start = find_words(text, phrase)
         if start < 0:
             holder[key] = mapper(phrase)[0]
             continue

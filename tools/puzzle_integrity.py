@@ -1254,10 +1254,17 @@ def check_curly_quotes(puzzle, flags):
 
 def check_dashes(puzzle, flags):
     """DASH: clue text spelling a dash between words or an ellipsis other
-    than the house " \u2014 " and "\u2026" (tools/dashes.py)."""
+    than the house " \u2014 " and "\u2026", or an annotation quoting the clue
+    with them spelt other than the clue does (tools/dashes.py)."""
     for e, text in dashes.unnormal(puzzle):
         flags.append(("DASH", puzzle.get("id"), f"{entry_id(e)}: {text!r} spells a dash or ellipsis "
                       f"other ways; clue text is stored {dashes.normal(text)!r} (dashes.normal)"))
+    for e in puzzle.get("entries") or []:
+        clue = (e.get("clue") or {}).get("text", "")
+        for holder, key in dashes.stale(e):
+            flags.append(("DASH", puzzle.get("id"), f"{entry_id(e)}: annotation quotes {holder[key]!r} "
+                          f"for the clue's {dashes.quote(holder[key], clue)!r}; quoted clue words "
+                          "spell a dash or ellipsis as the clue does (dashes.quote)"))
 
 
 def check_semicolon_counts(puzzle, flags):

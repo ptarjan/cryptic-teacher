@@ -60,7 +60,12 @@ def respell(text, clue):
     run of clue words, when the two differ only in quote marks and dashes, in
     case, or in the spaces and punctuation between the words ("Type of shirt"
     for "type of shirt", "that, Parisian" for "that Parisian"). `text` itself
-    when it is in the clue already, or names no single run of clue words."""
+    when it is in the clue already, or names no single run of clue words. A
+    dash or ellipsis is spelt as the clue spells it first (dashes.quote): a
+    link word "-" for the clue's " — " is "—", not the hyphen in "Non-U"."""
+    import dashes  # lazy: dashes imports enumeration, which this module's users import
+    if isinstance(text, str) and isinstance(clue, str):
+        text = dashes.quote(text, clue)
     if not isinstance(text, str) or not text or text in clue:
         return text
     i = clue.translate(LOOKALIKES).find(text.translate(LOOKALIKES))
