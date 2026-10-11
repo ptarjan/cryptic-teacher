@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Wound soldiers surrounding German's room",
     "enumeration": "6"
    },
-   "solution": "TRAUMA"
+   "solution": "TRAUMA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAUMA",
+    "definitions": [
+     {
+      "text": "Wound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "to surround something is to sit on both sides of it, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "TA",
+      "note": "the Territorial Army, Britain's reserve soldiers"
+     },
+     {
+      "clueFragment": "German's room",
+      "gives": "RAUM",
+      "note": "Raum is the German word for room"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAUM",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A wounded soldier is billeted in a German's room.",
+     "definitionFit": "Trauma is a medical term for a physical injury, so it is a synonym of a wound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wound"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +97,51 @@
     "text": "Dessert - is it a rum concoction?",
     "enumeration": "8"
    },
-   "solution": "TIRAMISU"
+   "solution": "TIRAMISU",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIRAMISU",
+    "definitions": [
+     {
+      "text": "Dessert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concoction",
+      "for": "anagram",
+      "note": "a concoction is something mixed up from ingredients, so these letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is it a rum",
+      "gives": "ISITARUM",
+      "note": "the letters to be mixed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISITARUM",
+       "gives": "TIRAMISU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eyes a dessert and wonders if it is just a rum-soaked concoction.",
+     "walkthrough": "The question is fair: tiramisu is often laced with rum or Marsala, so the anagram describes the dish.",
+     "definitionFit": "Tiramisu is an Italian layered pudding of coffee-soaked sponge and mascarpone, an example of a dessert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concoction"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +155,80 @@
     "text": "Lawyer to sailors caught in a further capsizal",
     "enumeration": "8"
    },
-   "solution": "ATTORNEY"
+   "solution": "ATTORNEY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "ATTORNEY",
+    "definitions": [
+     {
+      "text": "Lawyer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capsizal",
+      "for": "reversal",
+      "note": "a boat that capsizes turns upside down, which in a down clue flips the word's order"
+     },
+     {
+      "text": "caught in",
+      "for": "container",
+      "note": "something caught in something else is held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "further",
+      "gives": "YET",
+      "note": "yet means further or still more, as in 'yet another'"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sailors",
+      "gives": "RN",
+      "note": "the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "TO",
+      "RN",
+      "EY"
+     ],
+     "reversals": [
+      {
+       "from": "YET",
+       "to": "TEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer advises sailors caught up in yet another capsized boat.",
+     "walkthrough": "'Capsizal' applies only to the word for further, not to the whole phrase; the leading A stays put.",
+     "definitionFit": "An attorney is a legal representative, the American word for a lawyer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capsizal"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +242,50 @@
     "text": "Saw German chap stalking maiden",
     "enumeration": "5"
    },
-   "solution": "MOTTO"
+   "solution": "MOTTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOTTO",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "stalking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M is the cricket scorecard abbreviation for a maiden over"
+     },
+     {
+      "clueFragment": "German chap",
+      "gives": "OTTO",
+      "note": "Otto is a typical German man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OTTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A German man is stalking a young woman.",
+     "walkthrough": "Stalking means following, so the German's name comes after the maiden. A maiden in cricket is an over with no runs scored.",
+     "definitionFit": "A saw is an old saying or proverb, and a motto is a short guiding saying, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +305,50 @@
      }
     ]
    },
-   "solution": "BLACKROD"
+   "solution": "BLACKROD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLACK ROD",
+    "definitions": [
+     {
+      "text": "Usher",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very dirty",
+      "gives": "BLACK",
+      "note": "something filthy can be called black with dirt"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "ROD",
+      "note": "a rod is a bar of metal or wood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLACK",
+      "ROD"
+     ]
+    },
+    "explanation": {
+     "surface": "An usher shows someone into a filthy pub.",
+     "walkthrough": "'Bar' suggests a pub but is just a rod. Black Rod is the official who summons MPs to the House of Lords for the State Opening of Parliament.",
+     "definitionFit": "Black Rod's full title is Gentleman Usher of the Black Rod, a ceremonial officer of the House of Lords."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +368,58 @@
      }
     ]
    },
-   "solution": "LADYHAMILTON"
+   "solution": "LADYHAMILTON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LADY HAMILTON",
+    "definitions": [
+     {
+      "text": "Mistress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "a struggling thing is thrashing about out of order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holland may",
+      "gives": "HOLLANDMAY",
+      "note": "letters to be mixed"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "added to the mix, joined by 'with'"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOLLANDMAYIT",
+       "gives": "LADYHAMILTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mistress from the Netherlands may be having a hard time of it.",
+     "definitionFit": "Emma, Lady Hamilton was famous as the lover of Admiral Lord Nelson, the best-known mistress in British history."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Holland"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +439,50 @@
      }
     ]
    },
-   "solution": "COMECLEAN"
+   "solution": "COMECLEAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COME CLEAN",
+    "definitions": [
+     {
+      "text": "Tell all",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "ahead of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to turn up",
+      "gives": "COME",
+      "note": "to come is to arrive or turn up"
+     },
+     {
+      "clueFragment": "fair",
+      "gives": "CLEAN",
+      "note": "fair play is clean play"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COME",
+      "CLEAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to show up early for the funfair.",
+     "walkthrough": "'Ahead of' only places the first piece before the second; 'fair' is not a funfair but an adjective meaning honest.",
+     "definitionFit": "To come clean is an idiom for confessing everything, which is what telling all means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +496,59 @@
     "text": "Mention about Ecstasy in jacket",
     "enumeration": "6"
    },
-   "solution": "REEFER"
+   "solution": "REEFER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REEFER",
+    "definitions": [
+     {
+      "text": "jacket",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first word goes round the drug"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mention",
+      "gives": "REFER",
+      "note": "to refer to something is to mention it"
+     },
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "E",
+      "FER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mentions that there is ecstasy hidden in a jacket.",
+     "walkthrough": "The drug theme pulls toward the cannabis sense of the answer, but the definition is the coat.",
+     "definitionFit": "A reefer is a short, thick double-breasted jacket of the kind worn by sailors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jacket"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +562,44 @@
     "text": "Lovely and vague",
     "enumeration": "6"
    },
-   "solution": "DREAMY"
+   "solution": "DREAMY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DREAMY",
+    "definitions": [
+     {
+      "text": "Lovely",
+      "at": 0
+     },
+     {
+      "text": "vague",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lovely",
+      "note": "first meaning: delightful, wonderful"
+     },
+     {
+      "clueFragment": "vague",
+      "note": "second meaning: absent-minded, in a world of one's own"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads like a description of one person, but the two adjectives are separate senses of one word.",
+     "definitionFit": "Dreamy can mean wonderful, as in a dreamy holiday, or distracted and unfocused, as if half asleep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +613,48 @@
     "text": "Go round (run round) gallery",
     "enumeration": "6"
    },
-   "solution": "ROTATE"
+   "solution": "ROTATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROTATE",
+    "definitions": [
+     {
+      "text": "Go round",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run round",
+      "gives": "RO",
+      "note": "R is the cricket abbreviation for a run, and O is round in shape"
+     },
+     {
+      "clueFragment": "gallery",
+      "gives": "TATE",
+      "note": "the Tate is the London art gallery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "O",
+      "TATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A visitor is told to go round, quickly, a gallery.",
+     "walkthrough": "The bracketed words read like an aside repeating the definition, but they supply letters.",
+     "definitionFit": "To rotate is to turn about an axis, a synonym of going round."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +674,65 @@
      }
     ]
    },
-   "solution": "ADAMBEDE"
+   "solution": "ADAMBEDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ADAM BEDE",
+    "definitions": [
+     {
+      "text": "novel",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "a figure crossing something straddles it, so one word sits across and around the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "titled woman",
+      "gives": "DAME",
+      "note": "a dame holds a title, as in Dame Judi Dench"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "BED",
+      "note": "a garden border is a flower bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DAM",
+      "BED",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A noblewoman crosses a frontier in a work of fiction.",
+     "walkthrough": "'Border' suggests a frontier but is a flower bed.",
+     "definitionFit": "Adam Bede is George Eliot's first full-length novel, published in 1859."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +752,50 @@
      }
     ]
    },
-   "solution": "LETHALWEAPON"
+   "solution": "LETHALWEAPON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LETHAL WEAPON",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exploding",
+      "for": "anagram",
+      "note": "something exploding is blown apart, so its letters land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a whole planet",
+      "gives": "AWHOLEPLANET",
+      "note": "letters to be mixed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AWHOLEPLANET",
+       "gives": "LETHALWEAPON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A movie shows an entire planet blowing up.",
+     "walkthrough": "The disaster-movie surface suits the action film the answer names.",
+     "definitionFit": "Lethal Weapon is the 1987 buddy-cop action film starring Mel Gibson and Danny Glover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +809,51 @@
     "text": "Touring in the more historic Welsh county",
     "enumeration": "9"
    },
-   "solution": "MERIONETH"
+   "solution": "MERIONETH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MERIONETH",
+    "definitions": [
+     {
+      "text": "historic Welsh county",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Touring",
+      "for": "anagram",
+      "note": "touring means travelling about, so the letters wander into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the more",
+      "gives": "INTHEMORE",
+      "note": "letters to be mixed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTHEMORE",
+       "gives": "MERIONETH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller explores more of an old Welsh county.",
+     "walkthrough": "'In' looks like a link word but its letters belong in the anagram.",
+     "definitionFit": "Merioneth, or Merionethshire, was a county of north-west Wales until it was abolished in 1974."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Touring"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +867,63 @@
     "text": "Stuff round end of profiterole?",
     "enumeration": "5"
    },
-   "solution": "CREAM"
+   "solution": "CREAM",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CREAM",
+    "definitions": [
+     {
+      "text": "Stuff round end of profiterole?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the verb's letters wrap around the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stuff",
+      "gives": "CRAM",
+      "note": "to cram is to stuff full"
+     },
+     {
+      "clueFragment": "profiterole",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the pastry's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "E",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook asks what goes round the end of a choux bun.",
+     "walkthrough": "The whole clue also describes the answer: the filling stuffed inside a profiterole surrounds its far end.",
+     "definitionFit": "Profiteroles are choux buns piped full of whipped cream, so the clue as a whole describes that filling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Stuff"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +937,65 @@
     "text": "One may be used to break rocks in prison, around side by hospital",
     "enumeration": "12"
    },
-   "solution": "SLEDGEHAMMER"
+   "solution": "SLEDGEHAMMER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SLEDGEHAMMER",
+    "definitions": [
+     {
+      "text": "One may be used to break rocks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the prison word wraps the other pieces"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "SLAMMER",
+      "note": "the slammer is slang for jail"
+     },
+     {
+      "clueFragment": "side",
+      "gives": "EDGE",
+      "note": "an edge is a side of something"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SL",
+      "EDGE",
+      "H",
+      "AMMER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tool for breaking rocks in a prison work gang, kept by the hospital.",
+     "walkthrough": "'In prison' reads as the convict's setting, but 'in' is the link and prison gives the outer word.",
+     "definitionFit": "A sledgehammer is a heavy long-handled hammer, the tool of chain-gang convicts breaking stones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1015,67 @@
      }
     ]
    },
-   "solution": "GHOSTTOWN"
+   "solution": "GHOSTTOWN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "GHOST TOWN",
+    "definitions": [
+     {
+      "text": "an empty place",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy means elaborate or ornamented, so the letters are dressed up in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "landlord",
+      "gives": "HOST",
+      "note": "a host is a landlord at an inn"
+     },
+     {
+      "clueFragment": "won't",
+      "gives": "TOWN",
+      "note": "the letters of won't, apostrophe dropped, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "HOST",
+      "TOWN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WONT",
+       "gives": "TOWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decent landlord will not take a liking to a deserted pub.",
+     "walkthrough": "'Fancy' reads as a verb meaning to like but signals the anagram.",
+     "definitionFit": "A ghost town is an abandoned settlement with no inhabitants left, an empty place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1089,47 @@
     "text": "Jude Law, a rep in part, bringing one to this US state",
     "enumeration": "8"
    },
-   "solution": "DELAWARE"
+   "solution": "DELAWARE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DELAWARE",
+    "definitions": [
+     {
+      "text": "US state",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in part",
+      "for": "hidden_word",
+      "note": "only a part of the words is wanted, a run of letters sitting inside them"
+     }
+    ],
+    "linkWords": [
+     "bringing one to this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jude Law, a rep",
+      "gives": "DELAWARE",
+      "note": "the run of letters starting in Jude and ending in rep"
+     }
+    ],
+    "explanation": {
+     "surface": "The actor Jude Law, playing a repertory role, brings someone to an American state.",
+     "walkthrough": "'In part' also suggests an actor's role, fitting Jude Law.",
+     "definitionFit": "Delaware is a small state on the US east coast, the first to ratify the Constitution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1143,55 @@
     "text": "Fireproof material, like finest used by sailor",
     "enumeration": "8"
    },
-   "solution": "ASBESTOS"
+   "solution": "ASBESTOS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASBESTOS",
+    "definitions": [
+     {
+      "text": "Fireproof material",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "used by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as means like, in 'as good as gold'"
+     },
+     {
+      "clueFragment": "finest",
+      "gives": "BEST",
+      "note": "the finest is the best"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "OS",
+      "note": "OS is an ordinary seaman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "BEST",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor uses the finest fireproof material.",
+     "definitionFit": "Asbestos is a fibrous mineral once widely used for fire-resistant insulation and protective cloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1211,51 @@
      }
     ]
    },
-   "solution": "MOLLFLANDERS"
+   "solution": "MOLLFLANDERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MOLL FLANDERS",
+    "definitions": [
+     {
+      "text": "Adventuress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unwisely",
+      "for": "anagram",
+      "note": "acting unwisely means going about things wrongly, so the letters end up out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lends from all",
+      "gives": "LENDSFROMALL",
+      "note": "letters to be mixed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LENDSFROMALL",
+       "gives": "MOLLFLANDERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A female adventurer foolishly lends money to everyone.",
+     "walkthrough": "'From' looks like a link word but its letters are needed in the anagram.",
+     "definitionFit": "Moll Flanders is Daniel Defoe's 1722 heroine, a thief and serial wife who lives by her wits, an adventuress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1269,56 @@
     "text": "Sign male's ignored in reference book",
     "enumeration": "6"
    },
-   "solution": "TAURUS"
+   "solution": "TAURUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TAURUS",
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "something ignored is left out, so those letters are dropped from the word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male's",
+      "gives": "HES",
+      "note": "a male is he, so male's gives he's"
+     },
+     {
+      "clueFragment": "reference book",
+      "gives": "THESAURUS",
+      "note": "a thesaurus is a book of synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AURUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A star sign is missing from the male's reference book.",
+     "definitionFit": "Taurus, the bull, is the second sign of the zodiac."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "male's"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1332,51 @@
     "text": "Iran, an amazing land for children?",
     "enumeration": "6"
    },
-   "solution": "NARNIA"
+   "solution": "NARNIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NARNIA",
+    "definitions": [
+     {
+      "text": "land for children?",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amazing",
+      "for": "anagram",
+      "note": "amazing comes from maze, so the letters are lost in a tangle and come out reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iran, an",
+      "gives": "IRANAN",
+      "note": "letters to be mixed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IRANAN",
+       "gives": "NARNIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Iran is held up as a wonderful country for kids.",
+     "walkthrough": "The question mark flags that the land is fictional, from children's books.",
+     "definitionFit": "Narnia is the magical realm in C. S. Lewis's Chronicles of Narnia, a children's fantasy series."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "amazing"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1390,46 @@
     "text": "A member, separated",
     "enumeration": "5"
    },
-   "solution": "APART"
+   "solution": "APART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APART",
+    "definitions": [
+     {
+      "text": "separated",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "PART",
+      "note": "a member is a part of a body or a whole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PART"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Member' suggests a person in a club, but here it is a limb or component.",
+     "definitionFit": "Things kept apart are separated from one another, so the adverb matches the participle used predicatively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1443,61 @@
     "text": "Clear river containing single rodent",
     "enumeration": "9"
    },
-   "solution": "EXONERATE"
+   "solution": "EXONERATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXONERATE",
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the river's letters surround the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "EXE",
+      "note": "the Exe is a river in Devon"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "ONE",
+      "note": "a single is one"
+     },
+     {
+      "clueFragment": "rodent",
+      "gives": "RAT",
+      "note": "a rat is a rodent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ONE",
+      "RAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A river is hiding a lone rat.",
+     "definitionFit": "To exonerate someone is to clear them of blame, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clear"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1511,56 @@
     "text": "To remove all trace of epoch's close to impossible",
     "enumeration": "5"
    },
-   "solution": "ERASE"
+   "solution": "ERASE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ERASE",
+    "definitions": [
+     {
+      "text": "To remove all trace of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "epoch's",
+      "gives": "ERAS",
+      "note": "an era is an epoch, so epoch's gives era's"
+     },
+     {
+      "clueFragment": "impossible",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERAS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Wiping out every sign of an age is next to impossible.",
+     "walkthrough": "'Close to impossible' reads as nearly impossible, but it means the word's final letter.",
+     "definitionFit": "To erase is to rub out or obliterate, leaving no trace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1574,64 @@
     "text": "English poet, Arnold, drunk at public house",
     "enumeration": "8"
    },
-   "solution": "RANDOLPH"
+   "solution": "RANDOLPH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RANDOLPH",
+    "definitions": [
+     {
+      "text": "English poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about out of line, so the name's letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arnold",
+      "gives": "ARNOLD",
+      "note": "letters to be mixed"
+     },
+     {
+      "clueFragment": "public house",
+      "gives": "PH",
+      "note": "PH is the map abbreviation for public house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANDOL",
+      "PH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARNOLD",
+       "gives": "RANDOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The poet Matthew Arnold is tipsy in a pub.",
+     "walkthrough": "Arnold looks like the poet's name, but the answer is a different poet.",
+     "definitionFit": "Thomas Randolph was a 17th-century English poet and dramatist, one of the Sons of Ben Jonson."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Arnold"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1645,55 @@
     "text": "Empty container into large tank",
     "enumeration": "6"
    },
-   "solution": "VACANT"
+   "solution": "VACANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VACANT",
+    "definitions": [
+     {
+      "text": "Empty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means going inside, so the small vessel goes inside the large one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "CAN",
+      "note": "a can is a container"
+     },
+     {
+      "clueFragment": "large tank",
+      "gives": "VAT",
+      "note": "a vat is a large tank for liquids"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VA",
+      "CAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tips a container into a large tank to empty it.",
+     "walkthrough": "'Empty' reads as a verb but is the adjective definition.",
+     "definitionFit": "Vacant means unoccupied or containing nothing, a synonym of empty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Empty"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1707,56 @@
     "text": "Sluggish beast, before noon, followed by worker",
     "enumeration": "8"
    },
-   "solution": "STAGNANT"
+   "solution": "STAGNANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAGNANT",
+    "definitions": [
+     {
+      "text": "Sluggish",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before",
+     "followed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beast",
+      "gives": "STAG",
+      "note": "a stag is a male deer"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker ant is the standard crossword worker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAG",
+      "N",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A slow animal, seen before midday, is trailed by a labourer.",
+     "definitionFit": "Stagnant water barely moves, and figuratively it describes slow, inactive trade or growth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1770,45 @@
     "text": "Break in bay",
     "enumeration": "6"
    },
-   "solution": "RECESS"
+   "solution": "RECESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECESS",
+    "definitions": [
+     {
+      "text": "Break",
+      "at": 0
+     },
+     {
+      "text": "bay",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Break",
+      "note": "first meaning: a pause, as between school lessons"
+     },
+     {
+      "clueFragment": "bay",
+      "note": "second meaning: an alcove set back in a wall"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Break in' looks like a burglary, but the two words are separate senses joined by 'in'.",
+     "definitionFit": "A recess is both an interval in proceedings and a hollow set into a wall, like a bay or niche."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Break"
+    }
+   }
   }
  ]
 }
