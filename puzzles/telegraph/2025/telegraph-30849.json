@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,67 @@
     "text": "Air pressure inside heats more furiously",
     "enumeration": "10"
    },
-   "solution": "ATMOSPHERE"
+   "solution": "ATMOSPHERE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ATMOSPHERE",
+    "definitions": [
+     {
+      "text": "Air",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "something inside another thing sits within it, so one piece goes into the middle of the other"
+     },
+     {
+      "text": "furiously",
+      "for": "anagram",
+      "note": "acting furiously means flailing wildly, so the letters before it are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heats more",
+      "gives": "HEATSMORE",
+      "note": "taken as written, nine letters to rearrange"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the standard symbol for pressure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATMOS",
+      "P",
+      "HERE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEATSMORE",
+       "gives": "ATMOSHERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weather report: the pressure in the air rises as things get hotter and hotter.",
+     "walkthrough": "'Air pressure' looks like a single phrase, but the definition is just 'Air'.",
+     "definitionFit": "Atmosphere is the envelope of gases around the earth, a near synonym for the air we breathe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pressure"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +109,49 @@
     "text": "Assists in doing something, initially",
     "enumeration": "4"
    },
-   "solution": "AIDS"
+   "solution": "AIDS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AIDS",
+    "definitions": [
+     {
+      "text": "Assists",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening of each word, so only the leading letters of the preceding words are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assists in doing something",
+      "gives": "AIDS",
+      "select": "first",
+      "note": "the leading letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who helps out with a task, at least at the start.",
+     "walkthrough": "The definition word itself supplies the first of the four initial letters.",
+     "definitionFit": "To aid is to help, so the third-person verb aids is a straightforward synonym of helps or assists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +165,45 @@
     "text": "Unwelcome gas to release around outlet?",
     "enumeration": "9"
    },
-   "solution": "MEGASTORE"
+   "solution": "MEGASTORE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MEGASTORE",
+    "definitions": [
+     {
+      "text": "outlet?",
+      "at": 32,
+      "note": "the question mark flags that a megastore is just one kind of retail outlet"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "hidden_word",
+      "note": "the answer is lying around in the preceding words, sitting across their word breaks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unwelcome gas to release",
+      "gives": "MEGASTORE",
+      "note": "the letters run from the end of the first word to the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "An unpleasant gas being vented near a power socket or drain sounds like a safety warning.",
+     "walkthrough": "'Unwelcome gas' and 'release' suggest something leaking out, but the words simply house the answer.",
+     "definitionFit": "A retail outlet is a shop, and a megastore is a very large shop, so it is an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "outlet"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +217,53 @@
     "text": "Winds up reel",
     "enumeration": "5"
    },
-   "solution": "SPOOL"
+   "solution": "SPOOL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPOOL",
+    "definitions": [
+     {
+      "text": "reel",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading the word from bottom to top, back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Winds",
+      "gives": "LOOPS",
+      "note": "winds as a verb: coils, makes loops"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOOL"
+     ],
+     "reversals": [
+      {
+       "from": "LOOPS",
+       "to": "SPOOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone winding in a fishing reel at the end of a cast.",
+     "definitionFit": "A spool is a cylinder on which thread, film or line is wound, much the same thing as a reel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +277,55 @@
     "text": "Joint then pastries for flower children",
     "enumeration": "7"
    },
-   "solution": "HIPPIES"
+   "solution": "HIPPIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HIPPIES",
+    "definitions": [
+     {
+      "text": "flower children",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joint",
+      "gives": "HIP",
+      "note": "the hip is a joint of the body"
+     },
+     {
+      "clueFragment": "then",
+      "note": "just places one piece after the other"
+     },
+     {
+      "clueFragment": "pastries",
+      "gives": "PIES",
+      "note": "pies are pastry dishes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIP",
+      "PIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Cannabis cigarettes and cakes laid on for 1960s counter-culture types.",
+     "walkthrough": "'Joint' and 'pastries' play on the hippie fondness for spliffs and hash cakes, but joint here is the body part.",
+     "definitionFit": "Flower children was the 1960s nickname for hippies, who preached peace and handed out flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Joint"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +339,47 @@
     "text": "Counters and equipment in laboratory",
     "enumeration": "7"
    },
-   "solution": "RETORTS"
+   "solution": "RETORTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RETORTS",
+    "definitions": [
+     {
+      "text": "Counters",
+      "at": 0
+     },
+     {
+      "text": "equipment in laboratory",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Counters",
+      "note": "first meaning: sharp replies, comebacks"
+     },
+     {
+      "clueFragment": "equipment in laboratory",
+      "note": "second meaning: glass vessels with long bent necks used for distilling"
+     }
+    ],
+    "explanation": {
+     "surface": "An inventory of a lab's worktops and apparatus.",
+     "walkthrough": "'Counters' looks like lab benches, but it is a noun for quick replies.",
+     "definitionFit": "Retorts are both witty rejoinders that counter a remark and long-necked flasks used in chemistry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Counters"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +393,63 @@
     "text": "Fish sailor rejected alongside ship",
     "enumeration": "4"
    },
-   "solution": "BASS"
+   "solution": "BASS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BASS",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is turned back, so the word is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "alongside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is the usual crossword sailor"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS, steamship, the prefix for a ship's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "SS"
+     ],
+     "reversals": [
+      {
+       "from": "AB",
+       "to": "BA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor turned away from his own ship, perhaps for a fishing trip.",
+     "definitionFit": "The bass is a common sea fish, so it is an example of fish in general."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +463,50 @@
     "text": "A ship's follower is vigilant",
     "enumeration": "5"
    },
-   "solution": "AWAKE"
+   "solution": "AWAKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWAKE",
+    "definitions": [
+     {
+      "text": "vigilant",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ship's follower",
+      "gives": "WAKE",
+      "note": "the wake is the trail of water that follows a moving ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor trailing a vessel needs to keep a careful lookout.",
+     "definitionFit": "Being awake and alert is what being vigilant, keeping watch, requires; the two are close synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "follower"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +520,55 @@
     "text": "Flame adjustment to reheat stew",
     "enumeration": "10"
    },
-   "solution": "SWEETHEART"
+   "solution": "SWEETHEART",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWEETHEART",
+    "definitions": [
+     {
+      "text": "Flame",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adjustment",
+      "for": "anagram",
+      "note": "an adjustment changes the arrangement, so the letters that follow are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reheat stew",
+      "gives": "REHEATSTEW",
+      "note": "taken as written, ten letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REHEATSTEW",
+       "gives": "SWEETHEART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turning up the gas flame to warm leftover stew.",
+     "walkthrough": "'Flame' is a cooking flame in the surface, but the definition is an old flame, a lover.",
+     "definitionFit": "An old flame is a former lover, and flame alone can mean a romantic partner, a sweetheart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flame"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +582,67 @@
     "text": "With America embracing a criminal snake",
     "enumeration": "8"
    },
-   "solution": "ANACONDA"
+   "solution": "ANACONDA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANACONDA",
+    "definitions": [
+     {
+      "text": "snake",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "embracing means holding in the arms, so the first pair of pieces wraps around the next pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With",
+      "gives": "AND",
+      "note": "'and' means with, together with"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A is a standard abbreviation for America"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "criminal",
+      "gives": "CON",
+      "note": "a con is a convict, a criminal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "A",
+      "CON",
+      "D",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "In the United States, someone hugging a lawbreaker who is a snake in the grass.",
+     "definitionFit": "The anaconda is a huge constricting South American snake, so it is an example of a snake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "snake"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +656,39 @@
     "text": "How to lie without getting caught?",
     "enumeration": "5"
    },
-   "solution": "DOGGO"
+   "solution": "DOGGO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DOGGO",
+    "definitions": [
+     {
+      "text": "How to lie without getting caught?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How to lie without getting caught?",
+      "note": "surface reading: the way to tell a falsehood and not be found out"
+     },
+     {
+      "clueFragment": "How to lie without getting caught?",
+      "note": "setter's reading: lie in the sense of recline, staying hidden and still so nobody finds you"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Lie' reads as telling a fib, but it is lying low; the answer completes the idiom 'lie ___', meaning keep still and quiet to avoid detection.",
+     "definitionFit": "To lie doggo is an informal British idiom for hiding motionless, popularised by Kipling, so the word describes the manner of such concealment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lie"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +702,65 @@
     "text": "Spread includes old wine for monarch",
     "enumeration": "9"
    },
-   "solution": "POTENTATE"
+   "solution": "POTENTATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "POTENTATE",
+    "definitions": [
+     {
+      "text": "monarch",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "a thing that includes others has them inside it, so the spread wraps around the next pieces"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spread",
+      "gives": "PATE",
+      "note": "pâté is a savoury paste spread on toast"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "TENT",
+      "note": "tent is an old name for a dark red Spanish wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "O",
+      "TENT",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A banquet spread with vintage wine laid on for the king.",
+     "walkthrough": "Tent, a deep red wine from Spain once used for communion, is a crossword favourite.",
+     "definitionFit": "A potentate is a ruler with great power, and a monarch is one such sovereign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spread"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +774,60 @@
     "text": "Join accepting one in private?",
     "enumeration": "7"
    },
-   "solution": "SOLDIER"
+   "solution": "SOLDIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOLDIER",
+    "definitions": [
+     {
+      "text": "private?",
+      "at": 22,
+      "note": "the question mark marks a private as just one rank of soldier"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking in, so the word for join takes another piece inside it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Join",
+      "gives": "SOLDER",
+      "note": "to solder is to join metal with molten alloy"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLD",
+      "I",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to sign up and accept someone into a private club or company.",
+     "walkthrough": "'In private' looks like 'secretly', but private is the lowest army rank, and 'in' just links.",
+     "definitionFit": "A private is the lowest rank in the army, so a private is an example of a soldier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "private"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +841,56 @@
     "text": "Court takes on the man's case",
     "enumeration": "5"
    },
-   "solution": "CHEST"
+   "solution": "CHEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHEST",
+    "definitions": [
+     {
+      "text": "case",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes on",
+      "for": "container",
+      "note": "to take on is to take aboard, so the court abbreviation holds the next piece within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Court",
+      "gives": "CT",
+      "note": "CT is the usual abbreviation for court"
+     },
+     {
+      "clueFragment": "the man's",
+      "gives": "HES",
+      "note": "HE'S, short for he is, read as the man is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge agrees to hear a particular man's lawsuit.",
+     "walkthrough": "'The man's' here is he's, he is, with the apostrophe dropped as usual.",
+     "definitionFit": "A chest is a large box or trunk, a kind of case for storage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +904,51 @@
     "text": "Dopiness I'd reformed poorly",
     "enumeration": "10"
    },
-   "solution": "INDISPOSED"
+   "solution": "INDISPOSED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDISPOSED",
+    "definitions": [
+     {
+      "text": "poorly",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reformed",
+      "for": "anagram",
+      "note": "reformed means formed anew, so the preceding letters are rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dopiness I'd",
+      "gives": "DOPINESSID",
+      "note": "taken as written, ten letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOPINESSID",
+       "gives": "INDISPOSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has turned over a new leaf after being a bit of a dope, though not doing it well.",
+     "walkthrough": "'Poorly' looks like an adverb about the reforming, but it is the British adjective for unwell.",
+     "definitionFit": "In Britain poorly is a common word for slightly ill, and indisposed is the more formal way to say it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poorly"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +962,56 @@
     "text": "Pasta heaps on Parmesan finally",
     "enumeration": "7"
    },
-   "solution": "NOODLES"
+   "solution": "NOODLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NOODLES",
+    "definitions": [
+     {
+      "text": "Pasta",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of the word just before it, so only its closing letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parmesan",
+      "gives": "N",
+      "select": "last",
+      "note": "the closing letter of the cheese"
+     },
+     {
+      "clueFragment": "heaps",
+      "gives": "OODLES",
+      "note": "oodles means heaps, lots"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OODLES"
+     ]
+    },
+    "explanation": {
+     "surface": "A plate of pasta with lots of grated Parmesan piled on at the end.",
+     "walkthrough": "In an across answer 'heaps on' the letter means the heaps follow it.",
+     "definitionFit": "Noodles are long strips of pasta, so the word is a kind of pasta."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heaps"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +1025,57 @@
     "text": "Culture of bias surrounding Republican",
     "enumeration": "8"
    },
-   "solution": "LEARNING"
+   "solution": "LEARNING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEARNING",
+    "definitions": [
+     {
+      "text": "Culture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "surrounding means encircling, so the word for bias goes around the next letter"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bias",
+      "gives": "LEANING",
+      "note": "a leaning is a tendency or bias"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "R",
+      "NING"
+     ]
+    },
+    "explanation": {
+     "surface": "A political commentary on the culture of partisan bias around the Republican party.",
+     "definitionFit": "Learning means knowledge acquired by study, and culture in the sense of cultivated scholarship is a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Culture"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1089,49 @@
     "text": "Faint occasionally spying cool poet",
     "enumeration": "7"
    },
-   "solution": "SYNCOPE"
+   "solution": "SYNCOPE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SYNCOPE",
+    "definitions": [
+     {
+      "text": "Faint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means every so often, so only letters at regular intervals in the following words are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spying cool poet",
+      "gives": "SYNCOPE",
+      "select": "alternate",
+      "note": "the first, third, fifth and so on letters, counting across all three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYNCOPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet who keeps his cool now and then catches sight of someone and swoons.",
+     "walkthrough": "'Faint' looks like an adjective meaning dim, but it is the noun, a fainting fit.",
+     "definitionFit": "Syncope is the medical term for a temporary loss of consciousness, that is, a faint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Faint"
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1145,51 @@
     "text": "Pupil once sitting displays phobia, maybe",
     "enumeration": "9"
    },
-   "solution": "OBSESSION"
+   "solution": "OBSESSION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBSESSION",
+    "definitions": [
+     {
+      "text": "phobia, maybe",
+      "at": 28,
+      "note": "'maybe' marks a phobia as one example of the answer"
+     }
+    ],
+    "linkWords": [
+     "displays"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pupil once",
+      "gives": "OB",
+      "note": "OB is an old boy, a former pupil of a school"
+     },
+     {
+      "clueFragment": "sitting",
+      "gives": "SESSION",
+      "note": "a session is a sitting of a court or parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "SESSION"
+     ]
+    },
+    "explanation": {
+     "surface": "A former schoolboy sitting an exam shows signs of acute anxiety.",
+     "walkthrough": "'Sitting' looks like a verb, but it is a noun for a meeting period.",
+     "definitionFit": "A phobia is an irrational fixation of fear, one kind of obsession that dominates the mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sitting"
+    }
+   }
   },
   {
    "number": 19,
@@ -298,7 +1203,56 @@
     "text": "After cool former partner, play loose",
     "enumeration": "7"
    },
-   "solution": "INEXACT"
+   "solution": "INEXACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INEXACT",
+    "definitions": [
+     {
+      "text": "loose",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cool",
+      "gives": "IN",
+      "note": "in means fashionable, cool"
+     },
+     {
+      "clueFragment": "former partner",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "ACT",
+      "note": "to act is to play a part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "EX",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Having cooled things with an ex, someone decides to play the field.",
+     "walkthrough": "'After' is placing the play word after the other two pieces.",
+     "definitionFit": "A loose translation or estimate is an approximate one, not exact, hence inexact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cool"
+    }
+   }
   },
   {
    "number": 20,
@@ -312,7 +1266,65 @@
     "text": "Couple with wife huge in volume",
     "enumeration": "7"
    },
-   "solution": "TWOSOME"
+   "solution": "TWOSOME",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TWOSOME",
+    "definitions": [
+     {
+      "text": "Couple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the first two pieces go within the word for volume"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "huge",
+      "gives": "OS",
+      "note": "OS, outsize, the clothing label for very large"
+     },
+     {
+      "clueFragment": "volume",
+      "gives": "TOME",
+      "note": "a tome is a large book, a volume"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "W",
+      "OS",
+      "OME"
+     ]
+    },
+    "explanation": {
+     "surface": "A married pair, the wife engrossed in an enormous book.",
+     "walkthrough": "OS for outsize is a clothing size label.",
+     "definitionFit": "A twosome is a pair of people, which is just what a couple is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 21,
@@ -326,7 +1338,48 @@
     "text": "More boorish figure's sarcasm partly rebuffed",
     "enumeration": "7"
    },
-   "solution": "CRASSER"
+   "solution": "CRASSER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "CRASSER",
+    "definitions": [
+     {
+      "text": "More boorish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "partly means only a part is used, so the answer is a stretch of the following words"
+     },
+     {
+      "text": "rebuffed",
+      "for": "reversal",
+      "note": "to be rebuffed is to be pushed back, so the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "figure's sarcasm",
+      "gives": "RESSARC",
+      "note": "a run of letters across the two words, from the end of figure's into sarcasm"
+     }
+    ],
+    "explanation": {
+     "surface": "A public figure's sneering remark is snubbed as rather uncouth.",
+     "definitionFit": "Crass means coarse and insensitive, so its comparative crasser means more boorish, ruder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "figure's"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1393,65 @@
     "text": "Company debt on industry's first titans",
     "enumeration": "7"
    },
-   "solution": "COLOSSI"
+   "solution": "COLOSSI",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COLOSSI",
+    "definitions": [
+     {
+      "text": "titans",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the word it qualifies, so only that letter is kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "debt",
+      "gives": "LOSS",
+      "note": "a loss is money owed or written off, being in the red"
+     },
+     {
+      "clueFragment": "industry's",
+      "gives": "I",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "LOSS",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm's debts weigh on the giants of industry.",
+     "walkthrough": "'Titans' sounds like corporate bigwigs, but it is the plural of colossus.",
+     "definitionFit": "Colossi are giant statues or giant figures, the plural of colossus, so titans in the sense of giants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "titans"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1465,50 @@
     "text": "Following hole working mountaineering gear",
     "enumeration": "5"
    },
-   "solution": "PITON"
+   "solution": "PITON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PITON",
+    "definitions": [
+     {
+      "text": "mountaineering gear",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "Following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hole",
+      "gives": "PIT",
+      "note": "a pit is a hole in the ground"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "on means switched on, working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIT",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "After falling into a hole, climbers rely on their kit.",
+     "walkthrough": "'Following' places the word for working after the word for hole.",
+     "definitionFit": "A piton is a metal spike hammered into rock to anchor a climber's rope, so a piece of climbing equipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1522,48 @@
     "text": "Paroxysm from cast for the audience",
     "enumeration": "5"
    },
-   "solution": "THROE"
+   "solution": "THROE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "THROE",
+    "definitions": [
+     {
+      "text": "Paroxysm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the audience",
+      "for": "homophone",
+      "note": "something meant for the audience is heard rather than read, so the sound of a word matters, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cast",
+      "gives": "THROE",
+      "soundsLike": "THROW",
+      "note": "to cast is to throw"
+     }
+    ],
+    "explanation": {
+     "surface": "An actor in the cast has a fit in front of the theatre audience.",
+     "walkthrough": "'Cast' and 'audience' paint a theatre, but cast is the verb meaning to fling.",
+     "definitionFit": "A throe is a violent spasm or pang, as in death throes, which matches a paroxysm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1577,51 @@
     "text": "French city banks chasing gold",
     "enumeration": "7"
    },
-   "solution": "ORLEANS"
+   "solution": "ORLEANS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORLEANS",
+    "definitions": [
+     {
+      "text": "French city",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "chasing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold"
+     },
+     {
+      "clueFragment": "banks",
+      "gives": "LEANS",
+      "note": "an aircraft banks when it leans into a turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "LEANS"
+     ]
+    },
+    "explanation": {
+     "surface": "French banks are on the hunt for gold reserves.",
+     "walkthrough": "'Chasing' puts the banks after the gold.",
+     "definitionFit": "Orléans is a city on the Loire in central France, famous for Joan of Arc."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "banks"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1635,51 @@
     "text": "Adult with bottom in the air",
     "enumeration": "5"
    },
-   "solution": "AFOOT"
+   "solution": "AFOOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFOOT",
+    "definitions": [
+     {
+      "text": "in the air",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adult",
+      "gives": "A",
+      "note": "A is the abbreviation for adult, as in film ratings"
+     },
+     {
+      "clueFragment": "bottom",
+      "gives": "FOOT",
+      "note": "the foot is the bottom of something, as of a page or hill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FOOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up doing a handstand, backside in the air.",
+     "walkthrough": "'In the air' sounds physical, but it means rumoured or under way.",
+     "definitionFit": "Something afoot is going on or being planned, much as a feeling or rumour is said to be in the air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1693,59 @@
     "text": "Joined end of line for dole",
     "enumeration": "4"
    },
-   "solution": "METE"
+   "solution": "METE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "METE",
+    "definitions": [
+     {
+      "text": "dole",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its closing letter, so only that letter is kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joined",
+      "gives": "MET",
+      "note": "met means came together, joined"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Signing on at the back of the queue for unemployment benefit.",
+     "walkthrough": "'Dole' looks like the British noun for unemployment benefit, but it is the verb, to hand out.",
+     "definitionFit": "To dole out and to mete out both mean to distribute or allot portions, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dole"
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1759,65 @@
     "text": "Small fine admitting resistance for taxing",
     "enumeration": "9"
    },
-   "solution": "STRENUOUS"
+   "solution": "STRENUOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STRENUOUS",
+    "definitions": [
+     {
+      "text": "taxing",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting means letting in, so the word for fine takes another letter inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "TENUOUS",
+      "note": "fine in the sense of slender, thin"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "R",
+      "ENUOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A modest penalty that lets someone off for resisting the tax authorities.",
+     "walkthrough": "'Fine' and 'taxing' suggest money, but fine means thin and taxing means demanding.",
+     "definitionFit": "A strenuous task requires great effort, which is what a taxing one does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 28,
@@ -438,7 +1831,50 @@
     "text": "Declare nothing with deal, say",
     "enumeration": "5"
    },
-   "solution": "OPINE"
+   "solution": "OPINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPINE",
+    "definitions": [
+     {
+      "text": "Declare",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "deal, say",
+      "gives": "PINE",
+      "note": "deal is softwood timber such as pine; 'say' marks it as an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone states they have no agreement on the table.",
+     "walkthrough": "'Deal' looks like a bargain, but it is a word for fir or pine planks.",
+     "definitionFit": "To opine is to state one's opinion, so it means to declare a view."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 29,
@@ -452,7 +1888,59 @@
     "text": "Confrontation expected facing Labour's leader",
     "enumeration": "4"
    },
-   "solution": "DUEL"
+   "solution": "DUEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DUEL",
+    "definitions": [
+     {
+      "text": "Confrontation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes at the front, so only the opening letter of the word is kept"
+     }
+    ],
+    "linkWords": [
+     "facing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expected",
+      "gives": "DUE",
+      "note": "due means expected, as a train is due"
+     },
+     {
+      "clueFragment": "Labour's",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of the party name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A showdown is anticipated with the head of the Labour Party.",
+     "walkthrough": "Labour is one of Britain's two main political parties.",
+     "definitionFit": "A duel is a formal fight between two people, a one-on-one confrontation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 30,
@@ -466,7 +1954,59 @@
     "text": "Met with certain changes making payment",
     "enumeration": "10"
    },
-   "solution": "REMITTANCE"
+   "solution": "REMITTANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REMITTANCE",
+    "definitions": [
+     {
+      "text": "payment",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "changes means alterations, so the letters of the preceding words are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Met",
+      "gives": "MET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "CERTAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "METCERTAIN",
+       "gives": "REMITTANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A meeting with some alterations to the deal that leads to money changing hands.",
+     "definitionFit": "A remittance is a sum of money sent to someone, a payment for goods or as a gift."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Met"
+    }
+   }
   }
  ]
 }
