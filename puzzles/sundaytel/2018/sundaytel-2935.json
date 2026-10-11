@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,57 @@
     "text": "Start of pitching really upset bad sailor?",
     "enumeration": "6"
    },
-   "solution": "PIRATE"
+   "solution": "PIRATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PIRATE",
+    "definitions": [
+     {
+      "text": "bad sailor?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pitching",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of pitching"
+     },
+     {
+      "clueFragment": "really upset",
+      "gives": "IRATE",
+      "note": "someone really upset is angry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "IRATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A seasick sailor is thrown into a state by the boat's pitching.",
+     "walkthrough": "The surface suggests a poor seaman; the question mark flags that 'bad' here means criminal rather than incompetent.",
+     "definitionFit": "A pirate is a seafarer who robs ships, a sailor who is bad in the moral sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 1,
@@ -52,7 +105,49 @@
      }
     ]
    },
-   "solution": "PLAYBALL"
+   "solution": "PLAYBALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLAY BALL",
+    "definitions": [
+     {
+      "text": "Co-operate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatrical performance",
+      "gives": "PLAY",
+      "note": "a play is a stage drama"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "BALL",
+      "note": "a ball is a formal dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAY",
+      "BALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Working together on a stage show that includes dancing.",
+     "definitionFit": "To play ball is an idiom for agreeing to help or work along with others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -66,7 +161,46 @@
     "text": "Hold in high regard, in particular",
     "enumeration": "7"
    },
-   "solution": "RESPECT"
+   "solution": "RESPECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESPECT",
+    "definitions": [
+     {
+      "text": "Hold in high regard",
+      "at": 0
+     },
+     {
+      "text": "particular",
+      "at": 24,
+      "note": "a noun here, as in 'in every particular'"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hold in high regard",
+      "note": "first meaning: to esteem someone"
+     },
+     {
+      "clueFragment": "particular",
+      "note": "second meaning: a detail or point, as in 'in that regard'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'In particular' reads as a phrase, but 'in' is a link and 'particular' is a noun meaning a detail.",
+     "definitionFit": "The word is a verb for esteeming someone and a noun for a point or aspect of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "particular"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +214,56 @@
     "text": "Has meal consumed by sailors, characteristic of boat to China?",
     "enumeration": "9"
    },
-   "solution": "TARDINESS"
+   "solution": "TARDINESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TARDINESS",
+    "definitions": [
+     {
+      "text": "characteristic of boat to China?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumed by",
+      "for": "container",
+      "note": "something consumed by another is swallowed and sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailors",
+      "gives": "TARS",
+      "note": "tars is a crossword staple for sailors"
+     },
+     {
+      "clueFragment": "Has meal",
+      "gives": "DINES",
+      "note": "to dine is to eat a meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "DINES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eats a meal with the crew aboard a ship to China.",
+     "walkthrough": "The definition alludes to the 'slow boat to China', a byword for a very long, slow journey.",
+     "definitionFit": "Lateness or slowness is what the proverbial slow boat to China is known for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +277,66 @@
     "text": "Policy's revised about masculine sporting event",
     "enumeration": "8"
    },
-   "solution": "OLYMPICS"
+   "solution": "OLYMPICS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OLYMPICS",
+    "definitions": [
+     {
+      "text": "sporting event",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revised",
+      "for": "anagram",
+      "note": "a revised text has been reworked, so these letters are put in a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the reworked letters go round the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Policy's",
+      "gives": "POLICYS",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "masculine",
+      "gives": "M",
+      "note": "M is the grammatical abbreviation for masculine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLY",
+      "M",
+      "PICS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POLICYS",
+       "gives": "OLYPICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports body has rewritten its policy on male athletes at a big competition.",
+     "definitionFit": "The Olympics are the international multi-sport games held every four years."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revised"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +356,54 @@
      }
     ]
    },
-   "solution": "LEADINGARTICLE"
+   "solution": "LEADINGARTICLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEADING ARTICLE",
+    "definitions": [
+     {
+      "text": "editor's work",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "placing one thing after another sends the first-named piece to the second position"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guiding",
+      "gives": "LEADING",
+      "note": "to guide is to lead"
+     },
+     {
+      "clueFragment": "Object",
+      "gives": "ARTICLE",
+      "note": "an article is an object or item"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEADING",
+      "ARTICLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A protest raised following some guidance about an editor's output.",
+     "walkthrough": "'Object' looks like a verb, to protest, but is a noun meaning a thing; 'after' puts it second.",
+     "definitionFit": "A leading article, or leader, is a newspaper's editorial opinion piece, often written by the editor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Object"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +417,56 @@
     "text": "He seizes power that is symbolic in Commonwealth country",
     "enumeration": "5"
    },
-   "solution": "MAPLE"
+   "solution": "MAPLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAPLE",
+    "definitions": [
+     {
+      "text": "that is symbolic in Commonwealth country",
+      "at": 16,
+      "note": "a descriptive phrase standing for the thing itself"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seizes",
+      "for": "container",
+      "note": "to seize something is to grab hold of it, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He",
+      "gives": "MALE",
+      "note": "he refers to a male"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "P",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man grabs power in a Commonwealth nation, a symbolic act.",
+     "walkthrough": "The Commonwealth country is Canada, whose flag bears the leaf of this tree.",
+     "definitionFit": "The maple leaf is Canada's national emblem, appearing on its flag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +480,54 @@
     "text": "Progress with it on Greek island, it's said",
     "enumeration": "7"
    },
-   "solution": "INROADS"
+   "solution": "INROADS",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "INROADS",
+    "definitions": [
+     {
+      "text": "Progress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "something said is heard rather than read, so the sound is what counts"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it",
+      "gives": "IN",
+      "note": "being 'it' or 'in' both mean fashionable"
+     },
+     {
+      "clueFragment": "on Greek island",
+      "gives": "ROADS",
+      "soundsLike": "RHODES",
+      "note": "Rhodes is a Greek island in the Dodecanese"
+     }
+    ],
+    "explanation": {
+     "surface": "Advances made with something on a Greek island, as rumour has it.",
+     "walkthrough": "'In Rhodes' spoken sounds just like the answer.",
+     "definitionFit": "Inroads are advances or headway made, as in making inroads into a problem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +541,48 @@
     "text": "Small and convenient mixed drink",
     "enumeration": "6"
    },
-   "solution": "SHANDY"
+   "solution": "SHANDY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHANDY",
+    "definitions": [
+     {
+      "text": "mixed drink",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     },
+     {
+      "clueFragment": "convenient",
+      "gives": "HANDY",
+      "note": "handy means conveniently useful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HANDY"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a cocktail that is small and easy to make.",
+     "definitionFit": "Shandy is beer mixed with lemonade or ginger beer, a British pub favourite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +602,56 @@
      }
     ]
    },
-   "solution": "FLIGHTRECORDER"
+   "solution": "FLIGHTRECORDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLIGHT RECORDER",
+    "definitions": [
+     {
+      "text": "black box",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "easily carried",
+      "gives": "LIGHT",
+      "note": "something light is easy to carry"
+     },
+     {
+      "clueFragment": "instrument",
+      "gives": "RECORDER",
+      "note": "a recorder is a woodwind instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LIGHT",
+      "RECORDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman carries a portable musical instrument inside a black case.",
+     "walkthrough": "'Instrument' suggests the cockpit kit; it is the musical one.",
+     "definitionFit": "An aircraft's flight recorder is popularly called the black box, though it is usually orange."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "instrument"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +665,62 @@
     "text": "Big island in a lake in mountainous land",
     "enumeration": "9"
    },
-   "solution": "AUSTRALIA"
+   "solution": "AUSTRALIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AUSTRALIA",
+    "definitions": [
+     {
+      "text": "Big island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mountainous land",
+      "gives": "AUSTRIA",
+      "note": "Austria is an Alpine country"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSTR",
+      "A",
+      "L",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller describes a large island in a lake somewhere in the mountains.",
+     "walkthrough": "The surface pictures an island inside a lake; in fact 'a lake' is the piece placed inside the Alpine country.",
+     "definitionFit": "Australia is often described as the world's largest island, or the smallest continent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +734,57 @@
     "text": "Garment worn for warmth in mostly chilly area",
     "enumeration": "5"
    },
-   "solution": "PARKA"
+   "solution": "PARKA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PARKA",
+    "definitions": [
+     {
+      "text": "Garment worn for warmth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chilly",
+      "gives": "PARKY",
+      "note": "parky is British slang for cold"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARK",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A coat you put on to keep warm when out somewhere cold.",
+     "walkthrough": "PARKY is informal British for chilly; losing its last letter leaves PARK.",
+     "definitionFit": "A parka is a hooded windproof jacket designed to keep the wearer warm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +798,52 @@
     "text": "Developing book about section of party",
     "enumeration": "7"
    },
-   "solution": "BREWING"
+   "solution": "BREWING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BREWING",
+    "definitions": [
+     {
+      "text": "Developing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "section of party",
+      "gives": "WING",
+      "note": "a political party has left and right wings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RE",
+      "WING"
+     ]
+    },
+    "explanation": {
+     "surface": "A book is being written about one faction within a political party.",
+     "definitionFit": "Trouble that is brewing is building up or developing, as tea does when it steeps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Developing"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +857,57 @@
     "text": "I caught African animal in country with greater latitude",
     "enumeration": "7"
    },
-   "solution": "ICELAND"
+   "solution": "ICELAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICELAND",
+    "definitions": [
+     {
+      "text": "country with greater latitude",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "African animal",
+      "gives": "ELAND",
+      "note": "the eland is an African antelope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "C",
+      "ELAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter boasts of catching an African beast somewhere far to the north.",
+     "walkthrough": "'Greater latitude' sounds like more freedom, but it means lying further from the equator.",
+     "definitionFit": "This North Atlantic island nation lies just south of the Arctic Circle, far north of most countries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "latitude"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +921,54 @@
     "text": "Extreme pieces of literature put together in volume",
     "enumeration": "5"
    },
-   "solution": "LITRE"
+   "solution": "LITRE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LITRE",
+    "definitions": [
+     {
+      "text": "volume",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extreme pieces of",
+      "for": "deletion",
+      "note": "only the pieces at the two extremes are kept, so the middle stretch is thrown away"
+     }
+    ],
+    "linkWords": [
+     "put together",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "literature",
+      "gives": "LITERATURE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Bits of books gathered together into one tome.",
+     "walkthrough": "Keep the opening three and closing two letters of the long word and join them up; 'volume' looks like a book, but it is a measure of capacity.",
+     "definitionFit": "A litre is a metric unit measuring capacity, one thousand cubic centimetres."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +982,63 @@
     "text": "Showing fierce determination and unusual grit, is he?",
     "enumeration": "8"
    },
-   "solution": "TIGERISH"
+   "solution": "TIGERISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIGERISH",
+    "definitions": [
+     {
+      "text": "Showing fierce determination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "something unusual is out of its normal form, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grit",
+      "gives": "GRIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRITISHE",
+       "gives": "TIGERISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether a man displays ferocious resolve and remarkable grit.",
+     "definitionFit": "Tigerish describes behaving like a tiger: fierce, aggressive and relentless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unusual"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1052,41 @@
     "text": "Not completely sure, though tester made another assessment",
     "enumeration": "9"
    },
-   "solution": "RETHOUGHT"
+   "solution": "RETHOUGHT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RETHOUGHT",
+    "definitions": [
+     {
+      "text": "made another assessment",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not completely",
+      "for": "hidden_word",
+      "note": "the run of words is not used completely, only a stretch lying inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sure, though tester",
+      "gives": "RETHOUGHT",
+      "note": "a run of letters across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "An examiner, unsure of a result, reviewed it again.",
+     "definitionFit": "Having rethought something, one has reconsidered it, judging it a second time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1100,51 @@
     "text": "Olympian tragically poisoned",
     "enumeration": "8"
    },
-   "solution": "POSEIDON"
+   "solution": "POSEIDON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POSEIDON",
+    "definitions": [
+     {
+      "text": "Olympian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tragically",
+      "for": "anagram",
+      "note": "a tragic turn wrecks things, so these letters are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poisoned",
+      "gives": "POISONED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POISONED",
+       "gives": "POSEIDON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Olympic athlete has met a tragic end by poison.",
+     "walkthrough": "'Olympian' suggests a Games athlete, but it means one of the gods living on Mount Olympus.",
+     "definitionFit": "Poseidon, Greek god of the sea, was one of the twelve Olympian deities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Olympian"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1158,75 @@
     "text": "For French form of address, is entering Parisian street name? Au contraire!",
     "enumeration": "8"
    },
-   "solution": "MONSIEUR"
+   "solution": "MONSIEUR",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "MONSIEUR",
+    "definitions": [
+     {
+      "text": "French form of address",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so this word slips between the other two"
+     },
+     {
+      "text": "Au contraire!",
+      "for": "reversal",
+      "note": "French for on the contrary, telling the solver to run everything the other way"
+     }
+    ],
+    "linkWords": [
+     "For"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parisian street",
+      "gives": "RUE",
+      "note": "rue is French for street"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "NOM",
+      "note": "nom is French for name, kept French by the Parisian setting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MON",
+      "SI",
+      "EUR"
+     ],
+     "reversals": [
+      {
+       "from": "RUEISNOM",
+       "to": "MONSIEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about French etiquette and street names in Paris, closing with a French flourish.",
+     "walkthrough": "Both street and name are rendered in French because of 'Parisian'.",
+     "definitionFit": "Monsieur is the French courtesy title for a man, equivalent to Mr or sir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contraire"
+    }
+   }
   },
   {
    "number": 19,
@@ -316,7 +1240,63 @@
     "text": "He lost his wife taking her up, so awfully",
     "enumeration": "7"
    },
-   "solution": "ORPHEUS"
+   "solution": "ORPHEUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORPHEUS",
+    "definitions": [
+     {
+      "text": "He lost his wife",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "something done awfully is botched, so these letters come out in the wrong order"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "so",
+      "gives": "SO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERUPSO",
+       "gives": "ORPHEUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A widower lost his wife while leading her upwards, and it went terribly.",
+     "walkthrough": "The surface retells the myth: leading Eurydice up from the underworld, he looked back and lost her.",
+     "definitionFit": "Orpheus, the legendary Greek musician, lost Eurydice forever by glancing back before they reached daylight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1310,58 @@
     "text": "Excessively consuming salt is forbidden",
     "enumeration": "5"
    },
-   "solution": "TABOO"
+   "solution": "TABOO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TABOO",
+    "definitions": [
+     {
+      "text": "forbidden",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "consuming means taking in, so one piece swallows the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excessively",
+      "gives": "TOO",
+      "note": "too means to excess"
+     },
+     {
+      "clueFragment": "salt",
+      "gives": "AB",
+      "note": "an old salt is a sailor, and AB is an able seaman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AB",
+      "OO"
+     ]
+    },
+    "explanation": {
+     "surface": "A health warning: eating too much salt is not allowed.",
+     "walkthrough": "'Salt' is not table salt but a sailor, as in old salt.",
+     "definitionFit": "Taboo describes something prohibited by custom or social convention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1375,72 @@
     "text": "Large numbers turned up after sailing ship docked in port",
     "enumeration": "7"
    },
-   "solution": "BRISTOL"
+   "solution": "BRISTOL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "BRISTOL",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "docked",
+      "for": "deletion",
+      "note": "a docked tail is cut short, so the word loses its end"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turning something up flips it so it reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailing ship",
+      "gives": "BRIG",
+      "note": "a brig is a two-masted sailing vessel"
+     },
+     {
+      "clueFragment": "Large numbers",
+      "gives": "LOTS",
+      "note": "lots means a great many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRI",
+      "STOL"
+     ],
+     "reversals": [
+      {
+       "from": "LOTS",
+       "to": "STOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crowds appeared once a sailing vessel moored in a harbour.",
+     "walkthrough": "'Docked' suggests mooring, but it means cut short. The port is the English city in the West Country.",
+     "definitionFit": "Bristol is a historic English port city on the River Avon near the Severn estuary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "docked"
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1454,68 @@
     "text": "Blunder when playing music ruined performance, ultimately",
     "enumeration": "6"
    },
-   "solution": "MISCUE"
+   "solution": "MISCUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MISCUE",
+    "definitions": [
+     {
+      "text": "Blunder when playing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined has been wrecked, so these letters are scrambled"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end of a word, keeping its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "music",
+      "gives": "MUSIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "performance",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of performance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISCU",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MUSIC",
+       "gives": "MISCU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician's slip ended up spoiling the whole concert.",
+     "walkthrough": "'Playing music' sounds like a concert, but the definition is a mistake in a game such as snooker.",
+     "definitionFit": "A miscue is a faulty stroke in billiards or snooker where the cue slips off the ball."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1529,63 @@
     "text": "One way of working that includes bygone painting technique",
     "enumeration": "7"
    },
-   "solution": "IMPASTO"
+   "solution": "IMPASTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IMPASTO",
+    "definitions": [
+     {
+      "text": "painting technique",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "something that includes another holds it inside"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "way of working",
+      "gives": "MO",
+      "note": "MO is modus operandi, a method of working"
+     },
+     {
+      "clueFragment": "bygone",
+      "gives": "PAST",
+      "note": "bygone means past"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "PAST",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's working method incorporates an old-fashioned approach to painting.",
+     "definitionFit": "Impasto is the application of paint in thick layers so brush or knife marks stand out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1599,51 @@
     "text": "Prop in second team",
     "enumeration": "5"
    },
-   "solution": "SCREW"
+   "solution": "SCREW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCREW",
+    "definitions": [
+     {
+      "text": "Prop",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s is the abbreviation for second"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "CREW",
+      "note": "a crew is a team, as in a rowing crew"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CREW"
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby prop forward playing for the reserve side.",
+     "walkthrough": "'Prop' suggests the rugby position but is short for propeller.",
+     "definitionFit": "A ship's propeller is also called its screw, from its spiral blades."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Prop"
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1657,62 @@
     "text": "Declaration in church before line is added to English worship",
     "enumeration": "7"
    },
-   "solution": "IDOLISE"
+   "solution": "IDOLISE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDOLISE",
+    "definitions": [
+     {
+      "text": "worship",
+      "at": 54
+     }
+    ],
+    "linkWords": [
+     "before",
+     "added to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Declaration in church",
+      "gives": "IDO",
+      "note": "the vow made at a church wedding"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDO",
+      "L",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchgoer makes a solemn declaration, with some English line of worship added.",
+     "definitionFit": "To idolise someone is to adore or revere them excessively, as if worshipping an idol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "church"
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1726,59 @@
     "text": "Less expensive – reduced by a penny? Hurrah!",
     "enumeration": "5"
    },
-   "solution": "CHEER"
+   "solution": "CHEER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHEER",
+    "definitions": [
+     {
+      "text": "Hurrah!",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced by",
+      "for": "deletion",
+      "note": "something reduced by an amount has that amount taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Less expensive",
+      "gives": "CHEAPER",
+      "note": "costing less"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, removed"
+     },
+     {
+      "clueFragment": "penny",
+      "gives": "P",
+      "note": "p is the abbreviation for a penny, removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper celebrates a price cut of a penny.",
+     "walkthrough": "Not just the penny but 'a' as well comes out of the longer word.",
+     "definitionFit": "A cheer is a shout of joy or encouragement, the sort of thing hurrah expresses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "a"
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1792,58 @@
     "text": "Something done about match, perhaps, that makes one happy",
     "enumeration": "9"
    },
-   "solution": "DELIGHTED"
+   "solution": "DELIGHTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DELIGHTED",
+    "definitions": [
+     {
+      "text": "happy",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "that makes one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something done",
+      "gives": "DEED",
+      "note": "a deed is an act"
+     },
+     {
+      "clueFragment": "match, perhaps",
+      "gives": "LIGHT",
+      "note": "a match is one example of a light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "LIGHT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An achievement in a sporting match that leaves a person happy.",
+     "walkthrough": "'Match' suggests a game, but here it is a thing you strike to give a flame.",
+     "definitionFit": "Delighted means very pleased, a strong form of being glad or joyful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 28,
@@ -442,7 +1857,55 @@
     "text": "Trade was switched away from West",
     "enumeration": "8"
    },
-   "solution": "EASTWARD"
+   "solution": "EASTWARD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EASTWARD",
+    "definitions": [
+     {
+      "text": "away from West",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switched",
+      "for": "anagram",
+      "note": "things switched around are moved to different positions, so these letters change places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trade",
+      "gives": "TRADE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRADEWAS",
+       "gives": "EASTWARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Commerce once diverted from the Western world.",
+     "definitionFit": "Heading eastward is travelling towards the east, the direction opposite to west."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Trade"
+    }
+   }
   },
   {
    "number": 29,
@@ -456,7 +1919,53 @@
     "text": "Name on piece of neckwear snatched",
     "enumeration": "6"
    },
-   "solution": "STOLEN"
+   "solution": "STOLEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOLEN",
+    "definitions": [
+     {
+      "text": "snatched",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another sits after it, so the first-named piece goes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece of neckwear",
+      "gives": "STOLE",
+      "note": "a stole is a scarf worn around the shoulders"
+     },
+     {
+      "clueFragment": "Name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOLE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A name tag on a scarf that has been grabbed.",
+     "walkthrough": "In an across clue 'on' puts the first piece after the second.",
+     "definitionFit": "Stolen means taken unlawfully, which is what snatched goods have been."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
