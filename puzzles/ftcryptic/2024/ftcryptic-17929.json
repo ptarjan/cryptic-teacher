@@ -24,6 +24,9 @@
   "date": "2024-12-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,46 @@
     "text": "Boldly confront air conditioning price",
     "enumeration": "6"
    },
-   "solution": "ACCOST"
+   "solution": "ACCOST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACCOST",
+    "definitions": [
+     {
+      "text": "Boldly confront",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "air conditioning",
+      "gives": "AC",
+      "note": "AC is the standard abbreviation for air conditioning"
+     },
+     {
+      "clueFragment": "price",
+      "gives": "COST",
+      "note": "a price is what something costs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "COST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone storms up to a shop counter to complain about what the air conditioning unit costs.",
+     "definitionFit": "To accost someone is to approach and address them boldly, often aggressively."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "price"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +93,66 @@
     "text": "Surprise when wife leaves town? Sort of",
     "enumeration": "8"
    },
-   "solution": "ASTONISH"
+   "solution": "ASTONISH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ASTONISH",
+    "definitions": [
+     {
+      "text": "Surprise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "when someone leaves a place they are no longer there, so that letter drops out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I arrived'"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the usual abbreviation for wife"
+     },
+     {
+      "clueFragment": "town",
+      "gives": "TOWN",
+      "note": "taken as written before the cut"
+     },
+     {
+      "clueFragment": "Sort of",
+      "gives": "ISH",
+      "note": "the suffix -ish means 'sort of', as in reddish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "TON",
+      "ISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled musing about what a town becomes when a wife moves away.",
+     "walkthrough": "Take W out of TOWN to leave TON, then sandwich it: AS + TON + ISH = ASTONISH.",
+     "definitionFit": "To astonish is to amaze or surprise greatly; both are verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "town"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +166,53 @@
     "text": "Actor vainly working to be perceptive",
     "enumeration": "11"
    },
-   "solution": "CLAIRVOYANT"
+   "solution": "CLAIRVOYANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLAIRVOYANT",
+    "definitions": [
+     {
+      "text": "perceptive",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "something working is in motion, so these letters are set going into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actor vainly",
+      "gives": "ACTORVAINLY",
+      "note": "the eleven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTORVAINLY",
+       "gives": "CLAIRVOYANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vain actor tries hard to come across as insightful.",
+     "definitionFit": "A clairvoyant person supposedly sees beyond normal senses, so loosely the word means highly perceptive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +226,43 @@
     "text": "Just one swimmer",
     "enumeration": "4"
    },
-   "solution": "SOLE"
+   "solution": "SOLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SOLE",
+    "definitions": [
+     {
+      "text": "Just one",
+      "at": 0
+     },
+     {
+      "text": "swimmer",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just one",
+      "note": "first meaning: only, single, as in the only survivor"
+     },
+     {
+      "clueFragment": "swimmer",
+      "note": "second meaning: a flatfish"
+     }
+    ],
+    "explanation": {
+     "surface": "Only a single swimmer turned up.",
+     "definitionFit": "Sole means only or single, and a sole is also a flat sea fish, a swimmer in crossword terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +276,61 @@
     "text": "Cold, attending a search in underground area",
     "enumeration": "8"
    },
-   "solution": "CATACOMB"
+   "solution": "CATACOMB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATACOMB",
+    "definitions": [
+     {
+      "text": "underground area",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "attending",
+      "gives": "AT",
+      "note": "to be attending an event is to be at it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "search",
+      "gives": "COMB",
+      "note": "to comb an area is to search it thoroughly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AT",
+      "A",
+      "COMB"
+     ]
+    },
+    "explanation": {
+     "surface": "A shivering searcher hunts through some subterranean space.",
+     "definitionFit": "A catacomb is an underground cemetery of tunnels and chambers, an area below ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attending"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +344,62 @@
     "text": "One missing a competition directed inside",
     "enumeration": "8"
    },
-   "solution": "ABSENTEE"
+   "solution": "ABSENTEE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ABSENTEE",
+    "definitions": [
+     {
+      "text": "One missing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside says the word for directed sits within the word for competition"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "competition",
+      "gives": "BEE",
+      "note": "a bee is a contest, as in a spelling bee"
+     },
+     {
+      "clueFragment": "directed",
+      "gives": "SENT",
+      "note": "sent means directed somewhere"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "SENT",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sent into a contest fails to show up.",
+     "walkthrough": "'Competition' is a spelling-bee-style contest; 'directed' is the past tense, as in sent on an errand.",
+     "definitionFit": "An absentee is a person who is not present, someone missing from where they should be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "competition"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +413,52 @@
     "text": "Change euro at Nice — lots, one's specialty",
     "enumeration": "10"
    },
-   "solution": "AUCTIONEER"
+   "solution": "AUCTIONEER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AUCTIONEER",
+    "definitions": [
+     {
+      "text": "lots, one's specialty",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Change",
+      "for": "anagram",
+      "note": "to change something is to alter it, so these letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "euro at Nice",
+      "gives": "EUROATNICE",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EUROATNICE",
+       "gives": "AUCTIONEER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller swaps euros on the Riviera, as if a currency expert.",
+     "walkthrough": "In the definition, lots are items for sale at a sale room, not 'a great deal'.",
+     "definitionFit": "An auctioneer sells goods in numbered lots, so lots are that person's speciality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lots"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +472,48 @@
     "text": "Flier, funny guy, doffing cap",
     "enumeration": "3"
    },
-   "solution": "OWL"
+   "solution": "OWL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OWL",
+    "definitions": [
+     {
+      "text": "Flier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doffing cap",
+      "for": "deletion",
+      "note": "doffing a cap removes what sits on top, so the word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funny guy",
+      "gives": "HOWL",
+      "note": "someone hilarious is 'a howl'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OWL"
+     ]
+    },
+    "explanation": {
+     "surface": "A comic pilot takes off his hat.",
+     "walkthrough": "HOWL loses its H.",
+     "definitionFit": "An owl is a bird, and birds are fliers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flier"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +527,61 @@
     "text": "Blast introduction of big energy charge",
     "enumeration": "6"
    },
-   "solution": "BERATE"
+   "solution": "BERATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BERATE",
+    "definitions": [
+     {
+      "text": "Blast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "the introduction of a word is its opening, so only the first letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "big",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of big"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "RATE",
+      "note": "a rate is a charge, as in a fixed price"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "E",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about a large new energy tariff being brought in.",
+     "definitionFit": "To blast someone is to criticise them fiercely, which is to berate them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blast"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +595,42 @@
     "text": "Previous head of religious house",
     "enumeration": "5"
    },
-   "solution": "PRIOR"
+   "solution": "PRIOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRIOR",
+    "definitions": [
+     {
+      "text": "Previous",
+      "at": 0
+     },
+     {
+      "text": "head of religious house",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Previous",
+      "note": "first meaning: earlier"
+     },
+     {
+      "clueFragment": "head of religious house",
+      "note": "second meaning: a monk in charge of a priory"
+     }
+    ],
+    "explanation": {
+     "surface": "The former leader of a monastery.",
+     "definitionFit": "Prior means earlier, and a prior is the superior of a priory or a deputy to an abbot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +644,54 @@
     "text": "Roof worker maybe taking in artist's promotional material",
     "enumeration": "7"
    },
-   "solution": "TRAILER"
+   "solution": "TRAILER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAILER",
+    "definitions": [
+     {
+      "text": "promotional material",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "taking in means admitting something inside, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roof worker maybe",
+      "gives": "TILER",
+      "note": "a tiler may work on roofs; 'maybe' marks it as one example"
+     },
+     {
+      "clueFragment": "artist's",
+      "gives": "RA",
+      "note": "RA, Royal Academician, is the usual abbreviation for an artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RA",
+      "ILER"
+     ]
+    },
+    "explanation": {
+     "surface": "A roofer helps carry a painter's advertising leaflets.",
+     "definitionFit": "A trailer is a short preview advertising a film, a kind of promotional material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Roof"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +705,66 @@
     "text": "Rule as caretaker originally — unusual to be there for long time",
     "enumeration": "7"
    },
-   "solution": "SECULAR"
+   "solution": "SECULAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SECULAR",
+    "definitions": [
+     {
+      "text": "there for long time",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the start, so the word keeps just its first letter"
+     },
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "something unusual is out of the normal run, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rule as",
+      "gives": "RULEAS",
+      "note": "taken as written for the mix"
+     },
+     {
+      "clueFragment": "caretaker",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of caretaker"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RULEASC",
+       "gives": "SECULAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A temporary ruler oddly hangs on in office for ages.",
+     "walkthrough": "The definition uses a rarer sense of the word: lasting for an age or century, as in a secular trend.",
+     "definitionFit": "Secular, from Latin saeculum (an age), can describe something persisting over a very long period."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caretaker"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +778,51 @@
     "text": "Informer upset complainer",
     "enumeration": "4"
    },
-   "solution": "NARK"
+   "solution": "NARK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NARK",
+    "definitions": [
+     {
+      "text": "Informer",
+      "at": 0
+     },
+     {
+      "text": "upset",
+      "at": 9
+     },
+     {
+      "text": "complainer",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Informer",
+      "note": "first meaning: a police spy or grass"
+     },
+     {
+      "clueFragment": "upset",
+      "note": "a further meaning: to annoy, as a verb"
+     },
+     {
+      "clueFragment": "complainer",
+      "note": "second meaning: a grumbler"
+     }
+    ],
+    "explanation": {
+     "surface": "A snitch has upset someone who moans.",
+     "walkthrough": "This is really a triple definition: British slang uses the word for an informer, a grumbler, and, as a verb, to irritate.",
+     "definitionFit": "In British slang a nark is a police informer and also a persistent complainer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +836,49 @@
     "text": "Exactly corresponding to company scene maybe",
     "enumeration": "10"
    },
-   "solution": "COINCIDENT"
+   "solution": "COINCIDENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COINCIDENT",
+    "definitions": [
+     {
+      "text": "Exactly corresponding",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co. is the abbreviation for company"
+     },
+     {
+      "clueFragment": "scene maybe",
+      "gives": "INCIDENT",
+      "note": "a scene, a public fuss, is one kind of incident"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "INCIDENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Something matching a company's setting precisely.",
+     "definitionFit": "Coincident means occurring together or agreeing exactly, so in precise correspondence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scene"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +892,52 @@
     "text": "Sparks article, nice, lively",
     "enumeration": "11"
    },
-   "solution": "ELECTRICIAN"
+   "solution": "ELECTRICIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELECTRICIAN",
+    "definitions": [
+     {
+      "text": "Sparks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lively",
+      "for": "anagram",
+      "note": "lively suggests bustling movement, so these letters are jumbled around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article, nice",
+      "gives": "ARTICLENICE",
+      "note": "the eleven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARTICLENICE",
+       "gives": "ELECTRICIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A review praises a piece of writing as sparkling, pleasant and lively.",
+     "walkthrough": "Sparks is British slang for an electrician; it looks like a verb or plural noun.",
+     "definitionFit": "Sparks is the traditional nickname for an electrician or radio operator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sparks"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +951,50 @@
     "text": "Romance, lie, unfortunately — there's formal pattern to it",
     "enumeration": "10"
    },
-   "solution": "CEREMONIAL"
+   "solution": "CEREMONIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CEREMONIAL",
+    "definitions": [
+     {
+      "text": "there's formal pattern to it",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things going awry, so these letters fall out of place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romance, lie",
+      "gives": "ROMANCELIE",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROMANCELIE",
+       "gives": "CEREMONIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A love affair built on deceit follows a sadly predictable script.",
+     "definitionFit": "Something ceremonial follows a fixed ritual or formal procedure, a set pattern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Romance"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1008,46 @@
     "text": "Push large tool",
     "enumeration": "6"
    },
-   "solution": "SHOVEL"
+   "solution": "SHOVEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHOVEL",
+    "definitions": [
+     {
+      "text": "tool",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Push",
+      "gives": "SHOVE",
+      "note": "a shove is a push"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOVE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to push a big implement.",
+     "definitionFit": "A shovel is a digging implement, a common garden tool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Push"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1061,42 @@
     "text": "Move aimlessly, somewhat lame and erratic",
     "enumeration": "7"
    },
-   "solution": "MEANDER"
+   "solution": "MEANDER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MEANDER",
+    "definitions": [
+     {
+      "text": "Move aimlessly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only to some extent, so just part of the following words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lame and erratic",
+      "gives": "MEANDER",
+      "note": "running across the words lame, and and erratic"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wanders about, limping and unsteady.",
+     "definitionFit": "To meander is to wander without a fixed course, like a winding river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lame"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1110,50 @@
     "text": "Open new version of fans' tune",
     "enumeration": "8"
    },
-   "solution": "UNFASTEN"
+   "solution": "UNFASTEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNFASTEN",
+    "definitions": [
+     {
+      "text": "Open",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new version of",
+      "for": "anagram",
+      "note": "a new version reworks the original, so these letters are arranged afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fans' tune",
+      "gives": "FANSTUNE",
+      "note": "the eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FANSTUNE",
+       "gives": "UNFASTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supporters launch a remixed anthem.",
+     "definitionFit": "To unfasten a catch or button is to undo it, letting it open; both are verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Open"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1167,66 @@
     "text": "In thrifty manner following game by missing out friend",
     "enumeration": "8"
    },
-   "solution": "FRUGALLY"
+   "solution": "FRUGALLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FRUGALLY",
+    "definitions": [
+     {
+      "text": "In thrifty manner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing out",
+      "for": "deletion",
+      "note": "missing out means leaving something away, so those letters are removed from the game word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f. is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "RUGBY",
+      "note": "rugby is a ball game"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written; these are the letters dropped"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RUG",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A careful spender leaves a friend out of a ball game.",
+     "walkthrough": "RUGBY without BY leaves RUG, so F + RUG + ALLY.",
+     "definitionFit": "Frugally means sparingly with money or resources, which is how a thrifty person acts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1240,46 @@
     "text": "Sheet worker's colourful public display",
     "enumeration": "7"
    },
-   "solution": "PAGEANT"
+   "solution": "PAGEANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAGEANT",
+    "definitions": [
+     {
+      "text": "colourful public display",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sheet",
+      "gives": "PAGE",
+      "note": "a sheet of paper is a page"
+     },
+     {
+      "clueFragment": "worker's",
+      "gives": "ANT",
+      "note": "a worker ant; the 's stands for 'is' linking to the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAGE",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A paper worker puts on a vivid show.",
+     "definitionFit": "A pageant is an elaborate public spectacle, often with costumes and processions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worker's"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1293,54 @@
     "text": "Close by accepting court's drink",
     "enumeration": "6"
    },
-   "solution": "NECTAR"
+   "solution": "NECTAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NECTAR",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking something in, so one word holds the other within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Close by",
+      "gives": "NEAR",
+      "note": "near means close by"
+     },
+     {
+      "clueFragment": "court's",
+      "gives": "CT",
+      "note": "Ct is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "CT",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A tipple taken near the royal court.",
+     "definitionFit": "Nectar is the drink of the gods, and also a name for any delicious drink or fruit juice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Close"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1354,55 @@
     "text": "Conservative with papers is being frank",
     "enumeration": "6"
    },
-   "solution": "CANDID"
+   "solution": "CANDID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANDID",
+    "definitions": [
+     {
+      "text": "frank",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "is being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "ID: identity papers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AND",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory holding documents speaks openly.",
+     "definitionFit": "Candid means open and honest in speech, synonymous with frank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1416,42 @@
     "text": "Excellent group",
     "enumeration": "5"
    },
-   "solution": "CLASS"
+   "solution": "CLASS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLASS",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     },
+     {
+      "text": "group",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "note": "first meaning: top-quality"
+     },
+     {
+      "clueFragment": "group",
+      "note": "second meaning: a set of pupils or a category"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as praise for a band; the two words are separate meanings.",
+     "definitionFit": "Informally, class means first-rate, and a class is a group of students or a category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 24,
@@ -373,7 +1465,64 @@
     "text": "Something done at island ramble not half dangerous legally",
     "enumeration": "10"
    },
-   "solution": "ACTIONABLE"
+   "solution": "ACTIONABLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ACTIONABLE",
+    "definitions": [
+     {
+      "text": "dangerous legally",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not half",
+      "for": "deletion",
+      "note": "not half means half the word is dropped, keeping only its second part"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something done",
+      "gives": "ACT",
+      "note": "an act is something done"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "IONA",
+      "note": "Iona is a Scottish island in the Inner Hebrides"
+     },
+     {
+      "clueFragment": "ramble",
+      "gives": "RAMBLE",
+      "note": "taken as written before halving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACT",
+      "IONA",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A walk on an island is risky only in a legal sense.",
+     "walkthrough": "RAMBLE loses its first half, RAM, leaving BLE.",
+     "definitionFit": "Something actionable gives grounds for a lawsuit, so it is legally risky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ramble"
+    }
+   }
   },
   {
    "number": 25,
@@ -387,7 +1536,46 @@
     "text": "Indication one's engaged in racecourse betting area",
     "enumeration": "4"
    },
-   "solution": "RING"
+   "solution": "RING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RING",
+    "definitions": [
+     {
+      "text": "Indication one's engaged",
+      "at": 0
+     },
+     {
+      "text": "racecourse betting area",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indication one's engaged",
+      "note": "first meaning: an engagement band worn on the finger"
+     },
+     {
+      "clueFragment": "racecourse betting area",
+      "note": "second meaning: the bookmakers' enclosure at a racecourse"
+     }
+    ],
+    "explanation": {
+     "surface": "A newly engaged punter flashes a token among the bookies.",
+     "definitionFit": "An engagement ring signals betrothal, and the betting enclosure at a racecourse is called the ring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "engaged"
+    }
+   }
   },
   {
    "number": 26,
@@ -401,7 +1589,49 @@
     "text": "Large room in hotel? Quite",
     "enumeration": "4"
    },
-   "solution": "HALL"
+   "solution": "HALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HALL",
+    "definitions": [
+     {
+      "text": "Large room",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is Hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Quite",
+      "gives": "ALL",
+      "note": "all can mean quite or completely, as in all alone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A query whether a hotel has a big room, answered 'quite'.",
+     "definitionFit": "A hall is a large room for gatherings, such as a banqueting hall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Quite"
+    }
+   }
   },
   {
    "number": 27,
@@ -415,7 +1645,64 @@
     "text": "Writer repelled attack at first",
     "enumeration": "7"
    },
-   "solution": "DIARIST"
+   "solution": "DIARIST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DIARIST",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repelled",
+      "for": "reversal",
+      "note": "something repelled is driven back, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attack",
+      "gives": "RAID",
+      "note": "a raid is an attack"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "first is written 1st, with I standing for the 1"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIAR",
+      "IST"
+     ],
+     "reversals": [
+      {
+       "from": "RAID",
+       "to": "DIAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author fought off an assault at the outset.",
+     "walkthrough": "'At first' looks like a first-letter signal, but only 'first' gives letters: 1ST read as IST.",
+     "definitionFit": "A diarist writes a diary, so is a kind of writer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 28,
@@ -429,7 +1716,48 @@
     "text": "Regularly visited Afghan military commander",
     "enumeration": "3"
    },
-   "solution": "AGA"
+   "solution": "AGA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AGA",
+    "definitions": [
+     {
+      "text": "military commander",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly visited",
+      "for": "letter_selection",
+      "note": "regularly visited means calling at every other stop, so alternate letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Afghan",
+      "gives": "AGA",
+      "select": "alternate",
+      "note": "first, third and fifth letters of Afghan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGA"
+     ]
+    },
+    "explanation": {
+     "surface": "A general often called on by an Afghan.",
+     "definitionFit": "An aga is a title for a commander or chief officer in Ottoman Turkey and neighbouring regions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visited"
+    }
+   }
   },
   {
    "number": 29,
@@ -443,7 +1771,66 @@
     "text": "Second discussion group one included for King Charles, say",
     "enumeration": "7"
    },
-   "solution": "SPANIEL"
+   "solution": "SPANIEL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPANIEL",
+    "definitions": [
+     {
+      "text": "King Charles, say",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included",
+      "for": "container",
+      "note": "included means put inside, so the letter for one goes within the group word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "discussion group",
+      "gives": "PANEL",
+      "note": "a panel is a group discussing a topic"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PAN",
+      "I",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A second debating panel admits a member to discuss the monarch.",
+     "walkthrough": "The definition sounds like a monarch, but a King Charles is a breed of toy spaniel.",
+     "definitionFit": "The King Charles spaniel is a dog breed, an example of the wider category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 30,
@@ -457,7 +1844,79 @@
     "text": "After return, finish, adopting unexpectedly ideal time limit",
     "enumeration": "8"
    },
-   "solution": "DEADLINE"
+   "solution": "DEADLINE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "DEADLINE",
+    "definitions": [
+     {
+      "text": "time limit",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After return",
+      "for": "reversal",
+      "note": "after a return something faces back the way it came, so this word runs backwards"
+     },
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "unexpectedly suggests a surprising turn, so these letters are rearranged"
+     },
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "adopting means taking in, so one word is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finish",
+      "gives": "END",
+      "note": "to finish is to end"
+     },
+     {
+      "clueFragment": "ideal",
+      "gives": "IDEAL",
+      "note": "taken as written for the mix"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EADLI",
+      "NE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IDEAL",
+       "gives": "EADLI"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "END",
+       "to": "DNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On coming back, wrap up by taking on an unexpectedly perfect cut-off.",
+     "walkthrough": "'Ideal' looks like praise for the time limit, but it is just the letters to be mixed and tucked inside the turned-round word.",
+     "definitionFit": "A deadline is the latest time by which something must be done, a time limit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 31,
@@ -471,7 +1930,57 @@
     "text": "Lots losing heart — penalty out of order",
     "enumeration": "6"
    },
-   "solution": "PLENTY"
+   "solution": "PLENTY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PLENTY",
+    "definitions": [
+     {
+      "text": "Lots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing heart",
+      "for": "deletion",
+      "note": "losing heart means the middle is taken away, so the central letter goes"
+     },
+     {
+      "text": "out of order",
+      "for": "anagram",
+      "note": "out of order means not in the right sequence, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "penalty",
+      "gives": "PENALTY",
+      "note": "taken as written; its middle letter is the fourth of seven"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PENLTY",
+       "gives": "PLENTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plenty of disheartened players face a penalty for misconduct.",
+     "walkthrough": "PENALTY drops its central A, and PENLTY is rearranged.",
+     "definitionFit": "Plenty means a great amount, which is what lots means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   }
  ]
 }
