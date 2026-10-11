@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Welcome in at 6 with meal almost done",
     "enumeration": "6"
    },
-   "solution": "INVITE"
+   "solution": "INVITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "INVITE",
+    "definitions": [
+     {
+      "text": "Welcome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost done",
+      "for": "deletion",
+      "note": "something almost done stops just short of the finish, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "at",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "6",
+      "gives": "VI",
+      "note": "6 in Roman numerals"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "TEA",
+      "note": "tea is an evening meal in Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "VI",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A host greets guests arriving at six o'clock with dinner nearly ready.",
+     "walkthrough": "The 6 looks like a time or a cross-reference, but it is just the Roman numeral; TEA loses its last letter.",
+     "definitionFit": "To invite someone is to ask them in, extending a welcome, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "6"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,70 @@
     "text": "Gatecrash of fashionable West End reportedly regretted afterwards",
     "enumeration": "7"
    },
-   "solution": "INTRUDE"
+   "solution": "INTRUDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "homophone"
+    ],
+    "answer": "INTRUDE",
+    "definitions": [
+     {
+      "text": "Gatecrash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "afterwards",
+      "for": "charade",
+      "note": "says the regret part comes after the other pieces, fixing the order of joining"
+     },
+     {
+      "text": "End",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that letter is kept"
+     },
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard, so the word is taken by its sound and then spelt differently"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in means trendy"
+     },
+     {
+      "clueFragment": "West",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of West"
+     },
+     {
+      "clueFragment": "regretted",
+      "gives": "RUDE",
+      "soundsLike": "RUED",
+      "note": "rued means regretted; RUDE sounds the same"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone crashes a fashionable party in London's West End and is sorry afterwards.",
+     "walkthrough": "West End reads as London's theatre district, but it means the end of the word West. The West End is London's theatre and shopping district.",
+     "definitionFit": "To gatecrash is to enter uninvited, which is exactly what intruding means; both are verbs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +185,46 @@
     "text": "Road without a meeting place",
     "enumeration": "5"
    },
-   "solution": "VENUE"
+   "solution": "VENUE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VENUE",
+    "definitions": [
+     {
+      "text": "meeting place",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without a",
+      "for": "deletion",
+      "note": "without means lacking, so the single letter named is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Road",
+      "gives": "AVENUE",
+      "note": "an avenue is a road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VENUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A road with no proper spot to gather.",
+     "definitionFit": "A venue is the place where an event or gathering is held, so it is a meeting place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +238,75 @@
     "text": "Strife between Belgium and the French after rout at sea",
     "enumeration": "7"
    },
-   "solution": "TROUBLE"
+   "solution": "TROUBLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TROUBLE",
+    "definitions": [
+     {
+      "text": "Strife",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "being at sea means confused and disordered, so the letters are jumbled"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "says the country and article come after the jumbled word, fixing the order"
+     }
+    ],
+    "linkWords": [
+     "between"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rout",
+      "gives": "TROU",
+      "note": "the letters of rout rearranged"
+     },
+     {
+      "clueFragment": "Belgium",
+      "gives": "B",
+      "note": "B is the international vehicle code for Belgium"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROU",
+      "B",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROUT",
+       "gives": "TROU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Discord between Belgium and France after a naval defeat.",
+     "walkthrough": "'between' looks like a container signal but just links the definition to the wordplay.",
+     "definitionFit": "Strife means conflict or difficulty, and trouble is a close synonym for that sort of discord."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "between"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +326,56 @@
      }
     ]
    },
-   "solution": "SLIPUP"
+   "solution": "SLIPUP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SLIP-UP",
+    "definitions": [
+     {
+      "text": "error",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turn up",
+      "for": "reversal",
+      "note": "turning something up flips it over, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Students",
+      "gives": "PUPILS",
+      "note": "pupils are students"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLIPUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUPILS",
+       "to": "SLIPUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Students arrive by mistake.",
+     "definitionFit": "A slip-up is a careless mistake, so it is a noun synonym for error."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +389,39 @@
     "text": "Drunk on shorts?",
     "enumeration": "7"
    },
-   "solution": "LEGLESS"
+   "solution": "LEGLESS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LEGLESS",
+    "definitions": [
+     {
+      "text": "Drunk on shorts?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drunk on shorts?",
+      "note": "surface reading: someone intoxicated by short drinks, spirits served in small measures"
+     },
+     {
+      "clueFragment": "shorts",
+      "note": "setter's reading: shorts are trousers with no legs to speak of, and the slang word for very drunk also means without legs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Shorts are spirits in British pubs, so being very drunk on them fits; the slang word for very drunk also literally describes legwear lacking legs.",
+     "definitionFit": "The British slang for helplessly drunk literally means having no legs, which also describes short trousers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shorts"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +435,66 @@
     "text": "Famous seafront hotel holding key model",
     "enumeration": "9"
    },
-   "solution": "PROMINENT"
+   "solution": "PROMINENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PROMINENT",
+    "definitions": [
+     {
+      "text": "Famous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means keeping something inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seafront",
+      "gives": "PROM",
+      "note": "prom, short for promenade, is a seafront walkway"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "INN",
+      "note": "an inn is a small hotel"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "E",
+      "note": "E is a musical key"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T Ford"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROM",
+      "INEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known hotel on the seafront keeps a key model on display.",
+     "walkthrough": "E goes between the two Ns of INN.",
+     "definitionFit": "Prominent people are well known and stand out, so the adjective is a synonym for famous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +508,52 @@
     "text": "Sharp chap's following play on words",
     "enumeration": "7"
    },
-   "solution": "PUNGENT"
+   "solution": "PUNGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUNGENT",
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the man is placed after the wordplay part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "play on words",
+      "gives": "PUN",
+      "note": "a pun is a play on words"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "GENT",
+      "note": "a gent is a chap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUN",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp-witted man comes up with a clever joke.",
+     "definitionFit": "Pungent describes a sharp, strong smell or taste, or cutting wit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +567,43 @@
     "text": "Wife is typically a bit spirited",
     "enumeration": "6"
    },
-   "solution": "FEISTY"
+   "solution": "FEISTY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FEISTY",
+    "definitions": [
+     {
+      "text": "spirited",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit",
+      "for": "hidden_word",
+      "note": "a bit means a small part, so the answer is a stretch of the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife is typically",
+      "gives": "FEISTY",
+      "note": "runs across the end of wife, all of is, and the start of typically"
+     }
+    ],
+    "explanation": {
+     "surface": "A sly remark that wives are usually a little lively.",
+     "walkthrough": "'typically' is part of the fodder as well as the surface.",
+     "definitionFit": "Feisty means lively, determined and full of fight, so it fits spirited."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "typically"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +627,70 @@
      }
     ]
    },
-   "solution": "STANDONESGROUND"
+   "solution": "STANDONESGROUND",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STAND ONES GROUND",
+    "definitions": [
+     {
+      "text": "Insist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to sit in",
+      "for": "container",
+      "note": "sitting in something means being placed inside it, so the royal letters go within"
+     }
+    ],
+    "linkWords": [
+     "on having",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stadium seating",
+      "gives": "STAND",
+      "note": "a stand is seating at a stadium"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "ONE",
+      "note": "united means made one"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "SOUND",
+      "note": "sound means healthy, fit"
+     },
+     {
+      "clueFragment": "a king",
+      "gives": "GR",
+      "note": "GR is Georgius Rex, King George"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAND",
+      "ONE",
+      "SGROUND"
+     ]
+    },
+    "explanation": {
+     "surface": "A fan demands a stadium seat at Manchester United worthy of royalty.",
+     "walkthrough": "'United' suggests the football club, but it means made one; GR (Georgius Rex) is the royal cipher on British postboxes.",
+     "definitionFit": "To stand one's ground is to refuse to give way, which is insisting on one's position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +704,66 @@
     "text": "Excellent drink at the Queen's Head bar",
     "enumeration": "6"
    },
-   "solution": "SUPERB"
+   "solution": "SUPERB",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SUPERB",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     },
+     {
+      "clueFragment": "the Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUP",
+      "ER",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A great pint in the bar of a pub called the Queen's Head.",
+     "walkthrough": "The Queen's Head is a common British pub name, but here it splits: the Queen is ER and Head picks the first letter of bar.",
+     "definitionFit": "Superb means of the highest quality, a direct synonym for excellent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +777,65 @@
     "text": "Sample freshly made mince pies I left out",
     "enumeration": "8"
    },
-   "solution": "SPECIMEN"
+   "solution": "SPECIMEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "SPECIMEN",
+    "definitions": [
+     {
+      "text": "Sample",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freshly made",
+      "for": "anagram",
+      "note": "something freshly made is newly put together, so the letters are reworked"
+     },
+     {
+      "text": "left out",
+      "for": "deletion",
+      "note": "left out means omitted, so the named letter is removed from the fodder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mince pies",
+      "gives": "MINCEPIES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPECIMEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MNCEPIES",
+       "gives": "SPECIMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Try one of these freshly baked mince pies, but I did not get one.",
+     "walkthrough": "Drop one I from the letters of mince pies, then rearrange the rest. A mince pie is a small British Christmas pastry filled with dried fruit.",
+     "definitionFit": "A specimen is a single example taken for testing or display, which is a sample."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sample"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +849,64 @@
     "text": "Salvage from inside of wreck's taking more than a year",
     "enumeration": "8"
    },
-   "solution": "RECOVERY"
+   "solution": "RECOVERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RECOVERY",
+    "definitions": [
+     {
+      "text": "Salvage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside of",
+      "for": "letter_selection",
+      "note": "the inside of a word is its middle, so the outer letters are dropped"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "'s taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wreck",
+      "gives": "REC",
+      "select": "middle",
+      "note": "the middle letters of wreck"
+     },
+     {
+      "clueFragment": "more than",
+      "gives": "OVER",
+      "note": "over means more than"
+     },
+     {
+      "clueFragment": "a year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REC",
+      "OVER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Raising a shipwreck takes over a year.",
+     "definitionFit": "Salvage is the rescuing of goods or a vessel, and recovery is the getting back of what was lost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +920,59 @@
     "text": "Rector has problem with musicians",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORCHESTRA",
+    "definitions": [
+     {
+      "text": "musicians",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has problem",
+      "for": "anagram",
+      "note": "a problem puts things in disarray, so these letters are muddled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rector",
+      "gives": "RECTOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RECTORHAS",
+       "gives": "ORCHESTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar is having trouble with the church musicians.",
+     "walkthrough": "'has' reads as part of the indicator but its letters are fodder too.",
+     "definitionFit": "An orchestra is a large group of instrumental players, so it is a collective of musicians."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "has"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +986,68 @@
     "text": "The French criminal thus framed private eye",
     "enumeration": "6"
    },
-   "solution": "SLEUTH"
+   "solution": "SLEUTH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SLEUTH",
+    "definitions": [
+     {
+      "text": "private eye",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal means wrong or bent, so the following word's letters are rearranged"
+     },
+     {
+      "text": "framed",
+      "for": "container",
+      "note": "a frame goes around a picture, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "thus",
+      "gives": "SUTH",
+      "note": "the letters of thus rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LE",
+      "UTH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THUS",
+       "gives": "SUTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French criminal was set up by a detective.",
+     "walkthrough": "'framed' plays on criminals being framed, but it means put around.",
+     "definitionFit": "A sleuth is a detective, and a private eye is a hired detective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "framed"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +1061,43 @@
     "text": "Deals in shares",
     "enumeration": "6"
    },
-   "solution": "STOCKS"
+   "solution": "STOCKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STOCKS",
+    "definitions": [
+     {
+      "text": "Deals in",
+      "at": 0
+     },
+     {
+      "text": "shares",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deals in",
+      "note": "first meaning: a shop that keeps goods for sale"
+     },
+     {
+      "clueFragment": "shares",
+      "note": "second meaning: securities traded on a market"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one phrase about a trader, but splits into a verb and a noun.",
+     "definitionFit": "A shop stocks items it sells, and stocks are also company shares traded on an exchange."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Deals"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1111,44 @@
     "text": "Win hands down on old motorbike",
     "enumeration": "7"
    },
-   "solution": "TRIUMPH"
+   "solution": "TRIUMPH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRIUMPH",
+    "definitions": [
+     {
+      "text": "Win hands down",
+      "at": 0
+     },
+     {
+      "text": "old motorbike",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Win hands down",
+      "note": "first meaning: to succeed decisively"
+     },
+     {
+      "clueFragment": "old motorbike",
+      "note": "second meaning: a classic British motorcycle make"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wins an easy race riding a vintage motorcycle.",
+     "definitionFit": "To triumph is to gain a decisive victory, and Triumph is a long-established British motorcycle manufacturer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1162,70 @@
     "text": "National coach had up by judge for therapy",
     "enumeration": "7"
    },
-   "solution": "SUBJECT"
+   "solution": "SUBJECT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SUBJECT",
+    "definitions": [
+     {
+      "text": "National",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "had up",
+      "for": "reversal",
+      "note": "in a down entry, brought up means read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coach",
+      "gives": "BUS",
+      "note": "a coach is a bus"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     },
+     {
+      "clueFragment": "therapy",
+      "gives": "ECT",
+      "note": "ECT is electroconvulsive therapy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "J",
+      "ECT"
+     ],
+     "reversals": [
+      {
+       "from": "BUS",
+       "to": "SUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A national team's coach was taken to court and sent for counselling.",
+     "definitionFit": "A subject is a citizen owing allegiance to a state, so a national of that country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coach"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1249,62 @@
      }
     ]
    },
-   "solution": "WELLTODO"
+   "solution": "WELLTODO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WELL-TO-DO",
+    "definitions": [
+     {
+      "text": "Comfortably off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having",
+      "for": "container",
+      "note": "having means holding within, so the money letter is put inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good health",
+      "gives": "WELL",
+      "note": "well means in good health"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "TOO",
+      "note": "too means also"
+     },
+     {
+      "clueFragment": "old money",
+      "gives": "D",
+      "note": "d was the abbreviation for an old British penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELL",
+      "TODO"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of someone healthy and rich from inherited wealth.",
+     "walkthrough": "D, the pre-1971 British penny, sits inside TOO. The first 'having' is just a link.",
+     "definitionFit": "Well-to-do describes people who are prosperous, which is the same as comfortably off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1318,60 @@
     "text": "Woman has a horse working heavy cart",
     "enumeration": "6"
    },
-   "solution": "WAGGON"
+   "solution": "WAGGON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WAGGON",
+    "definitions": [
+     {
+      "text": "heavy cart",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "W",
+      "note": "W is the abbreviation for woman"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "GG",
+      "note": "gee-gee is a childish word for a horse"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "on means working, as a machine is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "A",
+      "GG",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman owns a horse that pulls a heavy cart.",
+     "definitionFit": "A waggon (a British spelling of wagon) is a four-wheeled vehicle for heavy loads, so a heavy cart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1385,81 @@
     "text": "Romantic Latin lines lifted one with endless serenity",
     "enumeration": "7"
    },
-   "solution": "LYRICAL"
+   "solution": "LYRICAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "deletion"
+    ],
+    "answer": "LYRICAL",
+    "definitions": [
+     {
+      "text": "Romantic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down entry, lifted means raised from bottom to top, so read backwards"
+     },
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without its end, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "L is the abbreviation for Latin"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "RY",
+      "note": "RY is short for railway, lines"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "serenity",
+      "gives": "CALM",
+      "note": "calm is serenity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "YR",
+      "I",
+      "CAL"
+     ],
+     "reversals": [
+      {
+       "from": "RY",
+       "to": "YR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Romantic Latin verses lift a person into perfect tranquillity.",
+     "definitionFit": "Lyrical writing is expressive and full of feeling, so it is romantic in tone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1473,44 @@
     "text": "Lady's maid has drawers",
     "enumeration": "7"
    },
-   "solution": "DRESSER"
+   "solution": "DRESSER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRESSER",
+    "definitions": [
+     {
+      "text": "Lady's maid",
+      "at": 0
+     },
+     {
+      "text": "has drawers",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lady's maid",
+      "note": "first meaning: a servant who helps someone put on clothes"
+     },
+     {
+      "clueFragment": "has drawers",
+      "note": "second meaning: a piece of furniture fitted with drawers"
+     }
+    ],
+    "explanation": {
+     "surface": "A lady's maid owns some underwear.",
+     "walkthrough": "Drawers sounds like old-fashioned knickers; here it means sliding storage boxes, and 'has drawers' describes the item of furniture.",
+     "definitionFit": "A dresser helps someone get clothed, and a dresser is also a cabinet or chest fitted with drawers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drawers"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1530,65 @@
      }
     ]
    },
-   "solution": "MIXEDBAG"
+   "solution": "MIXEDBAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MIXED BAG",
+    "definitions": [
+     {
+      "text": "Many things combined",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on",
+     "to",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "MI",
+      "note": "the M1 motorway, written with I for 1"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "X",
+      "note": "X is the multiplication sign"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ed is short for editor"
+     },
+     {
+      "clueFragment": "the sack",
+      "gives": "BAG",
+      "note": "a bag is a sack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "X",
+      "ED",
+      "BAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A Times journalist on the motorway learns they have been fired.",
+     "walkthrough": "The M1 is Britain's main north-south motorway; 'Times' looks like the newspaper but is the multiplication sign.",
+     "definitionFit": "A mixed bag is an assortment of varied things, so many different items lumped together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1602,62 @@
     "text": "Run out with air gun and point right to thief",
     "enumeration": "6"
    },
-   "solution": "ROBBER"
+   "solution": "ROBBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROBBER",
+    "definitions": [
+     {
+      "text": "thief",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run out",
+      "gives": "RO",
+      "note": "RO is the cricket scorecard abbreviation for run out"
+     },
+     {
+      "clueFragment": "air gun",
+      "gives": "BB",
+      "note": "a BB gun is an air gun"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "E",
+      "note": "E is a compass point"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "BB",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar flees, pointing an air gun at someone.",
+     "definitionFit": "A robber is someone who steals, so a thief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1671,44 @@
     "text": "Frank James, the singer",
     "enumeration": "5"
    },
-   "solution": "BLUNT"
+   "solution": "BLUNT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLUNT",
+    "definitions": [
+     {
+      "text": "Frank",
+      "at": 0
+     },
+     {
+      "text": "James, the singer",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frank",
+      "note": "first meaning: outspoken, direct"
+     },
+     {
+      "clueFragment": "James, the singer",
+      "note": "second meaning: the surname of the English singer-songwriter James"
+     }
+    ],
+    "explanation": {
+     "surface": "Two singers named Frank and James.",
+     "walkthrough": "Frank looks like a first name next to James, but it is an adjective.",
+     "definitionFit": "Blunt means plain-spoken, a synonym of frank, and James Blunt is the singer of 'You're Beautiful'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1736,53 @@
      }
     ]
    },
-   "solution": "AMATTEROFCOURSE"
+   "solution": "AMATTEROFCOURSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "A MATTER OF COURSE",
+    "definitions": [
+     {
+      "text": "proceeding as expected?",
+      "at": 16,
+      "note": "the phrase names the expected thing; with 'as' before it, it means proceeding as expected"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Affair",
+      "gives": "AMATTER",
+      "note": "a matter is an affair"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "OF",
+      "note": "of means on or about, as in 'talk of it'"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "COURSE",
+      "note": "a course is the channel a river follows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMATTER",
+      "OF",
+      "COURSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A romance on a river cruise goes just as everyone predicted.",
+     "definitionFit": "Something done as a matter of course happens routinely, as would be expected, so the phrase describes the expected outcome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Affair"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1796,57 @@
     "text": "Chap replacing leader of political group is very enthusiastic",
     "enumeration": "6"
    },
-   "solution": "HEARTY"
+   "solution": "HEARTY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HEARTY",
+    "definitions": [
+     {
+      "text": "very enthusiastic",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacing leader of",
+      "for": "deletion",
+      "note": "replacing the leader means the first letter is taken off and something else goes in its place"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chap",
+      "gives": "HE",
+      "note": "he is a man, a chap"
+     },
+     {
+      "clueFragment": "political group",
+      "gives": "PARTY",
+      "note": "a party is a political group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "ARTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A man takes over as head of a political party and is full of zeal.",
+     "definitionFit": "Hearty means vigorous and wholehearted, so very enthusiastic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1860,52 @@
     "text": "Coat with strange lustre",
     "enumeration": "6"
    },
-   "solution": "ULSTER"
+   "solution": "ULSTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ULSTER",
+    "definitions": [
+     {
+      "text": "Coat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "strange means odd or out of the ordinary, so the letters are put in an unusual order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lustre",
+      "gives": "LUSTRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LUSTRE",
+       "gives": "ULSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coat that has an odd sheen.",
+     "definitionFit": "An ulster is a long, loose overcoat, often belted, named after the Irish province."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
