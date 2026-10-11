@@ -996,12 +996,15 @@ REBUILT
       # few times if a sibling worktree's fetch or push wins the lock on the
       # shared refs/remotes/origin/master first; anything else it returns straight
       # through to the alert below.
-      if ! push_race_retry attempt_push
+      # Still losing after those, push the commit in memory (push_puzzle_commit.sh)
+      # rather than strand it; a real conflict is refused there too.
+      if ! push_race_retry attempt_push &&
+        { stuck=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
+          git rebase --abort 2>/dev/null; ! tools/push_puzzle_commit.sh HEAD; }
       then
         # Say which files disagreed, and leave the worktree in a state the next
         # run can use: nightly_worktree.sh resets --hard, which does not clear a
         # rebase that is still in progress.
-        stuck=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
         git rebase --abort 2>/dev/null
         alert "the daily unit $1 committed but could not push, so the site does not show it yet. ${stuck:+The rebase onto origin/master conflicted in: $stuck}See the tail of .update.log."
       fi

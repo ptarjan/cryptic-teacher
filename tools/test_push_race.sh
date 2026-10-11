@@ -84,7 +84,14 @@ attempt_always_locked() {
 push_race_retry attempt_always_locked >/dev/null 2>&1; rc=$?
 check "returns failure, not success" "$rc" "1"
 check "stops retrying rather than looping forever" \
-  "$([ "$(cat "$counter" | wc -l | tr -d ' ')" -le 5 ] && echo yes || echo no)" "yes"
+  "$([ "$(cat "$counter" | wc -l | tr -d ' ')" -le 12 ] && echo yes || echo no)" "yes"
+
+echo "an origin that moves on more than 5 consecutive attempts is still beaten:"
+: > "$counter"
+attempt_raced_8() { echo x >>"$counter"; [ "$(wc -l <"$counter")" -gt 8 ] && return 0; return "$PUSH_RACED"; }
+push_race_retry attempt_raced_8 >/dev/null 2>&1; rc=$?
+check "lands on the 9th attempt" "$rc" "0"
+check "took 9 attempts" "$(wc -l <"$counter" | tr -d ' ')" "9"
 
 echo "a push refused because origin moved after the fetch is redone:"
 git init -q --bare "$tmp/origin.git"
