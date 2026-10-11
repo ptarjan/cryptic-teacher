@@ -820,7 +820,7 @@ sync_wave() {
 # The meter line is what tools/prereset_plan.py per_run_rate reads: five-hour
 # points over hours times the average in flight is points per run-hour.
 after_wave() {
-  local before="$1" hours="$2" avg="$3" failed="$4" before_s="$5" pool="$6" now now_s s_read=1
+  local before="$1" hours="$2" avg="$3" failed="$4" before_s="$5" pool="$6" now now_s s_now s_read=1
   NAPPED=0
   publish_shared_data
   now=$(python3 tools/weekly_usage.py 2>/dev/null || echo "$before")
@@ -858,6 +858,18 @@ after_wave() {
   # lockout, so they mostly fail and are requeued with the rest), because a nap
   # with runs going would leave them unreaped.
   pool_drain
+  # Draining can outlast the lockout: runs that started before the window
+  # turned over finish after it, and the reset then asked for is the NEXT
+  # window's, a nap of nearly five hours on a meter that is already empty
+  # (10-11: drained 12:5x-13:19 past a 1pm reset, then slept until 18:03).
+  # So read the meter again; a window with room needs no nap, only the
+  # requeue a nap would have bought.
+  if s_now=$(python3 tools/weekly_usage.py --group session 2>/dev/null) &&
+     awk -v s="$s_now" -v l="$LOCKOUT_PCT" 'BEGIN{exit !(s < l)}'; then
+    echo "  five-hour window turned over while runs drained (${s_now}%) — no nap"
+    NAPPED=1
+    return 0
+  fi
   local nap room left_min
   left_min=$(session_left_min)
   nap=$(awk -v h="$left_min" 'BEGIN{printf "%d", (h == "" ? 1 : h / 60) * 3600 + 120}')
