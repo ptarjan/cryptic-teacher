@@ -1228,6 +1228,45 @@ def end_voted(ends, quiet, side, own=()):
     return most if spelt.count(most) * 2 > len(best) else tuple(words)
 
 
+#: How alike another reading's pieces of the clue's edge word, joined, must
+#: be to it (edge_split): the clue's own reading of it may be misread too.
+EDGE_SPLIT_SIMILAR = 0.8
+
+
+def edge_split(edge, piece, rest, side):
+    """How many tokens of `rest` (another reading's words and marks past
+    the clue's edge, nearest first) are more of the clue's own word at that
+    edge (`edge`), split ("broom slick" for "broomstick") or run apart
+    ("ductor hurried to enter" for "Ductorlurriedtuenter"): joined with the
+    piece the reading aligned to it (`piece`), they spell it a letter off,
+    or as alike as EDGE_SPLIT_SIMILAR and as long give or take two. 0 when
+    the piece is near the whole word (the words past it are lost: "surrounded
+    by trees" for "surrounded trees") or a lone letter ("t nens")."""
+    if len(piece) + 2 > len(edge) or len(piece) < 2 or not piece.isalpha():
+        return 0
+    best, run, pieces = 0, "", [piece]
+    for n, t in enumerate(rest, 1):
+        if t in MARKS:
+            continue
+        if not re.fullmatch(r"[a-z]{2,}(?:'[a-z]+)?", t):
+            break  # a lone letter is a speck or a misread figure
+        run = run + t if side == "end" else t + run
+        pieces.append(t)
+        joined = piece + run if side == "end" else run + piece
+        if len(joined) > len(edge) + 2:
+            break
+        # Pieces that are all words are words apart ("no uniform" for the
+        # clue's "Nouniform"), unless short of none and a letter from one
+        # word as long ("broom slick" for "broomstick").
+        if all(is_word(w) for w in pieces) and not (
+                min(map(len, pieces)) >= 3 and any(len(c) >= len(joined) and is_word(c) for c in edits(joined))):
+            continue
+        if within_one(joined, edge) or (abs(len(joined) - len(edge)) <= 2
+                                        and similar(joined, edge) >= EDGE_SPLIT_SIMILAR):
+            best = n
+    return best
+
+
 #: The most letters of a word only one reading has that the corpus may put
 #: in (lone_word_fits), and how many times more often the corpus's clues
 #: must print it beside each neighbour than the neighbours side by side.
@@ -1450,6 +1489,8 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     seen = [{} for _ in mine]  # i -> {reading k: its word}
     extra = [{} for _ in range(len(mine) + 1)]  # gap before i -> {word: readings}
     leads, trails = [], []
+    at_words = [i for i, w in enumerate(low) if w not in MARKS and w != BREAK]
+    first_at, last_at = (at_words[0], at_words[-1]) if at_words else (None, None)
     printing = 0  # the other readings that print the clue
     for k, theirs in enumerate(others):
         theirs = ends_joined(rejoin(unglued(theirs, low), low), low)
@@ -1463,6 +1504,33 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
             continue
         printing += 1
         lead, trail = ends(pairs, theirs)
+        # The clue's own first or last word, split or run apart in this
+        # reading, is no word lost at that end (edge_split).
+        js = [j for i, j in pairs if i is not None and j is not None]
+        whole = {}  # the edge word's index -> this reading's pieces of it joined
+        for side, at_edge, j_edge in (("start", first_at, min(js, default=None)),
+                                      ("end", last_at, max(js, default=None))):
+            got = lead if side == "start" else trail
+            j = next((j for i, j in pairs if i == at_edge), None) if at_edge is not None else None
+            if not got or j is None or j != j_edge:
+                continue
+            rest = got[::-1] if side == "start" else got
+            n = edge_split(low[at_edge], theirs[j].lower(), rest, side)
+            if n:
+                cut = theirs[j + 1:j + 1 + n] if side == "end" else theirs[j - n:j + 1]
+                cut = [t for t in (cut if side == "start" else [theirs[j]] + cut) if t not in MARKS]
+                whole[at_edge] = cut[0] + "".join(cut[1:]).lower()
+                rest = rest[n:]
+                # Marks left past it that the clue prints there too are its own.
+                ats = range(at_edge - 1, -1, -1) if side == "start" else range(at_edge + 1, len(mine))
+                if rest and all(t in MARKS for t in rest) and tuple(rest) == tuple(mine[a] for a in ats)[:len(rest)]:
+                    whole.update(zip(ats, rest))
+                    rest = ()
+                rest = tuple(rest)
+                if side == "start":
+                    lead = rest[::-1]
+                else:
+                    trail = rest
         j = next((j for i, j in pairs if i == end_word), None) if end_word is not None else None
         if j is not None:
             after = list(itertools.takewhile(lambda t: t == BREAK or t in MARKS, theirs[j + 1:]))
@@ -1477,7 +1545,9 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
             else:
                 at = i + 1
                 if j is not None:
-                    seen[i][k] = theirs[j]
+                    seen[i][k] = whole.get(i, theirs[j])
+        for i, w in whole.items():
+            seen[i][k] = w
     if mine and mine[-1] == "?":
         # A reading that splits the clue's last word ("Tap : ture ?" for
         # "rapture?") leaves the rest of it and the "?" past the clue's
