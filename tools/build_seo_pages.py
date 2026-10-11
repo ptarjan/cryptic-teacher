@@ -206,7 +206,7 @@ def number_day(p):
 
 def named(p):
     """"Guardian Penguin Book 5 Cryptic No 18" — the puzzle in full prose.
-    "Metro Cryptic, Tuesday 22 September 2026" where the number is a date."""
+    "Canberra Times Cryptic, Monday 6 January 1992" where the number is a date."""
     pk = series_meta.paper_kind(p.get('series'), p['number'])
     if (day := number_day(p)):
         return f"{pk}, {day:%A %-d %B %Y}"
@@ -557,8 +557,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
     pretty = f"{position(puz):,}"
     pk = series_meta.paper_kind(puz.get("series"), puz["number"])
     when = datestr(puz)
-    # A date-keyed number (Metro, the Canberra Times) is named by its day:
-    # "No 20,260,922" is a date with thousands separators.
+    # A date-keyed number (the Canberra Times) is named by its day:
+    # "No 920,106" is a date with thousands separators.
     day = number_day(puz)
     dw = f"{day:%A %-d %B %Y}" if day else ""
     diff = (meta or {}).get("difficulty") or {}
@@ -789,8 +789,8 @@ def hub_row(p, note=None):
     d = p.get("difficulty") or {}
     when = row_date(p)
     # The date column carries the date on every row. A date-keyed paper prints
-    # no number, so its title slot names the paper and kind instead ("Metro
-    # Cryptic", series.date_numbered()), as pickerRow in app.js does.
+    # no number, so its title slot names the paper and kind instead ("Canberra
+    # Times Cryptic", series.date_numbered()), as pickerRow in app.js does.
     title = (series_meta.date_numbered()[p.get("series")] if number_day(p)
              else display_number(p))
     badge = diff_badge(d["band"]) if d.get("band") else ""

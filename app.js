@@ -691,10 +691,10 @@
   }
 
   // The series whose stored number is the print date (tools/series.py
-  // numberIsDate), each with its row name ("Metro Cryptic", series.py
+  // numberIsDate), each with its row name ("Canberra Times Cryptic", series.py
   // date_numbered()): the number is shown as the day it names, and the picker
   // row's title slot names the paper. The kind alone ("Cryptic") made every
-  // Metro row look like the same unnamed puzzle.
+  // such row look like the same unnamed puzzle.
   const DATE_NUMBERED = INDEX.dateNumbered || {};
   const isDateNumbered = (p) => Object.hasOwn(DATE_NUMBERED, p.series) && !!p.date;
 
@@ -714,8 +714,12 @@
   // series: "penguin-5018" while each BOOK was a key, "penguin5-18" before
   // that while each VOLUME was one. Mirrors legacy_ids() in tools/series.py.
   // A rule rather than a list, so a book acquired later keeps working without
-  // anyone remembering to add it.
+  // anyone remembering to add it. A series that was date-numbered (Metro
+  // until 2026-10-11, index dateIdsUntil) also answers to <series>-YYYYMMDD.
+  const DATE_IDS_UNTIL = INDEX.dateIdsUntil || {};
   function legacyIds(p) {
+    const until = DATE_IDS_UNTIL[p.series];
+    if (until && p.date && p.date <= until) return [`${p.series}-${p.date.replace(/-/g, "")}`];
     const b = bookOf(p.series, p.number);
     if (!b) return [];
     return [`${b.row.was}-${b.row.volume * 1000 + b.position}`,
@@ -6735,12 +6739,13 @@
     return { iso: p.date, day, short: day.slice(0, 3),
              words: dayWords(y, m, d, false), shortWords: dayWords(y, m, d, true) };
   }
-  // The puzzle heading's name and date. A date-keyed paper (Metro, the Canberra
+  // The puzzle heading's name and date. A date-keyed paper (the Canberra
   // Times) prints no number, so the file's name already holds the day
-  // ("Metro cryptic crossword, 11 October 2026") and the heading appended it a
-  // second time. Where the name carries the puzzle's own day, take it out of
-  // the name and show it once, short, after the " · ": "Metro cryptic
-  // crossword · Sun 11 Oct 2026". Any other name keeps the day in full.
+  // ("Canberra Times cryptic crossword, Monday 6 January 1992 (English
+  // cryptic)") and the heading appended it a second time. Where the name
+  // carries the puzzle's own day, take it out of the name and show it once,
+  // short, after the " · ": "Canberra Times cryptic crossword (English
+  // cryptic) · Mon 6 Jan 1992". Any other name keeps the day in full.
   function headingParts(name, p) {
     const when = puzzleDate(p);
     const full = when.day ? when.day + " " + when.words : when.words;
@@ -7019,7 +7024,7 @@
     // read at a glance where a trailing full "Saturday" would just be length.
     const d = dd.short ? `${dd.short} ${dd.shortWords}` : dd.shortWords;
     // The date column carries the date on every row. A date-keyed paper prints
-    // no number, so its title slot names the paper instead ("Metro Cryptic"),
+    // no number, so its title slot names the paper instead ("Canberra Times Cryptic"),
     // as hub_row in build_seo_pages.py does.
     const title = isDateNumbered(p) ? DATE_NUMBERED[p.series] : displayNumber(p);
     const btn = document.createElement("button");

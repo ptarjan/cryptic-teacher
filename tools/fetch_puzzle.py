@@ -2925,13 +2925,20 @@ def reindex():
     books = {str(i): {"shelf": r["shelf"], "volume": r["volume"], "was": r["was"]}
              for i, r in sorted(series_meta.BOOKS.items())}
     # The series whose number is a print date (numberIsDate), each with its
-    # row name ("Metro Cryptic"): app.js prints the day in the date column and
-    # this in the title slot, as hub_row() does, and cannot read series.py.
+    # row name ("Canberra Times Cryptic"): app.js prints the day in the date
+    # column and this in the title slot, as hub_row() does, and cannot read
+    # series.py.
     dated = series_meta.date_numbered()
+    # The series once date-numbered, each with the last day whose puzzle also
+    # answers to <series>-YYYYMMDD: app.js legacyIds() mirrors
+    # series.legacy_ids() off it, so a saved grid or link keeps resolving.
+    date_ids = {s: series_meta.meta(s)["dateIdsUntil"] for s in sorted(series_meta.SERIES)
+                if "dateIdsUntil" in series_meta.meta(s)}
     # The clue types, their families and blurbs: app.js names and explains a
     # type from this and has no table of its own.
     index = {"latest": puzzles[0]["id"] if puzzles else None,
              "papers": papers, "groups": groups, "books": books, "dateNumbered": dated,
+             "dateIdsUntil": date_ids,
              "clueTypes": clue_types.DATA, "tags": puzzle_tags.TAGS,
              "snitchRanges": snitch, "puzzles": puzzles, "reprints": reprints,
              "unlisted": unlisted}

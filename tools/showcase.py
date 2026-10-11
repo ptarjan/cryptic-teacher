@@ -83,8 +83,10 @@ def file_facts(puz):
         "difficulty": None,
         "annotated": False,
         # A round issue number means something only where the number counts
-        # issues: not a date (Metro), not a book's volume * 1000 + position.
+        # issues: not a date (the Canberra Times), not our own day count
+        # (Metro, numberIsDayCount), not a book's volume * 1000 + position.
         "counted": not (series_meta.is_book(series)
+                        or "numberIsDayCount" in series_meta.meta(series)
                         or series_meta.number_date(series, puz["number"])),
     }
 

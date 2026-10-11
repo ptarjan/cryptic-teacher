@@ -774,7 +774,7 @@ FIRST_CASES = [
     # the declared first issue counts, a 1 under a renumbering does not
     (["timesclub-1", "timesclub-20000"], [], ["timesclub-20000"]),
     # no first issue where the number is a date, a reprint or a book position
-    (["metro-20250403", "globeandmail-1", "book-1001", "book-1"], [], []),
+    (["metro-9516", "globeandmail-1", "book-1001", "book-1"], [], []),
     # pinned once, not twice
     (["listener-1"], ["listener-1"], ["listener-1"]),
 ]

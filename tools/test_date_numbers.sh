@@ -1,5 +1,6 @@
 #!/bin/bash
-# Is a date-keyed puzzle number (Metro, the Canberra Times) named by its day?
+# Is a date-keyed puzzle number (the Canberra Times) named by its day?
+# (Metro was one until 2026-10-11; it now counts days, series.py numberIsDayCount.)
 # Their papers print no number, so the stored number is the print date, and
 # formatting it as a number would read "Cryptic 20,260,922".
 # Renders every numberIsDate series' page and refuses a separated number in the
@@ -17,7 +18,7 @@ import series as S
 import build_seo_pages as B
 
 dated = {k: S.meta(k)["numberIsDate"] for k in S.SERIES if "numberIsDate" in S.meta(k)}
-print("SOME", {"metro", "canberra"} <= set(dated))
+print("SOME", "canberra" in dated and "metro" not in dated)
 
 ok = True
 for key, prefix in dated.items():
@@ -45,7 +46,7 @@ for key, prefix in dated.items():
 print("PAGES", ok)
 
 # The archive row: the date in the date column like every other row, the
-# paper and kind in the title slot ("Metro Cryptic"), as the answer page's
+# paper and kind in the title slot ("Canberra Times Cryptic"), as the answer page's
 # prev/next links name it. The kind alone ("Cryptic") named no paper.
 rows = True
 for key in dated:
@@ -139,7 +140,7 @@ print("PICKER", picker and len(got) == len(cases))
 PY
 )
 # Heading: the date shows once. The puzzle file's name holds the day for a
-# date-keyed paper ("Metro cryptic crossword, 11 October 2026"), so the app's
+# date-keyed paper ("Canberra Times cryptic crossword, Monday 6 January 1992 (English cryptic)"), so the app's
 # heading (headingParts() in app.js, lifted out and run in node) must not
 # append it again, and neither may a static answer page's <title> or <h1>.
 heading=$(cd "$REPO" && PYTHONPATH="$REPO/tools" python3 - <<'PY' 2>&1
