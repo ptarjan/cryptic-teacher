@@ -98,6 +98,7 @@ from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 import book_queue
 import grid_verdict
+import ocr_clues
 from light_spec import build_spec, coverage
 from parse_penguin_book import (
     NoPuzzleRegion, build_quality_report, parse_book)
@@ -509,9 +510,11 @@ def filed_positions(identifier, puzzle_dir):
 
 
 def first_clue(texts):
-    """A puzzle's first Across clue, folded for comparison, or None."""
+    """A puzzle's first Across clue, folded for comparison, or None: finished
+    as a filed clue is (ocr_clues.alone), so a leaf's text as read and the
+    filed copy of it compare alike."""
     text = next((t for t in texts if t), None)
-    return " ".join(text.lower().split())[:40] if text else None
+    return " ".join(ocr_clues.alone(text, "-across", None).lower().split())[:40] if text else None
 
 
 def main(argv=None):
@@ -654,6 +657,15 @@ def main(argv=None):
                  + (q.get("down") or {}).get("empty_text", 0))
         if blank:
             reasons.append(f"{blank} clue(s) have no text at all")
+        # The check every OCR filer makes before it writes: a clue with text
+        # not its own or a word OCR made up would be filed blank, and no
+        # puzzle with a blank clue is filed.
+        unfit = [(f"{lg[0]}-{side}", why) for side, lights in (("across", across), ("down", down))
+                 for lg in lights if (pr := lg[3] if len(lg) > 3 else None) and not pr.get("synthesised")
+                 and (why := ocr_clues.unfit(pr.get("clue"), pr.get("enumeration")))]
+        if unfit:
+            reasons.append(f"{len(unfit)} clue(s) unfit to file (ocr_clues.unfit), "
+                           f"first {unfit[0][0]}: {unfit[0][1]}")
         rows[bn] = {"book_number": bn, "setter": p.get("setter"),
                     "lights_recovered": len(across) + len(down),
                     "number_coverage": round(coverage(across, down), 3),

@@ -88,7 +88,7 @@ import re
 import sys
 from pathlib import Path
 
-import leading_quote
+import ocr_clues
 
 FORM_FEED = "\f"
 
@@ -459,7 +459,12 @@ def segment_clues(lines: list[str]) -> list[str]:
 
 
 def parse_clue_chunk(chunk: str) -> dict:
-    text = chunk
+    """One clue chunk's number, words and count. The words are left as read:
+    tools/light_spec.py splits clues run together and strips stray labels
+    from them, then finishes each as every OCR reader's is (ocr_clues.alone)."""
+    # clean() first: a speck it takes off ("22 * She", "18 _Lechery", "I8
+    # Extraordinary") would otherwise keep the number from being read.
+    text = ocr_clues.clean(chunk)
     number = None
     m = LEADING_NUMBER_RE.match(text)
     if m:
@@ -476,21 +481,7 @@ def parse_clue_chunk(chunk: str) -> dict:
     elif SEE_REFERENCE_RE.match(text.strip()):
         enumeration = None  # by design: a cross-reference clue has none
 
-    # No printed clue holds a brace: in a scan's OCR one is a misread mark,
-    # often the clue number itself ("}) Very wealthy tributary"), so the
-    # braces go, along with any bracket or stray mark they leave at the front.
-    if "{" in text or "}" in text:
-        text = re.sub(r"\s*[{}]+\s*", " ", text)
-        text = re.sub(r"^[^\w\"'‘“(.…]+", "", text.strip())
-        text = re.sub(r"\s{2,}", " ", text)
-
-    # A stray quote the OCR left before the clue, or before its number so
-    # that LEADING_NUMBER_RE missed it, goes as every OCR reader's does.
-    return {
-        "number": number,
-        "clue": leading_quote.clean(text.strip(" ,")),
-        "enumeration": enumeration,
-    }
+    return {"number": number, "clue": text.strip(" ,"), "enumeration": enumeration}
 
 
 def split_across_down(lines: list[str]) -> tuple[list[str], list[str]]:

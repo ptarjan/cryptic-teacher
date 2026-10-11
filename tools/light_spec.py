@@ -51,7 +51,9 @@ The rules, generic rather than per book:
    they move entries between directions and split one entry into two. A slot
    with no printed clue of its own (rule 1b, a linked light whose partner
    printed no "See" placeholder) carries the "See <leader>" written from
-   convention, marked synthesised=True.
+   convention, marked synthesised=True. Its words are finished last, once
+   rules 1 and 2 have cut and moved them, as every OCR reader's clue is
+   (ocr_clues.alone): the book's text layer is the one reading of them.
 
 3. IMPOSSIBLE NUMBER. A number that is 0, above MAX_LIGHT_NUMBER, or that
    does not strictly increase on the previous one in its direction, is OCR
@@ -60,6 +62,8 @@ The rules, generic rather than per book:
    structurally -- rather than a hand-guessed value.
 """
 import re
+
+import ocr_clues
 
 SEE_RE = re.compile(r"^see\s+(\d+)\s*\.?$", re.IGNORECASE)
 LEADING_NUM_RE = re.compile(r"^(\d{1,2})\b")
@@ -307,6 +311,11 @@ def build_spec(puzzle):
                 damage.append(f"{d} numbers print out of order ({lg[0]} after "
                               f"{last}) even after repair")
             last = lg[0]
+        for lg in parsed[d]:
+            printed = lg[3] if len(lg) > 3 else None
+            if printed and printed.get("clue") and not printed.get("synthesised"):
+                printed["clue"] = ocr_clues.alone(printed["clue"], f"{lg[0] or ''}-{d}",
+                                                  printed.get("enumeration"))
     return parsed["across"], parsed["down"], notes, damage
 
 
