@@ -149,10 +149,13 @@ sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).enco
 # _ct_salvage <tree> <job>: commit what a dropped run left under
 # CT_SALVAGE_PATHS (a .json that does not parse, a write cut off, is left
 # out), then push every commit the tree has that origin/master lacks with
-# tools/push_puzzle_commit.sh. A commit that will not push is kept on the
-# branch salvage/<job>-<time> and the room is told; the reset then goes ahead.
+# tools/push_puzzle_commit.sh. One that conflicts with origin/master and
+# whose puzzles all ask a re-read (scan_queue.py conflicted, as
+# tools/durable.sh does) is dropped; any other commit that will not push is
+# kept on the branch salvage/<job>-<time> and the room is told; the reset then
+# goes ahead.
 _ct_salvage() {
-  local tree="$1" job="$2" c failed=0 msg lock
+  local tree="$1" job="$2" c failed=0 msg lock out
   # A run killed mid-git leaves its lock, and mid-rebase its rebase: the
   # lease says no run of this job is live, so one older than a minute is dead.
   lock="$(git -C "$tree" rev-parse --git-dir)/index.lock"
@@ -171,11 +174,16 @@ _ct_salvage() {
   # by tools/push_puzzle_commit.sh, which leaves the local commit) is skipped.
   for c in $(git -C "$tree" cherry origin/master HEAD | sed -n 's/^+ //p'); do
     msg=$(git -C "$tree" log -1 --format=%s "$c")
-    if (cd "$tree" && bash tools/push_puzzle_commit.sh "$c" >/dev/null 2>&1); then
-      echo "WORKTREE: salvaged and pushed: $msg" >&2
-    else
-      failed=1
-    fi
+    (cd "$tree" && bash tools/push_puzzle_commit.sh "$c" >/dev/null 2>&1)
+    case $? in
+      0) echo "WORKTREE: salvaged and pushed: $msg" >&2 ;;
+      3) if out=$(cd "$tree" && python3 tools/scan_queue.py conflicted "$c" 2>&1); then
+           echo "WORKTREE: $msg conflicts with origin/master; origin's version stands and the source is read again: $out" >&2
+         else
+           failed=1
+         fi ;;
+      *) failed=1 ;;
+    esac
   done
   # Nothing is lost when origin/master already holds every file those commits
   # touched as HEAD has it (pushed by another path as different commits).
