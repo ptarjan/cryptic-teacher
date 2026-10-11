@@ -864,6 +864,15 @@ check "an ellipsis keeps the space the paper prints before its mark" \
   "$(PYTHONPATH="$REPO/tools" python3 -c '
 import parse_timesforthetimes as t
 print(t.tidy("Stopped on the way to . . . ?") + "|" + t.tidy("Starters for the Oaks ?"))')"
+# A count the blog typed broken ahead of the count the parser appends goes; a
+# number the clue ends in, a year or a quoted count stays.
+check "a broken count before the clue's count goes" \
+  "Has it any value? (4,4)|on touch and feeling? (6)|lubricant dispenser (6,3)|under river (9)|readership? (11)|backing Channel 5 (5)|Special Providence (1930) (6)|is ‘Manage resentment (7)’. (7)" \
+  "$(PYTHONPATH="$REPO/tools" python3 -c '
+import parse_timesforthetimes as t
+print("|".join(t.tidy(c) for c in ["Has it any value? (4,4)/i> (4,4)", "on touch and feeling? (6> (6)",
+    "lubricant dispenser 6,3) (6,3)", "under river (9 (9)", "readership? (11j (11)", "backing Channel 5 (5)",
+    "Special Providence (1930) (6)", "is ‘Manage resentment (7)’. (7)"]))')"
 
 # Answers the blog prints in a shape the plain reader stops short of, each
 # read only when its letters are the count the clue gives: marks ahead of the
