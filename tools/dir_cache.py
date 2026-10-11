@@ -9,11 +9,14 @@ change within one tick of the filesystem's clock leaves the mtime unmoved.
 
 A ledger is appended to or replaced whole (a new inode); appended() parses
 only the whole lines added since its last call, and reads a ledger cut or
-rewritten in place (its bytes before the mark moved) whole again.
+rewritten in place (its bytes before the mark moved) whole again. Its
+accumulator is per thread: a caller iterates it while appended() folds new
+lines into it in place, so no other thread may hold the same one.
 """
 import json
 import os
 import pickle
+import threading
 import time
 
 #: Seconds since a dir's last change before its state is kept.
@@ -23,8 +26,28 @@ SETTLED = 10
 #: of each settled dir listed (seen).
 _SEEN = {}
 
-#: {(ledger, fold): (inode, bytes read, their last 64 bytes, folded)} (appended).
+#: {(ledger, fold, thread ident): (inode, bytes read, their last 64 bytes,
+#: folded)} (appended).
 _READ = {}
+
+#: The thread idents with entries in _READ; a new one drops dead threads'.
+_THREADS = set()
+_THREADS_LOCK = threading.Lock()
+
+
+def _thread_key():
+    """This thread's ident, first dropping the _READ entries of threads gone
+    since, so threads that come and go leave no folds behind."""
+    me = threading.get_ident()
+    if me not in _THREADS:
+        with _THREADS_LOCK:
+            live = {t.ident for t in threading.enumerate()} | {me}
+            for k in list(_READ):
+                if k[2] not in live:
+                    _READ.pop(k, None)
+            _THREADS.intersection_update(live)
+            _THREADS.add(me)
+    return me
 
 #: The memo entries save() keeps: facts of the files (each name's size, a
 #: meta.json's title), not values derived by code that may change.
@@ -67,8 +90,10 @@ def listed(d):
 def appended(ledger, start, fold):
     """fold(acc, line) over each whole line of `ledger` (bytes, no newline)
     into acc = start(), carried from the last call with this `fold` so only
-    the lines appended since are folded. A missing ledger is start()."""
-    k = (os.fspath(ledger), fold)
+    the lines appended since are folded. A missing ledger is start().
+    The acc is this thread's own (keyed by thread), so a caller may iterate
+    it while another thread's call folds into its own."""
+    k = (os.fspath(ledger), fold, _thread_key())
     try:
         fh = open(ledger, "rb")
     except FileNotFoundError:

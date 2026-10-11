@@ -3500,7 +3500,9 @@ def _fold_known(known, line):
 
 def _planned_known(ledger):
     """load_known(ledger) for plan(), which reads its rows and changes none:
-    only the lines appended since the last call are parsed (dir_cache.appended)."""
+    only the lines appended since the last call are parsed (dir_cache.appended,
+    whose dict is this thread's own: the planner thread and the queue's main
+    thread, via sister_solutions, both read it)."""
     return dir_cache.appended(ledger, dict, _fold_known)
 
 
