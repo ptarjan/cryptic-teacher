@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Changing the subject, that was a great fight (extremely late starting)",
     "enumeration": "12"
    },
-   "solution": "WHATABOUTERY"
+   "solution": "WHATABOUTERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WHATABOUTERY",
+    "definitions": [
+     {
+      "text": "Changing the subject",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "late starting",
+      "for": "deletion",
+      "note": "a word whose start is late has lost its opening letter, so the first letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that was a great fight",
+      "gives": "WHATABOUT",
+      "note": "an exclamation of admiration for a boxing contest: what a bout!"
+     },
+     {
+      "clueFragment": "extremely",
+      "gives": "VERY",
+      "note": "extremely means very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHATABOUT",
+      "ERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A spectator gushes over a terrific fight that began late, while someone changes the subject.",
+     "walkthrough": "WHAT A BOUT plus (v)ERY. Whataboutery is deflecting criticism by asking 'what about...?' some other matter.",
+     "definitionFit": "Whataboutery is the debating tactic of deflecting an accusation by raising a different issue, so it changes the subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fight"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,56 @@
     "text": "Largely unable to bear Commoners?",
     "enumeration": "7"
    },
-   "solution": "WOMBLES"
+   "solution": "WOMBLES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WOMBLES",
+    "definitions": [
+     {
+      "text": "Commoners?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Largely",
+      "for": "deletion",
+      "note": "largely means most but not all, so the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unable to bear",
+      "gives": "WOMB",
+      "note": "the organ needed to bear children"
+     },
+     {
+      "clueFragment": "unable to bear",
+      "gives": "LESS",
+      "note": "without, as a suffix: WOMB-LESS is unable to bear young"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOMB",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "Ordinary people, the commoners, are mostly unable to put up with something.",
+     "walkthrough": "WOMBLESS, unable to bear children, loses its last letter. The Wombles are furry creatures from a British children's series who live on Wimbledon Common, hence 'Commoners'.",
+     "definitionFit": "The Wombles are fictional residents of Wimbledon Common, so they are punningly Commoners; the question mark flags the wordplay sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +161,39 @@
     "text": "Rise for workers?",
     "enumeration": "7"
    },
-   "solution": "ANTHILL"
+   "solution": "ANTHILL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANTHILL",
+    "definitions": [
+     {
+      "text": "Rise for workers?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rise for workers?",
+      "note": "surface reading: a pay rise for employees"
+     },
+     {
+      "clueFragment": "Rise for workers?",
+      "note": "setter's reading: a small mound of earth built by and for worker insects"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Rise' looks like a pay increase; it is a hillock, and the workers are worker ants.",
+     "definitionFit": "An anthill is a mound, a rise in the ground, built by colonies of worker ants as their nest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rise"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +207,82 @@
     "text": "In most of country, English ultimately thought, 'Why this Tory policy?'",
     "enumeration": "9"
    },
-   "solution": "AUSTERITY"
+   "solution": "AUSTERITY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AUSTERITY",
+    "definitions": [
+     {
+      "text": "this Tory policy",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word means all except its final letter"
+     },
+     {
+      "text": "In",
+      "for": "container",
+      "note": "one element is placed inside the other, the country's shortened name"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letters of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "AUSTRIA",
+      "note": "a European country"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation for English"
+     },
+     {
+      "clueFragment": "thought",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of thought"
+     },
+     {
+      "clueFragment": "Why",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of why"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUST",
+      "E",
+      "RI",
+      "T",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mid-country wonders why the Conservatives pursue this policy.",
+     "walkthrough": "E goes into AUSTRI(a), then the last letters of 'thought' and 'Why'. The clue's question doubles as the definition: this is the policy being asked about.",
+     "definitionFit": "Austerity, deep cuts to public spending, was the defining economic policy of the Conservative government after 2010."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +296,69 @@
     "text": "Killers deeply sceptical at first, following men around",
     "enumeration": "5"
    },
-   "solution": "ORCAS"
+   "solution": "ORCAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ORCAS",
+    "definitions": [
+     {
+      "text": "Killers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "other ranks, soldiers who are not officers"
+     },
+     {
+      "clueFragment": "around",
+      "gives": "CA",
+      "note": "circa, about, abbreviated"
+     },
+     {
+      "clueFragment": "deeply",
+      "note": "surface padding: it only colours the picture and supplies no letters"
+     },
+     {
+      "clueFragment": "sceptical",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter of sceptical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "CA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Murderers are deeply doubtful at first while trailing some men.",
+     "walkthrough": "'following' puts the S after the other two pieces, and 'men' as other ranks is a crossword staple. Killer whale is another name for the orca.",
+     "definitionFit": "Orcas are popularly called killer whales, so killers is a shortened nickname for them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +372,43 @@
     "text": "Dangerous wind; might its outcome be 'concerning'?",
     "enumeration": "7"
    },
-   "solution": "TWISTER"
+   "solution": "TWISTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TWISTER",
+    "definitions": [
+     {
+      "text": "Dangerous wind",
+      "at": 0
+     },
+     {
+      "text": "might its outcome be 'concerning'?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dangerous wind",
+      "note": "first meaning: a tornado"
+     },
+     {
+      "clueFragment": "might its outcome be 'concerning'?",
+      "note": "second meaning, read cryptically: split as ..., an instruction whose result is RE, meaning concerning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half splits the answer into an instruction: twist the letters ER and you get RE, the crossword word for 'concerning' or 'about'.",
+     "definitionFit": "A twister is American slang for a tornado, a violent and dangerous rotating windstorm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "outcome"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +422,72 @@
     "text": "Green's naked – can't possibly perform again",
     "enumeration": "7"
    },
-   "solution": "REENACT"
+   "solution": "REENACT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "REENACT",
+    "definitions": [
+     {
+      "text": "perform again",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naked",
+      "for": "deletion",
+      "note": "naked means stripped of its covering, so the outer letters are removed"
+     },
+     {
+      "text": "can't",
+      "for": "deletion",
+      "note": "the word can't loses its apostrophe and is read as plain letters"
+     },
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several arrangements of those letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Green",
+      "gives": "GREEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "can't",
+      "gives": "CANT",
+      "note": "taken as written, minus the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REE",
+      "NACT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANT",
+       "gives": "NACT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Green is unclothed and unable to perform again.",
+     "walkthrough": "(g)REE(n) then a jumble of CANT.",
+     "definitionFit": "To re-enact is to act something out once more, i.e. to perform it again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +507,55 @@
      }
     ]
    },
-   "solution": "ADDERSTONGUE"
+   "solution": "ADDERSTONGUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADDERS-TONGUE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "meddling with",
+      "for": "anagram",
+      "note": "meddling interferes and disturbs things, so the letters are thrown out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ted",
+      "gives": "TED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dangerous",
+      "gives": "DANGEROUS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEDDANGEROUS",
+       "gives": "ADDERSTONGUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Ted tampers with a hazardous plant.",
+     "definitionFit": "Adder's-tongue is a small fern, named for its spike resembling a snake's tongue, so it is a kind of plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dangerous"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +569,63 @@
     "text": "Puts down protest – determined to make comeback",
     "enumeration": "7"
    },
-   "solution": "DEMOTES"
+   "solution": "DEMOTES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEMOTES",
+    "definitions": [
+     {
+      "text": "Puts down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "make comeback",
+      "for": "reversal",
+      "note": "coming back means travelling the other way, so the word runs right to left"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protest",
+      "gives": "DEMO",
+      "note": "short for demonstration"
+     },
+     {
+      "clueFragment": "determined",
+      "gives": "SET",
+      "note": "set on something means determined"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMO",
+      "TES"
+     ],
+     "reversals": [
+      {
+       "from": "SET",
+       "to": "TES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Authorities crush a protest that is resolved to return.",
+     "definitionFit": "To demote someone is to put them down to a lower rank or position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Puts"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +639,50 @@
     "text": "Fancy that's first bell?",
     "enumeration": "7"
    },
-   "solution": "CHIMERA"
+   "solution": "CHIMERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHIMERA",
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bell",
+      "gives": "CHIMER",
+      "note": "something that chimes"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "A",
+      "note": "A is first, as in a grade or the alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIMER",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation of surprise: fancy that, the first bell has rung!",
+     "walkthrough": "Read as 'first bell' the way one says 'bell A': CHIMER labelled A. 'Fancy that' looks like a set phrase, but 'that's' is only the link.",
+     "definitionFit": "A chimera is a wild fantasy or illusion, and fancy as a noun means an imagined notion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +706,72 @@
      }
     ]
    },
-   "solution": "ALLORNOTHING"
+   "solution": "ALLORNOTHING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ALL OR NOTHING",
+    "definitions": [
+     {
+      "text": "No compromise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes at the front, so only the initial letter of the word is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the combined pieces go inside the assembly's name"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parliament",
+      "gives": "ALTHING",
+      "note": "the Althing is Iceland's parliament"
+     },
+     {
+      "clueFragment": "abandoned",
+      "gives": "LORN",
+      "note": "lorn is an old word for forsaken"
+     },
+     {
+      "clueFragment": "Opposition",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of Opposition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "LORN",
+      "O",
+      "THING"
+     ]
+    },
+    "explanation": {
+     "surface": "Parliament, deserted by the leader of the Opposition, refuses any compromise.",
+     "walkthrough": "The Althing is Iceland's parliament, one of the oldest in the world; 'abandoned by' means the O tags along after the word for abandoned, and the pair sits inside.",
+     "definitionFit": "All or nothing describes a stance that accepts no middle ground: either everything or nothing at all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Parliament"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +785,81 @@
     "text": "Point to butcher briefly close to bridge going round Serpentine",
     "enumeration": "7"
    },
-   "solution": "EELLIKE"
+   "solution": "EELLIKE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "EELLIKE",
+    "definitions": [
+     {
+      "text": "Serpentine",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter of that word goes"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter"
+     },
+     {
+      "text": "going round",
+      "for": "reversal",
+      "note": "turning round means facing the opposite way, so the whole string is read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Point",
+      "gives": "E",
+      "note": "east, a compass point"
+     },
+     {
+      "clueFragment": "butcher",
+      "gives": "KILLER",
+      "note": "a butcher of people is a killer"
+     },
+     {
+      "clueFragment": "bridge",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of bridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EELLIKE"
+     ],
+     "reversals": [
+      {
+       "from": "EKILLEE",
+       "to": "EELLIKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone points to a butcher near a bridge over the Serpentine, the lake in London's Hyde Park.",
+     "walkthrough": "E + KILLE(r) + E, all turned back. The Serpentine looks like the Hyde Park lake but is an adjective here.",
+     "definitionFit": "Serpentine means snaky, winding like a serpent, and an eel is a fish with a long snakelike body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Serpentine"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +879,51 @@
      }
     ]
    },
-   "solution": "SETSAIL"
+   "solution": "SETSAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SET SAIL",
+    "definitions": [
+     {
+      "text": "start on the drink",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "to follow"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bands",
+      "gives": "SETS",
+      "note": "sets are groups or bands"
+     },
+     {
+      "clueFragment": "Trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SETS",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Trouble follows when musical bands begin drinking.",
+     "walkthrough": "'the drink' is slang for the sea, not alcohol.",
+     "definitionFit": "To set sail is to begin a voyage, and the drink is informal for the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +937,55 @@
     "text": "Part of crust contains special fibre",
     "enumeration": "5"
    },
-   "solution": "SISAL"
+   "solution": "SISAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SISAL",
+    "definitions": [
+     {
+      "text": "fibre",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "contains means holds inside, so one element wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of crust",
+      "gives": "SIAL",
+      "note": "sial is the geologists' term for the upper layer of the Earth's continental crust"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is an abbreviation for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "S",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of bread crust contains some special fibre.",
+     "walkthrough": "'Part of crust' looks like a hidden-word signal; it is the rock layer SIAL, holding S.",
+     "definitionFit": "Sisal is a strong natural fibre from an agave plant, used for rope and matting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crust"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +999,59 @@
     "text": "He succeeds becoming hornier – it's fantastic!",
     "enumeration": "9"
    },
-   "solution": "INHERITOR"
+   "solution": "INHERITOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INHERITOR",
+    "definitions": [
+     {
+      "text": "He succeeds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fantastic",
+      "for": "anagram",
+      "note": "fantastic suggests something wildly fanciful, so the letters are reworked freely"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hornier",
+      "gives": "HORNIER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HORNIERIT",
+       "gives": "INHERITOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man boasts of success as he grows randier, calling it fantastic.",
+     "definitionFit": "An inheritor is an heir, one who succeeds to an estate or title after the previous holder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "succeeds"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1065,45 @@
     "text": "One may be in bed, commando, under cover (reportedly)",
     "enumeration": "9"
    },
-   "solution": "HYDRANGEA"
+   "solution": "HYDRANGEA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HYDRANGEA",
+    "definitions": [
+     {
+      "text": "One may be in bed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard said, so the words count by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commando, under cover",
+      "gives": "HYDRANGEA",
+      "soundsLike": "HIDE RANGER",
+      "note": "a ranger is a commando soldier, and hide means stay under cover"
+     }
+    ],
+    "explanation": {
+     "surface": "A commando hides in a bed under the covers.",
+     "walkthrough": "'bed' is a flower bed, not a sleeping place.",
+     "definitionFit": "A hydrangea is a flowering shrub commonly planted in garden beds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1117,65 @@
     "text": "Heartless puzzle today unfortunately – comprehensively beaten",
     "enumeration": "9"
    },
-   "solution": "OUTPLAYED"
+   "solution": "OUTPLAYED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OUTPLAYED",
+    "definitions": [
+     {
+      "text": "comprehensively beaten",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heartless",
+      "for": "deletion",
+      "note": "without a heart means the central letters are removed"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things have gone wrong, so the letters end up disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puzzle",
+      "gives": "PUZZLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "today",
+      "gives": "TODAY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUTPLAYED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PULETODAY",
+       "gives": "OUTPLAYED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver admits that today's puzzle has thoroughly defeated them.",
+     "walkthrough": "PUZZLE loses its middle ZZ to leave PULE, which is mixed with TODAY.",
+     "definitionFit": "To be outplayed is to be thoroughly defeated by an opponent who performed better."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heartless"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1189,72 @@
     "text": "Originally came here to get treatment for foot",
     "enumeration": "7"
    },
-   "solution": "TROCHEE"
+   "solution": "TROCHEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TROCHEE",
+    "definitions": [
+     {
+      "text": "foot",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Originally",
+      "for": "letter_selection",
+      "note": "originally means at the origin, so only the opening letter is taken"
+     },
+     {
+      "text": "treatment",
+      "for": "anagram",
+      "note": "a treatment works the material over, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "came",
+      "gives": "C",
+      "select": "first",
+      "note": "opening letter of came"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "HERE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHERETO",
+       "gives": "TROCHEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient came here to have their foot treated.",
+     "walkthrough": "'foot' looks medical; it is a unit of poetic metre.",
+     "definitionFit": "A trochee is a metrical foot of one stressed syllable followed by an unstressed one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1268,57 @@
     "text": "Joe is stopping nearby – it's only to be expected",
     "enumeration": "7"
    },
-   "solution": "LOGICAL"
+   "solution": "LOGICAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOGICAL",
+    "definitions": [
+     {
+      "text": "only to be expected",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is stopping",
+      "for": "container",
+      "note": "something stopping a gap plugs it, so one element is lodged inside another"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nearby",
+      "gives": "LOCAL",
+      "note": "local means nearby"
+     },
+     {
+      "clueFragment": "Joe",
+      "gives": "GI",
+      "note": "GI Joe, slang for an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "GI",
+      "CAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Joe is stopping in the neighbourhood, as you'd expect.",
+     "definitionFit": "Something logical follows naturally from the circumstances, so it is only to be expected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joe"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1332,49 @@
     "text": "In short, era itself deliberately old-fashioned",
     "enumeration": "5"
    },
-   "solution": "RETRO"
+   "solution": "RETRO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RETRO",
+    "definitions": [
+     {
+      "text": "deliberately old-fashioned",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in means the letters sit inside the words that follow"
+     },
+     {
+      "text": "itself",
+      "for": "reversal",
+      "note": "the answer itself means looking back, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short, era",
+      "gives": "ORTER",
+      "note": "the letters spanning the end of short and the start of era"
+     }
+    ],
+    "explanation": {
+     "surface": "A short era is self-consciously behind the times.",
+     "walkthrough": "The hidden letters run backwards; 'itself' is a sly hint that the answer, short for retrospective, means looking back.",
+     "definitionFit": "Retro describes a style that deliberately imitates fashions of the past, so it is old-fashioned on purpose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1388,51 @@
     "text": "Metal band's employee listening, I think",
     "enumeration": "7"
    },
-   "solution": "RHODIUM"
+   "solution": "RHODIUM",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "RHODIUM",
+    "definitions": [
+     {
+      "text": "Metal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "listening",
+      "for": "homophone",
+      "note": "listening means taking in by ear, so the word is chosen by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "band's employee",
+      "gives": "RHODI",
+      "soundsLike": "ROADIE",
+      "note": "a roadie handles a touring band's equipment"
+     },
+     {
+      "clueFragment": "I think",
+      "gives": "UM",
+      "note": "um is the noise of someone pausing to think"
+     }
+    ],
+    "explanation": {
+     "surface": "A heavy metal band's roadie eavesdrops, unsure of himself.",
+     "walkthrough": "'Metal' suggests heavy metal music; it is the chemical element.",
+     "definitionFit": "Rhodium is a rare, silvery precious metal, a chemical element in the platinum group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Metal"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1446,50 @@
     "text": "Set off from Thailand by ship",
     "enumeration": "7"
    },
-   "solution": "TRIGGER"
+   "solution": "TRIGGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRIGGER",
+    "definitions": [
+     {
+      "text": "Set off",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thailand",
+      "gives": "T",
+      "note": "T is Thailand's international vehicle code"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "RIGGER",
+      "note": "a rigger is a ship with a given rig, as in square-rigger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RIGGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller departs from Thailand on a boat.",
+     "definitionFit": "To trigger is to set off, as in setting off an alarm or a chain of events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Set"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1503,39 @@
     "text": "State what's on my mind?",
     "enumeration": "7"
    },
-   "solution": "GEORGIA"
+   "solution": "GEORGIA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GEORGIA",
+    "definitions": [
+     {
+      "text": "State what's on my mind?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State what's on my mind?",
+      "note": "surface reading: a request to say what you are thinking"
+     },
+     {
+      "clueFragment": "State what's on my mind?",
+      "note": "setter's reading: 'State' is a noun, a US state, and the rest is the title of a famous Ray Charles song about it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'State' looks like a verb meaning say; it is a noun, a US state that a famous song puts on the singer's mind.",
+     "definitionFit": "Georgia is a US state, and the classic song 'Georgia on My Mind' places it in the singer's thoughts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1549,53 @@
     "text": "Admit leaving College Green",
     "enumeration": "5"
    },
-   "solution": "ALLOW"
+   "solution": "ALLOW",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALLOW",
+    "definitions": [
+     {
+      "text": "Admit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so that letter goes out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "College",
+      "gives": "C",
+      "note": "C is an abbreviation for college"
+     },
+     {
+      "clueFragment": "Green",
+      "gives": "CALLOW",
+      "note": "callow means green, inexperienced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLOW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is let in as they leave College Green.",
+     "walkthrough": "College Green looks like a place name; the two words are separate parts of the wordplay.",
+     "definitionFit": "To allow someone in is to admit them, letting them enter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1609,76 @@
     "text": "A throwback is hard to get rid of",
     "enumeration": "7"
    },
-   "solution": "ABOLISH"
+   "solution": "ABOLISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ABOLISH",
+    "definitions": [
+     {
+      "text": "get rid of",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going in the opposite direction, so that word is read right to left"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "throwback",
+      "gives": "LOB",
+      "note": "to lob is to throw; the back half of the word is the reversal signal"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BOL",
+      "IS",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "LOB",
+       "to": "BOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A relic of the past is difficult to do away with.",
+     "walkthrough": "'throwback' looks like one word meaning a relic; it splits into throw and a reversal signal.",
+     "definitionFit": "To abolish something is to do away with it formally, so to get rid of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "throwback"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1692,73 @@
     "text": "Hello, Charlie – visiting in retrospect dead right",
     "enumeration": "7"
    },
-   "solution": "ETHICAL"
+   "solution": "ETHICAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ETHICAL",
+    "definitions": [
+     {
+      "text": "right",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "a visitor is a guest within someone's home, so these letters go inside another word"
+     },
+     {
+      "text": "in retrospect",
+      "for": "reversal",
+      "note": "in retrospect means looking backwards, so the word runs right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dead",
+      "gives": "LATE",
+      "note": "the late someone is dead"
+     },
+     {
+      "clueFragment": "Hello",
+      "gives": "HI",
+      "note": "an informal greeting"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "HI",
+      "C",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "LATE",
+       "to": "ETAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Greeting Charlie on a visit, someone realises in hindsight they were absolutely correct.",
+     "walkthrough": "'dead right' looks like a phrase meaning exactly right; dead belongs to the wordplay.",
+     "definitionFit": "Ethical means morally right, in keeping with principles of good conduct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dead"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1778,40 @@
      }
     ]
    },
-   "solution": "GOINGON"
+   "solution": "GOINGON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOING ON",
+    "definitions": [
+     {
+      "text": "Almost",
+      "at": 0
+     },
+     {
+      "text": "happening",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Almost",
+      "note": "first meaning: nearly"
+     },
+     {
+      "clueFragment": "happening",
+      "note": "second meaning: taking place"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Going on means approaching a number or age, and also means taking place at the moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1825,47 @@
     "text": "Bird or tool",
     "enumeration": "12"
    },
-   "solution": "YELLOWHAMMER"
+   "solution": "YELLOWHAMMER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YELLOWHAMMER",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "YELLOW",
+      "note": "or is the heraldic word for gold or yellow"
+     },
+     {
+      "clueFragment": "tool",
+      "gives": "HAMMER",
+      "note": "a hammer is a tool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YELLOW",
+      "HAMMER"
+     ]
+    },
+    "explanation": {
+     "surface": "A choice is offered between a bird and a tool.",
+     "walkthrough": "'or' looks like a mere conjunction; in heraldry it is the colour gold.",
+     "definitionFit": "The yellowhammer is a small yellow-headed bunting, a common European bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "or"
+    }
+   }
   }
  ]
 }
