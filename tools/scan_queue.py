@@ -412,6 +412,8 @@ def flagged_requests():
 #: ujth"), held as readings differ. The 08:23 one is agree() taking a
 #: capital S a reader ran onto a word ("driveS", "STakes") as a vote for
 #: the word in a tie with its plural (speck_free), held as readings differ.
+#: The 09:07 one is agree() laying a clue no other reading prints word for
+#: word ("Yardous" for "Various") from the clue most of them print (relay).
 VOTE_MENDED = (
     ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
                                    "start is lost: other readings have")),
@@ -437,6 +439,7 @@ VOTE_MENDED = (
     ("2026-10-11T08:10:00+00:00", ("readings differ",)),
     ("2026-10-11T08:23:00+00:00", ("readings differ",)),
     ("2026-10-11T08:42:00+00:00", ("no other reading has",)),
+    ("2026-10-11T09:07:00+00:00", ("no other reading has",)),
 )
 
 
