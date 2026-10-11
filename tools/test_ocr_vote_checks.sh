@@ -1237,6 +1237,28 @@ check("mirror: a laid clue the readings print keeps its own words",
 check("mirror: one reading alone printing a like clue lays nothing",
       None, oc.agree("Yardous leaders of decad- caccin1 poeuy'", [yv[0], oc.marked("4 Head to tail 5 Brought forward", breaks=True)])[0])
 
+# The re-lay drops a speck or heading the print has before the clue that
+# the laid clue has none of ("DOWN I Clever Dick", Times 1994), keeps a
+# hyphen the laid clue has where the print's letters agree
+# ("roughly-made"), but not one beside an article ("when-the"), and holds
+# a print that lost the laid clue's last word.
+check("a re-laid print drops the heading and speck before it the laid clue lacks ('DOWN I', Times)",
+      ["Clever", "Dick", "swots", "up"], oc.despecked(["DOWN", "I", "Clever", "Dick", "swots", "up"], ["Clever", "Dick", "swols"]))
+check("mirror: a laid clue opening on no clue word keeps the print's short first word ('Sls sueh')",
+      ["is", "such", "the"], oc.despecked(["is", "such", "the"], ["Sls", "sueh", "lhe"]))
+check("a re-laid clue keeps the laid clue's hyphen where the letters agree ('roughly-made', Times)",
+      "Doctor hurried to enter roughly-made notes",
+      oc.remarked("Ductorlurriedtuenter roughly-made notes", "Doctor hurried to enter roughly made notes"))
+check("mirror: a laid hyphen beside an article is a speck the re-laid clue drops ('when-the')",
+      "Surprised when the lids are lifted", oc.remarked("Surprised when-the lids are li: ted", "Surprised when the lids are lifted"))
+check("a re-laid clue keeps the laid brackets around a word the print reads ('(Hamlc)')",
+      "He was a man, take him for (Hamlet)", oc.remarked("He was a man, take him for (Hamlc)", "He was a man, take him for Hamlet"))
+sh = [oc.marked(t, breaks=True) for t in (
+    "4 Check froot part of the 5 ship 6 Army leader", "4 Checl front part of the 5 ship 6 Army leader",
+    "4 Check front part of the 5 ship 6 Army leader")]
+check("mirror: a print that lost the laid clue's last word re-lays nothing ('die ship')",
+      None, oc.agree("Check front part of die ship", sh)[0])
+
 print(f"FAILS {fails}")
 EOF
 )

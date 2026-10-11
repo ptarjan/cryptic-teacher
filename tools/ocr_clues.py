@@ -1448,14 +1448,13 @@ RELAY_AHEAD = 0.25
 
 
 def relay(clue, others):
-    """(text, k, words): the clue most `others` print between two numbers where
-    the laid `clue` is too garbled for them to print it word for word
-    ("Sionemc!'The`arbingcr'souiside" against "Stone me! The arbinger's
-    outside", "Yardous" for "Various"), as reading k prints it, k the one
-    alike to the most others, and how many of those readings print each
-    word there;
-    None unless each of more than half the
-    readings prints such a clue, alike to the others'."""
+    """(text, k, words): the clue most `others` print between two numbers
+    where the vote holds the laid `clue` ("Sionemc!'The`arbingcr'souiside"
+    against "Stone me! The arbinger's outside", "Yardous" for "Various"),
+    as reading k prints it without the specks at its ends (despecked), k
+    the one alike to the most others, and how many of those readings print
+    each word there; None unless each of more than half the readings
+    prints such a clue, alike to the others'."""
     def flat(ws):
         return " ".join(w.lower() for w in ws if w not in MARKS)
     laid = flat(marked(clue))
@@ -1475,26 +1474,131 @@ def relay(clue, others):
     if best is None or len(backers[best]) < 2 or len(backers[best]) * 2 <= len(others):
         return None
     printed = collections.Counter(w for j in backers[best] for w in set(found[j][1].split()))
-    return re.sub(r" (?=[,;:!?.])", "", " ".join(found[best][0])), best, printed
+    words = despecked(found[best][0], [w for w in marked(clue) if w not in MARKS])
+    return re.sub(r" (?=[,;:!?.])", "", " ".join(words)), best, printed
+
+
+def speck(word, head=False):
+    """Whether `word`, at an end of a reading's print of a clue the laid
+    clue does not start or end on, is a speck or heading there and not the
+    clue's: "None", a run of capitals ("DOWN", "PS"), a lone letter, two
+    letters in no word's case ("tS"); at the head, any two letters ("lt",
+    "by" before "Vessels")."""
+    return word == "None" or word.isupper() and len(word) > 1 or len(word) == 1 \
+        or len(word) == 2 and (head or not (word.islower() or word.istitle()))
+
+
+def despecked(words, laid):
+    """A reading's print (`words`) of the clue laid as `laid` (its words)
+    without the specks and headings at its ends that the laid clue, whose
+    end word is one clues use, has none of (speck), nor a lone letter inside it where the laid clue has
+    no one-letter word ("Afghan I appears")."""
+    words = list(words)
+    if not laid:
+        return words
+    seen = clue_lm()[0]
+    for end, side in ((laid[0], 0), (laid[-1], -1)):
+        while len(words) > 1 and len(end) > 2 and end.lower() in seen and words[side] not in MARKS \
+                and speck(words[side], head=side == 0) and similar(words[side].lower(), end.lower()) < PRINTS_SIMILAR:
+            words.pop(side)
+        while side == 0 and words and words[0] in MARKS:
+            words.pop(0)
+    if not any(len(w) == 1 for w in laid):
+        words = [w for i, w in enumerate(words) if not (0 < i < len(words) - 1 and len(w) == 1 and w.isalpha()
+                                                         and w not in "aA")]
+    return words
+
+
+#: Brackets and quotes a laid word carries at its ends that remarked() keeps.
+OPENS, CLOSES = "(\"\u201c", ")\"\u201d"
+
+
+#: Words too common to be a speck: one the laid clue has that the vote
+#: lacks inside the clue is lost ("what pace" for "what a pace").
+SMALL_WORDS = {"a", "an", "the", "of", "to", "in", "on", "and", "is", "it", "by", "for", "as", "at"}
+#: Words no compound holds: a hyphen beside one is a speck ("when-the").
+ARTICLES = {"a", "an", "the"}
+
+
+def key_letters(token):
+    return re.sub(r"[^a-z]", "", token.lower())
+
+
+def remarked(clue, text):
+    """`text`, the vote of a reading's print of `clue`, with the laid
+    clue's brackets, quotes, hyphens and apostrophes back where its letters
+    agree (the readings' words carry none): "roughly made" for its
+    "roughly-made", "(Hamlet)" for its "(Hamlc)"; and a laid word the vote
+    has only a piece of, "operation" for "opera", where the laid word is a
+    word."""
+    said = text.split()
+    for parts in (m.split("-") for m in re.findall(r"[A-Za-z]+(?:-[A-Za-z]+)+", clue)
+                  if not ARTICLES & set(m.lower().split("-"))):
+        n = len(parts)
+        for j in range(len(said) - n + 1):
+            run = [t.rstrip(",;:!?.") for t in said[j:j + n]]
+            if [t.lower() for t in run] == [p.lower() for p in parts] and all(said[j:j + n - 1]) \
+                    and run[:-1] == said[j:j + n - 1]:
+                said[j:j + n] = ["-".join(run) + said[j + n - 1][len(run[-1]):]]
+                break
+    laid = [t for t in clue.split() if key_letters(t)]
+    sm = SequenceMatcher(None, [key_letters(t) for t in laid], [key_letters(t) for t in said], autojunk=False)
+    out = []
+    for op, i1, i2, j1, j2 in sm.get_opcodes():
+        if op == "delete":
+            continue
+        if op == "insert":
+            out += said[j1:j2]
+            continue
+        j = j1
+        for i in range(i1, i2):
+            if j >= j2:
+                break
+            lt = laid[i].rstrip(",;:!?.")
+            lead = re.match(f"[{OPENS}]*", lt).group()
+            trail = re.search(f"[{CLOSES}]*$", lt[len(lead):]).group()
+            body = lt[len(lead):len(lt) - len(trail)].strip("-")
+            key, got, k = key_letters(body), "", j
+            while k < j2 and key.startswith(got + key_letters(said[k])):
+                got += key_letters(said[k])
+                k += 1
+            if ARTICLES & set(body.lower().split("-")):
+                body = body.replace("-", " ")
+            word = re.fullmatch(r"[A-Za-z]+(?:[-'][A-Za-z]+)*", body)
+            if k > j and got == key and word and (k - j == 1 or "-" in body):
+                one = said[j].rstrip(",;:!?.")
+                core = one if k - j == 1 and "-" not in body and ("'" in one or "'" not in body) \
+                    and not ((body.islower() or body.isupper() and len(body) > 1) and op == "equal") else body
+            elif k == j2 and k > j and len(key) - len(got) > 1 and word and "'" not in body \
+                    and all(is_word(part.lower()) for part in body.split("-")):
+                core = body
+            else:
+                if k == j or op == "equal":
+                    k = j + 1
+                core = " ".join(t.rstrip(",;:!?.") for t in said[j:k])
+                if not (op == "replace" and i2 - i1 == 1 and k - j == 1):
+                    lead = trail = ""
+            tail = said[k - 1][len(said[k - 1].rstrip(",;:!?.")):]
+            out.append(lead + core + trail + tail)
+            j = k
+        out += said[j:j2]
+    return " ".join(out)
 
 
 def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), number=None, count=None,
           counted=True):
     """vote() of `clue` against `others`; when that holds and relay() finds
     the clue most other readings print, that print put to the rest and to
-    this reading instead, when the vote keeps to their words. Not with
-    `keep_known`, whose words are no reading's misread."""
+    this reading instead, with the laid clue's hyphens, brackets and quotes
+    back (remarked), unless relay_doubt() finds it is not the clue. Not
+    with `keep_known`, whose words are no reading's misread."""
     got = vote(clue, others, keep_known, families, rates, clues, number, count, counted)
     if got[0] is not None or keep_known:
         return got
     if others and isinstance(others[0], str):
         others = [others]
     # Only a clue no other reading prints word for word: one they print
-    # held on words they differ on, which their prints share. Nor one with
-    # a hyphen in a word ("Couhter-infonnant"): a reading's words carry
-    # none, and the print would lose it.
-    if re.search(r"[A-Za-z]-[A-Za-z]", clue):
-        return got
+    # held on words they differ on, which their prints share.
     low = [w.lower() for w in marked(clue, breaks=True)]
     for theirs in others:
         theirs = ends_joined(rejoin(unglued(theirs, low), low), low)
@@ -1507,16 +1611,85 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     rest = others[:k] + others[k + 1:] + [marked(clue, breaks=True)]
     order = families and [families[k + 1]] + families[1:k + 1] + families[k + 2:] + [families[0]]
     again = vote(text, rest, keep_known, order, rates, clues, number, count, counted)
-    # A word fewer than two of those readings print there is the vote's
-    # own pick ("snatcher" for their "crownsnatcher") or one reading's
-    # speck ("DOWN", "PS" before the clue), which the print does not bear
-    # out; so is a small word no dictionary knows that all of them misread
-    # alike ("arbinger's" for "Harbinger's"). A text suspect() flags is no
-    # better than the hold.
-    if again[0] is None or suspect(again[0]) or any(
-            printed[w.lower()] < 2 or w.islower() and not (is_word(w) or formed(w.lower())) for w in tokens(again[0])):
+    if again[0] is None:
         return got
-    return again
+    out = remarked(clue, again[0])
+    return got if relay_doubt(clue, text, out, printed) else (out, again[1])
+
+
+def relay_doubt(clue, text, out, printed):
+    """Why `out`, agree()'s vote of the print `text` relay() found for the
+    laid `clue` (`printed`: how many readings print each word there), is
+    not the clue, or None. Not the clue: one suspect() flags; one that lost
+    a hyphen, bracket or quote of the laid clue (save a hyphen beside an
+    article, "when-the"); a word fewer than two of those readings print
+    that is no word the laid clue has nor a dictionary word like one the
+    print has (the vote's own pick, "snatcher" for "crownsnatcher"); a
+    small word no dictionary knows ("arbinger's"); a word doubled into the
+    next ("war wartime"); a word the laid clue splits off a lone letter
+    ("l ac's" for lilac's); a dictionary word in place of a like one the
+    laid clue or the print has, the one no clue uses ("Lugings" for
+    "Lo'dgings"); a ";" or ":" the print lacks; the laid clue's full
+    stop before a capital lost ("Luok. In die"); a lower-case start the
+    laid clue lacks; a small word of the laid clue lost inside it ("what
+    pace" for "what a pace"); or a word of the laid clue lost past either
+    end, short of a figure (No 1's "Check front part of the" for "Check
+    front part of die ship"; "(7) the dock page 8" is the page's)."""
+    if suspect(out):
+        return "suspect"
+    hyphen = r"[A-Za-z]-[A-Za-z]|(?<=[a-z] )-(?=[a-z])"
+    bare = re.sub(r"\(\s*\d[^)]*\)", "", clue)
+    laid_hyphens = [m for m in re.findall(r"[A-Za-z]+(?:\s?-[A-Za-z]+)+", clue)
+                    if not ARTICLES & set(re.split(r"\s?-", m.lower()))]
+    if len(re.findall(hyphen, out)) < sum(len(re.findall(hyphen, m)) for m in laid_hyphens) \
+            or out.count("(") != out.count(")") or out.count("(") < bare.count("(") or out.count('"') % 2 or out.count('"') < bare.count('"') \
+            or out.count("\u201c") != out.count("\u201d") or out.count("\u201c") < bare.count("\u201c"):
+        return "a hyphen, bracket or quote lost"
+    laid = [t for t in clue.split() if key_letters(t)]
+    keys = {key_letters(p) for t in laid for p in re.split(r"[-']", t) + [t]}
+    words = [w.lower() for w in tokens(out)]
+    said = set(tokens(text))
+    for w in tokens(out):
+        known = is_word(w) or formed(w.lower())
+        borne = printed[w.lower()] > 1 or known and (w.lower() in keys or len(w) > 4 and any(
+            similar(w.lower(), t.lower()) >= PRINTS_SIMILAR for t in said))
+        if not borne or w.islower() and not known:
+            return "unborne " + w
+    for a, b in itertools.pairwise(words):
+        if len(a) > 2 and b != a and b.startswith(a):
+            return "doubled " + a
+    for a, b in itertools.pairwise(laid):
+        if len(a) == 1 and a not in "aAI" and len(key_letters(b)) <= 3 \
+                and key_letters(b) in {w.replace("'", "") for w in words}:
+            return "split " + a + " " + b
+    seen = clue_lm()[0]
+    for theirs in [key_letters(t) for t in laid] + [w.lower() for w in tokens(text)]:
+        if len(theirs) > 3 and theirs in seen and any(
+                w not in seen and similar(w, theirs) >= PRINTS_SIMILAR for w in words):
+            return "in place of " + theirs
+    if any(out.count(m) > text.count(m) for m in ";:"):
+        return "a mark the print lacks"
+    if re.search(r"[a-z]\. +[A-Z]", clue) and not re.search(r"\. +[A-Z]", out):
+        return "a full stop lost"
+    if words and out[0].islower() and laid and key_letters(laid[0]) != words[0]:
+        return "starts lower-case"
+    sm = SequenceMatcher(None, [key_letters(t) for t in laid], [key_letters(w) for w in out.split()], autojunk=False)
+    for op, i1, i2, _, _ in sm.get_opcodes():
+        if op == "delete" and 0 < i1 and i2 < len(laid) and any(
+                t.lower() in SMALL_WORDS and t.lower() not in words for t in laid[i1:i2]):
+            return "lost " + " ".join(laid[i1:i2])
+    hit = [i for i, t in enumerate(laid) if key_letters(t) in words or len(key_letters(t)) > 2 and any(
+        similar(key_letters(t), w) >= 0.5 or len(w) > 2 and w.replace("'", "") in key_letters(t) for w in words)]
+    if not hit:
+        return "nothing laid"
+    for lost in (laid[hit[-1] + 1:], laid[:hit[0]][::-1]):
+        for t in lost:
+            if re.search(r"\d", t):
+                break
+            if "'" in t.strip("'") and re.search("[A-Za-z]", t) or t.islower() and len(key_letters(t)) > 1 \
+                    and is_word(key_letters(t)):
+                return "lost " + t
+    return None
 
 
 def vote(clue, others, keep_known=False, families=None, rates=None, clues=(), number=None, count=None,
