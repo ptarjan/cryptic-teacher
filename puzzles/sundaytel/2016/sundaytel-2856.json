@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,43 @@
     "text": "Slightly injure player on side",
     "enumeration": "4"
    },
-   "solution": "WING"
+   "solution": "WING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WING",
+    "definitions": [
+     {
+      "text": "Slightly injure",
+      "at": 0
+     },
+     {
+      "text": "player on side",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slightly injure",
+      "note": "first meaning: to wound superficially, as a bullet grazing an arm"
+     },
+     {
+      "clueFragment": "player on side",
+      "note": "second meaning: a footballer or rugby player stationed out on the flank"
+     }
+    ],
+    "explanation": {
+     "surface": "A sportsman hurts a teammate a little, or picks up a knock out wide.",
+     "walkthrough": "The surface reads as one sporting injury; it is two separate senses of a short word.",
+     "definitionFit": "The verb means to hit lightly with a shot, and the noun names an attacker who plays near the touchline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +85,62 @@
     "text": "Mother left in charge, unlike father",
     "enumeration": "6"
    },
-   "solution": "FEMALE"
+   "solution": "FEMALE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FEMALE",
+    "definitions": [
+     {
+      "text": "unlike father",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the first pieces inside the charge, which wraps around them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge",
+      "gives": "FEE",
+      "note": "a fee is a charge for a service; it is split around the inner letters"
+     },
+     {
+      "clueFragment": "Mother",
+      "gives": "MA",
+      "note": "a familiar word for mother"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "MA",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Mum is left in charge of the household, unlike Dad.",
+     "walkthrough": "'Left in charge' reads as one phrase about responsibility, but 'left' and 'charge' are separate pieces, and the charge wraps around the rest.",
+     "definitionFit": "A father is male, so something unlike a father in sex is the opposite gender, adjective form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +154,55 @@
     "text": "Crew bringing in European import",
     "enumeration": "4"
    },
-   "solution": "MEAN"
+   "solution": "MEAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MEAN",
+    "definitions": [
+     {
+      "text": "import",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bringing in",
+      "for": "container",
+      "note": "something that brings in another thing takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crew",
+      "gives": "MAN",
+      "note": "to crew a ship is to man it"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "E",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's crew is hauling in goods shipped from Europe.",
+     "walkthrough": "'Import' looks like a noun for goods brought in; it is the verb meaning to signify. MAN takes E after its first letter.",
+     "definitionFit": "To import, in the old sense, is to signify or convey a meaning, which is what the verb in the answer does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "import"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +216,67 @@
     "text": "Like terrible accident, overturned vehicle trapping soldier",
     "enumeration": "6"
    },
-   "solution": "TRAGIC"
+   "solution": "TRAGIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TRAGIC",
+    "definitions": [
+     {
+      "text": "Like terrible accident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "a vehicle overturned is upside down, so its word is read in the opposite direction in a down entry"
+     },
+     {
+      "text": "trapping",
+      "for": "container",
+      "note": "trapping something means holding it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CART",
+      "note": "a cart is a simple vehicle; it is turned around"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "GI",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "CART",
+       "to": "TRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news report of a bad crash in which an upturned vehicle pinned a soldier underneath.",
+     "walkthrough": "TRAC holds GI after its third letter.",
+     "definitionFit": "A terrible accident is calamitous and sad, and the adjective describes something that brings disaster and grief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overturned"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +290,65 @@
     "text": "Author, his novel, and his nationality",
     "enumeration": "8"
    },
-   "solution": "SCOTTISH"
+   "solution": "SCOTTISH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SCOTTISH",
+    "definitions": [
+     {
+      "text": "his nationality",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new or unusual, so the letters of the following word take a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Author",
+      "gives": "SCOTT",
+      "note": "Sir Walter Scott, author of Waverley and Ivanhoe"
+     },
+     {
+      "clueFragment": "his",
+      "gives": "ISH",
+      "note": "these three letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOTT",
+      "ISH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HIS",
+       "gives": "ISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A potted biography: an author, a novel he wrote, and where he came from.",
+     "walkthrough": "'Novel' reads as a book by the author; it is the anagram signal. 'His' in the definition refers back to the author Scott, who was born in Edinburgh.",
+     "definitionFit": "Walter Scott was born in Edinburgh, so the adjective for his nationality is the one used for people from Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +362,58 @@
     "text": "Article in French region giving source of work of art",
     "enumeration": "10"
    },
-   "solution": "PROVENANCE"
+   "solution": "PROVENANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROVENANCE",
+    "definitions": [
+     {
+      "text": "source of work of art",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the article inside the name of the region"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French region",
+      "gives": "PROVENCE",
+      "note": "Provence is the region of south-east France"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROVEN",
+      "AN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece about a southern French region traces where a painting came from.",
+     "walkthrough": "'Article' looks like a newspaper piece, but here it is the grammatical article.",
+     "definitionFit": "In the art trade the word means the documented origin and ownership history of a piece, establishing where it came from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +427,70 @@
     "text": "Crew I misdirected across part of ocean, as self-styled expert",
     "enumeration": "8"
    },
-   "solution": "WISEACRE"
+   "solution": "WISEACRE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WISEACRE",
+    "definitions": [
+     {
+      "text": "self-styled expert",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misdirected",
+      "for": "anagram",
+      "note": "something misdirected is sent the wrong way, so these letters end up out of order"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "lying across something means stretching over it, so the scrambled letters go round the ocean part"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crew I",
+      "gives": "WICRE",
+      "note": "these five letters are rearranged and then split around the sea"
+     },
+     {
+      "clueFragment": "part of ocean",
+      "gives": "SEA",
+      "note": "a sea is a part of an ocean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WI",
+      "SEA",
+      "CRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CREWI",
+       "gives": "WICRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor admits to steering the crew wrongly across the ocean while posing as an expert navigator.",
+     "walkthrough": "'Crew' looks like the ship's company on the voyage; it is just letters to scramble, along with the I.",
+     "definitionFit": "A know-all who thinks himself wise is mocked with this word, a person who claims expertise he lacks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "misdirected"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +504,55 @@
     "text": "Abandon husband inside church area near altar",
     "enumeration": "7"
    },
-   "solution": "CHANCEL"
+   "solution": "CHANCEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHANCEL",
+    "definitions": [
+     {
+      "text": "church area near altar",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "'inside' places the husband's letter within the word for abandon"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abandon",
+      "gives": "CANCEL",
+      "note": "to abandon a plan is to cancel it"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "standard abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "H",
+      "ANCEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A wedding is called off with the groom already waiting at the front of the church.",
+     "walkthrough": "H goes after the C of CANCEL.",
+     "definitionFit": "The chancel is the eastern part of a church around the altar, reserved for clergy and choir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Abandon"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +566,43 @@
     "text": "Best performance yet put on CD, perhaps",
     "enumeration": "6"
    },
-   "solution": "RECORD"
+   "solution": "RECORD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECORD",
+    "definitions": [
+     {
+      "text": "Best performance yet",
+      "at": 0
+     },
+     {
+      "text": "put on CD, perhaps",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best performance yet",
+      "note": "first meaning: a noun, the best result ever achieved"
+     },
+     {
+      "clueFragment": "put on CD, perhaps",
+      "note": "second meaning: a verb, to capture sound on a disc or tape"
+     }
+    ],
+    "explanation": {
+     "surface": "A musician's finest show so far is preserved on a disc.",
+     "walkthrough": "The 'perhaps' warns that CD is only one example of a medium for capturing sound.",
+     "definitionFit": "A world best is a noun of the same spelling as the verb meaning to capture audio on a disc."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "yet"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +616,51 @@
     "text": "Animal one relocated in Guiana",
     "enumeration": "6"
    },
-   "solution": "IGUANA"
+   "solution": "IGUANA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IGUANA",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one relocated in",
+      "for": "anagram",
+      "note": "the letter standing for one is moved to a new spot within the word, a rearrangement of its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guiana",
+      "gives": "GUIANA",
+      "note": "the South American region, used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GUIANA",
+       "gives": "IGUANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A creature has been moved to a new home in South America.",
+     "walkthrough": "Only the I moves: from third place in Guiana to the front.",
+     "definitionFit": "The answer is a large tropical lizard of Central and South America, a kind of animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +674,56 @@
     "text": "Still awaiting development, for example, in local",
     "enumeration": "8"
    },
-   "solution": "NEGATIVE"
+   "solution": "NEGATIVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEGATIVE",
+    "definitions": [
+     {
+      "text": "Still awaiting development",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the abbreviation inside the word for local"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "local",
+      "gives": "NATIVE",
+      "note": "a local is a native of a place"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates exempli gratia, for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EG",
+      "ATIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A local photograph is still waiting to be developed, for instance.",
+     "walkthrough": "'Still' looks like an adverb, but it is the noun: a still photograph from film that has not yet been developed.",
+     "definitionFit": "In film photography the exposed image, before printing, is a reversed-tone strip waiting to be developed into a print."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Still"
+    }
+   }
   },
   {
    "number": 12,
@@ -192,7 +743,50 @@
      }
     ]
    },
-   "solution": "SCIENCEFICTION"
+   "solution": "SCIENCEFICTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCIENCE FICTION",
+    "definitions": [
+     {
+      "text": "Futuristic writings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "weirdly",
+      "for": "anagram",
+      "note": "weirdly means in a strange manner, so the letters are set out in a strange order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fit iconic scene",
+      "gives": "FITICONICSCENE",
+      "note": "the fourteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FITICONICSCENE",
+       "gives": "SCIENCEFICTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stories about the future oddly suit a famous movie moment.",
+     "definitionFit": "The genre imagines future technology and worlds, so futuristic writings is a fair description of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 13,
@@ -206,7 +800,62 @@
     "text": "Finds fault with it, in charge in emergencies",
     "enumeration": "10"
    },
-   "solution": "CRITICISES"
+   "solution": "CRITICISES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CRITICISES",
+    "definitions": [
+     {
+      "text": "Finds fault with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the first pieces inside the word for emergencies"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emergencies",
+      "gives": "CRISES",
+      "note": "crises are emergencies; it is split around the inner pieces"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "i/c is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "IT",
+      "IC",
+      "ISES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains about a person who takes charge only when things go wrong.",
+     "walkthrough": "The second 'in' is the insertion signal; the first belongs to the phrase 'in charge', abbreviated i/c.",
+     "definitionFit": "To criticise is to point out faults, so finding fault with is a direct synonym in the third person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 14,
@@ -220,7 +869,46 @@
     "text": "Set up barrier for illicit trader",
     "enumeration": "5"
    },
-   "solution": "FENCE"
+   "solution": "FENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FENCE",
+    "definitions": [
+     {
+      "text": "Set up barrier",
+      "at": 0
+     },
+     {
+      "text": "illicit trader",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set up barrier",
+      "note": "first meaning: a verb, to enclose with railings or posts"
+     },
+     {
+      "clueFragment": "illicit trader",
+      "note": "second meaning: a dealer in stolen goods"
+     }
+    ],
+    "explanation": {
+     "surface": "Police put up a cordon to catch a black-market dealer.",
+     "walkthrough": "A fence in criminal slang is a receiver who buys and sells stolen property.",
+     "definitionFit": "The verb means to enclose land with railings, and the slang noun is a receiver who sells stolen property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Set"
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +922,42 @@
     "text": "Concern resolved",
     "enumeration": "4"
    },
-   "solution": "FIRM"
+   "solution": "FIRM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIRM",
+    "definitions": [
+     {
+      "text": "Concern",
+      "at": 0
+     },
+     {
+      "text": "resolved",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concern",
+      "note": "first meaning: a business, a company"
+     },
+     {
+      "clueFragment": "resolved",
+      "note": "second meaning: determined, unwavering"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Concern' looks like worry; here it is a business, as in a going concern.",
+     "definitionFit": "A business enterprise is a company, and someone resolved is steadfast and unshakeable in purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Concern"
+    }
+   }
   },
   {
    "number": 16,
@@ -248,7 +971,55 @@
     "text": "Like woman raising issue or unusually alert man",
     "enumeration": "8"
    },
-   "solution": "MATERNAL"
+   "solution": "MATERNAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MATERNAL",
+    "definitions": [
+     {
+      "text": "Like woman raising issue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually means not in the usual way, so the letters are taken out of their usual order"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alert man",
+      "gives": "ALERTMAN",
+      "note": "the eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALERTMAN",
+       "gives": "MATERNAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman brings up a question, or a man is surprisingly attentive.",
+     "walkthrough": "'Raising issue' reads as bringing up a topic; it means bringing up children, as issue means offspring.",
+     "definitionFit": "A woman raising offspring is a mother, and the adjective describes what is motherly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 17,
@@ -262,7 +1033,42 @@
     "text": "Vessel sunk in Channel in error",
     "enumeration": "5"
    },
-   "solution": "LINER"
+   "solution": "LINER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LINER",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sunk in",
+      "for": "hidden_word",
+      "note": "something sunk in lies submerged inside the words that follow, out of plain sight"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Channel in error",
+      "gives": "LINER",
+      "note": "the run of letters across the end of the first word and into the next two"
+     }
+    ],
+    "explanation": {
+     "surface": "A ship went down in the English Channel through a navigational mistake.",
+     "definitionFit": "An ocean liner is a large passenger ship, a type of vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sunk"
+    }
+   }
   },
   {
    "number": 18,
@@ -276,7 +1082,56 @@
     "text": "Colourful display from artist in London area",
     "enumeration": "7"
    },
-   "solution": "RAINBOW"
+   "solution": "RAINBOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAINBOW",
+    "definitions": [
+     {
+      "text": "Colourful display",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an artist"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "London area",
+      "gives": "BOW",
+      "note": "Bow is a district in east London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "IN",
+      "BOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A vivid exhibition by a painter in the capital.",
+     "walkthrough": "Bow is a district of the East End of London, famous for Bow Bells.",
+     "definitionFit": "The arc of spectral colours seen after rain is the most colourful display in the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "display"
+    }
+   }
   },
   {
    "number": 19,
@@ -290,7 +1145,46 @@
     "text": "Man on board, one of two or three on watch",
     "enumeration": "4"
    },
-   "solution": "HAND"
+   "solution": "HAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAND",
+    "definitions": [
+     {
+      "text": "Man on board",
+      "at": 0
+     },
+     {
+      "text": "one of two or three on watch",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man on board",
+      "note": "first meaning: a sailor, a member of a ship's crew"
+     },
+     {
+      "clueFragment": "one of two or three on watch",
+      "note": "second meaning: a pointer on a clock face"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'On watch' suggests a sailor's duty shift, but it is the timepiece; it has an hour, minute and sometimes second pointer.",
+     "definitionFit": "A deckhand is a crew member, and a timepiece has two or three pointers that sweep its dial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "watch"
+    }
+   }
   },
   {
    "number": 20,
@@ -304,7 +1198,51 @@
     "text": "Negotiators put the writer in grave situation with journals",
     "enumeration": "14"
    },
-   "solution": "INTERMEDIARIES"
+   "solution": "INTERMEDIARIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTERMEDIARIES",
+    "definitions": [
+     {
+      "text": "Negotiators",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put the writer in grave situation",
+      "gives": "INTERME",
+      "note": "to inter is to put in a grave, and the writer is the setter, me"
+     },
+     {
+      "clueFragment": "journals",
+      "gives": "DIARIES",
+      "note": "a diary is a daily journal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTERME",
+      "DIARIES"
+     ]
+    },
+    "explanation": {
+     "surface": "The go-betweens leave the writer in a dire position over some journals.",
+     "walkthrough": "'Grave situation' reads as a serious predicament; it means literally being put into a grave, which is to inter.",
+     "definitionFit": "Go-betweens who act between two parties to broker a deal are negotiators."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grave"
+    }
+   }
   },
   {
    "number": 21,
@@ -318,7 +1256,51 @@
     "text": "Dreadful rage in Queen facing opposition in court",
     "enumeration": "6"
    },
-   "solution": "REGINA"
+   "solution": "REGINA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REGINA",
+    "definitions": [
+     {
+      "text": "Queen facing opposition in court",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dreadful",
+      "for": "anagram",
+      "note": "dreadful means terribly bad, so the following letters come out badly jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rage in",
+      "gives": "RAGEIN",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAGEIN",
+       "gives": "REGINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch is furious at being opposed in a royal court.",
+     "walkthrough": "In English criminal cases the Crown is the prosecutor, named in Latin as in 'R v Smith', so the Queen faces the defendant.",
+     "definitionFit": "Latin for queen is the name under which the Crown prosecutes in court, standing opposite the defendant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 22,
@@ -332,7 +1314,46 @@
     "text": "Assign to classes again in place of holiday",
     "enumeration": "6"
    },
-   "solution": "RESORT"
+   "solution": "RESORT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESORT",
+    "definitions": [
+     {
+      "text": "Assign to classes again",
+      "at": 0
+     },
+     {
+      "text": "place of holiday",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assign to classes again",
+      "note": "first meaning: to sort a second time"
+     },
+     {
+      "clueFragment": "place of holiday",
+      "note": "second meaning: a seaside or ski destination"
+     }
+    ],
+    "explanation": {
+     "surface": "A teacher reorganises the class groups while on vacation.",
+     "walkthrough": "The first meaning splits as RE-SORT, sort again.",
+     "definitionFit": "Sorting once more is re-sorting, and a holiday destination such as a seaside town is a tourist spot of the same spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "classes"
+    }
+   }
   },
   {
    "number": 23,
@@ -346,7 +1367,52 @@
     "text": "Air, mostly in G, tenor made a mess of",
     "enumeration": "8"
    },
-   "solution": "NITROGEN"
+   "solution": "NITROGEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NITROGEN",
+    "definitions": [
+     {
+      "text": "Air, mostly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made a mess of",
+      "for": "anagram",
+      "note": "making a mess of something throws it into disorder, so these letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in G, tenor",
+      "gives": "INGTENOR",
+      "note": "the eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INGTENOR",
+       "gives": "NITROGEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tenor botched a song, mostly an aria in the key of G.",
+     "walkthrough": "'Air' looks like a tune in G; it is the atmosphere, and 'mostly' belongs to the definition.",
+     "definitionFit": "About seventy-eight percent of the atmosphere is this gas, so it makes up most of the air we breathe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Air"
+    }
+   }
   },
   {
    "number": 24,
@@ -360,7 +1426,58 @@
     "text": "French city relative pronounced pleasant to look at",
     "enumeration": "4"
    },
-   "solution": "NICE"
+   "solution": "NICE",
+   "annotation": {
+    "type": [
+     "double_definition",
+     "homophone"
+    ],
+    "answer": "NICE",
+    "definitions": [
+     {
+      "text": "French city",
+      "at": 0
+     },
+     {
+      "text": "pleasant to look at",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pronounced",
+      "for": "homophone",
+      "note": "pronounced says the city's name is spoken like the word for a family member"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French city",
+      "note": "first meaning: the Riviera city"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "NICE",
+      "soundsLike": "NIECE",
+      "note": "a niece is a relative; the city's name is said the same way"
+     },
+     {
+      "clueFragment": "pleasant to look at",
+      "note": "second meaning: agreeable, attractive"
+     }
+    ],
+    "explanation": {
+     "surface": "A pretty French city where some family member lives.",
+     "walkthrough": "The middle part is a hint: the city's name sounds like a brother's daughter, while the English adjective spelt the same is said differently.",
+     "definitionFit": "The Riviera resort shares its spelling with the English adjective meaning agreeable or attractive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "relative"
+    }
+   }
   },
   {
    "number": 25,
@@ -374,7 +1491,61 @@
     "text": "Sailor turned over another kind of rock",
     "enumeration": "6"
    },
-   "solution": "BASALT"
+   "solution": "BASALT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BASALT",
+    "definitions": [
+     {
+      "text": "kind of rock",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned over",
+      "for": "reversal",
+      "note": "something turned over faces the other way, so its letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB is an able-bodied seaman"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "SALT",
+      "note": "an old salt is another word for a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "SALT"
+     ],
+     "reversals": [
+      {
+       "from": "AB",
+       "to": "BA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman flipped a different sort of stone.",
+     "walkthrough": "'Another' means another sailor, which is SALT.",
+     "definitionFit": "The answer is a dark volcanic stone formed from cooled lava, one kind of rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 26,
@@ -388,7 +1559,56 @@
     "text": "University in 50s, calm period",
     "enumeration": "4"
    },
-   "solution": "LULL"
+   "solution": "LULL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LULL",
+    "definitions": [
+     {
+      "text": "calm period",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the university's letter inside the number"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "50s",
+      "gives": "LLL",
+      "note": "L is the Roman numeral for 50, and the plural 50s here stands for three of them"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "standard abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "U",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "College life in the 1950s was a quiet era.",
+     "walkthrough": "'50s' reads as a decade, but it is a string of Roman fifties; the plural is loose enough to supply three, with U after the first.",
+     "definitionFit": "A brief quiet interval in activity or noise is a pause, such as a lull in the fighting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "50s"
+    }
+   }
   },
   {
    "number": 27,
@@ -402,7 +1622,50 @@
     "text": "Crashed airmen are left behind",
     "enumeration": "6"
    },
-   "solution": "REMAIN"
+   "solution": "REMAIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REMAIN",
+    "definitions": [
+     {
+      "text": "are left behind",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Crashed",
+      "for": "anagram",
+      "note": "a crash smashes things apart, so the following letters are broken up and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "airmen",
+      "gives": "AIRMEN",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AIRMEN",
+       "gives": "REMAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pilots whose planes went down are left stranded behind enemy lines.",
+     "definitionFit": "To be left behind is to stay where you are, the plural verb sense of stay put."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Crashed"
+    }
+   }
   },
   {
    "number": 28,
@@ -416,7 +1679,67 @@
     "text": "Faint-hearted line by dramatist before end of play",
     "enumeration": "8"
    },
-   "solution": "COWARDLY"
+   "solution": "COWARDLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COWARDLY",
+    "definitions": [
+     {
+      "text": "Faint-hearted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dramatist",
+      "gives": "COWARD",
+      "note": "Noël Coward, English playwright of Private Lives"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "standard abbreviation for line"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COWARD",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A timid line written by a playwright just before the curtain falls.",
+     "walkthrough": "'Line by dramatist' puts L beside COWARD, here after it; Noël Coward was an English playwright.",
+     "definitionFit": "Someone faint-hearted lacks courage, and the adjective describes a person who shows no bravery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "line"
+    }
+   }
   }
  ]
 }
