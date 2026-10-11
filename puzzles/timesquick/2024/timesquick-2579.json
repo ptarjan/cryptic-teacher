@@ -24,6 +24,9 @@
   "date": "2024-01-23",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,51 @@
     "text": "Living in desert, unfortunately",
     "enumeration": "8"
    },
-   "solution": "RESIDENT"
+   "solution": "RESIDENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESIDENT",
+    "definitions": [
+     {
+      "text": "Living",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things that turn out unfortunately have gone wrong, so the letters before it come out in the wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in desert",
+      "gives": "INDESERT",
+      "note": "both words taken as written, letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INDESERT",
+       "gives": "RESIDENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is stuck living out in the desert, which sounds like bad luck.",
+     "walkthrough": "'in' looks like part of the definition ('Living in'), but it belongs to the fodder.",
+     "definitionFit": "As an adjective, resident describes someone dwelling in a place, so it can replace living as in 'living abroad'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +98,55 @@
     "text": "Clergyman welcoming a nuclear facility",
     "enumeration": "7"
    },
-   "solution": "REACTOR"
+   "solution": "REACTOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REACTOR",
+    "definitions": [
+     {
+      "text": "nuclear facility",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming means taking in, so the clergyman holds the article inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clergyman",
+      "gives": "RECTOR",
+      "note": "a rector is a parish priest"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "A",
+      "CTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar warmly receiving a nuclear power plant.",
+     "definitionFit": "A reactor is the plant where a controlled nuclear chain reaction produces energy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "welcoming"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +160,51 @@
     "text": "Boy from South Africa leaves",
     "enumeration": "5"
    },
-   "solution": "SALAD"
+   "solution": "SALAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SALAD",
+    "definitions": [
+     {
+      "text": "leaves",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Africa",
+      "gives": "SA",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "LAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A young South African departs.",
+     "walkthrough": "'leaves' looks like a verb but is the noun: salad greens.",
+     "definitionFit": "A salad is a dish of raw greens such as lettuce, so salad leaves are what it is made of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +228,44 @@
      }
     ]
    },
-   "solution": "DOWNTOEARTH"
+   "solution": "DOWNTOEARTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOWN-TO-EARTH",
+    "definitions": [
+     {
+      "text": "Sensible",
+      "at": 0
+     },
+     {
+      "text": "journey for returning astronaut to make?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sensible",
+      "note": "first meaning: practical and realistic"
+     },
+     {
+      "clueFragment": "journey for returning astronaut to make?",
+      "note": "second meaning, read literally: the trip back from orbit to our planet"
+     }
+    ],
+    "explanation": {
+     "surface": "A practical description of the trip home from space.",
+     "walkthrough": "The question mark signals the second meaning is the phrase taken literally.",
+     "definitionFit": "A down-to-earth person is practical and unpretentious, which is to say sensible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sensible"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +279,43 @@
     "text": "Wanted to be manipulated according to speaker",
     "enumeration": "6"
    },
-   "solution": "NEEDED"
+   "solution": "NEEDED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NEEDED",
+    "definitions": [
+     {
+      "text": "Wanted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to speaker",
+      "for": "homophone",
+      "note": "this is how someone talking would sound it, so the spelling can differ"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to be manipulated",
+      "gives": "NEEDED",
+      "soundsLike": "KNEADED",
+      "note": "dough is kneaded, worked and manipulated by hand"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wants to be handled or controlled, so they say.",
+     "definitionFit": "Needed means required, which is a sense of wanted, as in 'the room wants painting'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manipulated"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +329,43 @@
     "text": "Athlete peevishly clutching his weapon?",
     "enumeration": "4"
    },
-   "solution": "EPEE"
+   "solution": "EPEE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EPEE",
+    "definitions": [
+     {
+      "text": "his weapon?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clutching",
+      "for": "hidden_word",
+      "note": "the phrase holds onto a run of letters that spans its two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Athlete peevishly",
+      "gives": "EPEE",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A grumpy sportsman grips his weapon, as a fencer might.",
+     "walkthrough": "The question mark flags that 'his weapon' is a definition by example: the athlete here is a fencer.",
+     "definitionFit": "The épée is one of the three swords used in Olympic fencing, so it is the weapon a fencing athlete holds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "peevishly"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +379,58 @@
     "text": "Supposed reason purser occasionally given message",
     "enumeration": "7"
    },
-   "solution": "PRETEXT"
+   "solution": "PRETEXT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRETEXT",
+    "definitions": [
+     {
+      "text": "Supposed reason",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "purser",
+      "gives": "PRE",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     },
+     {
+      "clueFragment": "message",
+      "gives": "TEXT",
+      "note": "a text is a phone message"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "TEXT"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's purser is sent a text with a flimsy excuse.",
+     "definitionFit": "A pretext is a false reason given to hide the real one, so it is only supposedly the reason."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "purser"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +444,52 @@
     "text": "Guard ignoring southern doorway",
     "enumeration": "5"
    },
-   "solution": "ENTRY"
+   "solution": "ENTRY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENTRY",
+    "definitions": [
+     {
+      "text": "doorway",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring means leaving out, so the letter for southern is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guard",
+      "gives": "SENTRY",
+      "note": "a sentry is a guard on watch"
+     },
+     {
+      "clueFragment": "southern",
+      "gives": "S",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sentry pays no attention to the south door.",
+     "definitionFit": "An entry is a way in, such as a door or passage, which is what a doorway is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Guard"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +503,59 @@
     "text": "Let almost everyone go \"Moo\"",
     "enumeration": "5"
    },
-   "solution": "ALLOW"
+   "solution": "ALLOW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALLOW",
+    "definitions": [
+     {
+      "text": "Let",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the word for everyone is dropped"
+     }
+    ],
+    "linkWords": [
+     "go"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone means all"
+     },
+     {
+      "clueFragment": "Moo",
+      "gives": "LOW",
+      "note": "to low is to moo like a cow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "LOW"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to let the whole group make cow noises.",
+     "walkthrough": "Low as a verb is the noise cattle make, a sense less familiar than the adjective.",
+     "definitionFit": "To allow something is to permit it, which is what let means in 'let him in'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Moo"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +569,43 @@
     "text": "A small amount of gold, perhaps",
     "enumeration": "7"
    },
-   "solution": "ELEMENT"
+   "solution": "ELEMENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ELEMENT",
+    "definitions": [
+     {
+      "text": "A small amount",
+      "at": 0
+     },
+     {
+      "text": "gold, perhaps",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A small amount",
+      "note": "first meaning: a trace"
+     },
+     {
+      "clueFragment": "gold, perhaps",
+      "note": "second meaning: a chemical substance of one kind of atom, gold being one example"
+     }
+    ],
+    "explanation": {
+     "surface": "Reads like a description of a few flakes of gold.",
+     "walkthrough": "'perhaps' marks gold as just one example of the second meaning.",
+     "definitionFit": "Chemists call gold an element of the periodic table, and a small trace of a quality is also called an element of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "amount"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +619,52 @@
     "text": "Sudden cry of ox maniac let loose",
     "enumeration": "11"
    },
-   "solution": "EXCLAMATION"
+   "solution": "EXCLAMATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXCLAMATION",
+    "definitions": [
+     {
+      "text": "Sudden cry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loose",
+      "for": "anagram",
+      "note": "something let loose runs free, so the letters escape their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ox maniac let",
+      "gives": "OXMANIACLET",
+      "note": "taken as written, including let"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OXMANIACLET",
+       "gives": "EXCLAMATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone yells when a crazed ox is released.",
+     "walkthrough": "'let loose' reads as one phrase, but 'let' is fodder and only 'loose' signals.",
+     "definitionFit": "An exclamation is a sudden outburst of speech, such as a shout of surprise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "let"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +678,49 @@
     "text": "A little toad but no hole?",
     "enumeration": "3"
    },
-   "solution": "TAD"
+   "solution": "TAD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TAD",
+    "definitions": [
+     {
+      "text": "A little",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but no hole",
+      "for": "deletion",
+      "note": "a hole is shaped like a round letter, and having none means that round letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toad",
+      "gives": "TOAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling question about a small toad that has nothing to hide in.",
+     "walkthrough": "O looks like a hole, so a toad with no hole loses its O.",
+     "definitionFit": "A tad is informal for a small amount, as in 'a tad more salt', meaning a little."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "hole"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +734,62 @@
     "text": "Hear about every queen's disloyalty",
     "enumeration": "9"
    },
-   "solution": "TREACHERY"
+   "solution": "TREACHERY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TREACHERY",
+    "definitions": [
+     {
+      "text": "disloyalty",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the word for hear wraps round what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hear",
+      "gives": "TRY",
+      "note": "a judge hears or tries a case"
+     },
+     {
+      "clueFragment": "every",
+      "gives": "EACH",
+      "note": "every means each"
+     },
+     {
+      "clueFragment": "queen's",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the queen; the 's joins to what follows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "EACH",
+      "ER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to listen to the tale of how each queen was betrayed.",
+     "walkthrough": "'Hear' is meant in the courtroom sense: to try a case.",
+     "definitionFit": "Treachery is betrayal of trust, the act of being disloyal to someone who relies on you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hear"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +803,50 @@
     "text": "Foolhardy to take Cockney woman's bit of bacon",
     "enumeration": "6"
    },
-   "solution": "RASHER"
+   "solution": "RASHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RASHER",
+    "definitions": [
+     {
+      "text": "bit of bacon",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "to take"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foolhardy",
+      "gives": "RASH",
+      "note": "foolhardy means rash"
+     },
+     {
+      "clueFragment": "Cockney woman's",
+      "gives": "ER",
+      "note": "her said with the H dropped, as a Londoner might"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RASH",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "It would be reckless to pinch a London woman's bacon.",
+     "walkthrough": "A Cockney is a working-class Londoner whose accent drops the H, so her becomes 'er.",
+     "definitionFit": "A rasher is a single thin slice of bacon, the kind fried for breakfast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "take"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +860,43 @@
     "text": "Best member of a Motown group",
     "enumeration": "7"
    },
-   "solution": "SUPREME"
+   "solution": "SUPREME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUPREME",
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     },
+     {
+      "text": "member of a Motown group",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best",
+      "note": "first meaning: highest in rank or quality"
+     },
+     {
+      "clueFragment": "member of a Motown group",
+      "note": "second meaning: one of the ..., the Detroit girl group led by Diana Ross"
+     }
+    ],
+    "explanation": {
+     "surface": "Praise for the finest singer in a soul group.",
+     "definitionFit": "Supreme means highest or greatest, and each singer in the Supremes is, by name, a Supreme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Best"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +910,57 @@
     "text": "British PM once briefly in fight",
     "enumeration": "6"
    },
-   "solution": "BATTLE"
+   "solution": "BATTLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BATTLE",
+    "definitions": [
+     {
+      "text": "fight",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter of the prime minister's name goes"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "PM once",
+      "gives": "ATTLEE",
+      "note": "Clement Attlee was UK prime minister from 1945 to 1951"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ATTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former British prime minister briefly involved in a scrap.",
+     "definitionFit": "A battle is a large-scale fight between armed forces, or any hard struggle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "briefly"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +974,50 @@
     "text": "Decent chalet I designed",
     "enumeration": "7"
    },
-   "solution": "ETHICAL"
+   "solution": "ETHICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ETHICAL",
+    "definitions": [
+     {
+      "text": "Decent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "something designed has been planned and laid out afresh, so these letters get a new layout"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chalet I",
+      "gives": "CHALETI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHALETI",
+       "gives": "ETHICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An architect is pleased with a respectable holiday cabin they drew up.",
+     "definitionFit": "Ethical means morally right, and a decent person is one who behaves with moral propriety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Decent"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1031,57 @@
     "text": "Body of Republican found in wood",
     "enumeration": "6"
    },
-   "solution": "CORPSE"
+   "solution": "CORPSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CORPSE",
+    "definitions": [
+     {
+      "text": "Body",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place lies inside it, so the party letter sits within the trees"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wood",
+      "gives": "COPSE",
+      "note": "a copse is a small wood"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "R",
+      "PSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A murder mystery: a Republican's body turns up in the woods.",
+     "definitionFit": "A corpse is a dead body, the usual sense of body in crime stories."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Republican"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1095,51 @@
     "text": "Jockey a proven US star",
     "enumeration": "9"
    },
-   "solution": "SUPERNOVA"
+   "solution": "SUPERNOVA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUPERNOVA",
+    "definitions": [
+     {
+      "text": "star",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Jockey",
+      "for": "anagram",
+      "note": "to jockey is to manoeuvre and jostle for position, so the letters are pushed around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a proven US",
+      "gives": "APROVENUS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APROVENUS",
+       "gives": "SUPERNOVA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rider whose record makes them an American racing star.",
+     "walkthrough": "'Jockey' reads as a noun, a rider, but works as a verb signalling the rearrangement.",
+     "definitionFit": "A supernova is a star that explodes and briefly outshines its whole galaxy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jockey"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1153,55 @@
     "text": "One inspired by celebrity's instrument",
     "enumeration": "5"
    },
-   "solution": "SITAR"
+   "solution": "SITAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SITAR",
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "to be inspired is literally to be breathed in, so the numeral is drawn inside the celebrity"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrity's",
+      "gives": "STAR",
+      "note": "a celebrity is a star; the 's links to what follows"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "I",
+      "TAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes up an instrument after admiring a famous musician.",
+     "walkthrough": "The obvious picture is Ravi Shankar inspiring George Harrison.",
+     "definitionFit": "The sitar is a long-necked stringed instrument from India, plucked with a wire pick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspired"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1215,46 @@
     "text": "Deceive husband? What an idiot I am!",
     "enumeration": "3"
    },
-   "solution": "DOH"
+   "solution": "DOH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOH",
+    "definitions": [
+     {
+      "text": "What an idiot I am!",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deceive",
+      "gives": "DO",
+      "note": "to do someone is slang for cheating them"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cheats on their husband and then realises how foolish that was.",
+     "definitionFit": "D'oh is Homer Simpson's exclamation on realising his own stupidity, now a common interjection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Deceive"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1268,47 @@
     "text": "Famous bowler getting a duck?",
     "enumeration": "5"
    },
-   "solution": "DRAKE"
+   "solution": "DRAKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRAKE",
+    "definitions": [
+     {
+      "text": "Famous bowler",
+      "at": 0
+     },
+     {
+      "text": "a duck?",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Famous bowler",
+      "note": "first meaning: Sir Francis, said to have finished his game of bowls before facing the Armada"
+     },
+     {
+      "clueFragment": "a duck?",
+      "note": "second meaning: a male duck"
+     }
+    ],
+    "explanation": {
+     "surface": "A well-known cricket bowler takes a wicket for a duck, a batsman out for nothing.",
+     "walkthrough": "The cricket picture misleads: the bowler plays lawn bowls, and the duck is a bird.",
+     "definitionFit": "Francis Drake famously played bowls at Plymouth in 1588; a drake is also the male of the duck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bowler"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1328,70 @@
      }
     ]
    },
-   "solution": "THECHOP"
+   "solution": "THECHOP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "THE CHOP",
+    "definitions": [
+     {
+      "text": "Sack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of means not all, so the last letter of the following word is lost"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking inside, so the letter for Charlie goes into the joined pair"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "them",
+      "gives": "THEM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "HOP",
+      "note": "a hop is an informal dance"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "C",
+      "HOP"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to fire most of the people at the dance, Charlie among them.",
+     "walkthrough": "The verb 'Sack' is defined by a noun phrase used in 'get the chop', British slang for being dismissed.",
+     "definitionFit": "The chop is informal British for dismissal from a job, which is what the sack means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sack"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1405,56 @@
     "text": "Chap seen in Casablanca, a silversmith, heading west",
     "enumeration": "5"
    },
-   "solution": "ISAAC"
+   "solution": "ISAAC",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ISAAC",
+    "definitions": [
+     {
+      "text": "Chap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "something seen in a phrase is visible inside its run of letters"
+     },
+     {
+      "text": "heading west",
+      "for": "reversal",
+      "note": "in an across entry west is leftward, so the letters read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Casablanca, a silversmith",
+      "gives": "CAASI",
+      "note": "letters spanning the end of the first word, the a, and the start of the third word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "CAASI",
+       "to": "ISAAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man spotted in Casablanca, a silversmith on his way west.",
+     "definitionFit": "Isaac is a man's first name, and a chap is simply a man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "silversmith"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1468,48 @@
     "text": "Regretted being impolite to the Speaker",
     "enumeration": "4"
    },
-   "solution": "RUED"
+   "solution": "RUED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RUED",
+    "definitions": [
+     {
+      "text": "Regretted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the Speaker",
+      "for": "homophone",
+      "note": "what matters is how the word strikes a listener's ear, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impolite",
+      "gives": "RUED",
+      "soundsLike": "RUDE",
+      "note": "impolite means rude"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is sorry for having been rude to the Speaker of the House.",
+     "walkthrough": "The capital S suggests the Speaker who chairs Parliament; it just means anyone listening.",
+     "definitionFit": "To rue something is to regret it bitterly, so rued is the past tense of regret."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Speaker"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1529,61 @@
      }
     ]
    },
-   "solution": "MEANWELL"
+   "solution": "MEANWELL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MEAN WELL",
+    "definitions": [
+     {
+      "text": "have good intentions",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the soldiers enclose the article"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "MEN",
+      "note": "soldiers are men in the ranks"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "waterhole",
+      "gives": "WELL",
+      "note": "a well is a hole dug for water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "A",
+      "N",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops gathered at an oasis turn out to be well-meaning.",
+     "definitionFit": "To mean well is an idiom for trying to do right even when the result goes wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "waterhole"
+    }
+   }
   }
  ]
 }
