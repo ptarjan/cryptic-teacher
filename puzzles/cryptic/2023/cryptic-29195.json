@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,59 @@
     "text": "Frank's result of Welsh pub crawl announced?",
     "enumeration": "6"
    },
-   "solution": "DIRECT"
+   "solution": "DIRECT",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "DIRECT",
+    "definitions": [
+     {
+      "text": "Frank",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announced",
+      "for": "homophone",
+      "note": "something announced is spoken out, so the phrase built here is judged by how it is said"
+     }
+    ],
+    "linkWords": [
+     "'s result of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welsh",
+      "gives": "DAI",
+      "note": "Dai is a stereotypical Welsh man's name"
+     },
+     {
+      "clueFragment": "pub crawl",
+      "gives": "WRECKED",
+      "note": "after a long pub crawl you end up wrecked, very drunk"
+     },
+     {
+      "clueFragment": "Welsh pub crawl",
+      "gives": "DIRECT",
+      "soundsLike": "DAI WRECKED",
+      "note": "the Welshman's name and his state said together run into one word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks, frankly, what happens when a Welshman goes on a pub crawl.",
+     "walkthrough": "Dai is the stock Welsh name in British jokes; 'Dai wrecked' spoken quickly matches the answer. The 's is a link: Frank is the result.",
+     "definitionFit": "Direct speech is candid and straightforward, a synonym of frank as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +102,74 @@
     "text": "Transfer fee in conclusion very, very much appreciated when raised",
     "enumeration": "7"
    },
-   "solution": "DEVOLVE"
+   "solution": "DEVOLVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEVOLVE",
+    "definitions": [
+     {
+      "text": "Transfer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in conclusion",
+      "for": "letter_selection",
+      "note": "in conclusion means at the end, so only the final letter is used"
+     },
+     {
+      "text": "when raised",
+      "for": "reversal",
+      "note": "in a down entry raised means lifted upward, read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fee",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the standard abbreviation for very"
+     },
+     {
+      "clueFragment": "very much appreciated",
+      "gives": "LOVED",
+      "note": "something very much appreciated is loved"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEVOL",
+      "V",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EVLOVED",
+       "to": "DEVOLVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A payment for a transfer is gratefully received once it has gone up.",
+     "walkthrough": "'very, very' looks like emphasis; the first very is just V and the second starts a phrase of its own.",
+     "definitionFit": "To devolve power is to transfer it down to a lower level, a synonym of hand over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Transfer"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +183,43 @@
     "text": "Qualification as cowboy, say?",
     "enumeration": "5"
    },
-   "solution": "RIDER"
+   "solution": "RIDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RIDER",
+    "definitions": [
+     {
+      "text": "Qualification",
+      "at": 0
+     },
+     {
+      "text": "cowboy, say",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Qualification",
+      "note": "first meaning: a condition or clause added to something"
+     },
+     {
+      "clueFragment": "cowboy, say",
+      "note": "second meaning: one who rides a horse, a cowboy being an example"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface asks what makes someone count as a cowboy; 'say' marks the cowboy as one example.",
+     "definitionFit": "A rider is an added clause that qualifies a statement, and also anyone mounted on a horse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Qualification"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +233,50 @@
     "text": "Influential Victorian author clearly red-pencilled",
     "enumeration": "7"
    },
-   "solution": "CARLYLE"
+   "solution": "CARLYLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CARLYLE",
+    "definitions": [
+     {
+      "text": "Influential Victorian author",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "red-pencilled",
+      "for": "anagram",
+      "note": "red-pencilled means edited or corrected, so the word before is reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clearly",
+      "gives": "CLEARLY",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLEARLY",
+       "gives": "CARLYLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A major nineteenth-century writer whose work was plainly heavily edited.",
+     "definitionFit": "Thomas Carlyle was a Scottish essayist and historian whose ideas shaped much Victorian thought."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clearly"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +296,49 @@
      }
     ]
    },
-   "solution": "BOWWOW"
+   "solution": "BOWWOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOW-WOW",
+    "definitions": [
+     {
+      "text": "hound",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show respect",
+      "gives": "BOW",
+      "note": "to bow is to show respect"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "WOW",
+      "note": "'My!' and 'Wow!' are both exclamations of surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOW",
+      "WOW"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to bow before one's own dog.",
+     "definitionFit": "Bow-wow is a childish or jocular word for a dog, which a hound is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "my"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +352,48 @@
     "text": "Outrage, Beyond the Fringe?",
     "enumeration": "6"
    },
-   "solution": "OFFEND"
+   "solution": "OFFEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFEND",
+    "definitions": [
+     {
+      "text": "Outrage",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beyond",
+      "gives": "OFF",
+      "note": "off means away from, beyond the limit"
+     },
+     {
+      "clueFragment": "the Fringe",
+      "gives": "END",
+      "note": "the end is the edge, the fringe of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "Was the 1960s satirical revue Beyond the Fringe outrageous?",
+     "walkthrough": "Beyond the Fringe was a famous British comedy revue; the title splits into two words of its own.",
+     "definitionFit": "To outrage people is to offend them deeply, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fringe"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +407,64 @@
     "text": "One skilled in communication, and bagging gold medal",
     "enumeration": "9"
    },
-   "solution": "WORDSMITH"
+   "solution": "WORDSMITH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WORDSMITH",
+    "definitions": [
+     {
+      "text": "One skilled in communication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bagging",
+      "for": "container",
+      "note": "bagging means putting into a bag, so the word for and holds the others inside"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and",
+      "gives": "WITH",
+      "note": "with and and both join one thing to another"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "medal",
+      "gives": "DSM",
+      "note": "the DSM is the Distinguished Service Medal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "OR",
+      "DSM",
+      "ITH"
+     ]
+    },
+    "explanation": {
+     "surface": "A gifted communicator who also wins a gold medal.",
+     "definitionFit": "A wordsmith is a skilled user of words, such as a writer, so expert at communicating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 7,
@@ -170,7 +511,67 @@
      }
     ]
    },
-   "solution": "HIGHMUCKAMUCK"
+   "solution": "HIGHMUCKAMUCK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HIGH-MUCK-A-MUCK",
+    "definitions": [
+     {
+      "text": "big gun",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "done over",
+      "for": "charade",
+      "note": "done over means done again, so the word for scum appears twice in a row"
+     },
+     {
+      "text": "taken apart by",
+      "for": "container",
+      "note": "taken apart by means split open by a letter set in between"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rotten",
+      "gives": "HIGH",
+      "note": "meat or game that is high has begun to go off"
+     },
+     {
+      "clueFragment": "scum",
+      "gives": "MUCKMUCK",
+      "note": "muck is filth, scum, here written twice"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIGH",
+      "MUCK",
+      "A",
+      "MUCK"
+     ]
+    },
+    "explanation": {
+     "surface": "Decayed filth beaten up and torn to pieces by a powerful weapon.",
+     "walkthrough": "'done over' sounds like a beating but means done again; the single A then sits between the two copies.",
+     "definitionFit": "High-muck-a-muck is jocular slang for a self-important person in charge, as is the idiom big gun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gun"
+    }
+   }
   },
   {
    "number": 9,
@@ -184,7 +585,55 @@
     "text": "A short film full of energy",
     "enumeration": "4"
    },
-   "solution": "AVID"
+   "solution": "AVID",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AVID",
+    "definitions": [
+     {
+      "text": "full of energy",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means the word for a film is cut down, losing its tail"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "VIDEO",
+      "note": "a video is a filmed recording"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VID"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief movie that is lively and energetic.",
+     "walkthrough": "VID is the familiar clipped form of video.",
+     "definitionFit": "An avid person is keen and eager, so loosely full of energy for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +653,82 @@
      }
     ]
    },
-   "solution": "RAINFOREST"
+   "solution": "RAINFOREST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "RAIN-FOREST",
+    "definitions": [
+     {
+      "text": "Biodiverse area",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed and broken up, so the two words that follow are rearranged"
+     },
+     {
+      "text": "right-leaning",
+      "for": "reversal",
+      "note": "a word leaning away from the right in a row of across text runs leftwards, read backwards"
+     },
+     {
+      "text": "cover-up by",
+      "for": "container",
+      "note": "a cover-up wraps around something, so the ruler's title encloses the rearranged letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "despot",
+      "gives": "TSAR",
+      "note": "a tsar was an absolute Russian ruler"
+     },
+     {
+      "clueFragment": "on fire",
+      "gives": "INFORE",
+      "note": "the six letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "INFORE",
+      "ST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONFIRE",
+       "gives": "INFORE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "TSAR",
+       "to": "RAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Burning jungle land being covered up by a politically right-wing tyrant.",
+     "walkthrough": "'right-leaning' looks political; read on the page, a word leaning away from the right runs leftwards, so the despot is reversed before it wraps the rest.",
+     "definitionFit": "A rainforest is a dense tropical forest holding an enormous variety of plant and animal life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "right-leaning"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +742,43 @@
     "text": "Waste, speaking when wasted?",
     "enumeration": "6"
    },
-   "solution": "SLURRY"
+   "solution": "SLURRY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLURRY",
+    "definitions": [
+     {
+      "text": "Waste",
+      "at": 0
+     },
+     {
+      "text": "speaking when wasted",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Waste",
+      "note": "first meaning: liquid manure or watery waste matter"
+     },
+     {
+      "clueFragment": "speaking when wasted",
+      "note": "second meaning, read playfully: given to slurring, as a drunk talks"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is a playful coinage: a drunk slurs words, so their speech is slurry. Wasted is slang for very drunk.",
+     "definitionFit": "Slurry is a semi-liquid mix of farm manure or industrial residue, a type of waste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wasted"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +798,61 @@
      }
     ]
    },
-   "solution": "HANDSOFF"
+   "solution": "HANDSOFF",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HANDS OFF",
+    "definitions": [
+     {
+      "text": "Don't touch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the German man's name wraps about the country's abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "HANS",
+      "note": "Hans is a typical German man's name"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "D is the international vehicle code for Germany (Deutschland)"
+     },
+     {
+      "clueFragment": "on his way",
+      "gives": "OFF",
+      "note": "someone off is leaving, on their way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAN",
+      "D",
+      "S",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning not to interfere with a German traveller heading round his country.",
+     "definitionFit": "The phrase is a command telling someone not to handle or interfere, the same as an order not to touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Germany"
+    }
+   }
   },
   {
    "number": 13,
@@ -267,7 +881,51 @@
     "13-across",
     "18-down",
     "7-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BE CAREFUL WHAT YOU WISH FOR",
+    "definitions": [
+     {
+      "text": "guarded response to ambitions",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or wrong, so the preceding words are spoiled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "White House club wary of far",
+      "gives": "WHITEHOUSECLUBWARYOFFAR",
+      "note": "all twenty-three letters are used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHITEHOUSECLUBWARYOFFAR",
+       "gives": "BECAREFULWHATYOUWISHFOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A presidential golf club is suspicious of a distant land.",
+     "walkthrough": "'far-off' reads as one adjective, but the hyphen hides a split: far is fodder and off is the signal.",
+     "definitionFit": "The proverb warns that getting what you aspire to may bring trouble, a cautious reply to someone's hopes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +939,64 @@
     "text": "Current art is designed on paper",
     "enumeration": "9"
    },
-   "solution": "AIRSTREAM"
+   "solution": "AIRSTREAM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AIRSTREAM",
+    "definitions": [
+     {
+      "text": "Current",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "designed means planned and arranged, so the two words before are laid out anew"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "art is",
+      "gives": "AIRST",
+      "note": "the five letters rearranged"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "REAM",
+      "note": "a ream is a quantity of paper, 500 sheets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRST",
+      "REAM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARTIS",
+       "gives": "AIRST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Contemporary art is planned out on paper first.",
+     "walkthrough": "'Current' looks like an adjective about modern art; it is a noun, a flow of air.",
+     "definitionFit": "An airstream is a flow of moving air, a current in the atmosphere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +1010,56 @@
     "text": "Class warfare, I think, somewhat regressive",
     "enumeration": "4"
    },
-   "solution": "TIER"
+   "solution": "TIER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TIER",
+    "definitions": [
+     {
+      "text": "Class",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only part of the phrase before it is wanted, a run of its letters"
+     },
+     {
+      "text": "regressive",
+      "for": "reversal",
+      "note": "regressive means going back, so the letters run right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warfare, I think",
+      "gives": "REIT",
+      "note": "the letters straddle the end of warfare and the start of think"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "REIT",
+       "to": "TIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's view that class conflict is a little backward-looking.",
+     "definitionFit": "A tier is a rank or level, as a class is a grade within a ranked system."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "warfare"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1073,44 @@
     "text": "Ulcer or boil observed by one's ear?",
     "enumeration": "4"
    },
-   "solution": "SORE"
+   "solution": "SORE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SORE",
+    "definitions": [
+     {
+      "text": "Ulcer or boil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by one's ear",
+      "for": "homophone",
+      "note": "judged by one's ear means taken by its spoken form rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "observed",
+      "gives": "SORE",
+      "soundsLike": "SAW",
+      "note": "observed means saw, which in standard British speech rhymes exactly"
+     }
+    ],
+    "explanation": {
+     "surface": "A doctor notices a skin lesion with the ear rather than the eye.",
+     "walkthrough": "In non-rhotic British English, where the R is silent, saw and the answer are said the same.",
+     "definitionFit": "A sore is a painful raw spot on the skin; ulcers and boils are both examples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ear"
+    }
+   }
   },
   {
    "number": 16,
@@ -323,7 +1124,55 @@
     "text": "Organism that is four-eyed?",
     "enumeration": "7"
    },
-   "solution": "SPECIES"
+   "solution": "SPECIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPECIES",
+    "definitions": [
+     {
+      "text": "Organism",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that is four-eyed",
+      "for": "container",
+      "note": "a four-eyed person wears glasses, so the abbreviation is placed inside the spectacles"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "four-eyed",
+      "gives": "SPECS",
+      "note": "specs is short for spectacles, worn by the four-eyed"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates id est, Latin for that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPEC",
+      "IE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about some creature that wears glasses.",
+     "definitionFit": "A species is a kind of living thing, so the word loosely stands for a type of organism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "four-eyed"
+    }
+   }
   },
   {
    "number": 17,
@@ -343,7 +1192,54 @@
      }
     ]
    },
-   "solution": "SKEWWHIFF"
+   "solution": "SKEWWHIFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKEW-WHIFF",
+    "definitions": [
+     {
+      "text": "Slightly off",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "s-",
+      "gives": "S",
+      "note": "the stammered opening letter is taken as written"
+     },
+     {
+      "clueFragment": "gardens",
+      "gives": "KEW",
+      "note": "Kew Gardens is the Royal Botanic Gardens in west London"
+     },
+     {
+      "clueFragment": "scent",
+      "gives": "WHIFF",
+      "note": "a whiff is a faint smell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KEW",
+      "WHIFF"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stammers that a garden's smell is not quite right.",
+     "walkthrough": "The stutter supplies a spare S; then 'scent of gardens' gives a Kew smell, the gardens coming first.",
+     "definitionFit": "Skew-whiff is British slang for askew or crooked, meaning not quite straight or right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gardens"
+    }
+   }
   },
   {
    "number": 18,
@@ -380,7 +1276,42 @@
     "text": "Blow hot dish",
     "enumeration": "7"
    },
-   "solution": "FRITTER"
+   "solution": "FRITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FRITTER",
+    "definitions": [
+     {
+      "text": "Blow",
+      "at": 0
+     },
+     {
+      "text": "hot dish",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blow",
+      "note": "first meaning: to waste or squander money, to blow it"
+     },
+     {
+      "clueFragment": "hot dish",
+      "note": "second meaning: a piece of food fried in batter"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Blow looks like a punch or gust, but it is slang for squandering; the matching verb is used with 'away'.",
+     "definitionFit": "To fritter money is to waste it, and a fritter is also a fried battered food served hot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blow"
+    }
+   }
   },
   {
    "number": 20,
@@ -394,7 +1325,53 @@
     "text": "Cue in slang I screwed up",
     "enumeration": "6"
    },
-   "solution": "SIGNAL"
+   "solution": "SIGNAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIGNAL",
+    "definitions": [
+     {
+      "text": "Cue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screwed up",
+      "for": "anagram",
+      "note": "screwed up means crumpled and mangled, so the letters lose their order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slang I",
+      "gives": "SLANGI",
+      "note": "the six letters to be rearranged; that they also run backwards across these words is a coincidence"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SLANGI",
+       "gives": "SIGNAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's prompt in street talk that the speaker botched.",
+     "definitionFit": "A cue is a prompt to act, which is what a signal gives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cue"
+    }
+   }
   },
   {
    "number": 21,
@@ -408,7 +1385,72 @@
     "text": "Money bound to inspire premier in surprisingly moderate policy",
     "enumeration": "8"
    },
-   "solution": "CENTRISM"
+   "solution": "CENTRISM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "CENTRISM",
+    "definitions": [
+     {
+      "text": "moderate policy",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "premier",
+      "for": "letter_selection",
+      "note": "premier means first, so only the leading letter of the next word is used"
+     },
+     {
+      "text": "to inspire",
+      "for": "container",
+      "note": "to inspire is to breathe in, so the boundary word takes a letter inside it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "gives": "CENT",
+      "note": "a cent is a small coin"
+     },
+     {
+      "clueFragment": "bound",
+      "gives": "RIM",
+      "note": "a rim is a boundary or edge"
+     },
+     {
+      "clueFragment": "surprisingly",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CENT",
+      "RI",
+      "S",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Cash is certain to motivate a prime minister, astonishingly, toward middle-of-the-road politics.",
+     "walkthrough": "'bound to' looks like 'certain to'; bound is really a noun for an edge, and 'to inspire' is the insertion signal.",
+     "definitionFit": "Centrism is a political stance in the middle ground, avoiding the extremes of left and right."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 22,
@@ -422,7 +1464,55 @@
     "text": "Overheard, a beautiful thing",
     "enumeration": "6"
    },
-   "solution": "AFFAIR"
+   "solution": "AFFAIR",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "AFFAIR",
+    "definitions": [
+     {
+      "text": "thing",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Overheard",
+      "for": "homophone",
+      "note": "overheard means caught by listening, so the words are taken by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "beautiful",
+      "gives": "FAIR",
+      "note": "fair is an old word for beautiful"
+     },
+     {
+      "clueFragment": "a beautiful",
+      "gives": "AFFAIR",
+      "soundsLike": "A FAIR",
+      "note": "the two words said together"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone eavesdropping hears a lovely object described.",
+     "walkthrough": "'a beautiful thing' looks like the whole description, but thing is the definition alone.",
+     "definitionFit": "Having a thing with someone means a romantic fling, and an affair is such a relationship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "thing"
+    }
+   }
   },
   {
    "number": 23,
@@ -446,7 +1536,68 @@
    "group": [
     "23-down",
     "25-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "FIRST-RATE",
+    "definitions": [
+     {
+      "text": "Great",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after a turnover",
+      "for": "reversal",
+      "note": "a turnover flips something, so the word for sweets is read backwards"
+     },
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "consuming means eating up, so the emotion holds the other piece inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passion",
+      "gives": "FIRE",
+      "note": "fire is ardour, passion"
+     },
+     {
+      "clueFragment": "sweets",
+      "gives": "TARTS",
+      "note": "tarts are sweet pastries"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIR",
+      "STRAT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "TARTS",
+       "to": "STRAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tremendous lust for cakes following a fruit pastry.",
+     "walkthrough": "A turnover is also a folded fruit pastry, which suits the sweets in the surface; here it only means flipping a word over.",
+     "definitionFit": "First-rate means of the highest quality, excellent, as great does in praise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "turnover"
+    }
+   }
   },
   {
    "number": 24,
@@ -466,7 +1617,73 @@
      }
     ]
    },
-   "solution": "NICEYNICEY"
+   "solution": "NICEYNICEY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NICEY-NICEY",
+    "definitions": [
+     {
+      "text": "Sycophantic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the letter for the phonetic code word inside the French term"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the final letter is used"
+     }
+    ],
+    "linkWords": [
+     "backing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jolie",
+      "gives": "NICENICE",
+      "note": "jolie is French for nice, which said in the city of Nice gives Nice nice"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "luvvy",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICE",
+      "Y",
+      "NICE",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A gushing actor finally supports an American appearing alongside Angelina Jolie.",
+     "walkthrough": "Paul's joke: jolie means nice in French, and in the French city of Nice it is 'Nice nice'. Y goes in the middle and luvvy's last letter is backing it, at the end.",
+     "definitionFit": "Nicey-nicey describes cloyingly pleasant behaviour put on to please, the manner of a flatterer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Jolie"
+    }
+   }
   },
   {
    "number": 25,
@@ -493,7 +1710,54 @@
     "text": "Just monkey caught by foxy",
     "enumeration": "6"
    },
-   "solution": "SIMPLY"
+   "solution": "SIMPLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SIMPLY",
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught by another is held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foxy",
+      "gives": "SLY",
+      "note": "foxy means cunning, sly"
+     },
+     {
+      "clueFragment": "monkey",
+      "gives": "IMP",
+      "note": "a mischievous child is a monkey, or an imp"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IMP",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Nothing more than an ape seized by a cunning fox.",
+     "definitionFit": "Simply and just are both adverbs meaning merely, as in 'just a minute'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "monkey"
+    }
+   }
   },
   {
    "number": 27,
@@ -507,7 +1771,56 @@
     "text": "Originally clinker-built, say, sailing ship",
     "enumeration": "6"
    },
-   "solution": "CUTTER"
+   "solution": "CUTTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CUTTER",
+    "definitions": [
+     {
+      "text": "sailing ship",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Originally",
+      "for": "letter_selection",
+      "note": "originally means at the start, so only the opening letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clinker-built",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to utter is to say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat built from overlapping planks, so to speak, is a type of sailing vessel.",
+     "walkthrough": "Clinker-built describes a hull of overlapping planks, so the surface sounds like boatbuilding.",
+     "definitionFit": "A cutter is a small single-masted sailing vessel, a type of sailing ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   }
  ]
 }
