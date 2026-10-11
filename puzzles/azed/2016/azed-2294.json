@@ -31,8 +31,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-11",
+  "check": "35 entries, 88 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -45,6 +51,64 @@
    "clue": {
     "text": "Dog having half of life in Spain, French mongrel?",
     "enumeration": "13"
+   },
+   "solution": "AFFENPINSCHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AFFENPINSCHER",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mongrel?",
+      "for": "anagram",
+      "note": "a mongrel is of mixed breed, so the letters that follow are bred together into a new mix"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half of life",
+      "gives": "FE",
+      "note": "the second half of the word life"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "SPAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "French",
+      "gives": "FRENCH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FESPAINFRENCH",
+       "gives": "AFFENPINSCHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog of dubious ancestry, half Spanish and half French, that spent half its life in Spain.",
+     "walkthrough": "'In' is filler for the surface: FE, SPAIN and FRENCH together are the letters of AFFENPINSCHER.",
+     "definitionFit": "The affenpinscher is a small German toy breed with a monkey-like face, so it is an example of a dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mongrel"
+    }
    }
   },
   {
@@ -58,6 +122,59 @@
    "clue": {
     "text": "Scottish drunk about to relieve himself in chamber",
     "enumeration": "5"
+   },
+   "solution": "FOGOU",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FOGOU",
+    "definitions": [
+     {
+      "text": "chamber",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the Scots word wraps the next piece"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish drunk",
+      "gives": "FOU",
+      "note": "fou is Scots for drunk"
+     },
+     {
+      "clueFragment": "to relieve himself",
+      "gives": "GO",
+      "note": "go is the everyday euphemism, as in needing to go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FO",
+      "GO",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk Scotsman is about to relieve himself in a room.",
+     "walkthrough": "'In chamber' reads as where he relieves himself, as in a chamber pot; 'in' is a link and chamber is the definition.",
+     "definitionFit": "A fogou is an Iron Age underground passage or chamber found in Cornwall, the local kind of souterrain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "chamber"
+    }
    }
   },
   {
@@ -71,6 +188,63 @@
    "clue": {
     "text": "Bathe upside down, stomach showing slice of solid body",
     "enumeration": "7"
+   },
+   "solution": "FRUSTUM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "FRUSTUM",
+    "definitions": [
+     {
+      "text": "slice of solid body",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upside down",
+      "for": "reversal",
+      "note": "in a down entry, turning a word upside down reads it from bottom to top, so backwards"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bathe",
+      "gives": "SURF",
+      "note": "to surf is to bathe in the waves"
+     },
+     {
+      "clueFragment": "stomach",
+      "gives": "TUM",
+      "note": "tum is a child's word for stomach"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRUS",
+      "TUM"
+     ],
+     "reversals": [
+      {
+       "from": "SURF",
+       "to": "FRUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer floating upside down shows a slice of their body.",
+     "definitionFit": "In geometry a frustum is the portion of a solid such as a cone left when the top is cut off by a parallel plane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bathe"
+    }
    }
   },
   {
@@ -84,6 +258,60 @@
    "clue": {
     "text": "Nancy scorned such marriage (not I), coming up",
     "enumeration": "4"
+   },
+   "solution": "NONU",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "NONU",
+    "definitions": [
+     {
+      "text": "Nancy scorned such",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "(not I)",
+      "for": "deletion",
+      "note": "not means without, so one letter named in the brackets is dropped"
+     },
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down entry, coming up means reading from the bottom, so backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marriage",
+      "gives": "UNION",
+      "note": "a marriage is a union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NONU"
+     ],
+     "reversals": [
+      {
+       "from": "UNON",
+       "to": "NONU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nancy turned her nose up at that sort of marriage.",
+     "walkthrough": "Nancy is Nancy Mitford, the writer who popularised the U and non-U labels for upper-class and non-upper-class English usage.",
+     "definitionFit": "Non-U behaviour or speech was branded not upper class, which is just what Mitford affected to scorn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "marriage"
+    }
    }
   },
   {
@@ -97,6 +325,57 @@
    "clue": {
     "text": "Statistical unit to stick up in den",
     "enumeration": "6"
+   },
+   "solution": "PROBIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROBIT",
+    "definitions": [
+     {
+      "text": "Statistical unit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the hold-up word is put inside the word for the den"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "den",
+      "gives": "PIT",
+      "note": "a pit is a den or lair"
+     },
+     {
+      "clueFragment": "stick up",
+      "gives": "ROB",
+      "note": "a stick-up is a robbery, so to stick up is to rob"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROB",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A statistics department pinning a notice up in its office.",
+     "definitionFit": "A probit is a unit of probability used in statistics, measured from the normal distribution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
    }
   },
   {
@@ -109,6 +388,57 @@
    "length": 11,
    "clue": {
     "text": "US creeper, i.e. mixing with a King's don (11, two words)"
+   },
+   "solution": "INDIGOSNAKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDIGO SNAKE",
+    "definitions": [
+     {
+      "text": "US creeper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixing with",
+      "for": "anagram",
+      "note": "things mixing with each other get stirred together, so all these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "i.e.",
+      "gives": "IE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a King's don",
+      "gives": "AKINGSDON",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IEAKINGSDON",
+       "gives": "INDIGOSNAKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Cambridge don at King's College is mixing with an American social climber.",
+     "walkthrough": "'Creeper' suggests a climbing plant or a toady; here it is something that creeps along the ground.",
+     "definitionFit": "The indigo snake is a large bluish-black snake of the south-eastern United States, and snakes creep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "creeper"
+    }
    }
   },
   {
@@ -122,6 +452,62 @@
    "clue": {
     "text": "Twitch head of orchid in bouquet",
     "enumeration": "5"
+   },
+   "solution": "NOOSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NOOSE",
+    "definitions": [
+     {
+      "text": "Twitch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only that is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the kept letter sits inside the word for bouquet"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bouquet",
+      "gives": "NOSE",
+      "note": "a wine's bouquet is its nose"
+     },
+     {
+      "clueFragment": "orchid",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of orchid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "O",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sniffer twitches at the scent of an orchid in a bunch of flowers.",
+     "walkthrough": "Bouquet reads as a bunch of flowers beside orchid, but it is the smell of wine.",
+     "definitionFit": "A twitch is a loop of cord twisted on a horse's upper lip to restrain it, a kind of noose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bouquet"
+    }
    }
   },
   {
@@ -135,6 +521,55 @@
    "clue": {
     "text": "Vanity formerly admitted by one who was no gent",
     "enumeration": "7"
+   },
+   "solution": "CONCEIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CONCEIT",
+    "definitions": [
+     {
+      "text": "Vanity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted by",
+      "for": "container",
+      "note": "something admitted by a person is let inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one who was no gent",
+      "gives": "CIT",
+      "note": "a cit was a townsman or tradesman, looked down on by gentlemen"
+     },
+     {
+      "clueFragment": "formerly",
+      "gives": "ONCE",
+      "note": "once means formerly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ONCE",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A commoner confessing to the vanity of his younger days.",
+     "walkthrough": "'Formerly' looks as if it dates the word vanity; it is ONCE. Cit is an old contemptuous word for a citizen in trade.",
+     "definitionFit": "Conceit is an excessive opinion of oneself, the same failing as vanity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "formerly"
+    }
    }
   },
   {
@@ -148,6 +583,45 @@
    "clue": {
     "text": "Dictionary label to summon, so described",
     "enumeration": "4"
+   },
+   "solution": "HIST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HIST",
+    "definitions": [
+     {
+      "text": "Dictionary label",
+      "at": 0
+     },
+     {
+      "text": "to summon",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "so described"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dictionary label",
+      "note": "first meaning: the dictionary abbreviation marking a historical term"
+     },
+     {
+      "clueFragment": "to summon",
+      "note": "second meaning: a verb for calling someone with a hissing sound"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'So described' hints that the verb is itself old enough to carry such a dictionary label.",
+     "definitionFit": "Hist. is the label for historical usage, and hist as a verb means to summon someone by a hissing call."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "label"
+    }
    }
   },
   {
@@ -161,6 +635,54 @@
    "clue": {
     "text": "Attend to tight corset",
     "enumeration": "6"
+   },
+   "solution": "ESCORT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESCORT",
+    "definitions": [
+     {
+      "text": "Attend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tight",
+      "for": "anagram",
+      "note": "tight means drunk, and a drunk word reels into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corset",
+      "gives": "CORSET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CORSET",
+       "gives": "ESCORT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A maid is told to deal with a corset that is too tight.",
+     "walkthrough": "'Attend to' reads as one phrase, but 'to' is a link: tight is the British slang for drunk.",
+     "definitionFit": "To escort someone is to accompany them, which is one sense of attend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tight"
+    }
    }
   },
   {
@@ -174,6 +696,65 @@
    "clue": {
     "text": "Returning lift from activity in market town",
     "enumeration": "5"
+   },
+   "solution": "BORGO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BORGO",
+    "definitions": [
+     {
+      "text": "market town",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Returning",
+      "for": "reversal",
+      "note": "something returning goes back the way it came, so the word for lift is read right to left"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lift",
+      "gives": "ROB",
+      "note": "to lift is to steal, or rob"
+     },
+     {
+      "clueFragment": "activity",
+      "gives": "GO",
+      "note": "go as in bustle and energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOR",
+      "GO"
+     ],
+     "reversals": [
+      {
+       "from": "ROB",
+       "to": "BOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes the lift back down from a busy part of a market town.",
+     "walkthrough": "BORGO is an Italian word for a small market town or village, listed in Chambers.",
+     "definitionFit": "Borgo is the Italian term for a small town that grew up around a market or outside a castle wall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
    }
   },
   {
@@ -187,6 +768,50 @@
    "clue": {
     "text": "It may threaten production of cider or beer, mine",
     "enumeration": "9"
+   },
+   "solution": "BITTERPIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BITTER PIT",
+    "definitions": [
+     {
+      "text": "It may threaten production of cider",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer",
+      "gives": "BITTER",
+      "note": "bitter is a kind of beer"
+     },
+     {
+      "clueFragment": "mine",
+      "gives": "PIT",
+      "note": "a pit is a mine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BITTER",
+      "PIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A threat to cider or beer production, or to a mine.",
+     "walkthrough": "The list of cider, beer and mine reads as three threatened industries; only the cider part defines.",
+     "definitionFit": "Bitter pit is a disorder of apples causing brown spots in the flesh, so it can spoil the fruit grown for cider."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "beer"
+    }
    }
   },
   {
@@ -200,6 +825,65 @@
    "clue": {
     "text": "Beam one's seen with sun briefly appearing in Whit",
     "enumeration": "5"
+   },
+   "solution": "JOIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "JOIST",
+    "definitions": [
+     {
+      "text": "Beam",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing in",
+      "for": "container",
+      "note": "showing up in something means sitting inside it, so these letters go inside the word for whit"
+     }
+    ],
+    "linkWords": [
+     "'s seen with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whit",
+      "gives": "JOT",
+      "note": "a whit is a tiny amount, a jot"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "sun briefly",
+      "gives": "S",
+      "note": "S is the abbreviation for sun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JO",
+      "I",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A sunbeam appearing briefly at Whitsun, the Christian festival.",
+     "walkthrough": "The capital W makes Whit look like the festival of Whitsun; it is just whit, a jot. I and S go inside JOT.",
+     "definitionFit": "A joist is one of the parallel timber or steel beams that carry a floor or ceiling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Whit"
+    }
    }
   },
   {
@@ -213,6 +897,55 @@
    "clue": {
     "text": "Shield-bearer showing urge of old to learn, always",
     "enumeration": "9"
+   },
+   "solution": "TARGETEER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TARGETEER",
+    "definitions": [
+     {
+      "text": "Shield-bearer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urge of old",
+      "gives": "TAR",
+      "note": "tar or tarre is Shakespeare's word for to urge on"
+     },
+     {
+      "clueFragment": "to learn",
+      "gives": "GET",
+      "note": "to get something is to learn or understand it"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EER",
+      "note": "e'er is the poetic contraction of ever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "GET",
+      "EER"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight's squire showing an old-fashioned eagerness for learning.",
+     "definitionFit": "A targeteer was a foot soldier armed with a targe, a small round shield, so a bearer of a shield."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "urge"
+    }
    }
   },
   {
@@ -226,6 +959,65 @@
    "clue": {
     "text": "Dung, complete, in rings, identifying prehistoric creature",
     "enumeration": "9"
+   },
+   "solution": "IGUANODON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IGUANODON",
+    "definitions": [
+     {
+      "text": "prehistoric creature",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rings",
+      "for": "container",
+      "note": "to ring something is to circle it, so the word in goes around the other pieces"
+     }
+    ],
+    "linkWords": [
+     "identifying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written, the outer word"
+     },
+     {
+      "clueFragment": "Dung",
+      "gives": "GUANO",
+      "note": "guano is the droppings of seabirds or bats"
+     },
+     {
+      "clueFragment": "complete",
+      "gives": "DO",
+      "note": "to do a job is to complete it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "GUANO",
+      "DO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Fossil dung found in tree rings or rock layers lets scientists identify a prehistoric animal.",
+     "walkthrough": "'In' looks like a link word, but it is the word that rings GUANO and DO.",
+     "definitionFit": "The iguanodon was a large plant-eating dinosaur of the Cretaceous period, so a creature from prehistory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
    }
   },
   {
@@ -239,6 +1031,43 @@
    "clue": {
     "text": "Jock's intimate friend",
     "enumeration": "4"
+   },
+   "solution": "TOSH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOSH",
+    "definitions": [
+     {
+      "text": "intimate",
+      "at": 7
+     },
+     {
+      "text": "friend",
+      "at": 16,
+      "note": "used loosely for friendly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jock's intimate",
+      "note": "first meaning: in Scots, on intimate or familiar terms"
+     },
+     {
+      "clueFragment": "friend",
+      "note": "second meaning: in Scots, friendly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Jock is the crossword's Scotsman, so the answer is a Scots word; to most readers TOSH means nonsense, which hides the Scots sense.",
+     "definitionFit": "Chambers lists the Scots adjective tosh as neat or comfortable and also as friendly, on familiar terms with someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "intimate"
+    }
    }
   },
   {
@@ -252,6 +1081,61 @@
    "clue": {
     "text": "'E cut ice sorbet roughly — it makes equal halves",
     "enumeration": "8"
+   },
+   "solution": "BISECTOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BISECTOR",
+    "definitions": [
+     {
+      "text": "it makes equal halves",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'E cut",
+      "for": "deletion",
+      "note": "with the dropped-h E taken out, one letter E is removed from what follows"
+     },
+     {
+      "text": "roughly",
+      "for": "anagram",
+      "note": "done roughly, not neatly, so the remaining letters come out in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ice sorbet",
+      "gives": "ICESORBET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BISECTOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ICSORBET",
+       "gives": "BISECTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Cockney waiter slicing a sorbet roughly in two, so that each half is the same.",
+     "walkthrough": "'E is a Cockney he, here only the letter E to be removed from ICE SORBET.",
+     "definitionFit": "A bisector is a line or plane that divides an angle or figure into two equal parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "'E"
+    }
    }
   },
   {
@@ -265,6 +1149,63 @@
    "clue": {
     "text": "Sow maybe in even earth, at the surface thereof",
     "enumeration": "7"
+   },
+   "solution": "EPIGENE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "EPIGENE",
+    "definitions": [
+     {
+      "text": "at the surface thereof",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the animal is placed inside the poetic word for even"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "even",
+      "gives": "EEN",
+      "note": "e'en is the poetic contraction of even"
+     },
+     {
+      "clueFragment": "Sow maybe",
+      "gives": "PIG",
+      "note": "a sow is a female pig"
+     },
+     {
+      "clueFragment": "earth",
+      "gives": "E",
+      "note": "E is the abbreviation for earth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PIG",
+      "EN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Sowing seed in level ground, on its very surface.",
+     "walkthrough": "'Sow' reads as the verb of sowing seed; it is the female pig. 'Thereof' points back to earth, so the definition means at the surface of the earth.",
+     "definitionFit": "Epigene is a geological term for something formed or happening on the surface of the earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sow"
+    }
    }
   },
   {
@@ -278,6 +1219,61 @@
    "clue": {
     "text": "Lug Scots viewer round modernist artist (not No. 1)",
     "enumeration": "7"
+   },
+   "solution": "EARHOLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EARHOLE",
+    "definitions": [
+     {
+      "text": "Lug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "(not No. 1)",
+      "for": "deletion",
+      "note": "not number one means without the first, so the artist loses an initial letter"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the Scots word goes around the shortened name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scots viewer",
+      "gives": "EE",
+      "note": "ee is the Scots word for eye"
+     },
+     {
+      "clueFragment": "modernist artist",
+      "gives": "WARHOL",
+      "note": "Andy Warhol, the American pop artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ARHOL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish gallery visitor lugs a picture round a modern art show.",
+     "walkthrough": "Lug looks like the verb to haul; it is the slang noun for an ear.",
+     "definitionFit": "Lug is slang for an ear, and earhole is another informal word for the ear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lug"
+    }
    }
   },
   {
@@ -291,6 +1287,69 @@
    "clue": {
     "text": "Old poet read up Latin and English, separate",
     "enumeration": "7"
+   },
+   "solution": "DIVORCE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DIVORCE",
+    "definitions": [
+     {
+      "text": "separate",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read up",
+      "for": "reversal",
+      "note": "in a down entry, read upwards means read from the bottom, so backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old poet",
+      "gives": "OVID",
+      "note": "Ovid, the Roman poet"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "RC",
+      "note": "the Latin church is the Roman Catholic church, RC"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIVO",
+      "RC",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "OVID",
+       "to": "DIVO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student reads up on a classical poet in Latin and English, as two separate subjects.",
+     "definitionFit": "To divorce two things is to separate them, as a married couple are separated in law."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "read"
+    }
    }
   },
   {
@@ -304,6 +1363,54 @@
    "clue": {
     "text": "Point in Ptolemaic system? Riding excludes it",
     "enumeration": "6"
+   },
+   "solution": "EQUANT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EQUANT",
+    "definitions": [
+     {
+      "text": "Point in Ptolemaic system?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excludes",
+      "for": "deletion",
+      "note": "to exclude something is to leave it out, so the following word is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Riding",
+      "gives": "EQUITANT",
+      "note": "equitant means riding or straddling, as on horseback"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written, the part removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EQU",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sceptic notes that in the Ptolemaic model some point gets left out of the riding.",
+     "walkthrough": "'Riding' suggests horses or a Yorkshire division; it is the rare adjective EQUITANT, and IT comes out of it.",
+     "definitionFit": "In Ptolemy's astronomy the equant is the point from which a planet's motion around its circle appears uniform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Riding"
+    }
    }
   },
   {
@@ -317,6 +1424,59 @@
    "clue": {
     "text": "Trembling state after two successive helpings of liquor",
     "enumeration": "6"
+   },
+   "solution": "QUAVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "QUAVER",
+    "definitions": [
+     {
+      "text": "Trembling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "two successive helpings of",
+      "for": "letter_selection",
+      "note": "two helpings taken one after the other are a pair of neighbouring letters from the centre of the next word"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liquor",
+      "gives": "QU",
+      "select": "middle",
+      "note": "the middle pair of letters of liquor"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "AVER",
+      "note": "to aver is to state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QU",
+      "AVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker is left in a shaky condition after two helpings of spirits.",
+     "walkthrough": "'After' tells you the word for state follows the two letters.",
+     "definitionFit": "Quaver as a noun is a trembling, especially a tremor in the voice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "helpings"
+    }
    }
   },
   {
@@ -330,6 +1490,57 @@
    "clue": {
     "text": "Welcome in place for Islamic adherent",
     "enumeration": "6"
+   },
+   "solution": "SHIITE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHIITE",
+    "definitions": [
+     {
+      "text": "Islamic adherent",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word is set inside the other, the greeting placed within the place"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "SITE",
+      "note": "a site is a place"
+     },
+     {
+      "clueFragment": "Welcome",
+      "gives": "HI",
+      "note": "hi is a word of welcome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HI",
+      "ITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A mosque is a welcoming place for a follower of Islam.",
+     "definitionFit": "A Shiite belongs to the Shia branch of Islam, one of its two main divisions, so is one of its followers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Welcome"
+    }
    }
   },
   {
@@ -343,6 +1554,72 @@
    "clue": {
     "text": "Strict legal tradition has broken song up",
     "enumeration": "6"
+   },
+   "solution": "SHARIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "SHARIA",
+    "definitions": [
+     {
+      "text": "Strict legal tradition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is in pieces, so the word before is jumbled"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means read from the bottom, so the word for song runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "AIR",
+      "note": "an air is a song"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHA",
+      "RIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAS",
+       "gives": "SHA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strict legal tradition has broken up a song.",
+     "definitionFit": "Sharia is Islamic law, a body of rules handed down by religious tradition and often strictly applied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
    }
   },
   {
@@ -356,6 +1633,51 @@
    "clue": {
     "text": "Is it beyond tiro jazz drummer? Sort him out",
     "enumeration": "7"
+   },
+   "solution": "RIMSHOT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RIMSHOT",
+    "definitions": [
+     {
+      "text": "Is it beyond tiro jazz drummer?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "to sort something out is to rearrange it, so the two words before are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort him",
+      "gives": "SORTHIM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SORTHIM",
+       "gives": "RIMSHOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bandleader wonders whether a novice drummer can cope, and tells someone to put the lad straight.",
+     "walkthrough": "The question is the definition, read as a description: a stroke that may be too hard for a beginner jazz drummer.",
+     "definitionFit": "A rimshot is a drum stroke hitting the rim and head of a snare together, a technique a novice may not have mastered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Sort"
+    }
    }
   },
   {
@@ -369,6 +1691,54 @@
    "clue": {
     "text": "US birds, youngest dropping in",
     "enumeration": "5"
+   },
+   "solution": "MIMUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MIMUS",
+    "definitions": [
+     {
+      "text": "US birds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping something means letting it go, so the next word is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "youngest",
+      "gives": "MINIMUS",
+      "note": "at English public schools the youngest of brothers was called minimus"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written, the part removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "MUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A flock of American birds drops in, the youngest leading.",
+     "walkthrough": "'Dropping in' reads as visiting; 'in' is the word removed.",
+     "definitionFit": "Mimus is the genus of mockingbirds, birds of the Americas, the northern mockingbird being common in the US."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dropping"
+    }
    }
   },
   {
@@ -382,6 +1752,43 @@
    "clue": {
     "text": "Head of state? One such, causing sorrow?",
     "enumeration": "5"
+   },
+   "solution": "ASSAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ASSAD",
+    "definitions": [
+     {
+      "text": "Head of state?",
+      "at": 0
+     },
+     {
+      "text": "One such, causing sorrow?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Head of state?",
+      "note": "first meaning: the surname of Syria's president"
+     },
+     {
+      "clueFragment": "One such, causing sorrow?",
+      "note": "second meaning: split as two words, ..., one that causes sorrow"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is a pun: split in two, the name reads 'as sad', which is how a cause of sorrow might be described.",
+     "definitionFit": "Bashar al-Assad, and his father before him, headed the Syrian state, so the name answers 'head of state'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "such"
+    }
    }
   },
   {
@@ -395,6 +1802,63 @@
    "clue": {
     "text": "Turkish bigwig has invested money, wearing fine fleecy stuff",
     "enumeration": "8"
+   },
+   "solution": "PASHMINA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PASHMINA",
+    "definitions": [
+     {
+      "text": "fine fleecy stuff",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has invested",
+      "for": "container",
+      "note": "to invest someone is to robe them, so the bigwig is wrapped around what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turkish bigwig",
+      "gives": "PASHA",
+      "note": "a pasha was a high-ranking Ottoman official"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is an abbreviation for money"
+     },
+     {
+      "clueFragment": "wearing",
+      "gives": "IN",
+      "note": "to be in something is to be wearing it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASH",
+      "M",
+      "IN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy Turkish dignitary has put his money into luxury woollens and dresses in them.",
+     "walkthrough": "'Invested' reads as financial, alongside money, but it means robed, so the official is wrapped around the rest. A pasha was a governor in the Ottoman Empire.",
+     "definitionFit": "Pashmina is a fine soft wool from the undercoat of Himalayan goats, or a shawl made of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "invested"
+    }
    }
   },
   {
@@ -408,6 +1872,42 @@
    "clue": {
     "text": "Exclusive floor",
     "enumeration": "4"
+   },
+   "solution": "SOLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SOLE",
+    "definitions": [
+     {
+      "text": "Exclusive",
+      "at": 0
+     },
+     {
+      "text": "floor",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exclusive",
+      "note": "first meaning: only, belonging to one alone"
+     },
+     {
+      "clueFragment": "floor",
+      "note": "second meaning: the bottom surface, as of a furnace or a foot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Exclusive suggests an upmarket floor of a store; the two words are separate meanings.",
+     "definitionFit": "Sole means single or exclusive, as in sole rights, and also names the underside or floor of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exclusive"
+    }
    }
   },
   {
@@ -421,6 +1921,43 @@
    "clue": {
     "text": "Make room for five-letter sequence",
     "enumeration": "4"
+   },
+   "solution": "STOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STOW",
+    "definitions": [
+     {
+      "text": "Make room for",
+      "at": 0
+     },
+     {
+      "text": "five-letter sequence",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make room for",
+      "note": "first meaning: to find a place for, pack away"
+     },
+     {
+      "clueFragment": "five-letter sequence",
+      "note": "second meaning: read as ..., the run of five letters S, T, U, V, W"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning is a pun: split as 'S to W', the word describes the five letters from S through W.",
+     "definitionFit": "To stow luggage is to pack it away, finding a place for it, so stow means make room for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sequence"
+    }
    }
   },
   {
@@ -434,6 +1971,53 @@
    "clue": {
     "text": "Opponents at table following in sequence turn over card",
     "enumeration": "4"
+   },
+   "solution": "TOSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOSE",
+    "definitions": [
+     {
+      "text": "card",
+      "at": 51
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turn",
+      "gives": "T",
+      "note": "T is used here for turn"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for an over"
+     },
+     {
+      "clueFragment": "Opponents at table following in sequence",
+      "gives": "SE",
+      "note": "at bridge, South and East sit next to each other, play one after the other and are opponents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "O",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Bridge players taking their turns one after another flip a card face up.",
+     "walkthrough": "At bridge partners sit opposite, so neighbouring seats such as South and East are opponents who play in sequence. 'Card' is the verb for combing wool.",
+     "definitionFit": "Tose, also spelt toze, is an old verb meaning to tease out or comb wool, which is what carding does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "card"
+    }
    }
   },
   {
@@ -447,6 +2031,64 @@
    "clue": {
     "text": "Clever dick getting sailors into singular calamity",
     "enumeration": "9"
+   },
+   "solution": "SMARTARSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SMARTARSE",
+    "definitions": [
+     {
+      "text": "Clever dick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "the sailors are put into the other word, so it wraps around them"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singular",
+      "gives": "S",
+      "note": "S is the grammatical abbreviation for singular"
+     },
+     {
+      "clueFragment": "calamity",
+      "gives": "MARE",
+      "note": "a mare, a nightmare, is a disaster"
+     },
+     {
+      "clueFragment": "sailors",
+      "gives": "TARS",
+      "note": "tars are sailors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MAR",
+      "TARS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A know-all drags the crew into a unique disaster.",
+     "definitionFit": "A smart-arse is a slang word for a know-all who shows off his cleverness, the same as a clever dick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "singular"
+    }
    }
   },
   {
@@ -460,6 +2102,68 @@
    "clue": {
     "text": "Box, mostly flat these days, still contains will shortly to be read back",
     "enumeration": "5"
+   },
+   "solution": "TELLY",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "TELLY",
+    "definitions": [
+     {
+      "text": "Box, mostly flat these days",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "the word for still holds the shortened will inside it"
+     },
+     {
+      "text": "to be read back",
+      "for": "reversal",
+      "note": "reading back means reading from the end to the start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "YET",
+      "note": "yet as in still, even now"
+     },
+     {
+      "clueFragment": "will shortly",
+      "gives": "LL",
+      "note": "'ll is the contraction of will"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "LL",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "YLLET",
+       "to": "TELLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A box that is mostly flat these days still holds a will that is about to be read out.",
+     "walkthrough": "The box is the television, which used to be a deep cabinet and is now a flat screen; telly is the British everyday word for TV.",
+     "definitionFit": "Box is slang for a television set, and today's sets are mostly flat-screen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "will"
+    }
    }
   },
   {
@@ -473,6 +2177,48 @@
    "clue": {
     "text": "Capital in Oz yielding ready money there once",
     "enumeration": "5"
+   },
+   "solution": "OSCAR",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "OSCAR",
+    "definitions": [
+     {
+      "text": "ready money there once",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "yielding",
+      "for": "substitution",
+      "note": "yielding means giving, so the letter gives way to the code word that names it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capital in Oz",
+      "gives": "OSCAR",
+      "note": "the capital, or initial letter, of Oz is O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OSCAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on cash that was legal tender in an Australian capital.",
+     "walkthrough": "'Capital' suggests Canberra; it is the capital letter O, and the NATO alphabet calls O 'Oscar'. Oz is Australia, so 'there' is Australia.",
+     "definitionFit": "Oscar was old Australian slang for cash, from rhyming slang on the actor Oscar Asche."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Capital"
+    }
    }
   },
   {
@@ -485,6 +2231,67 @@
    "length": 13,
    "clue": {
     "text": "Seed grew, seen spreading round area — higher plants evolved therefrom (13, two words)"
+   },
+   "solution": "GREENSEAWEEDS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GREENSEAWEEDS",
+    "definitions": [
+     {
+      "text": "higher plants evolved therefrom",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spreading",
+      "for": "anagram",
+      "note": "things spreading move outward and change shape, so the letters are scattered into a new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the mixed letters go around the abbreviation that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seed grew, seen",
+      "gives": "SEEDGREWSEEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREENSE",
+      "A",
+      "WEEDS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEDGREWSEEN",
+       "gives": "GREENSEWEEDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Botanists trace how land plants evolved, a seed growing and spreading round an area.",
+     "walkthrough": "The surface reads as one seed's growth, but the first three words are only letters to rearrange.",
+     "definitionFit": "Land plants are thought to have evolved from green algae, which include the green seaweeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "spreading"
+    }
    }
   }
  ]
