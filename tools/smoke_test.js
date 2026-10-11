@@ -191,10 +191,13 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
   // asset change and the thing the nightly rebase collides in. What this
   // catches is an asset renamed or dropped out of the page; the sweep below is
   // what catches a stamp that has gone stale.
+  // An asset only the generated puzzle pages load (landing.js) is referenced
+  // from the page builder, not from index.html, so that source counts too.
+  const seoSrc = fs.readFileSync(path.join(ROOT, "tools/build_seo_pages.py"), "utf8");
   let stampedHere = 0;
   stamped.filter((rel) => rel.endsWith(".js") || rel.endsWith(".css")).forEach((rel) => {
-    assert(html.includes(`${rel}?v=`) || html.includes(`${rel}"`),
-      `index.html still references ${rel}, which tools/stamp_assets.py stamps`);
+    assert(html.includes(`${rel}?v=`) || html.includes(`${rel}"`) || seoSrc.includes(`"${rel}"`),
+      `neither index.html nor tools/build_seo_pages.py still references ${rel}, which tools/stamp_assets.py stamps`);
     if (html.includes(`${rel}?v=`)) stampedHere++;
   });
 
