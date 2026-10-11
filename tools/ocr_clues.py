@@ -792,6 +792,9 @@ RARITY_COST = 0.25
 UNRANKED = 100000
 #: How much cheaper the consensus must be than the next spelling.
 CONSENSUS_MARGIN = 0.5
+#: How far (slips()) every reading may lie from a consensus word one of
+#: them prints letter for letter: "with" against "ujLh / ujth".
+PRINTED_SLIPS = 2.5
 
 
 def consensus(read, before=None, after=None):
@@ -808,7 +811,11 @@ def consensus(read, before=None, after=None):
     never when it is a word formed() knows ("Ciry" is "City"; "Jenkyns"
     stays a name, "unscared" a word). Nor does it settle anything when one
     reading's spelling lies more than one change nearer all the readings
-    than it does: they read a word the lexicon lacks."""
+    than it does: they read a word the lexicon lacks. A word one reading
+    prints, with every reading within PRINTED_SLIPS of it, needs neither
+    the two near readings nor the medoid test, and no rival a reading
+    does not print stands against it ("sweet" for "swcrl / swccl /
+    swetl", "that" for "titar / tlraf")."""
     read = [r.lower() for r in read if r and re.fullmatch(r"[A-Za-z]+(?:'[A-Za-z]+)?", r)]
     size = sorted(map(len, read))[len(read) // 2] if read else 0
     if len(read) < 2 or size < CONSENSUS_MIN:
@@ -826,16 +833,18 @@ def consensus(read, before=None, after=None):
                 + RARITY_COST * math.log10(rank(c) or UNRANKED))
     ranked = sorted((cost(c), c) for c in cands)
     best = ranked[0][1]
-    if len(best) < CONSENSUS_MIN or max(abs(len(best) - size), abs(len(best) - len(read[0]))) > 1 or sum(slips(best, r) <= max(1.0, len(best) / 4) for r in read) < 2:
+    printed = best in read and all(slips(best, r) <= PRINTED_SLIPS for r in read)
+    if len(best) < CONSENSUS_MIN or max(abs(len(best) - size), abs(len(best) - len(read[0]))) > 1 or (
+            not printed and sum(slips(best, r) <= max(1.0, len(best) / 4) for r in read) < 2):
         return None
     if held and (slips(best, shared) > SLIP_COST or formed(shared)):
         return None
     # Readings nearer one another than the word is to them read a word the
     # lexicon lacks ("cameelious", not "cancellous").
     medoid = min(sum(min(slips(r, o), CONSENSUS_CAP) for o in read) for r in set(read))
-    if sum(min(slips(best, r), CONSENSUS_CAP) for r in read) > medoid + 1:
+    if not printed and sum(min(slips(best, r), CONSENSUS_CAP) for r in read) > medoid + 1:
         return None
-    rivals = [c for k, c in ranked[1:] if k - ranked[0][0] < CONSENSUS_MARGIN]
+    rivals = [c for k, c in ranked[1:] if k - ranked[0][0] < CONSENSUS_MARGIN and (not printed or c in read)]
     if rivals and all(fit(best, before, after) - fit(c, before, after) < FIT_MARGIN for c in rivals):
         return None
     return best

@@ -155,6 +155,10 @@ check("mirror: a word the lexicon lacks that the readings nearly agree on stays 
 check("mirror: a formed word most readings share stands (times-14583 12A)",
       None, oc.consensus(["unscared", "unscared", "uncared"]))
 check("mirror: one reading alone settles nothing", None, oc.consensus(["auotber"]))
+check("a word one reading prints, the others garbles within reach of it, settles (NewsUK 1984-01-23)",
+      "with", oc.consensus(["ujLh", "ujth", "with"]))
+check("mirror: a word one reading prints settles nothing when another reading lies far from it (NewsUK 1975-09-29)",
+      None, oc.consensus(["Nortuern", "North"]))
 
 # A clue's start is lost when half the other readings see words before it,
 # or two see the same ones; specks a few of many readings each see apart
