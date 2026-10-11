@@ -278,7 +278,9 @@ button:disabled:hover { border-color: var(--line); }
 /* The anagram ring: fodder laid out with no first letter and no last one, so
    there is no reading order for the eye to fall back into. Absolute placement
    round a disc rather than a flex row — a row is the thing it exists to avoid.
-   See ringHTML() in app.js for why it is a circle and not a search box. */
+   See ringHTML() in app.js for why it is a circle and not a search box.
+   Once a letter from the grid pins a tile, the order is real and the same
+   tiles stand in a line (.ana-line) in answer order instead. */
 .anagram-ring { margin: 10px 0 2px; display: flex; flex-direction: column; align-items: center; }
 .anagram-ring p { margin: 2px 0 6px; text-align: center; max-width: 34em; }
 /* cursor:text is the only hint that clicking empty space here does something —
@@ -292,6 +294,7 @@ button:disabled:hover { border-color: var(--line); }
    comment in index.html for why it has to live outside #hint-body), so the
    class is set by ringHTML() itself off document.activeElement instead. */
 .ana-disc.ana-focus { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 50%; }
+.ana-disc.ana-line.ana-focus { border-radius: 10px; }
 .ana-tile {
   position: absolute; transform: translate(-50%, -50%);
   min-width: 2.1em; padding: 6px 8px; margin: 0;
