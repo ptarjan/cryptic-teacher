@@ -49,6 +49,7 @@ import traceback
 from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, wait
 from concurrent.futures.process import BrokenProcessPool
 from pathlib import Path
+
 import downloads
 
 
@@ -396,9 +397,11 @@ def flagged_requests():
 #: ("vita)"), dropped once the vote puts the letter back. The entry for "a
 #: stray letter" is unstrayed()'s lone letter read for the one short word
 #: the readings print between its neighbours ("throws d sprightly"). The
-#: last join_split()'s halves a letter off the one word most readings
-#: print whole ("Rea dins", "builds ngs"), held blank as no other reading
-#: has it, readings differ, or not a word.
+#: 06:50 one is join_split()'s halves a letter off the one word most
+#: readings print whole ("Rea dins", "builds ngs"), held blank as no other
+#: reading has it, readings differ, or not a word. The last is agree()
+#: passing figure-shaped specks ("is" for "(5)", "down i") at a clue's edge
+#: when no number or count is known (number_shaped), held as an end lost.
 VOTE_MENDED = (
     ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
                                    "start is lost: other readings have")),
@@ -418,6 +421,7 @@ VOTE_MENDED = (
     ("2026-10-11T06:19:00+00:00", ("a stray mark inside a word",)),
     ("2026-10-11T06:35:00+00:00", ("a stray letter",)),
     ("2026-10-11T06:50:00+00:00", ("no other reading has", "readings differ", "not a word")),
+    ("2026-10-11T07:05:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
 )
 
 
