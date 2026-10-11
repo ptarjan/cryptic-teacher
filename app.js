@@ -7556,6 +7556,9 @@
     // The last burst's watcher, if it is somehow still waiting: a burst that is
     // replaced was never seen, and nothing is owed to it.
     stopWatchingBurst();
+    // The last letter leaves the phone's keyboard up over the show: drop it.
+    const typing = document.activeElement;
+    if (typing && typing !== document.body && typeof typing.blur === "function") typing.blur();
     burstState(burst, "hold");
     burst.innerHTML = shellsHTML();
     const go = () => {
