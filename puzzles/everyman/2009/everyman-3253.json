@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Rascal affected by onset of school",
     "enumeration": "5"
    },
-   "solution": "SCAMP"
+   "solution": "SCAMP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCAMP",
+    "definitions": [
+     {
+      "text": "Rascal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "onset of",
+      "for": "letter_selection",
+      "note": "the onset of something is its beginning, so only the opening letter of the next word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of school"
+     },
+     {
+      "clueFragment": "affected",
+      "gives": "CAMP",
+      "note": "camp means theatrically affected or mannered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A young rogue whose character changed once he started school.",
+     "walkthrough": "'Affected' reads as 'influenced' in the surface, but it is a synonym for exaggerated, mannered behaviour.",
+     "definitionFit": "A scamp is a mischievous person, a close synonym of rascal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +105,47 @@
      }
     ]
    },
-   "solution": "SIGNAWAY"
+   "solution": "SIGNAWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIGN AWAY",
+    "definitions": [
+     {
+      "text": "Dispense with",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guidepost",
+      "gives": "SIGN",
+      "note": "a guidepost is a signpost or sign"
+     },
+     {
+      "clueFragment": "on a path",
+      "gives": "AWAY",
+      "note": "a path is a way; on is a positional link"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIGN",
+      "A",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting rid of a signpost that stands beside a footpath.",
+     "definitionFit": "To sign away a right is to give it up formally, so you dispense with it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dispense"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +159,73 @@
     "text": "Flower girl left, pinched by naughty Lisa",
     "enumeration": "9"
    },
-   "solution": "AMARYLLIS"
+   "solution": "AMARYLLIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "AMARYLLIS",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naughty",
+      "for": "anagram",
+      "note": "naughty means misbehaving, so the letters do not stay in line"
+     },
+     {
+      "text": "pinched by",
+      "for": "container",
+      "note": "pinched by means gripped on both sides, so the first pieces are held inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "MARY",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "Lisa",
+      "gives": "LISA",
+      "note": "the letters of this name taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MARYL",
+      "LIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LISA",
+       "gives": "ALIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flower girl at a wedding left after naughty Lisa pinched her.",
+     "walkthrough": "'Flower girl' reads as one wedding role, but 'Flower' alone is the definition.",
+     "definitionFit": "Amaryllis is a bulb plant with large trumpet-shaped blooms, so it is a flower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 3,
@@ -99,7 +257,44 @@
      }
     ]
    },
-   "solution": "PUTONESFOOTINIT"
+   "solution": "PUTONESFOOTINIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUT ONES FOOT IN IT",
+    "definitions": [
+     {
+      "text": "What to do with a trainer",
+      "at": 0
+     },
+     {
+      "text": "making blunder",
+      "at": 26,
+      "note": "a participle phrase standing for the verb phrase 'make a blunder'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What to do with a trainer",
+      "note": "first meaning, literal: a trainer is a sports shoe, and you insert your foot into it"
+     },
+     {
+      "clueFragment": "making blunder",
+      "note": "second meaning, idiomatic: to commit a tactless gaffe"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British English a trainer is also a running shoe, which is what you physically put a foot into.",
+     "definitionFit": "The idiom means to say something tactless or embarrassing, which is to make a blunder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trainer"
+    }
+   }
   },
   {
    "number": 4,
@@ -113,7 +308,54 @@
     "text": "Spike on brass choker",
     "enumeration": "8"
    },
-   "solution": "NECKLACE"
+   "solution": "NECKLACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NECKLACE",
+    "definitions": [
+     {
+      "text": "choker",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing placed on another comes after it, so the first-named piece goes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brass",
+      "gives": "NECK",
+      "note": "brass and neck both mean cheek or nerve"
+     },
+     {
+      "clueFragment": "Spike",
+      "gives": "LACE",
+      "note": "to spike or lace a drink is to add alcohol or a drug to it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NECK",
+      "LACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A studded metal collar, described as spikes on brass.",
+     "walkthrough": "In an across clue 'A on B' puts A after B, so the spike word comes second.",
+     "definitionFit": "A choker is a short tight necklace worn around the throat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brass"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +369,68 @@
     "text": "Play in a tie (abandoned) in Potter's place?",
     "enumeration": "7"
    },
-   "solution": "ETRURIA"
+   "solution": "ETRURIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ETRURIA",
+    "definitions": [
+     {
+      "text": "Potter's place?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "anagram",
+      "note": "abandoned means unrestrained, so these letters run wild into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the play inside the jumbled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a tie",
+      "gives": "ATIE",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "Play",
+      "gives": "RUR",
+      "note": "R.U.R. is Karel Capek's play which introduced the word robot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "RUR",
+      "IA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATIE",
+       "gives": "ETIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drawn match in a game that was then called off, at a potter's place.",
+     "walkthrough": "Etruria was ancient Italy's Etruscan land, and Josiah Wedgwood named his Stoke-on-Trent pottery works after it.",
+     "definitionFit": "Etruria in Stoke-on-Trent was the site of Wedgwood's pottery factory, so it was a potter's place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Play"
+    }
+   }
   },
   {
    "number": 6,
@@ -151,7 +454,41 @@
      }
     ]
    },
-   "solution": "KICKEDINTOTOUCH"
+   "solution": "KICKEDINTOTOUCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KICKED INTO TOUCH",
+    "definitions": [
+     {
+      "text": "Out of play",
+      "at": 0
+     },
+     {
+      "text": "abandoned",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Out of play",
+      "note": "first meaning: in rugby or football, a ball sent over the sideline"
+     },
+     {
+      "clueFragment": "abandoned",
+      "note": "second meaning: a plan shelved or dropped indefinitely"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase comes from rugby, where touch is the area beyond the sidelines; figuratively it means set aside.",
+     "definitionFit": "A ball sent beyond the touchline is out of play, and an idea pushed aside like that has been dropped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -165,7 +502,47 @@
     "text": "A profit in return",
     "enumeration": "5"
    },
-   "solution": "AGAIN"
+   "solution": "AGAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGAIN",
+    "definitions": [
+     {
+      "text": "in return",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "profit",
+      "gives": "GAIN",
+      "note": "a gain is a profit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Making a profit when money comes back to you.",
+     "walkthrough": "The definition uses the older sense of the answer, as in 'answer again', meaning back or in reply.",
+     "definitionFit": "In older usage the word means back or in reply, as when someone answers or gives something back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 8,
@@ -185,7 +562,56 @@
      }
     ]
    },
-   "solution": "EVENSO"
+   "solution": "EVENSO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVEN SO",
+    "definitions": [
+     {
+      "text": "nevertheless",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flat",
+      "gives": "EVEN",
+      "note": "flat and even both mean level"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the possessive ending gives a letter as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "S",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's apartment is ageing, but still.",
+     "walkthrough": "'Flat' looks like the noun for an apartment, but it is the adjective meaning level.",
+     "definitionFit": "The phrase means despite that, the same as nevertheless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flat"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +625,49 @@
     "text": "Employees on a Scottish island",
     "enumeration": "6"
    },
-   "solution": "STAFFA"
+   "solution": "STAFFA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAFFA",
+    "definitions": [
+     {
+      "text": "a Scottish island",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Employees",
+      "gives": "STAFF",
+      "note": "a firm's employees are its staff"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAFF",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Workers sent off to an island in Scotland.",
+     "walkthrough": "The 'a' is used twice: once as a letter and once in the definition's own wording.",
+     "definitionFit": "Staffa is a small island in the Inner Hebrides, home of Fingal's Cave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -219,7 +687,46 @@
      }
     ]
    },
-   "solution": "GIANTSTAR"
+   "solution": "GIANTSTAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GIANT STAR",
+    "definitions": [
+     {
+      "text": "Heavenly body",
+      "at": 0
+     },
+     {
+      "text": "huge celebrity",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heavenly body",
+      "note": "first meaning: an enormous, luminous star in astronomy"
+     },
+     {
+      "clueFragment": "huge celebrity",
+      "note": "second meaning: a giant among stars of film or music"
+     }
+    ],
+    "explanation": {
+     "surface": "A very famous person described as a heavenly body.",
+     "walkthrough": "Both halves use star, once in the sky and once in show business.",
+     "definitionFit": "Astronomers classify very large stars as giants, and a superstar performer is figuratively a giant celebrity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -233,7 +740,56 @@
     "text": "Follow suit, holding hearts",
     "enumeration": "5"
    },
-   "solution": "CHASE"
+   "solution": "CHASE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHASE",
+    "definitions": [
+     {
+      "text": "Follow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "something holding another item keeps it inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suit",
+      "gives": "CASE",
+      "note": "a suit or case is a lawsuit"
+     },
+     {
+      "clueFragment": "hearts",
+      "gives": "H",
+      "note": "H is the card-game abbreviation for hearts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "H",
+      "ASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A card-game instruction: follow suit while holding hearts.",
+     "walkthrough": "'Follow suit' looks like a single bridge phrase, but 'Follow' is the definition and 'suit' means a legal case.",
+     "definitionFit": "To chase someone is to pursue or go after them, a synonym of follow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 12,
@@ -257,7 +813,39 @@
      }
     ]
    },
-   "solution": "ANYONEFORTENNIS"
+   "solution": "ANYONEFORTENNIS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANYONE FOR TENNIS",
+    "definitions": [
+     {
+      "text": "SW19 catchphrase",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "SW19 catchphrase",
+      "note": "surface reading: a slogan associated with a London postcode"
+     },
+     {
+      "clueFragment": "SW19",
+      "note": "setter's reading: SW19 is Wimbledon's postcode, home of the tennis championships, and the phrase is a stock invitation to play"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "SW19 is the London postal district of Wimbledon, where the All England tennis championships are held.",
+     "definitionFit": "The phrase is a famous cliché of genteel English drawing-room comedy, inviting guests to a game on the lawn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "SW19"
+    }
+   }
   },
   {
    "number": 13,
@@ -271,7 +859,48 @@
     "text": "Book finally reduced",
     "enumeration": "5"
    },
-   "solution": "ATLAS"
+   "solution": "ATLAS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ATLAS",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "something reduced is made smaller, so the phrase loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finally",
+      "gives": "ATLAST",
+      "note": "at last means finally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATLAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A book whose price was finally cut.",
+     "walkthrough": "The two-word phrase for finally is run together and its last letter dropped.",
+     "definitionFit": "An atlas is a bound book of maps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reduced"
+    }
+   }
   },
   {
    "number": 14,
@@ -285,7 +914,50 @@
     "text": "LA or Lima, otherwise a city in Texas",
     "enumeration": "8"
    },
-   "solution": "AMARILLO"
+   "solution": "AMARILLO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMARILLO",
+    "definitions": [
+     {
+      "text": "a city in Texas",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "otherwise",
+      "for": "anagram",
+      "note": "otherwise means arranged in another way, so the letters take a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "LA or Lima",
+      "gives": "LAORLIMA",
+      "note": "the letters of these words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAORLIMA",
+       "gives": "AMARILLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing between Los Angeles and the capital of Peru, or else heading to Texas.",
+     "definitionFit": "Amarillo is a city in the Texas Panhandle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "otherwise"
+    }
+   }
   },
   {
    "number": 15,
@@ -305,7 +977,50 @@
      }
     ]
    },
-   "solution": "LONDONIVY"
+   "solution": "LONDONIVY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LONDON IVY",
+    "definitions": [
+     {
+      "text": "Smoke",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "LONDON",
+      "note": "London is the capital city"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "IVY",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LONDON",
+      "IVY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smoking alongside a young woman from town.",
+     "walkthrough": "The Smoke is a nickname for London, and the answer is an old name for the thick London fog or smog.",
+     "definitionFit": "London ivy was Victorian slang for the dense smoky fog that blanketed the capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Smoke"
+    }
+   }
   },
   {
    "number": 16,
@@ -325,7 +1040,64 @@
      }
     ]
    },
-   "solution": "TRADESON"
+   "solution": "TRADESON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TRADES ON",
+    "definitions": [
+     {
+      "text": "Exploits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "silly means foolish and muddled, so these letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rated",
+      "gives": "RATED",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRADE",
+      "SON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATED",
+       "gives": "TRADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy's adventures that were judged foolish.",
+     "walkthrough": "'Exploits' looks like a plural noun for adventures, but it is a verb meaning takes advantage of.",
+     "definitionFit": "To trade on something is to take advantage of it, as one exploits a reputation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exploits"
+    }
+   }
   },
   {
    "number": 17,
@@ -339,7 +1111,74 @@
     "text": "Amaze son with it, playing in wood",
     "enumeration": "8"
    },
-   "solution": "ASTONISH"
+   "solution": "ASTONISH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ASTONISH",
+    "definitions": [
+     {
+      "text": "Amaze",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests moving about freely, so these letters are jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the jumbled letters inside another word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "SON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wood",
+      "gives": "ASH",
+      "note": "ash is a kind of wood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "STONI",
+      "SH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SONIT",
+       "gives": "STONI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child surprises everyone by playing tag in the woods.",
+     "definitionFit": "To astonish is to surprise greatly, a synonym of amaze."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 18,
@@ -353,7 +1192,59 @@
     "text": "Sloth? One near it is -trembling",
     "enumeration": "7"
    },
-   "solution": "INERTIA"
+   "solution": "INERTIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INERTIA",
+    "definitions": [
+     {
+      "text": "Sloth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trembling",
+      "for": "anagram",
+      "note": "trembling means shaking, so the letters are shaken into another order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "near it",
+      "gives": "NEARIT",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INEARIT",
+       "gives": "INERTIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nervous about the slow-moving animal nearby.",
+     "walkthrough": "'Sloth' suggests the animal, but it is the old word for laziness.",
+     "definitionFit": "Sloth is idleness or reluctance to act, which is the same as inertia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sloth"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1258,43 @@
     "text": "Fire gun?",
     "enumeration": "6"
    },
-   "solution": "HEATER"
+   "solution": "HEATER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HEATER",
+    "definitions": [
+     {
+      "text": "Fire",
+      "at": 0
+     },
+     {
+      "text": "gun",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fire",
+      "note": "first meaning: a heating appliance, as in an electric fire"
+     },
+     {
+      "clueFragment": "gun",
+      "note": "second meaning: slang for a pistol"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fire gun' reads as a command to shoot; British English calls a room heater a fire, and gangster slang calls a handgun the same thing.",
+     "definitionFit": "A domestic appliance that warms a room and an American slang word for a pistol share this spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fire"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1308,48 @@
     "text": "Singer from Crete? No, Rhodes",
     "enumeration": "5"
    },
-   "solution": "TENOR"
+   "solution": "TENOR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TENOR",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from signals the letters are drawn out of the words that follow, running across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crete? No",
+      "gives": "TENO",
+      "note": "the end of Crete and the word No"
+     },
+     {
+      "clueFragment": "Rhodes",
+      "gives": "R",
+      "note": "the first letter of Rhodes"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether a singer came from one Greek island and being told another.",
+     "walkthrough": "The punctuation splits the run of letters; ignore it and read straight across.",
+     "definitionFit": "A tenor is a male singer with a high voice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Crete"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1363,58 @@
     "text": "Language from that woman inside hydro",
     "enumeration": "6"
    },
-   "solution": "SHERPA"
+   "solution": "SHERPA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHERPA",
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places the pronoun within the following word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that woman",
+      "gives": "HER",
+      "note": "her refers to a woman"
+     },
+     {
+      "clueFragment": "hydro",
+      "gives": "SPA",
+      "note": "a hydro is a hydropathic hotel or spa"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HER",
+      "PA"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman inside a spa speaking some language.",
+     "walkthrough": "Hydro is a British word for a hotel offering water cures.",
+     "definitionFit": "Sherpa is the Tibetan language spoken by the Sherpa people of Nepal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hydro"
+    }
+   }
   },
   {
    "number": 22,
@@ -423,7 +1442,49 @@
      }
     ]
    },
-   "solution": "HAVETHELASTWORD"
+   "solution": "HAVETHELASTWORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAVE THE LAST WORD",
+    "definitions": [
+     {
+      "text": "To settle argument",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hold",
+      "gives": "HAVE",
+      "note": "to hold something is to have it"
+     },
+     {
+      "clueFragment": "the best there is",
+      "gives": "THELASTWORD",
+      "note": "the last word in something is the finest or most up to date example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAVE",
+      "THELASTWORD"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on ending a dispute by holding the strongest card.",
+     "definitionFit": "Having the final remark in a dispute is the idiomatic way of settling it in your favour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "best"
+    }
+   }
   },
   {
    "number": 23,
@@ -437,7 +1498,58 @@
     "text": "Feelings caused by bishop entering contests",
     "enumeration": "5"
    },
-   "solution": "VIBES"
+   "solution": "VIBES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VIBES",
+    "definitions": [
+     {
+      "text": "Feelings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going into, so one letter goes inside the other word"
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contests",
+      "gives": "VIES",
+      "note": "vies means contests or competes"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "B",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Emotions stirred when a bishop joins competitions.",
+     "walkthrough": "'Contests' reads as a plural noun but works as a verb.",
+     "definitionFit": "Vibes is informal for the feelings or atmosphere a person or place gives off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contests"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1563,62 @@
     "text": "Name old boy, one in service",
     "enumeration": "5"
    },
-   "solution": "ROBIN"
+   "solution": "ROBIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ROBIN",
+    "definitions": [
+     {
+      "text": "Name",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the earlier pieces inside the service word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is the abbreviation for old boy, a former pupil"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "service",
+      "gives": "RN",
+      "note": "RN, the Royal Navy, is one of the armed services"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OB",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Naming a former pupil now serving in the forces.",
+     "walkthrough": "'Name' is the definition: the answer is simply a given name.",
+     "definitionFit": "Robin is a common first name, so it is an example of a name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 25,
@@ -471,7 +1638,51 @@
      }
     ]
    },
-   "solution": "THEFURIES"
+   "solution": "THEFURIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE FURIES",
+    "definitions": [
+     {
+      "text": "Goddesses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly hints that the letters could be arranged another way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "three, if us",
+      "gives": "THREEIFUS",
+      "note": "the letters of these words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THREEIFUS",
+       "gives": "THEFURIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trio of goddesses, perhaps three counting us.",
+     "walkthrough": "The surface fits nicely, as the avenging goddesses of Greek myth were usually three in number.",
+     "definitionFit": "The Furies were the three Greek goddesses of vengeance, the Erinyes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "three"
+    }
+   }
   },
   {
    "number": 26,
@@ -485,7 +1696,64 @@
     "text": "Composer almost bitten by boy's dog",
     "enumeration": "8"
    },
-   "solution": "ALSATIAN"
+   "solution": "ALSATIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ALSATIAN",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the name loses its final letter"
+     },
+     {
+      "text": "bitten by",
+      "for": "container",
+      "note": "being bitten by something means sitting between its jaws, inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "ALAN",
+      "note": "Alan is a boy's name"
+     },
+     {
+      "clueFragment": "Composer",
+      "gives": "SATIE",
+      "note": "Erik Satie, French composer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "SATI",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician nipped by a young lad's pet.",
+     "walkthrough": "The outer name is split around the shortened composer's name.",
+     "definitionFit": "An Alsatian is the British name for a German shepherd, a breed of dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bitten"
+    }
+   }
   },
   {
    "number": 27,
@@ -499,7 +1767,51 @@
     "text": "Handy baroque composer",
     "enumeration": "5"
    },
-   "solution": "HAYDN"
+   "solution": "HAYDN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HAYDN",
+    "definitions": [
+     {
+      "text": "composer",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "baroque",
+      "for": "anagram",
+      "note": "baroque means ornate and irregular, so the letters are twisted out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Handy",
+      "gives": "HANDY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HANDY",
+       "gives": "HAYDN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baroque composer who is useful to have around.",
+     "walkthrough": "Handy suggests Handel, a baroque composer, but here baroque is the signal to rearrange; the answer was a Classical-era composer.",
+     "definitionFit": "Joseph Haydn was an Austrian composer of symphonies and string quartets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "baroque"
+    }
+   }
   }
  ]
 }
