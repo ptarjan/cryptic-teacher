@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Canapé Romeo's slipped to date",
     "enumeration": "4"
    },
-   "solution": "SOFA"
+   "solution": "SOFA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOFA",
+    "definitions": [
+     {
+      "text": "Canapé",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "slipped",
+      "for": "deletion",
+      "note": "something that has slipped has fallen away, so the named letter drops out of the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "R is Romeo in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "to date",
+      "gives": "SOFAR",
+      "note": "'so far' means up to now"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOFA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Romeo misses his dinner date and the party nibbles.",
+     "walkthrough": "'Canapé' looks like a party snack, but in French it is a sofa; SO FAR loses its R.",
+     "definitionFit": "Canapé is the French word for a settee or couch, a sense also used in English furniture terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Canapé"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +97,67 @@
     "text": "Minute ribbon's tied around child carrier",
     "enumeration": "4"
    },
-   "solution": "WOMB"
+   "solution": "WOMB",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "WOMB",
+    "definitions": [
+     {
+      "text": "child carrier",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turning around sends the word for the ribbon back to front"
+     },
+     {
+      "text": "tied",
+      "for": "container",
+      "note": "a ribbon tied about something wraps it, so the small unit sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ribbon",
+      "gives": "BOW",
+      "note": "a bow is a ribbon tied in loops"
+     },
+     {
+      "clueFragment": "Minute",
+      "gives": "M",
+      "note": "M is the abbreviation for minute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WO",
+      "M",
+      "B"
+     ],
+     "reversals": [
+      {
+       "from": "BOW",
+       "to": "WOB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny ribbon is tied round a baby's carrycot.",
+     "walkthrough": "'Minute' reads as 'tiny' but is the abbreviation M, which goes inside WOB.",
+     "definitionFit": "The womb is the organ in which an unborn baby is carried during pregnancy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Minute"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +171,43 @@
     "text": "Partner cut on the ear",
     "enumeration": "4"
    },
-   "solution": "PAIR"
+   "solution": "PAIR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PAIR",
+    "definitions": [
+     {
+      "text": "Partner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the ear",
+      "for": "homophone",
+      "note": "something taken in by the ear is heard rather than read, so a word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "PAIR",
+      "soundsLike": "PARE",
+      "note": "to pare is to cut or trim"
+     }
+    ],
+    "explanation": {
+     "surface": "A partner gets a nick on the ear.",
+     "definitionFit": "To pair someone is to partner them, matching two people or things together as a couple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +221,61 @@
     "text": "Great rush for finally leasable houses",
     "enumeration": "7"
    },
-   "solution": "TORRENT"
+   "solution": "TORRENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TORRENT",
+    "definitions": [
+     {
+      "text": "Great rush",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word it follows"
+     },
+     {
+      "text": "houses",
+      "for": "container",
+      "note": "a word that houses something holds it within its walls"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leasable",
+      "gives": "TORENT",
+      "note": "a property that is leasable is available 'to rent'"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of for"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "R",
+      "RENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Houses to let at the end of the market cause a mad scramble.",
+     "definitionFit": "A torrent is a violent, fast-flowing stream, a great rush of water or anything else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +295,43 @@
      }
     ]
    },
-   "solution": "WELLBORING"
+   "solution": "WELLBORING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WELL-BORING",
+    "definitions": [
+     {
+      "text": "Utterly tedious",
+      "at": 0
+     },
+     {
+      "text": "drill activity",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Utterly tedious",
+      "note": "first meaning: in teenage slang '...' means very dull"
+     },
+     {
+      "clueFragment": "drill activity",
+      "note": "second meaning: drilling down to sink a well"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British slang 'well' means 'very', so 'well boring' is how a bored teenager says 'utterly tedious'.",
+     "definitionFit": "Boring a well is the work of a drill rig, and in casual British speech the same phrase means extremely dull."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drill"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +359,79 @@
      }
     ]
    },
-   "solution": "GOFORASONG"
+   "solution": "GOFORASONG",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GO FOR A SONG",
+    "definitions": [
+     {
+      "text": "are bargain buys",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cracking",
+      "for": "container",
+      "note": "something cracked open lets other material in between its parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goods",
+      "gives": "G",
+      "note": "first of two Gs: G is the abbreviation for good, and goods makes it plural"
+     },
+     {
+      "clueFragment": "made from",
+      "gives": "OF",
+      "note": "a thing made of a material is made from it"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "in supply",
+      "gives": "ON",
+      "note": "something on is available, as with beer on tap"
+     },
+     {
+      "clueFragment": "goods",
+      "gives": "G",
+      "note": "the second G of the pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OF",
+      "OR",
+      "AS",
+      "ON",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Smashing gold wares, plentiful at the moment, are cheap to buy.",
+     "walkthrough": "'goods' supplies two Gs, one for each good, and the run OF+OR+AS+ON cracks them apart.",
+     "definitionFit": "Things that go for a song sell very cheaply, so they are bargains for the buyer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cracking"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +445,74 @@
     "text": "With wines, a feeding obsession from the South?",
     "enumeration": "9"
    },
-   "solution": "GASTROPUB"
+   "solution": "GASTROPUB",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "container",
+     "reversal"
+    ],
+    "answer": "GASTROPUB",
+    "definitions": [
+     {
+      "text": "With wines, a feeding obsession from the South?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "feeding",
+      "for": "container",
+      "note": "feeding means going into a mouth, so these words go inside the word for an obsession"
+     },
+     {
+      "text": "from the South",
+      "for": "reversal",
+      "note": "in a down answer, reading from the south means reading from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obsession",
+      "gives": "BUG",
+      "note": "a bug is a craze, as in 'the travel bug'"
+     },
+     {
+      "clueFragment": "wines",
+      "gives": "PORTS",
+      "note": "port is a fortified wine"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "A",
+      "STROP",
+      "UB"
+     ],
+     "reversals": [
+      {
+       "from": "BUPORTSAG",
+       "to": "GASTROPUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A southern place serving wine to those obsessed with eating.",
+     "walkthrough": "The clue doubles as a description of the answer: a place with wines where food is the obsession. In a down answer, 'from the South' reads upwards.",
+     "definitionFit": "A gastropub is a pub that specialises in high-quality food served with wine, so eating is its focus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "South"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +526,55 @@
     "text": "Husband's occupying seat that was close",
     "enumeration": "4"
    },
-   "solution": "PHEW"
+   "solution": "PHEW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PHEW",
+    "definitions": [
+     {
+      "text": "that was close",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "a person occupying a seat sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "seat",
+      "gives": "PEW",
+      "note": "a pew is a bench seat in a church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "H",
+      "EW"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband sits in a seat that had been near another.",
+     "walkthrough": "'That was close' looks like a description of the seat; it is an exclamation of relief.",
+     "definitionFit": "Phew is the gasp of relief someone utters after a narrow escape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +588,56 @@
     "text": "Boxed up cannoli, not ten-a-penny Christmas cakes",
     "enumeration": "9"
    },
-   "solution": "PANETTONI"
+   "solution": "PANETTONI",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "PANETTONI",
+    "definitions": [
+     {
+      "text": "Christmas cakes",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Boxed",
+      "for": "hidden_word",
+      "note": "something boxed is packed within a container, here the run of clue words"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down answer, up means the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cannoli, not ten-a-penny",
+      "gives": "INOTTENAP",
+      "note": "a run of letters across these words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "INOTTENAP",
+       "to": "PANETTONI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Italian pastries are boxed up, and they are not cheap festive cakes.",
+     "definitionFit": "Panettoni is the Italian plural of panettone, the domed fruit cake eaten at Christmas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Boxed"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +651,59 @@
     "text": "Mr Big having trouble with ear's waxy secretion",
     "enumeration": "9"
    },
-   "solution": "AMBERGRIS"
+   "solution": "AMBERGRIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMBERGRIS",
+    "definitions": [
+     {
+      "text": "waxy secretion",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having trouble",
+      "for": "anagram",
+      "note": "letters having trouble are in disorder and must be put into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mr Big",
+      "gives": "MRBIG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ear's",
+      "gives": "EARS",
+      "note": "taken as written, the apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MRBIGEARS",
+       "gives": "AMBERGRIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crime boss has a problem with wax in his ear.",
+     "walkthrough": "'Waxy secretion' wants to be earwax, as the surface suggests, but the answer comes from the sperm whale.",
+     "definitionFit": "Ambergris is a waxy substance produced in the gut of sperm whales and prized in perfume-making."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ear's"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +717,44 @@
     "text": "The I of \"moviegoers\"",
     "enumeration": "3"
    },
-   "solution": "EGO"
+   "solution": "EGO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EGO",
+    "definitions": [
+     {
+      "text": "The I",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of here means taken from within, so the letters come out of the quoted word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moviegoers",
+      "gives": "EGO",
+      "note": "letters 5 to 7 of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "What the eye of the cinema audience is watching.",
+     "walkthrough": "'The I' sounds like 'the eye' of the audience; it is the self.",
+     "definitionFit": "Ego is Latin for 'I', and in psychology it names the conscious self."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +768,48 @@
     "text": "Zero-energy long-distance runner",
     "enumeration": "4"
    },
-   "solution": "NILE"
+   "solution": "NILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NILE",
+    "definitions": [
+     {
+      "text": "long-distance runner",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Zero",
+      "gives": "NIL",
+      "note": "nil means nothing"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A marathon runner who has run out of energy.",
+     "walkthrough": "A runner in crosswords is often a river, which runs; this one runs a very long way.",
+     "definitionFit": "The Nile is one of the world's longest rivers, and a river is something that runs, here over a vast distance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +823,43 @@
     "text": "Trump's Number One Supporter",
     "enumeration": "3"
    },
-   "solution": "TEE"
+   "solution": "TEE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TEE",
+    "definitions": [
+     {
+      "text": "Trump's Number One",
+      "at": 0
+     },
+     {
+      "text": "Supporter",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump's Number One",
+      "note": "first meaning: the first letter of Trump, spelt out as a word"
+     },
+     {
+      "clueFragment": "Supporter",
+      "note": "second meaning: the peg that holds a golf ball up before a drive"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface paints a political fan; Trump is also a keen golfer, which makes the golf peg apt.",
+     "definitionFit": "Tee is the spelt-out name of the letter T, and also the small peg on which a golfer rests the ball."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Supporter"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +879,62 @@
      }
     ]
    },
-   "solution": "CANOPENER"
+   "solution": "CANOPENER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CAN-OPENER",
+    "definitions": [
+     {
+      "text": "useful device in galley",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "a passenger aboard a vessel is inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boat",
+      "gives": "CANOE",
+      "note": "a canoe is a small boat"
+     },
+     {
+      "clueFragment": "American cooler",
+      "gives": "PEN",
+      "note": "pen is short for penitentiary, a US prison; cooler is slang for jail"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANO",
+      "PEN",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A US cool box is carried on a boat, which proves handy in its kitchen.",
+     "walkthrough": "'Cooler' suggests a cool box; it is slang for prison. A galley is a ship's kitchen.",
+     "definitionFit": "A can-opener is a kitchen tool for opening tins, and a galley is the kitchen aboard a ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooler"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +954,42 @@
      }
     ]
    },
-   "solution": "COMINGHOME"
+   "solution": "COMINGHOME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COMING HOME",
+    "definitions": [
+     {
+      "text": "Soon to be in",
+      "at": 0
+     },
+     {
+      "text": "picture",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soon to be in",
+      "note": "first meaning: on the way back to one's house"
+     },
+     {
+      "clueFragment": "picture",
+      "note": "second meaning: the title of a 1978 American film"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as one idea, about to appear in a photo; 'picture' is the old word for a film.",
+     "definitionFit": "Someone coming home will shortly be indoors, and Coming Home is a 1978 Jane Fonda war drama film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "picture"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +1003,38 @@
     "text": "S_me _dent_t_es n_w s_ def_ned?",
     "enumeration": "9"
    },
-   "solution": "NONBINARY"
+   "solution": "NONBINARY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NONBINARY",
+    "definitions": [
+     {
+      "text": "S_me _dent_t_es n_w s_ def_ned?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "S_me _dent_t_es n_w s_ def_ned?",
+      "note": "surface reading: a sentence with gaps, asking about identities defined in modern times"
+     },
+     {
+      "clueFragment": "S_me _dent_t_es n_w s_ def_ned?",
+      "note": "setter's reading: every missing letter is O or I, the shapes of the digits zero and one, so the text has no binary digits in it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Fill the gaps and the sentence reads 'Some identities now so defined?'. The gaps are all O or I, which look like 0 and 1, the digits of binary.",
+     "definitionFit": "Non-binary describes a gender identity outside the male/female pair, and the clue literally has its binary digits removed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +1048,72 @@
     "text": "Invigorated, I am up to eating small portion of Special K",
     "enumeration": "9"
    },
-   "solution": "POTASSIUM"
+   "solution": "POTASSIUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "POTASSIUM",
+    "definitions": [
+     {
+      "text": "K",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Invigorated",
+      "for": "anagram",
+      "note": "something invigorated is stirred into new life, so the letters are shaken into a fresh order"
+     },
+     {
+      "text": "portion of",
+      "for": "letter_selection",
+      "note": "a portion is only part of the word, here its opening letter"
+     }
+    ],
+    "linkWords": [
+     "eating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I am up to",
+      "gives": "IAMUPTO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "Special",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of Special"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IAMUPTOSS",
+       "gives": "POTASSIUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling energised after a small helping of breakfast cereal.",
+     "walkthrough": "'Special K' is a breakfast cereal, but the K alone is the definition, as the chemical symbol.",
+     "definitionFit": "K is the chemical symbol for potassium, from its Latin name kalium."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "K"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1127,47 @@
     "text": "For and against Newcastle United FC",
     "enumeration": "4"
    },
-   "solution": "TOON"
+   "solution": "TOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOON",
+    "definitions": [
+     {
+      "text": "Newcastle United FC",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For",
+      "gives": "TO",
+      "note": "to can mean for, as in a toast to someone"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "ON",
+      "note": "on can mean against, as in leaning on a wall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Weighing the pros and cons of a football club.",
+     "walkthrough": "'For and against' suggests a debate, but each word is a small preposition. The Toon is the nickname of Newcastle and its football club, from the local word for town.",
+     "definitionFit": "The Toon is the Geordie nickname for Newcastle United Football Club, after the local pronunciation of town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "against"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1181,73 @@
     "text": "Service point left feeding a lord …",
     "enumeration": "7"
    },
-   "solution": "AMENITY"
+   "solution": "AMENITY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "AMENITY",
+    "definitions": [
+     {
+      "text": "Service",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left",
+      "for": "reversal",
+      "note": "going left in an across answer means reading from right to left"
+     },
+     {
+      "text": "feeding",
+      "for": "container",
+      "note": "feeding means going into a mouth, so this goes inside the other words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "TINE",
+      "note": "a tine is a prong or point of a fork"
+     },
+     {
+      "clueFragment": "lord",
+      "gives": "MY",
+      "note": "'Lord!' and 'My!' are both cries of surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "M",
+      "ENIT",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "TINE",
+       "to": "ENIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spot left at a nobleman's dinner table for staff.",
+     "walkthrough": "'lord' is not a peer but an exclamation, matched by another one. The ellipsis joins the surface to the next clue only.",
+     "definitionFit": "An amenity is a useful facility or service provided for people, such as a public library."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lord"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1271,47 @@
      }
     ]
    },
-   "solution": "UPFORIT"
+   "solution": "UPFORIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UP FOR IT",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leading",
+      "gives": "UP",
+      "note": "a team that is up is ahead"
+     },
+     {
+      "clueFragment": "to blame",
+      "gives": "FORIT",
+      "note": "'for it' means in trouble, about to be blamed or punished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "FORIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lord's game ends with someone to blame.",
+     "walkthrough": "'Game' is not a sport; it is the adjective meaning willing, as in 'game for anything'.",
+     "definitionFit": "To be game is to be willing to try something, just as being up for it means being keen to do it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1325,48 @@
     "text": "Unconventional folk enlisted for flying school?",
     "enumeration": "7"
    },
-   "solution": "RAFFISH"
+   "solution": "RAFFISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAFFISH",
+    "definitions": [
+     {
+      "text": "Unconventional",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "folk enlisted for flying",
+      "gives": "RAF",
+      "note": "the Royal Air Force, the UK's flying service"
+     },
+     {
+      "clueFragment": "school?",
+      "gives": "FISH",
+      "note": "a school is a shoal of fish, so the question mark asks what a school is made of"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAF",
+      "FISH"
+     ]
+    },
+    "explanation": {
+     "surface": "Free-thinking recruits who join a flying academy.",
+     "walkthrough": "'Flying school' wants to be a pilot academy, but it splits; a school is a group of fish.",
+     "definitionFit": "Raffish means rakish and disreputable in a stylish way, cheerfully ignoring convention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "school"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1380,49 @@
     "text": "Opposed to unlimited prayer, it appears",
     "enumeration": "4"
    },
-   "solution": "ANTI"
+   "solution": "ANTI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANTI",
+    "definitions": [
+     {
+      "text": "Opposed to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unlimited",
+      "for": "deletion",
+      "note": "without limits means the word loses its boundaries, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prayer, it appears",
+      "gives": "MANTIS",
+      "note": "the praying mantis looks as if it is at prayer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTI"
+     ]
+    },
+    "explanation": {
+     "surface": "Against endless prayers, so it seems.",
+     "walkthrough": "'prayer, it appears' is a cryptic description of an insect, not a comment on the clue.",
+     "definitionFit": "Anti is a preposition meaning against, as in being anti war."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "prayer"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1436,43 @@
     "text": "What paste makes awkward?",
     "enumeration": "9"
    },
-   "solution": "SHAMBLING"
+   "solution": "SHAMBLING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHAMBLING",
+    "definitions": [
+     {
+      "text": "What paste makes",
+      "at": 0
+     },
+     {
+      "text": "awkward",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What paste makes",
+      "note": "first meaning, read as two words: paste is imitation gemstone, so it makes fake jewellery"
+     },
+     {
+      "clueFragment": "awkward",
+      "note": "second meaning: moving clumsily and unsteadily"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Paste is glass cut to look like gems; split the answer as SHAM BLING, fake flashy jewellery.",
+     "definitionFit": "Shambling describes a clumsy, shuffling gait, so an awkward walker is shambling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "paste"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1486,42 @@
     "text": "Whole department",
     "enumeration": "3"
    },
-   "solution": "LOT"
+   "solution": "LOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOT",
+    "definitions": [
+     {
+      "text": "Whole",
+      "at": 0
+     },
+     {
+      "text": "department",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whole",
+      "note": "first meaning"
+     },
+     {
+      "clueFragment": "department",
+      "note": "second meaning: the ..., an administrative department of France"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'department' reads as part of an organisation; here it is a French région subdivision.",
+     "definitionFit": "The lot means the entire amount, and Lot is one of the numbered départements of south-west France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "department"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1535,43 @@
     "text": "Is aware of phoned-in refusals",
     "enumeration": "3"
    },
-   "solution": "NOS"
+   "solution": "NOS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NOS",
+    "definitions": [
+     {
+      "text": "refusals",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "phoned-in",
+      "for": "homophone",
+      "note": "a message phoned in is spoken over the line, so only its sound matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is aware of",
+      "gives": "NOS",
+      "soundsLike": "KNOWS",
+      "note": "to know something is to be aware of it"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone knows about rejections that came by telephone.",
+     "definitionFit": "Nos are negative answers, the plural of the word no used as a noun for a refusal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "phoned-in"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1585,60 @@
     "text": "Doctor on Tube short of time at stop",
     "enumeration": "4"
    },
-   "solution": "WHOA"
+   "solution": "WHOA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "WHOA",
+    "definitions": [
+     {
+      "text": "stop",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short of",
+      "for": "deletion",
+      "note": "falling short of something means lacking it, so that letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor on Tube",
+      "gives": "WHO",
+      "note": "Doctor Who, the TV doctor; the tube is slang for television"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHO",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor on the Underground, pressed for time, waits at a stop.",
+     "walkthrough": "'Tube' suggests the London Underground, but here it means television, home of Doctor Who.",
+     "definitionFit": "Whoa is a command to stop, originally to a horse, and still a call to halt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tube"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1652,47 @@
     "text": "Conclude slab of clay dried up?",
     "enumeration": "9"
    },
-   "solution": "INFERTILE"
+   "solution": "INFERTILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFERTILE",
+    "definitions": [
+     {
+      "text": "dried up?",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conclude",
+      "gives": "INFER",
+      "note": "to infer is to deduce or conclude"
+     },
+     {
+      "clueFragment": "slab of clay",
+      "gives": "TILE",
+      "note": "a tile is a thin slab of fired clay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFER",
+      "TILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Deduce that a slab of clay has dried out.",
+     "walkthrough": "The question mark marks 'dried up' as a figurative use, as in barren land or a source run dry.",
+     "definitionFit": "Infertile land or people cannot produce offspring or crops, like a source that has dried up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Conclude"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1706,53 @@
     "text": "3 no longer providing cover for genuine pearls?",
     "enumeration": "4"
    },
-   "solution": "ROPE"
+   "solution": "ROPE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROPE",
+    "definitions": [
+     {
+      "text": "pearls?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no longer providing cover for",
+      "for": "deletion",
+      "note": "letters that stop covering a word are stripped from its outside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "3",
+      "gives": "PR",
+      "note": "the answer to 3 down abbreviated: PR is short for pair"
+     },
+     {
+      "clueFragment": "genuine",
+      "gives": "PROPER",
+      "note": "proper can mean real or genuine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair no longer conceals whether the pearls are real.",
+     "walkthrough": "The cross-reference sends you to 3 down, whose answer is used in its short form, removed from the two ends.",
+     "definitionFit": "A rope of pearls is a long string of them, so pearls in that sense can be a rope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1766,43 @@
     "text": "Member of famous troupe \"resting\"",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IDLE",
+    "definitions": [
+     {
+      "text": "Member of famous troupe",
+      "at": 0
+     },
+     {
+      "text": "resting",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Member of famous troupe",
+      "note": "first meaning: Eric, of the Monty Python comedy team"
+     },
+     {
+      "clueFragment": "resting",
+      "note": "second meaning: not working, as actors say between jobs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Resting' is the actors' euphemism for out of work, which fits a member of a comedy troupe.",
+     "definitionFit": "Eric Idle was one of the Monty Python team, and idle means inactive or unemployed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "resting"
+    }
+   }
   },
   {
    "number": 28,
@@ -481,7 +1816,48 @@
     "text": "Repeatedly endeavoured to protect PM",
     "enumeration": "4"
    },
-   "solution": "EDEN"
+   "solution": "EDEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EDEN",
+    "definitions": [
+     {
+      "text": "PM",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to protect",
+      "for": "deletion",
+      "note": "what the doubled word protects is the part it holds safely inside; the rest around it is discarded"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repeatedly endeavoured",
+      "gives": "ENDEAVOUREDENDEAVOURED",
+      "note": "the word written twice in a row, as the first word instructs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone kept trying to guard the Prime Minister.",
+     "walkthrough": "Write the word twice with no gap and look at the join, where the end of one copy meets the start of the next. Anthony Eden was British Prime Minister in 1955-57.",
+     "definitionFit": "Anthony Eden was the British Prime Minister who succeeded Churchill in 1955."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Repeatedly"
+    }
+   }
   },
   {
    "number": 29,
@@ -495,7 +1871,49 @@
     "text": "This top TV actor may receive topping prize",
     "enumeration": "4"
    },
-   "solution": "EMMY"
+   "solution": "EMMY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EMMY",
+    "definitions": [
+     {
+      "text": "This top TV actor may receive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topping",
+      "for": "deletion",
+      "note": "topping something cuts off its top, which in an across answer is the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prize",
+      "gives": "JEMMY",
+      "note": "to jemmy is to prise open with a crowbar, the clue using the spelling prize"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMMY"
+     ]
+    },
+    "explanation": {
+     "surface": "A star of the small screen may win a top-notch award.",
+     "walkthrough": "'Topping prize' reads as 'excellent award', but topping means beheading, and prize is the verb prise. 'Topping' is old British slang for excellent.",
+     "definitionFit": "The Emmy is the leading US television award, which a successful TV actor might be given."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "prize"
+    }
+   }
   },
   {
    "number": 30,
@@ -509,7 +1927,73 @@
     "text": "Carelessly made slips: no notice taken, having character flaw?",
     "enumeration": "10"
    },
-   "solution": "MISSPELLED"
+   "solution": "MISSPELLED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MISSPELLED",
+    "definitions": [
+     {
+      "text": "having character flaw?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "no here means without, so the notice is subtracted from the letters before them"
+     },
+     {
+      "text": "Carelessly",
+      "for": "anagram",
+      "note": "something done carelessly is jumbled, so the letters need a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made slips",
+      "gives": "MADESLIPS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad is a notice in a paper"
+     },
+     {
+      "clueFragment": "taken",
+      "gives": "LED",
+      "note": "led as in taken somewhere, guided"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISSPEL",
+      "LED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MESLIPS",
+       "gives": "MISSPEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who made sloppy errors, ignored warnings, and has a flaw of character.",
+     "walkthrough": "'Character' reads as personality, but it means a written letter, and the flaw is in the spelling.",
+     "definitionFit": "A misspelled word has a wrong letter in it, a flaw in its characters, with 'character' meaning a written symbol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   }
  ]
 }
