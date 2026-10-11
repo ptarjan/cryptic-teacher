@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Shed light on playwright cutting opening act after sacking name",
     "enumeration": "11"
    },
-   "solution": "INTERPRETED"
+   "solution": "INTERPRETED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INTERPRETED",
+    "definitions": [
+     {
+      "text": "Shed light on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting opening",
+      "for": "deletion",
+      "note": "to cut an opening is to chop off the first letter of the word in front"
+     },
+     {
+      "text": "after sacking name",
+      "for": "deletion",
+      "note": "sacking means dismissing, so the abbreviation for name is thrown out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "playwright",
+      "gives": "PINTER",
+      "note": "Harold Pinter, the playwright"
+     },
+     {
+      "clueFragment": "act",
+      "gives": "PRETEND",
+      "note": "to act is to pretend"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "PRETED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains how a playwright trimmed a first act after firing a big name from the cast.",
+     "walkthrough": "'Cutting opening act' reads as one phrase about trimming a show; actually 'cutting opening' works on the playwright and 'act' starts a new piece.",
+     "definitionFit": "To interpret something is to explain it, so a thing interpreted has had light shed on it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +108,61 @@
     "text": "Intelligence agent finally abandoning them?",
     "enumeration": "4"
    },
-   "solution": "NOUS"
+   "solution": "NOUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "NOUS",
+    "definitions": [
+     {
+      "text": "Intelligence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoning",
+      "for": "deletion",
+      "note": "abandoning means leaving behind, so that letter is dropped from what follows"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "'finally' keeps only the last letter of 'agent'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agent",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of agent"
+     },
+     {
+      "clueFragment": "them?",
+      "gives": "NOTUS",
+      "note": "them are, playfully, the people who are not us"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy who has finally deserted asks whether the intelligence service is now his enemy.",
+     "walkthrough": "The question mark flags the playful reading of them as NOT US; take out T and the rest closes up.",
+     "definitionFit": "Nous is a British informal word for common sense or practical cleverness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Intelligence"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +176,43 @@
     "text": "A head teacher is more than enough",
     "enumeration": "4"
    },
-   "solution": "EACH"
+   "solution": "EACH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EACH",
+    "definitions": [
+     {
+      "text": "A head",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is more than enough",
+      "for": "hidden_word",
+      "note": "the word teacher has more letters than are needed, so the wanted ones sit inside it with spares around them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teacher",
+      "gives": "EACH",
+      "note": "the inner letters of teacher"
+     }
+    ],
+    "explanation": {
+     "surface": "One head teacher is plenty for any school.",
+     "walkthrough": "'A head teacher' reads as one phrase; the definition is only 'A head', as in 'five pounds a head'.",
+     "definitionFit": "Saying a price is so much a head means it is charged per person, which is each."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +226,46 @@
     "text": "First-class officers drop at speed",
     "enumeration": "7"
    },
-   "solution": "PLUMMET"
+   "solution": "PLUMMET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLUMMET",
+    "definitions": [
+     {
+      "text": "drop at speed",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First-class",
+      "gives": "PLUM",
+      "note": "a plum job or role is a first-class one"
+     },
+     {
+      "clueFragment": "officers",
+      "gives": "MET",
+      "note": "the Met, London's Metropolitan Police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLUM",
+      "MET"
+     ]
+    },
+    "explanation": {
+     "surface": "Top-ranking officers fall from favour very quickly.",
+     "definitionFit": "To plummet is to fall steeply and fast, a verb for a rapid drop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "First-class"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +279,50 @@
     "text": "Index promoting the latest amphibians found locally",
     "enumeration": "4"
    },
-   "solution": "EFTS"
+   "solution": "EFTS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "EFTS",
+    "definitions": [
+     {
+      "text": "amphibians found locally",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "promoting the latest",
+      "for": "cycling",
+      "note": "promoting the latest means moving the final letter up to the front of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Index",
+      "gives": "FTSE",
+      "note": "the FTSE 100 is the London stock market index"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "FTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A share index favours whatever amphibians are newest in the area.",
+     "walkthrough": "'Found locally' marks a dialect word: eft is a regional and old name for a newt.",
+     "definitionFit": "Efts are newts in dialect, small amphibians known by that name in parts of Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Index"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +342,56 @@
      }
     ]
    },
-   "solution": "EGOTRIP"
+   "solution": "EGOTRIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EGO TRIP",
+    "definitions": [
+     {
+      "text": "personal boost",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "over",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Say",
+      "gives": "EG",
+      "note": "e.g., for example, is another way to say 'say'"
+     },
+     {
+      "clueFragment": "scripture",
+      "gives": "OT",
+      "note": "the Old Testament"
+     },
+     {
+      "clueFragment": "epitaph",
+      "gives": "RIP",
+      "note": "Rest In Peace, the classic gravestone epitaph"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "OT",
+      "RIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Reading out scripture over a grave as a way to feel good about yourself.",
+     "definitionFit": "An ego trip is an activity done chiefly to flatter oneself, a boost to one's own self-image."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Say"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +411,69 @@
      }
     ]
    },
-   "solution": "EASTGERMANY"
+   "solution": "EASTGERMANY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "EAST GERMANY",
+    "definitions": [
+     {
+      "text": "Republic once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the two extremes, the very first and last letters"
+     },
+     {
+      "text": "to corral",
+      "for": "container",
+      "note": "to corral is to pen livestock in, so one word encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "keen",
+      "gives": "EAGER",
+      "note": "keen means eager"
+     },
+     {
+      "clueFragment": "Stalinist",
+      "gives": "ST",
+      "select": "outer",
+      "note": "the outside letters of Stalinist"
+     },
+     {
+      "clueFragment": "crowds",
+      "gives": "MANY",
+      "note": "crowds, as a noun, are the many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "ST",
+      "GER",
+      "MANY"
+     ]
+    },
+    "explanation": {
+     "surface": "A former republic was eager to herd the masses in a thoroughly Stalinist way.",
+     "walkthrough": "The Stalinist surface fits the answer, a Soviet-bloc state, which makes the definition easy to spot once the split is seen.",
+     "definitionFit": "The German Democratic Republic was the communist state that existed until reunification in 1990."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crowds"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +497,50 @@
      }
     ]
    },
-   "solution": "REDHOTPOKER"
+   "solution": "REDHOTPOKER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RED-HOT POKER",
+    "definitions": [
+     {
+      "text": "Option for garden",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "busy",
+      "for": "anagram",
+      "note": "busy suggests bustling activity, so the letters are all moved about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "door kept her",
+      "gives": "DOORKEPTHER",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOORKEPTHER",
+       "gives": "REDHOTPOKER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone choosing a garden feature says looking after the door kept her occupied.",
+     "definitionFit": "The red-hot poker is a tall flowering plant, Kniphofia, a popular choice for a garden border."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "door"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +554,60 @@
     "text": "Boat race without gold, for one",
     "enumeration": "4"
    },
-   "solution": "FACE"
+   "solution": "FACE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FACE",
+    "definitions": [
+     {
+      "text": "Boat race",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the word for gold is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ACE",
+      "note": "an ace counts as one in cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat race where nobody wins a gold medal, for example.",
+     "walkthrough": "'Boat race' is Cockney rhyming slang, and the comma splits 'for one' away from 'gold'; or is the heraldic word for gold.",
+     "definitionFit": "In Cockney rhyming slang boat race stands for face, the word it rhymes with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +621,75 @@
     "text": "United Kingdom perhaps deposing leader seen with pre-Euro currency, over 100 marks",
     "enumeration": "11"
    },
-   "solution": "PUNCTUATION"
+   "solution": "PUNCTUATION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "PUNCTUATION",
+    "definitions": [
+     {
+      "text": "marks",
+      "at": 77
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deposing leader",
+      "for": "deletion",
+      "note": "deposing a leader removes the one at the head, so the first letter goes"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over here means covering, so the currency is laid over and around the number"
+     }
+    ],
+    "linkWords": [
+     "seen with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pre-Euro currency",
+      "gives": "PUNT",
+      "note": "the punt was Ireland's currency before the euro"
+     },
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for 100"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation for United"
+     },
+     {
+      "clueFragment": "Kingdom perhaps",
+      "gives": "NATION",
+      "note": "a kingdom is one example of a nation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUNCT",
+      "U",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "The United Kingdom loses its leader as the old currency gains more than a hundred marks.",
+     "walkthrough": "'United Kingdom' must be split: United and 'Kingdom perhaps' are separate pieces, and only the second loses its leader.",
+     "definitionFit": "Punctuation is the set of marks, such as commas and full stops, used in writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +703,48 @@
     "text": "Long delay in Bow",
     "enumeration": "4"
    },
-   "solution": "ITCH"
+   "solution": "ITCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ITCH",
+    "definitions": [
+     {
+      "text": "Long",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in Bow",
+      "for": "deletion",
+      "note": "Bow is in London's East End, where Cockney speech drops the H at the start of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delay",
+      "gives": "HITCH",
+      "note": "a hitch is a delay or snag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A long holdup in an East London district.",
+     "walkthrough": "Bow is the Cockney heartland, and Cockneys are said to drop their aitches.",
+     "definitionFit": "To itch for something is to long for it, a verb of restless desire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Long"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +764,75 @@
      }
     ]
    },
-   "solution": "ISAACNEWTON"
+   "solution": "ISAACNEWTON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ISAAC NEWTON",
+    "definitions": [
+     {
+      "text": "lawmaker",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "something hiding another keeps it tucked away inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "identified",
+      "gives": "SAW",
+      "note": "to identify something is to see it, past tense saw"
+     },
+     {
+      "clueFragment": "spots",
+      "gives": "ACNE",
+      "note": "acne is an outbreak of spots"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SA",
+      "ACNE",
+      "W",
+      "TO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reports spotting pimples on a lawmaker from the north.",
+     "walkthrough": "'Lawmaker' suggests a legislator; here it is the scientist behind the laws of motion and gravitation.",
+     "definitionFit": "Isaac Newton formulated the laws of motion, so he is a lawmaker in the scientific sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lawmaker"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +852,51 @@
      }
     ]
    },
-   "solution": "TABLETENNIS"
+   "solution": "TABLETENNIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TABLE TENNIS",
+    "definitions": [
+     {
+      "text": "sport",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "taken by",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drug",
+      "gives": "TABLET",
+      "note": "a tablet is a pill"
+     },
+     {
+      "clueFragment": "Clare, partly",
+      "gives": "ENNIS",
+      "note": "Ennis is the county town of County Clare in Ireland, so part of Clare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABLET",
+      "ENNIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Clare takes some medicine to help her play sport.",
+     "walkthrough": "Clare looks like a woman's name, but it is the Irish county whose main town is Ennis.",
+     "definitionFit": "Table tennis, or ping-pong, is a sport played with bats and a light ball across a net on a table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Clare"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +910,55 @@
     "text": "Found lying around in France, the next Brigitte Bardot?",
     "enumeration": "7"
    },
-   "solution": "STARLET"
+   "solution": "STARLET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STARLET",
+    "definitions": [
+     {
+      "text": "the next Brigitte Bardot?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lying around",
+      "for": "container",
+      "note": "lying around something means sprawled about it, so one word surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Found",
+      "gives": "START",
+      "note": "to found something is to start it"
+     },
+     {
+      "clueFragment": "in France, the",
+      "gives": "LE",
+      "note": "le is French for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "LE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl discovered lounging about in France could become the next Brigitte Bardot.",
+     "walkthrough": "The comma tempts a stop after France, but 'the' belongs to the wordplay as the French article.",
+     "definitionFit": "A starlet is a young actress tipped for fame, as Bardot once was."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Found"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +972,46 @@
     "text": "One who monologued for A Bennett's degree class",
     "enumeration": "5"
    },
-   "solution": "THIRD"
+   "solution": "THIRD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THIRD",
+    "definitions": [
+     {
+      "text": "degree class",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who monologued for A Bennett",
+      "gives": "THORAHIRD",
+      "note": "Thora Hird starred in Alan Bennett's Talking Heads monologues"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HIRD"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor in Alan Bennett's monologues reveals what class of degree the writer earned.",
+     "walkthrough": "The actress is reduced to initial and surname, T. Hird. Talking Heads is Bennett's series of TV monologues.",
+     "definitionFit": "A third is the lowest class of honours degree awarded at British universities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "degree"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1025,55 @@
     "text": "Colouring agents from USA filling hole",
     "enumeration": "7"
    },
-   "solution": "PIGMENT"
+   "solution": "PIGMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIGMENT",
+    "definitions": [
+     {
+      "text": "Colouring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "a filling goes inside something, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hole",
+      "gives": "PIT",
+      "note": "a pit is a hole in the ground"
+     },
+     {
+      "clueFragment": "agents from USA",
+      "gives": "GMEN",
+      "note": "G-men are FBI agents in American slang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "GMEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Paint agents from America fill a hole.",
+     "walkthrough": "'Colouring agents' reads as one phrase, but the definition stops at Colouring.",
+     "definitionFit": "A pigment is a substance that gives colour, a colouring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "agents"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1087,62 @@
     "text": "One of 150 seats, after landslide, initially claimed by Starmer?",
     "enumeration": "5"
    },
-   "solution": "PSALM"
+   "solution": "PSALM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PSALM",
+    "definitions": [
+     {
+      "text": "One of 150",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of each of the words before it"
+     },
+     {
+      "text": "claimed by",
+      "for": "container",
+      "note": "something claimed by another is taken into its hold, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seats, after landslide",
+      "gives": "SAL",
+      "select": "first",
+      "note": "the opening letters of these three words"
+     },
+     {
+      "clueFragment": "Starmer",
+      "gives": "PM",
+      "note": "Keir Starmer became Prime Minister in 2024"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "SAL",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A party leader takes a huge number of seats after an election landslide.",
+     "walkthrough": "The 2024 landslide gave Labour over 400 seats; the 150 is the number of psalms in the Bible.",
+     "definitionFit": "The Book of Psalms contains 150 sacred songs, so a psalm is one of 150."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "seats"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1156,49 @@
     "text": "I play the odds",
     "enumeration": "5"
    },
-   "solution": "THESP"
+   "solution": "THESP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THESP",
+    "definitions": [
+     {
+      "text": "I play",
+      "at": 0,
+      "note": "the answer is a noun; this is what one would say"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "odds",
+      "gives": "SP",
+      "note": "SP is the starting price, the odds on a horse at the off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "SP"
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler boasts of betting on the odds.",
+     "walkthrough": "'I play' sounds like a gambler, but it is what an actor might say of a role.",
+     "definitionFit": "A thesp, short for thespian, is an actor, someone who plays parts on stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1212,62 @@
     "text": "Fire consuming middle of rolling pin",
     "enumeration": "4"
    },
-   "solution": "AXLE"
+   "solution": "AXLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AXLE",
+    "definitions": [
+     {
+      "text": "pin",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is the letter at its very centre"
+     },
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "consuming means swallowing up, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fire",
+      "gives": "AXE",
+      "note": "to fire an employee is to axe them"
+     },
+     {
+      "clueFragment": "rolling",
+      "gives": "L",
+      "select": "middle",
+      "note": "the central letter of rolling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AX",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fire burns up the middle of a rolling pin.",
+     "walkthrough": "'Rolling pin' is a kitchen tool, but the definition is pin alone.",
+     "definitionFit": "An axle is the rod or spindle on which a wheel turns, a pin in the mechanical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fire"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1281,50 @@
     "text": "Rounds of skinless meat",
     "enumeration": "4"
    },
-   "solution": "AMMO"
+   "solution": "AMMO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AMMO",
+    "definitions": [
+     {
+      "text": "Rounds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skinless",
+      "for": "deletion",
+      "note": "with its skin removed, the outer layer, the first and last letters, is stripped off"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat",
+      "gives": "GAMMON",
+      "note": "gammon is cured ham"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMMO"
+     ]
+    },
+    "explanation": {
+     "surface": "Several servings of meat with the skin taken off.",
+     "definitionFit": "Ammo is short for ammunition, counted in rounds fired from a gun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rounds"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1338,51 @@
     "text": "Turn after junction, seeing bridge obstruction?",
     "enumeration": "5"
    },
-   "solution": "TROLL"
+   "solution": "TROLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TROLL",
+    "definitions": [
+     {
+      "text": "bridge obstruction?",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "junction",
+      "gives": "T",
+      "note": "a T-junction"
+     },
+     {
+      "clueFragment": "Turn",
+      "gives": "ROLL",
+      "note": "to roll is to turn over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver turns after a junction and finds a bridge blocked.",
+     "walkthrough": "'after' places ROLL behind T. The question mark is for the fairy-tale troll who guards a bridge, as in Three Billy Goats Gruff.",
+     "definitionFit": "In folklore a troll lurks under a bridge and blocks travellers from crossing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1396,55 @@
     "text": "Dog sitting outside former royal houses",
     "enumeration": "7"
    },
-   "solution": "TERRACE"
+   "solution": "TERRACE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TERRACE",
+    "definitions": [
+     {
+      "text": "houses",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sitting outside",
+      "for": "container",
+      "note": "sitting outside something means being wrapped around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "gives": "TRACE",
+      "note": "to dog someone is to track or trace them"
+     },
+     {
+      "clueFragment": "former royal",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the late Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ER",
+      "RACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog sits outside the homes of a one-time royal.",
+     "walkthrough": "Dog looks like the animal but is a verb, meaning to follow someone's trail.",
+     "definitionFit": "A terrace is a row of houses joined together, very common in British streets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dog"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1458,63 @@
     "text": "Unsophisticated curry served up on plate",
     "enumeration": "7"
    },
-   "solution": "LADDISH"
+   "solution": "LADDISH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LADDISH",
+    "definitions": [
+     {
+      "text": "Unsophisticated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue, served up means sent upwards, so the word is written bottom to top"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curry",
+      "gives": "DAL",
+      "note": "dal is a lentil curry"
+     },
+     {
+      "clueFragment": "plate",
+      "gives": "DISH",
+      "note": "a dish is a plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAD",
+      "DISH"
+     ],
+     "reversals": [
+      {
+       "from": "DAL",
+       "to": "LAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crude curry is dished up on a plate.",
+     "definitionFit": "Laddish behaviour is boisterous and crude, typical of young men, so lacking refinement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1528,43 @@
     "text": "Warm saw?",
     "enumeration": "7"
    },
-   "solution": "NOTICED"
+   "solution": "NOTICED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOTICED",
+    "definitions": [
+     {
+      "text": "Warm",
+      "at": 0
+     },
+     {
+      "text": "saw",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warm",
+      "note": "first meaning, split in two: something warm"
+     },
+     {
+      "clueFragment": "saw",
+      "note": "second meaning: observed, spotted"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The answer splits as NOT ICED for the first meaning; read whole it means saw.",
+     "definitionFit": "To have noticed something is to have seen it, and a drink not iced is warm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1578,60 @@
     "text": "Show me grasping a point",
     "enumeration": "7"
    },
-   "solution": "MATINEE"
+   "solution": "MATINEE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MATINEE",
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grasping",
+      "for": "container",
+      "note": "grasping means holding tight, so one piece is gripped inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "TINE",
+      "note": "a tine is a prong or point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "TINE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A request to demonstrate how to hold a point.",
+     "definitionFit": "A matinee is an afternoon performance of a play or film, a type of show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Show"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1645,53 @@
     "text": "Due to drop round camp",
     "enumeration": "4"
    },
-   "solution": "WING"
+   "solution": "WING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WING",
+    "definitions": [
+     {
+      "text": "camp",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to drop",
+      "for": "deletion",
+      "note": "to drop something is to let it go, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Due",
+      "gives": "OWING",
+      "note": "money due is owing"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is expected to drop by the camp.",
+     "walkthrough": "'Drop round' reads as visit; here drop is the deletion and round is the letter shaped like a circle.",
+     "definitionFit": "A wing is a faction within a party or movement, as is a camp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1705,67 @@
     "text": "Item computers etc screened, displaying over and over again?",
     "enumeration": "4"
    },
-   "solution": "MEME"
+   "solution": "MEME",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "MEME",
+    "definitions": [
+     {
+      "text": "Item computers etc screened, displaying over and over again?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screened",
+      "for": "deletion",
+      "note": "screened here means kept out of view, so those letters are taken away"
+     },
+     {
+      "text": "over and over again",
+      "for": "reversal",
+      "note": "over means turned back, and over again means the turned piece is repeated"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Item",
+      "gives": "ITEM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "computers etc",
+      "gives": "IT",
+      "note": "IT, information technology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "ME"
+     ],
+     "reversals": [
+      {
+       "from": "EM",
+       "to": "ME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thing seen on computer screens that keeps appearing again and again.",
+     "walkthrough": "ITEM without IT leaves EM, turned over to ME and then repeated. The whole clue also describes the answer.",
+     "definitionFit": "A meme is an image or idea shared and reposted across the internet over and over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "screened"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1779,54 @@
     "text": "Peak time for journey's end, about noon",
     "enumeration": "4"
    },
-   "solution": "ETNA"
+   "solution": "ETNA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ETNA",
+    "definitions": [
+     {
+      "text": "Peak",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time for journey's end",
+      "gives": "ETA",
+      "note": "estimated time of arrival"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "N",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Reaching the summit at the end of the trip at around midday.",
+     "definitionFit": "Etna is the volcanic mountain in Sicily, a peak."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1840,47 @@
     "text": "G.I. departed",
     "enumeration": "4"
    },
-   "solution": "GONE"
+   "solution": "GONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GONE",
+    "definitions": [
+     {
+      "text": "departed",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "G",
+      "gives": "G",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "ONE",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "An American soldier has left.",
+     "walkthrough": "G.I. looks like the US soldier; read letter by letter it is G and the numeral I.",
+     "definitionFit": "Gone and departed both mean having left, or euphemistically having died."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "G.I."
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1894,86 @@
     "text": "I mostly love an eccentric closing act's send-off",
     "enumeration": "11"
    },
-   "solution": "VALEDICTION"
+   "solution": "VALEDICTION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "VALEDICTION",
+    "definitions": [
+     {
+      "text": "send-off",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not all, so the last letter of the word is lost"
+     },
+     {
+      "text": "eccentric",
+      "for": "anagram",
+      "note": "eccentric means odd and off-centre, so the letters are scattered into a new order"
+     },
+     {
+      "text": "closing",
+      "for": "container",
+      "note": "closing means shutting in, so the jumbled letters close around the next piece"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "LOVE",
+      "note": "taken as written, then cut short"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "act",
+      "gives": "EDICT",
+      "note": "an act of parliament is a decree, an edict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VAL",
+      "EDICT",
+      "ION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ILOVAN",
+       "gives": "VALION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farewell speech at the end of a show, featuring an odd declaration of love.",
+     "walkthrough": "'Closing act' reads as a final performance; here closing is the container signal and act is EDICT.",
+     "definitionFit": "A valediction is a farewell, a speech or words said as a send-off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "closing"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +1987,56 @@
     "text": "Overlook first from Oxford University",
     "enumeration": "4"
    },
-   "solution": "OMIT"
+   "solution": "OMIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OMIT",
+    "definitions": [
+     {
+      "text": "Overlook",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first from",
+      "for": "letter_selection",
+      "note": "first from means take only the opening letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oxford",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of Oxford"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "MIT",
+      "note": "the Massachusetts Institute of Technology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forgets which comes first, Oxford or a university.",
+     "walkthrough": "'Oxford University' reads as one name; University alone is MIT.",
+     "definitionFit": "To omit something is to leave it out, to overlook it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "University"
+    }
+   }
   },
   {
    "number": 30,
@@ -507,7 +2056,48 @@
      }
     ]
    },
-   "solution": "LEVELHEADED"
+   "solution": "LEVELHEADED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEVEL-HEADED",
+    "definitions": [
+     {
+      "text": "down to earth",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plane",
+      "gives": "LEVEL",
+      "note": "plane as an adjective means flat, level"
+     },
+     {
+      "clueFragment": "directed",
+      "gives": "HEADED",
+      "note": "headed means steered in a direction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEVEL",
+      "HEADED"
+     ]
+    },
+    "explanation": {
+     "surface": "An aircraft is steered down to the ground.",
+     "walkthrough": "Plane suggests an aircraft and 'down to earth' a landing; plane means flat here.",
+     "definitionFit": "A level-headed person is sensible and practical, which is what down-to-earth means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plane"
+    }
+   }
   }
  ]
 }
