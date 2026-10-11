@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "London district admired by many (not posh)",
     "enumeration": "6"
    },
-   "solution": "POPLAR"
+   "solution": "POPLAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "POPLAR",
+    "definitions": [
+     {
+      "text": "London district",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not posh' tells the solver to take away the letter standing for posh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "admired by many",
+      "gives": "POPULAR",
+      "note": "what is admired by many is popular"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U is the old label for upper-class, posh usage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "LAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A part of London that everyone likes, though it is not a smart area.",
+     "walkthrough": "U for upper-class (as in 'U and non-U') is a crossword staple; removing it from POPULAR leaves the district in London's East End.",
+     "definitionFit": "Poplar is an area of east London in the borough of Tower Hamlets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "posh"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +97,61 @@
     "text": "Burlesque in a bar in the outskirts of Paisley",
     "enumeration": "6"
    },
-   "solution": "PARODY"
+   "solution": "PARODY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PARODY",
+    "definitions": [
+     {
+      "text": "Burlesque",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts of a town are its edges, so only the first and last letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one part is placed in the middle of the other, which wraps round it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paisley",
+      "gives": "PY",
+      "select": "outer",
+      "note": "the edge letters of the town's name"
+     },
+     {
+      "clueFragment": "a bar",
+      "gives": "AROD",
+      "note": "a rod is a bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AROD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A comic show staged in a pub on the edge of Paisley, a Scottish town.",
+     "definitionFit": "A burlesque is a mocking imitation, which is what a parody is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +165,43 @@
     "text": "Flat pack",
     "enumeration": "3"
    },
-   "solution": "PAD"
+   "solution": "PAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PAD",
+    "definitions": [
+     {
+      "text": "Flat",
+      "at": 0
+     },
+     {
+      "text": "pack",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flat",
+      "note": "first meaning: informal word for a home or apartment"
+     },
+     {
+      "clueFragment": "pack",
+      "note": "second meaning: to stuff or fill out, as with padding"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it suggests flat-pack furniture; the two words are separate meanings.",
+     "definitionFit": "Slang uses the word for someone's lodgings, and as a verb it means to fill something out with soft material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flat"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +215,67 @@
     "text": "Mathematician rang during a short break",
     "enumeration": "10"
    },
-   "solution": "ARCHIMEDES"
+   "solution": "ARCHIMEDES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ARCHIMEDES",
+    "definitions": [
+     {
+      "text": "Mathematician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short has been cut, so the final letter of the word is dropped"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "one event happening during another sits inside it, so the first part goes within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rang",
+      "gives": "CHIMED",
+      "note": "a bell that rang chimed"
+     },
+     {
+      "clueFragment": "break",
+      "gives": "REST",
+      "note": "a break is a rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "CHIMED",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A mathematician took a phone call during a brief pause.",
+     "walkthrough": "'Short' applies to the break alone, so only that word loses its final letter before it surrounds the bell word.",
+     "definitionFit": "Archimedes of Syracuse was the great Greek mathematician and inventor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rang"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +289,72 @@
     "text": "Bird eating head of worm attracts dear French bird-watcher",
     "enumeration": "8"
    },
-   "solution": "TWITCHER"
+   "solution": "TWITCHER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TWITCHER",
+    "definitions": [
+     {
+      "text": "bird-watcher",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "a creature eating something takes it inside, so one part swallows the other"
+     }
+    ],
+    "linkWords": [
+     "attracts"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "gives": "TIT",
+      "note": "a tit is a small bird"
+     },
+     {
+      "clueFragment": "worm",
+      "gives": "W",
+      "select": "first",
+      "note": "first letter of worm"
+     },
+     {
+      "clueFragment": "dear French",
+      "gives": "CHER",
+      "note": "French for dear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "W",
+      "IT",
+      "CHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird feeding on a worm draws in an affectionate French birdwatcher.",
+     "walkthrough": "The first 'Bird' is wordplay, a small garden bird; the definition is the hyphenated bird-watcher at the end.",
+     "definitionFit": "Twitcher is British slang for a keen birdwatcher who travels to see rare species."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +368,53 @@
     "text": "Poor creature, sow, in stream",
     "enumeration": "11"
    },
-   "solution": "WATERCOURSE"
+   "solution": "WATERCOURSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WATERCOURSE",
+    "definitions": [
+     {
+      "text": "stream",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "something in poor shape is in a bad state, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "creature, sow",
+      "gives": "CREATURESOW",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CREATURESOW",
+       "gives": "WATERCOURSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pitiful animal, a female pig, stuck in a brook.",
+     "definitionFit": "A watercourse is a channel of flowing water such as a brook or stream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sow"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +428,47 @@
     "text": "Story's end read aloud",
     "enumeration": "4"
    },
-   "solution": "TALE"
+   "solution": "TALE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TALE",
+    "definitions": [
+     {
+      "text": "Story",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read aloud",
+      "for": "homophone",
+      "note": "reading out loud means we go by the sound of the word, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "end",
+      "gives": "TALE",
+      "soundsLike": "TAIL",
+      "note": "the tail is the end of something"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone reads out the final part of a story.",
+     "walkthrough": "The 's is short for 'is', linking the definition to the wordplay.",
+     "definitionFit": "A tale is a narrative or story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +488,69 @@
      }
     ]
    },
-   "solution": "HAIRPINBEND"
+   "solution": "HAIRPINBEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAIRPIN BEND",
+    "definitions": [
+     {
+      "text": "I may be found on a track",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical",
+      "gives": "HAIR",
+      "note": "Hair is the 1960s rock musical"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p, piano, means quiet in music"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "NB",
+      "note": "NB, nota bene, marks a note to heed"
+     },
+     {
+      "clueFragment": "finish",
+      "gives": "END",
+      "note": "to finish is to end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIR",
+      "P",
+      "I",
+      "NB",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A track from a show: the quiet number with one note to close.",
+     "walkthrough": "'Track' suggests a song on an album, but here it is a road or racing circuit. NB is Latin nota bene, 'note well'.",
+     "definitionFit": "A hairpin bend is a very sharp U-shaped turn on a road or race track, and its shape echoes the letter I bent over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "track"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +574,74 @@
      }
     ]
    },
-   "solution": "RUNARISK"
+   "solution": "RUNARISK",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RUN A RISK",
+    "definitions": [
+     {
+      "text": "to take chances",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the girl sits inside the car, so her name goes inside its letters"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "posh car",
+      "gives": "RR",
+      "note": "RR stands for Rolls-Royce, the classic luxury car"
+     },
+     {
+      "clueFragment": "Girl",
+      "gives": "UNA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "kind",
+      "gives": "K",
+      "select": "first",
+      "note": "opening letter of kind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "UNA",
+      "R",
+      "IS",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman in a Rolls-Royce is generous at first, then starts gambling.",
+     "definitionFit": "To run a risk is an idiom meaning to expose oneself to possible danger or loss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kind"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +655,65 @@
     "text": "Cut in snooker ball with bent cue",
     "enumeration": "6"
    },
-   "solution": "REDUCE"
+   "solution": "REDUCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "REDUCE",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bent",
+      "for": "anagram",
+      "note": "something bent is twisted out of shape, so its letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snooker ball",
+      "gives": "RED",
+      "note": "red balls are the most numerous in snooker"
+     },
+     {
+      "clueFragment": "cue",
+      "gives": "UCE",
+      "note": "the letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "UCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CUE",
+       "gives": "UCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snooker shot made with a warped cue.",
+     "walkthrough": "'Cut' looks like a snooker shot; it is the definition, a verb meaning lower.",
+     "definitionFit": "To reduce something is to cut it back or make it smaller."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +727,56 @@
     "text": "Horse, one attached to stable at first",
     "enumeration": "8"
    },
-   "solution": "STALLION"
+   "solution": "STALLION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STALLION",
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at first"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stable",
+      "gives": "STALL",
+      "note": "a stall is a compartment in a stable"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "attached",
+      "gives": "ON",
+      "note": "something on is attached"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STALL",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A horse that belongs to a stable from the start.",
+     "walkthrough": "'At first' says the stable word comes at the front, before 'one attached'.",
+     "definitionFit": "A stallion is an uncastrated male horse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attached"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +790,53 @@
     "text": "The German station hand's pistols",
     "enumeration": "10"
    },
-   "solution": "DERRINGERS"
+   "solution": "DERRINGERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DERRINGERS",
+    "definitions": [
+     {
+      "text": "pistols",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The German",
+      "gives": "DER",
+      "note": "der is a German word for 'the'"
+     },
+     {
+      "clueFragment": "station hand",
+      "gives": "RINGER",
+      "note": "in Australia a ringer is a stockman on a sheep or cattle station"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the possessive ending, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DER",
+      "RINGER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A German ranch worker's guns.",
+     "walkthrough": "An Australian station is a large farm, and a ringer is one of its hands.",
+     "definitionFit": "Derringers are small short-barrelled pocket pistols, named after their American maker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "station"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +850,42 @@
     "text": "Putting aside a misgiving",
     "enumeration": "11"
    },
-   "solution": "RESERVATION"
+   "solution": "RESERVATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESERVATION",
+    "definitions": [
+     {
+      "text": "Putting aside",
+      "at": 0
+     },
+     {
+      "text": "a misgiving",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Putting aside",
+      "note": "first meaning: booking or setting something apart for later"
+     },
+     {
+      "clueFragment": "a misgiving",
+      "note": "second meaning: a doubt or qualm"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like setting a worry to one side, but each half is its own meaning.",
+     "definitionFit": "The noun covers both the act of keeping something back and a feeling of doubt about a plan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aside"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +905,69 @@
      }
     ]
    },
-   "solution": "GETTOGETHER"
+   "solution": "GETTOGETHER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GET-TOGETHER",
+    "definitions": [
+     {
+      "text": "meeting",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "when someone leaves they go away, so that letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "abbreviation for husband"
+     },
+     {
+      "clueFragment": "poor quarter",
+      "gives": "GHETTO",
+      "note": "a ghetto is a poor district of a city"
+     },
+     {
+      "clueFragment": "fetch",
+      "gives": "GET",
+      "note": "to fetch is to get"
+     },
+     {
+      "clueFragment": "that girl",
+      "gives": "HER",
+      "note": "pronoun for a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GETTO",
+      "GET",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband moves out of a slum to collect a girl for a date.",
+     "walkthrough": "GHETTO minus its H, then GET and HER.",
+     "definitionFit": "A get-together is an informal social gathering or meeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +981,53 @@
     "text": "Box blows over",
     "enumeration": "4"
    },
-   "solution": "SPAR"
+   "solution": "SPAR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPAR",
+    "definitions": [
+     {
+      "text": "Box",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means turned round, so the word is read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blows",
+      "gives": "RAPS",
+      "note": "raps are sharp blows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAPS",
+       "to": "SPAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxing match where punches are traded.",
+     "definitionFit": "To spar is to box, especially in practice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1047,64 @@
      }
     ]
    },
-   "solution": "THRIFTSHOP"
+   "solution": "THRIFTSHOP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "THRIFT SHOP",
+    "definitions": [
+     {
+      "text": "second-hand store",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "done awfully means done badly, so the letters come out in a muddle"
+     }
+    ],
+    "linkWords": [
+     "above"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Savings and Loan",
+      "gives": "THRIFT",
+      "note": "in the US a thrift is a savings and loan institution"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "SHOP",
+      "note": "the letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THRIFT",
+      "SHOP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POSH",
+       "gives": "SHOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bank's savings arm sits over a very smart secondhand shop.",
+     "walkthrough": "In a down answer 'above' puts the first part over the second. A US savings and loan is a building society, also called a thrift.",
+     "definitionFit": "A thrift shop sells donated used goods, usually for charity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Loan"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1124,51 @@
      }
     ]
    },
-   "solution": "SWEETNOTHINGS"
+   "solution": "SWEETNOTHINGS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWEET NOTHINGS",
+    "definitions": [
+     {
+      "text": "whispered words of affection",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "being at sea means being confused, so the letters are in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The two ensigns",
+      "gives": "THETWOENSIGNS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THETWOENSIGNS",
+       "gives": "SWEETNOTHINGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two junior officers on a voyage murmur lovingly to each other.",
+     "walkthrough": "An ensign is a junior naval officer, which suits 'at sea'.",
+     "definitionFit": "Sweet nothings are the tender, trivial endearments lovers murmur."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1182,53 @@
     "text": "Strong and lithe cat abroad",
     "enumeration": "8"
    },
-   "solution": "ATHLETIC"
+   "solution": "ATHLETIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ATHLETIC",
+    "definitions": [
+     {
+      "text": "Strong",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad can mean widely scattered, so the letters are spread into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lithe cat",
+      "gives": "LITHECAT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LITHECAT",
+       "gives": "ATHLETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A powerful, supple feline living overseas.",
+     "definitionFit": "Athletic describes someone fit, muscular and physically strong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1252,51 @@
      }
     ]
    },
-   "solution": "THREEFOURTIME"
+   "solution": "THREEFOURTIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THREE-FOUR TIME",
+    "definitions": [
+     {
+      "text": "such rhythm",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "on",
+     "demonstrating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two numbers",
+      "gives": "THREEFOUR",
+      "note": "two consecutive numbers written out"
+     },
+     {
+      "clueFragment": "occasion",
+      "gives": "TIME",
+      "note": "an occasion is a time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THREEFOUR",
+      "TIME"
+     ]
+    },
+    "explanation": {
+     "surface": "Two songs that sometimes show a particular beat.",
+     "walkthrough": "'Numbers' suggests songs, but here they are plain numbers; 'such' points back to the wordplay, which spells out the rhythm.",
+     "definitionFit": "Three-four time is the musical metre of three crotchet beats to a bar, as in a waltz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "numbers"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1310,48 @@
     "text": "Sound of seal and young swan",
     "enumeration": "6"
    },
-   "solution": "CYGNET"
+   "solution": "CYGNET",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CYGNET",
+    "definitions": [
+     {
+      "text": "young swan",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sound of",
+      "for": "homophone",
+      "note": "the sound of a word is how it is spoken, so we go by pronunciation"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seal",
+      "gives": "CYGNET",
+      "soundsLike": "SIGNET",
+      "note": "a signet is a seal, as on a signet ring"
+     }
+    ],
+    "explanation": {
+     "surface": "The noise of a seal and a baby swan.",
+     "walkthrough": "'Seal' wants to be the animal; it is the stamp pressed into wax.",
+     "definitionFit": "Cygnet is the specific name for a swan's offspring, as cub is for a fox."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "seal"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1365,40 @@
     "text": "Bend over English film director",
     "enumeration": "4"
    },
-   "solution": "LEAN"
+   "solution": "LEAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAN",
+    "definitions": [
+     {
+      "text": "Bend over",
+      "at": 0
+     },
+     {
+      "text": "English film director",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bend over",
+      "note": "first meaning: to incline the body"
+     },
+     {
+      "clueFragment": "English film director",
+      "note": "second meaning: David ..., who made Lawrence of Arabia"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To lean is to tilt or incline, and David Lean was the English director of Brief Encounter and Doctor Zhivago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1412,50 @@
     "text": "Type leader upset, again and again",
     "enumeration": "10"
    },
-   "solution": "REPEATEDLY"
+   "solution": "REPEATEDLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPEATEDLY",
+    "definitions": [
+     {
+      "text": "again and again",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Type leader",
+      "gives": "TYPELEADER",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TYPELEADER",
+       "gives": "REPEATEDLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss is bothered by the same kind of thing over and over.",
+     "definitionFit": "Repeatedly means over and over, many times in succession."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1469,42 @@
     "text": "Without energy in final, I'm pulverised",
     "enumeration": "4"
    },
-   "solution": "LIMP"
+   "solution": "LIMP",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LIMP",
+    "definitions": [
+     {
+      "text": "Without energy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits in the following words, running across their boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "final, I'm pulverised",
+      "gives": "LIMP",
+      "note": "end of final, then I'm, then the start of pulverised"
+     }
+    ],
+    "explanation": {
+     "surface": "An exhausted athlete says the final has crushed them.",
+     "definitionFit": "Limp means lacking firmness or vigour, drained of energy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pulverised"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1518,63 @@
     "text": "Mean to go outside with the Italian in the gloaming",
     "enumeration": "8"
    },
-   "solution": "TWILIGHT"
+   "solution": "TWILIGHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TWILIGHT",
+    "definitions": [
+     {
+      "text": "the gloaming",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go outside",
+      "for": "container",
+      "note": "going outside something means surrounding it, so one part wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mean",
+      "gives": "TIGHT",
+      "note": "tight means stingy"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is an abbreviation for with"
+     },
+     {
+      "clueFragment": "the Italian",
+      "gives": "IL",
+      "note": "il is Italian for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WIL",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A stingy Italian heads out at dusk.",
+     "definitionFit": "The gloaming is a Scottish word for dusk, the half-light after sunset."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mean"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1588,58 @@
     "text": "Feature involving work of composer",
     "enumeration": "6"
    },
-   "solution": "CHOPIN"
+   "solution": "CHOPIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHOPIN",
+    "definitions": [
+     {
+      "text": "composer",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "something involving another thing includes it, so one part is placed within the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feature",
+      "gives": "CHIN",
+      "note": "the chin is a facial feature"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op. abbreviates opus, a musical work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "OP",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "An article about one of a composer's pieces.",
+     "walkthrough": "'Feature' suggests a magazine article; it is a part of the face.",
+     "definitionFit": "Frédéric Chopin was the Polish Romantic composer famed for his piano works."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Feature"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1653,51 @@
     "text": "Mean to split up? Not quite",
     "enumeration": "3"
    },
-   "solution": "PAT"
+   "solution": "PAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PAR",
+    "definitions": [
+     {
+      "text": "Mean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite complete means the word stops one letter short of its end"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split up",
+      "gives": "PART",
+      "note": "to split up is to part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is not sure whether they really intend to break up.",
+     "walkthrough": "The printed grid gives PAT, but PART cut short gives PAR, which the corrected crossing SPIRIT confirms.",
+     "definitionFit": "Par is an average or normal level, as in 'below par', so it can stand for the mean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mean"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1711,50 @@
     "text": "Plan to study structure on top of church tower, perhaps",
     "enumeration": "8"
    },
-   "solution": "CONSPIRE"
+   "solution": "CONSPIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSPIRE",
+    "definitions": [
+     {
+      "text": "Plan",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "CON",
+      "note": "to con is to study or learn by heart"
+     },
+     {
+      "clueFragment": "structure on top of church tower, perhaps",
+      "gives": "SPIRE",
+      "note": "a spire is a tapering structure often topping a church tower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "SPIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone intends to examine a church steeple.",
+     "walkthrough": "To con is an old word for studying something closely.",
+     "definitionFit": "To conspire is to plot or plan secretly together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1768,53 @@
     "text": "Trips I organised to find a supernatural being",
     "enumeration": "6"
    },
-   "solution": "SPITIT"
+   "solution": "SPIRIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPIRIT",
+    "definitions": [
+     {
+      "text": "supernatural being",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "organised means put into a new arrangement, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "to find a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trips I",
+      "gives": "TRIPSI",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIPSI",
+       "gives": "SPIRIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone arranges journeys hoping to meet a ghost.",
+     "definitionFit": "A spirit is a ghost or other incorporeal supernatural entity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Trips"
+    }
+   }
   }
  ]
 }
