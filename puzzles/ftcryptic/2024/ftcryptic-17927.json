@@ -24,6 +24,9 @@
   "date": "2024-12-23",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,49 @@
     "text": "Fall down at pass. What a mistake!",
     "enumeration": "8"
    },
-   "solution": "COLLAPSE"
+   "solution": "COLLAPSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLLAPSE",
+    "definitions": [
+     {
+      "text": "Fall down",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pass",
+      "gives": "COL",
+      "note": "a col is a mountain pass"
+     },
+     {
+      "clueFragment": "What a mistake",
+      "gives": "LAPSE",
+      "note": "a lapse is a slip or error"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COL",
+      "LAPSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stumbles at a mountain pass and berates themselves for the blunder.",
+     "definitionFit": "To collapse is to fall down suddenly, as a structure or person giving way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +96,61 @@
     "text": "Pet shop's opening under many worries",
     "enumeration": "6"
    },
-   "solution": "CARESS"
+   "solution": "CARESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CARESS",
+    "definitions": [
+     {
+      "text": "Pet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter, so only the start of the shop is kept"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, one piece sitting under another comes after it in the grid"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many worries",
+      "gives": "CARES",
+      "note": "cares are worries, plural for many"
+     },
+     {
+      "clueFragment": "shop's",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of shop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A pet shop owner, just opened, is weighed down by worries.",
+     "walkthrough": "'Pet shop' reads as one phrase; split it, and 'Pet' is a verb meaning to stroke fondly.",
+     "definitionFit": "To pet an animal or person is to stroke them affectionately, which is to caress them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pet"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +164,46 @@
     "text": "Hidden overdue books",
     "enumeration": "6"
    },
-   "solution": "LATENT"
+   "solution": "LATENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LATENT",
+    "definitions": [
+     {
+      "text": "Hidden",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overdue",
+      "gives": "LATE",
+      "note": "overdue means late"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT, the New Testament, is a set of books of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Library books returned late have been hidden away somewhere.",
+     "definitionFit": "Something latent is present but concealed, not yet showing itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +217,51 @@
     "text": "Float freely, on high overhead",
     "enumeration": "5"
    },
-   "solution": "ALOFT"
+   "solution": "ALOFT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALOFT",
+    "definitions": [
+     {
+      "text": "on high overhead",
+      "at": 14,
+      "note": "two near-synonyms side by side, both meaning up in the air"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freely",
+      "for": "anagram",
+      "note": "letters moving freely are not held in their printed order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Float",
+      "gives": "FLOAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLOAT",
+       "gives": "ALOFT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A balloon drifts freely high above our heads.",
+     "definitionFit": "Aloft is an adverb for being up in the air, high above the ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "freely"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +275,58 @@
     "text": "Dim and ostentatious, nowadays, inside",
     "enumeration": "7"
    },
-   "solution": "SHADOWY"
+   "solution": "SHADOWY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHADOWY",
+    "definitions": [
+     {
+      "text": "Dim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "one piece placed inside means it sits within the other word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ostentatious",
+      "gives": "SHOWY",
+      "note": "showy means flashy, ostentatious"
+     },
+     {
+      "clueFragment": "nowadays",
+      "gives": "AD",
+      "note": "AD, anno Domini, marks the present era"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "AD",
+      "OWY"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that modern things are both stupid and flashy.",
+     "walkthrough": "'Dim' looks like 'stupid' alongside 'ostentatious'; here it means poorly lit.",
+     "definitionFit": "Shadowy describes something dim or indistinct, full of shade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dim"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +340,39 @@
     "text": "Get down to rock bottom",
     "enumeration": "6"
    },
-   "solution": "ABSEIL"
+   "solution": "ABSEIL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ABSEIL",
+    "definitions": [
+     {
+      "text": "Get down to rock bottom",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get down to rock bottom",
+      "note": "surface reading: reach the lowest possible point in life"
+     },
+     {
+      "clueFragment": "Get down to rock bottom",
+      "note": "setter's reading: descend a cliff face on a rope to its base"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Rock bottom' is an idiom for a low point, but here it is literally the foot of a rock face, reached by a roped descent.",
+     "definitionFit": "Abseiling is lowering oneself down a rock face using a rope, so one gets down to the bottom of the rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +392,50 @@
      }
     ]
    },
-   "solution": "BLUESKIES"
+   "solution": "BLUESKIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLUE-SKIES",
+    "definitions": [
+     {
+      "text": "Having little practical relevance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "what these words could be is another arrangement of their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like buses",
+      "gives": "LIKEBUSES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIKEBUSES",
+       "gives": "BLUESKIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some idea is so theoretical it is as unreliable as the bus timetable.",
+     "definitionFit": "Blue-sky thinking is speculative and visionary, not tied to immediate practical use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "buses"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +455,75 @@
      }
     ]
    },
-   "solution": "EVABRAUN"
+   "solution": "EVABRAUN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "EVA BRAUN",
+    "definitions": [
+     {
+      "text": "WW2 photographer",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Awfully",
+      "for": "anagram",
+      "note": "something done awfully is done badly, so the letters come out jumbled"
+     },
+     {
+      "text": "has no time",
+      "for": "deletion",
+      "note": "having none of the time abbreviation means that letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brave",
+      "gives": "BRAVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "AUNT",
+      "note": "an aunt is a relative"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVABR",
+      "AUN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BRAVE",
+       "gives": "EVABR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wartime photographer's courageous relative never has a moment to spare.",
+     "walkthrough": "Eva Braun, Hitler's companion, worked as an assistant to the photographer Heinrich Hoffmann and shot much home-movie footage.",
+     "definitionFit": "Eva Braun began as a photographer's assistant and was a keen amateur photographer and filmmaker during the Second World War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Awfully"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +543,59 @@
      }
     ]
    },
-   "solution": "LETSMEET"
+   "solution": "LETSMEET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LET'S MEET",
+    "definitions": [
+     {
+      "text": "Shall we get together",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "writhing",
+      "for": "anagram",
+      "note": "writhing is twisting about, so the letters are contorted into a new order"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "settle",
+      "gives": "SETTLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SETTLEME",
+       "gives": "LETSMEET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone proposes a meeting to resolve a dispute while squirming uncomfortably.",
+     "definitionFit": "Let's meet is a spoken suggestion of a meeting, the same invitation as asking whether we shall get together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writhing"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +609,56 @@
     "text": "On trial, a criminal who's not lost it",
     "enumeration": "8"
    },
-   "solution": "RATIONAL"
+   "solution": "RATIONAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RATIONAL",
+    "definitions": [
+     {
+      "text": "who's not lost it",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is bent or crooked, so the letters are put out of true"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On trial",
+      "gives": "ONTRIAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONTRIALA",
+       "gives": "RATIONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A defendant in the dock is judged to be perfectly sane.",
+     "walkthrough": "'Criminal' looks like the noun for the person on trial; it is an adjective signalling the rearrangement.",
+     "definitionFit": "To lose it is slang for losing one's reason, so a person who has not is still sane and clear-headed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +672,55 @@
     "text": "Making an oath, managed project outside",
     "enumeration": "6"
    },
-   "solution": "JURANT"
+   "solution": "JURANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "JURANT",
+    "definitions": [
+     {
+      "text": "Making an oath",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one word placed outside another wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "project",
+      "gives": "JUT",
+      "note": "to jut is to project or stick out"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "ran means managed, as running a business"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JU",
+      "RAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A project manager describes how they took an oath while handling the work outside.",
+     "walkthrough": "'Project' looks like a noun for a task; it is the verb, to stick out.",
+     "definitionFit": "Jurant is a rare adjective for someone swearing, from Latin jurare, to take an oath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "project"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +734,59 @@
     "text": "Home for French joiner in street",
     "enumeration": "4"
    },
-   "solution": "SETT"
+   "solution": "SETT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SETT",
+    "definitions": [
+     {
+      "text": "Home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "French joiner",
+      "gives": "ET",
+      "note": "et is French for and, a word that joins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ET",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A French carpenter lives in a house on a particular street.",
+     "walkthrough": "'Joiner' suggests a carpenter, but here it is a conjunction, a joining word; a sett is a badger's burrow.",
+     "definitionFit": "A sett is the burrow system where a family of badgers lives, so it is their home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "joiner"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +800,50 @@
     "text": "Holiday ailment affected Turk's nose",
     "enumeration": "9"
    },
-   "solution": "SUNSTROKE"
+   "solution": "SUNSTROKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUNSTROKE",
+    "definitions": [
+     {
+      "text": "Holiday ailment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "affected",
+      "for": "anagram",
+      "note": "something affected has been changed by an outside influence, so these letters are altered in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turk's nose",
+      "gives": "TURKSNOSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TURKSNOSE",
+       "gives": "SUNSTROKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Turkish man's nose has suffered from some ailment caught on holiday.",
+     "definitionFit": "Sunstroke is illness from too much sun, a typical misfortune for beach holidaymakers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +857,58 @@
     "text": "Huddle showing resistance in film",
     "enumeration": "5"
    },
-   "solution": "SCRUM"
+   "solution": "SCRUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCRUM",
+    "definitions": [
+     {
+      "text": "Huddle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another is enclosed by it"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "SCUM",
+      "note": "scum is a film of dirt on a liquid's surface"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "R",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A group gathers to show their resistance in a movie.",
+     "walkthrough": "'Film' looks like a movie; it is a thin layer on a surface.",
+     "definitionFit": "A scrum, in rugby or a crowd, is a tight huddle of people pressed together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +922,58 @@
     "text": "Call to leading airman and Olympic champion cyclist",
     "enumeration": "4"
    },
-   "solution": "AHOY"
+   "solution": "AHOY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AHOY",
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "letter_selection",
+      "note": "the leading letter of a word is the one at its front"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "airman",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of airman"
+     },
+     {
+      "clueFragment": "Olympic champion cyclist",
+      "gives": "HOY",
+      "note": "Sir Chris Hoy, the British track cyclist with six Olympic golds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "HOY"
+     ]
+    },
+    "explanation": {
+     "surface": "A shout goes up to a senior pilot and a gold-medal cyclist.",
+     "definitionFit": "Ahoy is a sailor's greeting, a call used to hail a ship or person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +993,39 @@
      }
     ]
    },
-   "solution": "HOUSECALL"
+   "solution": "HOUSECALL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HOUSE CALL",
+    "definitions": [
+     {
+      "text": "Doctor's visit — ho ho!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ho ho!",
+      "note": "surface reading: a laugh, as if a doctor's visit were funny"
+     },
+     {
+      "clueFragment": "ho ho!",
+      "note": "setter's reading: HO is the standard abbreviation for a residence, so each 'ho' is what that residence is called"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "HO is the abbreviation for house, so 'ho' is literally what a house is called in shorthand; the laugh hides a second hint at the doctor's home visit.",
+     "definitionFit": "A house call is a doctor's visit to a patient at home rather than in the surgery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ho"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1039,60 @@
     "text": "British university in hackneyed accolade",
     "enumeration": "7"
    },
-   "solution": "TRIBUTE"
+   "solution": "TRIBUTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TRIBUTE",
+    "definitions": [
+     {
+      "text": "accolade",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first pair placed in another word is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hackneyed",
+      "gives": "TRITE",
+      "note": "trite means overused, hackneyed"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "B",
+      "U",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A British university hands out a stale, predictable honour.",
+     "definitionFit": "A tribute is an act or statement of praise, as is an accolade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1112,60 @@
      }
     ]
    },
-   "solution": "EGGTIMER"
+   "solution": "EGGTIMER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EGG TIMER",
+    "definitions": [
+     {
+      "text": "a drop of sand",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "mixed letters are stirred up into a different order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get",
+      "gives": "GET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "grime",
+      "gives": "GRIME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETGRIME",
+       "gives": "EGGTIMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to mix dirt with a bit of sand, as if making grout.",
+     "walkthrough": "The definition is playful: an egg timer is a small hourglass, a device in which sand drops.",
+     "definitionFit": "An egg timer is a small sand-glass whose grains trickle through for about three minutes to time a boiled egg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1179,65 @@
     "text": "Ford out horse-racing without GCE",
     "enumeration": "8"
    },
-   "solution": "HARRISON"
+   "solution": "HARRISON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HARRISON",
+    "definitions": [
+     {
+      "text": "Ford",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so those letters are removed"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters that are out of place have been knocked into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse-racing",
+      "gives": "HORSERACING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "GCE",
+      "gives": "GCE",
+      "note": "these three letters are removed one each"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARRISON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HORSRAIN",
+       "gives": "HARRISON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a ford is barred from the races for lacking a school qualification.",
+     "walkthrough": "GCE was the old British school-leaving exam, but here its letters are just struck from the fodder. Harrison Ford is the film actor.",
+     "definitionFit": "Harrison is the first name of the actor Ford, so Ford is defined by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Ford"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1251,60 @@
     "text": "Greek F1 driver coming back by degrees",
     "enumeration": "7"
    },
-   "solution": "GRADUAL"
+   "solution": "GRADUAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GRADUAL",
+    "definitions": [
+     {
+      "text": "by degrees",
+      "at": 28,
+      "note": "adverbial phrase for an adjective; in gradual stages"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming back",
+      "for": "reversal",
+      "note": "something coming back travels the opposite way, so the driver's name is read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek",
+      "gives": "GR",
+      "note": "GR is the abbreviation for Greek"
+     },
+     {
+      "clueFragment": "F1 driver",
+      "gives": "LAUDA",
+      "note": "Niki Lauda, Austrian Formula One world champion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "ADUAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAUDA",
+       "to": "ADUAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek racing driver returns to the track slowly, step by step.",
+     "definitionFit": "Something gradual happens in small steps, little by little, rather than all at once."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1318,51 @@
     "text": "Garden feature with heads of lobelia and wisteria needed",
     "enumeration": "4"
    },
-   "solution": "LAWN"
+   "solution": "LAWN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LAWN",
+    "definitions": [
+     {
+      "text": "Garden feature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads of",
+      "for": "letter_selection",
+      "note": "the heads of words are their first letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lobelia and wisteria needed",
+      "gives": "LAWN",
+      "select": "first",
+      "note": "first letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's planting note calls for lobelia and wisteria.",
+     "walkthrough": "Lobelia and wisteria are flowering plants, so 'Garden feature' seems to describe them; it is the grass.",
+     "definitionFit": "A lawn is a stretch of mown grass, a standard feature of a garden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1376,43 @@
     "text": "Rock singer",
     "enumeration": "4"
    },
-   "solution": "BASS"
+   "solution": "BASS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BASS",
+    "definitions": [
+     {
+      "text": "Rock",
+      "at": 0
+     },
+     {
+      "text": "singer",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rock",
+      "note": "first meaning: the ... Rock, an island crag in the Firth of Forth"
+     },
+     {
+      "clueFragment": "singer",
+      "note": "second meaning: a male singer with the lowest voice"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Rock singer' reads as a pop vocalist; split it and Rock is the Scottish islet known as the Bass Rock, famous for gannets.",
+     "definitionFit": "Bass names both a rocky island off Scotland and a singer of the lowest male vocal range."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1426,45 @@
     "text": "Triangular shorts!",
     "enumeration": "7"
    },
-   "solution": "BERMUDA"
+   "solution": "BERMUDA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BERMUDA",
+    "definitions": [
+     {
+      "text": "Triangular",
+      "at": 0,
+      "note": "an adjective defining a proper noun, fair because the island's name is what makes the famous sea area the Triangle"
+     },
+     {
+      "text": "shorts",
+      "at": 11,
+      "note": "a plural noun defining a singular name, fair because the name is the word that qualifies these knee-length shorts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Triangular",
+      "note": "first sense: the ... Triangle, the sea area of legendary disappearances"
+     },
+     {
+      "clueFragment": "shorts",
+      "note": "second sense: ... shorts, knee-length casual trousers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The word is not a synonym of either clue word; each is the second half of a familiar phrase it begins.",
+     "definitionFit": "The island name precedes both Triangle and shorts in two well-known phrases."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Triangular"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1478,53 @@
     "text": "Island saint on European capital",
     "enumeration": "6"
    },
-   "solution": "STROMA"
+   "solution": "STROMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STROMA",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, a piece sitting on another is placed above it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "ST is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "European capital",
+      "gives": "ROMA",
+      "note": "Roma is the Italian name for Rome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ROMA"
+     ]
+    },
+    "explanation": {
+     "surface": "A saint's island stands on top of a European capital city.",
+     "walkthrough": "Stroma is a small uninhabited island in the Pentland Firth off the north tip of Scotland.",
+     "definitionFit": "Stroma is an island in the Pentland Firth, between Caithness and Orkney."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1544,42 @@
      }
     ]
    },
-   "solution": "ADDSUP"
+   "solution": "ADDSUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ADDS UP",
+    "definitions": [
+     {
+      "text": "Does some maths",
+      "at": 0
+     },
+     {
+      "text": "that seems reasonable!",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Does some maths",
+      "note": "first meaning: totals a column of numbers"
+     },
+     {
+      "clueFragment": "that seems reasonable!",
+      "note": "second meaning: makes sense"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is a whole exclamation: 'that adds up!' is said when something makes sense.",
+     "definitionFit": "Adding up is totting up numbers, and something that adds up is consistent and believable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1593,64 @@
     "text": "Initial investigation into family line on isle",
     "enumeration": "5"
    },
-   "solution": "TIREE"
+   "solution": "TIREE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TIREE",
+    "definitions": [
+     {
+      "text": "isle",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initial",
+      "for": "letter_selection",
+      "note": "the initial of a word is its first letter"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one piece going into another is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "family line",
+      "gives": "TREE",
+      "note": "a family tree shows a line of descent"
+     },
+     {
+      "clueFragment": "investigation",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of investigation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "REE"
+     ]
+    },
+    "explanation": {
+     "surface": "A genealogist starts researching their family line on an island.",
+     "walkthrough": "Tiree is one of the Inner Hebrides off Scotland's west coast.",
+     "definitionFit": "Tiree is an island of the Inner Hebrides, so it fits the plain definition isle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1664,48 @@
     "text": "Justified fighting and shouted",
     "enumeration": "9"
    },
-   "solution": "WARRANTED"
+   "solution": "WARRANTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WARRANTED",
+    "definitions": [
+     {
+      "text": "Justified",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fighting",
+      "gives": "WAR",
+      "note": "war is fighting"
+     },
+     {
+      "clueFragment": "shouted",
+      "gives": "RANTED",
+      "note": "ranted means shouted angrily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "RANTED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims their brawling and yelling were justified.",
+     "definitionFit": "Warranted means justified or deserved, having good grounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1719,56 @@
     "text": "No good to maintain garden path",
     "enumeration": "5"
    },
-   "solution": "ALLEE"
+   "solution": "ALLEE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALLEE",
+    "definitions": [
+     {
+      "text": "garden path",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "no here means the following abbreviation is absent, so it is taken out"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "maintain",
+      "gives": "ALLEGE",
+      "note": "to allege is to maintain or assert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLEE"
+     ]
+    },
+    "explanation": {
+     "surface": "It is useless to keep up a garden path.",
+     "walkthrough": "'Maintain' looks like 'keep in repair'; it means assert.",
+     "definitionFit": "An allée is a formal avenue or walk in a garden, typically lined with trees or hedges, borrowed from French."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "maintain"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1782,48 @@
     "text": "Mass killer's confession: 'Forget where'",
     "enumeration": "6"
    },
-   "solution": "MISLAY"
+   "solution": "MISLAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MISLAY",
+    "definitions": [
+     {
+      "text": "Forget where",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mass",
+      "gives": "M",
+      "note": "M is the symbol for mass"
+     },
+     {
+      "clueFragment": "killer's confession",
+      "gives": "ISLAY",
+      "note": "a killer would confess 'I slay'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ISLAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A serial killer's confession goes vague when asked where the bodies are.",
+     "walkthrough": "'Mass killer' reads as one phrase; split it.",
+     "definitionFit": "To mislay something is to forget where it has been put, so it is temporarily lost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mass"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1837,45 @@
     "text": "Cornish resort's window parts",
     "enumeration": "8"
    },
-   "solution": "MULLIONS"
+   "solution": "MULLIONS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MULLIONS",
+    "definitions": [
+     {
+      "text": "window parts",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cornish resort",
+      "gives": "MULLION",
+      "note": "Mullion is a village and resort on Cornwall's Lizard peninsula"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the 's supplies a final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MULLION",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Windows in a Cornish seaside hotel are made of separate sections.",
+     "definitionFit": "Mullions are vertical bars dividing the panes of a window, so they are parts of one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -493,7 +1889,52 @@
     "text": "Hamburger mascot otherwise named Wesker or Rat?",
     "enumeration": "6"
    },
-   "solution": "RONALD"
+   "solution": "RONALD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RONALD",
+    "definitions": [
+     {
+      "text": "Hamburger mascot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "otherwise named",
+      "for": "anagram",
+      "note": "a name given otherwise is the same letters set out a different way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wesker or Rat",
+      "gives": "ARNOLD",
+      "note": "Arnold Wesker was a British playwright; Roland Rat, a TV puppet, gives the same letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARNOLD",
+       "gives": "RONALD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A burger chain's mascot is given a new name after a playwright or a puppet.",
+     "walkthrough": "Either first name works: Arnold (Wesker) or Roland (Rat, a 1980s British TV puppet) both rearrange to the clown's name.",
+     "definitionFit": "Ronald McDonald is the clown who serves as the mascot of the McDonald's hamburger chain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Rat"
+    }
+   }
   },
   {
    "number": 30,
@@ -513,7 +1954,49 @@
      }
     ]
    },
-   "solution": "BASECAMP"
+   "solution": "BASECAMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BASE CAMP",
+    "definitions": [
+     {
+      "text": "at start of the climb",
+      "at": 16,
+      "note": "describes where the answer is, rather than naming it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bottom",
+      "gives": "BASE",
+      "note": "the base is the bottom"
+     },
+     {
+      "clueFragment": "affected",
+      "gives": "CAMP",
+      "note": "camp means theatrically affected or exaggerated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASE",
+      "CAMP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a mannered behind sets off up a mountain.",
+     "walkthrough": "'Affected' usually signals a rearrangement, but here it is a synonym for camp.",
+     "definitionFit": "Base camp is the main camp at the foot of a mountain, where an ascent begins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "affected"
+    }
+   }
   }
  ]
 }
