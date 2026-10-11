@@ -38,6 +38,9 @@
   "date": "2018-05-06",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,76 @@
     "text": "Work includes book rest trashed? Author's to make a racket",
     "enumeration": "12"
    },
-   "solution": "OBSTREPERATE"
+   "solution": "OBSTREPERATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OBSTREPERATE",
+    "definitions": [
+     {
+      "text": "to make a racket",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "one word that includes others holds them inside itself, so the letters go into the middle of the work"
+     },
+     {
+      "text": "trashed",
+      "for": "anagram",
+      "note": "something trashed is wrecked and thrown about, so these letters are jumbled into a new order"
+     }
+    ],
+    "linkWords": [
+     "Author's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work",
+      "gives": "OPERATE",
+      "note": "to operate is to work, as a machine does"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "rest",
+      "gives": "REST",
+      "note": "taken as written, then jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "STRE",
+      "PERATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REST",
+       "gives": "STRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer's working space, stacked with books, is wrecked and they want to make a racket about it.",
+     "walkthrough": "OBSTREPERATE goes O(B+STRE)PERATE. 'Author's' tells you the word belongs to one writer: Chambers credits it to Laurence Sterne.",
+     "definitionFit": "Obstreperous means noisy and unruly, and this rare verb from the same root means to behave that way, raising a din."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +137,68 @@
     "text": "Chemical compound processed in lab tray left out",
     "enumeration": "6"
    },
-   "solution": "BARYTA"
+   "solution": "BARYTA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BARYTA",
+    "definitions": [
+     {
+      "text": "Chemical compound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left out",
+      "for": "deletion",
+      "note": "the abbreviation for left is to be left out, so that letter is dropped from the words"
+     },
+     {
+      "text": "processed",
+      "for": "anagram",
+      "note": "material that is processed is worked over and changed, so the letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lab tray",
+      "gives": "LABTRAY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left; this is the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARYTA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABTRAY",
+       "gives": "BARYTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemical is being prepared in a laboratory tray that someone has left out on the bench.",
+     "walkthrough": "Remove the L from LABTRAY, then jumble the six letters left.",
+     "definitionFit": "Baryta is barium oxide (or hydroxide), a compound of the metal barium used in industry and laboratories."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +212,65 @@
     "text": "Preacher and prophet, jolly individual at heart",
     "enumeration": "9"
    },
-   "solution": "SERMONEER"
+   "solution": "SERMONEER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SERMONEER",
+    "definitions": [
+     {
+      "text": "Preacher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at heart",
+      "for": "container",
+      "note": "what lies at the heart of something sits in its centre, so the other pieces go into the middle of the prophet"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prophet",
+      "gives": "SEER",
+      "note": "a seer foresees the future, like a prophet"
+     },
+     {
+      "clueFragment": "jolly",
+      "gives": "RM",
+      "note": "a jolly is old slang for a Royal Marine, abbreviated RM"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "one individual is one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "RM",
+      "ONE",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful man of the cloth is described as preacher, prophet and jolly fellow all in one.",
+     "walkthrough": "SE(RM+ONE)ER. 'Jolly' looks like a describing word but is the crossword's old slang for a marine.",
+     "definitionFit": "A sermoneer is an old word for someone who delivers sermons, that is, a preacher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jolly"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +284,63 @@
     "text": "Heads for repast in hall after taking in college buttery?",
     "enumeration": "4"
    },
-   "solution": "RICH"
+   "solution": "RICH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RICH",
+    "definitions": [
+     {
+      "text": "buttery?",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heads for",
+      "for": "letter_selection",
+      "note": "heads are the tops of things, so only the opening letter of each following word is kept"
+     },
+     {
+      "text": "after taking in",
+      "for": "container",
+      "note": "taking something in means holding it within, so the college abbreviation goes inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "repast in hall",
+      "gives": "RIH",
+      "select": "first",
+      "note": "the opening letters of these three words"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "C is the abbreviation for college"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "C",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Students heading to dinner in the college hall pass the buttery, the pantry where food and drink are kept.",
+     "walkthrough": "RI(C)H. A college buttery is a storeroom for provisions, but the question mark invites reading 'buttery' as full of butter.",
+     "definitionFit": "Food that is buttery is heavy with fat and cream, which is what we call rich food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "buttery"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +354,58 @@
     "text": "Small estate left remaining as legal right",
     "enumeration": "7"
    },
-   "solution": "ESTOVER"
+   "solution": "ESTOVER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ESTOVER",
+    "definitions": [
+     {
+      "text": "legal right",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Small",
+      "for": "deletion",
+      "note": "making the word small means cutting it short, so its ending is dropped"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "estate",
+      "gives": "ESTATE",
+      "note": "taken as written, then shortened"
+     },
+     {
+      "clueFragment": "left remaining",
+      "gives": "OVER",
+      "note": "what is left or remaining is over, as in 'food left over'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EST",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A modest estate is what remains, and the heir holds it as a legal right.",
+     "walkthrough": "ESTATE loses its last three letters to give EST.",
+     "definitionFit": "An estover is a tenant's old legal entitlement to take wood or other necessities from the land they occupy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +419,62 @@
     "text": "Crown circles head of tsar expanding towards the end",
     "enumeration": "5"
    },
-   "solution": "PATTE"
+   "solution": "PATTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PATTE",
+    "definitions": [
+     {
+      "text": "expanding towards the end",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening, so only its first letter is used"
+     },
+     {
+      "text": "circles",
+      "for": "container",
+      "note": "to circle something is to surround it, so the crown goes all the way round the selected letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crown",
+      "gives": "PATE",
+      "note": "the crown of the head is the pate"
+     },
+     {
+      "clueFragment": "tsar",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of tsar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "T",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A crown sits around the head of a tsar, its shape widening towards the bottom.",
+     "walkthrough": "PAT(T)E. 'Crown' suggests royal regalia, fitting the tsar, but it means the top of a head.",
+     "definitionFit": "In heraldry a cross patté has arms that are narrow at the centre and widen out at their tips."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crown"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +488,65 @@
     "text": "They convey one to faraway place, rugged shoreline, hard going",
     "enumeration": "8"
    },
-   "solution": "ELOINERS"
+   "solution": "ELOINERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ELOINERS",
+    "definitions": [
+     {
+      "text": "They convey one to faraway place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hard going",
+      "for": "deletion",
+      "note": "the abbreviation for hard is going away, so that letter is removed"
+     },
+     {
+      "text": "rugged",
+      "for": "anagram",
+      "note": "a rugged coast is broken and irregular, so these letters are broken up and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shoreline",
+      "gives": "SHORELINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils; this is the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELOINERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SORELINE",
+       "gives": "ELOINERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Travellers are carried off to a remote spot where the rugged shoreline makes the going tough.",
+     "walkthrough": "Take the H out of SHORELINE and rearrange what remains.",
+     "definitionFit": "To eloin is an old legal verb meaning to remove or carry off to a distance, so eloiners are those who take someone far away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +560,55 @@
     "text": "On being dismissed by judge, past caring?",
     "enumeration": "4"
    },
-   "solution": "RECK"
+   "solution": "RECK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RECK",
+    "definitions": [
+     {
+      "text": "past caring?",
+      "at": 29,
+      "note": "an archaic verb, to care; 'past' flags its age"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being dismissed by",
+      "for": "deletion",
+      "note": "something dismissed is sent away, so the little word is struck out of the judge"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On",
+      "gives": "ON",
+      "note": "taken as written; this is what is removed"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "RECKON",
+      "note": "to reckon is to judge or estimate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECK"
+     ]
+    },
+    "explanation": {
+     "surface": "A case thrown out by the judge leaves someone beyond caring.",
+     "walkthrough": "RECKON minus ON. 'Past caring' reads as an idiom for indifference, but here 'past' marks the word as a bygone one for caring.",
+     "definitionFit": "Reck is an old verb meaning to heed or care, surviving in reckless; it belongs to past usage, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "past"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +622,55 @@
     "text": "Continues without changing in dull woolly stuff",
     "enumeration": "6"
    },
-   "solution": "TAMISE"
+   "solution": "TAMISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TAMISE",
+    "definitions": [
+     {
+      "text": "woolly stuff",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it, so the short word goes within the word for dull"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Continues without changing",
+      "gives": "IS",
+      "note": "something that stays as is continues unchanged; is means exists, goes on"
+     },
+     {
+      "clueFragment": "dull",
+      "gives": "TAME",
+      "note": "tame means dull, unexciting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAM",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps wearing the same drab woollen clothes without ever changing them.",
+     "walkthrough": "TAM(IS)E. 'Without changing' points to the phrase 'as is', meaning left unaltered.",
+     "definitionFit": "Tamise is a thin worsted fabric, a woollen material also called tammy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Continues"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +684,63 @@
     "text": "Fruit from Bengal cored and mashed",
     "enumeration": "4"
    },
-   "solution": "BAEL"
+   "solution": "BAEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BAEL",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cored",
+      "for": "deletion",
+      "note": "a cored apple has its middle cut out, so the central letters of the word are removed"
+     },
+     {
+      "text": "mashed",
+      "for": "anagram",
+      "note": "mashed fruit is squashed into a new form, so the remaining letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bengal",
+      "gives": "BENGAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAEL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEAL",
+       "gives": "BAEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit from Bengal is prepared by removing its core and mashing the flesh.",
+     "walkthrough": "BENGAL loses its middle NG, leaving BEAL to rearrange. Fittingly, the fruit grows in India.",
+     "definitionFit": "The bael is the Bengal quince, an Indian tree whose hard-shelled fruit is eaten and used in medicine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cored"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +754,62 @@
     "text": "Group with lead vocalist securing right collar fastener",
     "enumeration": "10"
    },
-   "solution": "BANDSTRING"
+   "solution": "BANDSTRING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BANDSTRING",
+    "definitions": [
+     {
+      "text": "collar fastener",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "to secure something is to hold it fast, here by wrapping round the abbreviation for right"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group",
+      "gives": "BAND",
+      "note": "a band is a musical group"
+     },
+     {
+      "clueFragment": "lead vocalist",
+      "gives": "STING",
+      "note": "Sting was lead singer of the Police"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAND",
+      "ST",
+      "R",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A pop group and its lead singer fasten the singer's collar correctly before going on stage.",
+     "walkthrough": "BAND + ST(R)ING. The lead vocalist is a specific one: Sting of the band the Police.",
+     "definitionFit": "A bandstring is a tie or cord used to fasten a band, the old-fashioned collar or neckband."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +823,78 @@
     "text": "Porter turned sour almost entirely, say, with a traveller's tip",
     "enumeration": "6"
    },
-   "solution": "ALEGAR"
+   "solution": "ALEGAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ALEGAR",
+    "definitions": [
+     {
+      "text": "Porter turned sour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter of the word for entirely is dropped"
+     },
+     {
+      "text": "tip",
+      "for": "letter_selection",
+      "note": "a tip is an end point, so only the final letter of traveller is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entirely",
+      "gives": "ALL",
+      "note": "all means entirely, as in 'all alone'; cut short"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example, as 'say' does"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "traveller's",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of traveller"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "EG",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A railway porter grows almost entirely sour, despite the tip a traveller hands him.",
+     "walkthrough": "'Porter' looks like a railway worker but is the dark beer, and 'tip' looks like a gratuity but means the last letter.",
+     "definitionFit": "Alegar is vinegar made from ale, literally sour ale, so a beer such as porter that has gone off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Porter"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +908,68 @@
     "text": "Tough grass nurses simmering hatred, ready to baste again?",
     "enumeration": "10"
    },
-   "solution": "RETHREADED"
+   "solution": "RETHREADED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RETHREADED",
+    "definitions": [
+     {
+      "text": "ready to baste again?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "simmering",
+      "for": "anagram",
+      "note": "something simmering bubbles and churns, so these letters are stirred into a new order"
+     },
+     {
+      "text": "nurses",
+      "for": "container",
+      "note": "to nurse something is to hold it close, so the grass wraps around the jumbled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tough grass",
+      "gives": "REED",
+      "note": "reed is a tall, tough grass"
+     },
+     {
+      "clueFragment": "hatred",
+      "gives": "HATRED",
+      "note": "taken as written, then jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "THREAD",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HATRED",
+       "gives": "THREAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook nursing a simmering grudge stands ready to baste the roast once more.",
+     "walkthrough": "RE(THREAD)ED. 'Baste' suggests cooking, but it also means tacking cloth with long stitches, which needs a threaded needle.",
+     "definitionFit": "To baste in sewing is to tack with loose stitches; a needle given thread a second time is ready to do it again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "baste"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +983,55 @@
     "text": "Alert to hear decision college is involved in",
     "enumeration": "6"
    },
-   "solution": "ARRECT"
+   "solution": "ARRECT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARRECT",
+    "definitions": [
+     {
+      "text": "Alert to hear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is involved in",
+      "for": "container",
+      "note": "something involved in another is caught up inside it, so the college abbreviation sits within the decision"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decision",
+      "gives": "ARRET",
+      "note": "an arret is a judgment or decision of a court, from French arrêt"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "C is the abbreviation for college"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARRE",
+      "C",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A college is caught up in a ruling and waits keenly to hear the decision.",
+     "walkthrough": "ARRE(C)T. 'To hear' seems to belong with 'decision', but it completes the definition.",
+     "definitionFit": "Arrect describes ears pricked up, so it means attentive and on the alert for sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hear"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +1044,50 @@
    "clue": {
     "text": "Future punishment imposed on the writer (6, two words)"
    },
-   "solution": "TOCOME"
+   "solution": "TOCOME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TO COME",
+    "definitions": [
+     {
+      "text": "Future",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "imposed on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "punishment",
+      "gives": "TOCO",
+      "note": "toco is old slang for punishment, a thrashing"
+     },
+     {
+      "clueFragment": "the writer",
+      "gives": "ME",
+      "note": "the writer refers to the setter, me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOCO",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone foresees punishment being imposed on them in the future.",
+     "walkthrough": "'Imposed on' puts one piece on top of the other, which in an across clue means before it.",
+     "definitionFit": "Things to come are future ones, as in 'the world to come', so the phrase works as an adjective for later."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "imposed"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +1101,61 @@
     "text": "One with constituency in city house – she has irresistible urges",
     "enumeration": "6"
    },
-   "solution": "NYMPHO"
+   "solution": "NYMPHO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NYMPHO",
+    "definitions": [
+     {
+      "text": "she has irresistible urges",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it, so the politician goes within the city abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "NY",
+      "note": "NY is the abbreviation for New York"
+     },
+     {
+      "clueFragment": "One with constituency",
+      "gives": "MP",
+      "note": "a Member of Parliament represents a constituency"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NY",
+      "MP",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "An MP with a house in New York turns out to be a woman of uncontrollable desires.",
+     "walkthrough": "NY(MP)HO. An MP is a member of the UK Parliament, elected by a constituency.",
+     "definitionFit": "Nympho, short for nymphomaniac, is slang for a woman with compulsive sexual desire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1169,76 @@
     "text": "Militant lot, hard one, e.g. in Germany, raised welcoming cry",
     "enumeration": "9"
    },
-   "solution": "HIZBOLLAH"
+   "solution": "HIZBOLLAH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HIZBOLLAH",
+    "definitions": [
+     {
+      "text": "Militant lot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raising a word lifts its end to the top, so it reads upwards"
+     }
+    ],
+    "linkWords": [
+     "welcoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "e.g. in Germany",
+      "gives": "ZB",
+      "note": "z.B., zum Beispiel, is German for e.g."
+     },
+     {
+      "clueFragment": "cry",
+      "gives": "HALLO",
+      "note": "hallo is a cry of greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "I",
+      "ZB",
+      "OLLAH"
+     ],
+     "reversals": [
+      {
+       "from": "HALLO",
+       "to": "OLLAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hard-line militant group in Germany raises a cheer of welcome.",
+     "walkthrough": "'Welcoming' looks like a container signal but just describes the cry, a greeting. z.B. is the standard German abbreviation for 'for example'.",
+     "definitionFit": "Hizbollah is a militant Shia Islamist organisation based in Lebanon, a group or body of fighters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Germany"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1252,60 @@
     "text": "Baccy cakes, new, in hollow bowl?",
     "enumeration": "9"
    },
-   "solution": "CAVENDISH"
+   "solution": "CAVENDISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAVENDISH",
+    "definitions": [
+     {
+      "text": "Baccy cakes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it, so the abbreviation for new goes within the words for hollow and bowl"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hollow",
+      "gives": "CAVE",
+      "note": "a cave is a hollow in rock"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "bowl",
+      "gives": "DISH",
+      "note": "a dish is a bowl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAVE",
+      "N",
+      "DISH"
+     ]
+    },
+    "explanation": {
+     "surface": "Fresh tobacco cakes are put in the hollow of a pipe bowl.",
+     "walkthrough": "CAVE + N + DISH. 'Bowl' fits the pipe-smoking scene, but here it is just a dish. Baccy is informal for tobacco.",
+     "definitionFit": "Cavendish is tobacco softened, sweetened and pressed into cakes or plugs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bowl"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1319,70 @@
     "text": "Physicist using volume to wedge faulty Aga door",
     "enumeration": "8"
    },
-   "solution": "AVOGADRO"
+   "solution": "AVOGADRO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AVOGADRO",
+    "definitions": [
+     {
+      "text": "Physicist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "faulty",
+      "for": "anagram",
+      "note": "something faulty is not in working order, so these letters are put out of their order"
+     },
+     {
+      "text": "to wedge",
+      "for": "container",
+      "note": "a wedge is driven into a gap, so the volume abbreviation is pushed inside the jumbled letters"
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "volume",
+      "gives": "V",
+      "note": "V is the abbreviation for volume"
+     },
+     {
+      "clueFragment": "Aga door",
+      "gives": "AGADOOR",
+      "note": "taken as written, then jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "OGADRO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGADOOR",
+       "gives": "AOGADRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physicist wedges a book under the broken door of his Aga stove.",
+     "walkthrough": "An Aga is a heavy cast-iron range cooker found in British country kitchens. Volume also fits the physicist: Avogadro's law concerns gas volumes.",
+     "definitionFit": "Amedeo Avogadro was an Italian scientist who proposed that equal volumes of gases hold equal numbers of molecules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 19,
@@ -316,7 +1396,44 @@
     "text": "Blood in arms necessitates angioplasty? Only some of it",
     "enumeration": "4"
    },
-   "solution": "SANG"
+   "solution": "SANG",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SANG",
+    "definitions": [
+     {
+      "text": "Blood in arms",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Only some of it",
+      "for": "hidden_word",
+      "note": "only some of it means just a portion of the preceding words is used, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "necessitates angioplasty",
+      "gives": "SANG",
+      "note": "the letters run across the boundary between these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Blood in the arms makes a heart operation necessary, though perhaps only partly.",
+     "walkthrough": "'Arms' means heraldry, not limbs. Angioplasty is a procedure for widening blocked arteries.",
+     "definitionFit": "In heraldry, sang is the term for blood, borrowed from the French word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "arms"
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1447,66 @@
     "text": "When it's not run out, love getting into popular tipple, excellent Scotch",
     "enumeration": "6"
    },
-   "solution": "BEEZER"
+   "solution": "BEEZER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BEEZER",
+    "definitions": [
+     {
+      "text": "excellent Scotch",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "When it's not run out",
+      "for": "deletion",
+      "note": "it here refers to love, which must be without the cricket abbreviation for run out"
+     },
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "getting into something means going inside it, so the shortened love goes within the drink"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "ZERO",
+      "note": "love is zero in tennis"
+     },
+     {
+      "clueFragment": "run out",
+      "gives": "RO",
+      "note": "RO is the cricket scorecard abbreviation for run out; this is removed"
+     },
+     {
+      "clueFragment": "popular tipple",
+      "gives": "BEER",
+      "note": "beer is a popular drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEE",
+      "ZE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A popular drink keeps flowing as long as it hasn't run out, which is excellent, says a Scot.",
+     "walkthrough": "'It' refers back to love, which loses the cricket abbreviation. 'Scotch' looks like whisky, fitting the tipple, but it labels the word as Scots.",
+     "definitionFit": "Beezer is Scots and northern slang for something first-rate, an adjective for excellent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scotch"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1520,63 @@
     "text": "Turning tables with rook – it may get you out of a trap",
     "enumeration": "7"
    },
-   "solution": "BLASTER"
+   "solution": "BLASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLASTER",
+    "definitions": [
+     {
+      "text": "it may get you out of a trap",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turning",
+      "for": "anagram",
+      "note": "turning the tables reverses a situation, and here the letters are turned around into a new order"
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tables",
+      "gives": "TABLES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R is the chess abbreviation for rook"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLASTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TABLESR",
+       "gives": "BLASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player turns the tables with a rook move, escaping a trap.",
+     "walkthrough": "The trap is a golf bunker, called a sand trap in the US, not a chess snare.",
+     "definitionFit": "A blaster is a golf club, a sand wedge, used to blast the ball out of a bunker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trap"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1590,55 @@
     "text": "Former rock group entering rise, a thrill",
     "enumeration": "6"
    },
-   "solution": "TREMOR"
+   "solution": "TREMOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TREMOR",
+    "definitions": [
+     {
+      "text": "a thrill",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes inside, so the band sits within the word for rise"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rise",
+      "gives": "TOR",
+      "note": "a tor is a rocky hill, a rise in the land"
+     },
+     {
+      "clueFragment": "Former rock group",
+      "gives": "REM",
+      "note": "R.E.M. was a US rock band, disbanded in 2011"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REM",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A disbanded rock band rising again on stage gives fans a thrill.",
+     "walkthrough": "T(REM)OR. A tor, a word common on Dartmoor, is a craggy hilltop.",
+     "definitionFit": "A tremor can be a quiver of excitement or emotion, which is what a thrill is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1652,71 @@
     "text": "Patch on last sore to be treated, limb not good",
     "enumeration": "6"
    },
-   "solution": "RESOLE"
+   "solution": "RESOLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RESOLE",
+    "definitions": [
+     {
+      "text": "Patch on last",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not good",
+      "for": "deletion",
+      "note": "not good means without the abbreviation for good, so that letter is taken out"
+     },
+     {
+      "text": "to be treated",
+      "for": "anagram",
+      "note": "something to be treated is to be worked on and altered, so these letters are reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sore",
+      "gives": "SORE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "limb",
+      "gives": "LEG",
+      "note": "a leg is a limb"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good; this is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESOLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SORELE",
+       "gives": "RESOLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dressing is put on a sore that needs treating, as the injured leg is in bad shape.",
+     "walkthrough": "LEG loses its G; SORE + LE is then rearranged. A last is the cobbler's foot-shaped block, not a final thing.",
+     "definitionFit": "Resoling a shoe means fitting a new sole, a repair done with the shoe on the cobbler's last."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1730,55 @@
     "text": "Junior churchman, Scots one flanking bishops",
     "enumeration": "4"
    },
-   "solution": "ABBE"
+   "solution": "ABBE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABBE",
+    "definitions": [
+     {
+      "text": "Junior churchman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flanking",
+      "for": "container",
+      "note": "to flank is to stand on both sides, so the Scots word goes either side of the bishops"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scots one",
+      "gives": "AE",
+      "note": "ae is Scots for one"
+     },
+     {
+      "clueFragment": "bishops",
+      "gives": "BB",
+      "note": "B is the chess abbreviation for bishop, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A junior cleric from Scotland stands between two bishops.",
+     "walkthrough": "A(BB)E.",
+     "definitionFit": "An abbé is a French title for an abbot or, more often, any lower-ranking cleric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flanking"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1792,59 @@
     "text": "French beak, beak I'll follow having afternoon in",
     "enumeration": "6"
    },
-   "solution": "BAILLI"
+   "solution": "BAILLI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BAILLI",
+    "definitions": [
+     {
+      "text": "French beak",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having",
+      "for": "container",
+      "note": "a thing having another in it holds it inside, so the abbreviation for afternoon sits within the beak"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beak I'll follow",
+      "gives": "BILLI",
+      "note": "a bird's beak is its bill, and 'I'll follow' puts the letter I after it"
+     },
+     {
+      "clueFragment": "afternoon",
+      "gives": "A",
+      "note": "A is short for afternoon, as in a.m./p.m. style timetable shorthand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "A",
+      "ILLI"
+     ]
+    },
+    "explanation": {
+     "surface": "A French magistrate says he will follow on, having spent the afternoon in court.",
+     "walkthrough": "B(A)ILL + I. Beak is British slang for a magistrate; the second beak is a bird's.",
+     "definitionFit": "A bailli was a French royal officer who acted as magistrate in a district."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beak"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1858,55 @@
     "text": "Fancy dress gear, material for Hawaiian skirt? Probably not",
     "enumeration": "9"
    },
-   "solution": "REEDGRASS"
+   "solution": "REEDGRASS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REEDGRASS",
+    "definitions": [
+     {
+      "text": "material for Hawaiian skirt? Probably not",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fancy",
+      "for": "anagram",
+      "note": "fancy describes something elaborate and made up, so these letters are made into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dress gear",
+      "gives": "DRESSGEAR",
+      "note": "taken as written, then jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REEDGRASS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRESSGEAR",
+       "gives": "REEDGRASS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fancy dress outfits include a Hawaiian grass skirt, though maybe not one of real grass.",
+     "walkthrough": "'Fancy dress' reads as a costume party, but 'Fancy' is the signal. The definition hedges because hula skirts are traditionally made of leaves.",
+     "definitionFit": "Reed grass is a tall grass of wetlands, plausibly a skirt material but not the usual one, hence 'Probably not'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1920,49 @@
     "text": "Turn, most indecent, topless?",
     "enumeration": "5"
    },
-   "solution": "REEST"
+   "solution": "REEST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REEST",
+    "definitions": [
+     {
+      "text": "Turn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "in a down entry the top is the first letter, so a topless word loses its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most indecent",
+      "gives": "FREEST",
+      "note": "free can mean licentious or improper, so the most indecent is the freest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REEST"
+     ]
+    },
+    "explanation": {
+     "surface": "The rudest turn on stage is one performed topless.",
+     "walkthrough": "FREEST loses its F. 'Topless' fits the indecent scene, but it only removes a letter.",
+     "definitionFit": "Reest is a dialect verb for bacon or meat going rancid, and to turn is to go sour or bad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1976,47 @@
     "text": "Cheap fur matched with outward appearance",
     "enumeration": "4"
    },
-   "solution": "VAIR"
+   "solution": "VAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VAIR",
+    "definitions": [
+     {
+      "text": "Cheap fur",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "matched with",
+      "gives": "V",
+      "note": "v. for versus, as when one team is matched with another"
+     },
+     {
+      "clueFragment": "outward appearance",
+      "gives": "AIR",
+      "note": "someone's air is their manner or outward look"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheap fur coat is worn with an air of grandeur to look expensive.",
+     "walkthrough": "Vair was squirrel fur, a humbler lining than ermine in medieval robes.",
+     "definitionFit": "Vair is the grey and white fur of a squirrel, used in medieval dress and as a heraldic tincture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "matched"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +2030,54 @@
     "text": "It's old fashioned, wooden",
     "enumeration": "6"
    },
-   "solution": "STOLID"
+   "solution": "STOLID",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STOLID",
+    "definitions": [
+     {
+      "text": "wooden",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fashioned",
+      "for": "anagram",
+      "note": "something fashioned is shaped or made, so these letters are formed into a new word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's old",
+      "gives": "ITSOLD",
+      "note": "taken as written, then jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOLID"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITSOLD",
+       "gives": "STOLID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned piece of furniture is made of wood.",
+     "walkthrough": "'Old fashioned' reads as one phrase, but 'old' is fodder and 'fashioned' the signal.",
+     "definitionFit": "Stolid means impassive and unemotional, the same as wooden when describing a manner or performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fashioned"
+    }
+   }
   },
   {
    "number": 29,
@@ -470,7 +2091,57 @@
     "text": "Exotic food plant: look in for a taste, turning up",
     "enumeration": "4"
    },
-   "solution": "TARO"
+   "solution": "TARO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TARO",
+    "definitions": [
+     {
+      "text": "Exotic food plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "look in",
+      "for": "hidden_word",
+      "note": "to look in on words is to search inside them, where a run of letters lies across the word breaks"
+     },
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning a word up makes it read from the bottom to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for a taste",
+      "gives": "ORAT",
+      "note": "the letters run across these three words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ORAT",
+       "to": "TARO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exotic edible plant: drop by and sample some as it comes up.",
+     "walkthrough": "'Look in for a taste' reads as an invitation to call and try some, but it asks you to search inside the words. 'Turning up' sounds like arriving.",
+     "definitionFit": "Taro is a tropical plant grown for its starchy edible root, a staple in the Pacific and Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 30,
@@ -484,7 +2155,70 @@
     "text": "Fatal submersion from short period in much longer one, going back",
     "enumeration": "6"
    },
-   "solution": "NOYADE"
+   "solution": "NOYADE",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "NOYADE",
+    "definitions": [
+     {
+      "text": "Fatal submersion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it, so the short period goes within the longer one"
+     },
+     {
+      "text": "going back",
+      "for": "reversal",
+      "note": "going back means travelling in the opposite direction, so the letters read right to left"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "much longer one",
+      "gives": "EON",
+      "note": "an eon is an immensely long period"
+     },
+     {
+      "clueFragment": "short period",
+      "gives": "DAY",
+      "note": "a day is a short period"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "YAD",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EDAYON",
+       "to": "NOYADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drowning happens in a moment, set within a much longer stretch of history being looked back on.",
+     "walkthrough": "E(DAY)ON, then the whole is read backwards. Noyades were mass drownings in the French Revolution at Nantes.",
+     "definitionFit": "A noyade is an execution by drowning, as carried out at Nantes in 1793–94."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 31,
@@ -498,7 +2232,44 @@
     "text": "Royal tax, obligation by the sound of it",
     "enumeration": "6"
    },
-   "solution": "TAILLE"
+   "solution": "TAILLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TAILLE",
+    "definitions": [
+     {
+      "text": "Royal tax",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "by the sound of it means the word is judged on how it is spoken, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obligation",
+      "gives": "TAILLE",
+      "soundsLike": "TIE",
+      "note": "a tie is a binding obligation; the French word is said like it"
+     }
+    ],
+    "explanation": {
+     "surface": "A tax owed to the king is an obligation, so it seems.",
+     "walkthrough": "TAILLE is said the French way, 'tie', and a tie is a duty that binds you.",
+     "definitionFit": "The taille was a direct land tax levied by the French kings on commoners before the Revolution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 32,
@@ -512,7 +2283,69 @@
     "text": "Varnishes a girl variously applied to end of nails",
     "enumeration": "6"
    },
-   "solution": "GLAIRS"
+   "solution": "GLAIRS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "GLAIRS",
+    "definitions": [
+     {
+      "text": "Varnishes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "variously applied",
+      "for": "anagram",
+      "note": "variously means in several different ways, so the letters are laid out in a new order"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is taken"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a girl",
+      "gives": "AGIRL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nails",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of nails"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLAIRS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGIRLS",
+       "gives": "GLAIRS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl paints varnish on her nails in different ways.",
+     "walkthrough": "'Varnishes' fits the nail-painting scene, but the answer is a bookbinder's glaze.",
+     "definitionFit": "Glair is egg-white glaze used as a size in bookbinding and gilding; to glair is to coat with it, much as one varnishes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nails"
+    }
+   }
   },
   {
    "number": 33,
@@ -526,7 +2359,64 @@
     "text": "Song that's recalled dead, strong Scots",
     "enumeration": "4"
    },
-   "solution": "YALD"
+   "solution": "YALD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "YALD",
+    "definitions": [
+     {
+      "text": "strong Scots",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled means called back, so the word for song is taken backwards"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Song",
+      "gives": "LAY",
+      "note": "a lay is a song or ballad"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "D is the abbreviation for dead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YAL",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "LAY",
+       "to": "YAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A song remembered from the dead is a powerful Scottish one.",
+     "walkthrough": "'Scots' labels the word as Scottish, not people from Scotland.",
+     "definitionFit": "Yald, also yauld, is a Scots adjective meaning vigorous, active and robust."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 34,
@@ -540,7 +2430,57 @@
     "text": "Runner with hip too stressed? Protein required",
     "enumeration": "12"
    },
-   "solution": "NEUROTROPHIN"
+   "solution": "NEUROTROPHIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEUROTROPHIN",
+    "definitions": [
+     {
+      "text": "Protein",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stressed",
+      "for": "anagram",
+      "note": "something stressed is under strain and pulled out of shape, so these letters are distorted into a new order"
+     }
+    ],
+    "linkWords": [
+     "required"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runner with hip too",
+      "gives": "RUNNERHIPTOO",
+      "note": "taken as written except the joining word with, then jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEUROTROPHIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUNNERHIPTOO",
+       "gives": "NEUROTROPHIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner whose hip is also under strain needs protein to recover.",
+     "walkthrough": "'With' only joins the fodder words; the letters of runner, hip and too are rearranged.",
+     "definitionFit": "A neurotrophin is one of a family of proteins that promote the growth and survival of nerve cells."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stressed"
+    }
+   }
   }
  ]
 }
