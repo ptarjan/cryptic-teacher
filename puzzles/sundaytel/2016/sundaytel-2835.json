@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,46 @@
     "text": "Someone waiting for person to start court action",
     "enumeration": "6"
    },
-   "solution": "SERVER"
+   "solution": "SERVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SERVER",
+    "definitions": [
+     {
+      "text": "Someone waiting",
+      "at": 0
+     },
+     {
+      "text": "person to start court action",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone waiting",
+      "note": "first meaning: a waiter, one who serves at table"
+     },
+     {
+      "clueFragment": "person to start court action",
+      "note": "second meaning: in tennis, the player who serves begins each point on court"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Court action' suggests a lawsuit, but the court is a tennis court and the action begins with a serve.",
+     "definitionFit": "The word names both a waiter at a restaurant and the tennis player whose turn it is to serve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +88,57 @@
     "text": "Like stars in team, given genuine support",
     "enumeration": "8"
    },
-   "solution": "SIDEREAL"
+   "solution": "SIDEREAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIDEREAL",
+    "definitions": [
+     {
+      "text": "Like stars",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given genuine support",
+      "for": "charade",
+      "note": "in a down entry, being given support means having something placed underneath, so the second piece goes below"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a team"
+     },
+     {
+      "clueFragment": "genuine",
+      "gives": "REAL",
+      "note": "real means genuine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDE",
+      "REAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Star players in a team, backed by real support from fans.",
+     "walkthrough": "'Given support' places REAL beneath SIDE in this down entry. 'Stars' suggests celebrity players, but means stars in the sky.",
+     "definitionFit": "Sidereal means relating to or measured by the fixed stars, as in a sidereal day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +152,46 @@
     "text": "Pick up and put on new jacket for work",
     "enumeration": "7"
    },
-   "solution": "RECOVER"
+   "solution": "RECOVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECOVER",
+    "definitions": [
+     {
+      "text": "Pick up",
+      "at": 0
+     },
+     {
+      "text": "put on new jacket for work",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pick up",
+      "note": "first meaning: improve, get better after a setback"
+     },
+     {
+      "clueFragment": "put on new jacket for work",
+      "note": "second meaning: ..., give a book a fresh dust jacket"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Work' and 'jacket' look like clothing for the office, but a work here is a book and the jacket its cover.",
+     "definitionFit": "The verb means to regain health or strength, and, split as re-cover, to cover something again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jacket"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +205,63 @@
     "text": "Host needs to get into coach right away",
     "enumeration": "9"
    },
-   "solution": "ENTERTAIN"
+   "solution": "ENTERTAIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ENTERTAIN",
+    "definitions": [
+     {
+      "text": "Host",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "right away",
+      "for": "deletion",
+      "note": "with right sent away, the letter standing for right is removed"
+     }
+    ],
+    "linkWords": [
+     "needs to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get into",
+      "gives": "ENTER",
+      "note": "to enter is to get into"
+     },
+     {
+      "clueFragment": "coach",
+      "gives": "TRAIN",
+      "note": "to coach someone is to train them"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTER",
+      "TAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A host must hurry aboard a coach at once.",
+     "walkthrough": "'Right away' reads as 'immediately' but tells you to drop R.",
+     "definitionFit": "To host guests is to entertain them, as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "away"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +275,64 @@
     "text": "I admit grasping zero, being this?",
     "enumeration": "8"
    },
-   "solution": "IGNORANT"
+   "solution": "IGNORANT",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade",
+     "container"
+    ],
+    "answer": "IGNORANT",
+    "definitions": [
+     {
+      "text": "I admit grasping zero, being this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grasping",
+      "for": "container",
+      "note": "to grasp something is to hold it, so one word takes another inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "admit",
+      "gives": "GRANT",
+      "note": "to grant a point is to admit it"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "NO",
+      "note": "no, as in none at all, means zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "G",
+      "NO",
+      "RANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A confession that one has understood nothing, with a wry question about what that makes the speaker.",
+     "walkthrough": "'Zero' as the word no, not the letter O, is the step most solvers miss. Read whole, the clue also defines: someone who admits grasping nothing knows nothing.",
+     "definitionFit": "Someone who understands nothing at all lacks knowledge, which is what the adjective describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grasping"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +346,71 @@
     "text": "A line is included by peer group in comprehensive statement",
     "enumeration": "14"
    },
-   "solution": "GENERALISATION"
+   "solution": "GENERALISATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GENERALISATION",
+    "definitions": [
+     {
+      "text": "comprehensive statement",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is included by",
+      "for": "container",
+      "note": "being included by something means sitting inside it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peer group",
+      "gives": "GENERATION",
+      "note": "a generation is a group of people of the same age, one's peers"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENER",
+      "A",
+      "L",
+      "IS",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A single line of text is accepted by a committee of peers into a broad statement.",
+     "walkthrough": "'Peer' suggests a lord, but a peer group is people of one age; the three short pieces go in as one unit.",
+     "definitionFit": "A generalisation is a broad claim applied to all cases; British spelling uses an S."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peer"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +424,50 @@
     "text": "In strange way, sordid play is so lacking in characters",
     "enumeration": "5"
    },
-   "solution": "ODDLY"
+   "solution": "ODDLY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ODDLY",
+    "definitions": [
+     {
+      "text": "In strange way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is so lacking in characters",
+      "for": "letter_selection",
+      "note": "being short of characters means every other letter of the phrase is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sordid play",
+      "gives": "ODDLY",
+      "select": "alternate",
+      "note": "its even letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODDLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A seedy play turns out to be thin in its cast of characters.",
+     "walkthrough": "'Characters' reads as people in a play but means letters.",
+     "definitionFit": "The adverb describes doing something in a peculiar or strange manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +481,68 @@
     "text": "Victorians, for example, as divided by bizarre issue",
     "enumeration": "7"
    },
-   "solution": "AUSSIES"
+   "solution": "AUSSIES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AUSSIES",
+    "definitions": [
+     {
+      "text": "Victorians, for example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bizarre",
+      "for": "anagram",
+      "note": "something bizarre is weird and out of order, so these letters are scrambled"
+     },
+     {
+      "text": "divided by",
+      "for": "container",
+      "note": "a word divided by something is split open with it placed in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "issue",
+      "gives": "USSIE",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "USSIE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISSUE",
+       "gives": "USSIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People of the Victorian era, split over a strange question.",
+     "walkthrough": "'Victorians' suggests 19th-century Britons, but they are people from Victoria, a state of Australia.",
+     "definitionFit": "Residents of the state of Victoria are Australians, informally called by this nickname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Victorians"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +556,48 @@
     "text": "Temperature affected by storm and low pressure area",
     "enumeration": "6"
    },
-   "solution": "TROUGH"
+   "solution": "TROUGH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TROUGH",
+    "definitions": [
+     {
+      "text": "low pressure area",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     },
+     {
+      "clueFragment": "affected by storm",
+      "gives": "ROUGH",
+      "note": "a sea is rough in a storm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROUGH"
+     ]
+    },
+    "explanation": {
+     "surface": "A weather report: heat changed by a storm and a depression.",
+     "definitionFit": "In meteorology an elongated region of low atmospheric pressure is called by this term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +617,51 @@
      }
     ]
    },
-   "solution": "ALBERTEINSTEIN"
+   "solution": "ALBERTEINSTEIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALBERT EINSTEIN",
+    "definitions": [
+     {
+      "text": "Famed scientist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eccentrically",
+      "for": "anagram",
+      "note": "acting eccentrically means behaving in an odd, irregular way, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enters lab in tie",
+      "gives": "ENTERSLABINTIE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENTERSLABINTIE",
+       "gives": "ALBERTEINSTEIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known scientist arrives at the laboratory oddly wearing a necktie.",
+     "walkthrough": "The surface's eccentric scientist is the answer himself, famous for his unkempt look.",
+     "definitionFit": "The physicist behind relativity is the best-known scientist of the twentieth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eccentrically"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +675,57 @@
     "text": "Old cheat spoiled new Olympic event",
     "enumeration": "9"
    },
-   "solution": "DECATHLON"
+   "solution": "DECATHLON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DECATHLON",
+    "definitions": [
+     {
+      "text": "Olympic event",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoiled",
+      "for": "anagram",
+      "note": "something spoiled has been messed up, so these letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old cheat",
+      "gives": "OLDCHEAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLDCHEATN",
+       "gives": "DECATHLON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran cheat has wrecked a newly added event at the Games.",
+     "walkthrough": "The added N joins the shuffle: all nine letters are rearranged together.",
+     "definitionFit": "This ten-discipline athletics contest for men is held at every Summer Games."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheat"
+    }
+   }
   },
   {
    "number": 11,
@@ -192,7 +739,45 @@
     "text": "Piece from Verdi scored for musical entertainment",
     "enumeration": "5"
    },
-   "solution": "DISCO"
+   "solution": "DISCO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DISCO",
+    "definitions": [
+     {
+      "text": "musical entertainment",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Piece from",
+      "for": "hidden_word",
+      "note": "a piece taken from the words that follow means a run of their letters is lifted out"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Verdi scored",
+      "gives": "DISCO",
+      "note": "the run straddles the gap between the composer's name and the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "An extract from an opera by Verdi, arranged for a stage show.",
+     "definitionFit": "A dance club or party with recorded pop music is a form of musical entertainment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Piece"
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +791,49 @@
     "text": "Bring back spiritual teaching with part of Bible",
     "enumeration": "7"
    },
-   "solution": "REVERSE"
+   "solution": "REVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REVERSE",
+    "definitions": [
+     {
+      "text": "Bring back",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spiritual teaching",
+      "gives": "RE",
+      "note": "RE is Religious Education, a school subject in Britain"
+     },
+     {
+      "clueFragment": "part of Bible",
+      "gives": "VERSE",
+      "note": "the Bible is divided into chapters and numbered verses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "VERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to revive religious instruction alongside scripture reading.",
+     "definitionFit": "To bring back a decision or a car is to undo or drive it backwards, which the verb covers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bring"
+    }
+   }
   },
   {
    "number": 13,
@@ -220,7 +847,39 @@
     "text": "Like work of most poets, but not Keats and Yeats",
     "enumeration": "7"
    },
-   "solution": "RHYMING"
+   "solution": "RHYMING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RHYMING",
+    "definitions": [
+     {
+      "text": "Like work of most poets, but not Keats and Yeats",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like work of most poets, but not Keats and Yeats",
+      "note": "surface reading: most poets share some quality that these two great poets lacked"
+     },
+     {
+      "clueFragment": "Keats and Yeats",
+      "note": "setter's reading: the two surnames end with the same sound, so the pair itself chimes; most verse does this, the names do not lack it at all"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 'but not' seems to exclude Keats and Yeats from the description, yet the names themselves share the very sound pattern the answer names.",
+     "definitionFit": "Most traditional poetry uses words with matching end sounds, and so does the pairing of these two surnames."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 14,
@@ -234,7 +893,58 @@
     "text": "A hearing not reaching conclusion in Roman courts",
     "enumeration": "5"
    },
-   "solution": "ATRIA"
+   "solution": "ATRIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ATRIA",
+    "definitions": [
+     {
+      "text": "Roman courts",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not reaching conclusion",
+      "for": "deletion",
+      "note": "failing to reach the conclusion means the word stops short of its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hearing",
+      "gives": "TRIAL",
+      "note": "a court hearing is a trial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TRIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A legal hearing that never got to a verdict in the courts of ancient Rome.",
+     "walkthrough": "'Courts' looks legal, like 'hearing', but here it means courtyards.",
+     "definitionFit": "An atrium was the open central courtyard of a Roman house; the plural is formed the Latin way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "courts"
+    }
+   }
   },
   {
    "number": 15,
@@ -248,7 +958,63 @@
     "text": "Select a revised time for programme to be seen",
     "enumeration": "8"
    },
-   "solution": "TELECAST"
+   "solution": "TELECAST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TELECAST",
+    "definitions": [
+     {
+      "text": "programme to be seen",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revised",
+      "for": "anagram",
+      "note": "a revised text has been changed and reworked, so these letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Select a",
+      "gives": "TELECAS",
+      "note": "the seven letters rearranged"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TELECAS",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SELECTA",
+       "gives": "TELECAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to pick a new slot for a show's screening.",
+     "definitionFit": "A broadcast on television is a programme that viewers watch rather than just hear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Select"
+    }
+   }
   },
   {
    "number": 16,
@@ -262,7 +1028,67 @@
     "text": "Meat dish, in part, inferior to second in container",
     "enumeration": "9"
    },
-   "solution": "CASSEROLE"
+   "solution": "CASSEROLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CASSEROLE",
+    "definitions": [
+     {
+      "text": "Meat dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one letter is placed inside the word that follows"
+     },
+     {
+      "text": "inferior to",
+      "for": "charade",
+      "note": "in a down entry, being inferior means lying lower, so this piece comes below"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "CASE",
+      "note": "a case is a container"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "in part",
+      "gives": "ROLE",
+      "note": "an actor in a part is playing a role"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "S",
+      "SE",
+      "ROLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A meat dish whose share counts for less than the second course in a bowl.",
+     "walkthrough": "In a down entry 'inferior to' means placed below, so the part follows the boxed second.",
+     "definitionFit": "A casserole is a slow-cooked stew, often of meat, made in a covered dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inferior"
+    }
+   }
   },
   {
    "number": 17,
@@ -276,7 +1102,61 @@
     "text": "Protected by soldier, I don't leave chief supporter",
     "enumeration": "8"
    },
-   "solution": "MAINSTAY"
+   "solution": "MAINSTAY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MAINSTAY",
+    "definitions": [
+     {
+      "text": "chief supporter",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Protected by",
+      "for": "container",
+      "note": "something protected by another is surrounded and shielded by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "MAN",
+      "note": "a man is a private soldier, as in officers and men"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "don't leave",
+      "gives": "STAY",
+      "note": "to stay is not to leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "I",
+      "N",
+      "STAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Guarded by a soldier, the speaker refuses to abandon a leading backer.",
+     "definitionFit": "A mainstay is the person or thing on which something principally depends, its main support."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Protected"
+    }
+   }
   },
   {
    "number": 18,
@@ -290,7 +1170,50 @@
     "text": "After brief period, releases North American force",
     "enumeration": "8"
    },
-   "solution": "MOUNTIES"
+   "solution": "MOUNTIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOUNTIES",
+    "definitions": [
+     {
+      "text": "North American force",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brief period",
+      "gives": "MO",
+      "note": "a mo is a moment, short for a brief spell of time"
+     },
+     {
+      "clueFragment": "releases",
+      "gives": "UNTIES",
+      "note": "to untie is to set free"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "UNTIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A force lets people go after only a short spell in custody.",
+     "walkthrough": "'After' places MO first; it reads like a sequence of events in the surface.",
+     "definitionFit": "The Royal Canadian Mounted Police, a national police force, are known by this informal name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "releases"
+    }
+   }
   },
   {
    "number": 19,
@@ -304,7 +1227,65 @@
     "text": "Forbidding nothing, and negative about nothing",
     "enumeration": "7"
    },
-   "solution": "OMINOUS"
+   "solution": "OMINOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OMINOUS",
+    "definitions": [
+     {
+      "text": "Forbidding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to go around it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "negative",
+      "gives": "MINUS",
+      "note": "minus means negative, as in a minus number"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "a second O for nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MIN",
+      "O",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A curt order to say nothing negative about nothing at all.",
+     "walkthrough": "'Forbidding' looks like a verb forbidding something, but it is the adjective meaning threatening.",
+     "definitionFit": "Forbidding means grim and threatening, as does a dark sign of trouble to come."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Forbidding"
+    }
+   }
   },
   {
    "number": 20,
@@ -318,7 +1299,58 @@
     "text": "One of the Romans occupying seat in European capital",
     "enumeration": "5"
    },
-   "solution": "SOFIA"
+   "solution": "SOFIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOFIA",
+    "definitions": [
+     {
+      "text": "European capital",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "to occupy is to sit within something, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seat",
+      "gives": "SOFA",
+      "note": "a sofa is a seat"
+     },
+     {
+      "clueFragment": "One of the Romans",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOF",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient Roman is found sitting on a seat in a European capital.",
+     "walkthrough": "'One of the Romans' looks like a person, but it is the numeral one written the Roman way.",
+     "definitionFit": "This city is the capital of Bulgaria in south-east Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Romans"
+    }
+   }
   },
   {
    "number": 21,
@@ -332,7 +1364,54 @@
     "text": "Celebratory showing of test, live, after openers dismissed",
     "enumeration": "7"
    },
-   "solution": "FESTIVE"
+   "solution": "FESTIVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FESTIVE",
+    "definitions": [
+     {
+      "text": "Celebratory",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after openers dismissed",
+      "for": "deletion",
+      "note": "once the openers are dismissed, the first letter of each word is gone"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of test, live",
+      "gives": "OFTESTLIVE",
+      "note": "three words, each losing its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EST",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket broadcast: a joyful live Test match, once the opening batsmen are out.",
+     "walkthrough": "In cricket the openers are the first two batsmen and a Test is an international match, so the surface is a cricket scene.",
+     "definitionFit": "Festive describes the mood of a celebration, joyful and merry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "openers"
+    }
+   }
   },
   {
    "number": 22,
@@ -346,7 +1425,58 @@
     "text": "Tea served up to a point, and different drink to follow",
     "enumeration": "6"
    },
-   "solution": "CHASER"
+   "solution": "CHASER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CHASER",
+    "definitions": [
+     {
+      "text": "different drink to follow",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up to a point",
+      "for": "deletion",
+      "note": "only up to a point means the word is cut off partway, losing its tail"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tea",
+      "gives": "CHA",
+      "note": "cha is slang for tea"
+     },
+     {
+      "clueFragment": "served",
+      "gives": "SERVED",
+      "note": "taken as written before cutting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "SER"
+     ]
+    },
+    "explanation": {
+     "surface": "Tea is poured to a certain level, then something else to drink comes next.",
+     "walkthrough": "'Served up' looks like a reversal in a down clue, but 'up to a point' belongs together and keeps only part of the word.",
+     "definitionFit": "A chaser is a drink taken straight after another, such as beer after a shot of spirits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 23,
@@ -360,7 +1490,51 @@
     "text": "House in reconstructed base",
     "enumeration": "7"
    },
-   "solution": "HEINOUS"
+   "solution": "HEINOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEINOUS",
+    "definitions": [
+     {
+      "text": "base",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reconstructed",
+      "for": "anagram",
+      "note": "something reconstructed has been rebuilt in another form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House in",
+      "gives": "HOUSEIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOUSEIN",
+       "gives": "HEINOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A building inside a military base that has been rebuilt.",
+     "walkthrough": "'Base' reads as a military site in the surface, but it is the adjective meaning morally low.",
+     "definitionFit": "A wicked, shockingly evil act is base in the moral sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 24,
@@ -374,7 +1548,51 @@
     "text": "Secure chest, having no upper limit for bid",
     "enumeration": "5"
    },
-   "solution": "OFFER"
+   "solution": "OFFER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OFFER",
+    "definitions": [
+     {
+      "text": "bid",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having no upper limit",
+      "for": "deletion",
+      "note": "in a down entry the upper limit is the top letter, which goes"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secure chest",
+      "gives": "COFFER",
+      "note": "a coffer is a strongbox for valuables"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFFER"
+     ]
+    },
+    "explanation": {
+     "surface": "A strongbox with no ceiling on what may be offered for it.",
+     "walkthrough": "'No upper limit' reads like an auction with no maximum, but it drops the top letter.",
+     "definitionFit": "A bid at auction is an offer of a price."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limit"
+    }
+   }
   },
   {
    "number": 25,
@@ -388,7 +1606,57 @@
     "text": "He deserts the cause in act of betrayal",
     "enumeration": "7"
    },
-   "solution": "TREASON"
+   "solution": "TREASON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TREASON",
+    "definitions": [
+     {
+      "text": "act of betrayal",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deserts",
+      "for": "deletion",
+      "note": "one who deserts leaves, so these letters walk out of the phrase"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He",
+      "gives": "HE",
+      "note": "the letters that leave"
+     },
+     {
+      "clueFragment": "the cause",
+      "gives": "THEREASON",
+      "note": "the cause of something is the reason for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REASON"
+     ]
+    },
+    "explanation": {
+     "surface": "A man abandons the cause he served, which is a betrayal.",
+     "walkthrough": "The surface's deserter fits the answer's sense, but the job of 'He' is two letters to drop from THE REASON.",
+     "definitionFit": "Betraying one's country or sovereign is the crime this word names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cause"
+    }
+   }
   },
   {
    "number": 26,
@@ -402,7 +1670,44 @@
     "text": "Have some fast food in famous coffeehouse",
     "enumeration": "5"
    },
-   "solution": "SCOFF"
+   "solution": "SCOFF",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SCOFF",
+    "definitions": [
+     {
+      "text": "Have some fast food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the following words, spanning their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "famous coffeehouse",
+      "gives": "SCOFF",
+      "note": "the run starts at the end of the first word"
+     }
+    ],
+    "explanation": {
+     "surface": "Grab a quick bite in a well-known café.",
+     "walkthrough": "'Fast food' is not a burger: the food is eaten fast.",
+     "definitionFit": "To scoff is informal British for gobbling food quickly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 27,
@@ -416,7 +1721,51 @@
     "text": "Financial expert giving author clear forecast?",
     "enumeration": "9"
    },
-   "solution": "ECONOMIST"
+   "solution": "ECONOMIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ECONOMIST",
+    "definitions": [
+     {
+      "text": "Financial expert",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "author",
+      "gives": "ECO",
+      "note": "Umberto Eco, author of The Name of the Rose"
+     },
+     {
+      "clueFragment": "clear forecast?",
+      "gives": "NOMIST",
+      "note": "a weather forecast of clear skies promises no mist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECO",
+      "NOMIST"
+     ]
+    },
+    "explanation": {
+     "surface": "An expert in finance offers a writer a confident prediction.",
+     "walkthrough": "'Forecast' suggests economic projections, but it is a weather forecast; the question mark flags the playful reading.",
+     "definitionFit": "An economist studies and advises on the economy and money matters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "forecast"
+    }
+   }
   },
   {
    "number": 28,
@@ -430,7 +1779,51 @@
     "text": "Relax call to fix fiddle or racket",
     "enumeration": "8"
    },
-   "solution": "RESTRING"
+   "solution": "RESTRING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESTRING",
+    "definitions": [
+     {
+      "text": "fix fiddle or racket",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relax",
+      "gives": "REST",
+      "note": "to rest is to relax"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "RING",
+      "note": "to ring someone is to call them on the phone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REST",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "Calm down and phone someone to sort out a scam or a noisy disturbance.",
+     "walkthrough": "'Fiddle' and 'racket' read as a swindle and a din, but they are a violin and a tennis racket.",
+     "definitionFit": "A violin or tennis racket with broken strings is mended by fitting new ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fiddle"
+    }
+   }
   },
   {
    "number": 29,
@@ -444,7 +1837,58 @@
     "text": "This is where you'll find the ultimate in unorthodoxy?",
     "enumeration": "6"
    },
-   "solution": "HERESY"
+   "solution": "HERESY",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HERESY",
+    "definitions": [
+     {
+      "text": "This is where you'll find the ultimate in unorthodoxy?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the ultimate in",
+      "for": "letter_selection",
+      "note": "the ultimate is the last, so only the final letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This is where you'll find",
+      "gives": "HERES",
+      "note": "here's, short for here is, points to where something can be found"
+     },
+     {
+      "clueFragment": "unorthodoxy",
+      "gives": "Y",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HERES",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about where the most extreme deviation from accepted belief is to be found.",
+     "walkthrough": "Read as HERE'S Y, the clue points at its last letter; read whole, the place to find extreme unorthodoxy is the answer itself.",
+     "definitionFit": "Heresy is belief contrary to accepted religious doctrine, the very model of unorthodoxy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ultimate"
+    }
+   }
   }
  ]
 }
