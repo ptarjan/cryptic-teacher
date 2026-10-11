@@ -159,8 +159,9 @@ def annotated_for_clue(merged, a, b):
 
 def main_puzzle(o_path, a_path, b_path):
     try:
-        o, a, b = (json.loads(Path(p).read_text(encoding="utf-8"))
-                   for p in (o_path, a_path, b_path))
+        # An empty ancestor is a file both sides added (add/add).
+        o, a, b = (json.loads(t) if t.strip() or p != o_path else {}
+                   for p in (o_path, a_path, b_path) for t in [Path(p).read_text(encoding="utf-8")])
         merged = puzzle_schema.order(merge_puzzle(o, a, b))
     except (ValueError, Conflict) as err:
         print(f"json_merge --puzzle: {type(err).__name__} at {err}; "

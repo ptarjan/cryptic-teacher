@@ -147,6 +147,52 @@ on_origin puzzles/b/2.json >/dev/null && fail "a checkpoint committed a puzzle t
 [ -e "$tmp/solo/puzzles/b/2.json" ] || fail "the refused puzzle was dropped from the tree"
 case "$out" in *"held out of the commit"*"puzzles/b/2.json"*) ;; *) fail "the held puzzle was not named: $out" ;; esac
 
+# 4b. A commit that conflicts with origin/master (another job filed the same
+#     puzzle meanwhile) is set aside, never blocking the commits after it:
+#     they are pushed, origin's version stands, its puzzle asks a re-read
+#     (scan_queue.py conflicted, stubbed), and the resync moves the tree to
+#     origin/master past it, keeping what the job has not committed yet. A
+#     commit nothing re-reads is kept under refs/durable/conflicts/ and alerted.
+conflict_case() {  # conflict_case <dir> <stub status>: sha of the conflicting commit
+  local d="$tmp/$1" o="$tmp/$1-other" i
+  git clone -q "$tmp/origin.git" "$d" 2>/dev/null && git clone -q "$tmp/origin.git" "$o" 2>/dev/null
+  printf 'import os, sys\nopen(os.environ["HOME"] + "/conflicted", "a").write(sys.argv[2] + "\\n")\nprint("re-read asked")\nsys.exit(%s)\n' "$2" >"$d/tools/scan_queue.py"
+  mkdir -p "$d/puzzles/$1" "$o/puzzles/$1"
+  echo '{"n": "mine"}' >"$d/puzzles/$1/1.json" && git -C "$d" add puzzles && git -C "$d" commit -qm "File c1 (mine)"
+  echo '{"n": "theirs"}' >"$o/puzzles/$1/1.json" && git -C "$o" add puzzles && git -C "$o" commit -qm "File c1 (theirs)"
+  git -C "$o" push -q origin HEAD:master 2>/dev/null
+  for i in 2 3; do
+    echo "{\"n\": $i}" >"$d/puzzles/$1/$i.json" && git -C "$d" add puzzles && git -C "$d" commit -qm "File c$i"
+  done
+  git -C "$d" rev-parse HEAD~2
+}
+cat >"$tmp/cf.sh" <<'EOF'
+cd "$1" || exit 1
+DURABLE_PATHS=(puzzles)
+. tools/durable.sh
+durable_checkpoint "conflict pass" || { echo "checkpoint failed"; exit 1; }
+echo '{"n": 4}' >"puzzles/$(basename "$1")/4.json"
+durable_resync || { echo "resync failed"; exit 1; }
+EOF
+rm -f "$HOME/conflicted" "$HOME/alerts"
+cf=$(conflict_case cf 0)
+out=$(bash "$tmp/cf.sh" "$tmp/cf" 2>&1) || fail "a conflicting commit failed the checkpoint or the resync: $out"
+on_origin puzzles/cf/2.json >/dev/null || fail "the commit after a conflicting one was not pushed: $out"
+on_origin puzzles/cf/3.json >/dev/null || fail "a conflicting commit kept the later ones from origin: $out"
+[ "$(on_origin puzzles/cf/1.json)" = '{"n": "theirs"}' ] || fail "origin's version of a conflicting puzzle did not stand"
+[ "$(cat "$HOME/conflicted" 2>/dev/null)" = "$cf" ] || fail "the conflicting commit asked no re-read: $out"
+[ "$(git -C "$tmp/cf" rev-parse HEAD)" = "$(git --git-dir="$tmp/origin.git" rev-parse master)" ] ||
+  fail "the resync did not move the tree past the set-aside commit: $out"
+[ "$(cat "$tmp/cf/puzzles/cf/1.json")" = '{"n": "theirs"}' ] || fail "the tree kept the set-aside reading over origin's"
+[ -e "$tmp/cf/puzzles/cf/4.json" ] || fail "the resync dropped a file the job had not committed"
+[ ! -s "$HOME/alerts" ] || fail "a re-read conflict alerted: $(cat "$HOME/alerts")"
+cf=$(conflict_case cf2 1)
+out=$(bash "$tmp/cf.sh" "$tmp/cf2" 2>&1) || true
+[ "$(git -C "$tmp/cf2" rev-parse -q --verify "refs/durable/conflicts/$cf")" = "$cf" ] ||
+  fail "a conflicting commit nothing re-reads was not kept: $out"
+[ -s "$HOME/alerts" ] || fail "a conflicting commit nothing re-reads was not alerted: $out"
+rm -f "$HOME/alerts"
+
 # 5. corpus_queue.py stop gives the pass's leader TERM and waits for it.
 python3 - "$REAL" <<'PY'
 import os, sys, time

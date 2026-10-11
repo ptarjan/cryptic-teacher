@@ -36,6 +36,15 @@ tools/file_trove_puzzles.py).
     python3 tools/scan_queue.py requested archive times   # open editions, one a line
     python3 tools/scan_queue.py requested trove           # open articles
     python3 tools/scan_queue.py open                      # puzzle ids waiting on a re-read
+    python3 tools/scan_queue.py conflicted COMMIT         # ask re-reads for a commit set aside
+
+  - conflicted(): a filing commit that will not replay onto origin/master
+    (tools/push_puzzle_commit.sh's CONFLICT: another job filed the same
+    puzzle meanwhile) is set aside by tools/durable.sh, origin's version
+    standing; each puzzle it filed asks for its source to be read again
+    ("pushConflict"), so the next read files over origin's file and nothing
+    its reading held is lost. Exit 1 when a path it changed has no re-read
+    (not an OCR'd puzzle, or not a puzzle): the caller keeps the commit.
 """
 import contextlib
 import datetime
@@ -527,7 +536,34 @@ def request_reread(puzzle, clues, why):
     return req
 
 
+def conflicted(commit):
+    """Ask a re-read of each puzzle `commit` filed; [(path, request or None)]
+    for every path it changed, None where nothing re-reads it."""
+    import subprocess
+
+    import enumeration
+    from groups import entry_id
+    git = lambda *a: subprocess.run(["git", *a], capture_output=True, text=True, check=True).stdout
+    out = []
+    for line in git("diff-tree", "--no-commit-id", "-r", "--name-status", "-M", commit).splitlines():
+        status, *paths = line.split("\t")
+        path = paths[-1]
+        req = None
+        if status[0] != "D" and path.startswith("puzzles/") and path.endswith(".json"):
+            puzzle = json.loads(git("show", f"{commit}:{path}"))
+            clues = [(entry_id(e), enumeration.printed(e["clue"])) for e in puzzle.get("entries") or ()]
+            req = request_reread(puzzle, clues, ["pushConflict"]) or next(
+                (r for r in open_requests() if r["id"] == puzzle.get("id")), None)
+        out.append((path, req))
+    return out
+
+
 def main(argv):
+    if argv[:1] == ["conflicted"] and len(argv) == 2:
+        got = conflicted(argv[1])
+        for path, req in got:
+            print(f"{path}: " + (f"re-read asked of {req['filer']} {req['source']}" if req else "nothing re-reads it"))
+        return 0 if got and all(req for _, req in got) else 1
     if argv[:1] == ["open"]:
         print("\n".join(sorted({r["id"] for r in all_open_requests()})))
         return 0

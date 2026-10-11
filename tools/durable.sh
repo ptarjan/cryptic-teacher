@@ -16,6 +16,12 @@
 #     tools/push_puzzle_commit.sh, which replays the commit onto origin/master
 #     without touching the working tree the command is still writing into.
 #     A commit whose push fails stays local and goes with the next checkpoint.
+#     One that conflicts (push_puzzle_commit.sh's CONFLICT: another job filed
+#     the same puzzle meanwhile) never will, so it is set aside and the ones
+#     after it still go: origin's version stands, and each puzzle it filed
+#     asks for its source to be read again (scan_queue.py conflicted), which
+#     files over origin's; a commit nothing re-reads is kept under
+#     refs/durable/conflicts/ and the room is told.
 #   * SIGTERM, SIGINT or SIGHUP (tools/corpus_queue.py stop, a container
 #     stop) TERMs the command, waits up to DURABLE_STOP_GRACE seconds (default
 #     60) for it to end, KILLs it if not, checkpoints, and exits 143.
@@ -63,16 +69,35 @@ durable_checkpoint() {  # durable_checkpoint <what>: commit what is filed, push 
       git commit -q -m "$(printf '%s\n\n%s' "$what" "$trailer")" || return 1
     fi
   fi
-  # Oldest first, from the last one pushed (or origin/master): a commit whose
-  # push failed is tried again here, before the ones made after it.
+  # Oldest first, from the last one settled (pushed or set aside; else
+  # origin/master): a commit whose push failed is tried again here, before
+  # the ones made after it.
+  local rc
   for c in $(git rev-list --reverse "${_durable_pushed:-origin/master}..HEAD" 2>/dev/null); do
-    if bash "$_durable_dir/push_puzzle_commit.sh" "$c"; then
-      _durable_pushed="$c"
-    else
+    bash "$_durable_dir/push_puzzle_commit.sh" "$c"
+    rc=$?
+    if [ "$rc" = 3 ]; then
+      durable_set_aside "$c"
+    elif [ "$rc" != 0 ]; then
       echo "durable: push of $(git log -1 --format=%s "$c") failed; it stays committed here and is retried at the next checkpoint"
       return 1
     fi
+    _durable_pushed="$c"
   done
+}
+
+durable_set_aside() {  # durable_set_aside <commit>: a commit that conflicts with origin/master
+  local c="$1" subj out
+  subj="$(git log -1 --format=%s "$c")"
+  if out="$(python3 "$_durable_dir/scan_queue.py" conflicted "$c" 2>&1)"; then
+    echo "durable: $subj conflicts with origin/master; origin's version stands and the source is read again:"
+  else
+    git update-ref "refs/durable/conflicts/$c" "$c"
+    echo "durable: $subj conflicts with origin/master and not all of it is read again; kept as refs/durable/conflicts/$c:"
+    . "$_durable_dir/alert.sh" 2>/dev/null &&
+      alert "durable: \"$subj\" conflicts with origin/master and is not all re-readable, so origin's version stands and the commit is kept as refs/durable/conflicts/$c; merge it from a worktree. $out"
+  fi
+  printf '%s\n' "$out"
 }
 
 _durable_stop() {
@@ -129,13 +154,20 @@ durable_run() {  # durable_run <what> <command...>: its exit status; DURABLE_TEE
 }
 
 durable_resync() {  # move the tree to origin/master; nothing is lost if it cannot (status 1)
-  local lock
+  local lock move pending
   git fetch -q origin master 2>/dev/null
   # A process starting off this tree (tools/edition_queue.py) loads its code
   # under a shared lock on code.lock; the move takes it alone, so none loads
   # half of each version.
   lock="$(git rev-parse --path-format=absolute --git-path code.lock)"
-  if ! flock -w 60 "$lock" sh -c 'git rebase -q origin/master 2>/dev/null || { git rebase --abort 2>/dev/null; exit 1; }'; then
+  # Every commit settled (pushed, or set aside for a re-read): origin/master
+  # holds what stands, so the tree moves straight there (reset --keep, which
+  # refuses a file the job has changed). A rebase would replay a set-aside
+  # commit onto origin's version and stop on the same conflict.
+  move='git rebase -q origin/master 2>/dev/null || { git rebase --abort 2>/dev/null; exit 1; }'
+  pending="$(git rev-list "${_durable_pushed:-origin/master}..HEAD")" && [ -z "$pending" ] &&
+    move='git reset -q --keep origin/master 2>/dev/null'
+  if ! flock -w 60 "$lock" sh -c "$move"; then
     echo "durable: tree left where it is (rebase failed, or code.lock busy 60s); its commits are pushed"
     return 1
   fi

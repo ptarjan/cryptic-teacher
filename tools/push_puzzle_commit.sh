@@ -19,9 +19,12 @@
 # refs/remotes/origin/master (a sibling worktree fetching) is retried against a
 # fresh fetch. Only the first push runs the pre-push check: a retry pushes the
 # same change onto a newer origin, and the check's seconds are the window
-# another pusher wins in. Anything else, a conflict included, exits non-zero
-# with git's own words on stderr.
+# another pusher wins in. A conflict exits CONFLICT (3), read off merge-tree's
+# own status (1: conflicts), so a caller can set the commit aside and go on to
+# the next (tools/durable.sh); anything else exits non-zero (1, 2) with git's
+# own words on stderr.
 set -uo pipefail
+CONFLICT=3
 
 commit=$(git rev-parse --verify -q "${1:-HEAD}^{commit}") || {
   echo "push_puzzle_commit: no such commit: ${1:-HEAD}" >&2; exit 2; }
@@ -36,11 +39,14 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
     sleep "$attempt"; continue
   fi
   base=$(git rev-parse origin/master)
-  if ! tree=$(git merge-tree --write-tree --merge-base "$parent" "$base" "$commit"); then
-    echo "push_puzzle_commit: $(git log -1 --format=%s "$commit") conflicts with origin/master:" >&2
-    printf '%s\n' "$tree" | tail -n +2 >&2
-    exit 1
-  fi
+  tree=$(git merge-tree --write-tree --merge-base "$parent" "$base" "$commit")
+  case $? in
+    0) ;;
+    1) echo "push_puzzle_commit: $(git log -1 --format=%s "$commit") conflicts with origin/master:" >&2
+       printf '%s\n' "$tree" | tail -n +2 >&2
+       exit "$CONFLICT" ;;
+    *) exit 1 ;;
+  esac
   if [ "$tree" = "$(git rev-parse "$base^{tree}")" ]; then
     echo "push_puzzle_commit: origin/master already has $(git log -1 --format=%s "$commit")" >&2
     exit 0
