@@ -24,6 +24,9 @@
   "date": "2025-01-06",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,61 @@
     "text": "Old PM has packed in cycling",
     "enumeration": "7"
    },
-   "solution": "ASQUITH"
+   "solution": "ASQUITH",
+   "annotation": {
+    "type": [
+     "cycling",
+     "container"
+    ],
+    "answer": "ASQUITH",
+    "definitions": [
+     {
+      "text": "Old PM",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling rotates a word, moving its front letter round to the back"
+     },
+     {
+      "text": "packed in",
+      "for": "container",
+      "note": "something packed in is stuffed inside another word, and these words also mean gave up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has",
+      "gives": "ASH",
+      "note": "the word has with its first letter rotated to the end"
+     },
+     {
+      "clueFragment": "packed in",
+      "gives": "QUIT",
+      "note": "to pack in a job is to quit it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "QUIT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A former prime minister has given up cycling.",
+     "walkthrough": "'Packed in' does double duty: it means QUIT and also signals that QUIT is packed inside the rotated word.",
+     "definitionFit": "H. H. Asquith was the Liberal British prime minister from 1908 to 1916."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +108,48 @@
     "text": "Help player wanting debut",
     "enumeration": "6"
    },
-   "solution": "ASSIST"
+   "solution": "ASSIST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASSIST",
+    "definitions": [
+     {
+      "text": "Help",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting debut",
+      "for": "deletion",
+      "note": "wanting means lacking, and a debut is a first appearance, so the opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "player",
+      "gives": "BASSIST",
+      "note": "a bassist is a bass player in a band"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician who wants a first gig asks for help.",
+     "walkthrough": "BASSIST loses its first letter.",
+     "definitionFit": "To assist is to give aid, a direct synonym of help as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "debut"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +163,52 @@
     "text": "Medley of quite bold tunes?",
     "enumeration": "9"
    },
-   "solution": "QUODLIBET"
+   "solution": "QUODLIBET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "QUODLIBET",
+    "definitions": [
+     {
+      "text": "Medley of quite bold tunes?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Medley",
+      "for": "anagram",
+      "note": "a medley is a mixture, so the letters that follow are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quite bold",
+      "gives": "QUITEBOLD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "QUITEBOLD",
+       "gives": "QUODLIBET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks for a mixture of rather daring melodies.",
+     "walkthrough": "The whole clue defines the answer and also supplies the mixed letters.",
+     "definitionFit": "A quodlibet is a musical piece combining several popular melodies in a humorous way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Medley"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +222,62 @@
     "text": "He's wasting time introducing Liberal to topless equestrian",
     "enumeration": "5"
    },
-   "solution": "IDLER"
+   "solution": "IDLER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "IDLER",
+    "definitions": [
+     {
+      "text": "He's wasting time",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "topless means without the top, which in a down clue is the first letter"
+     },
+     {
+      "text": "introducing",
+      "for": "container",
+      "note": "introducing something to a word puts it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "equestrian",
+      "gives": "IDER",
+      "note": "an equestrian is a rider; the top is cut off"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A man introduces a politician to a half-naked horse rider instead of working.",
+     "walkthrough": "L goes into RIDER minus its R.",
+     "definitionFit": "An idler is a lazy person, someone who passes the hours doing nothing useful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +297,74 @@
      }
     ]
    },
-   "solution": "HAMMERTOE"
+   "solution": "HAMMERTOE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "HAMMER-TOE",
+    "definitions": [
+     {
+      "text": "Supporter's condition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is cut"
+     },
+     {
+      "text": "without foundation",
+      "for": "deletion",
+      "note": "a foundation is the base, which in a down clue is the final letter"
+     },
+     {
+      "text": "installing",
+      "for": "container",
+      "note": "installing means putting something inside, so one piece goes into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has",
+      "gives": "HA",
+      "note": "has, almost"
+     },
+     {
+      "clueFragment": "Bobcat",
+      "gives": "ME",
+      "note": "Bobcat is the setter, who refers to themselves as me"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "MERTO",
+      "note": "Merton is an Oxford college; its last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "M",
+      "MERTO",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter putting up a crumbling college building sounds like a supporter's ailment.",
+     "walkthrough": "The supporter is a foot, which holds you up. Setters often call themselves 'me', and Merton is a college of Oxford University.",
+     "definitionFit": "Hammer toe is a deformity where a toe bends permanently downward, a medical condition of the foot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Supporter's"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +378,60 @@
     "text": "Literary folk giving up time for final character castings",
     "enumeration": "7"
    },
-   "solution": "BRONZES"
+   "solution": "BRONZES",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "BRONZES",
+    "definitions": [
+     {
+      "text": "castings",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving up time for",
+      "for": "substitution",
+      "note": "giving up one thing for another means swapping it out, so one letter is exchanged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Literary folk",
+      "gives": "BRONTES",
+      "note": "the Brontë sisters, the novelist family"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "final character",
+      "gives": "Z",
+      "note": "Z is the last letter of the alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRON",
+      "Z",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Writers trade in deadlines for the last letter, as if retiring from the craft.",
+     "walkthrough": "Swap the T in BRONTES for Z.",
+     "definitionFit": "Bronzes are sculptures cast in bronze metal, so castings is a fair plural noun for them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +445,74 @@
     "text": "Pipe music from the south pervades empty bar",
     "enumeration": "5"
    },
-   "solution": "BRIAR"
+   "solution": "BRIAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BRIAR",
+    "definitions": [
+     {
+      "text": "Pipe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the south",
+      "for": "reversal",
+      "note": "in a down clue, reading from the south means reading upwards"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "empty means the inside is cleared out, leaving the outer letters"
+     },
+     {
+      "text": "pervades",
+      "for": "container",
+      "note": "pervades means spreads through, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "music",
+      "gives": "AIR",
+      "note": "an air is a tune"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "BR",
+      "select": "outer",
+      "note": "the outer letters of bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RIA",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Southern-style music drifts through a deserted pub.",
+     "walkthrough": "'From the south' only works in a down clue, where reading upwards starts at the bottom.",
+     "definitionFit": "A briar is a tobacco pipe made from the root of the briar heath plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pipe"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +526,50 @@
     "text": "Teach Dora about figures",
     "enumeration": "9"
    },
-   "solution": "OCTAHEDRA"
+   "solution": "OCTAHEDRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OCTAHEDRA",
+    "definitions": [
+     {
+      "text": "figures",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests turning round and moving letters into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teach Dora",
+      "gives": "TEACHDORA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEACHDORA",
+       "gives": "OCTAHEDRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to tutor a girl named Dora in maths.",
+     "definitionFit": "Octahedra are solid geometric shapes with eight faces, so they are figures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "figures"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +583,67 @@
     "text": "Like a region of Australia – aiming high and all ignoring the odds?",
     "enumeration": "5"
    },
-   "solution": "ZONAL"
+   "solution": "ZONAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ZONAL",
+    "definitions": [
+     {
+      "text": "Like a region",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aiming high",
+      "for": "reversal",
+      "note": "aiming high in a down clue means reading upwards"
+     },
+     {
+      "text": "ignoring the odds",
+      "for": "letter_selection",
+      "note": "ignoring the odd positions leaves only the even letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of Australia",
+      "gives": "OZ",
+      "note": "Oz is a nickname for Australia"
+     },
+     {
+      "clueFragment": "and all",
+      "gives": "NAL",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZO",
+      "NAL"
+     ],
+     "reversals": [
+      {
+       "from": "OZ",
+       "to": "ZO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describes an ambitious Australian region that defies the odds.",
+     "definitionFit": "Zonal describes something relating to a zone, which is a region."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +657,76 @@
     "text": "New York Times supports society spreading road stone",
     "enumeration": "8"
    },
-   "solution": "SARDONYX"
+   "solution": "SARDONYX",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SARDONYX",
+    "definitions": [
+     {
+      "text": "stone",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spreading",
+      "for": "anagram",
+      "note": "spreading out suggests the letters are scattered and rearranged"
+     }
+    ],
+    "linkWords": [
+     "supports"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "ARDO",
+      "note": "the four letters of road rearranged"
+     },
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "X",
+      "note": "x is the multiplication sign"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ARDO",
+      "NY",
+      "X"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROAD",
+       "gives": "ARDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper backs a society that is laying a road made of stone.",
+     "walkthrough": "In a down clue, 'supports' means the newspaper's letters sit below the rest, holding them up.",
+     "definitionFit": "Sardonyx is a gemstone, a type of onyx with layers of sard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +740,58 @@
     "text": "Plunder ship, releasing its cargo and fuel",
     "enumeration": "5"
    },
-   "solution": "SPOIL"
+   "solution": "SPOIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPOIL",
+    "definitions": [
+     {
+      "text": "Plunder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "releasing its cargo",
+      "for": "letter_selection",
+      "note": "a ship that unloads its cargo is emptied, leaving only its outside letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship",
+      "gives": "SP",
+      "select": "outer",
+      "note": "the outer letters of ship"
+     },
+     {
+      "clueFragment": "fuel",
+      "gives": "OIL",
+      "note": "oil is a fuel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "OIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Pirates loot a vessel after it has unloaded its goods and fuel.",
+     "definitionFit": "Spoil, usually as spoils, is goods taken as loot or booty, the noun sense of plunder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cargo"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +805,70 @@
     "text": "Guide taking in source of Nile after me gets wetter",
     "enumeration": "9"
    },
-   "solution": "MOISTENER"
+   "solution": "MOISTENER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MOISTENER",
+    "definitions": [
+     {
+      "text": "wetter",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "taking in means absorbing something, so one piece goes inside the other"
+     },
+     {
+      "text": "source of",
+      "for": "container",
+      "note": "the source of a river is where it begins, so only the opening letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "MOI",
+      "note": "moi is French for me, often used jokingly in English"
+     },
+     {
+      "clueFragment": "Guide",
+      "gives": "STEER",
+      "note": "to steer is to guide"
+     },
+     {
+      "clueFragment": "Nile",
+      "gives": "N",
+      "note": "the first letter of Nile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOI",
+      "STE",
+      "N",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tour guide who visits the Nile's source after me ends up wetter.",
+     "walkthrough": "'After me' means the French word for me comes first, with the guide following it.",
+     "definitionFit": "A moistener is something that makes things wet, so the noun means a wetter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wetter"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +888,70 @@
      }
     ]
    },
-   "solution": "SOLARYEAR"
+   "solution": "SOLARYEAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SOLAR YEAR",
+    "definitions": [
+     {
+      "text": "Length of time",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so some letters are removed from the phrase"
+     },
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about suggests the removed letters can come out in any order"
+     },
+     {
+      "text": "managed",
+      "for": "anagram",
+      "note": "managed here is read as handled or worked over, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal Marines",
+      "gives": "ROYALMARINES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nim",
+      "gives": "NIM",
+      "note": "taken as written; nim is a game of removing counters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLARYEAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROYALARES",
+       "gives": "SOLARYEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Royal Marines got by without a game of nim to pass the time.",
+     "walkthrough": "Remove M, I and N, scattered through Royal Marines, then rearrange the remaining nine letters.",
+     "definitionFit": "A solar year is the period of the Earth's orbit round the Sun, a standard period measuring duration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "managed"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +965,42 @@
     "text": "I'm surprised in brothel lounge",
     "enumeration": "5"
    },
-   "solution": "HELLO"
+   "solution": "HELLO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HELLO",
+    "definitions": [
+     {
+      "text": "I'm surprised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells you the word sits inside the following words of the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brothel lounge",
+      "gives": "HELLO",
+      "note": "found spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone exclaims in shock at finding themselves in a brothel's lounge.",
+     "definitionFit": "Hello can be an exclamation of surprise, as in 'Hello, what's this?'"
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "brothel"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +1020,63 @@
      }
     ]
    },
-   "solution": "ABSENTMINDEDLY"
+   "solution": "ABSENTMINDEDLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ABSENT-MINDEDLY",
+    "definitions": [
+     {
+      "text": "How one might carelessly blend dynamite with sulphur?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carelessly",
+      "for": "anagram",
+      "note": "doing something carelessly throws things into disorder, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blend",
+      "gives": "BLEND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dynamite",
+      "gives": "DYNAMITE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sulphur",
+      "gives": "S",
+      "note": "S is the chemical symbol for sulphur"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLENDDYNAMITES",
+       "gives": "ABSENTMINDEDLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Who would mix explosives with sulphur so casually?",
+     "walkthrough": "The whole clue is both the definition and the wordplay: only a distracted person would mix explosives like that.",
+     "definitionFit": "Absent-mindedly means without paying attention, which is the only way anyone would make such a dangerous mixture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "blend"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +1090,63 @@
     "text": "Cycle needing Raleigh's capital for development",
     "enumeration": "9"
    },
-   "solution": "EVOLUTION"
+   "solution": "EVOLUTION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "EVOLUTION",
+    "definitions": [
+     {
+      "text": "development",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing",
+      "for": "deletion",
+      "note": "needing here means lacking, so a letter is missing"
+     },
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "'capital' keeps only the first letter of 'Raleigh'"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cycle",
+      "gives": "REVOLUTION",
+      "note": "a revolution is one full cycle"
+     },
+     {
+      "clueFragment": "Raleigh",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Raleigh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVOLUTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A Raleigh bicycle needs capital investment for its development.",
+     "walkthrough": "Raleigh is a British bicycle maker, which feeds the cycling surface. Remove R from REVOLUTION.",
+     "definitionFit": "Evolution is gradual change and growth, the same as development."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cycle"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1160,71 @@
     "text": "Frequency of drink being served short in hostelry by church",
     "enumeration": "9"
    },
-   "solution": "INCIDENCE"
+   "solution": "INCIDENCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "INCIDENCE",
+    "definitions": [
+     {
+      "text": "Frequency",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being served short",
+      "for": "deletion",
+      "note": "served short means a drink comes with less than it should, so a letter is cut off"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "CIDE",
+      "note": "cider loses its last letter"
+     },
+     {
+      "clueFragment": "hostelry",
+      "gives": "INN",
+      "note": "an inn is a hostelry"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CIDE",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Complaining about how often drinks come up short at the pub near the church.",
+     "definitionFit": "Incidence is the rate at which something occurs, which is its frequency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1244,40 @@
      }
     ]
    },
-   "solution": "DEGREEDAY"
+   "solution": "DEGREEDAY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DEGREE DAY",
+    "definitions": [
+     {
+      "text": "Occasion for spinsters to be certified as bachelors?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spinsters to be certified as bachelors",
+      "note": "surface reading: unmarried women declared unmarried men"
+     },
+     {
+      "clueFragment": "Occasion for spinsters to be certified as bachelors?",
+      "note": "setter's reading: bachelors are graduates, so this is the ceremony where women receive a bachelor's degree"
+     }
+    ],
+    "explanation": {
+     "surface": "Asks when single women are officially turned into single men.",
+     "walkthrough": "Bachelor means both an unmarried man and a holder of a first university degree.",
+     "definitionFit": "The day when students receive their university degrees at a graduation ceremony."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bachelors"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1291,62 @@
     "text": "Doctor prematurely restraining one in a cheerless way",
     "enumeration": "8"
    },
-   "solution": "DREARILY"
+   "solution": "DREARILY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DREARILY",
+    "definitions": [
+     {
+      "text": "in a cheerless way",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restraining",
+      "for": "container",
+      "note": "restraining means holding something in, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "prematurely",
+      "gives": "EARLY",
+      "note": "too early means prematurely"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "EAR",
+      "I",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor restrains a patient too soon and does so gloomily.",
+     "walkthrough": "'Doctor' looks like a verb, but it gives the usual abbreviation.",
+     "definitionFit": "Drearily means dully or gloomily, an adverb matching the phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "restraining"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1370,40 @@
      }
     ]
    },
-   "solution": "RATEOFEXCHANGE"
+   "solution": "RATEOFEXCHANGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RATE OF EXCHANGE",
+    "definitions": [
+     {
+      "text": "What determines the value of imported bread in a ready market?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "imported bread",
+      "note": "surface reading: loaves brought in from abroad, sold in a market"
+     },
+     {
+      "clueFragment": "What determines the value of imported bread in a ready market?",
+      "note": "setter's reading: bread is slang for money, so imported bread is foreign currency, valued against your own"
+     }
+    ],
+    "explanation": {
+     "surface": "Asks what sets the price of foreign loaves at a market.",
+     "walkthrough": "'Bread' is slang for money, and a 'ready market' hints at ready cash.",
+     "definitionFit": "The rate at which one currency converts into another fixes what foreign money is worth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1417,55 @@
     "text": "Depth charges ward off Bill",
     "enumeration": "6"
    },
-   "solution": "ADVERT"
+   "solution": "ADVERT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADVERT",
+    "definitions": [
+     {
+      "text": "Bill",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "charges",
+      "for": "container",
+      "note": "to charge is to load or fill, so one piece is put inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ward off",
+      "gives": "AVERT",
+      "note": "to avert is to ward off"
+     },
+     {
+      "clueFragment": "Depth",
+      "gives": "D",
+      "note": "D is the abbreviation for depth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "VERT"
+     ]
+    },
+    "explanation": {
+     "surface": "Depth charges are used to fend off a man named Bill.",
+     "walkthrough": "'Depth charges' reads as anti-submarine bombs, but D is loaded into AVERT. Bill is a poster, not a person.",
+     "definitionFit": "A bill is a printed notice or poster, a form of advertisement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charges"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1479,58 @@
     "text": "I'm going to stop working with gold outside",
     "enumeration": "5"
    },
-   "solution": "ADIEU"
+   "solution": "ADIEU",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADIEU",
+    "definitions": [
+     {
+      "text": "I'm going",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means one piece wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "to stop working",
+      "gives": "DIE",
+      "note": "a machine that dies stops working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DIE",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone retiring with a gold watch announces their departure.",
+     "walkthrough": "'I'm going' is the definition, not part of a sentence about someone leaving work.",
+     "definitionFit": "Adieu is a French farewell, said when one is leaving, hence 'I'm going'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1544,56 @@
     "text": "Meetings without prospects in Bury",
     "enumeration": "5"
    },
-   "solution": "INTER"
+   "solution": "INTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INTER",
+    "definitions": [
+     {
+      "text": "Bury",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the following word is taken away"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meetings",
+      "gives": "INTERVIEWS",
+      "note": "interviews are formal meetings"
+     },
+     {
+      "clueFragment": "prospects",
+      "gives": "VIEWS",
+      "note": "a prospect is a view"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Job meetings with no prospects in Bury, a Lancashire town.",
+     "walkthrough": "'Bury' looks like the town near Manchester, but it is the definition.",
+     "definitionFit": "To inter is to place a body in a grave, a formal word for bury."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1607,62 @@
     "text": "Cover garden areas before lady strips",
     "enumeration": "9"
    },
-   "solution": "BEDSPREAD"
+   "solution": "BEDSPREAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BEDSPREAD",
+    "definitions": [
+     {
+      "text": "Cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strips",
+      "for": "letter_selection",
+      "note": "to strip something is to take its covering off, so the outer letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garden areas",
+      "gives": "BEDS",
+      "note": "flower beds are garden areas"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "PRE",
+      "note": "pre- means before"
+     },
+     {
+      "clueFragment": "lady",
+      "gives": "AD",
+      "select": "middle",
+      "note": "lady with its outer letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEDS",
+      "PRE",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman undresses in front of the flower beds, which are covered.",
+     "walkthrough": "'Strips' looks like a noun or a striptease verb, but it tells you to peel the outside off the word lady.",
+     "definitionFit": "A bedspread is the decorative top cover laid over a bed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strips"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1676,60 @@
     "text": "He composed possibly the best part of Things to Come",
     "enumeration": "5"
    },
-   "solution": "BLISS"
+   "solution": "BLISS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "BLISS",
+    "definitions": [
+     {
+      "text": "He composed possibly the best part of Things to Come",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the best part of",
+      "for": "letter_selection",
+      "note": "the best part of a word is most of it, here the middle once the ends are trimmed"
+     },
+     {
+      "text": "composed",
+      "for": "anagram",
+      "note": "composed means put together, so the letters are arranged afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "possibly",
+      "gives": "SSIBL",
+      "select": "middle",
+      "note": "the middle five letters, without the ends"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SSIBL",
+       "gives": "BLISS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Names the composer of the score for the film Things to Come.",
+     "walkthrough": "Sir Arthur Bliss wrote the music for the 1936 film Things to Come; bliss is also the joy of the world to come, so the clue works as a straight reading too.",
+     "definitionFit": "Arthur Bliss was the English composer whose score for Things to Come became famous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "possibly"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1743,40 @@
     "text": "The fear of God",
     "enumeration": "5"
    },
-   "solution": "PANIC"
+   "solution": "PANIC",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PANIC",
+    "definitions": [
+     {
+      "text": "The fear of God",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The fear of God",
+      "note": "surface reading: the idiom for terror or religious awe"
+     },
+     {
+      "clueFragment": "of God",
+      "note": "setter's reading: the word comes from the Greek god Pan, whose sudden shouts terrified people"
+     }
+    ],
+    "explanation": {
+     "surface": "The familiar phrase for being terrified.",
+     "walkthrough": "The word derives from Pan, the Greek god of the wild, believed to cause sudden groundless fear.",
+     "definitionFit": "Panic is sudden overwhelming fear, and etymologically it is the fear sent by the god Pan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "God"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1790,40 @@
     "text": "This power of perception cannot be acquired thus",
     "enumeration": "9"
    },
-   "solution": "INTUITION"
+   "solution": "INTUITION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INTUITION",
+    "definitions": [
+     {
+      "text": "This power of perception cannot be acquired thus",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This power of perception",
+      "note": "surface reading: a gift of insight that cannot be learned"
+     },
+     {
+      "clueFragment": "cannot be acquired thus",
+      "note": "setter's reading: split the answer in two and it describes being taught, the very route this faculty cannot take"
+     }
+    ],
+    "explanation": {
+     "surface": "Says that a certain insight cannot be gained through lessons.",
+     "walkthrough": "Split into two words, the answer reads 'in tuition', meaning by teaching, the very way this faculty cannot be obtained.",
+     "definitionFit": "Intuition is instinctive understanding without conscious reasoning, so it is not taught."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "thus"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1837,62 @@
     "text": "Jog in the altogether around the centre of Bingley",
     "enumeration": "5"
    },
-   "solution": "NUDGE"
+   "solution": "NUDGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NUDGE",
+    "definitions": [
+     {
+      "text": "Jog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the centre of",
+      "for": "letter_selection",
+      "note": "the centre picks out the middle letter of a word with an odd count"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means wrapping one piece outside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the altogether",
+      "gives": "NUDE",
+      "note": "in the altogether is an idiom for naked"
+     },
+     {
+      "clueFragment": "Bingley",
+      "gives": "G",
+      "select": "middle",
+      "note": "the fourth of seven letters in Bingley"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUD",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone runs naked around the middle of Bingley, a town in West Yorkshire.",
+     "walkthrough": "'Jog' reads as running, but it means a gentle push. G sits inside NUDE.",
+     "definitionFit": "To jog someone is to give them a slight push, which is what a nudge is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jog"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +1912,80 @@
      }
     ]
    },
-   "solution": "YFRONTS"
+   "solution": "YFRONTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "Y-FRONTS",
+    "definitions": [
+     {
+      "text": "Privates cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed or milled, so these letters are broken up and reformed"
+     },
+     {
+      "text": "having been discharged",
+      "for": "letter_selection",
+      "note": "discharged means emptied of its load, so only the outer letters stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "territorials",
+      "gives": "TS",
+      "select": "outer",
+      "note": "the first and last letters of territorials"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YFRO",
+      "N",
+      "TS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FORY",
+       "gives": "YFRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers take cover on the ground, a year after new reservists were discharged.",
+     "walkthrough": "'Privates' looks like soldiers and the Territorials are Britain's army reserve; here privates are private parts. Y-fronts are men's briefs with an upside-down Y seam.",
+     "definitionFit": "Y-fronts are men's underpants, a garment that covers the genitals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Privates"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +1999,67 @@
     "text": "Cipher note penetrating rear of college chapel",
     "enumeration": "7"
    },
-   "solution": "ENCRYPT"
+   "solution": "ENCRYPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ENCRYPT",
+    "definitions": [
+     {
+      "text": "Cipher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear of",
+      "for": "letter_selection",
+      "note": "the rear of a word is its final letter"
+     },
+     {
+      "text": "penetrating",
+      "for": "container",
+      "note": "penetrating means pushing into, so one piece goes inside the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of college"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N is the abbreviation for note"
+     },
+     {
+      "clueFragment": "chapel",
+      "gives": "CRYPT",
+      "note": "a crypt is an underground chapel or vault"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "CRYPT"
+     ]
+    },
+    "explanation": {
+     "surface": "A coded message slips into the back of a college chapel.",
+     "walkthrough": "N goes between E and CRYPT.",
+     "definitionFit": "To cipher a message is to put it into code, which is to encrypt it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   }
  ]
 }
