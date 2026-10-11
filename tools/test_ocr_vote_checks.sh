@@ -972,6 +972,35 @@ check("mirror: a figure before a capital is the print's ('4WD')", "4WD vehicle",
 gentle = ["#", "Can", "be", "gentle", "as", "birds", "#"]
 check("mirror: a clue with other specks keeps its figure (held)", "Can be8 gentle. 'as birds",
       oc.agree("Can be8 gentle. 'as birds", [gentle, gentle])[0])
+
+# Times 1984-01-23 "for herl7", 1977-09-27 "say?14": the count or the next
+# clue's number run onto the clue's last word or its "?".
+her = ["#", "Morning", "suits", ",", "said", "O'Neill", ",", "for", "her", "#", "#", "Obliteration", "#"]
+check("a figure run onto the clue's last word is the next number: gone",
+      "Morning suits, said O'Neill, for her", oc.agree("Morning suits, said O'Neill, for her7", [her, her])[0])
+check("a figure after the clue's '?' goes", "Laughter of a huntsman, say?",
+      oc.agree("Laughter of a huntsman, say?14", [["#", "Laughter", "of", "a", "huntsman", ",", "say", "?", "#", "#", "Tips"]] * 2)[0])
+dog = ["#", "Poor", "dog", ",", "third", "of", "#", "#", "#", "Count"]
+check("mirror: more numbers after the last word than count and next is a reference (held)",
+      "Poor dog, third of8", oc.agree("Poor dog, third of8", [dog, dog], count="3")[0])
+check("mirror: a reading with a word after the last word keeps the figure (held)",
+      "Morning suits, said O'Neill, for her7",
+      oc.agree("Morning suits, said O'Neill, for her7", [her, her[:9] + ["lt"] + her[9:]])[0])
+
+# Times 1976-10-27 "Result0f", 1983-12-20 "to0": a letter read as its
+# look-alike figure, which the vote put back in the word it touches.
+res = ["#", "Result", "of", "tax", "deducted", "#"]
+check("a figure the vote read as the next word's letter goes ('Result0f')",
+      "Result of tax deducted", oc.agree("Result0f tax deducted", [res, res])[0])
+too = ["#", "Landseer's", "work", "has", "dignity", "too", "#"]
+check("a figure the vote read as the word's last letter goes ('to0')",
+      "Landseer's work has dignity too", oc.agree("Landseer's work has dignity to0", [too, too])[0])
+ras = ["#", "Raises", "as", "a", "result", "of", "#", "perhaps", "?", "#"]
+check("a figure read as the word's letter goes beside another figure ('a5' for 'as')",
+      "Raises as a result of 21 perhaps?", oc.agree("Raises a5 a result of 21 perhaps?", [ras, ras])[0])
+rat = ras[:2] + ["at"] + ras[3:]
+check("mirror: a figure that is no look-alike of the letter put back stays",
+      "Raises at5 a result of 21 perhaps?", oc.agree("Raises a5 a result of 21 perhaps?", [rat, rat])[0])
 check("mirror: a clue with other figures keeps a lead one (a run-on)", "8Ruth's beer 151",
       oc.agree("8Ruth's beer 151", [["#", "Ruth's", "beer", "#"]] * 2)[0])
 

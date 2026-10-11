@@ -1378,6 +1378,15 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
         spans[0][1].isupper() or COUNTED.fullmatch(clue[:spans[0][0]].strip() + spans[0][1])) else None
     while mine and mine[-1] == BREAK:
         mine, spans = mine[:-1], spans[:-1]
+    # A figure run onto the clue's last word or its "?" ("her7", "say?14",
+    # "reputation15).") is its count or the next clue's number when the
+    # readings printing the clue have no more numbers after that word than
+    # the count's and the next clue's: more is a reference the clue makes
+    # ("third of8" with a count of 3: "of # # #"), but none follows its "?".
+    end_fig = re.search(r"(?<=[A-Za-z?!])\d+[\s).,:;]*$", clue)
+    end_word = max((i for i, (at, t) in enumerate(spans) if at + len(t) <= end_fig.start()
+                    and t not in MARKS and t != BREAK and not t.isdigit()), default=None) if end_fig else None
+    end_runs = []  # each printing reading's numbers after end_word's place
     # A word with a speck against it ("i»" for "is") is no sure reading.
     specked = {i for i, (at, t) in enumerate(spans)
                if JUNK_MARK.match(clue[at + len(t):at + len(t) + 1] or " ")
@@ -1399,6 +1408,10 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
             continue
         printing += 1
         lead, trail = ends(pairs, theirs)
+        j = next((j for i, j in pairs if i == end_word), None) if end_word is not None else None
+        if j is not None:
+            after = list(itertools.takewhile(lambda t: t == BREAK or t in MARKS, theirs[j + 1:]))
+            end_runs.append(after.count(BREAK))
         leads.append(lead)
         trails.append(trail)
         for i, j in pairs:
@@ -1730,6 +1743,23 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     adds = {g: ws for g, ws in adds.items() if len(ws) == 1}
     if lead_cut is not None and (0 in adds or printing < 2 or not glued_digits(0, low, seen, extra, fixes, before=True)):
         lead_cut = None
+    if (end_word is not None and count_cut is None and printing >= 2 and len(end_runs) >= 2
+            and all(1 <= r <= (len(clue) if clue[end_fig.start() - 1] in "?!" else 1 + len(re.findall(r"\d+", count or "0")))
+                    for r in end_runs)
+            and printed_as_voted(end_word, low, seen, fixes)):
+        count_cut = end_fig.start()
+    # A letter read as its look-alike figure ("to0" for "too", "Result0f"
+    # for "Result of", "a5" for "as") that the vote put back in the word
+    # it touches leaves the figure over: it goes.
+    for i, w in enumerate(mine):
+        if len(w) != 1 or w not in DIGIT_LETTERS or i in drop:
+            continue
+        at = spans[i][0]
+        for n, glued, word in ((i - 1, i and spans[i - 1][0] + len(spans[i - 1][1]) == at, lambda c, n: low[n] + c),
+                               (i + 1, i + 1 < len(mine) and spans[i + 1][0] == at + 1, lambda c, n: c + low[n])):
+            if glued and n in fixes and printed_as_voted(n, low, seen, fixes) and any(
+                    fixes[n].lower() == word(c, n) for c in DIGIT_LETTERS[w]):
+                drop.add(i)
     if mine and mine[-1] == "?" and adds.get(len(mine), [""])[0].endswith("?"):
         # Words lost from the clue's end are put in with its "?" after them.
         drop.add(len(mine) - 1)
@@ -1784,7 +1814,7 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
             gap = " " if gap[-1:].isspace() else ""
         out += gap + (add[0] + " " if add else "") + new
         k = at + len(old)
-    out += (" " + adds[len(mine)][0] if adds.get(len(mine)) else "") + speckless(text[k:])
+    out += (" " + adds[len(mine)][0] if adds.get(len(mine)) else "") + speckless(text[k:count_cut])
     if adds and how == "agree":
         how = "settled by the readings"
     if (drop or count_cut is not None) and how == "agree":
@@ -1810,15 +1840,20 @@ def glued_digits(i, low, seen, extra, fixes, before=False):
     word: "th3Z" is "that") nor a number or a mark beside them
     ("eccentric3" is a "?" misread). Before the first
     word only the word counts: the readings' own clue numbers stand there."""
-    word = 0 if before else i - 1
-    voted = (fixes.get(word) or low[word]).lower()
-    if len(voted) < 2 or (fixes.get(word) or low[word]).isupper() or (
-            (low[word] == voted) + sum(v.lower() == voted for v in seen[word].values()) < 2):
+    if not printed_as_voted(0 if before else i - 1, low, seen, fixes):
         return False
     if before:
         return True
     return not seen[i] and not any(v == BREAK or v in MARKS or any(c.isdigit() for c in v)
                                    for v in [*extra[i], *extra[i + 1]])
+
+
+def printed_as_voted(word, low, seen, fixes):
+    """Whether two readings, this one counting, print `mine[word]` as voted
+    letter for letter, a word of two letters or more not in capitals."""
+    voted = (fixes.get(word) or low[word]).lower()
+    return len(voted) >= 2 and not (fixes.get(word) or low[word]).isupper() and (
+        (low[word] == voted) + sum(v.lower() == voted for v in seen[word].values()) >= 2)
 
 
 def count_misread(i, w, low, seen, leads, trails, printing, second, bracketed):
