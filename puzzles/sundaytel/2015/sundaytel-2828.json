@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,46 @@
     "text": "Container, for instance",
     "enumeration": "4"
    },
-   "solution": "CASE"
+   "solution": "CASE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CASE",
+    "definitions": [
+     {
+      "text": "Container",
+      "at": 0
+     },
+     {
+      "text": "instance",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Container",
+      "note": "first meaning: a box or holder for things"
+     },
+     {
+      "clueFragment": "instance",
+      "note": "second meaning: an example or occurrence"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone offers a container as an example of something.",
+     "walkthrough": "'For instance' reads as one phrase meaning 'for example', but 'for' is only a link and 'instance' is the second meaning.",
+     "definitionFit": "The word names both a box or holder and a particular example of something happening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "instance"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +88,59 @@
     "text": "Tune from band that's oddly deficient? Exactly",
     "enumeration": "6"
    },
-   "solution": "ADJUST"
+   "solution": "ADJUST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ADJUST",
+    "definitions": [
+     {
+      "text": "Tune",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's oddly deficient",
+      "for": "letter_selection",
+      "note": "lacking the odd-numbered letters, so only the second and fourth survive"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "band",
+      "gives": "AD",
+      "select": "alternate",
+      "note": "the even letters of the word, once its first and third are dropped"
+     },
+     {
+      "clueFragment": "Exactly",
+      "gives": "JUST",
+      "note": "just means exactly, as in 'just right'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "JUST"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician complains that a band plays out of tune, and someone agrees.",
+     "walkthrough": "'Tune' looks like a melody but is the verb, to adjust an instrument.",
+     "definitionFit": "To tune an instrument or engine is to make small corrections to it, a synonym of the verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tune"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +154,48 @@
     "text": "Fellow with chair for female",
     "enumeration": "4"
    },
-   "solution": "PROF"
+   "solution": "PROF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROF",
+    "definitions": [
+     {
+      "text": "Fellow with chair",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of, as in 'pros and cons'"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "standard abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "A man takes a chair for a woman, a little act of courtesy.",
+     "walkthrough": "The 'chair' is an academic one: a professorship, not furniture.",
+     "definitionFit": "A prof, short for professor, is an academic who holds a chair, i.e. an established university post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chair"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +209,69 @@
     "text": "Prefer a violin, initially, in quartet",
     "enumeration": "6"
    },
-   "solution": "FAVOUR"
+   "solution": "FAVOUR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "FAVOUR",
+    "definitions": [
+     {
+      "text": "Prefer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the instrument named just before it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "these letters are placed inside the group of players that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "violin",
+      "gives": "V",
+      "select": "first",
+      "note": "first letter of the instrument"
+     },
+     {
+      "clueFragment": "quartet",
+      "gives": "FOUR",
+      "note": "a quartet is a group of four"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "A",
+      "V",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A string quartet chooses which violin to use.",
+     "walkthrough": "'Quartet' looks like the players in the scene, but here it simply stands for the number word, which opens to take the other letters.",
+     "definitionFit": "To favour something is to like it better than the alternatives, a synonym of prefer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quartet"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +285,52 @@
     "text": "Line on map is not the same motorway",
     "enumeration": "8"
    },
-   "solution": "ISOTHERM"
+   "solution": "ISOTHERM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISOTHERM",
+    "definitions": [
+     {
+      "text": "Line on map",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not the same",
+      "gives": "OTHER",
+      "note": "other means different, not the same"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "M is the prefix for British motorways, like the M1"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "OTHER",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that a road on the map is not the motorway they expected.",
+     "definitionFit": "An isotherm is a line on a weather map linking places with equal temperature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "motorway"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +344,65 @@
     "text": "Like people around one, making negative comments",
     "enumeration": "10"
    },
-   "solution": "ASPERSIONS"
+   "solution": "ASPERSIONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASPERSIONS",
+    "definitions": [
+     {
+      "text": "negative comments",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the group of people encloses the following item"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like",
+      "gives": "AS",
+      "note": "as means like, in the sense of similar to"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "PERSONS",
+      "note": "persons are people"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "PERS",
+      "I",
+      "ONS"
+     ]
+    },
+    "explanation": {
+     "surface": "People gathered round someone, making disparaging remarks about them.",
+     "walkthrough": "'Making' is a link here; the answer is the noun, the remarks themselves, as in casting aspersions.",
+     "definitionFit": "Aspersions are damaging or disparaging remarks, as in casting aspersions on someone's character."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +416,61 @@
     "text": "Transfer deal's beginning in European city",
     "enumeration": "8"
    },
-   "solution": "HANDOVER"
+   "solution": "HANDOVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HANDOVER",
+    "definitions": [
+     {
+      "text": "Transfer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "beginning picks out only the opening letter of the word before it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "that single letter is placed inside the city named next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European city",
+      "gives": "HANOVER",
+      "note": "a city in northern Germany"
+     },
+     {
+      "clueFragment": "deal's",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAN",
+      "D",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A business transfer is agreed at the start of a deal in a European city.",
+     "definitionFit": "A handover is the transfer of control or responsibility from one party to another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deal's"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +484,57 @@
     "text": "Lively enthusiasm about volcano in Eastern state",
     "enumeration": "7"
    },
-   "solution": "VIETNAM"
+   "solution": "VIETNAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VIETNAM",
+    "definitions": [
+     {
+      "text": "Eastern state",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the enthusiasm wraps round the mountain"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lively enthusiasm",
+      "gives": "VIM",
+      "note": "vim is energy and enthusiasm"
+     },
+     {
+      "clueFragment": "volcano",
+      "gives": "ETNA",
+      "note": "the famous volcano in Sicily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "ETNA",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is excited about a volcano in an Asian country.",
+     "definitionFit": "Vietnam is a country in South-East Asia, so an Eastern state in the sense of a nation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "volcano"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +548,61 @@
     "text": "Test dunces in front of school's head",
     "enumeration": "6"
    },
-   "solution": "ASSESS"
+   "solution": "ASSESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ASSESS",
+    "definitions": [
+     {
+      "text": "Test",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "in front of",
+      "for": "charade",
+      "note": "in front of says the first piece is placed before the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dunces",
+      "gives": "ASSES",
+      "note": "asses are fools"
+     },
+     {
+      "clueFragment": "school's",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Slow pupils are examined in front of the headteacher.",
+     "walkthrough": "'School's head' looks like the headteacher, but it means just the first letter of 'school'.",
+     "definitionFit": "To assess is to evaluate or examine someone's ability, the same as giving them a test."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +616,51 @@
     "text": "Provide inspiration for puzzle",
     "enumeration": "6"
    },
-   "solution": "BEMUSE"
+   "solution": "BEMUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEMUSE",
+    "definitions": [
+     {
+      "text": "puzzle",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Provide",
+      "gives": "BE",
+      "note": "read cryptically, to provide inspiration is to be one"
+     },
+     {
+      "clueFragment": "inspiration",
+      "gives": "MUSE",
+      "note": "a muse is a source of artistic inspiration"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "MUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is asked to give a writer ideas for a crossword.",
+     "walkthrough": "To provide inspiration is to BE a MUSE; joined up, those words make a verb meaning to confuse.",
+     "definitionFit": "To bemuse is to bewilder or confuse, the verb sense of puzzle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "puzzle"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +674,67 @@
     "text": "Border force on bank guarding river",
     "enumeration": "8"
    },
-   "solution": "FRONTIER"
+   "solution": "FRONTIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FRONTIER",
+    "definitions": [
+     {
+      "text": "Border",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guarding",
+      "for": "container",
+      "note": "guarding means surrounding and protecting, so the letters close round the river"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "force",
+      "gives": "F",
+      "note": "F is the abbreviation for force in physics"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "TIER",
+      "note": "a bank is a row or tier, as in a bank of seats"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "ON",
+      "TIER"
+     ]
+    },
+    "explanation": {
+     "surface": "Border guards are posted on a riverbank to protect the crossing.",
+     "walkthrough": "'Bank' looks like a riverbank, which suits the river, but it means a row of seats or tier.",
+     "definitionFit": "A frontier is the border line between two countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 12,
@@ -192,7 +754,68 @@
      }
     ]
    },
-   "solution": "SITTINGTARGETS"
+   "solution": "SITTINGTARGETS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SITTING TARGETS",
+    "definitions": [
+     {
+      "text": "easy marks",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Grasping",
+      "for": "container",
+      "note": "grasping means holding inside, so the word for smart encloses the small word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smart",
+      "gives": "STING",
+      "note": "to smart is to sting with pain"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "tar is an old word for a sailor"
+     },
+     {
+      "clueFragment": "receives",
+      "gives": "GETS",
+      "note": "gets means receives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IT",
+      "TING",
+      "TAR",
+      "GETS"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor in a smart uniform picks up easy points.",
+     "walkthrough": "'Smart' looks like an adjective for the sailor's appearance, but it is the verb meaning to hurt.",
+     "definitionFit": "Sitting targets are people or things easy to attack or criticise, so they are easy marks in the sense of victims."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "smart"
+    }
+   }
   },
   {
    "number": 13,
@@ -206,7 +829,53 @@
     "text": "Revision of simple bios that's out of the question",
     "enumeration": "10"
    },
-   "solution": "IMPOSSIBLE"
+   "solution": "IMPOSSIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMPOSSIBLE",
+    "definitions": [
+     {
+      "text": "out of the question",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revision of",
+      "for": "anagram",
+      "note": "a revision reworks text, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "simple bios",
+      "gives": "SIMPLEBIOS",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIMPLEBIOS",
+       "gives": "IMPOSSIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rewriting short biographies proves impossible to do.",
+     "definitionFit": "Something out of the question cannot be done or considered, which is what impossible means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bios"
+    }
+   }
   },
   {
    "number": 14,
@@ -220,7 +889,51 @@
     "text": "Part of uniform altered in cut",
     "enumeration": "5"
    },
-   "solution": "TUNIC"
+   "solution": "TUNIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TUNIC",
+    "definitions": [
+     {
+      "text": "Part of uniform",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "altered",
+      "for": "anagram",
+      "note": "altered means changed, so the letters that follow are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in cut",
+      "gives": "INCUT",
+      "note": "the five letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INCUT",
+       "gives": "TUNIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of uniform is taken in by a tailor.",
+     "walkthrough": "'Altered' and 'cut' sound like tailoring, which suits the garment answer.",
+     "definitionFit": "A tunic is a close-fitting jacket worn as part of a military or police uniform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "altered"
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +947,43 @@
     "text": "Computer user should ignore this inferior option in menu",
     "enumeration": "4"
    },
-   "solution": "SPAM"
+   "solution": "SPAM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPAM",
+    "definitions": [
+     {
+      "text": "Computer user should ignore this",
+      "at": 0
+     },
+     {
+      "text": "inferior option in menu",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Computer user should ignore this",
+      "note": "first meaning: unwanted junk email"
+     },
+     {
+      "clueFragment": "inferior option in menu",
+      "note": "second meaning: a tinned processed meat, a cheap item on a menu"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Menu' looks like a computer menu, but it is a restaurant's, offering the cheap tinned meat famous from the Monty Python sketch.",
+     "definitionFit": "The word means both unsolicited bulk email and a brand of canned processed pork."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "menu"
+    }
+   }
   },
   {
    "number": 16,
@@ -248,7 +997,56 @@
     "text": "Cars put to the test in government department",
     "enumeration": "8"
    },
-   "solution": "MINISTRY"
+   "solution": "MINISTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINISTRY",
+    "definitions": [
+     {
+      "text": "government department",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put to the",
+      "for": "charade",
+      "note": "put to means placed next to, so the first piece sits against the second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cars",
+      "gives": "MINIS",
+      "note": "Minis are small British cars"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TRY",
+      "note": "a try is a test or attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINIS",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Vehicles are road-tested by a government department.",
+     "definitionFit": "A ministry is a government department headed by a minister, such as the Ministry of Defence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 17,
@@ -262,7 +1060,49 @@
     "text": "Note unaltered when sent back",
     "enumeration": "5"
    },
-   "solution": "MINIM"
+   "solution": "MINIM",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "MINIM",
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unaltered when sent back",
+      "for": "palindrome",
+      "note": "a word that stays the same when read backwards reads identically both ways"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "MINIM",
+      "note": "a musical note worth two crotchets, spelt the same both ways"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINIM"
+     ]
+    },
+    "explanation": {
+     "surface": "A letter is returned to the sender without changes.",
+     "walkthrough": "'Note' suggests a written message being returned, but it is a musical note.",
+     "definitionFit": "A minim is a musical note lasting half a semibreve, called a half note in American usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 18,
@@ -276,7 +1116,55 @@
     "text": "China concealing revolutionary weapon",
     "enumeration": "7"
    },
-   "solution": "MACHETE"
+   "solution": "MACHETE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MACHETE",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealing",
+      "for": "container",
+      "note": "concealing means hiding inside, so the friend's word wraps round the rebel"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China",
+      "gives": "MATE",
+      "note": "rhyming slang: china plate means mate, a friend"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "CHE",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shipment of crockery hides a weapon smuggled in by a rebel.",
+     "walkthrough": "'China' looks like the country or porcelain; in cockney rhyming slang 'china plate' stands for mate, a friend.",
+     "definitionFit": "A machete is a broad heavy knife used as a tool and as a weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 19,
@@ -290,7 +1178,50 @@
     "text": "Lacking determination as yet, in low temperature",
     "enumeration": "4"
    },
-   "solution": "MOOT"
+   "solution": "MOOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOOT",
+    "definitions": [
+     {
+      "text": "Lacking determination as yet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "low",
+      "gives": "MOO",
+      "note": "to low is to make the sound a cow makes"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "standard abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is indecisive while feeling cold.",
+     "walkthrough": "'Low temperature' reads as cold, but low is the cow's call.",
+     "definitionFit": "A moot point is still open to debate and undecided, i.e. not yet settled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 20,
@@ -310,7 +1241,46 @@
      }
     ]
    },
-   "solution": "SANDWICHCOURSE"
+   "solution": "SANDWICHCOURSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SANDWICH COURSE",
+    "definitions": [
+     {
+      "text": "Open location from time to time",
+      "at": 0
+     },
+     {
+      "text": "form of education",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Open location from time to time",
+      "note": "first meaning: the golf links at Sandwich in Kent, which hosts the Open Championship in some years"
+     },
+     {
+      "clueFragment": "form of education",
+      "note": "second meaning: a course that alternates college study with periods of work"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Open' looks like an adjective but is golf's Open Championship; Royal St George's, in the Kent town of Sandwich, hosts it every few years.",
+     "definitionFit": "A British sandwich course is a degree with a work placement year layered between years of study."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Open"
+    }
+   }
   },
   {
    "number": 21,
@@ -324,7 +1294,64 @@
     "text": "Pain of separation, with end of affair accepted by girl",
     "enumeration": "6"
    },
-   "solution": "WRENCH"
+   "solution": "WRENCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WRENCH",
+    "definitions": [
+     {
+      "text": "Pain of separation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of picks out the last letter of the word that follows"
+     },
+     {
+      "text": "accepted by",
+      "for": "container",
+      "note": "accepted by means taken in, so the letter goes inside the word for girl"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "WENCH",
+      "note": "an old word for a young woman"
+     },
+     {
+      "clueFragment": "affair",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "R",
+      "ENCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A painful breakup after an affair with a young woman.",
+     "definitionFit": "A wrench is a painful emotional parting, as in 'leaving home was a wrench'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "affair"
+    }
+   }
   },
   {
    "number": 22,
@@ -338,7 +1365,43 @@
     "text": "Like lying for crowned head, hard?",
     "enumeration": "6"
    },
-   "solution": "UNEASY"
+   "solution": "UNEASY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNEASY",
+    "definitions": [
+     {
+      "text": "Like lying for crowned head",
+      "at": 0
+     },
+     {
+      "text": "hard",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like lying for crowned head",
+      "note": "first meaning: Shakespeare's '... lies the head that wears a crown' from Henry IV Part 2"
+     },
+     {
+      "clueFragment": "hard",
+      "note": "second meaning: not easy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first part quotes Shakespeare's Henry IV; the second splits the answer as UN-EASY, i.e. difficult.",
+     "definitionFit": "The word describes how a monarch's head rests in the quotation, and literally means not easy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lying"
+    }
+   }
   },
   {
    "number": 23,
@@ -352,7 +1415,62 @@
     "text": "Blunder as letter writer — is taken in by male charm",
     "enumeration": "8"
    },
-   "solution": "MISSPELL"
+   "solution": "MISSPELL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MISSPELL",
+    "definitions": [
+     {
+      "text": "Blunder as letter writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "taken in by means held inside, so the small word goes within the pieces that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "standard abbreviation for male"
+     },
+     {
+      "clueFragment": "charm",
+      "gives": "SPELL",
+      "note": "a spell is a magic charm"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IS",
+      "SPELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer of love letters makes a mistake when a man's charm wins her over.",
+     "walkthrough": "'Letter' means a letter of the alphabet, not a message, so the blunder is one of spelling.",
+     "definitionFit": "To misspell is to get the letters of a word wrong, a blunder made by someone writing letters of the alphabet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 24,
@@ -366,7 +1484,43 @@
     "text": "Rugby player that may be picked after key loss",
     "enumeration": "4"
    },
-   "solution": "LOCK"
+   "solution": "LOCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOCK",
+    "definitions": [
+     {
+      "text": "Rugby player",
+      "at": 0
+     },
+     {
+      "text": "that may be picked after key loss",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rugby player",
+      "note": "first meaning: a second-row forward in rugby"
+     },
+     {
+      "clueFragment": "that may be picked after key loss",
+      "note": "second meaning: a fastening someone might pick open if the key is lost"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Picked' suggests selecting a player for a team, but it is the burglar's sense of picking a fastening.",
+     "definitionFit": "In rugby union a lock is a second-row forward; it is also a fastening opened with a key."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 25,
@@ -380,7 +1534,40 @@
     "text": "In dramatic scene, how players get sent off",
     "enumeration": "6"
    },
-   "solution": "EXEUNT"
+   "solution": "EXEUNT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EXEUNT",
+    "definitions": [
+     {
+      "text": "In dramatic scene, how players get sent off",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In dramatic scene, how players get sent off",
+      "note": "surface reading: footballers being sent off the pitch during a dramatic incident"
+     },
+     {
+      "clueFragment": "players get sent off",
+      "note": "setter's reading: the stage direction in a script telling actors to leave"
+     }
+    ],
+    "explanation": {
+     "surface": "A tense match in which footballers are shown red cards.",
+     "walkthrough": "'Players' are actors and 'scene' is part of a play; the Latin stage direction means 'they go out'.",
+     "definitionFit": "Exeunt is the Latin stage direction in a script meaning that several characters leave the stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 26,
@@ -394,7 +1581,50 @@
     "text": "Close section of exhibition early, or phone artist",
     "enumeration": "4"
    },
-   "solution": "NEAR"
+   "solution": "NEAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NEAR",
+    "definitions": [
+     {
+      "text": "Close",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "section of",
+      "for": "hidden_word",
+      "note": "a section is only a part, so the answer is a run of letters inside the following words"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exhibition early",
+      "gives": "NEAR",
+      "note": "the last letter of the first word and the start of the second"
+     },
+     {
+      "clueFragment": "phone artist",
+      "note": "the same run of letters sits across these two words too, as an alternative route"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shuts the exhibition early, or telephones the artist.",
+     "walkthrough": "The four letters are hidden twice, once in each pair of words joined by 'or'. 'Close' looks like a verb, to shut, but it is the adjective.",
+     "definitionFit": "Near and close are synonyms meaning a short distance away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Close"
+    }
+   }
   },
   {
    "number": 27,
@@ -408,7 +1638,54 @@
     "text": "Minister's circle thrown into disarray",
     "enumeration": "6"
    },
-   "solution": "CLERIC"
+   "solution": "CLERIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLERIC",
+    "definitions": [
+     {
+      "text": "Minister",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown into disarray",
+      "for": "anagram",
+      "note": "something in disarray is jumbled up, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "circle",
+      "gives": "CIRCLE",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CIRCLE",
+       "gives": "CLERIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government minister's inner circle is in chaos.",
+     "walkthrough": "'Minister' suggests politics; here it is a minister of religion.",
+     "definitionFit": "A cleric is a member of the clergy, and a minister is a clergyman in many churches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Minister"
+    }
+   }
   },
   {
    "number": 28,
@@ -422,7 +1699,40 @@
     "text": "One in position on board to help mate, perhaps",
     "enumeration": "8"
    },
-   "solution": "CHESSMAN"
+   "solution": "CHESSMAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHESSMAN",
+    "definitions": [
+     {
+      "text": "One in position on board to help mate, perhaps",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One in position on board to help mate, perhaps",
+      "note": "surface reading: a sailor or company director in post to assist a colleague"
+     },
+     {
+      "clueFragment": "on board to help mate",
+      "note": "setter's reading: a piece on a chequered board that helps deliver checkmate"
+     }
+    ],
+    "explanation": {
+     "surface": "A crew member stationed on deck ready to assist the first mate.",
+     "walkthrough": "'Board' and 'mate' sound nautical, but they belong to chess, where mate ends the game.",
+     "definitionFit": "A chessman is any of the pieces in chess, which stand on squares and combine to deliver checkmate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mate"
+    }
+   }
   }
  ]
 }
