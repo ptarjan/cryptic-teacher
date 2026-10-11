@@ -176,7 +176,7 @@ def stale(entry):
 
 
 def _requote(entry):
-    clue = entry["clue"]["text"] if isinstance(entry.get("clue"), dict) else None
+    clue = (entry.get("clue") if isinstance(entry.get("clue"), dict) else {}).get("text")
     for holder, key in stale(entry):
         holder[key] = quote(holder[key], clue)
 
