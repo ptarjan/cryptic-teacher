@@ -38,6 +38,9 @@
   "date": "2018-04-01",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,51 @@
     "text": "My hair is dyed: don't tell Bob, 'e'll be upset!",
     "enumeration": "12"
    },
-   "solution": "BOTTLEBLONDE"
+   "solution": "BOTTLEBLONDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOTTLEBLONDE",
+    "definitions": [
+     {
+      "text": "My hair is dyed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'ll be upset",
+      "for": "anagram",
+      "note": "the contracted 'will be upset' says the words just before it are to be knocked over and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "don't tell Bob, 'e",
+      "gives": "DONTTELLBOBE",
+      "note": "the letters of these words, with the apostrophes and comma ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DONTTELLBOBE",
+       "gives": "BOTTLEBLONDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has secretly coloured their hair begs a friend to keep it from Bob, who would be upset.",
+     "walkthrough": "The anagram signal hides inside the contraction: 'e'll splits into 'e (the cockney he) for the fodder and 'll be upset for the instruction.",
+     "definitionFit": "A bottle blonde is a person whose fair hair comes from a dye bottle rather than nature, so they could say this of themselves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "'e'll"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +112,51 @@
     "text": "Venomous snake's seen here, by and by?",
     "enumeration": "10"
    },
-   "solution": "BANDYBANDY"
+   "solution": "BANDYBANDY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANDYBANDY",
+    "definitions": [
+     {
+      "text": "Venomous snake",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s seen here,"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by and",
+      "gives": "BANDY",
+      "note": "the word by read as its letters: B and Y"
+     },
+     {
+      "clueFragment": "by?",
+      "gives": "BANDY",
+      "note": "the second by read the same way: B and Y"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANDY",
+      "BANDY"
+     ]
+    },
+    "explanation": {
+     "surface": "An idle remark that a dangerous snake will turn up sooner or later.",
+     "walkthrough": "Spell out each 'by' letter by letter, joining with 'and': B AND Y, twice. The bandy-bandy is a banded Australian snake.",
+     "definitionFit": "The bandy-bandy is a small venomous Australian snake ringed in black and white bands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +170,67 @@
     "text": "My coat is blue: could be bluer with a bit of heliotrope in",
     "enumeration": "6"
    },
-   "solution": "BURHEL"
+   "solution": "BURHEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "BURHEL",
+    "definitions": [
+     {
+      "text": "My coat is blue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "'could be' offers the preceding word as something it might turn into, so its letters are free to move"
+     },
+     {
+      "text": "a bit of",
+      "for": "letter_selection",
+      "note": "only a small piece of the flower name is wanted, and the smallest piece is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bluer",
+      "gives": "BLUER",
+      "note": "taken as written, as the fodder"
+     },
+     {
+      "clueFragment": "heliotrope",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter of heliotrope"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLUERH",
+       "gives": "BURHEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A creature boasts of its blue coat, which a touch of purple heliotrope could make bluer still.",
+     "walkthrough": "The burhel (bharal) is the Himalayan blue sheep, so the first-person definition describes the animal.",
+     "definitionFit": "The burhel is the Himalayan blue sheep, named for the slate-blue tinge of its wool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "could"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +244,69 @@
     "text": "End of rot in an acacia, one undergoing termination",
     "enumeration": "7"
    },
-   "solution": "ABORTEE"
+   "solution": "ABORTEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ABORTEE",
+    "definitions": [
+     {
+      "text": "one undergoing termination",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside another, as something sits in a tree"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rot",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of rot"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "A",
+      "note": "the indefinite article as A"
+     },
+     {
+      "clueFragment": "acacia",
+      "gives": "BOREE",
+      "note": "the boree is an Australian acacia tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BOR",
+      "T",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tree surgeon notes that rot at the end of a branch dooms an acacia.",
+     "walkthrough": "A boree is an Australian acacia; T goes inside it after the article A.",
+     "definitionFit": "An abortee is a person who undergoes an abortion, the termination of a pregnancy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "termination"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +320,51 @@
     "text": "Deny hand needing to work, as one of the smaller farmyard specimens?",
     "enumeration": "8"
    },
-   "solution": "DANDYHEN"
+   "solution": "DANDYHEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DANDYHEN",
+    "definitions": [
+     {
+      "text": "one of the smaller farmyard specimens?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing to work",
+      "for": "anagram",
+      "note": "letters set to work get busy and move around, so the words are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deny hand",
+      "gives": "DENYHAND",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DENYHAND",
+       "gives": "DANDYHEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to give a hand with the farm work, though a small animal still has to earn its keep.",
+     "walkthrough": "Dandy-hen is the Scots word for a bantam hen.",
+     "definitionFit": "A dandy-hen is a bantam, a small breed of domestic fowl, hence one of the smaller birds in a farmyard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +378,56 @@
     "text": "Black and White (Scotch): sway after tucking into just a little",
     "enumeration": "7"
    },
-   "solution": "BROCKIT"
+   "solution": "BROCKIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROCKIT",
+    "definitions": [
+     {
+      "text": "Black and White (Scotch)",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after tucking into",
+      "for": "container",
+      "note": "something tucked into something else ends up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "just a little",
+      "gives": "BIT",
+      "note": "a bit is just a little"
+     },
+     {
+      "clueFragment": "sway",
+      "gives": "ROCK",
+      "note": "to sway is to rock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ROCK",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "It reads like a whisky drinker swaying after a small dram of Black and White, a brand of Scotch.",
+     "walkthrough": "Black and White is a Scotch whisky brand; here (Scotch) means the answer is a Scots word for black-and-white.",
+     "definitionFit": "Brockit is a Scots word for animals marked in black and white, like a badger, called a brock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Scotch"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +441,50 @@
     "text": "The opposite of spring, now early autumn proceeds initially",
     "enumeration": "4"
    },
-   "solution": "NEAP"
+   "solution": "NEAP",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NEAP",
+    "definitions": [
+     {
+      "text": "The opposite of spring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'initially' asks for the opening letter of each of the words it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "now early autumn proceeds",
+      "gives": "NEAP",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A seasonal note that spring is over and autumn is setting in.",
+     "walkthrough": "'Spring' looks like the season but means a spring tide.",
+     "definitionFit": "A neap tide is the smallest tide of the month, the opposite of a spring tide, which rises highest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +498,57 @@
     "text": "Studies incorporating one Roman and one French saint",
     "enumeration": "5"
    },
-   "solution": "DENIS"
+   "solution": "DENIS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DENIS",
+    "definitions": [
+     {
+      "text": "French saint",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorporating",
+      "for": "container",
+      "note": "to incorporate something is to take it into the body of the whole"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Studies",
+      "gives": "DENS",
+      "note": "dens are rooms for study"
+     },
+     {
+      "clueFragment": "one Roman",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEN",
+      "I",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of reading that covers a Roman saint and a French one.",
+     "definitionFit": "St Denis is the patron saint of France, first bishop of Paris."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Roman"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +562,62 @@
     "text": "N. American abroad, in point of fact looking up French relative",
     "enumeration": "6"
    },
-   "solution": "YANQUI"
+   "solution": "YANQUI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "YANQUI",
+    "definitions": [
+     {
+      "text": "N. American abroad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "looking up",
+      "for": "reversal",
+      "note": "in a down clue, looking up means reading the word from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in point of fact",
+      "gives": "NAY",
+      "note": "nay used as 'indeed, in fact', as in 'it is good, nay excellent'"
+     },
+     {
+      "clueFragment": "French relative",
+      "gives": "QUI",
+      "note": "qui is the French relative pronoun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YAN",
+      "QUI"
+     ],
+     "reversals": [
+      {
+       "from": "NAY",
+       "to": "YAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller in America finds, in fact, a French relation doing well.",
+     "walkthrough": "'Relative' is the grammar term, a relative pronoun, not a family member.",
+     "definitionFit": "Yanqui is the Spanish form of Yankee, used in Latin America for a person from the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "relative"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +631,49 @@
     "text": "Series proceed at too leisurely a pace for nerdy enthusiast?",
     "enumeration": "12"
    },
-   "solution": "TRAINSPOTTER"
+   "solution": "TRAINSPOTTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRAINSPOTTER",
+    "definitions": [
+     {
+      "text": "nerdy enthusiast?",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Series",
+      "gives": "TRAINS",
+      "note": "trains are series, as in a train of events"
+     },
+     {
+      "clueFragment": "proceed at too leisurely a pace",
+      "gives": "POTTER",
+      "note": "to potter is to move along in an idle, unhurried way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAINS",
+      "POTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that some series drag on too slowly for a fan's liking.",
+     "definitionFit": "A trainspotter is the stock image of a nerdy hobbyist, noting locomotive numbers and, by extension, obsessed with trivia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Series"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +687,66 @@
     "text": "Cape Town boss, old, one in a bus unusually",
     "enumeration": "6"
    },
-   "solution": "OUBAAS"
+   "solution": "OUBAAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OUBAAS",
+    "definitions": [
+     {
+      "text": "Cape Town boss",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "an unusual arrangement is one out of the normal order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "one as the article A"
+     },
+     {
+      "clueFragment": "a bus",
+      "gives": "ABUS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "UBAAS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AABUS",
+       "gives": "UBAAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly South African boss rides a bus, which is unusual for a man of his standing.",
+     "walkthrough": "A goes into A BUS and that is rearranged after O.",
+     "definitionFit": "Oubaas is Afrikaans for 'old master', a term for a senior man or boss in South Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bus"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +760,56 @@
     "text": "Fish or fruit leaving dock",
     "enumeration": "4"
    },
-   "solution": "SHAD"
+   "solution": "SHAD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SHAD",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so those letters are taken out"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "SHADDOCK",
+      "note": "the shaddock is the pomelo, a large citrus fruit"
+     },
+     {
+      "clueFragment": "dock",
+      "gives": "DOCK",
+      "note": "taken as written, the part removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A shipment of fish or fruit departing from the quay.",
+     "walkthrough": "'Dock' looks like the harbour but is the literal letters to be taken away from the fruit.",
+     "definitionFit": "The shad is a herring-like fish that swims upriver to spawn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dock"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +823,59 @@
     "text": "Scot known for fiction giving his lesson about English",
     "enumeration": "5"
    },
-   "solution": "LEEAR"
+   "solution": "LEEAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEEAR",
+    "definitions": [
+     {
+      "text": "Scot known for fiction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing placed about another surrounds it"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his lesson",
+      "gives": "LEAR",
+      "note": "lear is a Scots word for learning or a lesson"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "E",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish novelist teaches a class on English literature.",
+     "walkthrough": "'Known for fiction' suggests a novelist like Scott, but it means one who tells untruths; 'his' marks lear as a Scots word too.",
+     "definitionFit": "Leear is the Scots spelling of liar, someone whose stories are fictions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fiction"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +889,53 @@
     "text": "Rarely seen herb all over local barge",
     "enumeration": "4"
    },
-   "solution": "TROW"
+   "solution": "TROW",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TROW",
+    "definitions": [
+     {
+      "text": "local barge",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over",
+      "for": "reversal",
+      "note": "turned all over, the word flips end to end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rarely seen herb",
+      "gives": "WORT",
+      "note": "wort is an old word for a plant or herb, now found mainly in compounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROW"
+     ],
+     "reversals": [
+      {
+       "from": "WORT",
+       "to": "TROW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rare herb is growing all over a barge.",
+     "definitionFit": "A trow is a flat-bottomed sailing barge of the River Severn, a regional dialect term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +949,57 @@
     "text": "OT text, part of chronicle almost complete, God be praised",
     "enumeration": "7"
    },
-   "solution": "HOSANNA"
+   "solution": "HOSANNA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HOSANNA",
+    "definitions": [
+     {
+      "text": "God be praised",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost complete",
+      "for": "deletion",
+      "note": "almost complete means one short of the whole, so the final letter drops"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "OT text",
+      "gives": "HOS",
+      "note": "Hos is the abbreviation of Hosea, an Old Testament book"
+     },
+     {
+      "clueFragment": "part of chronicle",
+      "gives": "ANNAL",
+      "note": "an annal is the record of a single year in a chronicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOS",
+      "ANNA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Bible scholar finishes most of an Old Testament chronicle and gives thanks.",
+     "definitionFit": "Hosanna is a cry of praise and adoration addressed to God, used in worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "text"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1013,54 @@
     "text": "Tired? Cha well brewed acts as a sedative",
     "enumeration": "8"
    },
-   "solution": "THRIDACE"
+   "solution": "THRIDACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THRIDACE",
+    "definitions": [
+     {
+      "text": "a sedative",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "well brewed",
+      "for": "anagram",
+      "note": "brewing stirs things together, so the letters are mixed thoroughly"
+     }
+    ],
+    "linkWords": [
+     "acts as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tired? Cha",
+      "gives": "TIREDCHA",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIREDCHA",
+       "gives": "THRIDACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling weary? A strong pot of tea will calm you down.",
+     "walkthrough": "Cha is slang for tea.",
+     "definitionFit": "Thridace is the inspissated juice of lettuce, formerly given as a mild sedative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brewed"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1074,42 @@
     "text": "NE European making appearance in ballet tights",
     "enumeration": "4"
    },
-   "solution": "LETT"
+   "solution": "LETT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LETT",
+    "definitions": [
+     {
+      "text": "NE European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making appearance in",
+      "for": "hidden_word",
+      "note": "something making an appearance in a place shows up within it, so look inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ballet tights",
+      "gives": "LETT",
+      "note": "the end of ballet runs into the start of tights"
+     }
+    ],
+    "explanation": {
+     "surface": "A dancer from the Baltic appears on stage in ballet tights.",
+     "definitionFit": "A Lett is a Latvian, a person from the north-eastern European country of Latvia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tights"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1123,71 @@
     "text": "Aggressive seabird turning like this with cake around?",
     "enumeration": "5"
    },
-   "solution": "BOSUN"
+   "solution": "BOSUN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BOSUN",
+    "definitions": [
+     {
+      "text": "Aggressive seabird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning the short phrase round reads its letters backwards"
+     },
+     {
+      "text": "with",
+      "for": "container",
+      "note": "having another piece around it means one is enclosed by the other"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the cake goes around the other piece, enclosing it on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cake",
+      "gives": "BUN",
+      "note": "a bun is a small cake"
+     },
+     {
+      "clueFragment": "like this",
+      "gives": "SO",
+      "note": "so means like this, in this way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OS",
+      "UN"
+     ],
+     "reversals": [
+      {
+       "from": "SO",
+       "to": "OS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird turns on someone holding a cake, wondering if it should behave like this.",
+     "definitionFit": "Bosun is a dialect name for the great skua, a seabird that bullies other birds into dropping their catch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cake"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1200,51 @@
    "clue": {
     "text": "Edit blue poet being broadcast? (8, two words)"
    },
-   "solution": "BLEEPOUT"
+   "solution": "BLEEPOUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLEEPOUT",
+    "definitions": [
+     {
+      "text": "Edit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being broadcast",
+      "for": "anagram",
+      "note": "seed broadcast is scattered widely, so the letters are scattered too"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blue poet",
+      "gives": "BLUEPOET",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLUEPOET",
+       "gives": "BLEEPOUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A censor is told to cut a smutty poet whose work is going on air.",
+     "walkthrough": "'Blue' suggests sadness but here means rude, which is why the edit is needed.",
+     "definitionFit": "To bleep out is to replace swear words in a broadcast with a tone, a form of editing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1258,69 @@
     "text": "After cold, I lie fretting with this? Salve may help it",
     "enumeration": "9"
    },
-   "solution": "CHEILITIS"
+   "solution": "CHEILITIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHEILITIS",
+    "definitions": [
+     {
+      "text": "Salve may help it",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fretting",
+      "for": "anagram",
+      "note": "fretting means worrying or wearing away, so the letters are agitated into a new order"
+     }
+    ],
+    "linkWords": [
+     "After",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "I lie",
+      "gives": "ILIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "THIS",
+      "note": "taken as written, added to the fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HEILITIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ILIETHIS",
+       "gives": "HEILITIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a cold lies awake worrying over a sore that ointment might soothe.",
+     "definitionFit": "Cheilitis is inflammation of the lips, often cracked and sore, which a soothing balm can ease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fretting"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1334,74 @@
     "text": "Great occasion coming up in summer abroad for shop display",
     "enumeration": "7"
    },
-   "solution": "ETALAGE"
+   "solution": "ETALAGE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ETALAGE",
+    "definitions": [
+     {
+      "text": "shop display",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down clue, coming up means read from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in the other sits inside it"
+     },
+     {
+      "text": "abroad",
+      "for": "container",
+      "note": "abroad here means use the foreign word, so the summer is the French one"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "summer abroad",
+      "gives": "ETE",
+      "note": "été is French for summer"
+     },
+     {
+      "clueFragment": "Great occasion",
+      "gives": "GALA",
+      "note": "a gala is a festive occasion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "ALAG",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "GALA",
+       "to": "ALAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big summer event abroad is coming up, so the shops dress their windows.",
+     "definitionFit": "Étalage is French for the display of goods in a shop window or on a stall, borrowed into English."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "summer"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1415,46 @@
     "text": "Depleted family meeting to discuss ideas",
     "enumeration": "7"
    },
-   "solution": "THINKIN"
+   "solution": "THINKIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THINKIN",
+    "definitions": [
+     {
+      "text": "meeting to discuss ideas",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Depleted",
+      "gives": "THIN",
+      "note": "a depleted stock is thin"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are family members"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIN",
+      "KIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A shrinking family gathers to talk over its plans.",
+     "definitionFit": "A think-in is an informal conference held to brainstorm and exchange ideas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Depleted"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1468,57 @@
     "text": "Took a gamble with vicar installed having a special rank",
     "enumeration": "9"
    },
-   "solution": "BREVETTED"
+   "solution": "BREVETTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BREVETTED",
+    "definitions": [
+     {
+      "text": "having a special rank",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "installed",
+      "for": "container",
+      "note": "something installed is placed inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Took a gamble",
+      "gives": "BETTED",
+      "note": "betted is a past tense of bet"
+     },
+     {
+      "clueFragment": "vicar",
+      "gives": "REV",
+      "note": "Rev is short for Reverend, the vicar's title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "REV",
+      "ETTED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone placed a wager on a vicar being promoted.",
+     "definitionFit": "A brevet gives an officer a higher honorary rank without the matching pay, so brevetted means holding such a rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gamble"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1532,46 @@
     "text": "Looking up may identify this garden bush",
     "enumeration": "6"
    },
-   "solution": "ROSIER"
+   "solution": "ROSIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROSIER",
+    "definitions": [
+     {
+      "text": "Looking up",
+      "at": 0
+     },
+     {
+      "text": "garden bush",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "may identify this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Looking up",
+      "note": "first meaning: improving, as when the outlook gets more hopeful"
+     },
+     {
+      "clueFragment": "garden bush",
+      "note": "second meaning: a rose bush, from the French"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Looking up' suggests a reversal in a down clue, but it is a plain definition: things looking up are getting better.",
+     "definitionFit": "The comparative of rosy means more promising, and the noun is a rose tree in the garden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Looking"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1585,51 @@
     "text": "Old scare off with distribution of ration",
     "enumeration": "6"
    },
-   "solution": "AROINT"
+   "solution": "AROINT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AROINT",
+    "definitions": [
+     {
+      "text": "Old scare off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with distribution of",
+      "for": "anagram",
+      "note": "distributing spreads things out, so the letters are spread into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ration",
+      "gives": "RATION",
+      "note": "the letters of this word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RATION",
+       "gives": "AROINT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wartime rations are handed out to drive off the hungry crowd.",
+     "walkthrough": "'Aroint thee, witch' is Shakespeare's; the word is an archaic command to go away.",
+     "definitionFit": "Aroint is an archaic verb meaning to drive away, used chiefly in the imperative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "distribution"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1643,57 @@
     "text": "Gaining access with code, rascal grabs $1000",
     "enumeration": "5"
    },
-   "solution": "LOGON"
+   "solution": "LOGON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOGON",
+    "definitions": [
+     {
+      "text": "Gaining access with code",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabs",
+      "for": "container",
+      "note": "a hand that grabs closes around what it takes"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rascal",
+      "gives": "LOON",
+      "note": "a loon is a rogue or idle fellow, in Scottish use"
+     },
+     {
+      "clueFragment": "$1000",
+      "gives": "G",
+      "note": "G stands for a grand, a thousand dollars"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "G",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A crook hacks into a system with a password and steals a thousand dollars.",
+     "definitionFit": "Logon is the act of entering a computer system, typically with a username and password."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "code"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1707,57 @@
     "text": "Bit of sexual harassment, goat's first lunge?",
     "enumeration": "5"
    },
-   "solution": "GROPE"
+   "solution": "GROPE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GROPE",
+    "definitions": [
+     {
+      "text": "Bit of sexual harassment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for the opening letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goat's",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of goat"
+     },
+     {
+      "clueFragment": "lunge",
+      "gives": "ROPE",
+      "note": "a lunge is the long rope used to exercise a horse in a circle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ROPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lecherous man lunges at someone, an old goat making his first move.",
+     "walkthrough": "'Lunge' looks like a lurch forward but is the horse-trainer's lunging rein.",
+     "definitionFit": "A grope is an unwanted sexual touch, a typical act of harassment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lunge"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1771,53 @@
     "text": "Pitches cut up",
     "enumeration": "4"
    },
-   "solution": "PINS"
+   "solution": "PINS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "PINS",
+    "definitions": [
+     {
+      "text": "Pitches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "SNIP",
+      "note": "to snip is to cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PINS"
+     ],
+     "reversals": [
+      {
+       "from": "SNIP",
+       "to": "PINS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Football grounds being dug up and ruined.",
+     "definitionFit": "To pitch a tent is to fix it to the ground, and pins fix things in place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pitches"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1831,64 @@
     "text": "Pen made of bone turned round",
     "enumeration": "4"
    },
-   "solution": "BIRO"
+   "solution": "BIRO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BIRO",
+    "definitions": [
+     {
+      "text": "Pen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned round means facing the other way, so the bone's name runs backwards"
+     }
+    ],
+    "linkWords": [
+     "made of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bone",
+      "gives": "RIB",
+      "note": "a rib is a bone"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIR",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "RIB",
+       "to": "BIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writing implement carved from bone, as if turned on a lathe.",
+     "walkthrough": "'Turned round' looks like one phrase, but only 'turned' reverses; 'round' supplies a letter.",
+     "definitionFit": "Biro is the trademark name of the ballpoint pen, used for any such pen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1902,50 @@
     "text": "Giants in the main died, being exceptionally large",
     "enumeration": "4"
    },
-   "solution": "OBOS"
+   "solution": "OBOS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBOS",
+    "definitions": [
+     {
+      "text": "Giants in the main",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "died",
+      "gives": "OB",
+      "note": "ob. is the abbreviation of obiit, Latin for 'died'"
+     },
+     {
+      "clueFragment": "being exceptionally large",
+      "gives": "OS",
+      "note": "OS is the abbreviation for outsize"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "Huge creatures of the ocean perished because they grew too big.",
+     "walkthrough": "'The main' is the sea, so the giants are big ships, not monsters.",
+     "definitionFit": "OBOs are ore-bulk-oil carriers, very large cargo ships that sail the open sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Giants"
+    }
+   }
   },
   {
    "number": 29,
@@ -470,7 +1959,53 @@
     "text": "By which noose is tightened and top link's broken",
     "enumeration": "8"
    },
-   "solution": "SLIPKNOT"
+   "solution": "SLIPKNOT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SLIPKNOT",
+    "definitions": [
+     {
+      "text": "By which noose is tightened",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is in pieces that can be put back in another order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top link's",
+      "gives": "TOPLINKS",
+      "note": "the letters of these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPLINKS",
+       "gives": "SLIPKNOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rope's noose pulls tight and the top link of the chain snaps.",
+     "definitionFit": "A slipknot slides along its own rope, which is how a running noose closes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "link's"
+    }
+   }
   },
   {
    "number": 30,
@@ -484,7 +2019,70 @@
     "text": "Head-over-heels in love, head for weepy?",
     "enumeration": "7"
    },
-   "solution": "NIOBEAN"
+   "solution": "NIOBEAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NIOBEAN",
+    "definitions": [
+     {
+      "text": "weepy",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head-over-heels",
+      "for": "reversal",
+      "note": "a word turned head over heels is upended so it reads backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "NI",
+      "note": "in, turned upside down"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "BEAN",
+      "note": "bean is slang for the head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "O",
+      "BEAN"
+     ],
+     "reversals": [
+      {
+       "from": "IN",
+       "to": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone madly in love, heading for tears.",
+     "walkthrough": "'Head-over-heels in love' reads as one idiom, but splits into a reversal signal, a word and a letter.",
+     "definitionFit": "Niobean means like Niobe, the mother in Greek myth who wept endlessly for her slain children."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 31,
@@ -498,7 +2096,49 @@
     "text": "Second outfit required for sudden shower",
     "enumeration": "4"
    },
-   "solution": "SKIT"
+   "solution": "SKIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKIT",
+    "definitions": [
+     {
+      "text": "sudden shower",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "required for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "outfit",
+      "gives": "KIT",
+      "note": "kit is a set of clothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A change of clothes is needed after getting caught in a downpour.",
+     "definitionFit": "Skit is a Scots and dialect word for a brief, light shower of rain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outfit"
+    }
+   }
   },
   {
    "number": 32,
@@ -512,7 +2152,53 @@
     "text": "Part of regiment left behind got drunk when returning",
     "enumeration": "5"
    },
-   "solution": "DEPOT"
+   "solution": "DEPOT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DEPOT",
+    "definitions": [
+     {
+      "text": "Part of regiment left behind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when returning",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "got drunk",
+      "gives": "TOPED",
+      "note": "toped is the past tense of tope, to drink heavily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEPOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOPED",
+       "to": "DEPOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers left at base got drunk when the rest came home.",
+     "definitionFit": "A depot is the part of a regiment that stays at home base, handling recruits, while the rest serves abroad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 33,
@@ -526,7 +2212,71 @@
     "text": "Passive infinitive in use wrongly, split by participle",
     "enumeration": "6"
    },
-   "solution": "SUPINE"
+   "solution": "SUPINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SUPINE",
+    "definitions": [
+     {
+      "text": "Passive",
+      "at": 0
+     },
+     {
+      "text": "infinitive",
+      "at": 8
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrongly",
+      "for": "anagram",
+      "note": "done wrongly, the letters fall into an incorrect order and must be put right"
+     },
+     {
+      "text": "split by",
+      "for": "container",
+      "note": "something split by another piece has that piece wedged inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in use",
+      "gives": "INUSE",
+      "note": "the letters of these words"
+     },
+     {
+      "clueFragment": "participle",
+      "gives": "P",
+      "note": "P is the grammatical abbreviation for participle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "P",
+      "INE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INUSE",
+       "gives": "SUINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar lesson on passive infinitives, used wrongly and split by a participle.",
+     "walkthrough": "Two definitions sit together at the front: supine means passive, and in grammar it is a Latin verbal noun, also a name for the English infinitive with 'to'.",
+     "definitionFit": "Supine as an adjective means inert and passive; as a grammar term it names an infinitive-like verb form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 34,
@@ -540,7 +2290,43 @@
     "text": "Looking back, good advice for sluggards?",
     "enumeration": "10"
    },
-   "solution": "RESPECTANT"
+   "solution": "RESPECTANT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESPECTANT",
+    "definitions": [
+     {
+      "text": "Looking back",
+      "at": 0
+     },
+     {
+      "text": "good advice for sluggards?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Looking back",
+      "note": "first meaning: a heraldic term for creatures facing or looking towards each other"
+     },
+     {
+      "clueFragment": "good advice for sluggards?",
+      "note": "second meaning, read cryptically: respect (the) ant, after Proverbs, 'Go to the ant, thou sluggard'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half splits the answer into two words, an instruction echoing the Bible's advice to idlers to learn from the industrious ant.",
+     "definitionFit": "In heraldry, respectant describes two beasts facing each other, each looking back at the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "back"
+    }
+   }
   }
  ]
 }
