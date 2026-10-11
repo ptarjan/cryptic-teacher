@@ -38,6 +38,9 @@
   "date": "2017-07-23",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,61 @@
     "text": "Indian city (as formerly) holds back religious school",
     "enumeration": "9"
    },
-   "solution": "MADRASSAH"
+   "solution": "MADRASSAH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MADRASSAH",
+    "definitions": [
+     {
+      "text": "religious school",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back tells the solver to read the word for 'holds' from its end to its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indian city (as formerly)",
+      "gives": "MADRAS",
+      "note": "the old name of the city now called Chennai"
+     },
+     {
+      "clueFragment": "holds",
+      "gives": "HAS",
+      "note": "to hold something is to have it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MADRAS",
+      "SAH"
+     ],
+     "reversals": [
+      {
+       "from": "HAS",
+       "to": "SAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city in India, under its old name, keeps back a school for religious study.",
+     "walkthrough": "Chennai was called Madras until 1996, hence 'as formerly'.",
+     "definitionFit": "A madrassah is an Islamic college or seminary, a school where religion is taught."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "holds"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +122,80 @@
     "text": "Foul woman after diamonds in rising total? One works on flats",
     "enumeration": "7"
    },
-   "solution": "MUDSCOW"
+   "solution": "MUDSCOW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "MUDSCOW",
+    "definitions": [
+     {
+      "text": "One works on flats",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue rising means read upwards, from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the card suit inside the other word"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sends the insult to the end, behind the rest of the wordplay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "total",
+      "gives": "SUM",
+      "note": "a sum is a total"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the card-suit abbreviation for diamonds"
+     },
+     {
+      "clueFragment": "Foul woman",
+      "gives": "COW",
+      "note": "cow is a coarse insult for an unpleasant woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MU",
+      "D",
+      "S",
+      "COW"
+     ],
+     "reversals": [
+      {
+       "from": "SUM",
+       "to": "MUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about an unpleasant woman chasing jewels as a total rises, set beside someone working on apartments.",
+     "walkthrough": "Flats suggests apartments but means mudflats; 'after' puts the woman last.",
+     "definitionFit": "A mud scow is a flat-bottomed boat used on mudflats or for carrying dredged mud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flats"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +209,61 @@
     "text": "Outer limit for spacecraft, one lap somehow including turn?",
     "enumeration": "7"
    },
-   "solution": "APOLUNE"
+   "solution": "APOLUNE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "APOLUNE",
+    "definitions": [
+     {
+      "text": "Outer limit for spacecraft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means by some unknown arrangement, so the letters are mixed"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking in an extra letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one lap",
+      "gives": "ONELAP",
+      "note": "the fodder letters"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "U",
+      "note": "a U-turn, so U stands for a turn"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONELAPU",
+       "gives": "APOLUNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the furthest point a craft reaches, one circuit with a bend in it.",
+     "definitionFit": "The apolune is the point in a lunar orbit farthest from the Moon, the outermost reach of the path."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +277,66 @@
     "text": "Lead from southpaw penetrates rabbit in nasty bout",
     "enumeration": "4"
    },
-   "solution": "DOSE"
+   "solution": "DOSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DOSE",
+    "definitions": [
+     {
+      "text": "nasty bout",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lead from",
+      "for": "letter_selection",
+      "note": "the lead of a word is its first letter"
+     },
+     {
+      "text": "penetrates",
+      "for": "container",
+      "note": "penetrates means going inside the following word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "southpaw",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of southpaw"
+     },
+     {
+      "clueFragment": "rabbit",
+      "gives": "DOE",
+      "note": "a doe is a female rabbit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A left-handed boxer's jab lands on a weakling in a brutal fight.",
+     "walkthrough": "Southpaw and bout suggest boxing; a rabbit is also slang for a poor player, adding to the scene.",
+     "definitionFit": "A dose is an attack of an illness, as in a dose of flu, an unpleasant spell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bout"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +349,55 @@
    "clue": {
     "text": "Dense, an Irish irregular gets first order of the day? (12, three words)"
    },
-   "solution": "RISEANDSHINE"
+   "solution": "RISEANDSHINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RISE AND SHINE",
+    "definitions": [
+     {
+      "text": "first order of the day?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "irregular",
+      "for": "anagram",
+      "note": "irregular means not in the usual order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dense, an Irish",
+      "gives": "DENSEANIRISH",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DENSEANIRISH",
+       "gives": "RISEANDSHINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow-witted Irish soldier out of line gets the morning's first command.",
+     "walkthrough": "The question mark marks the playful definition: the order is a command, not a ranking.",
+     "definitionFit": "Rise and shine is the cheerful command to get up, the first thing said in the morning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "irregular"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +411,53 @@
     "text": "Clumsy oaf needing help's at sea",
     "enumeration": "5"
    },
-   "solution": "SHLEP"
+   "solution": "SHLEP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHLEP",
+    "definitions": [
+     {
+      "text": "Clumsy oaf",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused and lost, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "help's",
+      "gives": "HELPS",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HELPS",
+       "gives": "SHLEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An incompetent sailor who is lost at sea needs rescuing.",
+     "definitionFit": "A shlep, or schlep, is Yiddish-derived slang for an awkward, stupid or ineffectual person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +471,58 @@
     "text": "Antiquarian group is missing first book for networks",
     "enumeration": "7"
    },
-   "solution": "SAGENES"
+   "solution": "SAGENES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SAGENES",
+    "definitions": [
+     {
+      "text": "networks",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is missing",
+      "for": "deletion",
+      "note": "is missing means the letters i and s are left out of the book"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Antiquarian group",
+      "gives": "SA",
+      "note": "SA stands for the Society of Antiquaries"
+     },
+     {
+      "clueFragment": "first book",
+      "gives": "GENESIS",
+      "note": "Genesis is the first book of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "GENES"
+     ]
+    },
+    "explanation": {
+     "surface": "A society of collectors has lost its first volume, used for its contacts.",
+     "walkthrough": "'is' in 'is missing' does double duty: it names the letters dropped from the end of the book.",
+     "definitionFit": "A sagene is a fishing net, and by extension a network of any kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "missing"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +536,52 @@
     "text": "Abnormal horloge: to use needs winding",
     "enumeration": "12"
    },
-   "solution": "HETEROLOGOUS"
+   "solution": "HETEROLOGOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HETEROLOGOUS",
+    "definitions": [
+     {
+      "text": "Abnormal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs winding",
+      "for": "anagram",
+      "note": "winding means twisting about, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horloge: to use",
+      "gives": "HORLOGETOUSE",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HORLOGETOUSE",
+       "gives": "HETEROLOGOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A faulty clock that has to be wound up before it can be used.",
+     "walkthrough": "Horloge is an old word for a clock, so winding suits the surface perfectly.",
+     "definitionFit": "Heterologous means differing from the normal structure, as of tissue unlike what is usual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "winding"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +595,55 @@
     "text": "Brother having to adapt without me",
     "enumeration": "3"
    },
-   "solution": "FRA"
+   "solution": "FRA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FRA",
+    "definitions": [
+     {
+      "text": "Brother",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means the word must lose the letters of 'me'"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to adapt",
+      "gives": "FRAME",
+      "note": "to frame something is to shape or fit it to a purpose"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written; these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRA"
+     ]
+    },
+    "explanation": {
+     "surface": "A monk who must change his ways without the speaker's help.",
+     "definitionFit": "Fra is the Italian title given to a friar or monk, meaning brother."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adapt"
+    }
+   }
   },
   {
    "number": 8,
@@ -176,7 +657,56 @@
     "text": "Rule accepted by party – it may be improper",
     "enumeration": "8"
    },
-   "solution": "FRACTION"
+   "solution": "FRACTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRACTION",
+    "definitions": [
+     {
+      "text": "it may be improper",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted by",
+      "for": "container",
+      "note": "accepted by means taken inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rule",
+      "gives": "R",
+      "note": "R is the abbreviation for rule"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "FACTION",
+      "note": "a faction is a party or group within a larger body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "ACTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A political party adopts a regulation that may be underhand.",
+     "walkthrough": "Improper sounds like misconduct but is the maths term, a fraction whose top exceeds its bottom.",
+     "definitionFit": "An improper fraction has a numerator larger than its denominator, such as seven over four."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "improper"
+    }
+   }
   },
   {
    "number": 9,
@@ -190,7 +720,46 @@
     "text": "Gross son belongs to a particular class",
     "enumeration": "5"
    },
-   "solution": "RANKS"
+   "solution": "RANKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANKS",
+    "definitions": [
+     {
+      "text": "belongs to a particular class",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gross",
+      "gives": "RANK",
+      "note": "rank can mean gross or flagrant, as in rank stupidity"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANK",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A vulgar boy fits a certain social stratum.",
+     "definitionFit": "To rank is to hold a place in a grading, so something that ranks is placed in a given category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gross"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +773,61 @@
     "text": "Like beads of glass, silver and dull (but not English)",
     "enumeration": "5"
    },
-   "solution": "AGGRY"
+   "solution": "AGGRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AGGRY",
+    "definitions": [
+     {
+      "text": "Like beads of glass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not English",
+      "for": "deletion",
+      "note": "but not English means the letter for English is taken out"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "dull",
+      "gives": "GREY",
+      "note": "grey means dull and colourless"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "GRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Glass beads described as silvery but dull, though not English made.",
+     "definitionFit": "Aggry beads are ancient coloured glass beads found in West Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +841,67 @@
     "text": "Disreputable old fellow, dishevelled rake embraced by whore",
     "enumeration": "8"
    },
-   "solution": "SHAKERAG"
+   "solution": "SHAKERAG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SHAKERAG",
+    "definitions": [
+     {
+      "text": "Disreputable old fellow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dishevelled",
+      "for": "anagram",
+      "note": "dishevelled means messed up and untidy, so the letters of rake are jumbled"
+     },
+     {
+      "text": "embraced by",
+      "for": "container",
+      "note": "embraced by means held inside the arms of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rake",
+      "gives": "AKER",
+      "note": "the four letters of rake rearranged"
+     },
+     {
+      "clueFragment": "whore",
+      "gives": "SHAG",
+      "note": "used as a verb: to whore is to have sex, which is vulgarly to shag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "AKER",
+      "AG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAKE",
+       "gives": "AKER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A roguish old man, a scruffy libertine, is in the arms of a prostitute.",
+     "walkthrough": "Whore must be read as a verb; shag is British slang for having sex.",
+     "definitionFit": "A shakerag is an archaic word for a ragged, disreputable person, a beggarly ne'er-do-well."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whore"
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +915,64 @@
     "text": "After celebration girl returned church hanging",
     "enumeration": "6"
    },
-   "solution": "DOSSAL"
+   "solution": "DOSSAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DOSSAL",
+    "definitions": [
+     {
+      "text": "church hanging",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means the word for girl comes back the other way"
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebration",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "lass is a common word for a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "SSAL"
+     ],
+     "reversals": [
+      {
+       "from": "LASS",
+       "to": "SSAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a party, a young woman went back to church to put up a decoration.",
+     "walkthrough": "'After' puts the girl second, after the celebration.",
+     "definitionFit": "A dossal is an ornamental cloth hung behind an altar or round a chancel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +986,56 @@
     "text": "Shadow enveloping North Pole",
     "enumeration": "5"
    },
-   "solution": "STANG"
+   "solution": "STANG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STANG",
+    "definitions": [
+     {
+      "text": "Pole",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enveloping",
+      "for": "container",
+      "note": "enveloping means wrapping around, so one word holds the other inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shadow",
+      "gives": "STAG",
+      "note": "to stag is an old word for to shadow or watch someone"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "N",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A dark shade surrounds the North Pole.",
+     "walkthrough": "'North Pole' looks like one phrase, but North gives the letter and Pole alone is the definition.",
+     "definitionFit": "Stang is a dialect word for a pole or wooden bar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +1049,79 @@
     "text": "Seven bamboozled slippery fellow's about taken in – Irish one?",
     "enumeration": "8"
    },
-   "solution": "SLEEVEEN"
+   "solution": "SLEEVEEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "anagram"
+    ],
+    "answer": "SLEEVEEN",
+    "definitions": [
+     {
+      "text": "Irish one?",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bamboozled",
+      "for": "anagram",
+      "note": "bamboozled means confused, so the letters of seven are jumbled"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned around, so the slippery creature is read backwards"
+     },
+     {
+      "text": "taken in",
+      "for": "container",
+      "note": "taken in means held inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seven",
+      "gives": "SVEEN",
+      "note": "the letters of seven rearranged"
+     },
+     {
+      "clueFragment": "slippery fellow",
+      "gives": "EEL",
+      "note": "an eel is the proverbial slippery creature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LEE",
+      "VEEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEVEN",
+       "gives": "SVEEN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "EEL",
+       "to": "LEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seven people were fooled by a crafty character who had them all taken in.",
+     "walkthrough": "The definition leans on 'slippery fellow': 'Irish one?' means an Irish slippery fellow.",
+     "definitionFit": "In Irish English a sleeveen is a sly, smooth-talking, untrustworthy person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Seven"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +1135,51 @@
     "text": "Like some heels, making copper curse",
     "enumeration": "5"
    },
-   "solution": "CUBAN"
+   "solution": "CUBAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUBAN",
+    "definitions": [
+     {
+      "text": "Like some heels",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "curse",
+      "gives": "BAN",
+      "note": "a ban is an old word for a curse or anathema"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "BAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Some cads make a policeman swear.",
+     "walkthrough": "Heels looks like scoundrels and copper like a policeman; both are false scents.",
+     "definitionFit": "Cuban heels are a style of medium, slightly tapered shoe heel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "heels"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1193,55 @@
     "text": "Two-master, wooden frame, light amidships",
     "enumeration": "8"
    },
-   "solution": "BILANDER"
+   "solution": "BILANDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BILANDER",
+    "definitions": [
+     {
+      "text": "Two-master",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amidships",
+      "for": "container",
+      "note": "amidships means in the middle of the vessel, so one word goes in the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wooden frame",
+      "gives": "BIER",
+      "note": "a bier is a wooden frame for carrying a coffin"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "LAND",
+      "note": "to light is to come down and settle, as a bird alights"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "LAND",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A two-masted vessel with a timber structure and a lamp in the middle of the deck.",
+     "walkthrough": "Light looks like a lamp or a weight, but it is the verb meaning to come to rest.",
+     "definitionFit": "A bilander is a small two-masted merchant ship once used in the Low Countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1255,42 @@
     "text": "Somewhat pretentious, in part symbolic",
     "enumeration": "5"
    },
-   "solution": "ARTSY"
+   "solution": "ARTSY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARTSY",
+    "definitions": [
+     {
+      "text": "Somewhat pretentious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means the letters lie inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part symbolic",
+      "gives": "ARTSY",
+      "note": "found across the two words, skipping the first and last letters"
+     }
+    ],
+    "explanation": {
+     "surface": "Something partly symbolic can seem a little affected.",
+     "walkthrough": "'in part' looks like the indicator, but 'part' holds letters of the answer.",
+     "definitionFit": "Artsy describes something that displays artistic pretensions, a little showily cultured."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1304,46 @@
     "text": "Non-kosher style of painting heraldic devices",
     "enumeration": "8"
    },
-   "solution": "TREFOILS"
+   "solution": "TREFOILS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TREFOILS",
+    "definitions": [
+     {
+      "text": "heraldic devices",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Non-kosher",
+      "gives": "TREF",
+      "note": "tref is the Yiddish word for food not allowed under Jewish law"
+     },
+     {
+      "clueFragment": "style of painting",
+      "gives": "OILS",
+      "note": "painting in oils is a style or medium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREF",
+      "OILS"
+     ]
+    },
+    "explanation": {
+     "surface": "Forbidden food painted in oils on coats of arms.",
+     "definitionFit": "A trefoil is a three-lobed figure like a clover leaf, a common charge on coats of arms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "style"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1357,48 @@
     "text": "A fresh beginning requiring tranquillity and skill",
     "enumeration": "7"
    },
-   "solution": "RESTART"
+   "solution": "RESTART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESTART",
+    "definitions": [
+     {
+      "text": "A fresh beginning",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tranquillity",
+      "gives": "REST",
+      "note": "rest is calm and quiet"
+     },
+     {
+      "clueFragment": "skill",
+      "gives": "ART",
+      "note": "art is a skill, as in the art of persuasion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REST",
+      "ART"
+     ]
+    },
+    "explanation": {
+     "surface": "Starting over needs a calm mind and some ability.",
+     "definitionFit": "A restart is a new start, beginning something again from scratch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1412,61 @@
     "text": "Marine line goes round it, e.g. roller endlessly negotiated",
     "enumeration": "7"
    },
-   "solution": "LOGREEL"
+   "solution": "LOGREEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LOG-REEL",
+    "definitions": [
+     {
+      "text": "Marine line goes round it",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without its final letter"
+     },
+     {
+      "text": "negotiated",
+      "for": "anagram",
+      "note": "negotiated in the sense of worked through, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "e.g.",
+      "gives": "EG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "roller",
+      "gives": "ROLLE",
+      "note": "roller with its last letter cut"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EGROLLE",
+       "gives": "LOGREEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sea rope wound around a drum or roller, worked out with difficulty.",
+     "definitionFit": "A log-reel is the drum on which a ship's log-line is wound, so the line wraps around it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "negotiated"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1480,59 @@
     "text": "Wrap deserted dead in a shady spot",
     "enumeration": "7"
    },
-   "solution": "SWADDLE"
+   "solution": "SWADDLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWADDLE",
+    "definitions": [
+     {
+      "text": "Wrap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the two letters inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deserted",
+      "gives": "D",
+      "note": "D is an abbreviation for deserted"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "D is an abbreviation for dead"
+     },
+     {
+      "clueFragment": "a shady spot",
+      "gives": "SWALE",
+      "note": "swale is a dialect word for shade or a shady place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWA",
+      "DD",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cover up the abandoned body in a dark corner.",
+     "definitionFit": "To swaddle is to wrap tightly in cloth, as a baby is bound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dead"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1546,70 @@
     "text": "Old age: millions kept in we shut up in fencing",
     "enumeration": "8"
    },
-   "solution": "WELDMESH"
+   "solution": "WELDMESH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WELDMESH",
+    "definitions": [
+     {
+      "text": "fencing",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "kept in means held inside the word that follows"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old age",
+      "gives": "ELD",
+      "note": "eld is an archaic word for old age"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for millions"
+     },
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shut up",
+      "gives": "SH",
+      "note": "sh is the call for silence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ELDM",
+      "E",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "In old age, we are locked away behind a fence with millions of others.",
+     "walkthrough": "The age and millions go together inside 'we', and 'shut up' follows.",
+     "definitionFit": "Weldmesh is a trade name for fencing made from wire mesh welded at the crossings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shut"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1623,54 @@
     "text": "Take it easy when in bed?",
     "enumeration": "5"
    },
-   "solution": "COAST"
+   "solution": "COAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COAST",
+    "definitions": [
+     {
+      "text": "Take it easy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "AS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about relaxing when one is lying in bed.",
+     "definitionFit": "To coast is to move along without effort, so to take things easy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1684,54 @@
     "text": "Adjust cover round piano",
     "enumeration": "5"
    },
-   "solution": "COAPT"
+   "solution": "COAPT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COAPT",
+    "definitions": [
+     {
+      "text": "Adjust",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding the following item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cover",
+      "gives": "COAT",
+      "note": "a coat is a covering layer"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical marking for piano, softly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COA",
+      "P",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Tweak the dust sheet around the piano.",
+     "definitionFit": "To coapt is to fit together or adjust parts so they meet properly, as with a broken bone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1745,65 @@
     "text": "Strangely pious (but not good), about god",
     "enumeration": "5"
    },
-   "solution": "ODDLY"
+   "solution": "ODDLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ODDLY",
+    "definitions": [
+     {
+      "text": "Strangely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not good",
+      "for": "deletion",
+      "note": "but not good means the letter standing for good is removed"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round the following letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pious",
+      "gives": "GODLY",
+      "note": "godly means devout"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "god",
+      "gives": "D",
+      "note": "D stands for Deus, Latin for god"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OD",
+      "D",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Oddly enough, someone devout but not good goes on about God.",
+     "definitionFit": "Oddly is an adverb meaning in a strange or peculiar way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pious"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1817,42 @@
     "text": "Gradual decay? It makes law defunct",
     "enumeration": "5"
    },
-   "solution": "WASTE"
+   "solution": "WASTE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "WASTE",
+    "definitions": [
+     {
+      "text": "Gradual decay",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It makes law defunct",
+      "gives": "WASTE",
+      "note": "put TE in place of W in law and it becomes late, meaning dead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WASTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about slow decline, followed by the idea of something rendering a statute void.",
+     "walkthrough": "The wordplay is an instruction: 'W as TE' turns law into late, which means defunct. Waste is also a legal term, adding to the disguise.",
+     "definitionFit": "Waste is a slow wearing away or decline, as in a wasting disease."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "law"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1866,55 @@
     "text": "Stuff that can be made into a gown",
     "enumeration": "5"
    },
-   "solution": "WONGA"
+   "solution": "WONGA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WONGA",
+    "definitions": [
+     {
+      "text": "Stuff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can be made into",
+      "for": "anagram",
+      "note": "can be made into suggests the letters are turned into something else"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a gown",
+      "gives": "AGOWN",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGOWN",
+       "gives": "WONGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fabric that a dressmaker can turn into a dress.",
+     "walkthrough": "Stuff reads as cloth, but here it means money; wonga is British slang for cash.",
+     "definitionFit": "Stuff is slang for money, and wonga is another slang word for cash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stuff"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1928,44 @@
     "text": "Young adult deer was shocking to those hearing it?",
     "enumeration": "8"
    },
-   "solution": "STAGGARD"
+   "solution": "STAGGARD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STAGGARD",
+    "definitions": [
+     {
+      "text": "Young adult deer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to those hearing it",
+      "for": "homophone",
+      "note": "to those hearing it means the word is judged by its sound alone"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was shocking",
+      "gives": "STAGGARD",
+      "soundsLike": "STAGGERED",
+      "note": "something that staggered people was shocking"
+     }
+    ],
+    "explanation": {
+     "surface": "A young stag gave listeners a shock.",
+     "walkthrough": "The definition comes first; the rest is a phrase meaning 'staggered'.",
+     "definitionFit": "A staggard is a male red deer in its fourth year, not quite a full stag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shocking"
+    }
+   }
   },
   {
    "number": 28,
@@ -470,7 +1979,42 @@
     "text": "Member of the opposition in Churchillian tirade",
     "enumeration": "4"
    },
-   "solution": "ANTI"
+   "solution": "ANTI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANTI",
+    "definitions": [
+     {
+      "text": "Member of the opposition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means the letters sit inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Churchillian tirade",
+      "gives": "ANTI",
+      "note": "found across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An opposition politician features in a ranting Churchill-style speech.",
+     "definitionFit": "An anti is a person who is against something, an opponent of a policy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opposition"
+    }
+   }
   },
   {
    "number": 29,
@@ -484,7 +2028,54 @@
     "text": "Some extra software a learned cleric installed?",
     "enumeration": "5"
    },
-   "solution": "ADDIN"
+   "solution": "ADDIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADDIN",
+    "definitions": [
+     {
+      "text": "Some extra software",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "learned cleric",
+      "gives": "DD",
+      "note": "DD is Doctor of Divinity, a learned churchman"
+     },
+     {
+      "clueFragment": "installed",
+      "gives": "IN",
+      "note": "something installed is in place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DD",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about extra computer programs fitted by a scholarly priest.",
+     "walkthrough": "The question mark flags the playful use of 'installed', which the definition also suits.",
+     "definitionFit": "An add-in is a supplementary program that extends the features of an application."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "installed"
+    }
+   }
   },
   {
    "number": 30,
@@ -498,7 +2089,48 @@
     "text": "One's getting to be so in the old place!",
     "enumeration": "6"
    },
-   "solution": "STONED"
+   "solution": "STONED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STONED",
+    "definitions": [
+     {
+      "text": "One's getting to be so",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "ON",
+      "note": "on can mean in, as in 'on the team'; it also says where it goes"
+     },
+     {
+      "clueFragment": "the old place",
+      "gives": "STED",
+      "note": "sted is an archaic spelling of stead, a place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ON",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation about someone becoming intoxicated at their former home.",
+     "walkthrough": "'So' stands for the answer: someone getting high is getting stoned. 'in' does double duty, giving its synonym and placing it inside the old place.",
+     "definitionFit": "To be stoned is to be high on drugs, the state one reaches when getting that way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 31,
@@ -512,7 +2144,55 @@
     "text": "Occupied living has this union leader accepted by Labour, say",
     "enumeration": "8"
    },
-   "solution": "PLENARTY"
+   "solution": "PLENARTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLENARTY",
+    "definitions": [
+     {
+      "text": "Occupied living has this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted by",
+      "for": "container",
+      "note": "accepted by means taken inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "union leader",
+      "gives": "LEN",
+      "note": "Len McCluskey led the Unite trade union"
+     },
+     {
+      "clueFragment": "Labour, say",
+      "gives": "PARTY",
+      "note": "Labour is an example of a political party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEN",
+      "ARTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A trade union boss welcomed into the Labour fold.",
+     "walkthrough": "Living means a church benefice here, not a way of life; Labour is the British left-wing party.",
+     "definitionFit": "Plenarty is the legal state of a benefice being filled by an incumbent, the opposite of vacancy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "living"
+    }
+   }
   },
   {
    "number": 32,
@@ -526,7 +2206,49 @@
     "text": "Equivalent of Mars, first of treats youngsters rate",
     "enumeration": "3"
    },
-   "solution": "TYR"
+   "solution": "TYR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TYR",
+    "definitions": [
+     {
+      "text": "Equivalent of Mars",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of means only the opening letter of each following word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "treats youngsters rate",
+      "gives": "TYR",
+      "select": "first",
+      "note": "the opening letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TYR"
+     ]
+    },
+    "explanation": {
+     "surface": "Like the Roman war god, the first of these treats is something children rate.",
+     "definitionFit": "Tyr is the Norse god of war, matching Mars in the Roman pantheon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mars"
+    }
+   }
   },
   {
    "number": 33,
@@ -540,7 +2262,54 @@
     "text": "Numbers entering banishment that may be lengthened",
     "enumeration": "9"
    },
-   "solution": "EXTENSILE"
+   "solution": "EXTENSILE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXTENSILE",
+    "definitions": [
+     {
+      "text": "that may be lengthened",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going into the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Numbers",
+      "gives": "TENS",
+      "note": "tens are numbers"
+     },
+     {
+      "clueFragment": "banishment",
+      "gives": "EXILE",
+      "note": "exile is banishment from one's country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TENS",
+      "ILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Crowds going into exile, a punishment that may be prolonged.",
+     "definitionFit": "Extensile means capable of being stretched out or extended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Numbers"
+    }
+   }
   }
  ]
 }
