@@ -132,6 +132,9 @@ SERIES = {
         "publisher": "Canberra Times",
         "badge": "canberra times",
         "numberIsDate": "19",
+        # Each of its puzzles is another paper's, named by source.reprintOf
+        # and folded into it (tools/fold_reprints.py): see carries_reprints.
+        "carriesReprints": True,
     },
     "indysunday": {
         # The Independent on Sunday's own weekly sequence, ~1,900 and climbing
@@ -637,6 +640,17 @@ def is_book(series):
     Asked of the table, never pattern-matched off the key.
     """
     return "books" in meta(series)
+
+
+def carries_reprints(series):
+    """Whether this series prints other series' puzzles: a paper that reprints
+    one (`reprints`, the Globe and Mail) or several (`carriesReprints`, the
+    Canberra Times), or the book shelf. Its puzzle filed as the original it
+    reprints stays listed and counted under it (renamed_ids.reprinted_in).
+    False for a series no longer in the table (herald, penguin)."""
+    m = meta(series)
+    return series in SERIES and bool(is_book(series) or m.get("reprints")
+                                     or m.get("carriesReprints"))
 
 
 def book_row(series, number):

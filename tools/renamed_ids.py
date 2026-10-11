@@ -137,18 +137,21 @@ def current(renamed, live):
     return out
 
 
-def reprinted_in_books(renamed, live):
-    """{old id: the live id now} for each book puzzle renamed to a puzzle of
-    another series: the book reprints that puzzle, so the book still lists it
-    and counts it at its own number (fetch_puzzle.renamed_book_rows,
-    coverage.held_numbers). A rename within a series, or out of one that is no
-    book, is a correction and is not in it."""
+def reprinted_in(renamed, live):
+    """{old id: the live id now} for each puzzle of a series that carries
+    reprints (series.carries_reprints: a book, the Globe and Mail, the Canberra
+    Times) renamed to a puzzle of another series: it reprints that puzzle, so
+    its series still lists it and counts it at its own number
+    (fetch_puzzle.renamed_reprint_rows, coverage.held_numbers, coverage.trove).
+    A rename within a series, or out of one that carries no reprints
+    (indysunday -> independent, a misfiled daily) or is gone from the table
+    (herald, penguin -> book), is a correction and is not in it."""
     import series as series_meta
     out = {}
     for old, now in current(renamed, live).items():
-        book = series_meta.parse_id(old)[0]
-        if (book in series_meta.SERIES and series_meta.is_book(book)
-                and series_meta.parse_id(now)[0] != book):
+        carrier = series_meta.parse_id(old)[0]
+        if (series_meta.carries_reprints(carrier)
+                and series_meta.parse_id(now)[0] != carrier):
             out[old] = now
     return out
 
