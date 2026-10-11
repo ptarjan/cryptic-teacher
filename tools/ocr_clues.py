@@ -1122,7 +1122,20 @@ def parted(clue, others):
                   lambda m: f"{m[1]}. {m[2]}" if (m[1] + m[2]).lower() in apart or
                   (m[1] + m[2]).lower() in marked_apart else m[0], clue)
     clue = re.sub(r"\b([A-Za-z]{2,})'([A-Za-z]{2,})\b", quote, clue)
-    return re.sub(r"[A-Za-z]+(?:'[A-Za-z]+)*", lambda m: part(m) if len(m.group()) >= 4 else m.group(), clue)
+
+    def pair_printed(w):
+        # A three-letter non-word ("toa", "ofa") parts only where most
+        # readings print its two words side by side ("to a").
+        low_w = w.lower()
+        if is_word(low_w):
+            return False
+        cuts = [(low_w[:k], low_w[k:]) for k in (1, 2)]
+        said = sum(any((x.lower(), y.lower()) in cuts for x, y in itertools.pairwise(theirs)) for theirs in others)
+        return said * 2 > len(others)
+
+    return re.sub(r"[A-Za-z]+(?:'[A-Za-z]+)*",
+                  lambda m: part(m) if len(m.group()) >= 4 or (len(m.group()) == 3 and pair_printed(m.group()))
+                  else m.group(), clue)
 
 
 def unglued(theirs, low):
@@ -1741,6 +1754,14 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
                 break
             drop.add(i)
             continue
+        if (not got and printing >= 2
+                and (cnt := re.search(r"\(\s*\d+(?:\s*[-,]\s*\d+)*\s*\)[.,]?\s*$", clue[:spans[i][0]]))
+                and not any(v not in MARKS and v != BREAK for j in range(i, len(mine)) for v in seen[j].values())):
+            # A count printed in the clue ("set in early (8) DOIVN"), past
+            # which no reading has a word: the clue ends at the count, the
+            # rest the answer or the next clue's garble.
+            count_cut = cnt.start()
+            break
         if not got:
             return None, f"no other reading has {w!r}"
         if (i == 0 and len(w) == 1 and second[:1].isupper()
