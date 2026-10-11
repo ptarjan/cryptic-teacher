@@ -341,8 +341,12 @@ check("a file matched before citations were read is not judged by grid or title 
 ran = []
 n = g.set_aside(g.to_set_aside(staged, rows, {17396: D(1987, 6, 30)}, {}), io.StringIO(), "/inbox", LOG, ran.append)
 check("set_aside moves them on the Mac into the inbox's Set aside folder, never over a file there",
-      (True, True, n), (ran[0].startswith("mkdir -p '/inbox/Set aside' && mv -n "), "'/inbox/Set aside/'" in ran[0],
+      (True, True, n), (ran[0].startswith("mkdir -p '/inbox/Set aside' && { [ ! -e "), "'/inbox/Set aside/'" in ran[0],
                         ran[0].count(" mv -n ")))
+check("a move tolerates a source already gone", True, "[ ! -e /inbox/IF0501710448.pdf ] || mv -n" in ran[0])
+ran2 = []
+check("a file already in the set-aside log is not moved-and-logged again", 0,
+      g.set_aside([("IF0501710448.pdf", D(1988, 1, 14), "again")], io.StringIO(), "/inbox", LOG, ran2.append))
 check("and nothing when there is nothing to move", (0, 1), (g.set_aside([], io.StringIO(), "/inbox", LOG, ran.append), len(ran)))
 log = json.loads(LOG.read_text())
 check("each is logged with its date and why", ("1988-01-14", True),

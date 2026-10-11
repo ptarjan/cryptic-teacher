@@ -1409,9 +1409,12 @@ def set_aside(plan, out=sys.stdout, host_inbox=HOST_INBOX, log=SET_ASIDE, run=No
         return 0
     q = shlex.quote
     dest = f"{host_inbox}/{ASIDE}"
-    (run or ssh)(f"mkdir -p {q(dest)} && " + " && ".join(f"mv -n {q(host_inbox + '/' + f)} {q(dest + '/')}"
-                                                          for f, _, _ in plan))
+    # Each move is tolerant of a source already gone (macOS mv fails on one).
+    (run or ssh)(f"mkdir -p {q(dest)} && " + " && ".join(
+        f"{{ [ ! -e {q(host_inbox + '/' + f)} ] || mv -n {q(host_inbox + '/' + f)} {q(dest + '/')}; }}"
+        for f, _, _ in plan))
     kept = load(log, {})
+    plan = [(f, day, why) for f, day, why in plan if f not in kept]  # already logged: not newly set aside
     at = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
     for f, day, why in plan:
         kept[f] = {"date": day and day.isoformat(), "why": why, "at": at}
@@ -1604,6 +1607,10 @@ def tidy(out=sys.stdout, cache=CACHE, ledger=None):
     """Set aside (set_aside) every staged file that is not a page the list
     wants (to_set_aside). How many."""
     matches = staged_matches(cache)
+    # Only files the inbox still holds: a staged match whose file was set
+    # aside (or removed) earlier is stale, not something to move again.
+    here = {p.name for p in inbox_files()}
+    matches = {d: kept for d, ms in matches.items() if (kept := [m for m in ms if m["file"] in here])}
     ledger = archive_coverage.ledger() if ledger is None else ledger
     return set_aside(to_set_aside(matches, wanted(), held(), titleless(matches, ledger, cache)), out)
 
