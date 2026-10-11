@@ -1002,6 +1002,26 @@ alter = [["#", "It", "can", "alter", "number", "in", "line", "with", "charge", "
 check("mirror: before a clue opening small, 'It' is its lost first word (times 1984-01-23)",
       "It can alter number in line with charge",
       oc.agree("can alter number in line with charge", alter, number="11", count="6")[0])
+# Times 1976-03-24 "Lacked by Chesterton's fallen sons of Eve" and 1979-12-18:
+# with no number or count passed, figure-shaped specks at the clue's edge
+# ("is" for "(5)", "down i" for "DOWN 1") that a reading printing the clue
+# clean leaves out are no word lost.
+eve = ["#", "Lacked", "by", "Chesterton's", "fallen", "sons", "of", "Eve", "is", "#"]
+clean = ["#", "Lacked", "by", "Chesterton's", "fallen", "sons", "of", "Eve", "#"]
+check("figure-shaped specks after the clue, one reading clean, are no end lost (times 1976-03-24)",
+      "Lacked by Chesterton's fallen sons of Eve",
+      oc.agree("Lacked by Chesterton's fallen sons of Eve", [eve, eve, clean, clean])[0])
+downi = [["#", "DOWN", "I", "Clever", "Dick", "swots", "up", "about", "fiction", "#"]] * 2
+check("a heading and a speck before the clue, one reading clean, are no start lost (times 1994-01-13)",
+      "Clever Dick swots up about fiction",
+      oc.agree("Clever Dick swots up about fiction", downi + [["#", "Clever", "Dick", "swots", "up", "about", "fiction", "#"]] * 2)[0])
+trees = ["#", "This", "house", "is", "surrounded", "by", "trees", "#"]
+terp = ["#", "Sfi", "Terpsichorean", "saint", "?", "#", "Can", "a", "farm", "perhaps", "or", "a", "battleship", "#"]
+check("mirror: no edge specks pass in a clue with figures of its own (times 1978-08-15)", None,
+      oc.agree("Terpsichorean saint ? (S) 27 Can a farm perhaps or a battleship",
+               [terp, terp] + [["#"] + terp[2:]] * 2)[0])
+check("mirror: a lost word is no figure, a clean reading or not (times 1983-12-20)", None,
+      oc.agree("This house is surrounded", [trees, trees] + [["#", "This", "house", "is", "surrounded", "#"]] * 2)[0])
 check("a heading and the number ('DOWN 1') read as letters", True, oc.number_read(("down", "i"), "1", "start"))
 check("a count read with its brackets ('isi' for (5))", True, oc.number_read(("isi",), "5", "end"))
 check("mirror: a word is no count", False, oc.number_read(("silly",), "5", "end"))
