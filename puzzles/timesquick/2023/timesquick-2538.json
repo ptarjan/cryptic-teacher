@@ -24,6 +24,9 @@
   "date": "2023-11-30",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,58 @@
     "text": "Direction, as employed in Spielberg film",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EAST",
+    "definitions": [
+     {
+      "text": "Direction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "employed in",
+      "for": "container",
+      "note": "something employed in a work is put to use inside it, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spielberg film",
+      "gives": "ET",
+      "note": "E.T. is Steven Spielberg's film about a stranded alien"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "AS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A film buff notes how a compass point features in a Spielberg movie.",
+     "walkthrough": "AS goes inside the two letters of the film title.",
+     "definitionFit": "East is one of the four cardinal compass points, each a direction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "employed"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +105,65 @@
     "text": "Super Indian making comeback, regularly getting bye",
     "enumeration": "5"
    },
-   "solution": "ADIEU"
+   "solution": "ADIEU",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "ADIEU",
+    "definitions": [
+     {
+      "text": "bye",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "taking things at regular intervals means keeping every second letter of the words"
+     },
+     {
+      "text": "making comeback",
+      "for": "reversal",
+      "note": "a comeback runs the other way, so the kept letters are read from the end"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Super Indian",
+      "gives": "UEIDA",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADIEU"
+     ],
+     "reversals": [
+      {
+       "from": "UEIDA",
+       "to": "ADIEU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star Indian sportsman returns to form after being given a bye in a tournament.",
+     "walkthrough": "The surface 'bye' suggests a tournament; here it is the farewell word, borrowed from French.",
+     "definitionFit": "Adieu is a farewell borrowed from French, the same parting word as bye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bye"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +177,43 @@
     "text": "A shopper, perhaps, giving things away",
     "enumeration": "8"
    },
-   "solution": "TELLTALE"
+   "solution": "TELLTALE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TELLTALE",
+    "definitions": [
+     {
+      "text": "A shopper, perhaps",
+      "at": 0
+     },
+     {
+      "text": "giving things away",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A shopper, perhaps",
+      "note": "first meaning: a noun for an informer; to shop someone is British slang for betraying them to the police"
+     },
+     {
+      "clueFragment": "giving things away",
+      "note": "second meaning: an adjective for revealing what was meant to be secret, as in a revealing sign"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Shopper' suggests someone at the supermarket, but in British slang to shop someone is to inform on them.",
+     "definitionFit": "The word is a noun for a sneak who reports others and an adjective for a revealing sign that betrays a secret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shopper"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +227,44 @@
     "text": "Schedule article on sex for broadcast",
     "enumeration": "6"
    },
-   "solution": "AGENDA"
+   "solution": "AGENDA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AGENDA",
+    "definitions": [
+     {
+      "text": "Schedule",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for broadcast",
+      "for": "homophone",
+      "note": "something broadcast is heard over the air, so the words are judged by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article on sex",
+      "gives": "AGENDA",
+      "soundsLike": "A GENDER",
+      "note": "the indefinite article A followed by a word for sex, said in a non-rhotic accent"
+     }
+    ],
+    "explanation": {
+     "surface": "A broadcaster plans the running order for a programme item about sex.",
+     "walkthrough": "Spoken in a British accent without the final R, the article plus the word for sex matches the answer.",
+     "definitionFit": "An agenda is a list of items to be dealt with, a schedule for a meeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +278,49 @@
     "text": "Pick the centre out of a cold, brown sweet?",
     "enumeration": "6"
    },
-   "solution": "CHOICE"
+   "solution": "CHOICE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHOICE",
+    "definitions": [
+     {
+      "text": "Pick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the centre out of",
+      "for": "deletion",
+      "note": "taking the centre out removes the single middle letter of the seven"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a cold, brown sweet",
+      "gives": "CHOCICE",
+      "note": "a choc ice is a British bar of ice cream coated in chocolate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHO",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone picks out the middle of a chocolate treat and asks what it is.",
+     "walkthrough": "The question mark flags the cryptic description of a choc ice, a British chocolate-covered ice-cream bar; its middle C goes.",
+     "definitionFit": "A choice is the thing you pick, so the noun pick serves as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pick"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +340,65 @@
      }
     ]
    },
-   "solution": "ELAL"
+   "solution": "ELAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EL AL",
+    "definitions": [
+     {
+      "text": "airline",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down answer, bringing something up reads it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "porter maybe",
+      "gives": "ALE",
+      "note": "porter is a dark ale, so 'maybe' marks it as an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELA",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LALE",
+       "to": "ELAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big porter carries bags up the steps for an airline passenger.",
+     "walkthrough": "'Porter' looks like a baggage handler beside the airline, but it is the dark beer.",
+     "definitionFit": "El Al is the Israeli national airline carrier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "porter"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +412,39 @@
     "text": "Cases to be cracked over breakfast?",
     "enumeration": "9"
    },
-   "solution": "EGGSHELLS"
+   "solution": "EGGSHELLS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EGGSHELLS",
+    "definitions": [
+     {
+      "text": "Cases to be cracked over breakfast?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cases to be cracked",
+      "note": "surface reading: detectives' mysteries waiting to be solved"
+     },
+     {
+      "clueFragment": "over breakfast?",
+      "note": "setter's reading: the cases are the shells round boiled eggs, cracked open with a spoon at the breakfast table"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Cases cracked suggests detective work; the cases are literal casings, broken open at the breakfast table.",
+     "definitionFit": "The shells of eggs are their outer casings, cracked when the eggs are eaten at breakfast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cases"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +458,50 @@
     "text": "Assent to reform most reasonable",
     "enumeration": "6"
    },
-   "solution": "SANEST"
+   "solution": "SANEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SANEST",
+    "definitions": [
+     {
+      "text": "most reasonable",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to reform",
+      "for": "anagram",
+      "note": "reforming something gives it a new shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assent",
+      "gives": "ASSENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASSENT",
+       "gives": "SANEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Agreeing to reform is the most sensible course.",
+     "definitionFit": "Sane can mean sensible or reasonable, so the superlative is most reasonable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reform"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +515,56 @@
     "text": "After first of month, one's going to factory",
     "enumeration": "4"
    },
-   "solution": "MILL"
+   "solution": "MILL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MILL",
+    "definitions": [
+     {
+      "text": "factory",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "month",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of month"
+     },
+     {
+      "clueFragment": "one's going to",
+      "gives": "ILL",
+      "note": "one is I, and 'I'm going to' is 'I will', contracted as I'll"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone announces they will start at the factory once the new month begins.",
+     "walkthrough": "'After' just places the M first; 'one's going to' stands for 'I will', shortened to I'll.",
+     "definitionFit": "A mill is a factory, especially one for textiles or paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +584,68 @@
      }
     ]
    },
-   "solution": "LONGISLAND"
+   "solution": "LONGISLAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LONG ISLAND",
+    "definitions": [
+     {
+      "text": "area of NY",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extended",
+      "gives": "LONG",
+      "note": "extended means long"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, plus the 's"
+     },
+     {
+      "clueFragment": "November",
+      "gives": "N",
+      "note": "N is November in the NATO alphabet"
+     },
+     {
+      "clueFragment": "youth",
+      "gives": "LAD",
+      "note": "a youth is a lad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LONG",
+      "IS",
+      "LA",
+      "N",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls a long November spent in New York as a youngster.",
+     "walkthrough": "N sits inside LAD to make LAND.",
+     "definitionFit": "Long Island is the large island east of Manhattan, part of New York State."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "November"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +659,71 @@
     "text": "Fair Jordan, initially US tennis's number one",
     "enumeration": "4"
    },
-   "solution": "JUST"
+   "solution": "JUST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "JUST",
+    "definitions": [
+     {
+      "text": "Fair",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word before it"
+     },
+     {
+      "text": "number one",
+      "for": "letter_selection",
+      "note": "the number one letter of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jordan",
+      "gives": "J",
+      "select": "first",
+      "note": "first letter of Jordan"
+     },
+     {
+      "clueFragment": "US",
+      "gives": "US",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tennis's",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of tennis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "US",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A fair-haired player named Jordan ranks first in American tennis.",
+     "walkthrough": "'Fair' reads as fair-haired, describing Jordan, but it is the definition.",
+     "definitionFit": "Just means fair in the sense of morally right or impartial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fair"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +737,50 @@
     "text": "The Samurai strangely far from professional",
     "enumeration": "10"
    },
-   "solution": "AMATEURISH"
+   "solution": "AMATEURISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMATEURISH",
+    "definitions": [
+     {
+      "text": "far from professional",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "acting strangely means behaving out of the usual order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Samurai",
+      "gives": "THESAMURAI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THESAMURAI",
+       "gives": "AMATEURISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The samurai warriors behave oddly unlike seasoned fighters.",
+     "definitionFit": "Amateurish means lacking skill, the opposite of a professional standard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strangely"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +794,48 @@
     "text": "NZ bird pinching top from sewing case",
     "enumeration": "3"
    },
-   "solution": "TUI"
+   "solution": "TUI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TUI",
+    "definitions": [
+     {
+      "text": "NZ bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pinching top from",
+      "for": "deletion",
+      "note": "pinching means stealing, so the top letter of the word is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sewing case",
+      "gives": "ETUI",
+      "note": "an etui is a small ornamental case for needles and sewing tools"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUI"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird steals a thimble out of a sewing kit.",
+     "walkthrough": "An etui is a crossword favourite: a small case for needles; in a down answer its top is its first letter.",
+     "definitionFit": "The tui is a native New Zealand songbird, a honeyeater with white throat tufts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pinching"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +849,71 @@
     "text": "Being elected again is way to secure fresh tenure",
     "enumeration": "8"
    },
-   "solution": "RETURNED"
+   "solution": "RETURNED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RETURNED",
+    "definitions": [
+     {
+      "text": "Being elected again",
+      "at": 0,
+      "note": "a participle phrase; the answer reads as the past participle, as in 'returned to office'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "securing something holds it fast inside"
+     },
+     {
+      "text": "fresh",
+      "for": "anagram",
+      "note": "fresh means new, so the letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "RD",
+      "note": "RD is the abbreviation for road, a way"
+     },
+     {
+      "clueFragment": "tenure",
+      "gives": "ETURNE",
+      "note": "the letters of tenure rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ETURNE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TENURE",
+       "gives": "ETURNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician re-elected for another term secures a further tenure in office.",
+     "walkthrough": "The rearranged letters go between R and D.",
+     "definitionFit": "A candidate returned in an election is voted back into office, so returned means re-elected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fresh"
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +927,52 @@
     "text": "Interrogated endlessly: that's grating",
     "enumeration": "6"
    },
-   "solution": "GRILLE"
+   "solution": "GRILLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GRILLE",
+    "definitions": [
+     {
+      "text": "grating",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     ": that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Interrogated",
+      "gives": "GRILLED",
+      "note": "to grill someone is to question them closely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRILLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Being endlessly questioned is irritating.",
+     "walkthrough": "'Grating' reads as irritating, but it is the noun for a metal lattice.",
+     "definitionFit": "A grille is a grating of bars or wire across an opening, as on a car radiator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grating"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +992,46 @@
      }
     ]
    },
-   "solution": "GREENLIGHT"
+   "solution": "GREENLIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREEN LIGHT",
+    "definitions": [
+     {
+      "text": "Signal to go",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eco",
+      "gives": "GREEN",
+      "note": "green means environmentally friendly, eco"
+     },
+     {
+      "clueFragment": "not difficult",
+      "gives": "LIGHT",
+      "note": "light work is easy work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREEN",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A campaigner urges everyone to go eco, insisting it is easy.",
+     "definitionFit": "A green traffic light tells drivers to proceed, and the phrase means permission to go ahead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eco"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +1045,55 @@
     "text": "Envoy say coming in after hours",
     "enumeration": "6"
    },
-   "solution": "LEGATE"
+   "solution": "LEGATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEGATE",
+    "definitions": [
+     {
+      "text": "Envoy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming in",
+      "for": "container",
+      "note": "coming in means entering, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after hours",
+      "gives": "LATE",
+      "note": "after hours is late"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. stands for 'for example', which say also means"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EG",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomat arrives late, after office hours.",
+     "walkthrough": "'Say' is the usual crossword signal for 'for example', abbreviated e.g.",
+     "definitionFit": "A legate is an official emissary, especially one sent by the Pope, so an envoy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1107,51 @@
     "text": "Great eponymous hero keeping pistols near",
     "enumeration": "6"
    },
-   "solution": "GATSBY"
+   "solution": "GATSBY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GATSBY",
+    "definitions": [
+     {
+      "text": "Great eponymous hero",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "keeping"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pistols",
+      "gives": "GATS",
+      "note": "gat is old American slang for a gun"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "BY",
+      "note": "by means beside or near"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GATS",
+      "BY"
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary hero keeps his guns close at hand.",
+     "walkthrough": "'Great' looks like praise for the hero, but it is part of the novel title The Great Gatsby.",
+     "definitionFit": "Jay Gatsby is the title character of Fitzgerald's novel The Great Gatsby, so he gives the book its name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Great"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1165,46 @@
     "text": "Ruin a Parisian party",
     "enumeration": "4"
    },
-   "solution": "UNDO"
+   "solution": "UNDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDO",
+    "definitions": [
+     {
+      "text": "Ruin",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Parisian",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A Parisian guest ruins the party.",
+     "definitionFit": "To undo someone is to bring about their ruin or downfall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1218,50 @@
     "text": "Bloomer turning up in corduroys I admit",
     "enumeration": "5"
    },
-   "solution": "DAISY"
+   "solution": "DAISY",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "DAISY",
+    "definitions": [
+     {
+      "text": "Bloomer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     },
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down answer, turning up means reading from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corduroys I admit",
+      "gives": "YSIAD",
+      "note": "the letters spanning the end of corduroys, I and the start of admit"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone confesses that a blunder has appeared while wearing corduroy trousers.",
+     "walkthrough": "'Bloomer' suggests a blunder or an item of underwear; here it is something that blooms.",
+     "definitionFit": "A daisy is a flower, and a flower is something that blooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bloomer"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1281,72 @@
      }
     ]
    },
-   "solution": "ALLNIGHTER"
+   "solution": "ALLNIGHTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ALL-NIGHTER",
+    "definitions": [
+     {
+      "text": "It won't stop until morning",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts",
+      "for": "letter_selection",
+      "note": "the outskirts of a place are its edges, so the first and last letters are kept"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring goes all round, so one piece wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "barge",
+      "gives": "LIGHTER",
+      "note": "a lighter is a flat-bottomed barge for loading ships"
+     },
+     {
+      "clueFragment": "London's",
+      "gives": "LN",
+      "select": "outer",
+      "note": "the outside letters of London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "LN",
+      "IGHTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A barge makes a tour of the edges of London.",
+     "walkthrough": "'Barge' looks like a verb, but a lighter is a flat-bottomed boat used to ferry cargo to and from ships.",
+     "definitionFit": "An all-nighter is an event or session lasting through the whole night until dawn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "barge"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1360,42 @@
     "text": "Condition to run in",
     "enumeration": "4"
    },
-   "solution": "NICK"
+   "solution": "NICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NICK",
+    "definitions": [
+     {
+      "text": "Condition",
+      "at": 0
+     },
+     {
+      "text": "to run in",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Condition",
+      "note": "first meaning: state"
+     },
+     {
+      "clueFragment": "to run in",
+      "note": "second meaning: to arrest, as police run in a suspect"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'To run in' suggests breaking in a new engine; it is slang for arresting. 'In good nick' is British for in good condition.",
+     "definitionFit": "The word is British slang for state of repair and also a verb for arresting someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1409,56 @@
     "text": "Nothing fitted round a collar",
     "enumeration": "4"
    },
-   "solution": "NAIL"
+   "solution": "NAIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NAIL",
+    "definitions": [
+     {
+      "text": "collar",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fitted round",
+      "for": "container",
+      "note": "fitted round means placed so as to surround, enclosing the next item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "NIL",
+      "note": "nil means nothing"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "IL"
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor fits nothing around a shirt collar.",
+     "walkthrough": "'Collar' looks like part of a shirt but is the verb meaning to catch.",
+     "definitionFit": "To nail a suspect is to catch or arrest them, the same as to collar them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "collar"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1472,53 @@
     "text": "Volatile, I excel with bat, somehow",
     "enumeration": "9"
    },
-   "solution": "EXCITABLE"
+   "solution": "EXCITABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXCITABLE",
+    "definitions": [
+     {
+      "text": "Volatile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means in some unspecified way, so the letters fall into another order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I excel with bat",
+      "gives": "IEXCELBAT",
+      "note": "with joins the two parts and is not fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IEXCELBAT",
+       "gives": "EXCITABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A temperamental cricketer boasts of being brilliant with the bat.",
+     "definitionFit": "Volatile describes a temperament liable to sudden change, which is excitable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bat"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1532,46 @@
     "text": "Times of bewilderment, we hear",
     "enumeration": "4"
    },
-   "solution": "DAYS"
+   "solution": "DAYS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DAYS",
+    "definitions": [
+     {
+      "text": "Times",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a matter of sound, so the word is judged by pronunciation"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bewilderment",
+      "gives": "DAYS",
+      "soundsLike": "DAZE",
+      "note": "a daze is a state of bewilderment"
+     }
+    ],
+    "explanation": {
+     "surface": "People recall periods when they were utterly confused.",
+     "definitionFit": "Days can mean times or periods, as in 'in my days'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   }
  ]
 }
